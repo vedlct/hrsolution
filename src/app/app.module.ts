@@ -5,16 +5,22 @@ import { AppComponent } from './app.component';
 import { HomeComponent } from './components/home/home.component';
 import { AppRoutingModule } from './/app-routing.module';
 import { NavbarComponent } from './components/navbar/navbar.component';
+import { TablesComponent } from './components/tables/tables.component';
+import { DataTablesModule } from 'angular-datatables';
+import { LoginComponent } from './components/login/login.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
-    NavbarComponent
+    NavbarComponent,
+    TablesComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    DataTablesModule
   ],
   providers: [],
   bootstrap: [AppComponent]
