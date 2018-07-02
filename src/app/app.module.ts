@@ -9,6 +9,7 @@ import { TablesComponent } from './components/tables/tables.component';
 import { DataTablesModule } from 'angular-datatables';
 import { LoginComponent } from './components/login/login.component';
 import { AddUserComponent } from './components/user/add-user/add-user.component';
+import { AddEmployeeComponent } from './components/user/add-employee/add-employee.component';
 
 @NgModule({
   declarations: [
@@ -17,7 +18,8 @@ import { AddUserComponent } from './components/user/add-user/add-user.component'
     NavbarComponent,
     TablesComponent,
     LoginComponent,
-    AddUserComponent
+    AddUserComponent,
+    AddEmployeeComponent
   ],
   imports: [
     BrowserModule,

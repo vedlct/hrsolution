@@ -12,8 +12,10 @@ export class AddUserComponent implements OnInit {
     password: null,
     email: null,
     number: null,
+    userImage: null,
     type: null
   };
+  // userImage:File;
 
 
   constructor() { }
@@ -25,6 +27,7 @@ export class AddUserComponent implements OnInit {
     console.log('Submit Clicked');
     // $event.preventDefault();
     console.log(this.userinput);
+    // console.log(this.userImage);
   }
 
 }
