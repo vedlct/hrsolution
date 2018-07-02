@@ -14,10 +14,7 @@ export class TablesComponent implements OnInit {
   ngOnInit() {
     $('#example').DataTable();
 
+  }
 
-  }
-  check(){
-    $('#test').html("dfdfdf");
-  }
 
 }
