@@ -13,9 +13,7 @@ export class AppComponent {
   }
 
   isLogIn(){
-
     var url=this.token.getUrl();
-
     if(url=='/login'){
       return false;
     }
