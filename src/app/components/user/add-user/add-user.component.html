@@ -1,0 +1,50 @@
+<div class="container-fluid">
+  <div class="card">
+    <div class="card-header">Personal Details</div>
+    <div class="card-body">
+      <form #loginForm=ngForm (ngSubmit)="onSubmit()" >
+      <div class="row">
+        <div class="form-group col-md-4">
+          <label>Name</label>
+          <input class="form-control" type="text" placeholder="name" name="name" [(ngModel)]="userinput.name" required>
+        </div>
+
+
+        <div class="form-group col-md-4">
+          <label>Email</label>
+          <input class="form-control" type="email" placeholder="email" name="email" [(ngModel)]="userinput.email">
+        </div>
+
+        <div class="form-group col-md-4">
+          <label>User Type</label>
+          <select class="form-control" [(ngModel)]="userinput.type" name="type" required>
+            <option value="1" selected>type 1</option>
+            <option value="2">type 2</option>
+            <option value="3">type 3</option>
+          </select>
+        </div>
+
+        <div class="form-group col-md-4">
+          <label>Contact Number</label>
+          <input class="form-control" type="text" placeholder="number" name="number" [(ngModel)]="userinput.number">
+        </div>
+
+        <div class="form-group col-md-4">
+          <label>Image</label>
+          <input type="file" name="image" class="form-control" [(ngModel)]="userinput.userImage">
+        </div>
+
+        <div class="form-group col-md-12">
+          <button type="submit" [disabled]="!loginForm.valid" class="btn btn-success ">insert</button>
+        </div>
+
+
+      </div>
+      </form>
+
+    </div>
+  </div>
+
+
+</div>
+
