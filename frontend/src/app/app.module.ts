@@ -4,12 +4,17 @@ import { FormsModule }   from '@angular/forms';
 import { AppComponent } from './app.component';
 import { HomeComponent } from './components/home/home.component';
 import { AppRoutingModule } from './/app-routing.module';
+import { HttpClientModule } from '@angular/common/http';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { TablesComponent } from './components/tables/tables.component';
 import { DataTablesModule } from 'angular-datatables';
 import { LoginComponent } from './components/login/login.component';
 import { AddUserComponent } from './components/user/add-user/add-user.component';
 import { AddEmployeeComponent } from './components/user/add-employee/add-employee.component';
+import { AddCompanyComponent } from './components/company/add-company/add-company.component';
+import { AddDepartmentComponent } from './components/configuration/department/add-department/add-department.component';
+import { AddDesignatonComponent } from './components/configuration/designation/add-designaton/add-designaton.component';
+import { PayEmployeeSalarySetupComponent } from './components/payroll/pay-employee-salary-setup/pay-employee-salary-setup.component';
 
 @NgModule({
   declarations: [
@@ -19,12 +24,17 @@ import { AddEmployeeComponent } from './components/user/add-employee/add-employe
     TablesComponent,
     LoginComponent,
     AddUserComponent,
-    AddEmployeeComponent
+    AddEmployeeComponent,
+    AddCompanyComponent,
+    AddDepartmentComponent,
+    AddDesignatonComponent,
+    PayEmployeeSalarySetupComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     DataTablesModule,
+    HttpClientModule,
     FormsModule
   ],
   providers: [],

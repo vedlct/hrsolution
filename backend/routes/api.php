@@ -23,7 +23,7 @@ Route::group([
 
 ], function (){
     Route::get('/', function () {
-        return "From Api";
+        return response()->json(['message' => 'Successfully Working Get','flag'=>'true']);
     });
     Route::post('/', function (Request $r) {
         return $r;

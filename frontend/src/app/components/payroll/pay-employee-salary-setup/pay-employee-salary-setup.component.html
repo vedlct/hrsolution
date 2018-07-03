@@ -1,0 +1,48 @@
+<div class="card">
+  <div class="card-header-pills">
+    <h3 align="center" style="font-family: 'Righteous', cursive;">Add Employee Salary</h3>
+  </div>
+  <div class="card-body">
+    <pre>{{myForm.value | json}}</pre>
+    <form #myForm="ngForm">
+      <div class="row">
+
+
+        <div class="form-group col-md-6">
+          <label>Select Employee</label>
+
+          <select class="form-control" name="fkEmployeeId">
+            <option>Select Employee</option>
+            <option>Emp 1</option>
+            <option>Emp 2</option>
+            <option>Emp 3</option>
+          </select>
+
+        </div>
+
+
+        <div class="form-group col-md-6">
+          <label>Amount</label>
+          <input type="number" placeholder="tk" name="amount" class="form-control">
+        </div>
+
+        <div class="form-group col-md-6">
+          <label>Description</label>
+          <input type="text" placeholder="description" name="description" class="form-control">
+        </div>
+
+        <div class="form-group col-md-6">
+          <label>Gross Percent</label>
+          <input type="number" placeholder="grossPercent"  name="grossPercent" class="form-control" [(ngModel)]="grossPercent" required >
+        </div>
+
+        <div class="form-group col-md-6">
+          <button class="btn btn-success" [disabled]="!myForm.valid">Submit</button>
+        </div>
+
+
+
+      </div>
+    </form>
+  </div>
+</div>

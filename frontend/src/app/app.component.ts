@@ -9,6 +9,7 @@ import {TokenService} from "./services/token.service";
 })
 export class AppComponent {
   title = 'app';
+  master = 'Master';
   constructor(private token:TokenService) {
   }
 
