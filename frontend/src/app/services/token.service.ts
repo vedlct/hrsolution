@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import {Router} from "@angular/router";
+import  { Constants }  from '../constants';
 
 @Injectable({
   providedIn: 'root'
@@ -45,7 +46,9 @@ export class TokenService {
     if (token) {
       const payload = this.payload(token);
       if (payload) {
-        return payload.iss === 'http://localhost:8000/api/login' ? true : false;
+
+        return payload.iss === Constants.API_URL+'login' ? true : false;
+
       }
     }
     return false;

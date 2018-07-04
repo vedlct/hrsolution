@@ -10,18 +10,13 @@ import {TokenService} from "./services/token.service";
 export class AppComponent {
   title = 'app';
   master = 'Master';
+
   constructor(private token:TokenService) {
   }
 
   isLogIn(){
-    var url=this.token.getUrl();
-    if(url=='/login'){
-      return false;
-    }
-    else {
-      return true;
-    }
 
+    return this.token.isValid();
   }
 
 }

@@ -30,4 +30,8 @@ Route::group([
 
     });
 
+    Route::post('login','AuthController@login');
+
+
+
 });

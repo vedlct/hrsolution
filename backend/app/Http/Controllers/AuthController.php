@@ -2,7 +2,10 @@
 
 namespace App\Http\Controllers;
 
+
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use App\Http\Controllers\Controller;
 
 class AuthController extends Controller
 {
@@ -23,9 +26,10 @@ class AuthController extends Controller
      */
     public function login(Request $r)
     {
+
         $credentials = request(['email', 'password']);
 
-//        return $r;
+//        return $credentials;
 
         if (!$token = auth()->attempt($credentials)) {
             return response()->json(['error' => 'Email or password does not match'], 401);

@@ -12,7 +12,8 @@ export class AddDesignatonComponent implements OnInit {
   constructor(public http: HttpClient) { }
 
   ngOnInit() {
-    this.http.get(Constants.API_URL).subscribe(data => {
+    this.id=20;
+    this.http.post(Constants.API_URL+'login',this.id).subscribe(data => {
           console.log(data);
 
         },

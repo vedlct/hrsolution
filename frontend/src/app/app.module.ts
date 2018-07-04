@@ -15,6 +15,7 @@ import { AddCompanyComponent } from './components/company/add-company/add-compan
 import { AddDepartmentComponent } from './components/configuration/department/add-department/add-department.component';
 import { AddDesignatonComponent } from './components/configuration/designation/add-designaton/add-designaton.component';
 import { PayEmployeeSalarySetupComponent } from './components/payroll/pay-employee-salary-setup/pay-employee-salary-setup.component';
+import { AddLeaveComponent } from './components/leave/add-leave/add-leave.component';
 
 @NgModule({
   declarations: [
@@ -28,7 +29,8 @@ import { PayEmployeeSalarySetupComponent } from './components/payroll/pay-employ
     AddCompanyComponent,
     AddDepartmentComponent,
     AddDesignatonComponent,
-    PayEmployeeSalarySetupComponent
+    PayEmployeeSalarySetupComponent,
+    AddLeaveComponent
   ],
   imports: [
     BrowserModule,
