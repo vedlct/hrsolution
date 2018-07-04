@@ -6,7 +6,7 @@ import {Component, OnInit, Input} from '@angular/core';
   styleUrls: ['./add-department.component.css']
 })
 export class AddDepartmentComponent implements OnInit {
-  // @Input('master') data:any;
+  @Input('master') data:any;
 
   constructor() { }
 

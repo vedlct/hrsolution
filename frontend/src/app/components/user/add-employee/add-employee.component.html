@@ -1,78 +1,31 @@
 
 <div class="container-fluid">
+  <div class="row">
+    <div class="col-md-2">
 
-  <div class="card">
-    <div class="card-header">
-      Personal Details
+      <ul class="list-group">
+        <li class="list-group-item" ><button class="btn btn-block btn-info" (click)="onInfoClick(1)">Basic Info </button></li>
+        <li class="list-group-item"><button class="btn btn-block btn-info" (click)="onInfoClick(2)">Personal Info</button> </li>
+        <li class="list-group-item"><button class="btn btn-block btn-info" (click)="onInfoClick(3)">Joining Info</button> </li>
+        <li class="list-group-item"><button class="btn btn-block btn-info" (click)="onInfoClick(4)">Bank Info </button></li>
+        <li class="list-group-item"><button class="btn btn-block btn-info" (click)="onInfoClick(5)">Salary Info </button></li>
+
+      </ul>
     </div>
 
-    <div class="card-body">
-      <div class="row">
-
-
-        <div class="form-group col-md-4">
-          <label>Department</label>
-          <select class="form-control">
-            <option>department 1</option>
-            <option>department 2</option>
-            <option>department 3</option>
-          </select>
-        </div>
-
-        <div class="form-group col-md-4">
-          <label>Designation</label>
-          <select class="form-control">
-            <option>designation 1</option>
-            <option>designation 2</option>
-            <option>designation 3</option>
-          </select>
-        </div>
-
-        <div class="col-md-12"><hr></div>
-
-        <label class="col-md-1">Full Name</label>
-        <div class="col-md-3">
-          <input type="text" class="form-control" placeholder="First name">
-        </div>
-        <div class="col-md-3">
-          <input type="text" class="form-control" placeholder="Middle name">
-        </div>
-        <div class="col-md-3">
-          <input type="text" class="form-control" placeholder="Last name">
-        </div>
-        <div class="col-md-2">
-          <input type="text" class="form-control" placeholder="Nick name">
-        </div>
-
-        <div class="col-md-12"><hr></div>
-
-        <div class="form-group col-md-12">
-          <label>Gender</label>
-          &nbsp;
-          &nbsp;
-          &nbsp;
-
-            <input type="radio" class="form-check-input" name="gender">Male
-
-          &nbsp;
-          &nbsp;
-          &nbsp;
-
-            <input type="radio" class="form-check-input" name="gender">Female
-
-          &nbsp;
-          &nbsp;
-          &nbsp;
-
-            <input type="radio" class="form-check-input" name="gender">Other
-
-
-        </div>
 
 
 
-      </div>
+    <div class="col-md-10">
+      <app-basic-info *ngIf="infoFlag ==1"></app-basic-info>
+      <app-personal-info *ngIf="infoFlag ==2"></app-personal-info>
+      <app-joining-info *ngIf="infoFlag ==3"></app-joining-info>
+      <app-bank-info *ngIf="infoFlag ==4"></app-bank-info>
+      <app-salary-info *ngIf="infoFlag ==5"></app-salary-info>
+
+
     </div>
+
   </div>
 
 </div>
