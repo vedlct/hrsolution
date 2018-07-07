@@ -57,6 +57,7 @@ export class AddCompanyComponent implements OnInit {
 
   onSubmit(){
     // console.log(this.selectedFile);
+    this.spinner.show();
 
     let fd = new FormData();
 
@@ -73,10 +74,12 @@ export class AddCompanyComponent implements OnInit {
 
     this.http.post(Constants.API_URL + 'company/post/updateInfo', fd).subscribe(data => {
           console.log(data);
+          this.spinner.hide();
 
         },
         error => {
           console.log(error.message);
+          this.spinner.hide();
 
           // this.error=error.error.error;
           // console.log(this.error);
