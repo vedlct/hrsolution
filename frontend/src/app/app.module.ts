@@ -21,6 +21,9 @@ import { PersonalInfoComponent } from './components/user/personal-info/personal-
 import { BankInfoComponent } from './components/user/bank-info/bank-info.component';
 import { SalaryInfoComponent } from './components/user/salary-info/salary-info.component';
 import { JoiningInfoComponent } from './components/user/joining-info/joining-info.component';
+import { CompanyInfoComponent } from './components/company/company-info/company-info.component';
+import { OtherComponent } from './components/company/other/other.component';
+import { NgxSpinnerModule } from 'ngx-spinner';
 
 @NgModule({
   declarations: [
@@ -40,13 +43,16 @@ import { JoiningInfoComponent } from './components/user/joining-info/joining-inf
     PersonalInfoComponent,
     BankInfoComponent,
     SalaryInfoComponent,
-    JoiningInfoComponent
+    JoiningInfoComponent,
+    CompanyInfoComponent,
+    OtherComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     DataTablesModule,
     HttpClientModule,
+    NgxSpinnerModule,
     FormsModule
   ],
   providers: [],

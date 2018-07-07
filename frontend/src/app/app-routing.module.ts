@@ -6,19 +6,19 @@ import {TablesComponent} from "./components/tables/tables.component";
 import {LoginComponent} from "./components/login/login.component";
 import {AddUserComponent} from "./components/user/add-user/add-user.component";
 import {AddEmployeeComponent} from "./components/user/add-employee/add-employee.component";
-import {AddCompanyComponent} from "./components/company/add-company/add-company.component";
 import {AddDepartmentComponent} from "./components/configuration/department/add-department/add-department.component";
 import {GuestService} from "./services/guest.service";
 import {AuthService} from "./services/auth.service";
+import {CompanyInfoComponent} from "./components/company/company-info/company-info.component";
 
 const routes: Routes = [
   {path: '', component: LoginComponent, canActivate: [GuestService] },
   { path: 'home', component: HomeComponent,canActivate: [AuthService] },
   { path: 'datatable', component: TablesComponent },
   { path: 'login', component: LoginComponent, canActivate: [GuestService] },
-  { path: 'user/add', component: AddUserComponent },
+  { path: 'user/add',component: AddUserComponent },
   { path: 'employee/add', component: AddEmployeeComponent },
-  { path: 'company/add', component: AddCompanyComponent },
+  { path: 'company/add', component: CompanyInfoComponent },
   { path: 'configuration/department/add', component: AddDepartmentComponent },
 
 ];

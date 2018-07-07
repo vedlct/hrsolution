@@ -30,7 +30,7 @@ export class TokenService {
 
   set(token) {
     localStorage.setItem('token', token);
-    console.log(this.payload(token));
+    // console.log(this.payload(token));
   }
 
   get() {
@@ -39,6 +39,7 @@ export class TokenService {
   }
   remove() {
     localStorage.removeItem('token');
+    this.router.navigate(['login']);
   }
 
   isValid() {

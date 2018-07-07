@@ -15,7 +15,6 @@ export class AddEmployeeComponent implements OnInit {
 
   onInfoClick(value){
     this.infoFlag=value;
-    // alert('clicked'+this.infoFlag);
   }
 
 }

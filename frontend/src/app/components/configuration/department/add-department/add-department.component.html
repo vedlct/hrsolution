@@ -7,7 +7,7 @@
 
       <div class="form-group col-md-6">
         <label>Department Name</label>
-        <input type="text" class="form-control" placeholder="dept name" name="departmentName">
+        <input type="text" class="form-control" placeholder="dept name" name="departmentName" [(ngModel)]="departmentField.departmentName">
       </div>
 
       <div class="form-group col-md-6">
@@ -16,5 +16,27 @@
       </div>
 
     </div>
+
+    <table class="table table-striped">
+      <thead>
+      <tr>
+        <th>Department Name</th>
+        <!--<th>LastName</th>-->
+        <!--<th>Email</th>-->
+        <th>Action</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr *ngFor="let dept of departments">
+        <td>{{dept.departmentName}}</td>
+        <!--<td></td>-->
+        <!--<td></td>-->
+        <td>
+          <!--<button class="btn btn-danger" (click)="deleteUser(user)"> Delete</button>-->
+          <button class="btn btn-danger" (click)="editDept(dept)" style="margin-left: 20px;"> Edit</button>
+        </td>
+      </tr>
+      </tbody>
+    </table>
   </div>
 </div>
