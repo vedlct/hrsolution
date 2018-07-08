@@ -4,6 +4,7 @@ import {HttpClient} from "@angular/common/http";
 import { NgxSpinnerService } from 'ngx-spinner';
 import {Company} from "../../../model/company.model";
 import {FormGroup, FormControl, Validators} from '@angular/forms';
+import {TokenService} from "../../../services/token.service";
 @Component({
   selector: 'app-add-company',
   templateUrl: './add-company.component.html',
@@ -30,9 +31,10 @@ export class AddCompanyComponent implements OnInit {
    companyInfo = {} as Company;
 
 
-  constructor(public http: HttpClient,private spinner: NgxSpinnerService) { }
+  constructor(public http: HttpClient,private spinner: NgxSpinnerService,private token:TokenService) { }
 
   ngOnInit() {
+      // console.log(this.token.getUser());
     this.spinner.show();
     this.http.get(Constants.API_URL+'company/get').subscribe(data => {
           // console.log(data);
@@ -57,6 +59,7 @@ export class AddCompanyComponent implements OnInit {
 
   onSubmit(){
     // console.log(this.selectedFile);
+
     this.spinner.show();
 
     let fd = new FormData();

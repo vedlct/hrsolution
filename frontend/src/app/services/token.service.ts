@@ -8,19 +8,17 @@ import  { Constants }  from '../constants';
 export class TokenService {
 
   token:boolean=false;
+  user:any;
   constructor(private router:Router) { }
 
-  getToken(){
-    return this.token;
+  setUser(user){
+    this.user=user;
   }
 
-  setToken(value:boolean){
-    this.token=value;
+  getUser(){
+    return this.user;
   }
 
-  getUrl(){
-    return this.router.url;
-  }
 
   //JWT Token
 
