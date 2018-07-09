@@ -628,9 +628,9 @@ code {
 }
 
 .list-group-item {
-    border-radius: 0;
+    border-radius: none;
     padding: 12px 20px;
-    border: 1px solid
+
 }
 
 .list-group-item:first-child,
