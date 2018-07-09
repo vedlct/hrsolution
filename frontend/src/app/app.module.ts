@@ -16,6 +16,14 @@ import { AddDepartmentComponent } from './components/configuration/department/ad
 import { AddDesignatonComponent } from './components/configuration/designation/add-designaton/add-designaton.component';
 import { PayEmployeeSalarySetupComponent } from './components/payroll/pay-employee-salary-setup/pay-employee-salary-setup.component';
 import { AddLeaveComponent } from './components/leave/add-leave/add-leave.component';
+import { BasicInfoComponent } from './components/user/basic-info/basic-info.component';
+import { PersonalInfoComponent } from './components/user/personal-info/personal-info.component';
+import { BankInfoComponent } from './components/user/bank-info/bank-info.component';
+import { SalaryInfoComponent } from './components/user/salary-info/salary-info.component';
+import { JoiningInfoComponent } from './components/user/joining-info/joining-info.component';
+import { CompanyInfoComponent } from './components/company/company-info/company-info.component';
+import { OtherComponent } from './components/company/other/other.component';
+import { NgxSpinnerModule } from 'ngx-spinner';
 
 @NgModule({
   declarations: [
@@ -30,13 +38,21 @@ import { AddLeaveComponent } from './components/leave/add-leave/add-leave.compon
     AddDepartmentComponent,
     AddDesignatonComponent,
     PayEmployeeSalarySetupComponent,
-    AddLeaveComponent
+    AddLeaveComponent,
+    BasicInfoComponent,
+    PersonalInfoComponent,
+    BankInfoComponent,
+    SalaryInfoComponent,
+    JoiningInfoComponent,
+    CompanyInfoComponent,
+    OtherComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     DataTablesModule,
     HttpClientModule,
+    NgxSpinnerModule,
     FormsModule
   ],
   providers: [],

@@ -12,18 +12,18 @@ export class AddDesignatonComponent implements OnInit {
   constructor(public http: HttpClient) { }
 
   ngOnInit() {
-    this.id=20;
-    this.http.post(Constants.API_URL+'login',this.id).subscribe(data => {
-          console.log(data);
-
-        },
-        error => {
-          console.log(error);
-
-        }
-    );
-
-    this.id=10;
+    // this.id=20;
+    // this.http.post(Constants.API_URL+'login',this.id).subscribe(data => {
+    //       console.log(data);
+    //
+    //     },
+    //     error => {
+    //       console.log(error);
+    //
+    //     }
+    // );
+    //
+    // this.id=10;
 
   }
   checkId(){

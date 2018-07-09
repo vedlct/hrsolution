@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {ActivatedRoute} from "@angular/router";
 
 @Component({
   selector: 'app-add-user',
@@ -21,6 +22,7 @@ export class AddUserComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
+    // console.log(this.route.snapshot.params.id);
   }
 
   onSubmit(){
