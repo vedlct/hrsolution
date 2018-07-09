@@ -3,7 +3,6 @@ import {Constants} from "../../../constants";
 import {HttpClient} from "@angular/common/http";
 import { NgxSpinnerService } from 'ngx-spinner';
 import {Company} from "../../../model/company.model";
-import {FormGroup, FormControl, Validators} from '@angular/forms';
 import {TokenService} from "../../../services/token.service";
 @Component({
   selector: 'app-add-company',
@@ -34,9 +33,13 @@ export class AddCompanyComponent implements OnInit {
   constructor(public http: HttpClient,private spinner: NgxSpinnerService,private token:TokenService) { }
 
   ngOnInit() {
-      // console.log(this.token.getUser());
+
+
     this.spinner.show();
-    this.http.get(Constants.API_URL+'company/get').subscribe(data => {
+
+    //Getting Company Info
+      const token=this.token.get();
+    this.http.get(Constants.API_URL+'company/get'+'?token='+token).subscribe(data => {
           // console.log(data);
           if(data !=null){
             this.companyInfo=<Company>data;
@@ -49,6 +52,14 @@ export class AddCompanyComponent implements OnInit {
 
         }
     );
+
+
+
+
+
+
+
+
   }
   onFileSelected(event) {
 
@@ -58,11 +69,16 @@ export class AddCompanyComponent implements OnInit {
   }
 
   onSubmit(){
-    // console.log(this.selectedFile);
+
 
     this.spinner.show();
 
+    let value=this.companyInfo;
+
     let fd = new FormData();
+      for ( let key in value ) {
+          fd.append(key, value[key]);
+      }
 
 
     if (this.selectedFile) {
@@ -72,10 +88,8 @@ export class AddCompanyComponent implements OnInit {
       }
     }
 
-
-
-
-    this.http.post(Constants.API_URL + 'company/post/updateInfo', fd).subscribe(data => {
+      const token=this.token.get();
+    this.http.post(Constants.API_URL + 'company/post/updateInfo'+'?token='+token, fd).subscribe(data => {
           console.log(data);
           this.spinner.hide();
 
@@ -84,8 +98,6 @@ export class AddCompanyComponent implements OnInit {
           console.log(error.message);
           this.spinner.hide();
 
-          // this.error=error.error.error;
-          // console.log(this.error);
 
         }
     );

@@ -4,6 +4,7 @@ import {Router} from "@angular/router";
 import  { Constants }  from '../../constants';
 import {TokenService} from "../../services/token.service";
 import {FormGroup, FormControl, Validators} from '@angular/forms';
+import {NgxSpinnerService} from "ngx-spinner";
 
 
 @Component({
@@ -19,7 +20,8 @@ export class LoginComponent implements OnInit {
 
   constructor(private http:HttpClient,
               private router:Router,
-              private token:TokenService
+              private token:TokenService,
+              private spinner: NgxSpinnerService
   ) {
 
   }
@@ -43,14 +45,17 @@ export class LoginComponent implements OnInit {
       if (!this.form.valid) {
           return;
       }
+      this.spinner.show();
     this.http.post(Constants.API_URL+'login',value).subscribe(data => {
+        this.spinner.hide();
 
           this.error=null;
           this.handleResponse(data);
 
         },
         error => {
-          this.error=error.error.error;
+            this.spinner.hide();
+            this.error=error.error.error;
           // console.log(this.error);
 
         }

@@ -10,7 +10,7 @@ class CompanyController extends Controller
 {
     public function __construct()
     {
-//        $this->middleware('auth:api');
+        $this->middleware('auth:api');
     }
     public function get(){
         $company=Company::first();
@@ -25,17 +25,31 @@ class CompanyController extends Controller
     }
 
     public function updateInfo(Request $r){
+        $company=Company::findOrFail($r->id);
+
+        $company->companyName=$r->companyName;
+        $company->companyAddress=$r->companyAddress;
+        $company->phone=$r->phone;
+        $company->fax=$r->fax;
+        $company->email=$r->email;
+        $company->webSite=$r->webSite;
+
         if($r->hasFile('image')){
             $images = $r->file('image');
             foreach ($images as $image){
                 $name = time().'.'.$image->getClientOriginalName();
                 $destinationPath = public_path('/images');
                 $image->move($destinationPath, $name);
+
+                $company->logo=$destinationPath.'/'.$name;
             }
 
-            return response()->json(['message' => 'Successfully Image Uploaded','flag'=>'true']);
+
         }
-        return $r;
+        $company->save();
+
+
+        return response()->json(['message' => 'Successfully Image Uploaded','flag'=>'true']);
 
 
 

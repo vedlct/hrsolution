@@ -5,17 +5,17 @@
 
       <div class="form-group col-md-6">
         <label>Title</label>
-        <input type="text" class="form-control" name="title">
+        <input type="text" class="form-control" name="title" [(ngModel)]="designationForm.title">
       </div>
 
       <div class="form-group col-md-6">
         <label>Short Name</label>
-        <input type="text" class="form-control" name="shortName">
+        <input type="text" class="form-control" name="shortName" [(ngModel)]="designationForm.shortName">
       </div>
 
       <div class="form-group col-md-6">
         <label>Salary Grade</label>
-        <input type="text" class="form-control" name="salaryGrade">
+        <input type="text" class="form-control" name="salaryGrade" [(ngModel)]="designationForm.salaryGrade">
       </div>
 
       <div class="form-group col-md-6">
@@ -36,6 +36,32 @@
           <button class="btn btn-success">Update</button>
         </div>
       </ng-template>
+
+
+
+      <table class="table table-striped">
+        <thead>
+        <tr>
+          <th>Designation Name</th>
+          <th>shortName</th>
+          <th>salaryGrade</th>
+          <th>desigLevel</th>
+          <th>Action</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr *ngFor="let desig of designation">
+          <td>{{desig.title}}</td>
+          <td>{{desig.shortName}}</td>
+          <td>{{desig.salaryGrade}}</td>
+          <td>{{desig.desigLevel}}</td>
+          <td>
+            <!--<button class="btn btn-danger" (click)="deleteUser(user)"> Delete</button>-->
+            <button class="btn btn-danger" style="margin-left: 20px;" (click)="editDsig(desig)">Edit</button>
+          </td>
+        </tr>
+        </tbody>
+      </table>
 
 
 

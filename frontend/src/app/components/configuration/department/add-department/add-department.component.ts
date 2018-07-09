@@ -1,6 +1,7 @@
 import {Component, OnInit, Input} from '@angular/core';
 import {HttpClient} from "@angular/common/http";
 import {Constants} from "../../../../constants";
+import {TokenService} from "../../../../services/token.service";
 
 @Component({
   selector: 'app-add-department',
@@ -15,10 +16,11 @@ export class AddDepartmentComponent implements OnInit {
     departmentName:''
   };
 
-  constructor(public http: HttpClient) { }
+  constructor(public http: HttpClient,private token:TokenService) { }
 
   ngOnInit() {
-    this.http.get(Constants.API_URL+'company/get/department').subscribe(data => {
+    const token=this.token.get();
+    this.http.get(Constants.API_URL+'company/get/department'+'?token='+token).subscribe(data => {
           this.departments=<any[]>data;
           // console.log(this.departments);
         },
@@ -31,9 +33,8 @@ export class AddDepartmentComponent implements OnInit {
   }
 
   editDept(dept){
-    console.log(dept);
+    // console.log(dept);
     this.departmentField.departmentName=dept.departmentName;
-
   }
 
 }
