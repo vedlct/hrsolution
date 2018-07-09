@@ -42,5 +42,19 @@ Route::group([
     Route::post('company/post/updateInfo','CompanyController@updateInfo');
 
 
+    //Department Info
+    Route::get('department/get','DepartmentController@get');
+
+    //Designation Info
+    Route::get('designation/get','DesignationController@get');
+
+    //EmployeeType Info
+    Route::get('employee_type/get','EmployeeTypeController@get');
+
+    //Employee Info
+    Route::post('employee/basic','EmployeeController@storeBasicInfo');
+
+
+
 
 });

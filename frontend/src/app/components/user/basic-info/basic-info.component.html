@@ -1,36 +1,37 @@
 <div class="card" >
   <div class="card-header">
-    Basic Info
+    <h5>Basic Info</h5>
   </div>
 
   <div class="card-body">
     <div class="row">
 
-
       <div class="form-group col-md-4">
         <label>Department</label>
-        <select class="form-control">
-          <option>department 1</option>
-          <option>department 2</option>
-          <option>department 3</option>
+        <select class="form-control" (change)="selectDepartment($event.target.value)">
+          <option value="">Select Department</option>
+          <option *ngFor="let dept of department" [value]="dept.id">
+            {{dept.departmentName}}
+          </option>
         </select>
       </div>
 
       <div class="form-group col-md-4">
         <label>Designation</label>
-        <select class="form-control">
-          <option>designation 1</option>
-          <option>designation 2</option>
-          <option>designation 3</option>
+        <select class="form-control" (change)="selectDesignation($event.target.value)">
+          <option value="">Select Designation</option>
+          <option *ngFor="let desg of designation" [value]="desg.id">
+            {{desg.title}}
+          </option>
         </select>
       </div>
 
       <div class="form-group col-md-4">
         <label>Employee Type</label>
-        <select class="form-control" name="fkEmployeeType">
-          <option>Permanent</option>
-          <option>Intern</option>
-          <option>Contructual</option>
+        <select class="form-control" name="fkEmployeeType" [(ngModel)]="employeeBasicForm.empType">
+          <option *ngFor="let type of empType" [value]="type.id">
+            {{type.typeTitle}}
+          </option>
         </select>
       </div>
 
@@ -38,63 +39,59 @@
 
       <label class="col-md-1">Full Name</label>
       <div class="col-md-3">
-        <input type="text" class="form-control" placeholder="First name">
+        <input type="text" class="form-control" placeholder="First name" [(ngModel)]="employeeBasicForm.firstName">
       </div>
       <div class="col-md-3">
-        <input type="text" class="form-control" placeholder="Middle name">
+        <input type="text" class="form-control" placeholder="Middle name" [(ngModel)]="employeeBasicForm.middleName">
       </div>
       <div class="col-md-3">
-        <input type="text" class="form-control" placeholder="Last name">
+        <input type="text" class="form-control" placeholder="Last name" [(ngModel)]="employeeBasicForm.lastName">
       </div>
       <div class="col-md-2">
-        <input type="text" class="form-control" placeholder="Nick name">
+        <input type="text" class="form-control" placeholder="Nick name" [(ngModel)]="employeeBasicForm.nickName">
       </div>
 
       <div class="col-md-12"><hr></div>
 
       <div class="form-group col-md-4">
         <label>Email</label>
-        <input type="email" class="form-control" name="email" placeholder="email">
+        <input type="email" class="form-control" name="email" placeholder="email" [(ngModel)]="employeeBasicForm.email">
       </div>
 
       <div class="form-group col-md-4">
         <label>Contact Number</label>
-        <input type="text" class="form-control" name="contactNo" placeholder="phone">
+        <input type="text" class="form-control" name="contactNo" placeholder="phone" [(ngModel)]="employeeBasicForm.contactNo">
       </div>
 
       <div class="form-group col-md-4">
-        <label>Contact Number</label>
-        <input type="file" class="form-control" name="photo" placeholder="image">
+        <label>Image</label>
+        <input type="file" class="form-control" name="photo" placeholder="image" (change)="onFileSelected($event)">
       </div>
 
       <div class="col-md-12"><hr></div>
 
       <div class="form-group col-md-4">
         <label>Gender</label>
-        &nbsp;
-        &nbsp;
-        &nbsp;
 
-        <input type="radio" class="form-check-input" name="gender">Male
+        &nbsp;&nbsp;&nbsp;
+        <input type="radio" class="form-check-input" value="male" name="gender" [(ngModel)]="employeeBasicForm.gender">Male
 
-        &nbsp;
-        &nbsp;
-        &nbsp;
+        &nbsp;&nbsp;&nbsp;
+        <input type="radio" class="form-check-input" value="female" name="gender" [(ngModel)]="employeeBasicForm.gender">Female
 
-        <input type="radio" class="form-check-input" name="gender">Female
-
-        &nbsp;
-        &nbsp;
-        &nbsp;
-
-        <input type="radio" class="form-check-input" name="gender">Other
+        &nbsp;&nbsp;&nbsp;
+        <input type="radio" class="form-check-input" value="other" name="gender" [(ngModel)]="employeeBasicForm.gender">Other
 
 
       </div>
 
       <div class="form-group col-md-4">
         <label>Date Of Birth</label>
-        <input type="date" class="form-control" name="birthdate">
+        <input type="date" class="form-control" name="birthdate" [(ngModel)]="employeeBasicForm.birthdate">
+      </div>
+
+      <div class="form-group col-md-4">
+        <button class="btn btn-success" (click)="onSubmit()">Submit</button>
       </div>
 
 
