@@ -12,14 +12,14 @@ import {AuthService} from "./services/auth.service";
 import {CompanyInfoComponent} from "./components/company/company-info/company-info.component";
 
 const routes: Routes = [
-  {path: '', component: LoginComponent, canActivate: [GuestService] },
-  { path: 'home', component: HomeComponent,canActivate: [AuthService] },
-  { path: 'datatable', component: TablesComponent },
-  { path: 'login', component: LoginComponent, canActivate: [GuestService] },
-  { path: 'user/add',component: AddUserComponent },
-  { path: 'employee/add', component: AddEmployeeComponent },
-  { path: 'company/add', component: CompanyInfoComponent },
-  { path: 'configuration/department/add', component: AddDepartmentComponent },
+    {path: '', component: LoginComponent, canActivate: [GuestService] },
+    { path: 'login', component: LoginComponent, canActivate: [GuestService] },
+    { path: 'home', component: HomeComponent,canActivate: [AuthService] },
+    { path: 'datatable', component: TablesComponent },
+    { path: 'user/add',component: AddUserComponent,canActivate: [AuthService] },
+    { path: 'employee/add', component: AddEmployeeComponent,canActivate: [AuthService] },
+    { path: 'company/add', component: CompanyInfoComponent,canActivate: [AuthService] },
+    { path: 'configuration/department/add', component: AddDepartmentComponent },
 
 ];
 @NgModule({

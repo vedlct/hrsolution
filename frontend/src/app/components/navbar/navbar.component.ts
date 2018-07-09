@@ -14,6 +14,21 @@ export class NavbarComponent implements OnInit {
   constructor(public http: HttpClient,private token:TokenService) { }
 
   ngOnInit() {
+
+      const token=this.token.get();
+      this.http.post(Constants.API_URL+'me?token='+token,null).subscribe(data => {
+              // console.log(data);
+              this.token.setUser(data);
+              // console.log(this.token.getUser());
+
+          },
+          error => {
+              console.log(error);
+              this.handleError(error);
+
+          }
+      );
+
   }
 
   whoAmI(e: MouseEvent){
@@ -45,10 +60,7 @@ export class NavbarComponent implements OnInit {
 
         },
         error => {
-          // console.log(error);
-          // console.log(error.status);
-          // console.log(error.error);
-          // console.log(error.error.message);
+
           if(error.status==401 && error.error.message==='Unauthenticated.'){
             this.token.remove();
           }

@@ -3,6 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import {Router} from "@angular/router";
 import  { Constants }  from '../../constants';
 import {TokenService} from "../../services/token.service";
+import {FormGroup, FormControl, Validators} from '@angular/forms';
 
 
 @Component({
@@ -11,11 +12,9 @@ import {TokenService} from "../../services/token.service";
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
-  public form = {
-    email: null,
-    password: null
-  };
-  error:null;
+    form:any;
+    error:null;
+    submitted = false;
 
 
   constructor(private http:HttpClient,
@@ -26,11 +25,25 @@ export class LoginComponent implements OnInit {
   }
 
   ngOnInit() {
+      this.form=new FormGroup({
+          email:new FormControl('',[
+              Validators.required,
+              Validators.email
+          ]),
+          password:new FormControl('',[
+              Validators.required,
+              Validators.minLength(6)
+          ])
+      });
 
   }
 
-  onSubmit(){
-    this.http.post(Constants.API_URL+'login',this.form).subscribe(data => {
+  onSubmit(value){
+      this.submitted = true;
+      if (!this.form.valid) {
+          return;
+      }
+    this.http.post(Constants.API_URL+'login',value).subscribe(data => {
 
           this.error=null;
           this.handleResponse(data);
@@ -43,6 +56,8 @@ export class LoginComponent implements OnInit {
         }
     );
   }
+
+  get f() { return this.form.controls; }
 
   handleResponse(data) {
     this.token.handle(data.access_token);
