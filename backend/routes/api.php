@@ -55,6 +55,8 @@ Route::group([
     Route::post('employee/basic','EmployeeController@storeBasicInfo');
 
 
+    //Get Degree
+    Route::get('degree/get','DegreeController@get');
 
 
 });
