@@ -10,8 +10,8 @@ import {Designation} from "../../../../model/designation.model";
   styleUrls: ['./add-designaton.component.css']
 })
 export class AddDesignatonComponent implements OnInit {
-  id:number=null;
-  designation= [] as Designation;
+  id:number;
+  designation= {} as Designation;
   designationForm={} as Designation;
   // designation:any;
   constructor(public http: HttpClient) { }
