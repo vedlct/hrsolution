@@ -58,5 +58,8 @@ Route::group([
     //Get Degree
     Route::get('degree/get','DegreeController@get');
 
+    //insert Degree
+    Route::post('degree/insert','DegreeController@newDegree');
+
 
 });
