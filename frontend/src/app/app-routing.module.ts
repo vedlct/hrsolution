@@ -19,14 +19,15 @@ const routes: Routes = [
     { path: 'datatable', component: TablesComponent },
     { path: 'user/add',component: AddUserComponent,canActivate: [AuthService] },
     { path: 'employee/add', component: AddEmployeeComponent,canActivate: [AuthService] },
+    { path: 'employee/edit/:id', component: AddEmployeeComponent,canActivate: [AuthService] },
     { path: 'employee', component: EmployeeComponent,canActivate: [AuthService] },
     { path: 'company/add', component: CompanyInfoComponent,canActivate: [AuthService] },
     { path: 'configuration/department/add', component: AddDepartmentComponent },
 
 ];
 @NgModule({
-  exports: [ RouterModule ],
-  imports: [ RouterModule.forRoot(routes) ],
+    exports: [ RouterModule ],
+    imports: [ RouterModule.forRoot(routes) ],
 })
 
 
