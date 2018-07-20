@@ -10,6 +10,7 @@ import {AddDepartmentComponent} from "./components/configuration/department/add-
 import {GuestService} from "./services/guest.service";
 import {AuthService} from "./services/auth.service";
 import {CompanyInfoComponent} from "./components/company/company-info/company-info.component";
+import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 
 const routes: Routes = [
     {path: '', component: LoginComponent, canActivate: [GuestService] },
@@ -24,7 +25,7 @@ const routes: Routes = [
 ];
 @NgModule({
   exports: [ RouterModule ],
-  imports: [ RouterModule.forRoot(routes) ],
+  imports: [ RouterModule.forRoot(routes),NgbModule.forRoot() ],
 })
 
 

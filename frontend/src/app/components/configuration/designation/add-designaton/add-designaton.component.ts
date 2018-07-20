@@ -11,7 +11,7 @@ import {Designation} from "../../../../model/designation.model";
 })
 export class AddDesignatonComponent implements OnInit {
   id:number=null;
-  designation= [] as Designation;
+  designation= {} as Designation;
   designationForm={} as Designation;
   // designation:any;
   constructor(public http: HttpClient) { }
@@ -31,9 +31,9 @@ export class AddDesignatonComponent implements OnInit {
   }
   checkId(){
 
-    if(this.designationForm =={}){
-      return false;
-    }
+    // if(this.designationForm =={}){
+    //   return false;
+    // }
     return true;
     // else {return true;}
   }
