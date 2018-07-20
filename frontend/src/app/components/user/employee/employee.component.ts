@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {Constants} from "../../../constants";
 import {HttpClient} from "@angular/common/http";
 import {TokenService} from "../../../services/token.service";
+import {Subject} from "rxjs";
 @Component({
   selector: 'app-employee',
   templateUrl: './employee.component.html',
@@ -10,13 +11,19 @@ import {TokenService} from "../../../services/token.service";
 export class EmployeeComponent implements OnInit {
 
   employee:any;
+  dtOptions:DataTables.Settings={};
+  dtTeigger:Subject<any>=new Subject();
   constructor(public http: HttpClient, private token:TokenService) { }
 
 
   ngOnInit() {
+      this.dtOptions={
+        pagingType:'full_numbers',
+          pageLength:10
+      };
 
     this.getAllemployee();
-     $('#example').DataTable();
+     // $('#example').DataTable();
   }
 
 
@@ -26,6 +33,7 @@ export class EmployeeComponent implements OnInit {
     this.http.get(Constants.API_URL+'employee/get'+'?token='+token).subscribe(data => {
           console.log(data);
           this.employee=data;
+          this.dtTeigger.next();
           console.log(data);
         },
         error => {
