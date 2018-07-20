@@ -11,7 +11,7 @@ class degreeController extends Controller
     //
     public function __construct()
     {
-//        $this->middleware('auth:api');
+        $this->middleware('auth:api');
     }
     public function get(){
       $degree = Degree::get();
@@ -19,10 +19,13 @@ class degreeController extends Controller
     }
     public function newDegree(Request $r){
 
-//        return $r;
+
         $degree = new Degree();
         $degree->degreeName = $r->degree;
+        $degree->createdBy = auth()->user()->id;
         $degree->save();
+
+        return response()->json(['message' => 'Successfully logged out','flag'=>'true']);
         
     }
 }

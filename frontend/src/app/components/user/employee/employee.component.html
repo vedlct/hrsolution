@@ -1,0 +1,43 @@
+<div class="container-fluid">
+  <div class="card">
+    <div class="card-header">Employee Details</div>
+
+    <div class="card-body">
+      <a style=" float: right" class="btn btn-outline-primary mb-2 mr-2" routerLink="add" >Add New</a>  <br><br>
+      <table   id="example" class="table" >
+        <thead>
+        <tr>
+          <th>Name</th>
+          <th>Employee ID</th>
+          <th>Degisnation</th>
+          <th>Department</th>
+          <th>Action</th>
+        </tr>
+
+        </thead>
+        <tbody *ngIf="checkEmployee()">
+
+          <tr  *ngFor="let emp of employee" >
+            <td>{{emp.firstName}}</td>
+            <td>{{emp.EmployeeId}}</td>
+            <td>{{emp.title}}</td>
+            <td>{{emp.departmentName}}</td>
+            <td><button>edit</button></td>
+
+          </tr>
+
+
+
+
+
+        </tbody>
+
+      </table>
+
+
+    </div>
+  </div>
+
+
+</div>
+

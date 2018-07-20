@@ -26,6 +26,7 @@ import { OtherComponent } from './components/company/other/other.component';
 import { NgxSpinnerModule } from 'ngx-spinner';
 import { EducationComponent } from './components/user/education/education.component';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
+import { EmployeeComponent } from './components/user/employee/employee.component';
 
 @NgModule({
   declarations: [
@@ -48,7 +49,8 @@ import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
     JoiningInfoComponent,
     CompanyInfoComponent,
     OtherComponent,
-    EducationComponent
+    EducationComponent,
+    EmployeeComponent
   ],
   imports: [
     BrowserModule,
