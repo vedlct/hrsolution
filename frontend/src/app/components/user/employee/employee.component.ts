@@ -60,7 +60,6 @@ export class EmployeeComponent implements OnInit {
 
   }
 
-
   checkEmployee(){
     return true;
   }
