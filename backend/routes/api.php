@@ -49,12 +49,24 @@ Route::group([
     Route::get('designation/get','DesignationController@get');
 
     //EmployeeType Info
+    Route::get('employee/get','EmployeeController@getAllEmployee');
+
+
+    //EmployeeType Info
     Route::get('employee_type/get','EmployeeTypeController@get');
 
     //Employee Info
     Route::post('employee/basic','EmployeeController@storeBasicInfo');
 
 
+    //Get Degree
+    Route::get('degree/get','DegreeController@get');
+
+    //insert Degree
+    Route::post('degree/insert','DegreeController@newDegree');
+
+    //get all education
+    Route::get('education/get','EducationController@getAlleducation');
 
 
 });

@@ -10,7 +10,7 @@ import {Designation} from "../../../../model/designation.model";
   styleUrls: ['./add-designaton.component.css']
 })
 export class AddDesignatonComponent implements OnInit {
-  id:number=null;
+  id:number;
   designation= {} as Designation;
   designationForm={} as Designation;
   // designation:any;
@@ -30,7 +30,7 @@ export class AddDesignatonComponent implements OnInit {
 
   }
   checkId(){
-
+    //
     // if(this.designationForm =={}){
     //   return false;
     // }

@@ -10,7 +10,7 @@ import {AddDepartmentComponent} from "./components/configuration/department/add-
 import {GuestService} from "./services/guest.service";
 import {AuthService} from "./services/auth.service";
 import {CompanyInfoComponent} from "./components/company/company-info/company-info.component";
-import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
+import {EmployeeComponent} from "./components/user/employee/employee.component";
 
 const routes: Routes = [
     {path: '', component: LoginComponent, canActivate: [GuestService] },
@@ -19,13 +19,14 @@ const routes: Routes = [
     { path: 'datatable', component: TablesComponent },
     { path: 'user/add',component: AddUserComponent,canActivate: [AuthService] },
     { path: 'employee/add', component: AddEmployeeComponent,canActivate: [AuthService] },
+    { path: 'employee', component: EmployeeComponent,canActivate: [AuthService] },
     { path: 'company/add', component: CompanyInfoComponent,canActivate: [AuthService] },
     { path: 'configuration/department/add', component: AddDepartmentComponent },
 
 ];
 @NgModule({
-  exports: [ RouterModule ],
-  imports: [ RouterModule.forRoot(routes),NgbModule.forRoot() ],
+    exports: [ RouterModule ],
+    imports: [ RouterModule.forRoot(routes) ],
 })
 
 

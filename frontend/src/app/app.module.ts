@@ -3,7 +3,7 @@ import { NgModule } from '@angular/core';
 import { FormsModule,ReactiveFormsModule }   from '@angular/forms';
 import { AppComponent } from './app.component';
 import { HomeComponent } from './components/home/home.component';
-import { AppRoutingModule } from './/app-routing.module';
+import { AppRoutingModule } from './app-routing.module';
 import { HttpClientModule } from '@angular/common/http';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { TablesComponent } from './components/tables/tables.component';
@@ -24,6 +24,9 @@ import { JoiningInfoComponent } from './components/user/joining-info/joining-inf
 import { CompanyInfoComponent } from './components/company/company-info/company-info.component';
 import { OtherComponent } from './components/company/other/other.component';
 import { NgxSpinnerModule } from 'ngx-spinner';
+import { EducationComponent } from './components/user/education/education.component';
+import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
+import { EmployeeComponent } from './components/user/employee/employee.component';
 
 @NgModule({
   declarations: [
@@ -45,7 +48,9 @@ import { NgxSpinnerModule } from 'ngx-spinner';
     SalaryInfoComponent,
     JoiningInfoComponent,
     CompanyInfoComponent,
-    OtherComponent
+    OtherComponent,
+    EducationComponent,
+    EmployeeComponent
   ],
   imports: [
     BrowserModule,
@@ -54,7 +59,8 @@ import { NgxSpinnerModule } from 'ngx-spinner';
     HttpClientModule,
     NgxSpinnerModule,
     FormsModule,
-      ReactiveFormsModule
+    ReactiveFormsModule,
+    NgbModule.forRoot()
   ],
   providers: [],
   bootstrap: [AppComponent]

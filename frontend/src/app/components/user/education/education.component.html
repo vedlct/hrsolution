@@ -1,0 +1,118 @@
+<div class="card">
+  <div class="card-header">
+    Education
+  </div>
+
+  <div class="card-body">
+    <div class="row">
+
+      <div class="form-group col-md-6">
+        <label>Institution</label>
+        <input type="text" name="institution" [(ngModel)]="educationForm.institution"  class="form-control">
+      </div>
+
+      <div class="form-group col-md-5">
+        <label>Degree</label>
+        <select class="form-control" name="degree"   (change)="selectDegree($event.target.value)">
+          <option value="">Select Degree</option>
+          <option *ngFor="let deg of degree" [value]="deg.id" [selected]="deg.id==educationForm.degreeId">
+            {{deg.degreeName}}
+          </option>
+        </select>
+      </div>
+
+      <div class="form-group col-md-1">
+
+        <button style="margin-top: 30px" class="btn btn-outline-primary mb-2 mr-2" (click)="openLg(content)">Add New</button>
+      </div>
+      <div class="form-group col-md-6">
+        <label>Result </label>
+        <input type="text" name="result" [(ngModel)]="educationForm.result" class="form-control">
+      </div>
+
+      <div class="form-group col-md-6">
+        <label>Result Out of</label>
+        <input type="text" name="resultoutof"  [(ngModel)]="educationForm.resultoutof" class="form-control">
+      </div>
+
+      <div class="form-group col-md-6">
+        <label>Board</label>
+        <input type="text" name="board"  [(ngModel)]="educationForm.board" class="form-control">
+      </div>
+
+      <div class="form-group col-md-6">
+        <label>Passing Year</label>
+        <input type="text" name="passingyear" [(ngModel)]="educationForm.passingyear" class="form-control">
+      </div>
+
+      <div class="form-group col-md-6">
+        <label>Country</label>
+        <select class="form-control" name="country" (change)="selectCountry($event.target.value)"  >
+          <option value="">Select Country</option>
+          <!--<option *ngFor="let dept of department" [value]="dept.id">-->
+          <!--{{dept.departmentName}}-->
+          <!--</option>-->
+        </select>
+      </div>
+
+      <div class="form-group col-md-6">
+
+        <button style="margin-top: 32px" class="btn btn-success" (click)="onSubmit()">Submit</button>
+      </div>
+
+
+    </div>
+    <br>
+    <!--tabel for managment -->
+    <table class="table table-striped">
+      <thead>
+      <tr>
+        <th>Degree Name</th>
+        <th>Result </th>
+        <th>Passing Year</th>
+        <th>Action</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr >
+      <tr *ngFor="let edu of educations">
+        <td>{{edu.degreeName}}</td>
+        <td>{{edu.result}}</td>
+        <td>{{edu.passingYear}}</td>
+        <td>
+          <!--<button class="btn btn-danger" (click)="deleteUser(user)"> Delete</button>-->
+          <button class="btn btn-danger" (click)="editEducation(edu)" style="margin-left: 20px;"> Edit</button>
+        </td>
+      </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<!--modal-->
+<ng-template #content let-c="close" let-d="dismiss">
+  <div class="modal-header">
+    <h4 class="modal-title">Add Degree</h4>
+    <button type="button" class="close" aria-label="Close" (click)="d('Cross click')">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+<form #education="ngForm" (ngSubmit)="onSubmit(content)">
+    <div class="form-group col-md-12">
+      <label>Degree</label>
+      <input type="text" name="degree" [(ngModel)]="newdegree" class="form-control" required>
+      <button style="margin-top: 32px" class="btn btn-success"  [disabled]="!education.valid"  >Submit</button>
+    </div>
+</form>
+
+  </div>
+  <div class="modal-footer">
+    <button type="button" class="btn btn-light" (click)="c('Close click')">Close</button>
+  </div>
+</ng-template>
+
+
+<hr>
+
+<pre>{{closeResult}}</pre>

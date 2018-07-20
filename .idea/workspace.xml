@@ -2,6 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f68e167a-90ee-4c65-9adb-0a9c68de77b2" name="Default" comment="">
+<<<<<<< HEAD
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/frontend/package-lock.json" afterPath="$PROJECT_DIR$/frontend/package-lock.json" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/frontend/package.json" afterPath="$PROJECT_DIR$/frontend/package.json" />
@@ -9,6 +10,35 @@
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/frontend/src/app/components/configuration/designation/add-designaton/add-designaton.component.ts" afterPath="$PROJECT_DIR$/frontend/src/app/components/configuration/designation/add-designaton/add-designaton.component.ts" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/frontend/src/app/components/user/add-user/add-user.component.html" afterPath="$PROJECT_DIR$/frontend/src/app/components/user/add-user/add-user.component.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/frontend/src/app/components/user/add-user/add-user.component.ts" afterPath="$PROJECT_DIR$/frontend/src/app/components/user/add-user/add-user.component.ts" />
+=======
+<<<<<<< HEAD
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frontend/src/assets/images/bg-123.jpg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/hrsolution.iml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/backend/app/Designation.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/backend/app/EmployeeType.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/backend/app/Http/Controllers/DepartmentController.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/backend/app/Http/Controllers/DesignationController.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/backend/app/Http/Controllers/EmployeeController.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/backend/app/Http/Controllers/EmployeeTypeController.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frontend/src/app/model/designation.model.ts" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/modules.xml" afterPath="$PROJECT_DIR$/.idea/modules.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/backend/app/Http/Controllers/CompanyController.php" afterPath="$PROJECT_DIR$/backend/app/Http/Controllers/CompanyController.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/backend/routes/api.php" afterPath="$PROJECT_DIR$/backend/routes/api.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/frontend/src/app/components/company/add-company/add-company.component.ts" afterPath="$PROJECT_DIR$/frontend/src/app/components/company/add-company/add-company.component.ts" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/frontend/src/app/components/configuration/department/add-department/add-department.component.html" afterPath="$PROJECT_DIR$/frontend/src/app/components/configuration/department/add-department/add-department.component.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/frontend/src/app/components/configuration/department/add-department/add-department.component.ts" afterPath="$PROJECT_DIR$/frontend/src/app/components/configuration/department/add-department/add-department.component.ts" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/frontend/src/app/components/configuration/designation/add-designaton/add-designaton.component.html" afterPath="$PROJECT_DIR$/frontend/src/app/components/configuration/designation/add-designaton/add-designaton.component.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/frontend/src/app/components/configuration/designation/add-designaton/add-designaton.component.ts" afterPath="$PROJECT_DIR$/frontend/src/app/components/configuration/designation/add-designaton/add-designaton.component.ts" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/frontend/src/app/components/login/login.component.ts" afterPath="$PROJECT_DIR$/frontend/src/app/components/login/login.component.ts" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/frontend/src/app/components/user/add-employee/add-employee.component.ts" afterPath="$PROJECT_DIR$/frontend/src/app/components/user/add-employee/add-employee.component.ts" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/frontend/src/app/components/user/basic-info/basic-info.component.html" afterPath="$PROJECT_DIR$/frontend/src/app/components/user/basic-info/basic-info.component.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/frontend/src/app/components/user/basic-info/basic-info.component.ts" afterPath="$PROJECT_DIR$/frontend/src/app/components/user/basic-info/basic-info.component.ts" />
+=======
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/frontend/src/app/components/user/add-employee/add-employee.component.html" afterPath="$PROJECT_DIR$/frontend/src/app/components/user/add-employee/add-employee.component.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/frontend/src/assets/css/style.css" afterPath="$PROJECT_DIR$/frontend/src/assets/css/style.css" />
+>>>>>>> 81092e282efc879db206c6d4b5ebd44ae93ed02f
+>>>>>>> 12a4db3d774fa9656109c08fc966e938109e06cf
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -26,11 +56,19 @@
   <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+<<<<<<< HEAD
       <file leaf-file-name="add-user.component.ts" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/frontend/src/app/components/user/add-user/add-user.component.ts">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="81">
               <caret line="3" column="0" lean-forward="false" selection-start-line="3" selection-start-column="0" selection-end-line="3" selection-end-column="0" />
+=======
+      <file leaf-file-name="add-designaton.component.ts" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/frontend/src/app/components/configuration/designation/add-designaton/add-designaton.component.ts">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="432">
+              <caret line="40" column="13" lean-forward="false" selection-start-line="40" selection-start-column="13" selection-end-line="40" selection-end-column="13" />
+>>>>>>> 12a4db3d774fa9656109c08fc966e938109e06cf
               <folding>
                 <element signature="e#0#50#0" expanded="true" />
               </folding>
@@ -41,13 +79,84 @@
       <file leaf-file-name="add-user.component.html" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/frontend/src/app/components/user/add-user/add-user.component.html">
           <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
             <state relative-caret-position="0">
               <caret line="0" column="0" lean-forward="true" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+=======
+<<<<<<< HEAD
+            <state relative-caret-position="234">
+              <caret line="13" column="10" lean-forward="false" selection-start-line="13" selection-start-column="10" selection-end-line="13" selection-end-column="10" />
+=======
+            <state relative-caret-position="648">
+              <caret line="24" column="8" lean-forward="true" selection-start-line="24" selection-start-column="8" selection-end-line="24" selection-end-column="8" />
+              <folding>
+                <element signature="n#style#0;n#button#0;n#li#0;n#ul#0;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#button#0;n#li#1;n#ul#0;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#button#0;n#li#2;n#ul#0;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#button#0;n#li#3;n#ul#0;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#button#0;n#li#4;n#ul#0;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="navbar.component.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/frontend/src/app/components/navbar/navbar.component.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="351">
+              <caret line="157" column="10" lean-forward="false" selection-start-line="157" selection-start-column="10" selection-end-line="157" selection-end-column="10" />
+>>>>>>> 81092e282efc879db206c6d4b5ebd44ae93ed02f
+>>>>>>> 12a4db3d774fa9656109c08fc966e938109e06cf
               <folding />
             </state>
           </provider>
         </entry>
       </file>
+<<<<<<< HEAD
+=======
+      <file leaf-file-name="add-designaton.component.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/frontend/src/app/components/configuration/designation/add-designaton/add-designaton.component.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="522">
+              <caret line="29" column="53" lean-forward="false" selection-start-line="29" selection-start-column="46" selection-end-line="29" selection-end-column="53" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="basic-info.component.ts" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/frontend/src/app/components/user/basic-info/basic-info.component.ts">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="1350">
+              <caret line="77" column="42" lean-forward="false" selection-start-line="77" selection-start-column="42" selection-end-line="77" selection-end-column="42" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="basic-info.component.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/frontend/src/app/components/user/basic-info/basic-info.component.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="1098">
+              <caret line="61" column="22" lean-forward="false" selection-start-line="61" selection-start-column="22" selection-end-line="61" selection-end-column="22" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="basic-info.component.spec.ts" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/frontend/src/app/components/user/basic-info/basic-info.component.spec.ts">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="0">
+              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+              <folding>
+                <element signature="e#0#73#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+>>>>>>> 12a4db3d774fa9656109c08fc966e938109e06cf
     </leaf>
   </component>
   <component name="FindInProjectRecents">
@@ -117,12 +226,19 @@
         <option value="$PROJECT_DIR$/frontend/src/app/components/configuration/designation/add-designaton/add-designaton.component.html" />
         <option value="$PROJECT_DIR$/frontend/src/app/components/user/basic-info/basic-info.component.ts" />
         <option value="$PROJECT_DIR$/frontend/src/app/components/user/basic-info/basic-info.component.html" />
+<<<<<<< HEAD
+        <option value="$PROJECT_DIR$/frontend/src/app/components/configuration/designation/add-designaton/add-designaton.component.ts" />
+=======
         <option value="$PROJECT_DIR$/frontend/src/assets/css/style.css" />
         <option value="$PROJECT_DIR$/frontend/src/app/components/user/add-employee/add-employee.component.html" />
+<<<<<<< HEAD
         <option value="$PROJECT_DIR$/frontend/src/app/components/configuration/designation/add-designaton/add-designaton.component.ts" />
         <option value="$PROJECT_DIR$/frontend/src/app/app-routing.module.ts" />
         <option value="$PROJECT_DIR$/frontend/src/app/components/user/add-user/add-user.component.ts" />
         <option value="$PROJECT_DIR$/frontend/src/app/components/user/add-user/add-user.component.html" />
+=======
+>>>>>>> 81092e282efc879db206c6d4b5ebd44ae93ed02f
+>>>>>>> 12a4db3d774fa9656109c08fc966e938109e06cf
       </list>
     </option>
   </component>
@@ -223,6 +339,10 @@
   </component>
   <component name="ProjectFrameBounds">
     <option name="x" value="-8" />
+<<<<<<< HEAD
+=======
+    <option name="y" value="-8" />
+>>>>>>> 12a4db3d774fa9656109c08fc966e938109e06cf
     <option name="width" value="1932" />
     <option name="height" value="1092" />
   </component>
@@ -241,10 +361,25 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+<<<<<<< HEAD
       <pane id="Scope" />
       <pane id="Scratches" />
+=======
+      <pane id="Scratches" />
+      <pane id="Scope" />
+>>>>>>> 12a4db3d774fa9656109c08fc966e938109e06cf
       <pane id="ProjectPane">
         <subPane>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="hrsolution" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="hrsolution" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+          </PATH>
           <PATH>
             <PATH_ELEMENT>
               <option name="myItemId" value="hrsolution" />
@@ -388,6 +523,25 @@
               <option name="myItemId" value="components" />
               <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
+<<<<<<< HEAD
+=======
+            <PATH_ELEMENT>
+<<<<<<< HEAD
+              <option name="myItemId" value="configuration" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="designation" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="add-designaton" />
+=======
+              <option name="myItemId" value="navbar" />
+>>>>>>> 81092e282efc879db206c6d4b5ebd44ae93ed02f
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+>>>>>>> 12a4db3d774fa9656109c08fc966e938109e06cf
           </PATH>
           <PATH>
             <PATH_ELEMENT>
@@ -398,6 +552,29 @@
               <option name="myItemId" value="hrsolution" />
               <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
+<<<<<<< HEAD
+            <PATH_ELEMENT>
+              <option name="myItemId" value="frontend" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="components" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="configuration" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+=======
+>>>>>>> 81092e282efc879db206c6d4b5ebd44ae93ed02f
           </PATH>
         </subPane>
       </pane>
@@ -506,15 +683,25 @@
       <workItem from="1530864125907" duration="12000" />
       <workItem from="1530937169225" duration="16725000" />
       <workItem from="1531021367098" duration="3789000" />
+<<<<<<< HEAD
       <workItem from="1531110207505" duration="22345000" />
       <workItem from="1531221643263" duration="669000" />
       <workItem from="1531287499941" duration="43000" />
       <workItem from="1531298461909" duration="1619000" />
       <workItem from="1531391931476" duration="1547000" />
+=======
+<<<<<<< HEAD
+      <workItem from="1531110207505" duration="19861000" />
+      <workItem from="1531137300650" duration="265000" />
+=======
+      <workItem from="1531110207505" duration="21750000" />
+>>>>>>> 81092e282efc879db206c6d4b5ebd44ae93ed02f
+>>>>>>> 12a4db3d774fa9656109c08fc966e938109e06cf
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
+<<<<<<< HEAD
     <option name="totallyTimeSpent" value="110083000" />
   </component>
   <component name="ToolWindowManager">
@@ -522,11 +709,26 @@
     <editor active="true" />
     <layout>
       <window_info id="TypeScript" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3294979" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
+=======
+<<<<<<< HEAD
+    <option name="totallyTimeSpent" value="103986000" />
+  </component>
+  <component name="ToolWindowManager">
+    <frame x="-8" y="-8" width="1932" height="1092" extended-state="0" />
+=======
+    <option name="totallyTimeSpent" value="105610000" />
+  </component>
+  <component name="ToolWindowManager">
+    <frame x="-8" y="-8" width="1936" height="1096" extended-state="6" />
+>>>>>>> 81092e282efc879db206c6d4b5ebd44ae93ed02f
+    <editor active="true" />
+    <layout>
+      <window_info id="TypeScript" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32892057" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
+>>>>>>> 12a4db3d774fa9656109c08fc966e938109e06cf
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.24947807" sideWeight="0.5" order="1" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="true" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="NativeScript" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -535,6 +737,7 @@
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
+      <window_info id="NativeScript" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="3" side_tool="false" content_ui="combo" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
@@ -652,6 +855,20 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="378">
           <caret line="28" column="0" lean-forward="false" selection-start-line="28" selection-start-column="0" selection-end-line="28" selection-end-column="0" />
+<<<<<<< HEAD
+=======
+          <folding>
+            <element signature="e#0#43#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/frontend/src/app/app-routing.module.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="351">
+          <caret line="24" column="2" lean-forward="false" selection-start-line="24" selection-start-column="2" selection-end-line="24" selection-end-column="2" />
+          <folding />
+>>>>>>> 12a4db3d774fa9656109c08fc966e938109e06cf
         </state>
       </provider>
     </entry>
@@ -828,9 +1045,39 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="918">
           <caret line="34" column="17" lean-forward="true" selection-start-line="34" selection-start-column="17" selection-end-line="34" selection-end-column="17" />
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/frontend/src/app/components/user/add-employee/add-employee.component.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="234">
+          <caret line="13" column="10" lean-forward="false" selection-start-line="13" selection-start-column="10" selection-end-line="13" selection-end-column="10" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+=======
+          <folding>
+            <element signature="e#0#55#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/frontend/src/app/components/configuration/designation/add-designaton/add-designaton.component.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="167">
+          <caret line="17" column="0" lean-forward="true" selection-start-line="17" selection-start-column="0" selection-end-line="17" selection-end-column="0" />
+          <folding>
+            <element signature="e#0#50#0" expanded="true" />
+          </folding>
+>>>>>>> 12a4db3d774fa9656109c08fc966e938109e06cf
+        </state>
+      </provider>
+    </entry>
+>>>>>>> 81092e282efc879db206c6d4b5ebd44ae93ed02f
     <entry file="file://$PROJECT_DIR$/frontend/src/app/model/designation.model.ts">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="135">
@@ -845,14 +1092,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/frontend/src/app/components/user/basic-info/basic-info.component.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2025">
-          <caret line="77" column="42" lean-forward="false" selection-start-line="77" selection-start-column="42" selection-end-line="77" selection-end-column="42" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/frontend/src/app/components/configuration/department/add-department/add-department.component.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="243">
@@ -860,20 +1099,58 @@
         </state>
       </provider>
     </entry>
+<<<<<<< HEAD
+    <entry file="file://$PROJECT_DIR$/frontend/src/app/components/configuration/designation/add-designaton/add-designaton.component.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="522">
+          <caret line="29" column="53" lean-forward="false" selection-start-line="29" selection-start-column="46" selection-end-line="29" selection-end-column="53" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/frontend/src/app/components/user/basic-info/basic-info.component.spec.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <element signature="e#0#73#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/frontend/src/app/components/user/basic-info/basic-info.component.ts">
+      <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
+        <state relative-caret-position="2025">
+=======
+        <state relative-caret-position="1350">
+>>>>>>> 12a4db3d774fa9656109c08fc966e938109e06cf
+          <caret line="77" column="42" lean-forward="false" selection-start-line="77" selection-start-column="42" selection-end-line="77" selection-end-column="42" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+=======
+>>>>>>> 81092e282efc879db206c6d4b5ebd44ae93ed02f
     <entry file="file://$PROJECT_DIR$/frontend/src/app/components/user/basic-info/basic-info.component.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="567">
-          <caret line="21" column="45" lean-forward="false" selection-start-line="21" selection-start-column="45" selection-end-line="21" selection-end-column="45" />
+<<<<<<< HEAD
+        <state relative-caret-position="243">
+          <caret line="9" column="136" lean-forward="true" selection-start-line="9" selection-start-column="136" selection-end-line="9" selection-end-column="138" />
+=======
+        <state relative-caret-position="1098">
+          <caret line="61" column="22" lean-forward="false" selection-start-line="61" selection-start-column="22" selection-end-line="61" selection-end-column="22" />
+          <folding />
+>>>>>>> 12a4db3d774fa9656109c08fc966e938109e06cf
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/frontend/src/app/components/configuration/designation/add-designaton/add-designaton.component.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="432">
+          <caret line="40" column="13" lean-forward="false" selection-start-line="40" selection-start-column="13" selection-end-line="40" selection-end-column="13" />
           <folding>
-            <element signature="e#2700#2706#0" expanded="true" />
-            <element signature="e#2706#2712#0" expanded="true" />
-            <element signature="e#2712#2718#0" expanded="true" />
-            <element signature="e#2852#2858#0" expanded="true" />
-            <element signature="e#2858#2864#0" expanded="true" />
-            <element signature="e#2864#2870#0" expanded="true" />
-            <element signature="e#3008#3014#0" expanded="true" />
-            <element signature="e#3014#3020#0" expanded="true" />
-            <element signature="e#3020#3026#0" expanded="true" />
+            <element signature="e#0#50#0" expanded="true" />
           </folding>
         </state>
       </provider>
