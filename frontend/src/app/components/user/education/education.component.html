@@ -6,7 +6,7 @@
   <div class="card-body">
     <div class="row">
 
-      <div class="form-group col-md-6">
+      <div class="form-group col-md-12">
         <label>Institution</label>
         <input type="text" name="institution" [(ngModel)]="educationForm.institution"  class="form-control">
       </div>
@@ -20,19 +20,13 @@
           </option>
         </select>
       </div>
-
       <div class="form-group col-md-1">
 
         <button style="margin-top: 30px" class="btn btn-outline-primary mb-2 mr-2" (click)="openLg(content)">Add New</button>
       </div>
       <div class="form-group col-md-6">
-        <label>Result </label>
-        <input type="text" name="result" [(ngModel)]="educationForm.result" class="form-control">
-      </div>
-
-      <div class="form-group col-md-6">
-        <label>Result Out of</label>
-        <input type="text" name="resultoutof"  [(ngModel)]="educationForm.resultoutof" class="form-control">
+        <label>Passing Year</label>
+        <input type="text" name="passingyear" [(ngModel)]="educationForm.passingyear" class="form-control">
       </div>
 
       <div class="form-group col-md-6">
@@ -40,10 +34,6 @@
         <input type="text" name="board"  [(ngModel)]="educationForm.board" class="form-control">
       </div>
 
-      <div class="form-group col-md-6">
-        <label>Passing Year</label>
-        <input type="text" name="passingyear" [(ngModel)]="educationForm.passingyear" class="form-control">
-      </div>
 
       <div class="form-group col-md-6">
         <label>Country</label>
@@ -56,8 +46,20 @@
       </div>
 
       <div class="form-group col-md-6">
+        <label>Result </label>
+        <input type="text" name="result" [(ngModel)]="educationForm.result" class="form-control">
+      </div>
 
-        <button style="margin-top: 32px" class="btn btn-success" (click)="onSubmit()">Submit</button>
+      <div class="form-group col-md-6">
+        <label>Result Out of</label>
+        <input type="text" name="resultoutof"  [(ngModel)]="educationForm.resultoutof" class="form-control">
+      </div>
+
+
+
+      <div class="form-group col-md-12" align="right " >
+
+        <button style="margin-top: 32px" class="btn btn-success" (click)="onSubmit()">Save Data</button>
       </div>
 
 
@@ -79,7 +81,7 @@
         <td>{{edu.degreeName}}</td>
         <td>{{edu.result}}</td>
         <td>{{edu.passingYear}}</td>
-        <td>
+        <td align="right">
           <!--<button class="btn btn-danger" (click)="deleteUser(user)"> Delete</button>-->
           <button class="btn btn-danger" (click)="editEducation(edu)" style="margin-left: 20px;"> Edit</button>
         </td>

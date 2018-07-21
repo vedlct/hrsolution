@@ -39,7 +39,7 @@ export class EmployeeComponent implements OnInit {
     const token=this.token.get();
 
     this.http.get(Constants.API_URL+'employee/get'+'?token='+token).subscribe(data => {
-          console.log(data);
+          // console.log(data);
           this.employee=data;
           this.dtTeigger.next();
           // console.log(data);

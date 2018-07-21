@@ -1,6 +1,7 @@
 import {Component, OnInit, Input} from '@angular/core';
 import {HttpClient} from "@angular/common/http";
 import {Constants} from "../../../constants";
+import {TokenService} from "../../../services/token.service";
 
 
 @Component({
@@ -12,6 +13,7 @@ export class BasicInfoComponent implements OnInit {
   department:any;
   designation:any;
   empType:any;
+  basicinfo: any;
   employeeBasicForm:any={
     department:'',
     designation:'',
@@ -32,7 +34,7 @@ export class BasicInfoComponent implements OnInit {
 
     @Input('empid') empid: any;
     
-  constructor(public http: HttpClient) { }
+  constructor(public http: HttpClient, private token:TokenService) { }
 
   ngOnInit() {
 
@@ -67,10 +69,15 @@ export class BasicInfoComponent implements OnInit {
         }
     );
 
+    const token=this.token.get();
+      this.http.post(Constants.API_URL+'employee/basicinfo'+'?token='+token,{ empid:this.empid}).subscribe(data => {
 
-      this.http.get(Constants.API_URL+'employee/getBasicinfo').subscribe(data => {
-              // console.log(data);
-              this.empType=data;
+              console.log(data);
+              this.basicinfo  = data;
+                this.employeeBasicForm.firstName = this.basicinfo.firstName;
+                this.employeeBasicForm.email = this.basicinfo.email;
+
+             //this.empType=data;
           },
           error => {
               console.log(error);
