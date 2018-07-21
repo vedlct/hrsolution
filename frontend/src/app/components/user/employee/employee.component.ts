@@ -34,7 +34,7 @@ export class EmployeeComponent implements OnInit {
           console.log(data);
           this.employee=data;
           this.dtTeigger.next();
-          console.log(data);
+          // console.log(data);
         },
         error => {
           console.log(error);

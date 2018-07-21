@@ -18,6 +18,7 @@ const routes: Routes = [
     { path: 'home', component: HomeComponent,canActivate: [AuthService] },
     { path: 'datatable', component: TablesComponent },
     { path: 'user/add',component: AddUserComponent,canActivate: [AuthService] },
+    { path: 'user/add/:id',component: AddUserComponent,canActivate: [AuthService] },
     { path: 'employee/add', component: AddEmployeeComponent,canActivate: [AuthService] },
     { path: 'employee', component: EmployeeComponent,canActivate: [AuthService] },
     { path: 'company/add', component: CompanyInfoComponent,canActivate: [AuthService] },

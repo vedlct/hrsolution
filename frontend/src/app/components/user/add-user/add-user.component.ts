@@ -21,10 +21,10 @@ export class AddUserComponent implements OnInit {
   // userImage:File;
 
 
-  constructor() { }
+  constructor(private route:ActivatedRoute) { }
 
   ngOnInit() {
-    // console.log(this.route.snapshot.params.id);
+    console.log(this.route.snapshot.params.id);
   }
 
   onSubmit(){
