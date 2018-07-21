@@ -41,7 +41,7 @@ class EmployeeController extends Controller
     }
 
     public function test(){
-        
+
     }
 
 }
