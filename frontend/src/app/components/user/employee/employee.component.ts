@@ -3,6 +3,7 @@ import {Constants} from "../../../constants";
 import {HttpClient} from "@angular/common/http";
 import {TokenService} from "../../../services/token.service";
 import {Subject} from "rxjs";
+import {ActivatedRoute} from "@angular/router";
 @Component({
   selector: 'app-employee',
   templateUrl: './employee.component.html',
@@ -13,8 +14,8 @@ export class EmployeeComponent implements OnInit {
   employee:any;
   dtOptions:DataTables.Settings={};
   dtTeigger:Subject<any>=new Subject();
-  constructor(public http: HttpClient, private token:TokenService) { }
-
+  id:any;
+  constructor(public http: HttpClient, private token:TokenService , public route:ActivatedRoute) { }
 
   ngOnInit() {
     let coldef={ "targets": 4,
@@ -28,6 +29,8 @@ export class EmployeeComponent implements OnInit {
       };
 
     this.getAllemployee();
+
+     // console.log(this.route.snapshot.params.id)
 
   }
 

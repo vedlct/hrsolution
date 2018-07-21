@@ -25,4 +25,14 @@ class EmployeeController extends Controller
             ->get();
         return $employee;
     }
+
+    public function getBasicinfo(){
+
+        $basicinfo = EmployeeInfo::select('firstName, middleName, lastName, fkEmployeeType, gender , birthdate,departmentName, title')
+            ->leftjoin('hrmdesignations','hrmdesignations.id','=','employeeinfo.fkDesignation')
+            ->leftjoin('hrmdepartments','hrmdepartments.id','=','employeeinfo.fkDepartmentId')
+            ->get();
+
+        return $basicinfo;
+    }
 }

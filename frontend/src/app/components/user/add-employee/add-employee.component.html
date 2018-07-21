@@ -16,7 +16,7 @@
 
 
     <div class="col-md-10">
-      <app-basic-info *ngIf="infoFlag ==1"></app-basic-info>
+      <app-basic-info *ngIf="infoFlag ==1" [empid]="empid"></app-basic-info>
       <app-personal-info *ngIf="infoFlag ==2"></app-personal-info>
       <app-education *ngIf="infoFlag ==3"></app-education>
       <app-joining-info *ngIf="infoFlag ==4"></app-joining-info>

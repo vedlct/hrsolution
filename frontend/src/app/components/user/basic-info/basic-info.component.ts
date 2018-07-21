@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit, Input} from '@angular/core';
 import {HttpClient} from "@angular/common/http";
 import {Constants} from "../../../constants";
 
@@ -30,10 +30,12 @@ export class BasicInfoComponent implements OnInit {
 
   selectedFile:File;
 
-
+    @Input('empid') empid: any;
+    
   constructor(public http: HttpClient) { }
 
   ngOnInit() {
+
 
     //Getting Departments
     this.http.get(Constants.API_URL+'department/get').subscribe(data => {
@@ -64,6 +66,16 @@ export class BasicInfoComponent implements OnInit {
           console.log(error);
         }
     );
+
+
+      this.http.get(Constants.API_URL+'employee/getBasicinfo').subscribe(data => {
+              // console.log(data);
+              this.empType=data;
+          },
+          error => {
+              console.log(error);
+          }
+      );
 
 
   }
