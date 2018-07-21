@@ -17,15 +17,14 @@ export class EmployeeComponent implements OnInit {
 
 
   ngOnInit() {
+    let coldef={ "targets": 4,
+        "sortable"  : false
+    };
       this.dtOptions={
         pagingType:'full_numbers',
           pageLength:10,
-          columnDefs : [{
-              targets: [4], // column or columns numbers
-              orderable: false,  // This was not working
-              filterable: false,
-              sortable  : false
-          }]
+
+          columnDefs : [ coldef ]
       };
 
     this.getAllemployee();
