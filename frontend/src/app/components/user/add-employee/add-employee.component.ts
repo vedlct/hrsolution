@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {ActivatedRoute} from "@angular/router";
 
 
 @Component({
@@ -10,14 +11,18 @@ export class AddEmployeeComponent implements OnInit {
 
 
   private infoFlag:number=1;
-  constructor() { }
+  id:any;
+  empid:any;
+  constructor(public route:ActivatedRoute) { }
 
   ngOnInit() {
-
+     this.empid =this.route.snapshot.params.id;
   }
 
   onInfoClick(value){
     this.infoFlag=value;
+
+
   }
 
 }

@@ -1,10 +1,41 @@
 <div class="card" >
   <div class="card-header">
-    <h5>Basic Info</h5>
+    <h5>Basic Information</h5>
   </div>
 
   <div class="card-body">
     <div class="row">
+
+
+
+      <div class=" form-group col-md-12">
+
+        <label >Full Name</label>
+
+        <input type="text" class="form-control" placeholder="First name" [(ngModel)]="employeeBasicForm.firstName">
+
+      </div>
+      <br>
+      <!--<div class="col-md-12"><hr></div>-->
+      <div class=" form-group col-md-4">
+
+        <label >Middle Name</label>
+
+        <input type="text" class="form-control" placeholder="Middle name" [(ngModel)]="employeeBasicForm.middleName">
+
+      </div>
+
+      <div class="form-group col-md-4">
+        <label >Last Name</label>
+        <input type="text" class="form-control" placeholder="Last name" [(ngModel)]="employeeBasicForm.lastName">
+      </div>
+      <div class="form-group col-md-4">
+        <label >Nick Name</label>
+        <input type="text" class="form-control" placeholder="Nick name" [(ngModel)]="employeeBasicForm.nickName">
+
+      </div>
+
+      <!--<div class="col-md-12"><hr></div>-->
 
       <div class="form-group col-md-4">
         <label>Department</label>
@@ -29,42 +60,18 @@
       <div class="form-group col-md-4">
         <label>Employee Type</label>
         <select class="form-control" name="fkEmployeeType" [(ngModel)]="employeeBasicForm.empType">
+          <option value="">Select Employee Type</option>
           <option *ngFor="let type of empType" [value]="type.id">
             {{type.typeTitle}}
           </option>
         </select>
       </div>
 
-      <div class="col-md-12"><hr></div>
 
 
-      <div class="col-md-3">
 
-        <label >Full Name</label>
 
-        <input type="text" class="form-control" placeholder="First name" [(ngModel)]="employeeBasicForm.firstName">
-
-      </div>
-
-      <div class="col-md-3">
-
-        <label >Middle Name</label>
-
-        <input type="text" class="form-control" placeholder="Middle name" [(ngModel)]="employeeBasicForm.middleName">
-
-      </div>
-
-      <div class="col-md-3">
-          <label >Last Name</label>
-        <input type="text" class="form-control" placeholder="Last name" [(ngModel)]="employeeBasicForm.lastName">
-      </div>
-      <div class="col-md-3">
-          <label >Nick Name</label>
-        <input type="text" class="form-control" placeholder="Nick name" [(ngModel)]="employeeBasicForm.nickName">
-
-      </div>
-
-      <div class="col-md-12"><hr></div>
+      <!--<div class="col-md-12"><hr></div>-->
 
       <div class="form-group col-md-4">
         <label>Email</label>
@@ -77,34 +84,36 @@
       </div>
 
       <div class="form-group col-md-4">
-        <label>Image</label>
-        <input type="file" class="form-control" name="photo" placeholder="image" (change)="onFileSelected($event)">
+        <label>Date Of Birth</label>
+        <input type="date" class="form-control" name="birthdate" [(ngModel)]="employeeBasicForm.birthdate">
       </div>
 
-      <div class="col-md-12"><hr></div>
+
+      <!--<div class="col-md-12"><hr></div>-->
 
       <div class="form-group col-md-4">
         <label>Gender</label>
 
-        &nbsp;&nbsp;&nbsp;
-        <input type="radio" class="form-check-input" value="male" name="gender" [(ngModel)]="employeeBasicForm.gender">Male
+        &nbsp;&nbsp;<p style="margin-left: 20px">
+        <input  type="radio" class="form-check-input" value="male" name="gender" [(ngModel)]="employeeBasicForm.gender">Male
 
         &nbsp;&nbsp;&nbsp;
         <input type="radio" class="form-check-input" value="female" name="gender" [(ngModel)]="employeeBasicForm.gender">Female
 
         &nbsp;&nbsp;&nbsp;
         <input type="radio" class="form-check-input" value="other" name="gender" [(ngModel)]="employeeBasicForm.gender">Other
-
+        </p>
 
       </div>
 
-      <div class="form-group col-md-4">
-        <label>Date Of Birth</label>
-        <input type="date" class="form-control" name="birthdate" [(ngModel)]="employeeBasicForm.birthdate">
+      <div class="form-group col-md-8">
+        <label>Image</label>
+        <input type="file" class="form-control" name="photo" placeholder="image" (change)="onFileSelected($event)">
       </div>
 
-      <div class="form-group col-md-4">
-        <button class="btn btn-success" (click)="onSubmit()">Submit</button>
+
+      <div class="form-group col-md-12" align="right" style="margin-top: 20px" >
+        <button  class="btn btn-lg btn-success " (click)="onSubmit()">Save Data</button>
       </div>
 
 

@@ -14,25 +14,23 @@ export class EmployeeComponent implements OnInit {
   employee:any;
   dtOptions:DataTables.Settings={};
   dtTeigger:Subject<any>=new Subject();
-  constructor(public http: HttpClient, private token:TokenService, private route:ActivatedRoute) {
-
-  }
-
+  id:any;
+  constructor(public http: HttpClient, private token:TokenService , public route:ActivatedRoute) { }
 
   ngOnInit() {
-      alert(this.route.snapshot.params.id);
     let coldef={ "targets": 4,
-        "sortable"  : false
+      "sortable"  : false
     };
-      this.dtOptions={
-        pagingType:'full_numbers',
-          pageLength:10,
+    this.dtOptions={
+      pagingType:'full_numbers',
+      pageLength:10,
 
-          columnDefs : [ coldef ]
-      };
+      columnDefs : [ coldef ]
+    };
 
     this.getAllemployee();
 
+    // console.log(this.route.snapshot.params.id)
   }
 
 
@@ -40,7 +38,7 @@ export class EmployeeComponent implements OnInit {
     const token=this.token.get();
 
     this.http.get(Constants.API_URL+'employee/get'+'?token='+token).subscribe(data => {
-          console.log(data);
+          // console.log(data);
           this.employee=data;
           this.dtTeigger.next();
           // console.log(data);
