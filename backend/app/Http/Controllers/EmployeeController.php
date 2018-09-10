@@ -9,7 +9,7 @@ class EmployeeController extends Controller
 {
     public function __construct()
     {
-      //  $this->middleware('auth:api');
+//        $this->middleware('auth:api');
     }
 
     public function storeBasicInfo(Request $r){
@@ -30,7 +30,7 @@ class EmployeeController extends Controller
     public function getBasicinfo(Request $r){
 
 
-        $basicinfo = EmployeeInfo::select('firstName', 'middleName', 'lastName', 'fkEmployeeType','email' ,'gender', 'birthdate', 'departmentName', 'title')
+        $basicinfo = EmployeeInfo::select('firstName', 'middleName', 'lastName', 'fkEmployeeType','email' ,'gender', 'birthdate','contactNo','fkDesignation','fkDepartmentId','departmentName', 'title')
             ->leftjoin('hrmdesignations','hrmdesignations.id','=','employeeinfo.fkDesignation')
             ->leftjoin('hrmdepartments','hrmdepartments.id','=','employeeinfo.fkDepartmentId')
             ->leftjoin('employeetypes','employeetypes.id','=','employeeinfo.fkEmployeeType')

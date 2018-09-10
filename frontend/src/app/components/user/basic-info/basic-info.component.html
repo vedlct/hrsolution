@@ -10,7 +10,7 @@
 
       <div class=" form-group col-md-12">
 
-        <label >Full Name</label>
+        <label >First Name</label>
 
         <input type="text" class="form-control" placeholder="First name" [(ngModel)]="employeeBasicForm.firstName">
 
@@ -39,7 +39,7 @@
 
       <div class="form-group col-md-4">
         <label>Department</label>
-        <select class="form-control" (change)="selectDepartment($event.target.value)">
+        <select class="form-control" (change)="selectDepartment($event.target.value)" [(ngModel)]="employeeBasicForm.department">
           <option value="">Select Department</option>
           <option *ngFor="let dept of department" [value]="dept.id">
             {{dept.departmentName}}
@@ -49,7 +49,7 @@
 
       <div class="form-group col-md-4">
         <label>Designation</label>
-        <select class="form-control" (change)="selectDesignation($event.target.value)">
+        <select class="form-control" (change)="selectDesignation($event.target.value)" [(ngModel)]="employeeBasicForm.designation">
           <option value="">Select Designation</option>
           <option *ngFor="let desg of designation" [value]="desg.id">
             {{desg.title}}
@@ -95,15 +95,14 @@
         <label>Gender</label>
 
         &nbsp;&nbsp;<p style="margin-left: 20px">
-        <input  type="radio" class="form-check-input" value="male" name="gender" [(ngModel)]="employeeBasicForm.gender">Male
+        <input  type="radio" class="form-check-input" value="M" name="gender" [(ngModel)]="employeeBasicForm.gender">Male
 
         &nbsp;&nbsp;&nbsp;
-        <input type="radio" class="form-check-input" value="female" name="gender" [(ngModel)]="employeeBasicForm.gender">Female
+        <input type="radio" class="form-check-input" value="F" name="gender" [(ngModel)]="employeeBasicForm.gender">Female
 
         &nbsp;&nbsp;&nbsp;
-        <input type="radio" class="form-check-input" value="other" name="gender" [(ngModel)]="employeeBasicForm.gender">Other
+        <input type="radio" class="form-check-input" value="O" name="gender" [(ngModel)]="employeeBasicForm.gender">Other
         </p>
-
       </div>
 
       <div class="form-group col-md-8">

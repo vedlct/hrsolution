@@ -75,7 +75,15 @@ export class BasicInfoComponent implements OnInit {
               console.log(data);
               this.basicinfo  = data;
                 this.employeeBasicForm.firstName = this.basicinfo.firstName;
+                this.employeeBasicForm.middleName = this.basicinfo.middleName;
+                this.employeeBasicForm.lastName = this.basicinfo.lastName;
                 this.employeeBasicForm.email = this.basicinfo.email;
+                this.employeeBasicForm.gender = this.basicinfo.gender;
+                this.employeeBasicForm.birthdate = this.basicinfo.birthdate;
+                this.employeeBasicForm.department = this.basicinfo.fkDepartmentId;
+                this.employeeBasicForm.empType = this.basicinfo.fkEmployeeType;
+                this.employeeBasicForm.designation = this.basicinfo.fkDesignation;
+                this.employeeBasicForm.contactNo = this.basicinfo.contactNo;
 
              //this.empType=data;
           },
