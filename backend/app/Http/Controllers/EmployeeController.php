@@ -21,6 +21,7 @@ class EmployeeController extends Controller
         $employee = EmployeeInfo::select('*')
             ->leftjoin('hrmdesignations','hrmdesignations.id','=','employeeinfo.fkDesignation')
             ->leftjoin('hrmdepartments','hrmdepartments.id','=','employeeinfo.fkDepartmentId')
+            ->where('employeeinfo.fkCompany' , auth()->user()->fkCompany)
             ->get();
         return $employee;
     }

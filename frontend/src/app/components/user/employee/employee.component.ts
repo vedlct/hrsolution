@@ -3,6 +3,7 @@ import {Constants} from "../../../constants";
 import {HttpClient} from "@angular/common/http";
 import {TokenService} from "../../../services/token.service";
 import {Subject} from "rxjs";
+import {ActivatedRoute} from "@angular/router";
 @Component({
   selector: 'app-employee',
   templateUrl: './employee.component.html',
@@ -13,17 +14,25 @@ export class EmployeeComponent implements OnInit {
   employee:any;
   dtOptions:DataTables.Settings={};
   dtTeigger:Subject<any>=new Subject();
-  constructor(public http: HttpClient, private token:TokenService) { }
+  constructor(public http: HttpClient, private token:TokenService, private route:ActivatedRoute) {
+
+  }
 
 
   ngOnInit() {
+      alert(this.route.snapshot.params.id);
+    let coldef={ "targets": 4,
+        "sortable"  : false
+    };
       this.dtOptions={
         pagingType:'full_numbers',
-          pageLength:10
+          pageLength:10,
+
+          columnDefs : [ coldef ]
       };
 
     this.getAllemployee();
-     // $('#example').DataTable();
+
   }
 
 
@@ -41,35 +50,9 @@ export class EmployeeComponent implements OnInit {
         }
     );
 
-    // $('#example').DataTable({
-    //   rowReorder: {
-    //     selector: 'td:nth-child(0)'
-    //   },
-    //   responsive: true,
-    //   processing: true,
-    //   serverSide: true,
-    //   Filter: true,
-    //   stateSave: true,
-    //
-    //   "ajax":{
-    //     "url":Constants.API_URL+'employee/get'+'?token='+token ,
-    //     "type": "GET",
-    //     data:function (d){
-    //       d._token=token
-    //
-    //     },
-    //
-    //   },
-    //   columns: [
-    //     { data: 'EmployeeId', name: 'EmployeeId' },
-    //
-    //   ]
-    // } );
+
 
   }
 
 
-  checkEmployee(){
-    return true;
-  }
 }
