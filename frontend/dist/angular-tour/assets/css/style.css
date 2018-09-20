@@ -624,13 +624,13 @@ code {
 .list-group-item.active .list-group-item-text,
 .list-group-item.active:focus .list-group-item-text,
 .list-group-item.active > .badge {
-    color: #0f9cf3
+    color: #0f9cf3;
 }
 
 .list-group-item {
-    border-radius: 0;
+    border-radius: none;
     padding: 12px 20px;
-    border: 1px solid
+
 }
 
 .list-group-item:first-child,
@@ -1094,7 +1094,7 @@ code {
 
 .btn-primary {
     background-color: #0f9cf3;
-    border: 1px solid #0f9cf3
+    border: 1px solid #0f9cf3;
 }
 
 .btn-outline-primary.active,
@@ -1109,7 +1109,7 @@ code {
 .show > .btn-outline-primary.dropdown-toggle,
 .show > .btn-primary.dropdown-toggle {
     background-color: #0b8ddd;
-    border: 1px solid #0b8ddd
+    border: 1px solid #fff;
 }
 
 .btn-success {
@@ -3238,6 +3238,27 @@ body {
     .notify-details {
         margin-left: 0!important
     }
+}
+
+.btn-block {
+    display: block;
+    text-align: left;
+}
+
+.list-group-item {
+    position: relative;
+    display: block;
+    padding: .75rem 1.25rem;
+    margin-bottom: -1px;
+    background-color: black;
+    border: 1px solid rgba(0,0,0,.125);
+}
+
+.list-group-item.active, .list-group-item.active:hover {
+    background-color: black;
+    border-color: black;
+    color: #444;
+    z-index: 2;
 }
 
 /*# sourceMappingURL=style.css.map */
