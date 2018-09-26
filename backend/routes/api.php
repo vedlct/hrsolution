@@ -97,5 +97,5 @@ Route::group([
     //salary Info post
     Route::post('SalryInfo/post','EmployeeController@updateSalryInfo');
     //Update Education
-    Route::post('EmployeeController','EmployeeController@updateEudcation');
+    Route::post('education/post','EmployeeController@updateEudcation');
 });
