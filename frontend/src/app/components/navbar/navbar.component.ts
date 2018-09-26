@@ -15,6 +15,7 @@ export class NavbarComponent implements OnInit {
 
   ngOnInit() {
 
+
       const token=this.token.get();
       this.http.post(Constants.API_URL+'me?token='+token,null).subscribe(data => {
               // console.log(data);

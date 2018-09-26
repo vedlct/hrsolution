@@ -8,11 +8,15 @@
 
 
 
-      <div class=" form-group col-md-12">
+      <div class="form-group col-md-4">
 
         <label >First Name</label>
 
+<<<<<<< HEAD
         <input type="text" name="firstName" class="form-control" placeholder="First name" [(ngModel)]="employeeBasicForm.firstName">
+=======
+        <input type="text" class="form-control" placeholder="First name" [(ngModel)]="employeeBasicForm.firstName" required>
+>>>>>>> 02110ddd0fd6271927427b294ce66f45cb069f03
 
       </div>
       <br>
@@ -21,17 +25,37 @@
 
         <label >Middle Name</label>
 
+<<<<<<< HEAD
         <input type="text" name="middleName" class="form-control" placeholder="Middle name" [(ngModel)]="employeeBasicForm.middleName">
+=======
+        <input type="text" class="form-control" placeholder="Middle name" [(ngModel)]="employeeBasicForm.middleName" required>
+>>>>>>> 02110ddd0fd6271927427b294ce66f45cb069f03
 
       </div>
 
       <div class="form-group col-md-4">
         <label >Last Name</label>
+<<<<<<< HEAD
         <input type="text" name="lastName" class="form-control" placeholder="Last name" [(ngModel)]="employeeBasicForm.lastName">
       </div>
       <div class="form-group col-md-4">
         <label >Nick Name</label>
         <input type="text" name="nickName" class="form-control" placeholder="Nick name" [(ngModel)]="employeeBasicForm.nickName">
+=======
+        <input type="text" class="form-control" placeholder="Last name" [(ngModel)]="employeeBasicForm.lastName" required>
+      </div>
+      <div class="form-group col-md-4">
+        <label >Nick Name</label>
+        <input type="text" class="form-control" placeholder="Nick name" [(ngModel)]="employeeBasicForm.nickName" required>
+
+      </div>
+
+      <div class=" form-group col-md-4">
+
+        <label >Employee Id</label>
+
+        <input type="text" class="form-control" placeholder="employee id" [(ngModel)]="employeeBasicForm.EmployeeId" required>
+>>>>>>> 02110ddd0fd6271927427b294ce66f45cb069f03
 
       </div>
 
@@ -39,7 +63,11 @@
 
       <div class="form-group col-md-4">
         <label>Department</label>
+<<<<<<< HEAD
         <select class="form-control" name="fkDepartmentId" (change)="selectDepartment($event.target.value)" [(ngModel)]="employeeBasicForm.department">
+=======
+        <select class="form-control" (change)="selectDepartment($event.target.value)" [(ngModel)]="employeeBasicForm.department" required>
+>>>>>>> 02110ddd0fd6271927427b294ce66f45cb069f03
           <option value="">Select Department</option>
           <option *ngFor="let dept of department" [value]="dept.id" >
             {{dept.departmentName}}
@@ -49,7 +77,11 @@
 
       <div class="form-group col-md-4">
         <label>Designation</label>
+<<<<<<< HEAD
         <select class="form-control"name="fkDesignation"  (change)="selectDesignation($event.target.value)" [(ngModel)]="employeeBasicForm.designation">
+=======
+        <select class="form-control" (change)="selectDesignation($event.target.value)" [(ngModel)]="employeeBasicForm.designation" required>
+>>>>>>> 02110ddd0fd6271927427b294ce66f45cb069f03
           <option value="">Select Designation</option>
           <option *ngFor="let desg of designation" [value]="desg.id">
             {{desg.title}}
@@ -59,7 +91,7 @@
 
       <div class="form-group col-md-4">
         <label>Employee Type</label>
-        <select class="form-control" name="fkEmployeeType" [(ngModel)]="employeeBasicForm.empType">
+        <select class="form-control" name="fkEmployeeType" [(ngModel)]="employeeBasicForm.empType" required>
           <option value="">Select Employee Type</option>
           <option *ngFor="let type of empType" [value]="type.id">
             {{type.typeTitle}}
@@ -75,17 +107,17 @@
 
       <div class="form-group col-md-4">
         <label>Email</label>
-        <input type="email" class="form-control" name="email" placeholder="email" [(ngModel)]="employeeBasicForm.email">
+        <input type="email" class="form-control" name="email" placeholder="email" [(ngModel)]="employeeBasicForm.email" required>
       </div>
 
       <div class="form-group col-md-4">
         <label>Contact Number</label>
-        <input type="text" class="form-control" name="contactNo" placeholder="phone" [(ngModel)]="employeeBasicForm.contactNo">
+        <input type="text" class="form-control" name="contactNo" placeholder="phone" [(ngModel)]="employeeBasicForm.contactNo" required>
       </div>
 
       <div class="form-group col-md-4">
         <label>Date Of Birth</label>
-        <input type="date" class="form-control" name="birthdate" [(ngModel)]="employeeBasicForm.birthdate">
+        <input type="date" class="form-control" name="birthdate" [(ngModel)]="employeeBasicForm.birthdate" required>
       </div>
 
 
