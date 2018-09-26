@@ -3,7 +3,7 @@ import {HttpClient} from "@angular/common/http";
 import {TokenService} from "../../../services/token.service";
 import {Router} from "@angular/router";
 import {Constants} from "../../../constants";
-
+declare var $ :any;
 @Component({
   selector: 'app-bank-info',
   templateUrl: './bank-info.component.html',
