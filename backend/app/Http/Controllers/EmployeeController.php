@@ -48,6 +48,7 @@ class EmployeeController extends Controller
  */
 
     public function storeBasicInfo(Request $r){
+//        return $r;
         if($r->id){
             $employeeInfo = EmployeeInfo::findOrFail($r->id);
         }
@@ -59,9 +60,9 @@ class EmployeeController extends Controller
             $employeeInfo->middleName =$r->middleName;
             $employeeInfo->lastName = $r->lastName;
             $employeeInfo->nickName =$r->nickName;
-            $employeeInfo->fkDepartmentId=$r->fkDepartmentId;
-            $employeeInfo->fkDesignation=$r->fkDesignation;
-            $employeeInfo->fkEmployeeType=$r->fkEmployeeType;
+            $employeeInfo->fkDepartmentId=$r->department;
+            $employeeInfo->fkDesignation=$r->designation;
+            $employeeInfo->fkEmployeeType=$r->empType;
             $employeeInfo->email=$r->email;
             $employeeInfo->contactNo=$r->contactNo;
             $employeeInfo->birthdate=$r->birthdate;
@@ -105,4 +106,12 @@ public function updatePersonalInfo(Request $r){
    // return $employeeInfo;
 
 }
+public function getPersonaInfo(Request $r){
+      $personalInfo =  EmployeeInfo::select('fatherName','motherName','spouseName','nationalId','presentStreet','presentPS','presentZipcod',
+            'permanentStreet','permanentStreet','permanentZipcod')->where('id','=',$r->id)->first();
+
+      return response()->json($personalInfo);
+}
+
+
 }

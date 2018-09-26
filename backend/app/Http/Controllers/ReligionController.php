@@ -9,11 +9,7 @@ use App\Http\Controllers\Controller;
 
 class ReligionController extends Controller
 {
-    public function getNationality(){
-        $nationality = country::select('code','Name')->get();
-        //return $nationality;
-       return response()->json(["message"=> "Success"]);
-    }
+
 
     public  function getReligion(){
             $religion = religion::all();
