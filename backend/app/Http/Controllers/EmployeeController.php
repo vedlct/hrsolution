@@ -74,9 +74,6 @@ class EmployeeController extends Controller
             $employeeInfo->save();
           //  return response()->json(["message"=>"Data Stored Successfully"]);
         return $employeeInfo;
-
-
-
     }
 public function updatePersonalInfo(Request $r){
 
@@ -94,13 +91,9 @@ public function updatePersonalInfo(Request $r){
         $employeeInfo->permanentStreet = $r->permanentStreet;
         $employeeInfo->permanentPS = $r->permanentPS;
         $employeeInfo->permanentZipcod = $r->permanentZipcod;
-
         $employeeInfo->save();
         return response()->json(["message"=>"Data Updated Successfully"],200);
-
-
 }
-
 public function getPersonalInfo(Request $r){
 
       $personalInfo =  EmployeeInfo::select('fatherName','motherName','spouseName','nationalId','presentStreet','presentPS','presentZipcod',
@@ -116,8 +109,6 @@ public function getJoinInfo(Request $r){
 
         return response()->json($joinInfo);
 }
-
-
 public function updateJoinInfo(Request $r){
         $joinInfo = EmployeeInfo::findOrFail($r->id);
         $joinInfo->actualJoinDate = $r->actualJoinDate;
@@ -130,7 +121,7 @@ public function updateJoinInfo(Request $r){
         $joinInfo->update();
          return response()->json(["message"=>"Join Info updated"]);
 }
-public function bankInfo(Request $r){
+public function getBankInfo(Request $r){
         $bankInfo = EmployeeInfo::select('pfAccountNo','bankAccountNo','tinId')->where('id','=',$r->id)->first();
         return response()->json($bankInfo);
 }
@@ -155,6 +146,7 @@ public function updateSalryInfo(Request $r){
         $salaryInfo = EmployeeInfo::findOrFail($r->id);
         $salaryInfo->consolidatedSalary = $r->consolidatedSalary;
         $salaryInfo->payroll = $r->payroll;
+        $salaryInfo->save();
         return response()->json(["message"=>"Salary Info Updated"]);
 }
 public function updateEudcation(Request $r){
@@ -162,6 +154,7 @@ public function updateEudcation(Request $r){
         $educationInfo = Education::findOrFail($r->fkEmployeeId);
     }
     else {
+
         $educationInfo = new Education();
     }
     $educationInfo->institution= $r->institution;
@@ -173,9 +166,6 @@ public function updateEudcation(Request $r){
     $educationInfo->fkCountry = $r->fkCountry;
     $educationInfo->update();
     return response()->json(["message"=>"Education Info updated"]);
-
-
-
 }
 
 }

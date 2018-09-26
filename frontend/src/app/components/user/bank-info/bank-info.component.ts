@@ -12,6 +12,7 @@ import {Constants} from "../../../constants";
 export class BankInfoComponent implements OnInit {
 
   @Input('empid') empid: any;
+  bankFrom:any;
   employeeBankForm:any={
     id:'',
     pfAccountNo:'',
@@ -23,6 +24,22 @@ export class BankInfoComponent implements OnInit {
 
   ngOnInit() {
     this.employeeBankForm.id=this.empid;
+    const token=this.token.get();
+    this.http.post(Constants.API_URL+'bankinfo/get'+'?token='+token,{id:this.employeeBankForm.id}).subscribe(data => {
+          // console.log(data);
+      this.bankFrom=data;
+      this.employeeBankForm.pfAccountNo=this.bankFrom.pfAccountNo;
+      this.employeeBankForm.bankAccountNo=this.bankFrom.bankAccountNo;
+      this.employeeBankForm.tinId=this.bankFrom.tinId;
+
+
+
+        },
+        error => {
+          console.log(error);
+        }
+    );
+
 
   }
 
@@ -32,16 +49,7 @@ export class BankInfoComponent implements OnInit {
           this.result=data;
           $.alert({
             title: 'Success!',
-            type: 'Green',
             content: this.result.message,
-            buttons: {
-              tryAgain: {
-                text: 'Ok',
-                btnClass: 'btn-red',
-                action: function () {
-                }
-              }
-            }
           });
 
         },
