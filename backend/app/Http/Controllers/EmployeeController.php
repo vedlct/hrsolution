@@ -48,6 +48,7 @@ class EmployeeController extends Controller
  */
 
     public function storeBasicInfo(Request $r){
+//        return $r;
         if($r->id){
             $employeeInfo = EmployeeInfo::findOrFail($r->id);
         }
@@ -59,9 +60,9 @@ class EmployeeController extends Controller
             $employeeInfo->middleName =$r->middleName;
             $employeeInfo->lastName = $r->lastName;
             $employeeInfo->nickName =$r->nickName;
-            $employeeInfo->fkDepartmentId=$r->fkDepartmentId;
-            $employeeInfo->fkDesignation=$r->fkDesignation;
-            $employeeInfo->fkEmployeeType=$r->fkEmployeeType;
+            $employeeInfo->fkDepartmentId=$r->department;
+            $employeeInfo->fkDesignation=$r->designation;
+            $employeeInfo->fkEmployeeType=$r->empType;
             $employeeInfo->email=$r->email;
             $employeeInfo->contactNo=$r->contactNo;
             $employeeInfo->birthdate=$r->birthdate;
@@ -85,7 +86,7 @@ class EmployeeController extends Controller
 
     }
 public function updatePersonalInfo(Request $r){
-        //return $r;
+
         $employeeInfo = EmployeeInfo::findOrFail($r->id);
         $employeeInfo->fatherName = $r->fatherName;
         $employeeInfo->motherName = $r->motherName;
@@ -100,9 +101,19 @@ public function updatePersonalInfo(Request $r){
         $employeeInfo->permanentStreet = $r->permanentStreet;
         $employeeInfo->permanentPS = $r->permanentPS;
         $employeeInfo->permanentZipcod = $r->permanentZipcod;
-        $employeeInfo->update();
+        $employeeInfo->save();
         return response()->json(["message"=>"Data Updated Successfully"]);
-   // return $employeeInfo;
+
 
 }
+public function getPersonaInfo(Request $r){
+      $personalInfo =  EmployeeInfo::select('fatherName','motherName','maritalStatus','spouseName','nationalId','presentStreet','presentPS','presentZipcod',
+            'permanentStreet','permanentStreet','permanentZipcod')
+          ->where('id','=',$r->id)
+          ->first();
+
+      return response()->json($personalInfo);
+}
+
+
 }
