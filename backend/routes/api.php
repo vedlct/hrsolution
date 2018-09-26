@@ -72,7 +72,7 @@ Route::group([
 
     //get all education
     Route::get('education/get','EducationController@getAlleducation');
-    //get Country
+    //get Country-Nationality
     Route::get('nationality/get','ReligionController@getNationality');
     //get religion
     Route::get('religion/get','ReligionController@getReligion');

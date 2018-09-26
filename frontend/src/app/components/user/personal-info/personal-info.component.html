@@ -34,17 +34,21 @@
 
       <div class="form-group col-md-6">
         <label>Religion</label>
-        <select class="form-control" name="religion">
-          <option>Islam</option>
-          <option>Hindu</option>
+        <select class="form-control" name="religion" [(ngModel)]="employeePersonalForm.fkReligion">
+          <option value="">Select religion</option>
+            <option *ngFor="let reli of religion" [value]="reli.id">
+                {{reli.religionName}}
+            </option>
         </select>
       </div>
 
       <div class="form-group col-md-6">
         <label>Nationality</label>
-        <select class="form-control" name="fkNationality">
-          <option>Bangladeshi</option>
-          <option>Indian</option>
+        <select class="form-control" name="fkNationality" [(ngModel)]="employeePersonalForm.fkNationality">
+          <option value="">Select nationality</option>
+            <option *ngFor="let nation of nationality" [value]="nation.code">
+                {{nation.Name}}
+            </option>
         </select>
       </div>
 

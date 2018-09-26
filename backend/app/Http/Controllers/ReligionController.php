@@ -11,13 +11,12 @@ class ReligionController extends Controller
 {
     public function getNationality(){
         $nationality = country::select('code','Name')->get();
-        //return $nationality;
-       return response()->json(["message"=> "Success"]);
+        return $nationality;
+
     }
 
     public  function getReligion(){
             $religion = religion::all();
-           // return $religion;
-        return response()->json(["message"=> "Success"]);
+            return $religion;
     }
 }
