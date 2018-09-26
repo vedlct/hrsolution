@@ -28,8 +28,6 @@ class EmployeeController extends Controller
     }
 
     public function getBasicinfo(Request $r){
-
-
         $basicinfo = EmployeeInfo::select('EmployeeId','firstName', 'middleName', 'lastName', 'fkEmployeeType','email' ,'gender', 'birthdate','contactNo','fkDesignation','fkDepartmentId','departmentName', 'title')
             ->leftjoin('hrmdesignations','hrmdesignations.id','=','employeeinfo.fkDesignation')
             ->leftjoin('hrmdepartments','hrmdepartments.id','=','employeeinfo.fkDepartmentId')
@@ -68,18 +66,14 @@ class EmployeeController extends Controller
             $employeeInfo->gender =$r->gender;
             if($r->hasFile('photo')){
                 $images = $r->file('photo');
-                foreach ($images as $image){
-                    $name = time().'.'.$image->getClientOriginalName();
+                    $name = time().'.'.$images->getClientOriginalName();
                     $destinationPath = public_path('/images');
-                    $image->move($destinationPath, $name);
-
-                    $employeeInfo->photo=$destinationPath.'/'.$name;
-                }
-
-
+                    $images->move($destinationPath, $name);
+                    $employeeInfo->photo=$name;
             }
             $employeeInfo->save();
-            return response()->json(["message"=>"Data Stored Successfully"]);
+          //  return response()->json(["message"=>"Data Stored Successfully"]);
+        return $employeeInfo;
 
 
 
@@ -102,7 +96,7 @@ public function updatePersonalInfo(Request $r){
         $employeeInfo->permanentZipcod = $r->permanentZipcod;
 
         $employeeInfo->save();
-        return response()->json(["message"=>"Data Updated Successfully"]);
+        return response()->json(["message"=>"Data Updated Successfully"],200);
 
 
 }
@@ -161,6 +155,27 @@ public function updateSalryInfo(Request $r){
         $salaryInfo = EmployeeInfo::findOrFail($r->id);
         $salaryInfo->consolidatedSalary = $r->consolidatedSalary;
         $salaryInfo->payroll = $r->payroll;
-        return response()->json(["message"=>"salary Info Updated"]);
+        return response()->json(["message"=>"Salary Info Updated"]);
 }
+public function updateEudcation(Request $r){
+    if($r->fkEmployeeId){
+        $educationInfo = Education::findOrFail($r->fkEmployeeId);
+    }
+    else {
+        $educationInfo = new Education();
+    }
+    $educationInfo->institution= $r->institution;
+    $educationInfo->passingYear=$r->passingYear;
+    $educationInfo->boardUnivarsity =$r->boardUnivarsity;
+    $educationInfo->resultAchieved = $r->resultAchieved;
+    $educationInfo->resultOutOf = $r->resultOutOf;
+    $educationInfo->fkDegreeId = $r->fkDegreeId;
+    $educationInfo->fkCountry = $r->fkCountry;
+    $educationInfo->update();
+    return response()->json(["message"=>"Education Info updated"]);
+
+
+
+}
+
 }
