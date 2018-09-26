@@ -64,9 +64,9 @@ Route::group([
     Route::post('employee/updatePersonalInfo','EmployeeController@updatePersonalInfo');
 
     //get personal Info
-
-    Route::post('personalinfo/post','EmployeeController@getPersonaInfo');
-
+    Route::post('personalinfo/get','EmployeeController@getPersonalInfo');
+    //employee Join Info
+    Route::post('joininfo/get','EmployeeController@getJoinInfo');
 
     //Get Degree
     Route::get('degree/get','DegreeController@get');

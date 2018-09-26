@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Education;
 use App\EmployeeInfo;
 use App\User;
 use Carbon\Carbon;
@@ -15,8 +16,6 @@ class EmployeeController extends Controller
     {
 //        $this->middleware('auth:api');
     }
-
-
 
     public function getAllEmployee(){
         $employee = EmployeeInfo::select('*', 'employeeinfo.id as empid')
@@ -102,16 +101,21 @@ public function updatePersonalInfo(Request $r){
         $employeeInfo->permanentPS = $r->permanentPS;
         $employeeInfo->permanentZipcod = $r->permanentZipcod;
         $employeeInfo->update();
-        return response()->json(["message"=>"Data Updated Successfully"]);
-   // return $employeeInfo;
+        return $employeeInfo;
 
 }
-public function getPersonaInfo(Request $r){
+public function getPersonalInfo(Request $r){
       $personalInfo =  EmployeeInfo::select('fatherName','motherName','spouseName','nationalId','presentStreet','presentPS','presentZipcod',
-            'permanentStreet','permanentStreet','permanentZipcod')->where('id','=',$r->id)->first();
+            'permanentStreet','permanentStreet','permanentZipcod','maritalStatus','fkReligion','fkNationality')->where('id','=',$r->id)->first();
 
       return response()->json($personalInfo);
 }
 
+public function getJoinInfo(Request $r){
+        $joinInfo = EmployeeInfo::select('actualJoinDate','recentJoinDate','resignDate','weekend','accessPin','scheduleInTime','scheduleOutTime')
+        ->where('id','=',$r->id)->first();
+
+        return response()->json($joinInfo);
+}
 
 }
