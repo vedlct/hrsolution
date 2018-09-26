@@ -61,12 +61,16 @@ Route::group([
     //Employee basicinfo
     Route::post('employee/basicinfo','EmployeeController@getBasicinfo');
 //    Route::post('employee/storeBasicInfo','EmployeeController@storeBasicInfo');
+
+
     Route::post('employee/updatePersonalInfo','EmployeeController@updatePersonalInfo');
 
     //get personal Info
+
     Route::post('personalinfo/get','EmployeeController@getPersonalInfo');
     //employee Join Info
     Route::post('joininfo/get','EmployeeController@getJoinInfo');
+
 
     //Get Degree
     Route::get('degree/get','DegreeController@get');
@@ -76,8 +80,10 @@ Route::group([
 
     //get all education
     Route::get('education/get','EducationController@getAlleducation');
-    //get Country
+
+    //get Country-nationality
     Route::get('nationality/get','NationalityController@getNationality');
+
     //get religion
     Route::get('religion/get','ReligionController@getReligion');
 

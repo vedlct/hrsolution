@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit, Input} from '@angular/core';
 
 @Component({
   selector: 'app-joining-info',
@@ -6,7 +6,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./joining-info.component.css']
 })
 export class JoiningInfoComponent implements OnInit {
-
+  @Input('empid') empid: any;
   constructor() { }
 
   ngOnInit() {

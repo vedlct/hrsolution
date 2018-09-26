@@ -10,10 +10,8 @@ use App\Http\Controllers\Controller;
 class ReligionController extends Controller
 {
 
-
     public  function getReligion(){
             $religion = religion::all();
-           // return $religion;
-        return response()->json(["message"=> "Success"]);
+            return $religion;
     }
 }

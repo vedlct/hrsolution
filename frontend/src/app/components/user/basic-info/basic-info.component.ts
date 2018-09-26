@@ -75,7 +75,7 @@ export class BasicInfoComponent implements OnInit {
     const token=this.token.get();
       this.http.post(Constants.API_URL+'employee/basicinfo'+'?token='+token,{ empid:this.empid}).subscribe(data => {
 
-              console.log(data);
+              // console.log(data);
               this.basicinfo  = data;
               if(data !=null){
                   this.employeeBasicForm.id = this.empid;
@@ -183,8 +183,19 @@ export class BasicInfoComponent implements OnInit {
 
       this.http.post(Constants.API_URL+'employee/basic',fd).subscribe(data => {
               console.log(data);
-              // employee/edit/:id
-            // For insert more info
+              $.alert({
+                  title: 'Success!',
+                  type: 'Green',
+                  content: data.message,
+                  buttons: {
+                      tryAgain: {
+                          text: 'Ok',
+                          btnClass: 'btn-red',
+                          action: function () {
+                          }
+                      }
+                  }
+              });
               this.router.navigate(['employee', 'edit', 1]);
 
           },

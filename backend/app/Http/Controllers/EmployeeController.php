@@ -85,13 +85,13 @@ class EmployeeController extends Controller
 
     }
 public function updatePersonalInfo(Request $r){
-        //return $r;
+
         $employeeInfo = EmployeeInfo::findOrFail($r->id);
         $employeeInfo->fatherName = $r->fatherName;
         $employeeInfo->motherName = $r->motherName;
         $employeeInfo->maritalStatus = $r->maritalStatus;
         $employeeInfo->spouseName = $r->spouseName;
-        $employeeInfo->fkReligion = $r->religion;
+        $employeeInfo->fkReligion = $r->fkReligion;
         $employeeInfo->fkNationality = $r->fkNationality;
         $employeeInfo->nationalId = $r->nationalId;
         $employeeInfo->presentStreet = $r->presentStreet;
@@ -100,14 +100,19 @@ public function updatePersonalInfo(Request $r){
         $employeeInfo->permanentStreet = $r->permanentStreet;
         $employeeInfo->permanentPS = $r->permanentPS;
         $employeeInfo->permanentZipcod = $r->permanentZipcod;
-        $employeeInfo->update();
-        return $employeeInfo;
+
+        $employeeInfo->save();
+        return response()->json(["message"=>"Data Updated Successfully"]);
+
 
 }
-public function getPersonalInfo(Request $r){
-      $personalInfo = EmployeeInfo::select('fatherName','motherName','spouseName','nationalId','presentStreet','presentPS','presentZipcod',
-            'permanentStreet','permanentStreet','permanentZipcod','maritalStatus','fkReligion','fkNationality')->where('id','=',$r->id)->first();
 
+public function getPersonalInfo(Request $r){
+
+      $personalInfo =  EmployeeInfo::select('fatherName','motherName','spouseName','nationalId','presentStreet','presentPS','presentZipcod',
+            'permanentStreet','permanentPS','permanentStreet','permanentZipcod','maritalStatus','fkReligion','fkNationality')
+          ->where('id','=',$r->id)
+          ->first();
       return response()->json($personalInfo);
 }
 
