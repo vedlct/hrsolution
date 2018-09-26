@@ -7,6 +7,9 @@ use Illuminate\Database\Eloquent\Model;
 class EmployeeInfo extends Model
 {
     public $timestamps = false;
-    protected $primaryKey = 'employeeId';
+    protected $primaryKey = 'id';
     protected $table = 'employeeinfo';
+    protected  $fillable =[
+      'fatherName'
+    ];
 }

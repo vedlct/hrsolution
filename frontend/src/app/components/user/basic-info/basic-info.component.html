@@ -12,7 +12,7 @@
 
         <label >First Name</label>
 
-        <input type="text" class="form-control" placeholder="First name" [(ngModel)]="employeeBasicForm.firstName">
+        <input type="text" name="firstName" class="form-control" placeholder="First name" [(ngModel)]="employeeBasicForm.firstName">
 
       </div>
       <br>
@@ -21,17 +21,17 @@
 
         <label >Middle Name</label>
 
-        <input type="text" class="form-control" placeholder="Middle name" [(ngModel)]="employeeBasicForm.middleName">
+        <input type="text" name="middleName" class="form-control" placeholder="Middle name" [(ngModel)]="employeeBasicForm.middleName">
 
       </div>
 
       <div class="form-group col-md-4">
         <label >Last Name</label>
-        <input type="text" class="form-control" placeholder="Last name" [(ngModel)]="employeeBasicForm.lastName">
+        <input type="text" name="lastName" class="form-control" placeholder="Last name" [(ngModel)]="employeeBasicForm.lastName">
       </div>
       <div class="form-group col-md-4">
         <label >Nick Name</label>
-        <input type="text" class="form-control" placeholder="Nick name" [(ngModel)]="employeeBasicForm.nickName">
+        <input type="text" name="nickName" class="form-control" placeholder="Nick name" [(ngModel)]="employeeBasicForm.nickName">
 
       </div>
 
@@ -39,9 +39,9 @@
 
       <div class="form-group col-md-4">
         <label>Department</label>
-        <select class="form-control" (change)="selectDepartment($event.target.value)" [(ngModel)]="employeeBasicForm.department">
+        <select class="form-control" name="fkDepartmentId" (change)="selectDepartment($event.target.value)" [(ngModel)]="employeeBasicForm.department">
           <option value="">Select Department</option>
-          <option *ngFor="let dept of department" [value]="dept.id">
+          <option *ngFor="let dept of department" [value]="dept.id" >
             {{dept.departmentName}}
           </option>
         </select>
@@ -49,7 +49,7 @@
 
       <div class="form-group col-md-4">
         <label>Designation</label>
-        <select class="form-control" (change)="selectDesignation($event.target.value)" [(ngModel)]="employeeBasicForm.designation">
+        <select class="form-control"name="fkDesignation"  (change)="selectDesignation($event.target.value)" [(ngModel)]="employeeBasicForm.designation">
           <option value="">Select Designation</option>
           <option *ngFor="let desg of designation" [value]="desg.id">
             {{desg.title}}

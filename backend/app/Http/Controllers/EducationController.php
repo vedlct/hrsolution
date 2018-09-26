@@ -20,4 +20,6 @@ class EducationController extends Controller
             ->get();
         return $education;
     }
+
+
 }

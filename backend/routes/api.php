@@ -60,6 +60,8 @@ Route::group([
 
     //Employee basicinfo
     Route::post('employee/basicinfo','EmployeeController@getBasicinfo');
+    Route::post('employee/storeBasicInfo','EmployeeController@storeBasicInfo');
+    Route::post('employee/updatePersonalInfo','EmployeeController@updatePersonalInfo');
 
 
     //Get Degree
@@ -70,6 +72,8 @@ Route::group([
 
     //get all education
     Route::get('education/get','EducationController@getAlleducation');
-
-
+    //get Country
+    Route::get('nationality/get','ReligionController@getNationality');
+    //get religion
+    Route::get('religion/get','ReligionController@getReligion');
 });
