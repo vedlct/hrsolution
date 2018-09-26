@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Education;
 use App\EmployeeInfo;
 use App\User;
 use Carbon\Carbon;
@@ -15,8 +16,6 @@ class EmployeeController extends Controller
     {
 //        $this->middleware('auth:api');
     }
-
-
 
     public function getAllEmployee(){
         $employee = EmployeeInfo::select('*', 'employeeinfo.id as empid')
@@ -92,7 +91,7 @@ public function updatePersonalInfo(Request $r){
         $employeeInfo->motherName = $r->motherName;
         $employeeInfo->maritalStatus = $r->maritalStatus;
         $employeeInfo->spouseName = $r->spouseName;
-        $employeeInfo->fkReligion = $r->religion;
+        $employeeInfo->fkReligion = $r->fkReligion;
         $employeeInfo->fkNationality = $r->fkNationality;
         $employeeInfo->nationalId = $r->nationalId;
         $employeeInfo->presentStreet = $r->presentStreet;
@@ -101,19 +100,27 @@ public function updatePersonalInfo(Request $r){
         $employeeInfo->permanentStreet = $r->permanentStreet;
         $employeeInfo->permanentPS = $r->permanentPS;
         $employeeInfo->permanentZipcod = $r->permanentZipcod;
+
         $employeeInfo->save();
         return response()->json(["message"=>"Data Updated Successfully"]);
 
 
 }
-public function getPersonaInfo(Request $r){
-      $personalInfo =  EmployeeInfo::select('fatherName','motherName','maritalStatus','spouseName','nationalId','presentStreet','presentPS','presentZipcod',
-            'permanentStreet','permanentStreet','permanentZipcod')
+
+public function getPersonalInfo(Request $r){
+      $personalInfo =  EmployeeInfo::select('fatherName','motherName','spouseName','nationalId','presentStreet','presentPS','presentZipcod',
+            'permanentStreet','permanentPS','permanentStreet','permanentZipcod','maritalStatus','fkReligion','fkNationality')
           ->where('id','=',$r->id)
           ->first();
 
       return response()->json($personalInfo);
 }
 
+public function getJoinInfo(Request $r){
+        $joinInfo = EmployeeInfo::select('actualJoinDate','recentJoinDate','resignDate','weekend','accessPin','scheduleInTime','scheduleOutTime')
+        ->where('id','=',$r->id)->first();
+
+        return response()->json($joinInfo);
+}
 
 }

@@ -19,9 +19,9 @@
       <app-basic-info *ngIf="infoFlag ==1" [empid]="empid"></app-basic-info>
       <app-personal-info *ngIf="infoFlag ==2" [empid]="empid"></app-personal-info>
       <app-education *ngIf="infoFlag ==3"></app-education>
-      <app-joining-info *ngIf="infoFlag ==4"></app-joining-info>
-      <app-bank-info *ngIf="infoFlag ==5"></app-bank-info>
-      <app-salary-info *ngIf="infoFlag ==6"></app-salary-info>
+      <app-joining-info *ngIf="infoFlag ==4" [empid]="empid"></app-joining-info>
+      <app-bank-info *ngIf="infoFlag ==5" [empid]="empid"></app-bank-info>
+      <app-salary-info *ngIf="infoFlag ==6" [empid]="empid"></app-salary-info>
     </div>
 
   </div>

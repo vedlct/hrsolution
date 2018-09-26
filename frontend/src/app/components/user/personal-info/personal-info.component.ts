@@ -39,7 +39,7 @@ export class PersonalInfoComponent implements OnInit {
     //Getting PersonalInfo
     const token=this.token.get();
     this.http.post(Constants.API_URL+'personalinfo/get'+'?token='+token,{id:this.empid}).subscribe(data => {
-        // console.log(data);
+        console.log(data);
         this.employeePersonalForm.fatherName=data.fatherName;
         this.employeePersonalForm.motherName=data.motherName;
         this.employeePersonalForm.maritalStatus=data.maritalStatus;
