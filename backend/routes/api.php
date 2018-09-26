@@ -84,4 +84,16 @@ Route::group([
 
     //get religion
     Route::get('religion/get','ReligionController@getReligion');
+
+    //update Join Info
+    Route::post('joinInfo/post','EmployeeController@updateJoinInfo');
+
+    //update Bank Info
+    Route::post('bankinfo/post','EmployeeController@updateBankInfo');
+    //salary Info Get
+    Route::post('SalryInfo/get','EmployeeController@getSalryInfo');
+    //salary Info post
+    Route::post('SalryInfo/post','EmployeeController@updateSalryInfo');
+    //Update Education
+    Route::post('education/post','EmployeeController@updateEudcation');
 });
