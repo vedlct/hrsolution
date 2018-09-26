@@ -90,6 +90,9 @@ Route::group([
 
     //update Bank Info
     Route::post('bankinfo/post','EmployeeController@updateBankInfo');
+    //get Bank Info
+    Route::post('bankinfo/get','EmployeeController@getBankInfo');
+
     //salary Info Get
     Route::post('SalryInfo/get','EmployeeController@getSalryInfo');
     //salary Info post
