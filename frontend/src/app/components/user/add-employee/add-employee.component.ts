@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {ActivatedRoute} from "@angular/router";
-
+declare var $ :any;
 
 @Component({
   selector: 'app-add-employee',
@@ -20,7 +20,30 @@ export class AddEmployeeComponent implements OnInit {
   }
 
   onInfoClick(value){
-    this.infoFlag=value;
+    if(value ==1){
+      this.infoFlag=value;
+    }
+    else if(this.empid){
+      this.infoFlag=value;
+    }
+    else {
+      // alert('Please Create a user first');
+
+      $.alert({
+        title: 'Alert!',
+        type: 'Red',
+        content: 'Please Create a user first',
+        buttons: {
+          tryAgain: {
+            text: 'Ok',
+            btnClass: 'btn-red',
+            action: function () {
+            }
+          }
+        }
+      });
+    }
+
 
 
   }
