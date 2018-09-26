@@ -28,7 +28,7 @@ import { EducationComponent } from './components/user/education/education.compon
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import { EmployeeComponent } from './components/user/employee/employee.component';
 
-
+import { BsDatepickerModule } from 'ngx-bootstrap/datepicker';
 @NgModule({
   declarations: [
     AppComponent,
@@ -61,6 +61,7 @@ import { EmployeeComponent } from './components/user/employee/employee.component
     NgxSpinnerModule,
     FormsModule,
     ReactiveFormsModule,
+    BsDatepickerModule.forRoot(),
     NgbModule.forRoot()
   ],
   providers: [],

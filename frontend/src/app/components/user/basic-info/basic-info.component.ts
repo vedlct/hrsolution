@@ -15,6 +15,7 @@ export class BasicInfoComponent implements OnInit {
   designation:any;
   empType:any;
   basicinfo: any;
+  result:any;
   employeeBasicForm:any={
     id:'',
     EmployeeId:'',
@@ -182,11 +183,12 @@ export class BasicInfoComponent implements OnInit {
       }
 
       this.http.post(Constants.API_URL+'employee/basic',fd).subscribe(data => {
-              console.log(data);
+              // console.log(data);
+           this.result=data;
               $.alert({
                   title: 'Success!',
                   type: 'Green',
-                  content: data.message,
+                  content: this.result.message,
                   buttons: {
                       tryAgain: {
                           text: 'Ok',

@@ -13,6 +13,8 @@ export class PersonalInfoComponent implements OnInit {
   @Input('empid') empid: any;
   nationality:any;
   religion:any;
+  personlInfo:any;
+  result:any;
   employeePersonalForm:any={
     id:'',
     fatherName:'',
@@ -39,20 +41,21 @@ export class PersonalInfoComponent implements OnInit {
     //Getting PersonalInfo
     const token=this.token.get();
     this.http.post(Constants.API_URL+'personalinfo/get'+'?token='+token,{id:this.empid}).subscribe(data => {
-        console.log(data);
-        this.employeePersonalForm.fatherName=data.fatherName;
-        this.employeePersonalForm.motherName=data.motherName;
-        this.employeePersonalForm.maritalStatus=data.maritalStatus;
-        this.employeePersonalForm.spouseName=data.spouseName;
-        this.employeePersonalForm.fkReligion=data.fkReligion;
-        this.employeePersonalForm.fkNationality=data.fkNationality;
-        this.employeePersonalForm.nationalId=data.nationalId;
-        this.employeePersonalForm.presentStreet=data.presentStreet;
-        this.employeePersonalForm.presentPS=data.presentPS;
-        this.employeePersonalForm.presentZipcod=data.presentZipcod;
-        this.employeePersonalForm.permanentStreet=data.permanentStreet;
-        this.employeePersonalForm.permanentPS=data.permanentPS;
-        this.employeePersonalForm.permanentZipcod=data.permanentZipcod;
+        // console.log(data);
+        this.personlInfo=data;
+        this.employeePersonalForm.fatherName=this.personlInfo.fatherName;
+        this.employeePersonalForm.motherName=this.personlInfo.motherName;
+        this.employeePersonalForm.maritalStatus=this.personlInfo.maritalStatus;
+        this.employeePersonalForm.spouseName=this.personlInfo.spouseName;
+        this.employeePersonalForm.fkReligion=this.personlInfo.fkReligion;
+        this.employeePersonalForm.fkNationality=this.personlInfo.fkNationality;
+        this.employeePersonalForm.nationalId=this.personlInfo.nationalId;
+        this.employeePersonalForm.presentStreet=this.personlInfo.presentStreet;
+        this.employeePersonalForm.presentPS=this.personlInfo.presentPS;
+        this.employeePersonalForm.presentZipcod=this.personlInfo.presentZipcod;
+        this.employeePersonalForm.permanentStreet=this.personlInfo.permanentStreet;
+        this.employeePersonalForm.permanentPS=this.personlInfo.permanentPS;
+        this.employeePersonalForm.permanentZipcod=this.personlInfo.permanentZipcod;
 
         },
         error => {
@@ -89,11 +92,11 @@ export class PersonalInfoComponent implements OnInit {
 
     const token=this.token.get();
     this.http.post(Constants.API_URL+'employee/updatePersonalInfo'+'?token='+token,this.employeePersonalForm).subscribe(data => {
-
+             this.result=data;
           $.alert({
             title: 'Success!',
             type: 'Green',
-            content: data.message,
+            content: this.result.message,
             buttons: {
               tryAgain: {
                 text: 'Ok',

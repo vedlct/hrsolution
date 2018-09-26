@@ -71,10 +71,8 @@ Route::group([
     //employee Join Info
     Route::post('joininfo/get','EmployeeController@getJoinInfo');
 
-
     //Get Degree
     Route::get('degree/get','DegreeController@get');
-
     //insert Degree
     Route::post('degree/insert','DegreeController@newDegree');
 
