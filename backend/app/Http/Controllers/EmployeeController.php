@@ -105,7 +105,7 @@ public function updatePersonalInfo(Request $r){
 
 }
 public function getPersonalInfo(Request $r){
-      $personalInfo =  EmployeeInfo::select('fatherName','motherName','spouseName','nationalId','presentStreet','presentPS','presentZipcod',
+      $personalInfo = EmployeeInfo::select('fatherName','motherName','spouseName','nationalId','presentStreet','presentPS','presentZipcod',
             'permanentStreet','permanentStreet','permanentZipcod','maritalStatus','fkReligion','fkNationality')->where('id','=',$r->id)->first();
 
       return response()->json($personalInfo);
@@ -118,4 +118,44 @@ public function getJoinInfo(Request $r){
         return response()->json($joinInfo);
 }
 
+
+public function updateJoinInfo(Request $r){
+        $joinInfo = EmployeeInfo::findOrFail($r->id);
+        $joinInfo->actualJoinDate = $r->actualJoinDate;
+        $joinInfo->recentJoinDate = $r->recentJoinDate;
+        $joinInfo->resignDate = $r->resignDate;
+        $joinInfo->weekend = $r->weekend;
+        $joinInfo->accessPin = $r->accessPin;
+        $joinInfo->scheduleInTime = $r->scheduleInTime;
+        $joinInfo->scheduleOutTime = $r->scheduleOutTime;
+        $joinInfo->update();
+         return response()->json(["message"=>"Join Info updated"]);
+}
+public function bankInfo(Request $r){
+        $bankInfo = EmployeeInfo::select('pfAccountNo','bankAccountNo','tinId')->where('id','=',$r->id)->first();
+        return response()->json($bankInfo);
+}
+
+public function updateBankInfo(Request $r){
+        $bankInfo = EmployeeInfo::findorfail($r->id);
+        $bankInfo->pfAccountNo = $r->pfAccountNo;
+        $bankInfo->bankAccountNo = $r->bankAccountNo;
+        $bankInfo->tinId = $r->tinId;
+        $bankInfo->update();
+        return response()->json(["message"=>"bank Info Updated"]);
+}
+
+public function getSalryInfo(Request $r){
+        $salaryInfo = EmployeeInfo::select('consolidatedSalary','payroll')->where('id','=',$r->id)->first();
+
+        return response()->json($salaryInfo);
+
+}
+
+public function updateSalryInfo(Request $r){
+        $salaryInfo = EmployeeInfo::findOrFail($r->id);
+        $salaryInfo->consolidatedSalary = $r->consolidatedSalary;
+        $salaryInfo->payroll = $r->payroll;
+        return response()->json(["message"=>"salary Info Updated"]);
+}
 }
