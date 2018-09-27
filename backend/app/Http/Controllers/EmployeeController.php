@@ -9,7 +9,7 @@ use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
-
+use Validator;
 class EmployeeController extends Controller
 {
     public function __construct()
@@ -111,6 +111,20 @@ public function getJoinInfo(Request $r){
 }
 public function updateJoinInfo(Request $r){
 //        return $r;
+
+//    $response = array('response' => '', 'success'=>false);
+//
+//    $validator = Validator::make($r->all(), [
+//        'actualJoinDate' => 'required|min:1',
+//    ]);
+//    if ($validator->fails()) {
+//        $response['response'] = $validator->messages();
+//    }else{
+////process the request
+//    }
+//    return $response;
+
+
         $joinInfo = EmployeeInfo::findOrFail($r->id);
         $joinInfo->actualJoinDate = $r->actualJoinDate->toDateString();
         $joinInfo->recentJoinDate = $r->recentJoinDate->toDateString();
