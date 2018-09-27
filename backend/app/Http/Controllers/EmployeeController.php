@@ -111,16 +111,15 @@ public function getJoinInfo(Request $r){
 }
 public function updateJoinInfo(Request $r){
 //        return $r;
-        $joinInfo = EmployeeInfo::findOrFail($r->id);
 
-        $joinInfo->actualJoinDate = $r->actualJoinDate->toDateString('Y-m-d');
-        $joinInfo->recentJoinDate = $r->recentJoinDate->toDateString('Y-m-d');
-        $joinInfo->resignDate = $r->resignDate->format->toDateString('Y-m-d');
+        $joinInfo = EmployeeInfo::findOrFail($r->id);
+        $joinInfo->actualJoinDate = Carbon::parse($r->actualJoinDate)->format('y-m-d');
+        $joinInfo->recentJoinDate = Carbon::parse($r->recentJoinDate)->format('y-m-d');
+        $joinInfo->resignDate = Carbon::parse($r->recentJoinDate)->format('y-m-d');
         $joinInfo->weekend = $r->weekend;
         $joinInfo->accessPin = $r->accessPin;
         $joinInfo->scheduleInTime = $r->scheduleInTime;
         $joinInfo->scheduleOutTime = $r->scheduleOutTime;
-
         if($r->specialAllowance==true){
             $joinInfo->specialAllowance = '1';
         }
