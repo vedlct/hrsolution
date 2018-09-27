@@ -9,6 +9,11 @@ use Illuminate\Support\Facades\Auth;
 
 class DesignationController extends Controller
 {
+    public function __construct()
+    {
+
+    }
+
     public function get(){
         $designation=Designation::get();
         return $designation;

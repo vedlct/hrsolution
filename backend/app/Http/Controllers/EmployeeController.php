@@ -104,20 +104,28 @@ public function getPersonalInfo(Request $r){
 }
 
 public function getJoinInfo(Request $r){
-        $joinInfo = EmployeeInfo::select('actualJoinDate','recentJoinDate','resignDate','weekend','accessPin','scheduleInTime','scheduleOutTime')
+        $joinInfo = EmployeeInfo::select('actualJoinDate','recentJoinDate','resignDate','weekend','accessPin','scheduleInTime','scheduleOutTime','specialAllowance')
         ->where('id','=',$r->id)->first();
 
         return response()->json($joinInfo);
 }
 public function updateJoinInfo(Request $r){
         $joinInfo = EmployeeInfo::findOrFail($r->id);
-        $joinInfo->actualJoinDate = $r->actualJoinDate;
-        $joinInfo->recentJoinDate = $r->recentJoinDate;
-        $joinInfo->resignDate = $r->resignDate;
+        $joinInfo->actualJoinDate = $r->actualJoinDate->toDateString();
+        $joinInfo->recentJoinDate = $r->recentJoinDate->toDateString();
+        $joinInfo->resignDate = $r->resignDate->format->toDateString();
         $joinInfo->weekend = $r->weekend;
         $joinInfo->accessPin = $r->accessPin;
         $joinInfo->scheduleInTime = $r->scheduleInTime;
         $joinInfo->scheduleOutTime = $r->scheduleOutTime;
+
+        if($r->specialAllowance==true){
+            $joinInfo->specialAllowance = '1';
+        }
+        else{
+            $joinInfo->specialAllowance = '0';
+        }
+
         $joinInfo->update();
          return response()->json(["message"=>"Join Info updated"]);
 }
