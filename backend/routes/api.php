@@ -99,4 +99,11 @@ Route::group([
     Route::post('SalryInfo/post','EmployeeController@updateSalryInfo');
     //Update Education
     Route::post('education/post','EmployeeController@updateEudcation');
+
+    //post designation Info
+    Route::post('designationinfo/post','DesignationController@postDesignationInfo');
+
+    //post department Info
+    Route::post('department/post','DepartmentController@postDepartment');
+
 });
