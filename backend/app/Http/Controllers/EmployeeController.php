@@ -111,9 +111,9 @@ public function getJoinInfo(Request $r){
 }
 public function updateJoinInfo(Request $r){
         $joinInfo = EmployeeInfo::findOrFail($r->id);
-        $joinInfo->actualJoinDate = $r->actualJoinDate->toDateString();
-        $joinInfo->recentJoinDate = $r->recentJoinDate->toDateString();
-        $joinInfo->resignDate = $r->resignDate->format->toDateString();
+        $joinInfo->actualJoinDate = $r->actualJoinDate->toDateString('Y-m-d');
+        $joinInfo->recentJoinDate = $r->recentJoinDate->toDateString('Y-m-d');
+        $joinInfo->resignDate = $r->resignDate->format->toDateString('Y-m-d');
         $joinInfo->weekend = $r->weekend;
         $joinInfo->accessPin = $r->accessPin;
         $joinInfo->scheduleInTime = $r->scheduleInTime;
