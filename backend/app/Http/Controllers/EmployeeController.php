@@ -110,6 +110,7 @@ public function getJoinInfo(Request $r){
         return response()->json($joinInfo);
 }
 public function updateJoinInfo(Request $r){
+        return $r;
         $joinInfo = EmployeeInfo::findOrFail($r->id);
         $joinInfo->actualJoinDate = $r->actualJoinDate;
         $joinInfo->recentJoinDate = $r->recentJoinDate;
