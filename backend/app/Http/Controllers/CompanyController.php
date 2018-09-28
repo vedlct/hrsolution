@@ -25,6 +25,15 @@ class CompanyController extends Controller
     }
 
     public function updateInfo(Request $r){
+        $this->validate($r,[
+
+            'companyName' => 'required|max:150',
+            'companyAddress' => 'nullable|max:256',
+            'phone' => 'nullable|max:18',
+            'fax' => 'nullable|max:18',
+            'email' => 'required|max:64',
+            'webSite' => 'required|max:128',
+        ]);
         $company=Company::findOrFail($r->id);
 
         $company->companyName=$r->companyName;

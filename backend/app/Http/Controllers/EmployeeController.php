@@ -9,7 +9,7 @@ use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
-use Validator;
+
 class EmployeeController extends Controller
 {
     public function __construct()
@@ -45,7 +45,22 @@ class EmployeeController extends Controller
  */
 
     public function storeBasicInfo(Request $r){
-//        return $r;
+       $this->validate($r, [
+            'EmployeeId' => 'required|max:20',
+            'firstName'   => 'required|max:50',
+            'middleName'   => 'nullable|max:50',
+            'lastName'   => 'nullable|max:50',
+            'nickName'   => 'nullable|max:100',
+            'fkDepartmentId'   => 'max:11',
+            'fkDesignation'   => 'max:11',
+            'fkEmployeeType'   => 'max:11',
+            'email'   => 'nullable|max:30',
+            'contactNo'   => 'nullable|max:15',
+            'birthdate'   => 'nullable|date',
+            'gender'   => 'max:1',
+            'photo'   => 'max:256',
+        ]);
+
         if($r->id){
             $employeeInfo = EmployeeInfo::findOrFail($r->id);
         }
@@ -72,10 +87,26 @@ class EmployeeController extends Controller
                     $employeeInfo->photo=$name;
             }
             $employeeInfo->save();
-          //  return response()->json(["message"=>"Data Stored Successfully"]);
-        return $employeeInfo;
+            return response()->json(["message"=>"Data Stored Successfully"]);
+       // return $employeeInfo;
     }
 public function updatePersonalInfo(Request $r){
+
+        $this->validate($r,[
+            'fatherName' => 'nullable|max:100',
+            'motherName' => 'nullable|max:100',
+            'maritalStatus' => 'nullable|max:1',
+            'spouseName' => 'nullable|max:100',
+            'fkReligion' => 'nullable|max:4',
+            'fkNationality' => 'nullable|max:3',
+            'nationalId' => 'nullable|max:20',
+            'presentStreet' => 'nullable',
+            'presentPS' => 'nullable|max:32',
+            'presentZipcod' => 'nullable|max:8',
+            'permanentStreet' => 'nullable',
+            'permanentPS' => 'nullable|max:32',
+            'permanentZipcod' => 'nullable|max:8',
+        ]);
 
         $employeeInfo = EmployeeInfo::findOrFail($r->id);
         $employeeInfo->fatherName = $r->fatherName;
@@ -110,20 +141,16 @@ public function getJoinInfo(Request $r){
         return response()->json($joinInfo);
 }
 public function updateJoinInfo(Request $r){
-
-//    $response = array('response' => '', 'success'=>false);
-//
-//    $validator = Validator::make($r->all(), [
-//        'actualJoinDate' => 'required|min:1',
-//    ]);
-//    if ($validator->fails()) {
-//        $response['response'] = $validator->messages();
-//    }else{
-////process the request
-//    }
-//    return $response;
-
-
+$this->validate($r,[
+    'actualJoinDate' => 'date',
+    'recentJoinDate' => 'date',
+    'resignDate' => 'date',
+    'weekend' => 'nullable|max:10',
+    'accessPin' => 'nullable|max:11',
+    'scheduleInTime' => 'nullable',
+    'scheduleOutTime' => 'nullable',
+    'specialAllowance' => 'nullable|max:11',
+]);
 
         $joinInfo = EmployeeInfo::findOrFail($r->id);
         $joinInfo->actualJoinDate = Carbon::parse($r->actualJoinDate)->format('y-m-d');
@@ -149,6 +176,12 @@ public function getBankInfo(Request $r){
 }
 
 public function updateBankInfo(Request $r){
+        $this->validate($r,[
+            'pfAccountNo' => 'nullable|max:30',
+            'bankAccountNo' => 'nullable|max:30',
+            'tinId' => 'nullable|max:15',
+        ]);
+
         $bankInfo = EmployeeInfo::findorfail($r->id);
         $bankInfo->pfAccountNo = $r->pfAccountNo;
         $bankInfo->bankAccountNo = $r->bankAccountNo;
@@ -165,6 +198,12 @@ public function getSalryInfo(Request $r){
 }
 
 public function updateSalryInfo(Request $r){
+        $this->validate($r,[
+            'consolidatedSalary' => 'nullable|max:1',
+            'payroll' => 'nullable|max:1'
+
+        ]);
+
         $salaryInfo = EmployeeInfo::findOrFail($r->id);
         $salaryInfo->consolidatedSalary = $r->consolidatedSalary;
         $salaryInfo->payroll = $r->payroll;
@@ -172,6 +211,17 @@ public function updateSalryInfo(Request $r){
         return response()->json(["message"=>"Salary Info Updated"]);
 }
 public function updateEudcation(Request $r){
+
+        $this->validate($r,[
+            'institution' => 'nullable|max:150',
+            'passingYear' => 'nullable|max:11',
+            'boardUnivarsity' => 'nullable|max:150',
+            'resultAchieved' => 'nullable|max:8',
+            'resultOutOf' => 'nullable|max:1',
+            'fkDegreeId' => 'required|max:11',
+            'fkCountry' => 'required|max:3',
+        ]);
+
     if($r->fkEmployeeId){
         $educationInfo = Education::findOrFail($r->fkEmployeeId);
     }

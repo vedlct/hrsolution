@@ -27,6 +27,13 @@ class DesignationController extends Controller
      */
 
     public function postDesignationInfo(Request $r){
+        $this->validate($r,[
+            'title' =>'required|max:50',
+            'shortName' =>'nullable|max:20',
+            'salaryGrade' =>'nullable|max:10',
+            'desigLevel' =>'nullable|max:4',
+            'created_by' =>'nullable|max:20',
+        ]);
         if($r->id){
             $desigNationInfo = Designation::findOrFail($r->id);
         }
