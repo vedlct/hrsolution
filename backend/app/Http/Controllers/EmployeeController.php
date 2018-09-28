@@ -141,16 +141,16 @@ public function getJoinInfo(Request $r){
         return response()->json($joinInfo);
 }
 public function updateJoinInfo(Request $r){
-$this->validate($r,[
-    'actualJoinDate' => 'date',
-    'recentJoinDate' => 'date',
-    'resignDate' => 'date',
-    'weekend' => 'nullable|max:10',
-    'accessPin' => 'nullable|max:11',
-    'scheduleInTime' => 'nullable',
-    'scheduleOutTime' => 'nullable',
-    'specialAllowance' => 'nullable|max:11',
-]);
+        $this->validate($r,[
+            'actualJoinDate' => 'date',
+            'recentJoinDate' => 'date',
+            'resignDate' => 'date',
+            'weekend' => 'nullable|max:10',
+            'accessPin' => 'nullable|max:11',
+            'scheduleInTime' => 'nullable',
+            'scheduleOutTime' => 'nullable',
+            'specialAllowance' => 'nullable|max:11',
+        ]);
 
         $joinInfo = EmployeeInfo::findOrFail($r->id);
         $joinInfo->actualJoinDate = Carbon::parse($r->actualJoinDate)->format('y-m-d');

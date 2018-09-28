@@ -49,15 +49,10 @@ class CompanyController extends Controller
                 $name = time().'.'.$image->getClientOriginalName();
                 $destinationPath = public_path('/images');
                 $image->move($destinationPath, $name);
-
                 $company->logo=$destinationPath.'/'.$name;
             }
-
-
         }
         $company->save();
-
-
         return response()->json(['message' => 'Successfully Image Uploaded','flag'=>'true']);
 
 
