@@ -45,8 +45,7 @@ Route::group([
     //Department Info
     Route::get('department/get','DepartmentController@get');
 
-    //Designation Info
-    Route::get('designation/get','DesignationController@get');
+
 
     //EmployeeType Info
     Route::get('employee/get','EmployeeController@getAllEmployee');
@@ -100,7 +99,9 @@ Route::group([
     //Update Education
     Route::post('education/post','EmployeeController@updateEudcation');
 
-    //post designation Info
+
+    //Designation Info
+    Route::get('designation/get','DesignationController@get');
     Route::post('designationinfo/post','DesignationController@postDesignationInfo');
 
     //post department Info

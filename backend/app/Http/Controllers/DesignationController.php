@@ -27,6 +27,7 @@ class DesignationController extends Controller
      */
 
     public function postDesignationInfo(Request $r){
+
         $this->validate($r,[
             'title' =>'required|max:50',
             'shortName' =>'nullable|max:20',
