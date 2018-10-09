@@ -22,6 +22,11 @@ class DepartmentController extends Controller
 
 
     public function postDepartment(Request $r){
+        $this->validate($r,[
+            'departmentName' => 'required|max:50',
+            'deptLevel' => 'nullable|max:1',
+            'createdBy' => 'required|max:20',
+        ]);
         if($r->id){
             $department = Department::findOrFail($r->id);
         }
