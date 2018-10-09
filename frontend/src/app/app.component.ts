@@ -12,6 +12,7 @@ export class AppComponent {
   master = 'Master';
 
   constructor(private token:TokenService) {
+    return this.token.isValid();
   }
 
   isLogIn(){

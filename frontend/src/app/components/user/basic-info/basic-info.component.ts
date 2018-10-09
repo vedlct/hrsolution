@@ -183,12 +183,12 @@ export class BasicInfoComponent implements OnInit {
       }
 
       this.http.post(Constants.API_URL+'employee/basic',fd).subscribe(data => {
-              // console.log(data);
+              console.log(data);
            this.result=data;
               $.alert({
                   title: 'Success!',
                   type: 'Green',
-                  content: this.result.message,
+                  content: "Employee Updated Successfully",
                   buttons: {
                       tryAgain: {
                           text: 'Ok',
@@ -198,7 +198,7 @@ export class BasicInfoComponent implements OnInit {
                       }
                   }
               });
-              this.router.navigate(['employee', 'edit', 1]);
+              this.router.navigate(['employee', 'edit', this.result.id]);
 
           },
           error => {
