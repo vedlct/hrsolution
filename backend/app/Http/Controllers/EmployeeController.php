@@ -74,13 +74,13 @@ class EmployeeController extends Controller
             $user->email=$r->email;
             $user->userName=$r->firstName;
             $user->fkUserType="emp";
-            $user->fkCompany=1;
+            $user->fkCompany=auth()->user()->fkCompany;
             $user->fkActivationStatus=1;
             $user->password=Hash::make('123456');
             $user->save();
             $employeeInfo->fkUserId=$user->id;
-//            $employeeInfo->createdBy=auth()->user()->id;
-            $employeeInfo->createdBy=1;
+           $employeeInfo->createdBy=auth()->user()->id;
+
         }
             $employeeInfo->EmployeeId =$r->EmployeeId;
             $employeeInfo->firstName = $r->firstName;
