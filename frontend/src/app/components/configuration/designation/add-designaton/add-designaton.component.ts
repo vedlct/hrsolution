@@ -51,7 +51,7 @@ export class AddDesignatonComponent implements OnInit {
   }
 
   reset(){
-    this.designationForm={};
+    this.designationForm={} as Designation;
   }
 
   onSubmit(){

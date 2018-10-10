@@ -42,8 +42,7 @@ Route::group([
     Route::post('company/post/updateInfo','CompanyController@updateInfo');
 
 
-    //Department Info
-    Route::get('department/get','DepartmentController@get');
+
 
 
 
@@ -105,6 +104,7 @@ Route::group([
     Route::post('designationinfo/post','DesignationController@postDesignationInfo');
 
     //post department Info
+    Route::get('department/get','DepartmentController@get');
     Route::post('department/post','DepartmentController@postDepartment');
 
 });
