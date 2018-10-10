@@ -42,9 +42,10 @@ class CompanyController extends Controller
         $company->fax=$r->fax;
         $company->email=$r->email;
         $company->webSite=$r->webSite;
+        $company->fkActivationStatus=$r->fkActivationStatus;
 
-        if($r->hasFile('image')){
-            $images = $r->file('image');
+        if($r->hasFile('logo')){
+            $images = $r->file('logo');
             foreach ($images as $image){
                 $name = time().'.'.$image->getClientOriginalName();
                 $destinationPath = public_path('/images');
@@ -52,6 +53,7 @@ class CompanyController extends Controller
                 $company->logo=$destinationPath.'/'.$name;
             }
         }
+        $company->logoUrl=$r->logoUrl;
         $company->save();
         return response()->json(['message' => 'Successfully Image Uploaded','flag'=>'true']);
 
