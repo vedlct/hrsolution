@@ -2,9 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Company;
 use App\Degree;
 use Illuminate\Http\Request;
 use App\Department;
+use Illuminate\Support\Facades\DB;
 
 class DepartmentController extends Controller
 {
@@ -32,10 +34,13 @@ class DepartmentController extends Controller
         }
         else{
             $department = new Department();
+            $department->createdBy = auth()->user()->id;
         }
+
+        $department->fkCompany = auth()->user()->fkCompany;
         $department->departmentName = $r->departmentName;
         $department->deptLevel = $r->deptLevel;
-        $department->createdBy = auth()->user()->id;
+
         $department->save();
         return response()->json(["message" =>'Department Updated']);
     }
