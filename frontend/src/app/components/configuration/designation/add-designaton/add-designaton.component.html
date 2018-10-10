@@ -20,22 +20,27 @@
 
       <div class="form-group col-md-6">
         <label>desigLevel</label>
-        <select name="desigLevel" class="form-control">
-          <option>level 1</option>
-          <option>level 2</option>
-          <option>level 3</option>
-        </select>
+        <!--<select name="desigLevel" class="form-control">-->
+          <!--<option>level 1</option>-->
+          <!--<option>level 2</option>-->
+          <!--<option>level 3</option>-->
+        <!--</select>-->
+        <input type="number" class="form-control" name="desigLevel" [(ngModel)]="designationForm.desigLevel">
+
       </div>
 
-      <div class="form-group col-md-6" *ngIf="checkId();else other_content">
-        <button class="btn btn-success">Insert</button>
+      <div class="form-group col-md-2" *ngIf="checkId();else other_content">
+        <button class="btn btn-success" (click)="onSubmit()">Insert</button>
       </div>
 
       <ng-template #other_content>
-        <div class="form-group col-md-6">
-          <button class="btn btn-success">Update</button>
+        <div class="form-group col-md-2">
+          <button class="btn btn-success" (click)="onSubmit()">Update</button>
         </div>
       </ng-template>
+      <div class="form-group col-md-2">
+        <button class="btn btn-danger" (click)="reset()">Reset</button>
+      </div>
 
 
 

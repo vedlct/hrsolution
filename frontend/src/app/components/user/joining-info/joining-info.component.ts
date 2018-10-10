@@ -30,7 +30,7 @@ export class JoiningInfoComponent implements OnInit {
     this.employeeJoiningForm.id=this.empid;
     const token=this.token.get();
     this.http.post(Constants.API_URL+'joinInfo/get'+'?token='+token,{id:this.employeeJoiningForm.id}).subscribe(data => {
-          console.log(data);
+          // console.log(data);
       this.JoiningForm=data;
       this.employeeJoiningForm.actualJoinDate=this.JoiningForm.actualJoinDate;
       this.employeeJoiningForm.recentJoinDate=this.JoiningForm.recentJoinDate;

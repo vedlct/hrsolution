@@ -26,7 +26,6 @@ class CompanyController extends Controller
 
     public function updateInfo(Request $r){
         $this->validate($r,[
-
             'companyName' => 'required|max:150',
             'companyAddress' => 'nullable|max:256',
             'phone' => 'nullable|max:18',

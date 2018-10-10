@@ -10,6 +10,9 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 
+use Validator;
+use Hash;
+
 class EmployeeController extends Controller
 {
     public function __construct()
@@ -65,7 +68,19 @@ class EmployeeController extends Controller
             $employeeInfo = EmployeeInfo::findOrFail($r->id);
         }
         else {
+
             $employeeInfo = new EmployeeInfo();
+            $user=new User();
+            $user->email=$r->email;
+            $user->userName=$r->firstName;
+            $user->fkUserType="emp";
+            $user->fkCompany=1;
+            $user->fkActivationStatus=1;
+            $user->password=Hash::make('123456');
+            $user->save();
+            $employeeInfo->fkUserId=$user->id;
+//            $employeeInfo->createdBy=auth()->user()->id;
+            $employeeInfo->createdBy=1;
         }
             $employeeInfo->EmployeeId =$r->EmployeeId;
             $employeeInfo->firstName = $r->firstName;
