@@ -233,7 +233,7 @@ public function updateEudcation(Request $r,$empId){
 //    return $r;
 
         $this->validate($r,[
-            'institution' => 'nullable|max:150',
+            'institution' => 'required|max:150',
             'passingyear' => 'nullable|max:11',
             'board' => 'nullable|max:150',
             'result' => 'nullable|max:8',

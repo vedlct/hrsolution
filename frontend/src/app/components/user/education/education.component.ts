@@ -20,6 +20,7 @@ export class EducationComponent implements OnInit {
   country: any;
   modalRef:any;
   newdegree:any;
+  error:any;
   educationForm:any={
       id:'',
       institution: '',
@@ -116,7 +117,18 @@ export class EducationComponent implements OnInit {
 
           },
           error => {
-              console.log(error.message);
+              // console.log(error.error);
+              // console.log(error.error.errors);
+              // console.log(error.error.errors);
+              this.error=error.error.errors;
+              const data=error.error.errors;
+
+              for (var p in data) {
+
+                  for (var k in data[p]) {
+                      console.log(data[p][k]) ;
+                  }
+              }
 
           }
       );
