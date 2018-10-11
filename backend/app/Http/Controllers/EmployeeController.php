@@ -150,8 +150,10 @@ public function getPersonalInfo(Request $r){
 }
 
 public function getJoinInfo(Request $r){
-        $joinInfo = EmployeeInfo::select('actualJoinDate','recentJoinDate','resignDate','weekend','accessPin','scheduleInTime','scheduleOutTime','specialAllowance')
-        ->where('id','=',$r->id)->first();
+        $joinInfo = EmployeeInfo::select('attemployeemap.attDeviceUserId','actualJoinDate','recentJoinDate','resignDate','weekend','accessPin','scheduleInTime','scheduleOutTime','specialAllowance')
+            ->leftJoin('attemployeemap','attemployeemap.employeeId','employeeinfo.id')
+            ->where('employeeinfo.id','=',$r->id)
+            ->first();
 
         return response()->json($joinInfo);
 }
@@ -181,7 +183,6 @@ public function updateJoinInfo(Request $r){
         else{
             $joinInfo->specialAllowance = '0';
         }
-
         $joinInfo->update();
          return response()->json(["message"=>"Join Info updated"]);
 }
@@ -225,33 +226,38 @@ public function updateSalryInfo(Request $r){
         $salaryInfo->save();
         return response()->json(["message"=>"Salary Info Updated"]);
 }
-public function updateEudcation(Request $r){
+public function updateEudcation(Request $r,$empId){
+//    return $r;
 
         $this->validate($r,[
             'institution' => 'nullable|max:150',
-            'passingYear' => 'nullable|max:11',
-            'boardUnivarsity' => 'nullable|max:150',
-            'resultAchieved' => 'nullable|max:8',
-            'resultOutOf' => 'nullable|max:1',
-            'fkDegreeId' => 'required|max:11',
-            'fkCountry' => 'required|max:3',
+            'passingyear' => 'nullable|max:11',
+            'board' => 'nullable|max:150',
+            'result' => 'nullable|max:8',
+            'resultoutof' => 'nullable|max:1',
+            'degreeId' => 'required|max:11',
+            'country' => 'required|max:3',
         ]);
 
-    if($r->fkEmployeeId){
-        $educationInfo = Education::findOrFail($r->fkEmployeeId);
+
+    if($r->id !=null){
+
+        $educationInfo = Education::findOrFail($r->id);
     }
     else {
-
+//        return $r;
         $educationInfo = new Education();
+        $educationInfo->fkEmployeeId=$empId;
+        $educationInfo->createdBy=auth()->user()->id;
     }
     $educationInfo->institution= $r->institution;
-    $educationInfo->passingYear=$r->passingYear;
-    $educationInfo->boardUnivarsity =$r->boardUnivarsity;
-    $educationInfo->resultAchieved = $r->resultAchieved;
-    $educationInfo->resultOutOf = $r->resultOutOf;
-    $educationInfo->fkDegreeId = $r->fkDegreeId;
-    $educationInfo->fkCountry = $r->fkCountry;
-    $educationInfo->update();
+    $educationInfo->passingYear=$r->passingyear;
+    $educationInfo->boardUnivarsity =$r->board;
+    $educationInfo->resultAchieved = $r->result;
+    $educationInfo->resultOutOf = $r->resultoutof;
+    $educationInfo->fkDegreeId = $r->degreeId;
+    $educationInfo->fkCountry = $r->country;
+    $educationInfo->save();
     return response()->json(["message"=>"Education Info updated"]);
 }
 

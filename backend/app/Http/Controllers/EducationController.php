@@ -14,8 +14,9 @@ class EducationController extends Controller
         $this->middleware('auth:api');
     }
 
-    public function getAlleducation(){
-        $education = Education::select('*','degreeName','resultAchieved as result')
+    public function getAlleducation($id){
+        $education = Education::select('hrmemployeeeducations.*','degreeName','resultAchieved as result')
+            ->where('fkEmployeeId',$id)
             ->leftjoin('hrmdegrees','hrmemployeeeducations.fkDegreeId','=','hrmdegrees.id')
             ->get();
         return $education;

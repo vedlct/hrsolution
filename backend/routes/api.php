@@ -74,8 +74,8 @@ Route::group([
     //insert Degree
     Route::post('degree/insert','DegreeController@newDegree');
 
-    //get all education
-    Route::get('education/get','EducationController@getAlleducation');
+
+
 
     //get Country-nationality
     Route::get('nationality/get','NationalityController@getNationality');
@@ -95,8 +95,11 @@ Route::group([
     Route::post('SalryInfo/get','EmployeeController@getSalryInfo');
     //salary Info post
     Route::post('SalryInfo/post','EmployeeController@updateSalryInfo');
-    //Update Education
-    Route::post('education/post','EmployeeController@updateEudcation');
+
+
+    //Education
+    Route::post('education/post/{empId}','EmployeeController@updateEudcation');
+    Route::get('education/get/{id}','EducationController@getAlleducation');
 
 
     //Designation Info
@@ -106,5 +109,8 @@ Route::group([
     //post department Info
     Route::get('department/get','DepartmentController@get');
     Route::post('department/post','DepartmentController@postDepartment');
+
+    //Country
+    Route::get('country/basic','CountryController@getCountryBasic');
 
 });
