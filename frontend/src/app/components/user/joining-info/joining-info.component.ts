@@ -22,6 +22,7 @@ export class JoiningInfoComponent implements OnInit {
     scheduleInTime:'',
     scheduleOutTime:'',
     specialAllowance:'',
+    attDeviceUserId:''
   };
 
   constructor(public http: HttpClient, private token:TokenService,private router: Router) { }
@@ -40,6 +41,7 @@ export class JoiningInfoComponent implements OnInit {
       this.employeeJoiningForm.scheduleInTime=this.JoiningForm.scheduleInTime;
       this.employeeJoiningForm.scheduleOutTime=this.JoiningForm.scheduleOutTime;
       this.employeeJoiningForm.specialAllowance=this.JoiningForm.specialAllowance;
+      this.employeeJoiningForm.attDeviceUserId=this.JoiningForm.attDeviceUserId;
 
 
         },

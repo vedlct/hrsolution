@@ -37,11 +37,11 @@
 
       <div class="form-group col-md-6">
         <label>Country</label>
-        <select class="form-control" name="country" (change)="selectCountry($event.target.value)"  >
+        <select class="form-control" name="country"   (change)="selectCountry($event.target.value)">
           <option value="">Select Country</option>
-          <!--<option *ngFor="let dept of department" [value]="dept.id">-->
-          <!--{{dept.departmentName}}-->
-          <!--</option>-->
+          <option *ngFor="let coun of country" [value]="coun.code" [selected]="coun.code == educationForm.country">
+            {{coun.Name}}
+          </option>
         </select>
       </div>
 
@@ -59,7 +59,7 @@
 
       <div class="form-group col-md-12" align="right " >
 
-        <button style="margin-top: 32px" class="btn btn-success" (click)="onSubmit()">Save Data</button>
+        <button style="margin-top: 32px" class="btn btn-success" (click)="saveEducation()">Save Data</button>
       </div>
 
 
@@ -69,6 +69,7 @@
     <table class="table table-striped">
       <thead>
       <tr>
+        <th>Institution</th>
         <th>Degree Name</th>
         <th>Result </th>
         <th>Passing Year</th>
@@ -78,12 +79,12 @@
       <tbody>
       <tr >
       <tr *ngFor="let edu of educations">
+        <td>{{edu.institution}}</td>
         <td>{{edu.degreeName}}</td>
         <td>{{edu.result}}</td>
         <td>{{edu.passingYear}}</td>
-        <td align="right">
-          <!--<button class="btn btn-danger" (click)="deleteUser(user)"> Delete</button>-->
-          <button class="btn btn-danger" (click)="editEducation(edu)" style="margin-left: 20px;"> Edit</button>
+        <td>
+          <button class="btn btn-danger" (click)="editEducation(edu)" style="margin-left: 20px;">Edit</button>
         </td>
       </tr>
       </tbody>

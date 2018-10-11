@@ -1,4 +1,4 @@
-import {Component, OnInit, ViewEncapsulation} from '@angular/core';
+import {Component, OnInit, ViewEncapsulation, Input} from '@angular/core';
 import {NgbModal, ModalDismissReasons} from '@ng-bootstrap/ng-bootstrap';
 import {HttpClient} from "@angular/common/http";
 import {Constants} from "../../../constants";
@@ -17,9 +17,11 @@ export class EducationComponent implements OnInit {
   closeResult: string;
   result:any;
   degree: any;
+  country: any;
   modalRef:any;
   newdegree:any;
   educationForm:any={
+      id:'',
       institution: '',
       degreeId: '',
       result: '',
@@ -29,13 +31,14 @@ export class EducationComponent implements OnInit {
       country: '',
   };
   educations:any;
-
+  @Input('empid') empid: any;
   constructor(private modalService: NgbModal, public http: HttpClient, private token:TokenService) {}
   ngOnInit() {
 
     //Getting Deegree
     this.getAllDegree();
     this.getAlleducation();
+    this.getAllCountry();
 
   }
 
@@ -52,13 +55,24 @@ export class EducationComponent implements OnInit {
       );
   }
 
+    getAllCountry(){
+        const token=this.token.get();
+        this.http.get(Constants.API_URL+'country/basic'+'?token='+token).subscribe(data => {
+                // console.log(data);
+                this.country=data;
+            },
+            error => {
+                console.log(error);
+            }
+        );
+    }
+
   getAlleducation(){
 
       const token=this.token.get();
-
-      this.http.get(Constants.API_URL+'education/get'+'?token='+token).subscribe(data => {
-              console.log(data);
-               this.educations=data;
+      this.http.get(Constants.API_URL+'education/get/'+this.empid+'?token='+token).subscribe(data => {
+              // console.log(data);
+              this.educations=data;
 
           },
           error => {
@@ -67,21 +81,25 @@ export class EducationComponent implements OnInit {
       );
   }
 
+    selectCountry(value){
+        this.educationForm.country=value;
+    }
     editEducation(edu){
+        // console.log(edu);
         //this.educationForm.degree = edu.degree;
          this.educationForm.result = edu.result;
          this.educationForm.institution = edu.institution;
          this.educationForm.degreeId = edu.fkDegreeId;
          this.educationForm.board = edu.boardUnivarsity;
          this.educationForm.passingyear = edu.passingYear;
-         this.educationForm.resultoutof = edu.resultOutOf
-        console.log(edu.result);
+         this.educationForm.resultoutof = edu.resultOutOf;
+         this.educationForm.country = edu.fkCountry;
+         this.educationForm.id = edu.id;
+        // console.log(edu.result);
     }
 
   selectDegree(value){
-
-
-  this.educationForm.degree=value;
+    this.educationForm.degreeId=value;
   }
 
   openLg(content) {
@@ -89,6 +107,22 @@ export class EducationComponent implements OnInit {
 
   }
 
+  saveEducation(){
+      // education/post/{empId}
+      const token=this.token.get();
+      this.http.post(Constants.API_URL + 'education/post/'+this.empid+'?token='+token,this.educationForm).subscribe(data => {
+              console.log(data);
+            this.getAlleducation();
+
+          },
+          error => {
+              console.log(error.message);
+
+          }
+      );
+
+      // console.log(this.educationForm);
+  }
 
     onSubmit(content){
 

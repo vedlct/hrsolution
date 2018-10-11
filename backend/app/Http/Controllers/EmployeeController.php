@@ -48,6 +48,9 @@ class EmployeeController extends Controller
  */
 
     public function storeBasicInfo(Request $r){
+
+//        return auth()->user()->id;
+//        return $r;
        $this->validate($r, [
             'EmployeeId' => 'required|max:20',
             'firstName'   => 'required|max:50',
@@ -79,8 +82,8 @@ class EmployeeController extends Controller
             $user->password=Hash::make('123456');
             $user->save();
             $employeeInfo->fkUserId=$user->id;
-//            $employeeInfo->createdBy=auth()->user()->id;
-            $employeeInfo->createdBy=1;
+            $employeeInfo->createdBy=auth()->user()->id;
+          //  $employeeInfo->createdBy=1;
         }
             $employeeInfo->EmployeeId =$r->EmployeeId;
             $employeeInfo->firstName = $r->firstName;
@@ -102,8 +105,8 @@ class EmployeeController extends Controller
                     $employeeInfo->photo=$name;
             }
             $employeeInfo->save();
-            return response()->json(["message"=>"Data Stored Successfully"]);
-       // return $employeeInfo;
+           // return response()->json(["message"=>"Data Stored Successfully"]);
+        return $employeeInfo;
     }
 public function updatePersonalInfo(Request $r){
 

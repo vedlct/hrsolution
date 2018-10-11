@@ -19,12 +19,7 @@ class DesignationController extends Controller
         return $designation;
     }
 
-    /*
-     * Error In Created_by field
-     * it send the null value
-     * not get anything from the api function call
-     * auth()->user()->id non object property
-     */
+
 
     public function postDesignationInfo(Request $r){
 

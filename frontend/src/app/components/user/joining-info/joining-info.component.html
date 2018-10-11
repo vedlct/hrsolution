@@ -32,9 +32,13 @@
         <input type="text" name="weekend" placeholder="day" [(ngModel)]="employeeJoiningForm.weekend" class="form-control">
       </div>
 
-      <div class="form-group col-md-6">
+      <div class="form-group col-md-3">
         <label>Access Pin</label>
         <input type="text" name="accessPin" placeholder="pin" [(ngModel)]="employeeJoiningForm.accessPin" class="form-control">
+      </div>
+      <div class="form-group col-md-3">
+        <label>Attendance Device Pin</label>
+        <input type="text" name="accessPin" placeholder="pin" [(ngModel)]="employeeJoiningForm.attDeviceUserId" class="form-control">
       </div>
 
       <div class="form-group col-md-6">
@@ -51,6 +55,7 @@
         <label>Special Allowance</label>
         &nbsp;<input type="checkbox" name="specialAllowance" [(ngModel)]="employeeJoiningForm.specialAllowance">
       </div>
+
 
 
 

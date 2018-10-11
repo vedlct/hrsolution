@@ -17,7 +17,7 @@ export class AuthService implements CanActivate{
     }
     else {
       // start a new navigation to redirect to login page
-      this.router.navigate(['login']);
+      this.router.navigate(['/']);
       // abort current navigation
       return false;
     }

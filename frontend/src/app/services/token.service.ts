@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import {Router} from "@angular/router";
 import  { Constants }  from '../constants';
+import { AuthService } from './auth.service';
 
 @Injectable({
   providedIn: 'root'
@@ -9,7 +10,11 @@ export class TokenService {
 
   token:boolean=false;
   user:any;
-  constructor(private router:Router) { }
+  constructor(private router:Router) {
+    setInterval(() => {
+      this.isTokenExpired();
+    }, 4000);
+  }
 
   setUser(user){
     this.user=user;
@@ -21,6 +26,22 @@ export class TokenService {
 
 
   //JWT Token
+
+
+
+  isTokenExpired(){
+    const token = this.get();
+    if (token) {
+      const payload = token.split('.')[1];
+      if(Math.floor(this.decode(payload).exp) < Math.floor(new Date().getTime()/1000)){
+        this.remove();
+        console.log("Expired");
+      }
+
+      // console.log("Exp :"+Math.floor(this.decode(payload).exp)+" Current :"+ Math.floor(new Date().getTime()/1000));
+    }
+
+  }
 
   handle(token) {
     this.set(token);
@@ -53,10 +74,17 @@ export class TokenService {
     return false;
   }
 
+
   payload(token) {
+
     const payload = token.split('.')[1];
+    //If Token Expires Logout Autometically
+    this.isTokenExpired();
+
     return this.decode(payload);
   }
+
+
 
   decode(payload) {
     return JSON.parse(atob(payload));
