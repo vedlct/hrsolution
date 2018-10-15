@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use App\AttEmployeeMap;
 use App\Education;
 use App\EmployeeInfo;
+use App\Shift;
+use App\ShiftLog;
 use App\User;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
@@ -200,6 +202,12 @@ public function updateJoinInfo(Request $r){
 
             ]);
         }
+      ShiftLog::firstOrCreate([
+          'fkemployeeId' => auth()->user()->fkCompany,
+          'startDate' =>'2-2-2018',
+          'endDate' =>'2-2-2018',
+          'fkshiftId'=>'$r->shiftId'
+      ]);
 
         $joinInfo->save();
          return response()->json(["message"=>"Join Info updated"]);

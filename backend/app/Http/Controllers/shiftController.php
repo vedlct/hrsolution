@@ -29,4 +29,6 @@ class shiftController extends Controller
        $shift->save();
         return response()->json($shift);
    }
+
+
 }
