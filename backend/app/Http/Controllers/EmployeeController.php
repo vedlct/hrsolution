@@ -202,11 +202,12 @@ public function updateJoinInfo(Request $r){
 
             ]);
         }
-      ShiftLog::firstOrCreate([
-          'fkemployeeId' => auth()->user()->fkCompany,
-          'startDate' =>'2-2-2018',
-          'endDate' =>'2-2-2018',
-          'fkshiftId'=>'$r->shiftId'
+
+      ShiftLog::create([
+          'fkemployeeId'=> $r->id,
+          'startDate' =>'2018-2-2',
+          'endDate' =>'2018-2-2',
+          'fkshiftId'=>$r->shiftId
       ]);
 
         $joinInfo->save();
