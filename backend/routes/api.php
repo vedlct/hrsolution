@@ -114,7 +114,11 @@ Route::group([
     Route::get('country/basic','CountryController@getCountryBasic');
 
     //Shift
+
     Route::get('shift/get','shiftController@getShiftName');
+
+    Route::post('shift/post','shiftController@createShift');
+
 
 
 
