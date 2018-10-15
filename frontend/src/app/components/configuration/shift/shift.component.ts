@@ -40,7 +40,7 @@ export class ShiftComponent implements OnInit {
             this.dtTeigger.next();
             this.checkTable++;
           }
-          
+
 
         },
         error => {
