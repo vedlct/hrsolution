@@ -113,4 +113,10 @@ Route::group([
     //Country
     Route::get('country/basic','CountryController@getCountryBasic');
 
+    //Shift
+    Route::get('shift','shiftController@getShiftName');
+
+
+
+
 });

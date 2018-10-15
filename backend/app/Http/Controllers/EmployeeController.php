@@ -228,7 +228,6 @@ public function getSalryInfo(Request $r){
         $salaryInfo = EmployeeInfo::select('consolidatedSalary','payroll')->where('id','=',$r->id)->first();
 
         return response()->json($salaryInfo);
-
 }
 
 public function updateSalryInfo(Request $r){
