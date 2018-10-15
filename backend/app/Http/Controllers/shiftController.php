@@ -35,4 +35,8 @@ public function getUserShift(Request $r){
        return response()->json($shiftName);
 }
 
+public function getAllShift(){
+       $shift = Shift::all();
+       return response()->json($shift);
+}
 }
