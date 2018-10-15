@@ -14,19 +14,24 @@ class shiftController extends Controller
    }
    public function createShift(Request $r){
 
+
        $this->validate($r,[
            'shiftName' => 'required|max:20',
            'inTime' => 'required',
            'outTime' => 'required',
        ]);
-       if($r->shiftId){
+       if($r->shiftId ==null){
            $shift = new Shift();
        }
+       else{
+           $shift = Shift::findOrFail($r->shiftId);
+       }
+
        $shift->shiftName= $r->shiftName;
        $shift->inTime = $r->inTime  ;
        $shift->outTime = $r->outTime;
        $shift->crateBy= auth()->user()->id;
-       $shift->fkcompanyId= auth()->user()->fkcompanyId;
+       $shift->fkcompanyId= auth()->user()->fkCompany;
        $shift->save();
         return response()->json($shift);
    }
