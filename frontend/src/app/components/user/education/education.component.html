@@ -5,7 +5,13 @@
 
   <div class="card-body">
 
-{{error}}
+
+    <!--<li *ngFor="let p of error">-->
+      <!--{{p}}-->
+    <!--</li>-->
+    <div *ngFor="let p of error" class="alert alert-secondary" role="alert">
+      {{p}}
+    </div>
 
 
     <div class="row">

@@ -29,6 +29,7 @@ import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import { EmployeeComponent } from './components/user/employee/employee.component';
 
 import { BsDatepickerModule } from 'ngx-bootstrap/datepicker';
+import { ShiftComponent } from './components/configuration/shift/shift.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -51,7 +52,8 @@ import { BsDatepickerModule } from 'ngx-bootstrap/datepicker';
     CompanyInfoComponent,
     OtherComponent,
     EducationComponent,
-    EmployeeComponent
+    EmployeeComponent,
+    ShiftComponent
   ],
   imports: [
     BrowserModule,

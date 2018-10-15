@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {Constants} from '../../constants';
 import {HttpClient} from '@angular/common/http';
 import {TokenService} from "../../services/token.service";
+import {User} from "../../model/user.model";
 
 @Component({
   selector: 'app-navbar',
@@ -11,7 +12,24 @@ import {TokenService} from "../../services/token.service";
 export class NavbarComponent implements OnInit {
 
   data:any;
-  constructor(public http: HttpClient,private token:TokenService) { }
+  // user={} as User;
+    user:any={
+        contactNo: "",
+        email: "",
+        fkActivationStatus: "",
+        fkCompany: "",
+        fkUserType: "",
+        id:  "",
+        picture: "",
+        registrationdate:  "",
+        rememberToken:  "",
+        userName:  ""
+
+    };
+
+  constructor(public http: HttpClient,private token:TokenService) {
+
+  }
 
   ngOnInit() {
 
@@ -20,7 +38,8 @@ export class NavbarComponent implements OnInit {
       this.http.post(Constants.API_URL+'me?token='+token,null).subscribe(data => {
               // console.log(data);
               this.token.setUser(data);
-              // console.log(this.token.getUser());
+              this.user=this.token.getUser();
+
 
           },
           error => {
@@ -32,8 +51,18 @@ export class NavbarComponent implements OnInit {
 
   }
 
+    isAdmin(){
+      if(this.user.fkUserType=='admin'){
+          return true;
+      }
+      //   console.log(this.user.fkUserType);
+      return false;
+    }
+
   whoAmI(e: MouseEvent){
       e.preventDefault();
+
+
       const token=this.token.get();
       this.http.post(Constants.API_URL+'me?token='+token,null).subscribe(data => {
               console.log(data);

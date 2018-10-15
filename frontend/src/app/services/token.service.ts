@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import {Router} from "@angular/router";
 import  { Constants }  from '../constants';
 import { AuthService } from './auth.service';
+import {HttpClient} from "@angular/common/http";
 
 @Injectable({
   providedIn: 'root'
@@ -10,7 +11,7 @@ export class TokenService {
 
   token:boolean=false;
   user:any;
-  constructor(private router:Router) {
+  constructor(private router:Router,public http: HttpClient) {
     setInterval(() => {
       this.isTokenExpired();
     }, 4000);
@@ -26,7 +27,6 @@ export class TokenService {
 
 
   //JWT Token
-
 
 
   isTokenExpired(){
@@ -50,6 +50,17 @@ export class TokenService {
   set(token) {
     localStorage.setItem('token', token);
     // console.log(this.payload(token));
+
+    // this.http.post(Constants.API_URL+'me?token='+token,null).subscribe(data => {
+    //       this.setUser(data);
+    //
+    //     },
+    //     error => {
+    //       console.log(error);
+    //       // this.handleError(error);
+    //
+    //     }
+    // );
   }
 
   get() {

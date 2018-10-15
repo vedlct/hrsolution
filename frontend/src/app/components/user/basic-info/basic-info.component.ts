@@ -16,6 +16,7 @@ export class BasicInfoComponent implements OnInit {
   empType:any;
   basicinfo: any;
   result:any;
+  error=[];
   employeeBasicForm:any={
     id:'',
     EmployeeId:'',
@@ -185,7 +186,7 @@ export class BasicInfoComponent implements OnInit {
       const token=this.token.get();
 
       this.http.post(Constants.API_URL+'employee/basic'+'?token='+token,fd).subscribe(data => {
-              console.log(data);
+
            this.result=data;
               $.alert({
                   title: 'Success!',
@@ -204,7 +205,15 @@ export class BasicInfoComponent implements OnInit {
 
           },
           error => {
-              console.log(error);
+              const data=error.error.errors;
+
+              for (var p in data) {
+
+                  for (var k in data[p]) {
+                      this.error.push(data[p][k]);
+                  }
+              }
+
           }
       );
   }

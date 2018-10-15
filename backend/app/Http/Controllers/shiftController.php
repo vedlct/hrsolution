@@ -7,8 +7,8 @@ use Illuminate\Http\Request;
 
 class shiftController extends Controller
 {
-   public function getShiftName(Request $r){
-       $shift = Shift::where('fkcompanyId',$r->fkcompanyId)->get();
+   public function getShiftName(){
+       $shift = Shift::where('fkcompanyId',auth()->user()->fkCompany)->get();
        return response()->json($shift);
    }
    public function createShift(Request $r){

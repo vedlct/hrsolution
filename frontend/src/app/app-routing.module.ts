@@ -11,6 +11,7 @@ import {GuestService} from "./services/guest.service";
 import {AuthService} from "./services/auth.service";
 import {CompanyInfoComponent} from "./components/company/company-info/company-info.component";
 import {EmployeeComponent} from "./components/user/employee/employee.component";
+import {ShiftComponent} from "./components/configuration/shift/shift.component";
 
 const routes: Routes = [
     {path: '', component: LoginComponent, canActivate: [GuestService] },
@@ -23,6 +24,7 @@ const routes: Routes = [
     { path: 'employee/edit/:id', component: AddEmployeeComponent,canActivate: [AuthService] },
     { path: 'employee', component: EmployeeComponent,canActivate: [AuthService] },
     { path: 'company/add', component: CompanyInfoComponent,canActivate: [AuthService] },
+    { path: 'configuration/shift', component: ShiftComponent,canActivate: [AuthService] },
     { path: 'configuration/department/add', component: AddDepartmentComponent },
 
 ];
