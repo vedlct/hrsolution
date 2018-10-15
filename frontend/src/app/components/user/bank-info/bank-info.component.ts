@@ -20,6 +20,7 @@ export class BankInfoComponent implements OnInit {
     tinId:''
   };
   result:any;
+  error=[];
   constructor(public http: HttpClient, private token:TokenService,private router: Router) { }
 
   ngOnInit() {
@@ -54,7 +55,15 @@ export class BankInfoComponent implements OnInit {
 
         },
         error => {
-          console.log(error);
+          const data=error.error.errors;
+
+          for (var p in data) {
+
+            for (var k in data[p]) {
+              this.error.push(data[p][k]);
+            }
+          }
+
         }
     );
 

@@ -13,6 +13,7 @@ export class AddEmployeeComponent implements OnInit {
   private infoFlag:number=1;
   id:any;
   empid:any;
+  error=[];
   constructor(public route:ActivatedRoute) { }
 
   ngOnInit() {
