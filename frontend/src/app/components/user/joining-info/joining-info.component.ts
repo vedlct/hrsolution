@@ -64,9 +64,17 @@ export class JoiningInfoComponent implements OnInit {
           console.log(error);
         }
     );
+
+    this.http.post(Constants.API_URL+'user/shift/get'+'?token='+token,{'empId':this.employeeJoiningForm.id}).subscribe(data => {
+          console.log(data);
+
+        },
+        error => {
+          console.log(error);
+        }
+    );
   }
   selectShift(value){
-    console.log(value);
     this.employeeJoiningForm.shiftId=value;
     let i=0;
     for(i;i<this.shift.length;i++){
@@ -81,12 +89,12 @@ export class JoiningInfoComponent implements OnInit {
     // console.log(this.employeeJoiningForm);
     const token=this.token.get();
     this.http.post(Constants.API_URL+'joinInfo/post'+'?token='+token,this.employeeJoiningForm).subscribe(data => {
-      console.log(data);
+      // console.log(data);
       // this.result=data;
-          // $.alert({
-          //   title: 'Success!',
-          //   content: this.result.message,
-          // });
+          $.alert({
+            title: 'Success!',
+            content: 'Updated',
+          });
 
         },
         error => {
