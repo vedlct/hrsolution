@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Shift;
+use App\ShiftLog;
 use Illuminate\Http\Request;
 
 class shiftController extends Controller
@@ -29,6 +30,9 @@ class shiftController extends Controller
        $shift->save();
         return response()->json($shift);
    }
-
+public function getUserShift(Request $r){
+       $shiftName = ShiftLog::where('fkemployeeId','=',$r->fkemployeeId)->orderBy('shiftlogId','desc')->first();
+       return response()->json($shiftName);
+}
 
 }

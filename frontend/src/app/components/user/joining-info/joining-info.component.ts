@@ -65,9 +65,11 @@ export class JoiningInfoComponent implements OnInit {
         }
     );
 
-    this.http.post(Constants.API_URL+'user/shift/get'+'?token='+token,{'empId':this.employeeJoiningForm.id}).subscribe(data => {
-          console.log(data);
-
+    this.http.post(Constants.API_URL+'user/shift/get'+'?token='+token,{'fkemployeeId':this.employeeJoiningForm.id}).subscribe(data => {
+          // console.log(data);
+          // data.fkshiftId
+          this.employeeJoiningForm.shiftId=data.fkshiftId;
+          this.selectShift(data.fkshiftId);
         },
         error => {
           console.log(error);
