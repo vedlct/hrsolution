@@ -47,7 +47,7 @@
         <label>Shift</label>
         <select class="form-control" name="shift"   (change)="selectShift($event.target.value)">
           <option value="">Select Shift</option>
-          <option *ngFor="let sh of shift" [value]="sh.shiftId">
+          <option *ngFor="let sh of shift" [value]="sh.shiftId" [selected]="sh.shiftId==employeeJoiningForm.shiftId">
             {{sh.shiftName}}
           </option>
         </select>
@@ -66,12 +66,12 @@
 
       <div class="form-group col-md-6">
         <label>Schedule In Time</label>
-        <input type="time" name="scheduleInTime" placeholder="in time" [(ngModel)]="employeeJoiningForm.scheduleInTime" class="form-control">
+        <input type="time" name="scheduleInTime" placeholder="in time" [(ngModel)]="employeeJoiningForm.scheduleInTime" class="form-control" readonly>
       </div>
 
       <div class="form-group col-md-6">
         <label>Schedule Out Time</label>
-        <input type="time" name="scheduleOutTime" placeholder="out time" [(ngModel)]="employeeJoiningForm.scheduleOutTime" class="form-control">
+        <input type="time" name="scheduleOutTime" placeholder="out time" [(ngModel)]="employeeJoiningForm.scheduleOutTime" class="form-control" readonly>
       </div>
 
       <div class="form-group col-md-6">

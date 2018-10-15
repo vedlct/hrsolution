@@ -12,7 +12,7 @@ import {HttpClient} from "@angular/common/http";
 export class JoiningInfoComponent implements OnInit {
   @Input('empid') empid: any;
   JoiningForm:any;
-  shift[]:any;
+  shift:any;
   employeeJoiningForm:any={
     id:'',
     actualJoinDate:'',
