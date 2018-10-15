@@ -19,11 +19,12 @@ class shiftController extends Controller
            'inTime' => 'required',
            'outTime' => 'required',
        ]);
+
        if($r->shiftId){
            $shift = new Shift();
        }
        $shift->shiftName= $r->shiftName;
-       $shift->inTime = $r->inTime  ;
+       $shift->inTime = $r->inTime;
        $shift->outTime = $r->outTime;
        $shift->crateBy= auth()->user()->id;
        $shift->fkcompanyId= auth()->user()->fkcompanyId;
