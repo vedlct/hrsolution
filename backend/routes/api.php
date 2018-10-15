@@ -115,6 +115,7 @@ Route::group([
 
     //Shift
     Route::get('shift','shiftController@getShiftName');
+    Route::post('shift/post','shiftController@createShift');
 
 
 
