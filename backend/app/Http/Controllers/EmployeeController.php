@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\AttEmployeeMap;
 use App\Education;
 use App\EmployeeInfo;
 use App\User;
@@ -170,6 +171,7 @@ public function updateJoinInfo(Request $r){
             'scheduleInTime' => 'nullable',
             'scheduleOutTime' => 'nullable',
             'specialAllowance' => 'nullable|max:11',
+            'attDeviceUserId'   =>'max:10'
         ]);
 
         $joinInfo = EmployeeInfo::findOrFail($r->id);
@@ -186,7 +188,20 @@ public function updateJoinInfo(Request $r){
         else{
             $joinInfo->specialAllowance = '0';
         }
-        $joinInfo->update();
+        if($r->attDeviceUserId != null){
+            if(AttEmployeeMap::where('employeeId',$r->id)){
+                AttEmployeeMap::where('employeeId',$r->id)->update( ['attDeviceUserId'=>$r->attDeviceUserId]);
+            }
+
+            AttEmployeeMap::firstOrCreate([
+                'attDeviceUserId' => $r->attDeviceUserId,
+                'employeeId'   => $r->id,
+                'fkCompanyId' =>auth()->user()->fkCompany
+
+            ]);
+        }
+
+        $joinInfo->save();
          return response()->json(["message"=>"Join Info updated"]);
 }
 public function getBankInfo(Request $r){
