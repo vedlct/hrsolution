@@ -41,13 +41,27 @@
         <input type="text" name="accessPin" placeholder="pin" [(ngModel)]="employeeJoiningForm.attDeviceUserId" class="form-control">
       </div>
 
+
+
       <div class="form-group col-md-6">
-        <label>Select Shift</label>
-        <select class="form-control">
-          <option>Morning</option>
-          <option>Evening</option>
+        <label>Shift</label>
+        <select class="form-control" name="shift"   (change)="selectShift($event.target.value)">
+          <option value="">Select Shift</option>
+          <option *ngFor="let sh of shift" [value]="sh.shiftId">
+            {{sh.shiftName}}
+          </option>
         </select>
       </div>
+
+      <!--<div class="form-group col-md-6">-->
+        <!--<label>Shift</label>-->
+        <!--<select class="form-control" name="shift"   (change)="selectShift($event.target.value)">-->
+          <!--<option value="">Select Shift</option>-->
+          <!--<option *ngFor="let sh of shift" [value]="sh.shiftId" [selected]="deg.id==educationForm.degreeId">-->
+            <!--{{sh.shiftName}}-->
+          <!--</option>-->
+        <!--</select>-->
+      <!--</div>-->
 
 
       <div class="form-group col-md-6">

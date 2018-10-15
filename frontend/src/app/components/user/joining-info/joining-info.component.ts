@@ -12,6 +12,7 @@ import {HttpClient} from "@angular/common/http";
 export class JoiningInfoComponent implements OnInit {
   @Input('empid') empid: any;
   JoiningForm:any;
+  shift[]:any;
   employeeJoiningForm:any={
     id:'',
     actualJoinDate:'',
@@ -22,7 +23,8 @@ export class JoiningInfoComponent implements OnInit {
     scheduleInTime:'',
     scheduleOutTime:'',
     specialAllowance:'',
-    attDeviceUserId:''
+    attDeviceUserId:'',
+    shiftId:''
   };
 
   constructor(public http: HttpClient, private token:TokenService,private router: Router) { }
@@ -38,8 +40,8 @@ export class JoiningInfoComponent implements OnInit {
       this.employeeJoiningForm.resignDate=this.JoiningForm.resignDate;
       this.employeeJoiningForm.weekend=this.JoiningForm.weekend;
       this.employeeJoiningForm.accessPin=this.JoiningForm.accessPin;
-      this.employeeJoiningForm.scheduleInTime=this.JoiningForm.scheduleInTime;
-      this.employeeJoiningForm.scheduleOutTime=this.JoiningForm.scheduleOutTime;
+      // this.employeeJoiningForm.scheduleInTime=this.JoiningForm.scheduleInTime;
+      // this.employeeJoiningForm.scheduleOutTime=this.JoiningForm.scheduleOutTime;
       this.employeeJoiningForm.specialAllowance=this.JoiningForm.specialAllowance;
       this.employeeJoiningForm.attDeviceUserId=this.JoiningForm.attDeviceUserId;
 
@@ -49,8 +51,32 @@ export class JoiningInfoComponent implements OnInit {
           console.log(error);
         }
     );
+    this.getShift();
   }
 
+  getShift(){
+    const token=this.token.get();
+    this.http.get(Constants.API_URL+'shift/get'+'?token='+token).subscribe(data => {
+          this.shift=data;
+
+        },
+        error => {
+          console.log(error);
+        }
+    );
+  }
+  selectShift(value){
+    console.log(value);
+    this.employeeJoiningForm.shiftId=value;
+    let i=0;
+    for(i;i<this.shift.length;i++){
+        if(this.shift[i].shiftId==value){
+          this.employeeJoiningForm.scheduleInTime=this.shift[i].inTime;
+          this.employeeJoiningForm.scheduleOutTime=this.shift[i].outTime;
+          break;
+        }
+    }
+  }
   submit(){
     // console.log(this.employeeJoiningForm);
     const token=this.token.get();
