@@ -3,7 +3,7 @@ import {Constants} from "../../../constants";
 import {Router} from "@angular/router";
 import {TokenService} from "../../../services/token.service";
 import {HttpClient} from "@angular/common/http";
-
+declare var $ :any;
 @Component({
   selector: 'app-joining-info',
   templateUrl: './joining-info.component.html',
@@ -13,6 +13,7 @@ export class JoiningInfoComponent implements OnInit {
   @Input('empid') empid: any;
   JoiningForm:any;
   shift:any;
+  userShitf:any;
   employeeJoiningForm:any={
     id:'',
     actualJoinDate:'',
@@ -66,10 +67,11 @@ export class JoiningInfoComponent implements OnInit {
     );
 
     this.http.post(Constants.API_URL+'user/shift/get'+'?token='+token,{'fkemployeeId':this.employeeJoiningForm.id}).subscribe(data => {
-          // console.log(data);
+
           // data.fkshiftId
-          this.employeeJoiningForm.shiftId=data.fkshiftId;
-          this.selectShift(data.fkshiftId);
+          this.userShitf=data;
+          this.employeeJoiningForm.shiftId=this.userShitf.fkshiftId;
+          this.selectShift(this.userShitf.fkshiftId);
         },
         error => {
           console.log(error);

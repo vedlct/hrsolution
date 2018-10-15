@@ -116,7 +116,6 @@ Route::group([
     //Shift
 
     Route::get('shift/get','shiftController@getShiftName');
-
     Route::post('shift/post','shiftController@createShift');
     Route::post('user/shift/get','shiftController@getUserShift');
     Route::get('/getAllShift','shiftController@getAllShift');
