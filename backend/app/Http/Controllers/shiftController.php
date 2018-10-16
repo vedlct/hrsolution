@@ -5,11 +5,13 @@ namespace App\Http\Controllers;
 use App\Shift;
 use App\ShiftLog;
 use Illuminate\Http\Request;
+use Yajra\DataTables\DataTables;
 
 class shiftController extends Controller
 {
    public function getShiftName(){
        $shift = Shift::where('fkcompanyId',auth()->user()->fkCompany)->get();
+
        return response()->json($shift);
    }
    public function createShift(Request $r){
@@ -40,8 +42,9 @@ public function getUserShift(Request $r){
        return response()->json($shiftName);
 }
 
-public function getAllShift(){
-       $shift = Shift::all();
-       return response()->json($shift);
+public function getAllShift(Request $r){
+    $shift = Shift::where('fkcompanyId',auth()->user()->fkCompany)->get();
+    $datatables = Datatables::of($shift);
+    return $datatables->make(true);
 }
 }

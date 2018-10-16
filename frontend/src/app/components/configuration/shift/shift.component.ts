@@ -28,7 +28,35 @@ export class ShiftComponent implements OnInit {
   constructor(private modalService: NgbModal,private http:HttpClient,private token:TokenService) { }
 
   ngOnInit() {
-    this.getShift();
+    // this.getShift();
+    let that = this;
+    const token=this.token.get();
+    this.dtOptions = {
+      ajax: {
+        url: Constants.API_URL+'getAllShift'+'?token='+token,
+        type: 'POST'
+      },
+      columns: [
+        { data: 'shiftName' ,name:'shiftName'},
+        { data: 'inTime' , name: 'inTime' },
+        { data: 'outTime' , name: 'outTime'},
+        // { "data": function(data){
+        //
+        //   return '<button class="btn btn-info">Edit</button>'
+        //       ;},
+        //   "orderable": false, "searchable":false, "name":"selected_rows" },
+      ],
+      processing: true,
+      serverSide: true,
+      pagingType: 'full_numbers',
+      pageLength: 10
+    };
+
+
+
+
+
+
   }
 
   getShift(){
@@ -91,4 +119,11 @@ export class ShiftComponent implements OnInit {
   }
 
 
+}
+
+export class DataTablesResponse {
+  data: any[];
+  draw: number;
+  recordsFiltered: number;
+  recordsTotal: number;
 }

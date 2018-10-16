@@ -40,25 +40,42 @@
 
     <div class="card-body">
       <a style=" float: right" class="btn btn-outline-primary mb-2 mr-2" (click)="openLg(content)" >Add New</a>  <br><br>
-      <table datatable  id="example" class="table" [dtOptions]="dtOptions" [dtTrigger]="dtTeigger">
+      <!--<table datatable  id="example" class="table" [dtOptions]="dtOptions" [dtTrigger]="dtTeigger">-->
+        <!--<thead>-->
+        <!--<tr>-->
+          <!--<th>Shift Name</th>-->
+          <!--<th>In Time</th>-->
+          <!--<th>Out Time</th>-->
+          <!--<th>Action</th>-->
+        <!--</tr>-->
+
+        <!--</thead>-->
+        <!--<tbody >-->
+
+        <!--<tr  *ngFor="let shift of shifts" >-->
+          <!--<td>{{shift.shiftName}}</td>-->
+          <!--<td>{{shift.inTime}}</td>-->
+          <!--<td>{{shift.outTime}}</td>-->
+          <!--<td>  <button class="btn btn-info" (click)="edit(shift.shiftId,content)"> Edit</button></td>-->
+
+        <!--</tr>-->
+        <!--<tr *ngIf="shifts?.length == 0">-->
+          <!--<td colspan="3" class="no-data-available">No data!</td>-->
+        <!--</tr>-->
+
+        <!--</tbody>-->
+
+      <!--</table>-->
+      <table datatable class="table" [dtOptions]="dtOptions">
         <thead>
         <tr>
           <th>Shift Name</th>
           <th>In Time</th>
           <th>Out Time</th>
-          <th>Action</th>
         </tr>
-
         </thead>
-        <tbody >
 
-        <tr  *ngFor="let shift of shifts" >
-          <td>{{shift.shiftName}}</td>
-          <td>{{shift.inTime}}</td>
-          <td>{{shift.outTime}}</td>
-          <td>  <button class="btn btn-info" (click)="edit(shift.shiftId,content)"> Edit</button></td>
-
-        </tr>
+        <tbody>
 
         </tbody>
 
