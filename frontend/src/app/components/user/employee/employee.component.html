@@ -4,7 +4,7 @@
 
     <div class="card-body">
       <a style=" float: right" class="btn btn-outline-primary mb-2 mr-2" routerLink="add" >Add New</a>  <br><br>
-      <table datatable  id="example" class="table" [dtOptions]="dtOptions" [dtTrigger]="dtTeigger">
+      <table datatable class="table" [dtOptions]="dtOptions" [dtTrigger]="dtTrigger">
         <thead>
         <tr>
           <th>Name</th>
@@ -13,18 +13,9 @@
           <th>Department</th>
           <th>Action</th>
         </tr>
-
         </thead>
-        <tbody >
 
-        <tr  *ngFor="let emp of employee" >
-          <td>{{emp.firstName}}</td>
-          <td>{{emp.EmployeeId}}</td>
-          <td>{{emp.title}}</td>
-          <td>{{emp.departmentName}}</td>
-          <td><button class="btn btn-danger" [routerLink]="['edit', emp.empid]"   style="margin-left: 20px;">Edit</button></td>
-
-        </tr>
+        <tbody>
 
         </tbody>
 

@@ -47,7 +47,7 @@ Route::group([
 
 
     //EmployeeType Info
-    Route::get('employee/get','EmployeeController@getAllEmployee');
+    Route::post('employee/get','EmployeeController@getAllEmployee');
 
 
     //EmployeeType Info
@@ -118,7 +118,7 @@ Route::group([
     Route::get('shift/get','shiftController@getShiftName');
     Route::post('shift/post','shiftController@createShift');
     Route::post('user/shift/get','shiftController@getUserShift');
-    Route::get('/getAllShift','shiftController@getAllShift');
+    Route::post('/getAllShift','shiftController@getAllShift');
 
 
 

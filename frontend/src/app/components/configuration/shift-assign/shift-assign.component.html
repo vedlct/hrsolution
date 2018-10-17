@@ -1,0 +1,49 @@
+<div class="container-fluid">
+  <div class="card">
+    <div class="card-header">Employee Details</div>
+
+    <div class="card-body">
+      <div class="row">
+        <div class="form-group col-md-4">
+          <label>Shift</label>
+          <select class="form-control" name="shift"  (change)="selectShift($event.target.value)">
+            <option value="">Select Shift</option>
+            <option *ngFor="let sh of shift" [value]="sh.shiftId">
+              {{sh.shiftName}}
+            </option>
+          </select>
+        </div>
+
+        <div class="form-group col-md-4">
+          <label>Start Date</label>
+          <input bsDatepicker
+                 [bsConfig]="{ dateInputFormat: 'YYYY-MM-DD' }"  name="resignDate" class="form-control">
+        </div>
+      </div>
+
+
+      <!--<input style="margin-left: 15px" type="checkbox" class="SelectAll" id="selectall2"  (click)="selectAll()"/><b>Select All</b><br>-->
+      <table datatable class="table" [dtOptions]="dtOptions" [dtTrigger]="dtTrigger">
+        <thead>
+        <tr>
+          <th style="text-align: center"><input type="checkbox" class="SelectAll" id="selectall2"  (click)="selectAll()"/></th>
+          <th>Name</th>
+          <th>Employee ID</th>
+          <th>Degisnation</th>
+          <th>Department</th>
+
+        </tr>
+        </thead>
+
+        <tbody>
+
+        </tbody>
+
+      </table>
+
+
+    </div>
+  </div>
+
+
+</div>

@@ -9,26 +9,26 @@
   </div>
   <div class="modal-body">
 
-     <div class="row">
-        <div class="form-group col-md-6">
-            <label>Shift Name</label>
-            <input type="text" [(ngModel)]="shiftObj.shiftName" placeholder="shift" class="form-control">
-        </div>
-       <div class="form-group col-md-6">
-         <label>In Time</label>
-         <input type="time" [(ngModel)]="shiftObj.inTime" class="form-control">
-       </div>
-       <div class="form-group col-md-6">
-         <label>Out Time</label>
-         <input type="time" [(ngModel)]="shiftObj.outTime" class="form-control">
-       </div>
-       <div class="form-group col-md-12">
+    <div class="row">
+      <div class="form-group col-md-6">
+        <label>Shift Name</label>
+        <input type="text" [(ngModel)]="shiftObj.shiftName" placeholder="shift" class="form-control">
+      </div>
+      <div class="form-group col-md-6">
+        <label>In Time</label>
+        <input type="time" [(ngModel)]="shiftObj.inTime" class="form-control">
+      </div>
+      <div class="form-group col-md-6">
+        <label>Out Time</label>
+        <input type="time" [(ngModel)]="shiftObj.outTime" class="form-control">
+      </div>
+      <div class="form-group col-md-12">
 
-       <button class="btn btn-success pull-right" (click)="onSubmit()">Submit</button>
-       </div>
+        <button class="btn btn-success pull-right" (click)="onSubmit()">Submit</button>
+      </div>
 
 
-     </div>
+    </div>
 
   </div>
 </ng-template>
