@@ -12,6 +12,7 @@ use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
+use Yajra\DataTables\DataTables;
 
 use Validator;
 use Hash;
@@ -23,14 +24,16 @@ class EmployeeController extends Controller
 //        $this->middleware('auth:api');
     }
 
-    public function getAllEmployee(){
-        $employee = EmployeeInfo::select('*', 'employeeinfo.id as empid')
+    public function getAllEmployee(Request $r){
+        $employee = EmployeeInfo::select('employeeinfo.firstName','employeeinfo.EmployeeId','hrmdesignations.title','hrmdepartments.departmentName','employeeinfo.id as empid')
             ->leftjoin('hrmdesignations','hrmdesignations.id','=','employeeinfo.fkDesignation')
             ->leftjoin('hrmdepartments','hrmdepartments.id','=','employeeinfo.fkDepartmentId')
-            ->where('employeeinfo.fkCompany' , auth()->user()->fkCompany)
-            ->get();
+            ->where('employeeinfo.fkCompany' , auth()->user()->fkCompany);
+//            ->get();
 
-        return $employee;
+//        return $employee;
+        $datatables = Datatables::of($employee);
+        return $datatables->make(true);
     }
 
     public function getBasicinfo(Request $r){

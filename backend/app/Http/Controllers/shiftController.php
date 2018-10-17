@@ -43,7 +43,7 @@ public function getUserShift(Request $r){
 }
 
 public function getAllShift(Request $r){
-    $shift = Shift::where('fkcompanyId',auth()->user()->fkCompany)->get();
+    $shift = Shift::where('fkcompanyId',auth()->user()->fkCompany);
     $datatables = Datatables::of($shift);
     return $datatables->make(true);
 }

@@ -47,7 +47,7 @@ Route::group([
 
 
     //EmployeeType Info
-    Route::get('employee/get','EmployeeController@getAllEmployee');
+    Route::post('employee/get','EmployeeController@getAllEmployee');
 
 
     //EmployeeType Info
