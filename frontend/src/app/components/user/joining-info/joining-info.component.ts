@@ -25,7 +25,9 @@ export class JoiningInfoComponent implements OnInit {
     scheduleOutTime:'',
     specialAllowance:'',
     attDeviceUserId:'',
-    shiftId:''
+    shiftId:'',
+    supervisor:'',
+    probationPeriod:''
   };
 
   constructor(public http: HttpClient, private token:TokenService,private router: Router) { }
@@ -45,6 +47,8 @@ export class JoiningInfoComponent implements OnInit {
       // this.employeeJoiningForm.scheduleOutTime=this.JoiningForm.scheduleOutTime;
       this.employeeJoiningForm.specialAllowance=this.JoiningForm.specialAllowance;
       this.employeeJoiningForm.attDeviceUserId=this.JoiningForm.attDeviceUserId;
+      this.employeeJoiningForm.supervisor=this.JoiningForm.supervisor;
+      this.employeeJoiningForm.probationPeriod=this.JoiningForm.probationPeriod;
 
 
         },
