@@ -114,11 +114,13 @@ Route::group([
     Route::get('country/basic','CountryController@getCountryBasic');
 
     //Shift
+    Route::post('employee/shift/get','EmployeeController@getAllEmployeeForAttendance');
 
     Route::get('shift/get','shiftController@getShiftName');
     Route::post('shift/post','shiftController@createShift');
     Route::post('user/shift/get','shiftController@getUserShift');
     Route::post('/getAllShift','shiftController@getAllShift');
+    Route::post('shift/assign','shiftController@assignToShift');
 
 
 

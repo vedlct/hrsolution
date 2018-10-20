@@ -31,6 +31,7 @@ import { EmployeeComponent } from './components/user/employee/employee.component
 import { BsDatepickerModule } from 'ngx-bootstrap/datepicker';
 import { ShiftComponent } from './components/configuration/shift/shift.component';
 import { ShiftAssignComponent } from './components/configuration/shift-assign/shift-assign.component';
+import { NgMultiSelectDropDownModule } from 'ng-multiselect-dropdown';
 @NgModule({
   declarations: [
     AppComponent,
@@ -66,7 +67,8 @@ import { ShiftAssignComponent } from './components/configuration/shift-assign/sh
     FormsModule,
     ReactiveFormsModule,
     BsDatepickerModule.forRoot(),
-    NgbModule.forRoot()
+    NgbModule.forRoot(),
+    NgMultiSelectDropDownModule.forRoot()
   ],
   providers: [],
   bootstrap: [AppComponent]

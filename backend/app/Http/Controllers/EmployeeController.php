@@ -29,11 +29,38 @@ class EmployeeController extends Controller
             ->leftjoin('hrmdesignations','hrmdesignations.id','=','employeeinfo.fkDesignation')
             ->leftjoin('hrmdepartments','hrmdepartments.id','=','employeeinfo.fkDepartmentId')
             ->where('employeeinfo.fkCompany' , auth()->user()->fkCompany);
-//            ->get();
 
-//        return $employee;
         $datatables = Datatables::of($employee);
         return $datatables->make(true);
+    }
+
+    public function getAllEmployeeForAttendance(Request $r){
+        $employee = EmployeeInfo::select('shiftlog.startDate','shiftlog.weekend','shift.shiftName','employeeinfo.firstName','employeeinfo.EmployeeId','hrmdesignations.title','hrmdepartments.departmentName','employeeinfo.id as empid')
+            ->leftjoin('hrmdesignations','hrmdesignations.id','=','employeeinfo.fkDesignation')
+            ->leftjoin('hrmdepartments','hrmdepartments.id','=','employeeinfo.fkDepartmentId')
+            ->leftjoin('shiftlog','shiftlog.fkemployeeId','=','employeeinfo.id')
+            ->leftjoin('shift','shift.shiftId','=','shiftlog.fkshiftId')
+            ->where('employeeinfo.fkCompany' , auth()->user()->fkCompany)
+            ->where('shiftlog.endDate',null);
+//
+
+        $datatables = Datatables::of($employee);
+        return $datatables->make(true);
+    }
+
+    public function test(){
+        $employee = EmployeeInfo::select('shiftlog.startDate','employeeinfo.firstName','employeeinfo.EmployeeId','hrmdesignations.title','hrmdepartments.departmentName','employeeinfo.id as empid')
+            ->leftjoin('hrmdesignations','hrmdesignations.id','=','employeeinfo.fkDesignation')
+            ->leftjoin('hrmdepartments','hrmdepartments.id','=','employeeinfo.fkDepartmentId')
+            ->leftjoin('shiftlog','shiftlog.fkemployeeId','=','employeeinfo.id')
+            ->where('employeeinfo.fkCompany' , 1)
+            ->where('shiftlog.endDate',null)
+            ->get();
+
+
+        return $employee;
+
+
     }
 
     public function getBasicinfo(Request $r){
