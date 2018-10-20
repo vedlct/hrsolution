@@ -239,10 +239,15 @@ public function updateJoinInfo(Request $r){
             ]);
         }
 
+
+        ShiftLog::where('fkemployeeId',$r->id)
+        ->where('endDate',null)
+        ->update(['endDate'=>date('Y-m-d')]);
+
+
       ShiftLog::create([
           'fkemployeeId'=> $r->id,
-          'startDate' =>'2018-2-2',
-          'endDate' =>'2018-2-2',
+          'startDate' =>date('Y-m-d'),
           'fkshiftId'=>$r->shiftId
       ]);
 
