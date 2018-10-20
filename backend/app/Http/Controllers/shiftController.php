@@ -15,8 +15,6 @@ class shiftController extends Controller
         return response()->json($shift);
     }
     public function createShift(Request $r){
-
-
         $this->validate($r,[
             'shiftName' => 'required|max:20',
             'inTime' => 'required',
@@ -28,7 +26,6 @@ class shiftController extends Controller
         else{
             $shift = Shift::findOrFail($r->shiftId);
         }
-
         $shift->shiftName= $r->shiftName;
         $shift->inTime = $r->inTime  ;
         $shift->outTime = $r->outTime;
