@@ -64,7 +64,7 @@ class EmployeeController extends Controller
     }
 
     public function getBasicinfo(Request $r){
-        $basicinfo = EmployeeInfo::select('EmployeeId','firstName', 'middleName', 'lastName', 'fkEmployeeType','email' ,'gender', 'birthdate','contactNo','fkDesignation','fkDepartmentId','departmentName', 'title')
+        $basicinfo = EmployeeInfo::select('EmployeeId','firstName', 'middleName', 'lastName', 'fkEmployeeType','email' ,'gender', 'birthdate','contactNo','fkDesignation','fkDepartmentId','departmentName', 'title','alterContactNo')
             ->leftjoin('hrmdesignations','hrmdesignations.id','=','employeeinfo.fkDesignation')
             ->leftjoin('hrmdepartments','hrmdepartments.id','=','employeeinfo.fkDepartmentId')
             ->leftjoin('employeetypes','employeetypes.id','=','employeeinfo.fkEmployeeType')
@@ -95,6 +95,7 @@ class EmployeeController extends Controller
             'fkEmployeeType'   => 'max:11',
             'email'   => 'nullable|max:30',
             'contactNo'   => 'nullable|max:15',
+            'alterContactNo'   => 'nullable|max:15',
             'birthdate'   => 'nullable|date',
             'gender'   => 'max:1',
             'photo'   => 'max:256',
@@ -128,6 +129,7 @@ class EmployeeController extends Controller
             $employeeInfo->fkEmployeeType=$r->empType;
             $employeeInfo->email=$r->email;
             $employeeInfo->contactNo=$r->contactNo;
+            $employeeInfo->alterContactNo=$r->alterContactNo;
             $employeeInfo->birthdate=$r->birthdate;
             $employeeInfo->gender =$r->gender;
             if($r->hasFile('photo')){
@@ -186,7 +188,7 @@ public function getPersonalInfo(Request $r){
 }
 
 public function getJoinInfo(Request $r){
-        $joinInfo = EmployeeInfo::select('attemployeemap.attDeviceUserId','actualJoinDate','recentJoinDate','resignDate','weekend','accessPin','scheduleInTime','scheduleOutTime','specialAllowance')
+        $joinInfo = EmployeeInfo::select('attemployeemap.attDeviceUserId','actualJoinDate','recentJoinDate','resignDate','weekend','accessPin','scheduleInTime','scheduleOutTime','specialAllowance','supervisor','probationPeriod')
             ->leftJoin('attemployeemap','attemployeemap.employeeId','employeeinfo.id')
             ->where('employeeinfo.id','=',$r->id)
             ->first();
@@ -203,7 +205,9 @@ public function updateJoinInfo(Request $r){
             'scheduleInTime' => 'nullable',
             'scheduleOutTime' => 'nullable',
             'specialAllowance' => 'nullable|max:11',
-            'attDeviceUserId'   =>'max:10'
+            'attDeviceUserId'   =>'max:10',
+            'supervisor'   =>'max:80',
+
         ]);
 
         $joinInfo = EmployeeInfo::findOrFail($r->id);
@@ -214,6 +218,8 @@ public function updateJoinInfo(Request $r){
         $joinInfo->accessPin = $r->accessPin;
         $joinInfo->scheduleInTime = $r->scheduleInTime;
         $joinInfo->scheduleOutTime = $r->scheduleOutTime;
+        $joinInfo->supervisor = $r->supervisor;
+        $joinInfo->probationPeriod = $r->probationPeriod;
         if($r->specialAllowance==true){
             $joinInfo->specialAllowance = '1';
         }
