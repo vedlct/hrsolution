@@ -29,6 +29,7 @@ export class BasicInfoComponent implements OnInit {
     nickName:'',
     email:'',
     contactNo:'',
+    alterContactNo:'',
     birthdate:'',
     gender:''
 
@@ -92,6 +93,7 @@ export class BasicInfoComponent implements OnInit {
                   this.employeeBasicForm.empType = this.basicinfo.fkEmployeeType;
                   this.employeeBasicForm.designation = this.basicinfo.fkDesignation;
                   this.employeeBasicForm.contactNo = this.basicinfo.contactNo;
+                  this.employeeBasicForm.alterContactNo = this.basicinfo.alterContactNo;
               }
 
 
