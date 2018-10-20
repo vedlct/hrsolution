@@ -40,7 +40,13 @@ export class AddDepartmentComponent implements OnInit {
     if(Object.keys(this.departmentField).length === 0){
       return true;
     }
-    return false;
+    else {
+      if(this.departmentField.id ==null){
+        return true;
+      }
+      return false;
+    }
+
   }
   onSubmit(){
     console.log(this.departmentField);

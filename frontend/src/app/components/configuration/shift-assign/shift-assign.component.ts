@@ -1,9 +1,10 @@
-import {Component, OnInit, AfterViewInit, Renderer} from '@angular/core';
+import {Component, OnInit, AfterViewInit, Renderer, OnDestroy, ViewChild} from '@angular/core';
 import {Constants} from "../../../constants";
 import {HttpClient} from "@angular/common/http";
 import {TokenService} from "../../../services/token.service";
 import {Subject} from "rxjs";
 import {ActivatedRoute, Router} from "@angular/router";
+import {DataTableDirective} from "angular-datatables";
 declare var $ :any;
 
 @Component({
@@ -11,20 +12,53 @@ declare var $ :any;
   templateUrl: './shift-assign.component.html',
   styleUrls: ['./shift-assign.component.css']
 })
-export class ShiftAssignComponent implements AfterViewInit,OnInit {
-
+export class ShiftAssignComponent implements AfterViewInit,OnDestroy,OnInit {
+  @ViewChild(DataTableDirective)
+  dtElement: DataTableDirective;
   employee:any;
   dtOptions:DataTables.Settings={};
-  dtTeigger:Subject<any>=new Subject();
+  dtTrigger:Subject<any>=new Subject();
   id:any;
   allEmp=[];
+  shiftId:number;
   shift:any;
+  dtInstance:DataTables.Api;
+  startDate:string;
+  // DROPDOWN
+  dropdownList = [];
+  selectedItems = [];
+  dropdownSettings = {};
   constructor(private renderer: Renderer,public http: HttpClient, private token:TokenService , public route:ActivatedRoute, private router: Router) { }
 
   ngOnInit() {
+    this.dropdownList = [
+      { item_id: 'saturday', item_text: 'Saturday' },
+      { item_id:'sunday', item_text: 'Sunday' },
+      { item_id: 'monday', item_text: 'Monday' },
+      { item_id: 'tuesday', item_text: 'Tuesday' },
+      { item_id: 'wednesday', item_text: 'Wednesday' },
+      { item_id: 'thursday', item_text: 'Thursday' },
+      { item_id:'friday', item_text: 'Friday' }
+    ];
+
+    this.dropdownSettings = {
+      singleSelection: false,
+      idField: 'item_id',
+      textField: 'item_text',
+      selectAllText: 'Select All',
+      unSelectAllText: 'UnSelect All',
+      itemsShowLimit: 3,
+      allowSearchFilter: true
+    };
   this.getData();
   this.getShift();
 
+  }
+  onItemSelect(value){
+    // console.log(value);
+  }
+  onSelectAll(value){
+    // console.log(value);
   }
 
   getShift(){
@@ -32,7 +66,7 @@ export class ShiftAssignComponent implements AfterViewInit,OnInit {
 
     this.http.get(Constants.API_URL+'shift/get'+'?token='+token).subscribe(data => {
           this.shift=data;
-          console.log(data);
+          // console.log(data);
         },
         error => {
           console.log(error);
@@ -40,15 +74,12 @@ export class ShiftAssignComponent implements AfterViewInit,OnInit {
     );
 
   }
-  selectShift(value){
-    // this.getData();
-  }
 
   getData(){
     const token=this.token.get();
     this.dtOptions = {
       ajax: {
-        url: Constants.API_URL+'employee/get'+'?token='+token,
+        url: Constants.API_URL+'employee/shift/get'+'?token='+token,
         type: 'POST',
         data:function (d){
 
@@ -64,8 +95,9 @@ export class ShiftAssignComponent implements AfterViewInit,OnInit {
         },
         { data: 'firstName' ,name:'employeeinfo.firstName'},
         { data: 'EmployeeId' , name: 'employeeinfo.EmployeeId' },
-        { data: 'title', name: 'hrmdesignations.title'},
-        { data: 'departmentName', name: 'hrmdepartments.departmentName'},
+        { data: 'shiftName', name: 'shift.shiftName'},
+        { data: 'weekend', name: 'shiftlog.weekend'},
+        { data: 'startDate', name: 'shiftlog.startDate'},
 
       ],
       processing: true,
@@ -76,6 +108,7 @@ export class ShiftAssignComponent implements AfterViewInit,OnInit {
   }
 
   ngAfterViewInit(): void {
+    this.dtTrigger.next();
     this.renderer.listenGlobal('document', 'click', (event) => {
 
       if (event.target.hasAttribute("data-emp-id")) {
@@ -88,13 +121,17 @@ export class ShiftAssignComponent implements AfterViewInit,OnInit {
         }else {
           this.allEmp.splice(index, 1);
         }
-        console.log(this.allEmp);
+        // console.log(this.allEmp);
       }
 
 
 
 
     });
+  }
+  ngOnDestroy(): void {
+    // Do not forget to unsubscribe the event
+    this.dtTrigger.unsubscribe();
   }
 
   selectAll(){
@@ -109,32 +146,59 @@ export class ShiftAssignComponent implements AfterViewInit,OnInit {
       $(".chk:checked").each(function () {
         that.allEmp.push($(this).val());
       });
-      console.log(this.allEmp);
+      // console.log(this.allEmp);
     }
     else {
 
       $(':checkbox:checked').prop('checked',false);
-
     }
 
   }
 
-
-  getAllemployee(){
-    const token=this.token.get();
-
-    this.http.get(Constants.API_URL+'employee/get'+'?token='+token).subscribe(data => {
-          // console.log(data);
-          this.employee=data;
-          this.dtTeigger.next();
-          // console.log(data);
-        },
-        error => {
-          console.log(error);
-        }
-    );
-
+  selectShift(value){
+    // this.getData();
+    this.shiftId=value;
+    console.log(this.shiftId);
   }
 
+
+  assignShift(){
+
+    // console.log(this.selectedItems);
+    // return false;
+
+    if(this.shiftId == null || this.startDate ==null || this.allEmp.length ==0 || this.selectedItems.length==0){
+      alert("Empty");
+    }
+    else {
+      let form={
+        allEmp:this.allEmp,
+        shiftId:this.shiftId,
+        startDate:this.startDate,
+        weekends:this.selectedItems
+      };
+      const token=this.token.get();
+
+      this.http.post(Constants.API_URL+'shift/assign'+'?token='+token,form).subscribe(data => {
+            console.log(data);
+            this.rerender();
+
+          },
+          error => {
+            console.log(error);
+          }
+      );
+    }
+
+
+  }
+  rerender(){
+    this.dtElement.dtInstance.then((dtInstance: DataTables.Api) => {
+
+      dtInstance.destroy();
+
+      this.dtTrigger.next();
+    });
+  }
 
 }
