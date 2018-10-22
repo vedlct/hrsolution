@@ -40,10 +40,15 @@
           <label>Alternative Number</label>
           <input type="text" class="form-control" name="contactNo" placeholder="alternative phone" [(ngModel)]="emergencyForm.alterContactNo" required>
         </div>
-        <div class="form-group col-md-4">
+      <div class="form-group col-md-4">
+        <label>Relation</label>
+        <input type="text" class="form-control" name="relation" placeholder="relation" [(ngModel)]="emergencyForm.relation" required>
+      </div>
+
+      <div class="form-group col-md-4">
           <label>Address</label>
           <textarea class="form-control" [(ngModel)]="emergencyForm.address"></textarea>
-        </div>
+      </div>
 
         <div class="form-group col-md-12">
           <button class="btn btn-success pull-right" (click)="submitForm()">Submit</button>

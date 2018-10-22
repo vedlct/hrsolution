@@ -9,8 +9,9 @@ class EmergencyContactController extends Controller
 {
     public function createEmergencyContact(Request $r){
         $this->validate($r,[
-            'firstName' => 'nullable|max:50',
+            'firstName' => 'required|max:50',
             'middleName' => 'nullable|max:50',
+            'lastName' => 'nullable|max:50',
             'address' => 'nullable|max:50',
             'contactNo' => 'nullable|max:15',
             'alterContactNo' => 'nullable|max:15',
@@ -21,12 +22,13 @@ class EmergencyContactController extends Controller
         }
         else{
         $contact = new EmergencyContact();
-        $contact->fkemployeeId = $r->id ;
+        $contact->fkemployeeId = $r->fkemployeeId ;
         $contact->firstName = $r->firstName ;
         $contact-> middleName= $r-> middleName;
+        $contact-> lastName= $r-> lastName;
         $contact->address = $r-> address;
         $contact->contactNo = $r->contactNo ;
-        $contact->alterContactNo = $r->alterContactNo ;
+        $contact->alterContactNo = $r->alterContactNo;
         $contact->relation = $r-> relation;
         $contact->save();
         return response()->json($contact);
@@ -34,7 +36,7 @@ class EmergencyContactController extends Controller
 
     }
     public function getEmergencyContact(Request $r){
-        $emergencyContact = EmergencyContact::where('fkemployeeId','=',$r->id)->first();
+        $emergencyContact = EmergencyContact::where('fkemployeeId','=',$r->fkemployeeId)->first();
         return response()->json($emergencyContact);
     }
 }
