@@ -31,7 +31,8 @@ export class BasicInfoComponent implements OnInit {
     contactNo:'',
     alterContactNo:'',
     birthdate:'',
-    gender:''
+    gender:'',
+    photo:''
 
 
   };
@@ -94,6 +95,8 @@ export class BasicInfoComponent implements OnInit {
                   this.employeeBasicForm.designation = this.basicinfo.fkDesignation;
                   this.employeeBasicForm.contactNo = this.basicinfo.contactNo;
                   this.employeeBasicForm.alterContactNo = this.basicinfo.alterContactNo;
+                  this.employeeBasicForm.photo = Constants.Image_URL+'images/'+this.basicinfo.photo;
+                  // console.log(this.employeeBasicForm.photo);
               }
 
 
