@@ -22,7 +22,9 @@ export class EmergencyContactComponent implements OnInit {
 
   };
 
-  constructor(public http: HttpClient, private token:TokenService,private router: Router) { }
+  constructor(public http: HttpClient, private token:TokenService,private router: Router) {
+
+  }
 
   ngOnInit() {
     this.emergencyForm.id=this.empid;
