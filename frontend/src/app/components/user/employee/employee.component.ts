@@ -66,7 +66,7 @@ export class EmployeeComponent implements AfterViewInit,OnInit {
     this.http.get(Constants.API_URL+'employee/get'+'?token='+token).subscribe(data => {
           // console.log(data);
           this.employee=data;
-          this.dtTeigger.next();
+          this.dtTrigger.next();
           // console.log(data);
         },
         error => {
