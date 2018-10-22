@@ -10,6 +10,7 @@
         <li class="list-group-item" [class.active]="infoFlag == 4"><button style="background: none; color: white; border: none;" class="btn btn-block" (click)="onInfoClick(4)">Joining Info</button> </li>
         <li class="list-group-item" [class.active]="infoFlag == 5"><button style="background: none; color: white; border: none;" class="btn btn-block " (click)="onInfoClick(5)">Bank Info </button></li>
         <li class="list-group-item" [class.active]="infoFlag == 6"><button style="background: none; color: white; border: none;" class="btn btn-block " (click)="onInfoClick(6)">Salary Info </button></li>
+        <li class="list-group-item" [class.active]="infoFlag == 7"><button style="background: none; color: white; border: none;" class="btn btn-block " (click)="onInfoClick(7)">Documents </button></li>
 
       </ul>
     </div>
@@ -22,6 +23,7 @@
       <app-joining-info *ngIf="infoFlag ==4" [empid]="empid"></app-joining-info>
       <app-bank-info *ngIf="infoFlag ==5" [empid]="empid"></app-bank-info>
       <app-salary-info *ngIf="infoFlag ==6" [empid]="empid"></app-salary-info>
+      <app-user-document *ngIf="infoFlag ==7" [empid]="empid"></app-user-document>
     </div>
 
   </div>

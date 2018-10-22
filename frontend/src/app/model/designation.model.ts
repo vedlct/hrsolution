@@ -6,4 +6,5 @@ shortName:string;
 salaryGrade:string;
 created_by:string;
 created_at:string;
+desigLevel:string;
 }
