@@ -8,7 +8,7 @@ import {ActivatedRoute} from "@angular/router";
   styleUrls: ['./company-info.component.css']
 })
 export class CompanyInfoComponent implements OnInit {
-  private infoFlag:number=1;
+  infoFlag:number=1;
   master = 'Master';
 
   constructor( private route: ActivatedRoute) { }

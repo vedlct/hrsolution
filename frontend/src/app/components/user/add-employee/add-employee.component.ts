@@ -10,7 +10,7 @@ declare var $ :any;
 export class AddEmployeeComponent implements OnInit {
 
 
-  private infoFlag:number=1;
+  infoFlag:number=1;
   id:any;
   empid:any;
   error=[];

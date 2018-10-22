@@ -13,7 +13,7 @@ export class EmployeeComponent implements AfterViewInit,OnInit {
 
   employee:any;
   dtOptions:DataTables.Settings={};
-  dtTeigger:Subject<any>=new Subject();
+  dtTrigger:Subject<any>=new Subject();
   id:any;
   constructor(private renderer: Renderer,public http: HttpClient, private token:TokenService , public route:ActivatedRoute, private router: Router) { }
 
@@ -46,6 +46,7 @@ export class EmployeeComponent implements AfterViewInit,OnInit {
   }
 
   ngAfterViewInit(): void {
+    this.dtTrigger.next();
     this.renderer.listenGlobal('document', 'click', (event) => {
 
       if (event.target.hasAttribute("data-emp-id")) {
