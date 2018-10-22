@@ -122,7 +122,9 @@ Route::group([
     Route::post('/getAllShift','shiftController@getAllShift');
     Route::post('shift/assign','shiftController@assignToShift');
 
+//Emergency Contact
 
+    Route::post('emergency-contact/post','EmergencyContactController@createEmergencyContact');
 
 
 
