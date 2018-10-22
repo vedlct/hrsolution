@@ -125,6 +125,7 @@ Route::group([
 //Emergency Contact
 
     Route::post('emergency-contact/post','EmergencyContactController@createEmergencyContact');
+    Route::get('emergency-contact/get','EmergencyContactController@getEmergencyContact');
 
 
 

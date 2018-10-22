@@ -34,7 +34,7 @@ class EmergencyContactController extends Controller
 
     }
     public function getEmergencyContact(Request $r){
-        $emergencyContact = EmergencyContact::where('EmergencyContact','=',$r->id)->first();
+        $emergencyContact = EmergencyContact::where('fkemployeeId','=',$r->id)->first();
         return response()->json($emergencyContact);
     }
 }
