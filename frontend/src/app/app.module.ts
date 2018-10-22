@@ -32,6 +32,7 @@ import { BsDatepickerModule } from 'ngx-bootstrap/datepicker';
 import { ShiftComponent } from './components/configuration/shift/shift.component';
 import { ShiftAssignComponent } from './components/configuration/shift-assign/shift-assign.component';
 import { NgMultiSelectDropDownModule } from 'ng-multiselect-dropdown';
+import { EmergencyContactComponent } from './components/user/emergency-contact/emergency-contact.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -56,7 +57,8 @@ import { NgMultiSelectDropDownModule } from 'ng-multiselect-dropdown';
     EducationComponent,
     EmployeeComponent,
     ShiftComponent,
-    ShiftAssignComponent
+    ShiftAssignComponent,
+    EmergencyContactComponent
   ],
   imports: [
     BrowserModule,

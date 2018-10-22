@@ -1,0 +1,47 @@
+<div class="card">
+  <div class="card-header">
+    <h4 align="center">
+      Emergency Contact
+    </h4>
+  </div>
+  <div class="card-body">
+      <div class="row">
+        <div class="form-group col-md-4">
+
+          <label >First Name</label>
+
+          <input type="text" class="form-control" placeholder="First name" [(ngModel)]="emergencyForm.firstName" required>
+
+        </div>
+        <br>
+        <!--<div class="col-md-12"><hr></div>-->
+        <div class=" form-group col-md-4">
+
+          <label >Middle Name</label>
+
+          <input type="text" class="form-control" placeholder="Middle name" [(ngModel)]="emergencyForm.middleName" required>
+
+        </div>
+
+        <div class="form-group col-md-4">
+          <label >Last Name</label>
+          <input type="text" class="form-control" placeholder="Last name" [(ngModel)]="emergencyForm.lastName" required>
+        </div>
+
+
+        <div class="form-group col-md-4">
+          <label>Contact Number</label>
+          <input type="text" class="form-control" name="contactNo" placeholder="phone" [(ngModel)]="emergencyForm.contactNo" required>
+        </div>
+        <div class="form-group col-md-4">
+          <label>Alternative Number</label>
+          <input type="text" class="form-control" name="contactNo" placeholder="alternative phone" [(ngModel)]="emergencyForm.alterContactNo" required>
+        </div>
+        <div class="form-group col-md-4">
+          <label>Address</label>
+          <textarea class="form-control"></textarea>
+        </div>
+
+      </div>
+  </div>
+</div>
