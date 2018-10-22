@@ -36,7 +36,7 @@ class EmergencyContactController extends Controller
            }
 
         else{
-            EmergencyContact::where('fkemployeeId',     '=',$r->fkemployeeId)->update([
+            EmergencyContact::where('fkemployeeId','=',$r->fkemployeeId)->update([
                 "firstName" => $r->firstName,
                 "middleName"=> $r-> middleN,
                 "lastName"=> $r-> lastName,

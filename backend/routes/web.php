@@ -16,3 +16,6 @@ Route::get('/', function () {
 });
 
 Route::get('/test', 'EmployeeController@test');
+//Route::get('path',function (){
+//   return mkdir(public_path('documents/').'anjum', 0777, true);
+//});
