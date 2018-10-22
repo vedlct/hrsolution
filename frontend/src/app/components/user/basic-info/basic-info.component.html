@@ -123,6 +123,11 @@
             </div>
 
 
+             <img class="thumb-md" *ngIf="employeeBasicForm.photo" [src]="employeeBasicForm.photo" height="250" width="250">
+
+
+
+
             <div class="form-group col-md-12" align="right" style="margin-top: 20px" >
                 <button  class="btn btn-lg btn-success " (click)="onSubmit()">Save Data</button>
             </div>

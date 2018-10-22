@@ -64,7 +64,7 @@ class EmployeeController extends Controller
     }
 
     public function getBasicinfo(Request $r){
-        $basicinfo = EmployeeInfo::select('EmployeeId','firstName', 'middleName', 'lastName', 'fkEmployeeType','email' ,'gender', 'birthdate','contactNo','fkDesignation','fkDepartmentId','departmentName', 'title','alterContactNo')
+        $basicinfo = EmployeeInfo::select('EmployeeId','photo','firstName', 'middleName', 'lastName', 'fkEmployeeType','email' ,'gender', 'birthdate','contactNo','fkDesignation','fkDepartmentId','departmentName', 'title','alterContactNo')
             ->leftjoin('hrmdesignations','hrmdesignations.id','=','employeeinfo.fkDesignation')
             ->leftjoin('hrmdepartments','hrmdepartments.id','=','employeeinfo.fkDepartmentId')
             ->leftjoin('employeetypes','employeetypes.id','=','employeeinfo.fkEmployeeType')
