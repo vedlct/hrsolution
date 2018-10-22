@@ -33,4 +33,8 @@ class EmergencyContactController extends Controller
         }
 
     }
+    public function getEmergencyContact(Request $r){
+        $emergencyContact = EmergencyContact::all()->where('EmergencyContact','=',$r->id)->first();
+        return response()->json($emergencyContact);
+    }
 }
