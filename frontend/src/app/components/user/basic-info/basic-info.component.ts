@@ -188,10 +188,12 @@ export class BasicInfoComponent implements OnInit {
           fd.append('photo', this.selectedFile, this.selectedFile.name);
       }
 
+
       const token=this.token.get();
 
       this.http.post(Constants.API_URL+'employee/basic'+'?token='+token,fd).subscribe(data => {
 
+          // console.log(data);
            this.result=data;
               $.alert({
                   title: 'Success!',
