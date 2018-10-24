@@ -128,7 +128,7 @@ Route::group([
     Route::post('emergency-contact/get','EmergencyContactController@getEmergencyContact');
 //Documents
     Route::post('document/submit','DocumentController@submit');
-
+    Route::post('document/get','DocumentController@getDocuments');
     //Documents
 //    Route::post('documents/post','EmployeeDocumentController@createDocuments');
 

@@ -48,14 +48,16 @@ export class UserDocumentComponent implements OnInit {
   submit(){
 
     let fd = new FormData();
+
+    fd.append("empId",  this.empid);
     for(let i=0;i<this.userDocumentFormArray.length;i++){
 
       fd.append("name[]",  this.userDocumentFormArray[i].name);
       fd.append('document[]', this.userDocumentFormArray[i].document, this.userDocumentFormArray[i].document.name);
 
     }
-
-    this.http.post(Constants.API_URL+'document/submit',fd).subscribe(data => {
+    const token=this.token.get();
+    this.http.post(Constants.API_URL+'document/submit'+'?token='+token,fd).subscribe(data => {
           console.log(data);
 
         },
