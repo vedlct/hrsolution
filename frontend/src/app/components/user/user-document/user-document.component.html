@@ -1,15 +1,27 @@
 <div class="card">
   <div class="card-header">All Documents</div>
   <div class="card-body">
-    <div class="row">
-      <div class="form-group col-md6">
+    <!--<ul>-->
+      <!--<li *ngFor="let index of formNumber">-->
+        <!--{{ index }}-->
+      <!--</li>-->
+    <!--</ul>-->
+    <div class="row" *ngFor="let index of formNumber">
+      <div class="form-group col-md-6">
         <label>Name</label>
-        <input type="text" placeholder="title" class="form-control">
+        <input type="text" placeholder="title" class="form-control" [(ngModel)]="userDocumentFormArray[index].name">
       </div>
-      <div class="form-group col-md6">
+
+      <div class="form-group col-md-6">
         <label>Document</label>
-        <input type="text" placeholder="title" class="form-control">
+        <input type="text" placeholder="title" class="form-control" [(ngModel)]="userDocumentFormArray[index].document">
       </div>
+
     </div>
+    <button class="btn btn-info" (click)="addMore()">Add more</button>
+    <button class="btn btn-danger" (click)="removeField()">Remove</button>
+    <button class="btn btn-success" (click)="submit()">Submit</button>
+
+
   </div>
 </div>
