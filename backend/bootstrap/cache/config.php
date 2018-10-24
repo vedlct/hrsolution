@@ -172,7 +172,7 @@
       'file' => 
       array (
         'driver' => 'file',
-        'path' => 'C:\\xampp\\htdocs\\angular\\hrsolution\\backend\\storage\\framework/cache/data',
+        'path' => 'C:\\xampp\\htdocs\\hrsolution\\backend\\storage\\framework/cache/data',
       ),
       'memcached' => 
       array (
@@ -216,8 +216,7 @@
     ),
     'allowedHeaders' => 
     array (
-      0 => 'Content-Type',
-      1 => 'X-Requested-With',
+      0 => '*',
     ),
     'allowedMethods' => 
     array (
@@ -350,12 +349,12 @@
       'local' => 
       array (
         'driver' => 'local',
-        'root' => 'C:\\xampp\\htdocs\\angular\\hrsolution\\backend\\storage\\app',
+        'root' => 'C:\\xampp\\htdocs\\hrsolution\\backend\\storage\\app',
       ),
       'public' => 
       array (
         'driver' => 'local',
-        'root' => 'C:\\xampp\\htdocs\\angular\\hrsolution\\backend\\storage\\app/public',
+        'root' => 'C:\\xampp\\htdocs\\hrsolution\\backend\\storage\\app/public',
         'url' => 'http://localhost/storage',
         'visibility' => 'public',
       ),
@@ -436,13 +435,13 @@
       'single' => 
       array (
         'driver' => 'single',
-        'path' => 'C:\\xampp\\htdocs\\angular\\hrsolution\\backend\\storage\\logs/laravel.log',
+        'path' => 'C:\\xampp\\htdocs\\hrsolution\\backend\\storage\\logs/laravel.log',
         'level' => 'debug',
       ),
       'daily' => 
       array (
         'driver' => 'daily',
-        'path' => 'C:\\xampp\\htdocs\\angular\\hrsolution\\backend\\storage\\logs/laravel.log',
+        'path' => 'C:\\xampp\\htdocs\\hrsolution\\backend\\storage\\logs/laravel.log',
         'level' => 'debug',
         'days' => 7,
       ),
@@ -494,7 +493,7 @@
       'theme' => 'default',
       'paths' => 
       array (
-        0 => 'C:\\xampp\\htdocs\\angular\\hrsolution\\backend\\resources\\views/vendor/mail',
+        0 => 'C:\\xampp\\htdocs\\hrsolution\\backend\\resources\\views/vendor/mail',
       ),
     ),
   ),
@@ -575,7 +574,7 @@
     'lifetime' => '120',
     'expire_on_close' => false,
     'encrypt' => false,
-    'files' => 'C:\\xampp\\htdocs\\angular\\hrsolution\\backend\\storage\\framework/sessions',
+    'files' => 'C:\\xampp\\htdocs\\hrsolution\\backend\\storage\\framework/sessions',
     'connection' => NULL,
     'table' => 'sessions',
     'store' => NULL,
@@ -595,9 +594,9 @@
   array (
     'paths' => 
     array (
-      0 => 'C:\\xampp\\htdocs\\angular\\hrsolution\\backend\\resources\\views',
+      0 => 'C:\\xampp\\htdocs\\hrsolution\\backend\\resources\\views',
     ),
-    'compiled' => 'C:\\xampp\\htdocs\\angular\\hrsolution\\backend\\storage\\framework\\views',
+    'compiled' => 'C:\\xampp\\htdocs\\hrsolution\\backend\\storage\\framework\\views',
   ),
   'trustedproxy' => 
   array (

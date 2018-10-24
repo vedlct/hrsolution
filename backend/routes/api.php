@@ -19,7 +19,7 @@ use Illuminate\Http\Request;
 
 Route::group([
 
-    'middleware' => 'api'
+    'middleware' => 'api',
 
 ], function (){
     Route::get('/', function () {
@@ -129,7 +129,7 @@ Route::group([
 
 
     //Documents
-    Route::post('documents/post','EmployeeDocumentController@createDocuments');
+//    Route::post('documents/post','EmployeeDocumentController@createDocuments');
 
 
 });
