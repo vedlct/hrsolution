@@ -197,9 +197,6 @@ public function getJoinInfo(Request $r){
 }
 public function updateJoinInfo(Request $r){
         $this->validate($r,[
-            'actualJoinDate' => 'date',
-            'recentJoinDate' => 'date',
-            'resignDate' => 'date',
             'weekend' => 'nullable|max:10',
             'accessPin' => 'nullable|max:11',
             'scheduleInTime' => 'nullable',
