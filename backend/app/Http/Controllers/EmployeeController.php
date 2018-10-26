@@ -208,9 +208,25 @@ public function updateJoinInfo(Request $r){
         ]);
 
         $joinInfo = EmployeeInfo::findOrFail($r->id);
-        $joinInfo->actualJoinDate = Carbon::parse($r->actualJoinDate)->format('y-m-d');
+        if($r->actualJoinDate==null){
+            $joinInfo->actualJoinDate = null;
+        }
+        else{
+            $joinInfo->actualJoinDate = Carbon::parse($r->actualJoinDate)->format('y-m-d');
+        }
+    if($r->recentJoinDate==null){
+        $joinInfo->recentJoinDate = null;
+    }
+    else{
         $joinInfo->recentJoinDate = Carbon::parse($r->recentJoinDate)->format('y-m-d');
+    }
+    if($r->resignDate==null){
+        $joinInfo->resignDate = null;
+    }
+    else{
         $joinInfo->resignDate = Carbon::parse($r->recentJoinDate)->format('y-m-d');
+    }
+
         $joinInfo->weekend = $r->weekend;
         $joinInfo->accessPin = $r->accessPin;
         $joinInfo->scheduleInTime = $r->scheduleInTime;
