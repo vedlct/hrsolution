@@ -9,7 +9,7 @@ use App\country;
 class NationalityController extends Controller
 {
     public function getNationality(){
-        $nationality = country::select('cozde','Name')->get();
+        $nationality = country::select('code','Name')->get();
        // return $nationality;
         return response()->json($nationality);
     }
