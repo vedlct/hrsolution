@@ -14,16 +14,35 @@ export class UserDocumentComponent implements OnInit {
   @Input('empid') empid: any;
   formNumber=[];
   userDocumentFormArray=[];
+  userUploadedFile:any;
+  imageUrl=Constants.Image_URL;
 
   constructor(public http: HttpClient, private token:TokenService,private router: Router) { }
 
   ngOnInit() {
-    // this.formNumber.push(0);
-    let form={name:'',
-      document:'',};
-    this.userDocumentFormArray.push(form);
+    this.getDocuments();
+      // window.location.href='http://example.com/myuri/report?param=x';
+    // let form={name:'',
+    //   document:'',};
+    // this.userDocumentFormArray.push(form);
     // console.log(this.userDocumentFormArray);
   }
+
+  getDocuments(){
+      const token=this.token.get();
+      this.http.post(Constants.API_URL+'document/get'+'?token='+token,{empId:this.empid}).subscribe(data => {
+              console.log(data);
+              this.userUploadedFile=data;
+
+          },
+          error => {
+              console.log(error);
+          }
+      );
+
+  }
+
+
   addMore(){
     let form={name:'',
       document:'',};

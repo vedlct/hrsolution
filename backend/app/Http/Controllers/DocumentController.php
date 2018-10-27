@@ -30,11 +30,11 @@ class DocumentController extends Controller
             $empName=EmployeeInfo::findOrFail($empid)->firstName;
             $empDir=$destinationPath.'/'.$empName.'_'.$empid;
             if (!file_exists($empDir)){
-                mkdir($empDir, 0777, true);
+                mkdir(public_path($empDir), 0777, true);
             }
 
 
-            $image->move($empDir, $name);
+            $image->move(public_path($empDir), $name);
             $document = new Documents();
             $document->fkemployeeId = $empid;
             $document->fkcompanyId = auth()->user()->fkCompany;

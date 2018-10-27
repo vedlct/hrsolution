@@ -1,11 +1,22 @@
 <div class="card">
   <div class="card-header">All Documents</div>
   <div class="card-body">
-    <!--<ul>-->
-      <!--<li *ngFor="let index of formNumber">-->
-        <!--{{ index }}-->
-      <!--</li>-->
-    <!--</ul>-->
+
+    <h4>Uploaded</h4>
+    <hr>
+    <ol>
+      <li  *ngFor="let index of userUploadedFile">
+       File Name : {{index.title}}
+
+        <a href="#" class="btn btn-info btn-sm" download="{{imageUrl+index.path}}">Download</a>
+      </li>
+    </ol>
+
+
+
+
+    <h4>Add</h4>
+    <hr>
     <div class="row" *ngFor="let index of userDocumentFormArray;let i = index">
       <div class="form-group col-md-6">
 
