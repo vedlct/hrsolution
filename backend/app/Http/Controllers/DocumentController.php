@@ -40,7 +40,7 @@ class DocumentController extends Controller
             $document->fkcompanyId = auth()->user()->fkCompany;
             $document->title = $names[$i++];
             $document->createdBy = auth()->user()->id;
-            $document->path =$empDir.$name.$empid;
+            $document->path =$empDir.'/'.$name;
             $document->save();
         }
 
