@@ -4,7 +4,7 @@ import {HttpClient} from "@angular/common/http";
 import {Constants} from "../../../constants";
 import {TokenService} from "../../../services/token.service";
 import {EducationForm} from  "../../../model/educationForm.model";
-
+declare var $ :any;
 
 @Component({
   selector: 'app-education',
@@ -106,13 +106,19 @@ export class EducationComponent implements OnInit {
   openLg(content) {
        this.modalRef =  this.modalService.open(content, {});
 
+
   }
 
   saveEducation(){
       // education/post/{empId}
       const token=this.token.get();
       this.http.post(Constants.API_URL + 'education/post/'+this.empid+'?token='+token,this.educationForm).subscribe(data => {
-              console.log(data);
+              // console.log(data);
+              this.result=data;
+              $.alert({
+                  title: 'Success!',
+                  content: this.result.message,
+              });
             this.getAlleducation();
 
           },
@@ -135,12 +141,17 @@ export class EducationComponent implements OnInit {
 
     onSubmit(content){
 
+
         let fd = new FormData();
         fd.append('degree',this.newdegree);
         const token=this.token.get();
         this.http.post(Constants.API_URL + 'degree/insert'+'?token='+token, fd).subscribe(data => {
-                console.log(data);
-
+                // console.log(data);
+                // this.result=data;
+                $.alert({
+                    title: 'Success!',
+                    content: "added",
+                });
                 this.getAllDegree();
             },
             error => {
