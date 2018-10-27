@@ -295,8 +295,8 @@ public function getSalryInfo(Request $r){
 
 public function updateSalryInfo(Request $r){
         $this->validate($r,[
-            'consolidatedSalary' => 'nullable|max:1',
-            'payroll' => 'nullable|max:1'
+            'consolidatedSalary' => 'nullable',
+            'payroll' => 'nullable'
 
         ]);
 
