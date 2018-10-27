@@ -8,7 +8,7 @@
       <li  *ngFor="let index of userUploadedFile">
        File Name : {{index.title}}
 
-        <a href="#" class="btn btn-info btn-sm" download="{{imageUrl+index.path}}">Download</a>
+        <a target="_blank" href="{{imageUrl+index.path}}" download class="btn btn-info btn-sm" >Download</a>
       </li>
     </ol>
 
