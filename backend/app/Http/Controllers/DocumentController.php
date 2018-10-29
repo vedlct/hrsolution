@@ -51,5 +51,5 @@ class DocumentController extends Controller
         $documents = Documents::where('fkemployeeId',$r->empId)->get();
         return response()->json($documents);
     }
-
+ 
 }
