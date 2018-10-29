@@ -32,9 +32,32 @@ export class EducationComponent implements OnInit {
       country: '',
   };
   educations:any;
+    // DROPDOWN
+    dropdownList = [];
+    selectedItems = [];
+    dropdownSettings = {};
   @Input('empid') empid: any;
   constructor(private modalService: NgbModal, public http: HttpClient, private token:TokenService) {}
   ngOnInit() {
+      this.dropdownList = [
+          { item_id: 'saturday', item_text: 'Saturday' },
+          { item_id:'sunday', item_text: 'Sunday' },
+          { item_id: 'monday', item_text: 'Monday' },
+          { item_id: 'tuesday', item_text: 'Tuesday' },
+          { item_id: 'wednesday', item_text: 'Wednesday' },
+          { item_id: 'thursday', item_text: 'Thursday' },
+          { item_id:'friday', item_text: 'Friday' }
+      ];
+
+      this.dropdownSettings = {
+          singleSelection: false,
+          idField: 'item_id',
+          textField: 'item_text',
+          selectAllText: 'Select All',
+          unSelectAllText: 'UnSelect All',
+          itemsShowLimit: 3,
+          allowSearchFilter: true
+      };
 
     //Getting Deegree
     this.getAllDegree();

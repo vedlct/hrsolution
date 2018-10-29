@@ -197,7 +197,6 @@ public function getJoinInfo(Request $r){
 }
 public function updateJoinInfo(Request $r){
         $this->validate($r,[
-            'weekend' => 'nullable|max:10',
             'accessPin' => 'nullable|max:11',
             'scheduleInTime' => 'nullable',
             'scheduleOutTime' => 'nullable',
@@ -206,6 +205,15 @@ public function updateJoinInfo(Request $r){
             'supervisor'   =>'max:80',
 
         ]);
+        $days=array();
+        for ($i=0;$i<count($r->weekend);$i++){
+            array_push($days,$r->weekend[$i]['item_id']);
+        }
+        $tags = implode(',',$days);
+//
+//        return Response()->json($tags);
+
+
 
         $joinInfo = EmployeeInfo::findOrFail($r->id);
         if($r->actualJoinDate==null){
@@ -227,7 +235,8 @@ public function updateJoinInfo(Request $r){
         $joinInfo->resignDate = Carbon::parse($r->recentJoinDate)->format('y-m-d');
     }
 
-        $joinInfo->weekend = $r->weekend;
+
+        $joinInfo->weekend = $tags;
         $joinInfo->accessPin = $r->accessPin;
         $joinInfo->scheduleInTime = $r->scheduleInTime;
         $joinInfo->scheduleOutTime = $r->scheduleOutTime;
@@ -258,14 +267,22 @@ public function updateJoinInfo(Request $r){
         ->update(['endDate'=>date('Y-m-d')]);
 
 
-      ShiftLog::create([
-          'fkemployeeId'=> $r->id,
-          'startDate' =>date('Y-m-d'),
-          'fkshiftId'=>$r->shiftId
-      ]);
+//      ShiftLog::create([
+//          'fkemployeeId'=> $r->id,
+//          'startDate' =>date('Y-m-d'),
+//          'fkshiftId'=>$r->shiftId,
+//          'weekend'=>$tags
+//      ]);
 
         $joinInfo->save();
-         return response()->json(["message"=>"Join Info updated"]);
+    $shiftLog=new ShiftLog();
+    $shiftLog->fkemployeeId=$r->id;
+    $shiftLog->startDate=date('Y-m-d');
+    $shiftLog->fkshiftId=$r->shiftId;
+    $shiftLog->weekend=$tags;
+    $shiftLog->save();
+
+    return response()->json(["message"=>"Join Info updated"]);
 }
 public function getBankInfo(Request $r){
         $bankInfo = EmployeeInfo::select('pfAccountNo','bankAccountNo','tinId')->where('id','=',$r->id)->first();
