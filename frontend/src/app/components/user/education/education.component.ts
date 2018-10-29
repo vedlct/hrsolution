@@ -99,6 +99,10 @@ export class EducationComponent implements OnInit {
         // console.log(edu.result);
     }
 
+    deleteEducation(id){
+      console.log(id);
+    }
+
   selectDegree(value){
     this.educationForm.degreeId=value;
   }
@@ -120,6 +124,16 @@ export class EducationComponent implements OnInit {
                   content: this.result.message,
               });
             this.getAlleducation();
+            this.educationForm={
+                id:'',
+                institution: '',
+                degreeId: '',
+                result: '',
+                resultoutof: '',
+                board: '',
+                passingyear: '',
+                country: '',
+            };
 
           },
           error => {
