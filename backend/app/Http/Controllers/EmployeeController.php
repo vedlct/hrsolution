@@ -196,6 +196,8 @@ public function getJoinInfo(Request $r){
         return response()->json($joinInfo);
 }
 public function updateJoinInfo(Request $r){
+
+
         $this->validate($r,[
             'accessPin' => 'nullable|max:11',
             'scheduleInTime' => 'nullable',
