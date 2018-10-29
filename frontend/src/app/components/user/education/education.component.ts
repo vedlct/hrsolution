@@ -100,7 +100,27 @@ export class EducationComponent implements OnInit {
     }
 
     deleteEducation(id){
-      console.log(id);
+      // console.log(id);
+        if(!confirm("Are You Sure?")){
+            return false;
+        }
+        const token=this.token.get();
+        // delete-education
+        this.http.post(Constants.API_URL + 'delete-education'+'?token='+token, {id:id}).subscribe(data => {
+                // console.log(data);
+                // this.result=data;
+                this.getAlleducation();
+                $.alert({
+                    title: 'Success!',
+                    content: "Delete",
+                });
+
+            },
+            error => {
+                console.log(error.message);
+
+            }
+        );
     }
 
   selectDegree(value){
