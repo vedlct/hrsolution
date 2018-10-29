@@ -50,6 +50,7 @@ class shiftController extends Controller
     }
     public function assignToShift(Request $r){
 
+
         $days=array();
         for ($i=0;$i<count($r->weekends);$i++){
             array_push($days,$r->weekends[$i]['item_id']);

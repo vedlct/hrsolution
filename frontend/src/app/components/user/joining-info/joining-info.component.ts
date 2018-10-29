@@ -30,9 +30,35 @@ export class JoiningInfoComponent implements OnInit {
     probationPeriod:''
   };
 
+    // DROPDOWN
+    dropdownList = [];
+    selectedItems = [];
+    dropdownSettings = {};
+
   constructor(public http: HttpClient, private token:TokenService,private router: Router) { }
 
   ngOnInit() {
+      this.dropdownList = [
+          { item_id: 'saturday', item_text: 'Saturday' },
+          { item_id:'sunday', item_text: 'Sunday' },
+          { item_id: 'monday', item_text: 'Monday' },
+          { item_id: 'tuesday', item_text: 'Tuesday' },
+          { item_id: 'wednesday', item_text: 'Wednesday' },
+          { item_id: 'thursday', item_text: 'Thursday' },
+          { item_id:'friday', item_text: 'Friday' }
+      ];
+
+      this.dropdownSettings = {
+          singleSelection: false,
+          idField: 'item_id',
+          textField: 'item_text',
+          selectAllText: 'Select All',
+          unSelectAllText: 'UnSelect All',
+          itemsShowLimit: 3,
+          allowSearchFilter: true
+      };
+
+
     this.employeeJoiningForm.id=this.empid;
     const token=this.token.get();
     this.http.post(Constants.API_URL+'joinInfo/get'+'?token='+token,{id:this.employeeJoiningForm.id}).subscribe(data => {
@@ -50,12 +76,16 @@ export class JoiningInfoComponent implements OnInit {
       this.employeeJoiningForm.supervisor=this.JoiningForm.supervisor;
       this.employeeJoiningForm.probationPeriod=this.JoiningForm.probationPeriod;
 
+       // console.log(this.employeeJoiningForm.weekend);
+       this.selectedItems=this.employeeJoiningForm.weekend.split(',');
+
 
         },
         error => {
           console.log(error);
         }
     );
+
     this.getShift();
   }
 
@@ -93,8 +123,11 @@ export class JoiningInfoComponent implements OnInit {
         }
     }
   }
+
   submit(){
     // console.log(this.employeeJoiningForm);
+      this.employeeJoiningForm.weekend=this.selectedItems;
+
     const token=this.token.get();
     this.http.post(Constants.API_URL+'joinInfo/post'+'?token='+token,this.employeeJoiningForm).subscribe(data => {
       // console.log(data);
