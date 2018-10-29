@@ -100,6 +100,7 @@ Route::group([
     //Education
     Route::post('education/post/{empId}','EmployeeController@updateEudcation');
     Route::get('education/get/{id}','EducationController@getAlleducation');
+    Route::post('delete-education','EducationController@deleteEmpEducation');
 
 
     //Designation Info

@@ -21,6 +21,9 @@ class EducationController extends Controller
             ->get();
         return $education;
     }
-
+    public function deleteEmpEducation(Request $r){
+        $user = Education::findOrFail($r->id)->delete();
+        return response()->json('Education Deleted Successfully');
+    }
 
 }
