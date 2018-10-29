@@ -4,6 +4,7 @@ import {Router} from "@angular/router";
 import {TokenService} from "../../../services/token.service";
 import {HttpClient} from "@angular/common/http";
 import {fromArray} from "rxjs/internal/observable/fromArray";
+declare var $ :any;
 
 @Component({
   selector: 'app-user-document',
@@ -77,7 +78,12 @@ export class UserDocumentComponent implements OnInit {
     }
     const token=this.token.get();
     this.http.post(Constants.API_URL+'document/submit'+'?token='+token,fd).subscribe(data => {
-          console.log(data);
+            $.alert({
+                title: 'Success!',
+                content: 'Updated',
+            });
+          this.getDocuments();
+          this.userDocumentFormArray=[];
 
         },
         error => {

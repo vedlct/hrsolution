@@ -4,13 +4,21 @@
 
     <h4>Uploaded</h4>
     <hr>
-    <ol>
-      <li  *ngFor="let index of userUploadedFile">
-       File Name : {{index.title}}
+    <!--<ol>-->
+      <!--<li  *ngFor="let index of userUploadedFile">-->
+       <!--File Name : {{index.title}}-->
 
-        <a target="_blank" href="{{imageUrl+index.path}}" download class="btn btn-info btn-sm" >Download</a>
-      </li>
-    </ol>
+        <!--<a target="_blank" href="{{imageUrl+index.path}}" download class="btn btn-info btn-sm" >Download</a>-->
+      <!--</li>-->
+    <!--</ol>-->
+
+    <table class="table table-striped">
+      <tr *ngFor="let index of userUploadedFile">
+        <td>{{index.title}}</td>
+        <td><a target="_blank" href="{{imageUrl+index.path}}" download class="btn btn-info btn-sm" >Download</a></td>
+
+      </tr>
+    </table>
 
 
 
