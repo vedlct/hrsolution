@@ -77,7 +77,14 @@ export class JoiningInfoComponent implements OnInit {
       this.employeeJoiningForm.probationPeriod=this.JoiningForm.probationPeriod;
 
        // console.log(this.employeeJoiningForm.weekend);
-       this.selectedItems=this.employeeJoiningForm.weekend.split(',');
+        let weekArray=this.employeeJoiningForm.weekend.split(',');
+        let tempArray=[];
+        for (let i=0;i<weekArray.length;i++){
+             tempArray.push({item_id:weekArray[i],item_text:"Sunday"});
+
+        }
+        this.selectedItems=tempArray;
+       // this.selectedItems=this.employeeJoiningForm.weekend.split(',');
 
 
         },
@@ -128,9 +135,11 @@ export class JoiningInfoComponent implements OnInit {
     // console.log(this.employeeJoiningForm);
       this.employeeJoiningForm.weekend=this.selectedItems;
 
+
     const token=this.token.get();
+    console.log(this.employeeJoiningForm)
     this.http.post(Constants.API_URL+'joinInfo/post'+'?token='+token,this.employeeJoiningForm).subscribe(data => {
-      // console.log(data);
+      console.log(data);
       // this.result=data;
           $.alert({
             title: 'Success!',

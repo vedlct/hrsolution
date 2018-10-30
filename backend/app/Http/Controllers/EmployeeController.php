@@ -82,7 +82,7 @@ class EmployeeController extends Controller
 
     public function storeBasicInfo(Request $r){
 
-//        return auth()->user()->id;
+//        return auth()->user()->fkComapny;
 //        return $r;
        $this->validate($r, [
             'EmployeeId' => 'required|max:20',
@@ -111,12 +111,13 @@ class EmployeeController extends Controller
             $user->email=$r->email;
             $user->userName=$r->firstName;
             $user->fkUserType="emp";
-            $user->fkCompany=1;
+            $user->fkCompany=auth()->user()->fkComapny;
             $user->fkActivationStatus=1;
             $user->password=Hash::make('123456');
             $user->save();
             $employeeInfo->fkUserId=$user->id;
             $employeeInfo->createdBy=auth()->user()->id;
+            $employeeInfo->fkCompany=auth()->user()->fkCompany;
           //  $employeeInfo->createdBy=1;
         }
             $employeeInfo->EmployeeId =$r->EmployeeId;
@@ -196,6 +197,8 @@ public function getJoinInfo(Request $r){
         return response()->json($joinInfo);
 }
 public function updateJoinInfo(Request $r){
+
+
         $this->validate($r,[
             'accessPin' => 'nullable|max:11',
             'scheduleInTime' => 'nullable',
