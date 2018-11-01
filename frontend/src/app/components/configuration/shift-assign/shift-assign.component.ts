@@ -171,10 +171,12 @@ export class ShiftAssignComponent implements AfterViewInit,OnDestroy,OnInit {
       alert("Empty");
     }
     else {
+        // new Date(this.employeeJoiningForm.actualJoinDate).toLocaleDateString();
+
       let form={
         allEmp:this.allEmp,
         shiftId:this.shiftId,
-        startDate:this.startDate,
+        startDate:new Date(this.startDate).toLocaleDateString(),
         weekends:this.selectedItems
       };
       const token=this.token.get();

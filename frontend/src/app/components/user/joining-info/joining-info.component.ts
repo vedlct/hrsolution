@@ -60,42 +60,46 @@ export class JoiningInfoComponent implements OnInit {
 
 
     this.employeeJoiningForm.id=this.empid;
-    const token=this.token.get();
-    this.http.post(Constants.API_URL+'joinInfo/get'+'?token='+token,{id:this.employeeJoiningForm.id}).subscribe(data => {
-          // console.log(data);
-      this.JoiningForm=data;
-      this.employeeJoiningForm.actualJoinDate=this.JoiningForm.actualJoinDate;
-      this.employeeJoiningForm.recentJoinDate=this.JoiningForm.recentJoinDate;
-      this.employeeJoiningForm.resignDate=this.JoiningForm.resignDate;
-      this.employeeJoiningForm.weekend=this.JoiningForm.weekend;
-      this.employeeJoiningForm.accessPin=this.JoiningForm.accessPin;
-      // this.employeeJoiningForm.scheduleInTime=this.JoiningForm.scheduleInTime;
-      // this.employeeJoiningForm.scheduleOutTime=this.JoiningForm.scheduleOutTime;
-      this.employeeJoiningForm.specialAllowance=this.JoiningForm.specialAllowance;
-      this.employeeJoiningForm.attDeviceUserId=this.JoiningForm.attDeviceUserId;
-      this.employeeJoiningForm.supervisor=this.JoiningForm.supervisor;
-      this.employeeJoiningForm.probationPeriod=this.JoiningForm.probationPeriod;
 
-       // console.log(this.employeeJoiningForm.weekend);
-        let weekArray=this.employeeJoiningForm.weekend.split(',');
-        let tempArray=[];
-        for (let i=0;i<weekArray.length;i++){
-             tempArray.push({item_id:weekArray[i],item_text:"Sunday"});
-
-        }
-        this.selectedItems=tempArray;
-       // this.selectedItems=this.employeeJoiningForm.weekend.split(',');
-
-
-        },
-        error => {
-          console.log(error);
-        }
-    );
-
+    this.getData();
     this.getShift();
   }
 
+  getData(){
+      const token=this.token.get();
+      this.http.post(Constants.API_URL+'joinInfo/get'+'?token='+token,{id:this.employeeJoiningForm.id}).subscribe(data => {
+              // console.log(data);
+              this.JoiningForm=data;
+              this.employeeJoiningForm.actualJoinDate=this.JoiningForm.actualJoinDate;
+              this.employeeJoiningForm.recentJoinDate=this.JoiningForm.recentJoinDate;
+              this.employeeJoiningForm.resignDate=this.JoiningForm.resignDate;
+              this.employeeJoiningForm.weekend=this.JoiningForm.weekend;
+              this.employeeJoiningForm.accessPin=this.JoiningForm.accessPin;
+              // this.employeeJoiningForm.scheduleInTime=this.JoiningForm.scheduleInTime;
+              // this.employeeJoiningForm.scheduleOutTime=this.JoiningForm.scheduleOutTime;
+              this.employeeJoiningForm.specialAllowance=this.JoiningForm.specialAllowance;
+              this.employeeJoiningForm.attDeviceUserId=this.JoiningForm.attDeviceUserId;
+              this.employeeJoiningForm.supervisor=this.JoiningForm.supervisor;
+              this.employeeJoiningForm.probationPeriod=this.JoiningForm.probationPeriod;
+
+              // console.log(this.employeeJoiningForm.weekend);
+              let weekArray=this.employeeJoiningForm.weekend.split(',');
+              let tempArray=[];
+              for (let i=0;i<weekArray.length;i++){
+                  tempArray.push({item_id:weekArray[i],item_text:"Sunday"});
+
+              }
+              this.selectedItems=tempArray;
+              // this.selectedItems=this.employeeJoiningForm.weekend.split(',');
+
+
+          },
+          error => {
+              console.log(error);
+          }
+      );
+
+  }
   getShift(){
     const token=this.token.get();
     this.http.get(Constants.API_URL+'shift/get'+'?token='+token).subscribe(data => {
@@ -137,10 +141,24 @@ export class JoiningInfoComponent implements OnInit {
 
 
     const token=this.token.get();
-    console.log(this.employeeJoiningForm)
+
+
+    if(this.employeeJoiningForm.actualJoinDate !=null){
+        this.employeeJoiningForm.actualJoinDate=new Date(this.employeeJoiningForm.actualJoinDate).toLocaleDateString();
+
+    }
+      if(this.employeeJoiningForm.recentJoinDate !=null) {
+          this.employeeJoiningForm.recentJoinDate = new Date(this.employeeJoiningForm.recentJoinDate).toLocaleDateString();
+      }
+      if(this.employeeJoiningForm.resignDate !=null) {
+          this.employeeJoiningForm.resignDate=new Date(this.employeeJoiningForm.resignDate).toLocaleDateString();
+      }
+
+
     this.http.post(Constants.API_URL+'joinInfo/post'+'?token='+token,this.employeeJoiningForm).subscribe(data => {
-      console.log(data);
+      // console.log(data);
       // this.result=data;
+        this.getData();
           $.alert({
             title: 'Success!',
             content: 'Updated',

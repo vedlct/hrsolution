@@ -222,19 +222,19 @@ public function updateJoinInfo(Request $r){
             $joinInfo->actualJoinDate = null;
         }
         else{
-            $joinInfo->actualJoinDate = Carbon::parse($r->actualJoinDate)->format('y-m-d');
+            $joinInfo->actualJoinDate = Carbon::parse($r->actualJoinDate)->format('Y-m-d');
         }
     if($r->recentJoinDate==null){
         $joinInfo->recentJoinDate = null;
     }
     else{
-        $joinInfo->recentJoinDate = Carbon::parse($r->recentJoinDate)->format('y-m-d');
+        $joinInfo->recentJoinDate = Carbon::parse($r->recentJoinDate)->format('Y-m-d');
     }
     if($r->resignDate==null){
         $joinInfo->resignDate = null;
     }
     else{
-        $joinInfo->resignDate = Carbon::parse($r->recentJoinDate)->format('y-m-d');
+        $joinInfo->resignDate = Carbon::parse($r->recentJoinDate)->format('Y-m-d');
     }
 
 
