@@ -31,6 +31,10 @@ Route::group([
 
     });
 
+
+    //Test
+    Route::get('/test','TestController@test');
+
     Route::post('login','AuthController@login');
     Route::post('logout', 'AuthController@logout');
     Route::post('refresh', 'AuthController@refresh');

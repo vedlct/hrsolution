@@ -163,7 +163,7 @@ export class BasicInfoComponent implements OnInit {
             $.alert({
                 title: 'Alert!',
                 type: 'Red',
-                content: 'Please Create a user first',
+                content: 'Please Insert Mandatory Fields',
                 buttons: {
                     tryAgain: {
                         text: 'Ok',
