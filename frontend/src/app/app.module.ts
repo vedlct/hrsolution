@@ -34,6 +34,7 @@ import { ShiftAssignComponent } from './components/configuration/shift-assign/sh
 import { NgMultiSelectDropDownModule } from 'ng-multiselect-dropdown';
 import { EmergencyContactComponent } from './components/user/emergency-contact/emergency-contact.component';
 import { UserDocumentComponent } from './components/user/user-document/user-document.component';
+import { LeaveComponent } from './components/configuration/leave/leave.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -60,7 +61,8 @@ import { UserDocumentComponent } from './components/user/user-document/user-docu
     ShiftComponent,
     ShiftAssignComponent,
     EmergencyContactComponent,
-    UserDocumentComponent
+    UserDocumentComponent,
+    LeaveComponent
   ],
   imports: [
     BrowserModule,

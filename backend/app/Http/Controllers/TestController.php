@@ -72,7 +72,7 @@ class TestController extends Controller
 //            ->where(DB::raw("date_format(attendancedata.accessTime,'%Y-%m-%d') between date_format(sl.startDate,'%Y-%m-%d') and ifnull(date_format(sl.endDate,'%Y-%m-%d'),curdate())"))
             ->whereBetween(DB::raw("date(attendancedata.accessTime)"),['sl.startDate,',date('Y-m-d')])
             ->leftJoin('shift as s','s.shiftId','sl.fkshiftId')
-            ->where('attendancedata.attDeviceUserId',252)
+            ->where('e.id',1)
             ->where('sl.endDate',null)
             ->groupBy('attendancedata.attDeviceUserId')
             ->groupBy(DB::raw('DATE(attendancedata.accessTime)'))

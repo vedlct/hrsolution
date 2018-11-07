@@ -1,0 +1,75 @@
+<div class="container-fluid">
+  <div class="card">
+    <div class="card-header">Leave Assign</div>
+
+    <div class="card-body">
+
+      <div class="row">
+        <div class="form-group col-md-3">
+          <label>Start Date</label>
+          <input bsDatepicker
+                 [bsConfig]="{ dateInputFormat: 'YYYY-MM-DD' }"  name="resignDate" [(ngModel)]="startDate" class="form-control">
+        </div>
+
+        <div class="form-group col-md-3">
+          <label>End Date</label>
+          <input bsDatepicker
+                 [bsConfig]="{ dateInputFormat: 'YYYY-MM-DD' }"  name="resignDate" [(ngModel)]="endDate" class="form-control">
+        </div>
+
+        <div class="form-group col-md-3">
+          <label>No Of Days</label>
+          <input type="number" class="form-control" [(ngModel)]="noOfDays" placeholder="number of days">
+        </div>
+
+        <div class="form-group col-md-3">
+          <label>Leave Category</label>
+          <select class="form-control" name="fkLeaveCategory" (change)="selectCategory($event.target.value)">
+            <option>Select Category</option>
+            <option>Casual</option>
+            <option>Sick</option>
+          </select>
+        </div>
+
+        <div class="form-group col-md-3">
+          <label>Remark</label>
+          <textarea class="form-control" [(ngModel)]="remark" placeholder="remark"></textarea>
+        </div>
+
+        <div class="form-group col-md-3">
+          <button class="btn btn-success btn-sm" (click)="assignLeave()">Assign</button>
+        </div>
+
+
+
+
+
+      </div>
+
+
+      <!--<input style="margin-left: 15px" type="checkbox" class="SelectAll" id="selectall2"  (click)="selectAll()"/><b>Select All</b><br>-->
+      <table datatable class="table" [dtOptions]="dtOptions" [dtTrigger]="dtTrigger">
+        <thead>
+        <tr>
+          <th style="text-align: center"><input type="checkbox" class="SelectAll" id="selectall2"  (click)="selectAll()"/></th>
+          <th>Name</th>
+          <th>Employee ID</th>
+          <th>Shift Name</th>
+          <th>Weekend</th>
+          <th>Shift Start</th>
+
+        </tr>
+        </thead>
+
+        <tbody>
+
+        </tbody>
+
+      </table>
+
+
+    </div>
+  </div>
+</div>
+
+

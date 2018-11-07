@@ -13,6 +13,7 @@ import {CompanyInfoComponent} from "./components/company/company-info/company-in
 import {EmployeeComponent} from "./components/user/employee/employee.component";
 import {ShiftComponent} from "./components/configuration/shift/shift.component";
 import {ShiftAssignComponent} from "./components/configuration/shift-assign/shift-assign.component";
+import {LeaveComponent} from "./components/configuration/leave/leave.component";
 
 const routes: Routes = [
     {path: '', component: LoginComponent, canActivate: [GuestService] },
@@ -28,8 +29,10 @@ const routes: Routes = [
     { path: 'configuration/shift', component: ShiftComponent,canActivate: [AuthService] },
     { path: 'configuration/shift/assign', component: ShiftAssignComponent,canActivate: [AuthService] },
     { path: 'configuration/department/add', component: AddDepartmentComponent },
+    { path: 'configuration/leave', component: LeaveComponent },
 
 ];
+
 @NgModule({
     exports: [ RouterModule ],
     imports: [ RouterModule.forRoot(routes) ],
