@@ -34,7 +34,6 @@ export class BasicInfoComponent implements OnInit {
     gender:'',
     photo:''
 
-
   };
 
   selectedFile:File;

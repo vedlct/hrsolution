@@ -28,6 +28,7 @@ export class LeaveComponent implements OnInit {
     noOfDays:string;
     remark:string;
     fkLeaveCategory:string;
+    leaveCategories:any;
     // DROPDOWN
     dropdownList = [];
     selectedItems = [];
@@ -56,8 +57,32 @@ export class LeaveComponent implements OnInit {
             allowSearchFilter: true
         };
         this.getData();
-        this.getShift();
+        this.getCategory();
 
+
+        this.fkLeaveCategory='';
+        this.startDate='';
+        this.endDate='';
+        this.noOfDays='';
+        this.remark='';
+        this.allEmp=[];
+
+
+    }
+
+    getCategory(){
+        const token=this.token.get();
+
+        this.http.get(Constants.API_URL+'leave/getLeaveCategory'+'?token='+token).subscribe(data => {
+                // console.log(data);
+                this.leaveCategories=data;
+
+
+            },
+            error => {
+                console.log(error);
+            }
+        );
     }
 
     onItemSelect(value){
@@ -67,19 +92,7 @@ export class LeaveComponent implements OnInit {
         // console.log(value);
     }
 
-    getShift(){
-        const token=this.token.get();
 
-        this.http.get(Constants.API_URL+'shift/get'+'?token='+token).subscribe(data => {
-                this.shift=data;
-                // console.log(data);
-            },
-            error => {
-                console.log(error);
-            }
-        );
-
-    }
 
     getData(){
         const token=this.token.get();
@@ -169,44 +182,89 @@ export class LeaveComponent implements OnInit {
 
 
     assignLeave(){
+        if(!this.checkForm()){
+            return false;
+        }
+
         let form={
             allEmp:this.allEmp,
-            startDate:this.startDate,
-            endDate:this.endDate,
+            startDate:new Date(this.startDate).toLocaleDateString(),
+            endDate:new Date(this.endDate).toLocaleDateString(),
             noOfDays:this.noOfDays,
             remark:this.remark,
             fkLeaveCategory:this.fkLeaveCategory,
 
         };
 
-        console.log(form);
+
+        const token=this.token.get();
+
+        this.http.post(Constants.API_URL+'leave/assignLeave'+'?token='+token,form).subscribe(data => {
+                console.log(data);
+                this.ngOnInit();
+            },
+            error => {
+                console.log(error);
+            }
+        );
 
 
-        // if(this.shiftId == null || this.startDate ==null || this.allEmp.length ==0 || this.selectedItems.length==0){
-        //     alert("Empty");
-        // }
-        // else {
-        //     let form={
-        //         allEmp:this.allEmp,
-        //         shiftId:this.shiftId,
-        //         startDate:this.startDate,
-        //         weekends:this.selectedItems
-        //     };
-        //     const token=this.token.get();
-        //
-        //     this.http.post(Constants.API_URL+'shift/assign'+'?token='+token,form).subscribe(data => {
-        //             console.log(data);
-        //             this.rerender();
-        //
-        //         },
-        //         error => {
-        //             console.log(error);
-        //         }
-        //     );
-        // }
 
 
     }
+
+    checkForm(){
+        let message="";
+        let condition=true;
+        if(this.startDate==''){
+            condition=false;
+            message="Please Insert Start Date";
+
+        }
+
+        if(this.endDate==''){
+            condition=false;
+            message="Please Insert End Date";
+        }
+        if(this.noOfDays==''){
+            condition=false;
+            message="Please Insert No Of Days";
+        }
+        if(this.fkLeaveCategory==''){
+            condition=false;
+            message="Please Select Leave Category";
+        }
+
+        if (this.allEmp.length==0){
+            condition=false;
+            message="Please Select Employee";
+        }
+
+
+
+        if (condition==false){
+            $.alert({
+                title: 'Alert!',
+                type: 'Red',
+                content: message,
+                buttons: {
+                    tryAgain: {
+                        text: 'Ok',
+                        btnClass: 'btn-red',
+                        action: function () {
+                        }
+                    }
+                }
+            });
+            return false;
+
+        }
+
+        return true;
+
+    }
+
+
     rerender(){
         this.dtElement.dtInstance.then((dtInstance: DataTables.Api) => {
 

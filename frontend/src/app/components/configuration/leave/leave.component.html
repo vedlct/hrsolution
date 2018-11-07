@@ -8,39 +8,38 @@
         <div class="form-group col-md-3">
           <label>Start Date</label>
           <input bsDatepicker
-                 [bsConfig]="{ dateInputFormat: 'YYYY-MM-DD' }"  name="resignDate" [(ngModel)]="startDate" class="form-control">
+                 [bsConfig]="{ dateInputFormat: 'YYYY-MM-DD' }"  name="resignDate" [(ngModel)]="startDate" class="form-control input">
         </div>
 
         <div class="form-group col-md-3">
           <label>End Date</label>
           <input bsDatepicker
-                 [bsConfig]="{ dateInputFormat: 'YYYY-MM-DD' }"  name="resignDate" [(ngModel)]="endDate" class="form-control">
+                 [bsConfig]="{ dateInputFormat: 'YYYY-MM-DD' }"  name="resignDate" [(ngModel)]="endDate" class="form-control input">
         </div>
 
         <div class="form-group col-md-3">
           <label>No Of Days</label>
-          <input type="number" class="form-control" [(ngModel)]="noOfDays" placeholder="number of days">
+          <input type="number" class="form-control input" [(ngModel)]="noOfDays" placeholder="number of days">
         </div>
 
         <div class="form-group col-md-3">
           <label>Leave Category</label>
-          <select class="form-control" name="fkLeaveCategory" (change)="selectCategory($event.target.value)">
-            <option>Select Category</option>
-            <option>Casual</option>
-            <option>Sick</option>
+          <select class="form-control input" name="fkLeaveCategory" [(ngModel)]="fkLeaveCategory"  (change)="selectCategory($event.target.value)">
+            <option value="" selected>Select Category</option>
+            <option *ngFor="let lc of leaveCategories" [value]="lc.id">
+              {{lc.categoryName}}
+            </option>
           </select>
         </div>
 
         <div class="form-group col-md-3">
           <label>Remark</label>
-          <textarea class="form-control" [(ngModel)]="remark" placeholder="remark"></textarea>
+          <textarea class="form-control input" [(ngModel)]="remark" placeholder="remark"></textarea>
         </div>
 
         <div class="form-group col-md-3">
           <button class="btn btn-success btn-sm" (click)="assignLeave()">Assign</button>
         </div>
-
-
 
 
 

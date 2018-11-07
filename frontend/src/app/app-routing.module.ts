@@ -14,6 +14,7 @@ import {EmployeeComponent} from "./components/user/employee/employee.component";
 import {ShiftComponent} from "./components/configuration/shift/shift.component";
 import {ShiftAssignComponent} from "./components/configuration/shift-assign/shift-assign.component";
 import {LeaveComponent} from "./components/configuration/leave/leave.component";
+import {ShowLeaveComponent} from "./components/configuration/show-leave/show-leave.component";
 
 const routes: Routes = [
     {path: '', component: LoginComponent, canActivate: [GuestService] },
@@ -30,6 +31,7 @@ const routes: Routes = [
     { path: 'configuration/shift/assign', component: ShiftAssignComponent,canActivate: [AuthService] },
     { path: 'configuration/department/add', component: AddDepartmentComponent },
     { path: 'configuration/leave', component: LeaveComponent },
+    { path: 'configuration/leave/show', component: ShowLeaveComponent },
 
 ];
 

@@ -27,6 +27,7 @@ export class EmployeeComponent implements AfterViewInit,OnInit {
             },
             columns: [
                 { data: 'firstName' ,name:'employeeinfo.firstName'},
+                { data: 'middleName' ,name:'employeeinfo.middleName'},
                 { data: 'lastName' ,name:'employeeinfo.lastName'},
                 { data: 'EmployeeId' , name: 'employeeinfo.EmployeeId' },
                 { data: 'title', name: 'hrmdesignations.title'},

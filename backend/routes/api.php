@@ -127,6 +127,15 @@ Route::group([
     Route::post('/getAllShift','shiftController@getAllShift');
     Route::post('shift/assign','shiftController@assignToShift');
 
+    //Leave Apply
+    Route::get('leave/getLeaveCategory','LeaveController@getLeaveCategory');
+    Route::post('leave/assignLeave','LeaveController@assignLeave');
+
+    //Show Leave Requests
+    Route::post('leave/getLeaveRequests','LeaveController@getLeaveRequests');
+
+
+
 //Emergency Contact
 
     Route::post('emergency-contact/post','EmergencyContactController@createEmergencyContact');

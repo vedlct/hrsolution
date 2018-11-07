@@ -35,6 +35,7 @@ import { NgMultiSelectDropDownModule } from 'ng-multiselect-dropdown';
 import { EmergencyContactComponent } from './components/user/emergency-contact/emergency-contact.component';
 import { UserDocumentComponent } from './components/user/user-document/user-document.component';
 import { LeaveComponent } from './components/configuration/leave/leave.component';
+import { ShowLeaveComponent } from './components/configuration/show-leave/show-leave.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -62,7 +63,8 @@ import { LeaveComponent } from './components/configuration/leave/leave.component
     ShiftAssignComponent,
     EmergencyContactComponent,
     UserDocumentComponent,
-    LeaveComponent
+    LeaveComponent,
+    ShowLeaveComponent
   ],
   imports: [
     BrowserModule,

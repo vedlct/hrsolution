@@ -12,9 +12,9 @@ export class TokenService {
   token:boolean=false;
   user:any;
   constructor(private router:Router,public http: HttpClient) {
-    setInterval(() => {
-      this.isTokenExpired();
-    }, 4000);
+    // setInterval(() => {
+    //   this.isTokenExpired();
+    // }, 4000);
   }
 
   setUser(user){
@@ -33,10 +33,10 @@ export class TokenService {
     const token = this.get();
     if (token) {
       const payload = token.split('.')[1];
-      if(Math.floor(this.decode(payload).exp) < Math.floor(new Date().getTime()/1000)){
-        this.remove();
-        console.log("Expired");
-      }
+      // if(Math.floor(this.decode(payload).exp) < Math.floor(new Date().getTime()/1000)){
+      //   this.remove();
+      //   console.log("Expired");
+      // }
 
       // console.log("Exp :"+Math.floor(this.decode(payload).exp)+" Current :"+ Math.floor(new Date().getTime()/1000));
     }
