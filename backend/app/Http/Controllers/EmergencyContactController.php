@@ -12,9 +12,9 @@ class EmergencyContactController extends Controller
             'firstName' => 'required|max:50',
             'middleName' => 'nullable|max:50',
             'lastName' => 'nullable|max:50',
-            'address' => 'nullable|max:50',
-            'contactNo' => 'nullable|max:15',
-            'alterContactNo' => 'nullable|max:15',
+            'address' => 'nullable',
+            'contactNo' => 'nullable|max:20',
+            'alterContactNo' => 'nullable|max:20',
             'relation' => 'nullable|max:200',
         ]);
 
