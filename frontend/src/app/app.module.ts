@@ -36,6 +36,8 @@ import { EmergencyContactComponent } from './components/user/emergency-contact/e
 import { UserDocumentComponent } from './components/user/user-document/user-document.component';
 import { LeaveComponent } from './components/configuration/leave/leave.component';
 import { ShowLeaveComponent } from './components/configuration/show-leave/show-leave.component';
+import { AttendanceComponent } from './components/report/attendance/attendance.component';
+import { ShowAttendanceComponent } from './components/report/show-attendance/show-attendance.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -64,7 +66,9 @@ import { ShowLeaveComponent } from './components/configuration/show-leave/show-l
     EmergencyContactComponent,
     UserDocumentComponent,
     LeaveComponent,
-    ShowLeaveComponent
+    ShowLeaveComponent,
+    AttendanceComponent,
+    ShowAttendanceComponent
   ],
   imports: [
     BrowserModule,

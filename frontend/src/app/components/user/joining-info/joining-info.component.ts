@@ -83,14 +83,20 @@ export class JoiningInfoComponent implements OnInit {
               this.employeeJoiningForm.probationPeriod=this.JoiningForm.probationPeriod;
 
               // console.log(this.employeeJoiningForm.weekend);
+          if(this.employeeJoiningForm.weekend!=""){
               let weekArray=this.employeeJoiningForm.weekend.split(',');
+
               let tempArray=[];
               for (let i=0;i<weekArray.length;i++){
-                  tempArray.push({item_id:weekArray[i],item_text:"Sunday"});
+                  tempArray.push({item_id:weekArray[i],item_text:weekArray[i]});
 
               }
+
               this.selectedItems=tempArray;
-              // this.selectedItems=this.employeeJoiningForm.weekend.split(',');
+
+          }
+
+
 
 
           },

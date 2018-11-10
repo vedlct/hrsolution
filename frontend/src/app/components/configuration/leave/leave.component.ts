@@ -200,8 +200,22 @@ export class LeaveComponent implements OnInit {
         const token=this.token.get();
 
         this.http.post(Constants.API_URL+'leave/assignLeave'+'?token='+token,form).subscribe(data => {
-                console.log(data);
+                // console.log(data);
                 this.ngOnInit();
+                this.rerender();
+                $.alert({
+                    title: 'Success!',
+                    type: 'Green',
+                    content: 'Leave Assigned',
+                    buttons: {
+                        tryAgain: {
+                            text: 'Ok',
+                            btnClass: 'btn-red',
+                            action: function () {
+                            }
+                        }
+                    }
+                });
             },
             error => {
                 console.log(error);

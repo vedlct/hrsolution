@@ -336,7 +336,7 @@ public function updateEudcation(Request $r,$empId){
             'result' => 'nullable|max:8',
             'resultoutof' => 'nullable|max:1',
             'degreeId' => 'required|max:11',
-            'country' => 'required|max:3',
+            'country' => 'required',
         ]);
 
 

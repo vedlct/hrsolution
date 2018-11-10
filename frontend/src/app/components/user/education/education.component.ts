@@ -82,7 +82,7 @@ export class EducationComponent implements OnInit {
     getAllCountry(){
         const token=this.token.get();
         this.http.get(Constants.API_URL+'country/basic'+'?token='+token).subscribe(data => {
-                // console.log(data);
+                console.log(data);
                 this.country=data;
             },
             error => {

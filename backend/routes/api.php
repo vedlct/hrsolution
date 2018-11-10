@@ -148,4 +148,10 @@ Route::group([
 //    Route::post('documents/post','EmployeeDocumentController@createDocuments');
 
 
+    //==================================Report==========================================
+
+
+    Route::post('report/attendance','AttendanceController@index');
+    Route::post('report/getEmployeeAttendance','AttendanceController@getEmployeeAttendance');
+
 });

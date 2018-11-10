@@ -38,8 +38,7 @@ class LeaveController extends Controller
 
    public function getLeaveRequests(){
        $leaves=Leave::select('hrmleaves.*','employeeinfo.firstName','employeeinfo.middleName','employeeinfo.lastName')
-           ->leftJoin('employeeinfo','employeeinfo.id','hrmleaves.fkEmployeeId')
-           ->get();
+           ->leftJoin('employeeinfo','employeeinfo.id','hrmleaves.fkEmployeeId');
 
 
        $datatables = Datatables::of($leaves);
