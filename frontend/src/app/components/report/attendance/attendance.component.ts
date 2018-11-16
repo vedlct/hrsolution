@@ -38,11 +38,14 @@ export class AttendanceComponent implements OnInit {
 
     getData(){
         const token=this.token.get();
+
         this.dtOptions = {
             ajax: {
                 url: Constants.API_URL+'report/attendance'+'?token='+token,
                 type: 'POST',
-                data:function (d){
+                data:function (d:any){
+                    d.startDate=$('#startDate').val();
+                    d.endDate=$('#endDate').val();
 
                 },
             },
@@ -90,6 +93,9 @@ export class AttendanceComponent implements OnInit {
         this.dtTrigger.unsubscribe();
     }
 
+    search(){
+      this.rerender();
+    }
     rerender(){
         this.dtElement.dtInstance.then((dtInstance: DataTables.Api) => {
 

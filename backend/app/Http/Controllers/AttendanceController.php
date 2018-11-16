@@ -2,15 +2,25 @@
 
 namespace App\Http\Controllers;
 
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 use DB;
 use Yajra\DataTables\DataTables;
 
 class AttendanceController extends Controller
 {
-    public function index(){
-        $fromDate="2018-10-01";
-        $toDate="2018-10-30";
+    public function index(Request $r){
+        $start = Carbon::now()->startOfMonth()->format('Y-m-d');
+        $end = Carbon::now()->endOfMonth()->format('Y-m-d');
+
+        if($r->startDate && $r->endDate){
+            $start=$r->startDate;
+            $end= $r->endDate;
+        }
+
+
+        $fromDate=$start;
+        $toDate=$end;
         $results = DB::select( DB::raw("select a.employeeId, a.firstName,a.middleName,a.lastName, count(a.attendanceDate) totAttendance, FORMAT(avg(workingTime),2) averageWorkingHour,
             sum(case late when 'Y' then 1 else 0 end) totalLate
             from
@@ -36,8 +46,15 @@ class AttendanceController extends Controller
 
     public function getEmployeeAttendance(Request $r){
         $empId=$r->id;
-        $fromDate="2018-10-01";
-        $toDate="2018-10-30";
+        $start = Carbon::now()->startOfMonth()->format('Y-m-d');
+        $end = Carbon::now()->endOfMonth()->format('Y-m-d');
+
+
+        if($r->startDate && $r->endDate){
+            $start=$r->startDate;
+            $end= $r->endDate;
+        }
+
 
 
         $results = DB::select( DB::raw("select ad.id,ad.attDeviceUserId, em.employeeId, e.firstName
@@ -53,7 +70,7 @@ class AttendanceController extends Controller
             left join employeeinfo e on em.employeeId = e.id
             left join shiftlog sl on em.employeeId = sl.fkemployeeId and date_format(ad.accessTime,'%Y-%m-%d') between date_format(sl.startDate,'%Y-%m-%d') and ifnull(date_format(sl.endDate,'%Y-%m-%d'),curdate())
             left join shift s on sl.fkshiftId = s.shiftId
-            where em.employeeId = '".$empId."' and date_format(ad.accessTime,'%Y-%m-%d') between '".$fromDate."' and '".$toDate."'
+            where em.employeeId = '".$empId."' and date_format(ad.accessTime,'%Y-%m-%d') between '".$start."' and '".$end."'
             group by ad.attDeviceUserId, date_format(ad.accessTime,'%Y-%m-%d')
             order by date_format(ad.accessTime,'%Y-%m-%d') desc"));
 

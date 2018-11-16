@@ -1,10 +1,11 @@
-import {Component, OnInit, Renderer, ViewChild} from '@angular/core';
-import {ActivatedRoute, Router} from "@angular/router";
+import {Component, OnInit, AfterViewInit, Renderer, OnDestroy, ViewChild} from '@angular/core';
 import {Constants} from "../../../constants";
 import {HttpClient} from "@angular/common/http";
 import {TokenService} from "../../../services/token.service";
-import {DataTableDirective} from "angular-datatables";
 import {Subject} from "rxjs";
+import {ActivatedRoute, Router} from "@angular/router";
+import {DataTableDirective} from "angular-datatables";
+declare var $ :any;
 
 @Component({
   selector: 'app-show-attendance',
@@ -14,18 +15,23 @@ import {Subject} from "rxjs";
 export class ShowAttendanceComponent implements OnInit {
 
     @ViewChild(DataTableDirective)
-    empid:any;
-    attendanceData:any;
     dtElement: DataTableDirective;
+    employee:any;
     dtOptions:DataTables.Settings={};
     dtTrigger:Subject<any>=new Subject();
-
     dtInstance:DataTables.Api;
+
+    empid:any;
+    attendanceData:any;
+
+
+
+
     startDate:string;
     endDate:string;
 
 
-  constructor(private renderer: Renderer,public http: HttpClient, private token:TokenService , public route:ActivatedRoute, private router: Router) { }
+    constructor(private renderer: Renderer,public http: HttpClient, private token:TokenService , public route:ActivatedRoute, private router: Router) { }
 
   ngOnInit() {
       this.empid =this.route.snapshot.params.id;
@@ -35,16 +41,6 @@ export class ShowAttendanceComponent implements OnInit {
 
   getData(){
         const token=this.token.get();
-
-        // this.http.post(Constants.API_URL+'report/getEmployeeAttendance'+'?token='+token,{id:this.empid}).subscribe(data => {
-        //       // console.log(data);
-        //       this.attendanceData=data;
-        //       console.log(this.attendanceData);
-        //     },
-        //     error => {
-        //         console.log(error);
-        //     }
-        // );
 
         let id=this.empid;
 
@@ -56,6 +52,8 @@ export class ShowAttendanceComponent implements OnInit {
               type: 'POST',
               data:function (d:any){
                   d.id=id;
+                  d.startDate=$('#startDate').val();
+                  d.endDate=$('#endDate').val();
 
               },
           },
@@ -101,6 +99,10 @@ export class ShowAttendanceComponent implements OnInit {
     ngOnDestroy(): void {
         // Do not forget to unsubscribe the event
         this.dtTrigger.unsubscribe();
+    }
+
+    search(){
+        this.rerender();
     }
 
     rerender(){

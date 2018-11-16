@@ -75,8 +75,10 @@ export class JoiningInfoComponent implements OnInit {
               this.employeeJoiningForm.resignDate=this.JoiningForm.resignDate;
               this.employeeJoiningForm.weekend=this.JoiningForm.weekend;
               this.employeeJoiningForm.accessPin=this.JoiningForm.accessPin;
-              // this.employeeJoiningForm.scheduleInTime=this.JoiningForm.scheduleInTime;
-              // this.employeeJoiningForm.scheduleOutTime=this.JoiningForm.scheduleOutTime;
+
+              this.employeeJoiningForm.scheduleInTime=this.JoiningForm.scheduleInTime;
+              this.employeeJoiningForm.scheduleOutTime=this.JoiningForm.scheduleOutTime;
+
               this.employeeJoiningForm.specialAllowance=this.JoiningForm.specialAllowance;
               this.employeeJoiningForm.attDeviceUserId=this.JoiningForm.attDeviceUserId;
               this.employeeJoiningForm.supervisor=this.JoiningForm.supervisor;
@@ -92,7 +94,9 @@ export class JoiningInfoComponent implements OnInit {
 
               }
 
+
               this.selectedItems=tempArray;
+
 
           }
 
@@ -106,6 +110,8 @@ export class JoiningInfoComponent implements OnInit {
       );
 
   }
+
+
   getShift(){
     const token=this.token.get();
     this.http.get(Constants.API_URL+'shift/get'+'?token='+token).subscribe(data => {
@@ -144,6 +150,7 @@ export class JoiningInfoComponent implements OnInit {
   submit(){
     // console.log(this.employeeJoiningForm);
       this.employeeJoiningForm.weekend=this.selectedItems;
+
 
 
     const token=this.token.get();
