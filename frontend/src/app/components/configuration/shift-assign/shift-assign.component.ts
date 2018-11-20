@@ -94,6 +94,8 @@ export class ShiftAssignComponent implements AfterViewInit,OnDestroy,OnInit {
           "orderable": false, "searchable":false, "name":"selected_rows"
         },
         { data: 'firstName' ,name:'employeeinfo.firstName'},
+        { data: 'middleName' ,name:'employeeinfo.middleName'},
+        { data: 'lastName' ,name:'employeeinfo.lastName'},
         { data: 'EmployeeId' , name: 'employeeinfo.EmployeeId' },
         { data: 'shiftName', name: 'shift.shiftName'},
         { data: 'weekend', name: 'shiftlog.weekend'},

@@ -54,6 +54,7 @@ export class AttendanceComponent implements OnInit {
                 { data: 'firstName' ,name:'firstName'},
                 { data: 'middleName' ,name:'middleName'},
                 { data: 'lastName' ,name:'lastName'},
+                { data: 'departmentName' ,name:'departmentName'},
                 { data: 'totAttendance' , name: 'totAttendance' },
                 { data: 'totalLate', name: 'totalLate'},
                 { data: 'averageWorkingHour', name: 'averageWorkingHour'},
