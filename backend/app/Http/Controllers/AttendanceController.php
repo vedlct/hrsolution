@@ -23,8 +23,8 @@ class AttendanceController extends Controller
         $toDate=$end;
 
 
-        $results = DB::select( DB::raw("select a.employeeId, a.firstName,a.middleName,a.lastName,a.departmentName ,count(a.attendanceDate) totAttendance, FORMAT(avg(workingTime),2) averageWorkingHour,
-            sum(case late when 'Y' then 1 else 0 end) totalLate
+        $results = DB::select( DB::raw("select a.employeeId, a.firstName,a.middleName,a.lastName,a.departmentName ,count(a.attendanceDate) totAttendance, FORMAT(avg(a.workingTime),2) averageWorkingHour,
+            sum(case late when 'Y' then 1 else 0 end) totalLate,a.totalLeave
             from
             (select ad.id,ad.attDeviceUserId,hdm.departmentName, em.employeeId, e.firstName,e.lastName,e.middleName
             , date_format(ad.accessTime,'%Y-%m-%d') attendanceDate
@@ -33,14 +33,16 @@ class AttendanceController extends Controller
             , date_format(s.inTime,'%h:%i:%s %p') scheduleIn, date_format(s.outTime,'%h:%i:%s %p') scheduleOut
             , case when SUBTIME(date_format(min(ad.accessTime),'%h:%i'),s.inTime) > '00:00:01' then 'Y' else 'N' end late 
             , SUBTIME(date_format(max(ad.accessTime),'%H:%i:%s'),date_format(min(ad.accessTime),'%h:%i:%s')) workingTime
-            ,min(ad.accessTime) checkInFull, max(ad.accessTime) checkoutFull,ad.fkAttDevice
+            ,min(ad.accessTime) checkInFull, max(ad.accessTime) checkoutFull,ad.fkAttDevice,SUM(distinct hlv.noOfDays) as totalLeave
             from attendancedata ad left join attemployeemap em on ad.attDeviceUserId = em.attDeviceUserId
             left join employeeinfo e on em.employeeId = e.id
+            left join hrmleaves hlv on e.id=hlv.fkEmployeeId
             left join hrmdepartments hdm on e.fkDepartmentId = hdm.id
             left join shiftlog sl on em.employeeId = sl.fkemployeeId and date_format(ad.accessTime,'%Y-%m-%d') between date_format(sl.startDate,'%Y-%m-%d') and ifnull(date_format(sl.endDate,'%Y-%m-%d'),curdate())
             left join shift s on sl.fkshiftId = s.shiftId
             where em.employeeId is not null and date_format(ad.accessTime,'%Y-%m-%d') between '".$fromDate."' and '".$toDate."'
-            group by ad.attDeviceUserId, date_format(ad.accessTime,'%Y-%m-%d')) a
+            or hlv.startDate between '".$fromDate."' and '".$toDate."'
+            group by ad.attDeviceUserId, date_format(ad.accessTime,'%Y-%m-%d')) a            
             group by a.employeeId
             order by a.employeeId"));
 

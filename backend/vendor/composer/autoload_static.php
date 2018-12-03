@@ -4,7 +4,7 @@
 
 namespace Composer\Autoload;
 
-class ComposerStaticInitc20ddfdbc840e707ce3708990213f292
+class ComposerStaticInitbaac51f2c1b843061a9c36bbc4d39b45
 {
     public static $files = array (
         '0e6d7bf4a5811bfa5cf40c5ccd6fae6a' => __DIR__ . '/..' . '/symfony/polyfill-mbstring/bootstrap.php',
@@ -372,16 +372,21 @@ class ComposerStaticInitc20ddfdbc840e707ce3708990213f292
 
     public static $classMap = array (
         'App\\AttEmployeeMap' => __DIR__ . '/../..' . '/app/AttEmployeeMap.php',
+        'App\\AttendanceData' => __DIR__ . '/../..' . '/app/AttendanceData.php',
         'App\\Company' => __DIR__ . '/../..' . '/app/Company.php',
         'App\\Console\\Kernel' => __DIR__ . '/../..' . '/app/Console/Kernel.php',
         'App\\Country' => __DIR__ . '/../..' . '/app/Country.php',
         'App\\Degree' => __DIR__ . '/../..' . '/app/Degree.php',
         'App\\Department' => __DIR__ . '/../..' . '/app/Department.php',
         'App\\Designation' => __DIR__ . '/../..' . '/app/Designation.php',
+        'App\\Documents' => __DIR__ . '/../..' . '/app/Documents.php',
         'App\\Education' => __DIR__ . '/../..' . '/app/Education.php',
+        'App\\EmergencyContact' => __DIR__ . '/../..' . '/app/EmergencyContact.php',
+        'App\\EmployeeDocument' => __DIR__ . '/../..' . '/app/EmployeeDocument.php',
         'App\\EmployeeInfo' => __DIR__ . '/../..' . '/app/EmployeeInfo.php',
         'App\\EmployeeType' => __DIR__ . '/../..' . '/app/EmployeeType.php',
         'App\\Exceptions\\Handler' => __DIR__ . '/../..' . '/app/Exceptions/Handler.php',
+        'App\\Http\\Controllers\\AttendanceController' => __DIR__ . '/../..' . '/app/Http/Controllers/AttendanceController.php',
         'App\\Http\\Controllers\\AuthController' => __DIR__ . '/../..' . '/app/Http/Controllers/AuthController.php',
         'App\\Http\\Controllers\\Auth\\ForgotPasswordController' => __DIR__ . '/../..' . '/app/Http/Controllers/Auth/ForgotPasswordController.php',
         'App\\Http\\Controllers\\Auth\\LoginController' => __DIR__ . '/../..' . '/app/Http/Controllers/Auth/LoginController.php',
@@ -392,20 +397,25 @@ class ComposerStaticInitc20ddfdbc840e707ce3708990213f292
         'App\\Http\\Controllers\\CountryController' => __DIR__ . '/../..' . '/app/Http/Controllers/CountryController.php',
         'App\\Http\\Controllers\\DepartmentController' => __DIR__ . '/../..' . '/app/Http/Controllers/DepartmentController.php',
         'App\\Http\\Controllers\\DesignationController' => __DIR__ . '/../..' . '/app/Http/Controllers/DesignationController.php',
+        'App\\Http\\Controllers\\DocumentController' => __DIR__ . '/../..' . '/app/Http/Controllers/DocumentController.php',
         'App\\Http\\Controllers\\EducationController' => __DIR__ . '/../..' . '/app/Http/Controllers/EducationController.php',
+        'App\\Http\\Controllers\\EmergencyContactController' => __DIR__ . '/../..' . '/app/Http/Controllers/EmergencyContactController.php',
         'App\\Http\\Controllers\\EmployeeController' => __DIR__ . '/../..' . '/app/Http/Controllers/EmployeeController.php',
         'App\\Http\\Controllers\\EmployeeTypeController' => __DIR__ . '/../..' . '/app/Http/Controllers/EmployeeTypeController.php',
+        'App\\Http\\Controllers\\LeaveController' => __DIR__ . '/../..' . '/app/Http/Controllers/LeaveController.php',
         'App\\Http\\Controllers\\NationalityController' => __DIR__ . '/../..' . '/app/Http/Controllers/NationalityController.php',
         'App\\Http\\Controllers\\ReligionController' => __DIR__ . '/../..' . '/app/Http/Controllers/ReligionController.php',
+        'App\\Http\\Controllers\\TestController' => __DIR__ . '/../..' . '/app/Http/Controllers/TestController.php',
         'App\\Http\\Controllers\\degreeController' => __DIR__ . '/../..' . '/app/Http/Controllers/DegreeController.php',
         'App\\Http\\Controllers\\shiftController' => __DIR__ . '/../..' . '/app/Http/Controllers/shiftController.php',
         'App\\Http\\Kernel' => __DIR__ . '/../..' . '/app/Http/Kernel.php',
-        'App\\Http\\Middleware\\Cors' => __DIR__ . '/../..' . '/app/Http/Middleware/Cors.php',
         'App\\Http\\Middleware\\EncryptCookies' => __DIR__ . '/../..' . '/app/Http/Middleware/EncryptCookies.php',
         'App\\Http\\Middleware\\RedirectIfAuthenticated' => __DIR__ . '/../..' . '/app/Http/Middleware/RedirectIfAuthenticated.php',
         'App\\Http\\Middleware\\TrimStrings' => __DIR__ . '/../..' . '/app/Http/Middleware/TrimStrings.php',
         'App\\Http\\Middleware\\TrustProxies' => __DIR__ . '/../..' . '/app/Http/Middleware/TrustProxies.php',
         'App\\Http\\Middleware\\VerifyCsrfToken' => __DIR__ . '/../..' . '/app/Http/Middleware/VerifyCsrfToken.php',
+        'App\\Leave' => __DIR__ . '/../..' . '/app/Leave.php',
+        'App\\LeaveCategory' => __DIR__ . '/../..' . '/app/LeaveCategory.php',
         'App\\Providers\\AppServiceProvider' => __DIR__ . '/../..' . '/app/Providers/AppServiceProvider.php',
         'App\\Providers\\AuthServiceProvider' => __DIR__ . '/../..' . '/app/Providers/AuthServiceProvider.php',
         'App\\Providers\\BroadcastServiceProvider' => __DIR__ . '/../..' . '/app/Providers/BroadcastServiceProvider.php',
@@ -2051,6 +2061,7 @@ class ComposerStaticInitc20ddfdbc840e707ce3708990213f292
         'Monolog\\Handler\\HandlerWrapper' => __DIR__ . '/..' . '/monolog/monolog/src/Monolog/Handler/HandlerWrapper.php',
         'Monolog\\Handler\\HipChatHandler' => __DIR__ . '/..' . '/monolog/monolog/src/Monolog/Handler/HipChatHandler.php',
         'Monolog\\Handler\\IFTTTHandler' => __DIR__ . '/..' . '/monolog/monolog/src/Monolog/Handler/IFTTTHandler.php',
+        'Monolog\\Handler\\InsightOpsHandler' => __DIR__ . '/..' . '/monolog/monolog/src/Monolog/Handler/InsightOpsHandler.php',
         'Monolog\\Handler\\LogEntriesHandler' => __DIR__ . '/..' . '/monolog/monolog/src/Monolog/Handler/LogEntriesHandler.php',
         'Monolog\\Handler\\LogglyHandler' => __DIR__ . '/..' . '/monolog/monolog/src/Monolog/Handler/LogglyHandler.php',
         'Monolog\\Handler\\MailHandler' => __DIR__ . '/..' . '/monolog/monolog/src/Monolog/Handler/MailHandler.php',
@@ -2089,11 +2100,15 @@ class ComposerStaticInitc20ddfdbc840e707ce3708990213f292
         'Monolog\\Processor\\MemoryUsageProcessor' => __DIR__ . '/..' . '/monolog/monolog/src/Monolog/Processor/MemoryUsageProcessor.php',
         'Monolog\\Processor\\MercurialProcessor' => __DIR__ . '/..' . '/monolog/monolog/src/Monolog/Processor/MercurialProcessor.php',
         'Monolog\\Processor\\ProcessIdProcessor' => __DIR__ . '/..' . '/monolog/monolog/src/Monolog/Processor/ProcessIdProcessor.php',
+        'Monolog\\Processor\\ProcessorInterface' => __DIR__ . '/..' . '/monolog/monolog/src/Monolog/Processor/ProcessorInterface.php',
         'Monolog\\Processor\\PsrLogMessageProcessor' => __DIR__ . '/..' . '/monolog/monolog/src/Monolog/Processor/PsrLogMessageProcessor.php',
         'Monolog\\Processor\\TagProcessor' => __DIR__ . '/..' . '/monolog/monolog/src/Monolog/Processor/TagProcessor.php',
         'Monolog\\Processor\\UidProcessor' => __DIR__ . '/..' . '/monolog/monolog/src/Monolog/Processor/UidProcessor.php',
         'Monolog\\Processor\\WebProcessor' => __DIR__ . '/..' . '/monolog/monolog/src/Monolog/Processor/WebProcessor.php',
         'Monolog\\Registry' => __DIR__ . '/..' . '/monolog/monolog/src/Monolog/Registry.php',
+        'Monolog\\ResettableInterface' => __DIR__ . '/..' . '/monolog/monolog/src/Monolog/ResettableInterface.php',
+        'Monolog\\SignalHandler' => __DIR__ . '/..' . '/monolog/monolog/src/Monolog/SignalHandler.php',
+        'Monolog\\Utils' => __DIR__ . '/..' . '/monolog/monolog/src/Monolog/Utils.php',
         'Namshi\\JOSE\\Base64\\Base64Encoder' => __DIR__ . '/..' . '/namshi/jose/src/Namshi/JOSE/Base64/Base64Encoder.php',
         'Namshi\\JOSE\\Base64\\Base64UrlSafeEncoder' => __DIR__ . '/..' . '/namshi/jose/src/Namshi/JOSE/Base64/Base64UrlSafeEncoder.php',
         'Namshi\\JOSE\\Base64\\Encoder' => __DIR__ . '/..' . '/namshi/jose/src/Namshi/JOSE/Base64/Encoder.php',
@@ -3944,10 +3959,10 @@ class ComposerStaticInitc20ddfdbc840e707ce3708990213f292
     public static function getInitializer(ClassLoader $loader)
     {
         return \Closure::bind(function () use ($loader) {
-            $loader->prefixLengthsPsr4 = ComposerStaticInitc20ddfdbc840e707ce3708990213f292::$prefixLengthsPsr4;
-            $loader->prefixDirsPsr4 = ComposerStaticInitc20ddfdbc840e707ce3708990213f292::$prefixDirsPsr4;
-            $loader->prefixesPsr0 = ComposerStaticInitc20ddfdbc840e707ce3708990213f292::$prefixesPsr0;
-            $loader->classMap = ComposerStaticInitc20ddfdbc840e707ce3708990213f292::$classMap;
+            $loader->prefixLengthsPsr4 = ComposerStaticInitbaac51f2c1b843061a9c36bbc4d39b45::$prefixLengthsPsr4;
+            $loader->prefixDirsPsr4 = ComposerStaticInitbaac51f2c1b843061a9c36bbc4d39b45::$prefixDirsPsr4;
+            $loader->prefixesPsr0 = ComposerStaticInitbaac51f2c1b843061a9c36bbc4d39b45::$prefixesPsr0;
+            $loader->classMap = ComposerStaticInitbaac51f2c1b843061a9c36bbc4d39b45::$classMap;
 
         }, null, ClassLoader::class);
     }

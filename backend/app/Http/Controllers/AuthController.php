@@ -62,7 +62,7 @@ class AuthController extends Controller
     }
 
     /**
-     * Refresh a token.
+     * Refresh a token
      *
      * @return \Illuminate\Http\JsonResponse
      */
