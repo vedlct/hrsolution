@@ -23,16 +23,17 @@ class AttendanceController extends Controller
         $toDate=$end;
 
 
-        $results = DB::select( DB::raw("select a.employeeId, a.firstName,a.middleName,a.lastName,a.departmentName ,count(a.attendanceDate) totAttendance, FORMAT(avg(a.workingTime),2) averageWorkingHour,
+        $results = DB::select( DB::raw("select a.employeeId, a.firstName,a.middleName,a.lastName,a.departmentName,a.totalWeekend,count(a.attendanceDate) totAttendance, FORMAT(avg(a.workingTime),2) averageWorkingHour,
             sum(case late when 'Y' then 1 else 0 end) totalLate,a.totalLeave
             from
-            (select ad.id,ad.attDeviceUserId,hdm.departmentName, em.employeeId, e.firstName,e.lastName,e.middleName
+            (select ad.id,ad.attDeviceUserId,hdm.departmentName, em.employeeId, e.firstName,e.lastName,
+              e.middleName,e.weekend as totalWeekend
             , date_format(ad.accessTime,'%Y-%m-%d') attendanceDate
-            , date_format(min(ad.accessTime),'%h:%i:%s %p') checkIn
-            , date_format(max(ad.accessTime),'%h:%i:%s %p') checkOut
-            , date_format(s.inTime,'%h:%i:%s %p') scheduleIn, date_format(s.outTime,'%h:%i:%s %p') scheduleOut
-            , case when SUBTIME(date_format(min(ad.accessTime),'%h:%i'),s.inTime) > '00:00:01' then 'Y' else 'N' end late 
-            , SUBTIME(date_format(max(ad.accessTime),'%H:%i:%s'),date_format(min(ad.accessTime),'%h:%i:%s')) workingTime
+            , date_format(min(ad.accessTime),'%H:%i:%s %p') checkIn
+            , date_format(max(ad.accessTime),'%H:%i:%s %p') checkOut
+            , date_format(s.inTime,'%H:%i:%s %p') scheduleIn, date_format(s.outTime,'%H:%i:%s %p') scheduleOut
+            , case when SUBTIME(date_format(min(ad.accessTime),'%H:%i'),s.inTime) > '00:00:01' then 'Y' else 'N' end late 
+            , SUBTIME(date_format(max(ad.accessTime),'%H:%i:%s'),date_format(min(ad.accessTime),'%H:%i:%s')) workingTime
             ,min(ad.accessTime) checkInFull, max(ad.accessTime) checkoutFull,ad.fkAttDevice,SUM(distinct hlv.noOfDays) as totalLeave
             from attendancedata ad left join attemployeemap em on ad.attDeviceUserId = em.attDeviceUserId
             left join employeeinfo e on em.employeeId = e.id
@@ -47,7 +48,16 @@ class AttendanceController extends Controller
             order by a.employeeId"));
 
         $datatables = Datatables::of($results);
-        return $datatables->make(true);
+                return $datatables->addColumn('weekends', function ($results) use ($fromDate,$toDate) {
+
+            $days="sunday,friday";
+
+            $queries = DB::select("SELECT FUN_WEEKENDS('".$fromDate."','".$toDate."','".$results->totalWeekend."') as weekends");
+                    return $queries[0]->weekends;
+
+        })->make(true);
+
+//        return $datatables->make(true);
     }
 
     public function getEmployeeAttendance(Request $r){
@@ -81,8 +91,11 @@ class AttendanceController extends Controller
             order by date_format(ad.accessTime,'%Y-%m-%d') desc"));
 
 
+
 //        return $results;
         $datatables = Datatables::of($results);
+
+
         return $datatables->make(true);
 
 

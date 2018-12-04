@@ -59,6 +59,8 @@ export class AttendanceComponent implements OnInit {
                 { data: 'totalLate', name: 'totalLate'},
                 { data: 'averageWorkingHour', name: 'averageWorkingHour'},
                 { data: 'totalLeave', name: 'totalLeave'},
+                { data: 'weekends', name: 'weekends'},
+                { data: 'totalWeekend', name: 'totalWeekend'},
                 {
 
                     "data": function (data: any, type: any, full: any) {
