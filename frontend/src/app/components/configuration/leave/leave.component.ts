@@ -22,6 +22,7 @@ export class LeaveComponent implements OnInit {
     allEmp=[];
     shiftId:number;
     shift:any;
+    team:any;
     dtInstance:DataTables.Api;
     startDate:string;
     endDate:string;
@@ -58,6 +59,7 @@ export class LeaveComponent implements OnInit {
         };
         this.getData();
         this.getCategory();
+        this.getTeam();
 
 
         this.fkLeaveCategory='';
@@ -68,6 +70,21 @@ export class LeaveComponent implements OnInit {
         this.allEmp=[];
 
 
+    }
+
+    getTeam(){
+        const token=this.token.get();
+
+        this.http.get(Constants.API_URL+'team/get'+'?token='+token).subscribe(data => {
+                // console.log(data);
+                this.team=data;
+
+
+            },
+            error => {
+                console.log(error);
+            }
+        );
     }
 
     getCategory(){
@@ -100,13 +117,13 @@ export class LeaveComponent implements OnInit {
             ajax: {
                 url: Constants.API_URL+'employee/shift/get'+'?token='+token,
                 type: 'POST',
-                data:function (d){
+                data:function (d:any){
+                    d.teamId=$("#team").val();
 
                 },
             },
             columns: [
                 {
-
                     "data": function (data: any, type: any, full: any) {
                         return '<input type="checkbox" class="chk form-control" name="selected_rows[]" value="'+ data.empid +'" data-emp-id="'+data.empid+'">';
                     },
@@ -117,6 +134,7 @@ export class LeaveComponent implements OnInit {
                 { data: 'shiftName', name: 'shift.shiftName'},
                 { data: 'weekend', name: 'shiftlog.weekend'},
                 { data: 'startDate', name: 'shiftlog.startDate'},
+                { data: 'teamName', name: 'team.teamName'},
 
             ],
             processing: true,
@@ -151,6 +169,10 @@ export class LeaveComponent implements OnInit {
     ngOnDestroy(): void {
         // Do not forget to unsubscribe the event
         this.dtTrigger.unsubscribe();
+    }
+
+    selectTeam(){
+        this.rerender();
     }
 
     selectAll(){

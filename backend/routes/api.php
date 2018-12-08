@@ -146,7 +146,11 @@ Route::group([
     Route::post('document/get','DocumentController@getDocuments');
     //Documents
 //    Route::post('documents/post','EmployeeDocumentController@createDocuments');
+//===================================Team===========================================
 
+    Route::get('team/get','TeamController@getTeams');
+    Route::post('team/post','TeamController@postTeams');
+    Route::post('team/assign','TeamController@assignTeam');
 
     //==================================Report==========================================
 

@@ -38,6 +38,8 @@ import { LeaveComponent } from './components/configuration/leave/leave.component
 import { ShowLeaveComponent } from './components/configuration/show-leave/show-leave.component';
 import { AttendanceComponent } from './components/report/attendance/attendance.component';
 import { ShowAttendanceComponent } from './components/report/show-attendance/show-attendance.component';
+import { CreateTeamComponent } from './components/team/create-team/create-team.component';
+import { AssignTeamComponent } from './components/team/assign-team/assign-team.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -68,7 +70,9 @@ import { ShowAttendanceComponent } from './components/report/show-attendance/sho
     LeaveComponent,
     ShowLeaveComponent,
     AttendanceComponent,
-    ShowAttendanceComponent
+    ShowAttendanceComponent,
+    CreateTeamComponent,
+    AssignTeamComponent
   ],
   imports: [
     BrowserModule,

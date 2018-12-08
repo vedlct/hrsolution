@@ -17,6 +17,8 @@ import {LeaveComponent} from "./components/configuration/leave/leave.component";
 import {ShowLeaveComponent} from "./components/configuration/show-leave/show-leave.component";
 import {AttendanceComponent} from "./components/report/attendance/attendance.component";
 import {ShowAttendanceComponent} from "./components/report/show-attendance/show-attendance.component";
+import {CreateTeamComponent} from "./components/team/create-team/create-team.component";
+import {AssignTeamComponent} from "./components/team/assign-team/assign-team.component";
 
 const routes: Routes = [
     {path: '', component: LoginComponent, canActivate: [GuestService] },
@@ -36,6 +38,8 @@ const routes: Routes = [
     { path: 'configuration/leave/show', component: ShowLeaveComponent },
     { path: 'report/attendance', component: AttendanceComponent },
     { path: 'report/attendance/:id', component: ShowAttendanceComponent },
+    { path: 'team/show', component: CreateTeamComponent },
+    { path: 'team/assign', component: AssignTeamComponent },
 
 ];
 

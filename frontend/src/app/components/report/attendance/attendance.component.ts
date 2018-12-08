@@ -36,6 +36,8 @@ export class AttendanceComponent implements OnInit {
         this.getData();
     }
 
+
+
     getData(){
         const token=this.token.get();
 
@@ -51,9 +53,9 @@ export class AttendanceComponent implements OnInit {
             },
             columns: [
 
-                { data: 'firstName' ,name:'firstName'},
-                { data: 'middleName' ,name:'middleName'},
-                { data: 'lastName' ,name:'lastName'},
+                { data: 'empname' ,name:'empname'},
+                // { data: 'middleName' ,name:'middleName'},
+                // { data: 'lastName' ,name:'lastName'},
                 { data: 'departmentName' ,name:'departmentName'},
                 { data: 'totAttendance' , name: 'totAttendance' },
                 { data: 'totalLate', name: 'totalLate'},
