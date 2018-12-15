@@ -21,23 +21,55 @@ export class ShowAttendanceComponent implements OnInit {
     dtTrigger:Subject<any>=new Subject();
     dtInstance:DataTables.Api;
 
+    dtOptions2:DataTables.Settings={};
+    dtTrigger2:Subject<any>=new Subject();
+    dtInstance2:DataTables.Api;
+
     empid:any;
     attendanceData:any;
-
-
-
 
     startDate:string;
     endDate:string;
 
+    leaves:any;
+    checkTable=0;
 
     constructor(private renderer: Renderer,public http: HttpClient, private token:TokenService , public route:ActivatedRoute, private router: Router) { }
 
   ngOnInit() {
       this.empid =this.route.snapshot.params.id;
+      this.startDate =this.route.snapshot.params.fromdate;
+      this.endDate =this.route.snapshot.params.todate;
+
+      $('#startDate').val(this.startDate);
+      $('#endDate').val(this.endDate);
+
       this.getData();
+      this.getLeave();
   }
 
+  getLeave(){
+      const token=this.token.get();
+
+      let id=this.empid;
+
+      this.http.post(Constants.API_URL+'leave/getLeaveRequests/'+id+'?token='+token,{startDate:this.startDate,endDate:this.endDate}).subscribe(data => {
+              console.log(data);
+              this.leaves=data;
+              // this.dtTrigger2.next();
+              if(this.checkTable==0){
+                  this.dtTrigger2.next();
+                  this.checkTable++;
+              }
+
+
+
+          },
+          error => {
+              console.log(error);
+          }
+      );
+  }
 
   getData(){
         const token=this.token.get();

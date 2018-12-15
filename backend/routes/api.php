@@ -47,9 +47,6 @@ Route::group([
 
 
 
-
-
-
     //EmployeeType Info
     Route::post('employee/get','EmployeeController@getAllEmployee');
 
@@ -133,6 +130,8 @@ Route::group([
 
     //Show Leave Requests
     Route::post('leave/getLeaveRequests','LeaveController@getLeaveRequests');
+
+    Route::post('leave/getLeaveRequests/{id}','LeaveController@getLeaveRequestsIndividual');
 
 
 

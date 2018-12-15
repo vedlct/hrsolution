@@ -45,4 +45,16 @@ class LeaveController extends Controller
        return $datatables->make(true);
 
    }
+
+   public function getLeaveRequestsIndividual($id,Request $r){
+//       return $id;
+       $leaves=Leave::select('hrmleaves.*','hrmleavecategories.categoryName')
+           ->where('fkEmployeeId',$id)
+           ->where('startDate','>=',$r->startDate)
+           ->where('endDate','<=',$r->endDate)
+           ->leftJoin('hrmleavecategories','hrmleavecategories.id','hrmleaves.fkLeaveCategory')
+           ->get();
+
+       return $leaves;
+   }
 }

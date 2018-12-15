@@ -70,10 +70,9 @@ export class ShiftComponent implements OnInit {
         }
     );
 
-
     this.modalRef.close();
-
   }
+
   edit(id,content){
 
     let i=0;

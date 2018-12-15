@@ -45,6 +45,38 @@
         </thead>
       </table>
 
+<br>
+      <hr>
+      <h4 align="center"><b>Leave</b></h4>
+      <hr>
+
+      <table datatable  id="example" class="table" [dtOptions]="dtOptions2" [dtTrigger]="dtTrigger2">
+        <thead>
+        <tr>
+
+          <th>Start Date</th>
+          <th>End Date</th>
+          <th>Days</th>
+          <th>Cause</th>
+          <th>Category</th>
+
+        </tr>
+
+        </thead>
+        <tbody >
+
+        <tr  *ngFor="let leave of leaves" >
+          <td>{{leave.startDate}}</td>
+          <td>{{leave.endDate}}</td>
+          <td>{{leave.noOfDays}}</td>
+          <td>{{leave.remarks}}</td>
+          <td>{{leave.categoryName}}</td>
+
+        </tr>
+
+        </tbody>
+
+      </table>
 
 
     </div>

@@ -37,7 +37,8 @@ const routes: Routes = [
     { path: 'configuration/leave', component: LeaveComponent },
     { path: 'configuration/leave/show', component: ShowLeaveComponent },
     { path: 'report/attendance', component: AttendanceComponent },
-    { path: 'report/attendance/:id', component: ShowAttendanceComponent },
+    // { path: 'report/attendance/:id', component: ShowAttendanceComponent },
+    { path: 'report/attendance/:id/:fromdate/:todate', component: ShowAttendanceComponent },
     { path: 'team/show', component: CreateTeamComponent },
     { path: 'team/assign', component: AssignTeamComponent },
 

@@ -34,8 +34,33 @@ export class AttendanceComponent implements OnInit {
 
     ngOnInit() {
         this.getData();
+        // console.log(new Date.today().clearTime().moveToFirstDayOfMonth());
+        let nowdate = new Date();
+        let monthStartDay=this.dateToYMD(new Date(nowdate.getFullYear(),nowdate.getMonth(),1));
+        let monthEndDay=this.dateToYMD(new Date(nowdate.getFullYear(),nowdate.getMonth()+1,0));
+        $('#startDate').val(monthStartDay);
+        $('#endDate').val(monthEndDay);
+        // console.log(monthEndDay);
+        // console.log(monthStartDay);
     }
 
+
+     dateToYMD(date) {
+        let strArray=['01', '02', '03', '04', '05', '06', '07', '08', '09', '10', '11', '12'];
+        let d = date.getDate();
+        let m = strArray[date.getMonth()];
+        let y = date.getFullYear();
+        // return '' + (d <= 9 ? '0' + d : d) + '-' + m + '-' + y;
+        return '' + y + '-' + m + '-' + (d <= 9 ? '0' + d : d);
+    }
+
+    dateToYMD2(date) {
+        let strArray=['01', '02', '03', '04', '05', '06', '07', '08', '09', '10', '11', '12'];
+        let d = date.getDate();
+        let m = strArray[date.getMonth()];
+        let y = date.getFullYear();
+        return '' + (d <= 9 ? '0' + d : d) + '-' + m + '-' + y;
+    }
 
 
     getData(){
@@ -60,7 +85,14 @@ export class AttendanceComponent implements OnInit {
                 { data: 'totAttendance' , name: 'totAttendance' },
                 { data: 'totalLate', name: 'totalLate'},
                 { data: 'averageWorkingHour', name: 'averageWorkingHour'},
-                { data: 'totalLeave', name: 'totalLeave'},
+                // { data: 'totalLeave', name: 'totalLeave'},
+                {
+
+                    "data": function (data: any, type: any, full: any) {
+                        return '<button class="btn btn-sm btn-info" data-leaveemp-id="'+data.employeeId+'">'+data.totalLeave+'</button>';
+                    },
+                    "orderable": false, "searchable":false, "name":"selected_rows"
+                },
                 { data: 'weekends', name: 'weekends'},
                 { data: 'totalWeekend', name: 'totalWeekend'},
                 {
@@ -86,7 +118,16 @@ export class AttendanceComponent implements OnInit {
             if (event.target.hasAttribute("data-emp-id")) {
 
                 let id=event.target.getAttribute("data-emp-id");
-                this.router.navigate(["report/attendance/" +id]);
+               let start =$('#startDate').val();
+                let end = $('#endDate').val();
+                this.router.navigate(["report/attendance/" +id+'/'+start+'/'+end]);
+                // this.router.navigate(["report/attendance/" +id]);
+            }
+            if (event.target.hasAttribute("data-leaveemp-id")) {
+
+                let id=event.target.getAttribute("data-leaveemp-id");
+                // this.router.navigate(["report/attendance/" +id]);
+                console.log(id);
             }
 
 
