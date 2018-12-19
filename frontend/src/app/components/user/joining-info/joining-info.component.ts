@@ -14,6 +14,10 @@ export class JoiningInfoComponent implements OnInit {
   JoiningForm:any;
   shift:any;
   userShitf:any;
+  totalLeaveAssigned:number;
+  leaveTaken:number;
+  temp:any;
+
   employeeJoiningForm:any={
     id:'',
     actualJoinDate:'',
@@ -63,6 +67,35 @@ export class JoiningInfoComponent implements OnInit {
 
     this.getData();
     this.getShift();
+    this.getLeaveLimit();
+  }
+
+  getLeaveLimit(){
+      const token=this.token.get();
+      this.http.post(Constants.API_URL+'leave/limit/get'+'?token='+token,{id:this.empid}).subscribe(data => {
+              this.temp=data;
+              this.totalLeaveAssigned=this.temp.totalLeave;
+              this.leaveTaken=this.temp.leaveTaken;
+
+          },
+          error => {
+              console.log(error);
+          }
+      );
+  }
+
+  submitLeaveLimit(){
+      // console.log( this.totalLeaveAssigned);
+      const token=this.token.get();
+      this.http.post(Constants.API_URL+'leave/limit/post'+'?token='+token,{id:this.empid,totalLeave:this.totalLeaveAssigned,leaveTaken:this.leaveTaken}).subscribe(data => {
+             // console.log(data);
+             this.getLeaveLimit();
+
+          },
+          error => {
+              console.log(error);
+          }
+      );
   }
 
   getData(){

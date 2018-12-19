@@ -5,6 +5,7 @@ import {TokenService} from "../../../services/token.service";
 import {Subject} from "rxjs";
 import {ActivatedRoute, Router} from "@angular/router";
 import {DataTableDirective} from "angular-datatables";
+import {NgbModal, ModalDismissReasons} from '@ng-bootstrap/ng-bootstrap';
 declare var $ :any;
 
 @Component({
@@ -34,7 +35,11 @@ export class ShowAttendanceComponent implements OnInit {
     leaves:any;
     checkTable=0;
 
-    constructor(private renderer: Renderer,public http: HttpClient, private token:TokenService , public route:ActivatedRoute, private router: Router) { }
+    modalRef:any;
+    comment:any;
+    allComments:any;
+
+    constructor(private modalService: NgbModal,private renderer: Renderer,public http: HttpClient, private token:TokenService , public route:ActivatedRoute, private router: Router) { }
 
   ngOnInit() {
       this.empid =this.route.snapshot.params.id;
@@ -46,15 +51,14 @@ export class ShowAttendanceComponent implements OnInit {
 
       this.getData();
       this.getLeave();
+      this.getComments();
   }
 
   getLeave(){
       const token=this.token.get();
-
       let id=this.empid;
-
       this.http.post(Constants.API_URL+'leave/getLeaveRequests/'+id+'?token='+token,{startDate:this.startDate,endDate:this.endDate}).subscribe(data => {
-              console.log(data);
+              // console.log(data);
               this.leaves=data;
               // this.dtTrigger2.next();
               if(this.checkTable==0){
@@ -115,17 +119,7 @@ export class ShowAttendanceComponent implements OnInit {
 
     ngAfterViewInit(): void {
         this.dtTrigger.next();
-        // this.renderer.listenGlobal('document', 'click', (event) => {
-        //     if (event.target.hasAttribute("data-emp-id")) {
-        //
-        //         let id=event.target.getAttribute("data-emp-id");
-        //         this.router.navigate(["report/attendance/" +id]);
-        //     }
-        //
-        //
-        //
-        //
-        // });
+
     }
 
     ngOnDestroy(): void {
@@ -135,16 +129,63 @@ export class ShowAttendanceComponent implements OnInit {
 
     search(){
         this.rerender();
+        this.getComments();
+        this.getLeave();
     }
 
     rerender(){
         this.dtElement.dtInstance.then((dtInstance: DataTables.Api) => {
-
             dtInstance.destroy();
-
             this.dtTrigger.next();
         });
     }
 
+    commentModal(content){
+        this.modalRef =  this.modalService.open(content, { size: 'lg'});
+    }
+
+    getComments(){
+        const token=this.token.get();
+       let startDate=$('#startDate').val();
+        let endDate=$('#endDate').val();
+
+        let id=this.empid;
+        this.http.post(Constants.API_URL+'comment/get'+'?token='+token,{id:id,startDate:startDate,endDate:endDate}).subscribe(data => {
+                // console.log(data);
+                this.allComments=data;
+
+            },
+            error => {
+                console.log(error);
+            }
+        );
+
+    }
+
+
+    insertComment(){
+        // alert(this.comment);
+        const token=this.token.get();
+
+        let id=this.empid;
+        if(this.comment){
+            this.http.post(Constants.API_URL+'comment/add'+'?token='+token,{id:id,comment:this.comment}).subscribe(data => {
+                    // console.log(data);
+                    this.modalRef.close();
+                    this.getComments();
+
+                },
+                error => {
+                    console.log(error);
+                }
+            );
+        }
+        else {
+            alert('Comment Field is Empty');
+        }
+
+
+
+    }
 
 }

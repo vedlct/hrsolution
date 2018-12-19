@@ -67,6 +67,7 @@ export class AttendanceComponent implements OnInit {
         const token=this.token.get();
 
         this.dtOptions = {
+
             ajax: {
                 url: Constants.API_URL+'report/attendance'+'?token='+token,
                 type: 'POST',
@@ -76,6 +77,7 @@ export class AttendanceComponent implements OnInit {
 
                 },
             },
+
             columns: [
 
                 { data: 'empname' ,name:'empname'},
@@ -104,11 +106,17 @@ export class AttendanceComponent implements OnInit {
                 },
 
             ],
+
             processing: true,
             serverSide: true,
             pagingType: 'full_numbers',
-            pageLength: 10
+            pageLength: 10,
+            dom: 'Bfrtip',
+
+
+
         };
+
 
     }
 

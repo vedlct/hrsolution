@@ -76,6 +76,11 @@ Route::group([
     Route::post('degree/insert','DegreeController@newDegree');
 
 
+    //===============================Leave Limit==================================
+    Route::post('leave/limit/get','LeaveLimitController@get');
+    Route::post('leave/limit/post','LeaveLimitController@post');
+
+
 
 
     //get Country-nationality
@@ -156,5 +161,13 @@ Route::group([
 
     Route::post('report/attendance','AttendanceController@index');
     Route::post('report/getEmployeeAttendance','AttendanceController@getEmployeeAttendance');
+
+
+
+    //========================================Comment======================================
+    Route::post('comment/add','CommentController@add');
+    Route::post('comment/get','CommentController@get');
+
+
 
 });
