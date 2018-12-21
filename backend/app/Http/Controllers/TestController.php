@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\AttendanceData;
+use App\Comment;
 use App\Leave;
 use App\User;
 use Carbon\Carbon;
@@ -59,10 +60,10 @@ class TestController extends Controller
 
 
             $results = DB::select( DB::raw("select a.employeeId,CONCAT(COALESCE(a.firstName,''),' ',COALESCE(a.middleName,''),' ',COALESCE(a.lastName,'')) AS empname,a.departmentName,a.totalWeekend,count(a.attendanceDate) totAttendance, FORMAT(avg(a.workingTime),2) averageWorkingHour,
-            sum(case late when 'Y' then 1 else 0 end) totalLate,a.totalLeave
+            sum(case late when 'Y' then 1 else 0 end) totalLate,a.totalLeave,a.actualJoinDate
             from
             (select ad.id,ad.attDeviceUserId,hdm.departmentName, em.employeeId, e.firstName,e.lastName,
-              e.middleName,e.weekend as totalWeekend
+              e.middleName,e.actualJoinDate,e.weekend as totalWeekend
             , date_format(ad.accessTime,'%Y-%m-%d') attendanceDate
             , date_format(min(ad.accessTime),'%H:%i:%s %p') checkIn
             , date_format(max(ad.accessTime),'%H:%i:%s %p') checkOut
@@ -87,7 +88,13 @@ class TestController extends Controller
 
 
 
-         $allLeave=Leave::leftJoin('hrmleavecategories', 'hrmleavecategories.id', '=', 'hrmleaves.id')->whereBetween('startDate',array($fromDate, $toDate))->get();
+         $allLeave=Leave::leftJoin('hrmleavecategories', 'hrmleavecategories.id', '=', 'hrmleaves.id')
+             ->whereBetween('startDate',array($fromDate, $toDate))
+             ->get();
+
+         $comments=Comment::whereBetween(DB::raw('DATE(created_at)'),[$start,$end])->get();
+
+//         return $comments;
 
 
         $excelName="test";
@@ -95,15 +102,16 @@ class TestController extends Controller
 //        $fileName="AppliedCandidateList".date("Y-m-d_H-i-s");
         $fileName=$excelName." Info".date("Y-m-d_H-i-s");
 
+
         $fileInfo=array(
             'fileName'=>$fileName,
             'filePath'=>$fileName,
         );
 
-        $check=Excel::create($fileName,function($excel)use ($results,$allLeave,$startDate,$endDate) {
+        $check=Excel::create($fileName,function($excel)use ($results,$allLeave,$startDate,$endDate,$comments) {
 
 
-            $excel->sheet('First sheet', function($sheet) use ($results,$allLeave,$startDate,$endDate) {
+            $excel->sheet('First sheet', function($sheet) use ($results,$allLeave,$startDate,$endDate,$comments) {
 
 
                 $sheet->freezePane('B4');
@@ -116,7 +124,7 @@ class TestController extends Controller
                     )
                 ));
 
-                $sheet->loadView('Excel.attendence', compact('results','allLeave','startDate','endDate'));
+                $sheet->loadView('Excel.attendence', compact('results','allLeave','startDate','endDate','comments'));
             });
 
         })->store('xls',$filePath);

@@ -120,11 +120,33 @@
         <td width="10">{{$allLeave->where('fkEmployeeId',$res->employeeId)->where('categoryCode',LEAVE_CATEGORY['NoShift'])->sum('noOfDays')}}</td>
         <td width="10">{{$allLeave->where('fkEmployeeId',$res->employeeId)->where('categoryCode',LEAVE_CATEGORY['Marriage'])->sum('noOfDays')}}</td>
         <td width="10">{{$allLeave->where('fkEmployeeId',$res->employeeId)->where('categoryCode',LEAVE_CATEGORY['Leave with out pay'])->sum('noOfDays')}}</td>
-        <td width="10"></td>
+        <td width="10">
+
+            <?php
+                if($res->actualJoinDate !=null){
+                    $joiningDate = \Carbon\Carbon::parse($res->actualJoinDate);
+                    if($joiningDate->year ==date('Y') && $joiningDate->month == date('m')){
+                        echo $joiningDate->day;
+                    }
+                }
+
+
+
+            ?>
+
+        </td>
         <td width="10"></td>
         <td width="10">{{$allLeave->where('fkEmployeeId',$res->employeeId)->where('categoryCode',LEAVE_CATEGORY['Team Leave'])->sum('noOfDays')}}</td>
         <td width="10"></td>
-        <td width="30"></td>
+        <td width="30">
+
+            @foreach($comments->where('fkemployeeId',$res->employeeId) as $comment)
+                {{$comment->comment}}
+                    {{--<br>--}}
+            @endforeach
+
+
+        </td>
     </tr>
     @endforeach
 
