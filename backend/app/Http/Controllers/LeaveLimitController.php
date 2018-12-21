@@ -17,10 +17,7 @@ class LeaveLimitController extends Controller
             $leaveLimit->fkemployeeId=$r->id;
             $leaveLimit->year=date('Y');
             $leaveLimit->save();
-
             return $leaveLimit;
-
-
         }
 
         else{
