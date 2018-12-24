@@ -5,6 +5,7 @@ import {TokenService} from "../../../services/token.service";
 import {Subject} from "rxjs";
 import {ActivatedRoute, Router} from "@angular/router";
 import {DataTableDirective} from "angular-datatables";
+import {NgxSpinnerService} from "ngx-spinner";
 declare var $ :any;
 
 @Component({
@@ -29,7 +30,8 @@ export class AttendanceComponent implements OnInit {
     remark:string;
     fkLeaveCategory:string;
     leaveCategories:any;
-    constructor(private renderer: Renderer,public http: HttpClient, private token:TokenService , public route:ActivatedRoute, private router: Router) { }
+    constructor(private renderer: Renderer,public http: HttpClient, private token:TokenService ,
+                public route:ActivatedRoute, private router: Router,private spinner: NgxSpinnerService) { }
 
 
     ngOnInit() {
@@ -151,6 +153,40 @@ export class AttendanceComponent implements OnInit {
     search(){
       this.rerender();
     }
+
+    generateExcel(){
+        // excel/generate
+        // alert("Generate");
+        this.spinner.show();
+        const token=this.token.get();
+
+        this.http.get(Constants.API_URL+'excel/generate'+'?token='+token).subscribe(data => {
+                // console.log(data);
+                console.log(Constants.Image_URL+'exportedExcel/'+data+'.xls');
+                this.spinner.hide();
+                // newWindow.location = 'http://' + window.location.hostname + '/customers/export';
+
+                let fileName=Constants.Image_URL+'exportedExcel/'+data;
+
+                let link = document.createElement("a");
+                link.download = data+".xls";
+                let uri = fileName+".xls";
+                link.href = uri;
+                document.body.appendChild(link);
+                link.click();
+                document.body.removeChild(link);
+                // delete link;
+
+            },
+            error => {
+                console.log(error);
+                this.spinner.hide();
+            }
+        );
+        // this.spinner.hide();
+
+    }
+
     rerender(){
         this.dtElement.dtInstance.then((dtInstance: DataTables.Api) => {
 

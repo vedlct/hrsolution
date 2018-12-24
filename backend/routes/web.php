@@ -20,3 +20,4 @@ Route::get('/', function () {
 //   return mkdir(public_path('documents/').'anjum', 0777, true);
 //});
 Route::get('test','TestController@test');
+Route::get('excel/generate','ExcelController@generate');
