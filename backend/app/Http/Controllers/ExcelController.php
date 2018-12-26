@@ -6,6 +6,7 @@ namespace App\Http\Controllers;
 use App\AttendanceData;
 use App\Comment;
 use App\Leave;
+use App\OrganizationCalander;
 use App\User;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
@@ -85,6 +86,8 @@ class ExcelController extends Controller
             ->get();
 
         $comments=Comment::whereBetween(DB::raw('DATE(created_at)'),[$start,$end])->get();
+
+        $allHoliday=OrganizationCalander::whereBetween('startDate',array($fromDate, $toDate))->get();
 
 //         return $comments;
 

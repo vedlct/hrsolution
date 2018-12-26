@@ -82,12 +82,13 @@
             $myArray = explode(',', $res->totalWeekend);
                  $diff_in_months = $endDate->diffInMonths($startDate);
                  $offday=[];
-                for ($i=0;$i<=$diff_in_months;$i++){
-
-                    $dateDay = $startDate;//use your date to get month and year
+                 $dateDay = $startDate;//use your date to get month and year
                     $year = $dateDay->year;
                     $month = $dateDay->month;
                     $days = $dateDay->daysInMonth;
+                for ($i=0;$i<=$diff_in_months;$i++){
+
+
                     $mondays=[];
                     foreach (range(1, $days) as $day) {
                         $date = \Carbon\Carbon::createFromDate($year, $month, $day);
@@ -96,11 +97,26 @@
                         }
 
 
+
                     }
                     $offday[]=count($mondays);
 
                     $startDate=$startDate->addMonths($i);
+
+
                 }
+
+            $holidayarray=[];
+
+        foreach ($allHoliday as $holiday){
+            if (date("m",strtotime($holiday->endDate))==date("m",strtotime($endDate))){
+                $holidayarray[]=$holiday->noOfDays;
+            }else{
+            $st = \Carbon\Carbon::parse($holiday->startDate);
+                $holidayarray[]=($days-$st->day);
+
+            }
+        }
 
 
 
@@ -127,8 +143,8 @@
 
                     $totalLeaveOrOff=($allLeave->where('fkEmployeeId',$res->employeeId)->whereIn('categoryCode',[LEAVE_CATEGORY['Casual'],LEAVE_CATEGORY['Sick'],LEAVE_CATEGORY['NoShift'],
                      LEAVE_CATEGORY['Marriage'],LEAVE_CATEGORY['Leave with out pay'],LEAVE_CATEGORY['Team Leave']])->where('applicationStatus','Approved')->sum('noOfDays')
-                        +$allLeave->where('fkEmployeeId',$res->employeeId)->where('categoryCode',LEAVE_CATEGORY['Offday'])->sum('noOfDays')
-                        +array_sum($offday)+$joiningDate->day);
+
+                        +array_sum($offday)+$joiningDate->day+array_sum($holidayarray));
 
                         echo $absent=((($diff_in_days-$res->totAttendance)-$totalLeaveOrOff));
 
@@ -138,8 +154,8 @@
 
                     $totalLeaveOrOff=($allLeave->where('fkEmployeeId',$res->employeeId)->whereIn('categoryCode',[LEAVE_CATEGORY['Casual'],LEAVE_CATEGORY['Sick'],LEAVE_CATEGORY['NoShift'],
                      LEAVE_CATEGORY['Marriage'],LEAVE_CATEGORY['Leave with out pay'],LEAVE_CATEGORY['Team Leave']])->where('applicationStatus','Approved')->sum('noOfDays')
-                        +$allLeave->where('fkEmployeeId',$res->employeeId)->where('categoryCode',LEAVE_CATEGORY['Offday'])->sum('noOfDays')
-                        +array_sum($offday)
+
+                        +array_sum($offday)+array_sum($holidayarray)
                         );
 
                         echo $absent=((($diff_in_days-$res->totAttendance)-$totalLeaveOrOff));
@@ -148,19 +164,12 @@
                 }else{
                 $totalLeaveOrOff=($allLeave->where('fkEmployeeId',$res->employeeId)->whereIn('categoryCode',[LEAVE_CATEGORY['Casual'],LEAVE_CATEGORY['Sick'],LEAVE_CATEGORY['NoShift'],
                      LEAVE_CATEGORY['Marriage'],LEAVE_CATEGORY['Leave with out pay'],LEAVE_CATEGORY['Team Leave']])->where('applicationStatus','Approved')->sum('noOfDays')
-                        +$allLeave->where('fkEmployeeId',$res->employeeId)->where('categoryCode',LEAVE_CATEGORY['Offday'])->sum('noOfDays')
-                        +array_sum($offday)
+
+                        +array_sum($offday)+array_sum($holidayarray)
                         );
 
                         echo $absent=((($diff_in_days-$res->totAttendance)-$totalLeaveOrOff));
                 }
-
-
-
-
-
-
-
 
 
 
@@ -183,7 +192,7 @@
         </td>
         <td width="10">
 
-            {{$allLeave->where('fkEmployeeId',$res->employeeId)->where('categoryCode',LEAVE_CATEGORY['Offday'])->sum('noOfDays')}}
+            {{array_sum($holidayarray)}}
 
         </td>
         <td width="10">{{$allLeave->where('fkEmployeeId',$res->employeeId)->where('categoryCode',LEAVE_CATEGORY['NoShift'])->where('applicationStatus','Approved')->sum('noOfDays')}}</td>
@@ -196,8 +205,13 @@
                     $joiningDate = \Carbon\Carbon::parse($res->actualJoinDate);
                     if($joiningDate->year ==date('Y') && $joiningDate->month == date('m')){
                         echo $joiningDate->day;
+                    }else{
+                        echo 0;
                     }
+                }else{
+                   echo 0;
                 }
+
 
 
 

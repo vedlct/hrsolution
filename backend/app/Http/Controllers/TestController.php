@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\AttendanceData;
 use App\Comment;
 use App\Leave;
+use App\OrganizationCalander;
 use App\User;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
@@ -94,6 +95,8 @@ class TestController extends Controller
              ->whereBetween('startDate',array($fromDate, $toDate))
              ->get();
          //return $allLeave;
+        $allHoliday=OrganizationCalander::whereBetween('startDate',array($fromDate, $toDate))->get();
+       // return $allHoliday;
 
          $comments=Comment::whereBetween(DB::raw('DATE(created_at)'),[$start,$end])->get();
 
@@ -114,10 +117,10 @@ class TestController extends Controller
 
 
 
-        $check=Excel::create($fileName,function($excel)use ($results,$allLeave,$startDate,$endDate,$comments) {
+        $check=Excel::create($fileName,function($excel)use ($results,$allLeave,$startDate,$endDate,$comments,$allHoliday) {
 
 
-            $excel->sheet('First sheet', function($sheet) use ($results,$allLeave,$startDate,$endDate,$comments) {
+            $excel->sheet('First sheet', function($sheet) use ($results,$allLeave,$startDate,$endDate,$comments,$allHoliday) {
 
 
                 $sheet->freezePane('B4');
@@ -130,7 +133,7 @@ class TestController extends Controller
                     )
                 ));
 
-                $sheet->loadView('Excel.attendence', compact('results','allLeave','startDate','endDate','comments'));
+                $sheet->loadView('Excel.attendence', compact('results','allLeave','startDate','endDate','comments','allHoliday'));
             });
 
         })->store('xls',$filePath);
