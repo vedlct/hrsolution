@@ -28,10 +28,12 @@ class TestController extends Controller
         $start = Carbon::now()->submonth()->startOfMonth()->format('Y-m-d');
         $end = Carbon::now()->submonth()->endOfMonth()->format('Y-m-d');
 
-        $startDate = Carbon::now()->submonth()->startOfMonth();
-        $endDate = Carbon::now()->submonth()->endOfMonth();
+         $startDate = Carbon::now()->submonth()->startOfMonth();
+         $endDate = Carbon::now()->submonth()->endOfMonth();
         $fromDate=$start;
         $toDate=$end;
+
+
 
 //         $diff_in_months = $end->diffInMonths($start);
 //         $offday=[];
@@ -91,6 +93,7 @@ class TestController extends Controller
          $allLeave=Leave::leftJoin('hrmleavecategories', 'hrmleavecategories.id', '=', 'hrmleaves.id')
              ->whereBetween('startDate',array($fromDate, $toDate))
              ->get();
+         //return $allLeave;
 
          $comments=Comment::whereBetween(DB::raw('DATE(created_at)'),[$start,$end])->get();
 
@@ -107,6 +110,9 @@ class TestController extends Controller
             'fileName'=>$fileName,
             'filePath'=>$fileName,
         );
+
+
+
 
         $check=Excel::create($fileName,function($excel)use ($results,$allLeave,$startDate,$endDate,$comments) {
 

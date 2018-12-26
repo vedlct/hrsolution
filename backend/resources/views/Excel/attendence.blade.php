@@ -76,50 +76,119 @@
         <td width="30" ></td>
     </tr>
     @foreach($results as $res)
+
+        @php
+
+            $myArray = explode(',', $res->totalWeekend);
+                 $diff_in_months = $endDate->diffInMonths($startDate);
+                 $offday=[];
+                for ($i=0;$i<=$diff_in_months;$i++){
+
+                    $dateDay = $startDate;//use your date to get month and year
+                    $year = $dateDay->year;
+                    $month = $dateDay->month;
+                    $days = $dateDay->daysInMonth;
+                    $mondays=[];
+                    foreach (range(1, $days) as $day) {
+                        $date = \Carbon\Carbon::createFromDate($year, $month, $day);
+                        if (in_array(strtolower($date->format('l')),$myArray)) {
+                            $mondays[]=($date->day);
+                        }
+
+
+                    }
+                    $offday[]=count($mondays);
+
+                    $startDate=$startDate->addMonths($i);
+                }
+
+
+
+
+        @endphp
+
     <tr>
         <td width="30">{{$res->empname}}</td>
         <td width="10"></td>
         <td width="15">{{$res->totAttendance}}</td>
         <td width="15">{{$res->totalLate}}</td>
-        <td width="15">{{$res->totAttendance}}</td>
-        <td width="10">{{$allLeave->where('fkEmployeeId',$res->employeeId)->whereIn('categoryCode',[LEAVE_CATEGORY['Casual'],LEAVE_CATEGORY['Sick']])->sum('noOfDays')}}</td>
+        <td width="15">
 
-        <td width="10">{{$allLeave->where('fkEmployeeId',$res->employeeId)->where('categoryCode',LEAVE_CATEGORY['Offday'])->sum('noOfDays')}}</td>
-        <td width="10">
+
             @php
 
-                    $myArray = explode(',', $res->totalWeekend);
-                         $diff_in_months = $endDate->diffInMonths($startDate);
-                         $offday=[];
-                        for ($i=0;$i<=$diff_in_months;$i++){
 
-                            $dateDay = $startDate;//use your date to get month and year
-                            $year = $dateDay->year;
-                            $month = $dateDay->month;
-                            $days = $dateDay->daysInMonth;
-                            $mondays=[];
-                            foreach (range(1, $days) as $day) {
-                                $date = \Carbon\Carbon::createFromDate($year, $month, $day);
-                                if (in_array(strtolower($date->format('l')),$myArray)) {
-                                    $mondays[]=($date->day);
-                                }
+                     $diff_in_days = $endDate->daysInMonth;
 
 
-                            }
-                            $offday[]=count($mondays);
+            if($res->actualJoinDate !=null ){
+                    $joiningDate = \Carbon\Carbon::parse($res->actualJoinDate);
+                    if($joiningDate->year ==date('Y') && $joiningDate->month == date('m')){
 
-                            $startDate=$startDate->addMonths($i);
-                        }
+                    $totalLeaveOrOff=($allLeave->where('fkEmployeeId',$res->employeeId)->whereIn('categoryCode',[LEAVE_CATEGORY['Casual'],LEAVE_CATEGORY['Sick'],LEAVE_CATEGORY['NoShift'],
+                     LEAVE_CATEGORY['Marriage'],LEAVE_CATEGORY['Leave with out pay'],LEAVE_CATEGORY['Team Leave']])->where('applicationStatus','Approved')->sum('noOfDays')
+                        +$allLeave->where('fkEmployeeId',$res->employeeId)->where('categoryCode',LEAVE_CATEGORY['Offday'])->sum('noOfDays')
+                        +array_sum($offday)+$joiningDate->day);
+
+                        echo $absent=((($diff_in_days-$res->totAttendance)-$totalLeaveOrOff));
 
 
 
+                    }else{
 
-             @endphp
-            {{array_sum($offday)}}
+                    $totalLeaveOrOff=($allLeave->where('fkEmployeeId',$res->employeeId)->whereIn('categoryCode',[LEAVE_CATEGORY['Casual'],LEAVE_CATEGORY['Sick'],LEAVE_CATEGORY['NoShift'],
+                     LEAVE_CATEGORY['Marriage'],LEAVE_CATEGORY['Leave with out pay'],LEAVE_CATEGORY['Team Leave']])->where('applicationStatus','Approved')->sum('noOfDays')
+                        +$allLeave->where('fkEmployeeId',$res->employeeId)->where('categoryCode',LEAVE_CATEGORY['Offday'])->sum('noOfDays')
+                        +array_sum($offday)
+                        );
+
+                        echo $absent=((($diff_in_days-$res->totAttendance)-$totalLeaveOrOff));
+
+                    }
+                }else{
+                $totalLeaveOrOff=($allLeave->where('fkEmployeeId',$res->employeeId)->whereIn('categoryCode',[LEAVE_CATEGORY['Casual'],LEAVE_CATEGORY['Sick'],LEAVE_CATEGORY['NoShift'],
+                     LEAVE_CATEGORY['Marriage'],LEAVE_CATEGORY['Leave with out pay'],LEAVE_CATEGORY['Team Leave']])->where('applicationStatus','Approved')->sum('noOfDays')
+                        +$allLeave->where('fkEmployeeId',$res->employeeId)->where('categoryCode',LEAVE_CATEGORY['Offday'])->sum('noOfDays')
+                        +array_sum($offday)
+                        );
+
+                        echo $absent=((($diff_in_days-$res->totAttendance)-$totalLeaveOrOff));
+                }
+
+
+
+
+
+
+
+
+
+
+
+
+            @endphp
+
+
+
+
         </td>
-        <td width="10">{{$allLeave->where('fkEmployeeId',$res->employeeId)->where('categoryCode',LEAVE_CATEGORY['NoShift'])->sum('noOfDays')}}</td>
-        <td width="10">{{$allLeave->where('fkEmployeeId',$res->employeeId)->where('categoryCode',LEAVE_CATEGORY['Marriage'])->sum('noOfDays')}}</td>
-        <td width="10">{{$allLeave->where('fkEmployeeId',$res->employeeId)->where('categoryCode',LEAVE_CATEGORY['Leave with out pay'])->sum('noOfDays')}}</td>
+        <td width="10">{{$allLeave->where('fkEmployeeId',$res->employeeId)->whereIn('categoryCode',[LEAVE_CATEGORY['Casual'],LEAVE_CATEGORY['Sick']])->where('applicationStatus','Approved')->sum('noOfDays')}}</td>
+
+        <td width="10">
+
+
+            {{array_sum($offday)}}
+
+
+        </td>
+        <td width="10">
+
+            {{$allLeave->where('fkEmployeeId',$res->employeeId)->where('categoryCode',LEAVE_CATEGORY['Offday'])->sum('noOfDays')}}
+
+        </td>
+        <td width="10">{{$allLeave->where('fkEmployeeId',$res->employeeId)->where('categoryCode',LEAVE_CATEGORY['NoShift'])->where('applicationStatus','Approved')->sum('noOfDays')}}</td>
+        <td width="10">{{$allLeave->where('fkEmployeeId',$res->employeeId)->where('categoryCode',LEAVE_CATEGORY['Marriage'])->where('applicationStatus','Approved')->sum('noOfDays')}}</td>
+        <td width="10">{{$allLeave->where('fkEmployeeId',$res->employeeId)->where('categoryCode',LEAVE_CATEGORY['Leave with out pay'])->where('applicationStatus','Approved')->sum('noOfDays')}}</td>
         <td width="10">
 
             <?php
@@ -135,8 +204,10 @@
             ?>
 
         </td>
-        <td width="10"></td>
-        <td width="10">{{$allLeave->where('fkEmployeeId',$res->employeeId)->where('categoryCode',LEAVE_CATEGORY['Team Leave'])->sum('noOfDays')}}</td>
+        <td width="10">
+
+        </td>
+        <td width="10">{{$allLeave->where('fkEmployeeId',$res->employeeId)->where('categoryCode',LEAVE_CATEGORY['Team Leave'])->where('applicationStatus','Approved')->sum('noOfDays')}}</td>
         <td width="10"></td>
         <td width="30">
 
