@@ -31,7 +31,8 @@ export class JoiningInfoComponent implements OnInit {
     attDeviceUserId:'',
     shiftId:'',
     supervisor:'',
-    probationPeriod:''
+    probationPeriod:'',
+    practice:''
   };
 
     // DROPDOWN
@@ -101,16 +102,17 @@ export class JoiningInfoComponent implements OnInit {
   getData(){
       const token=this.token.get();
       this.http.post(Constants.API_URL+'joinInfo/get'+'?token='+token,{id:this.employeeJoiningForm.id}).subscribe(data => {
-              // console.log(data);
+              console.log(data);
               this.JoiningForm=data;
               this.employeeJoiningForm.actualJoinDate=this.JoiningForm.actualJoinDate;
               this.employeeJoiningForm.recentJoinDate=this.JoiningForm.recentJoinDate;
               this.employeeJoiningForm.resignDate=this.JoiningForm.resignDate;
               this.employeeJoiningForm.weekend=this.JoiningForm.weekend;
               this.employeeJoiningForm.accessPin=this.JoiningForm.accessPin;
+              this.employeeJoiningForm.practice=this.JoiningForm.practice;
 
-              this.employeeJoiningForm.scheduleInTime=this.JoiningForm.scheduleInTime;
-              this.employeeJoiningForm.scheduleOutTime=this.JoiningForm.scheduleOutTime;
+              // this.employeeJoiningForm.scheduleInTime=this.JoiningForm.scheduleInTime;
+              // this.employeeJoiningForm.scheduleOutTime=this.JoiningForm.scheduleOutTime;
 
               this.employeeJoiningForm.specialAllowance=this.JoiningForm.specialAllowance;
               this.employeeJoiningForm.attDeviceUserId=this.JoiningForm.attDeviceUserId;
