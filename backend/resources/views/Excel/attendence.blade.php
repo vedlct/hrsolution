@@ -80,13 +80,13 @@
         @php
 
             $myArray = explode(',', $res->totalWeekend);
-                 $diff_in_months = $endDate->diffInMonths($startDate);
+
                  $offday=[];
                  $dateDay = $startDate;//use your date to get month and year
                     $year = $dateDay->year;
                     $month = $dateDay->month;
                     $days = $dateDay->daysInMonth;
-                for ($i=0;$i<=$diff_in_months;$i++){
+
 
 
                     $mondays=[];
@@ -101,21 +101,26 @@
                     }
                     $offday[]=count($mondays);
 
-                    $startDate=$startDate->addMonths($i);
-
-
-                }
 
             $holidayarray=[];
 
         foreach ($allHoliday as $holiday){
-            if (date("m",strtotime($holiday->endDate))==date("m",strtotime($endDate))){
+            if ((date("m",strtotime($holiday->startDate))==date("m",strtotime($startDate)))&& (date("m",strtotime($holiday->endDate))==date("m",strtotime($endDate)))){
                 $holidayarray[]=$holiday->noOfDays;
-            }else{
-            $st = \Carbon\Carbon::parse($holiday->startDate);
-                $holidayarray[]=($days-$st->day);
+            }elseif((date("m",strtotime($holiday->startDate))==date("m",strtotime($startDate)))&& (date("m",strtotime($holiday->endDate))!=date("m",strtotime($endDate))))
+            {
+                $st = \Carbon\Carbon::parse($holiday->startDate);
+                    $holidayarray[]=($days-$st->day);
+
+            }elseif ((date("m",strtotime($holiday->startDate))!=date("m",strtotime($startDate)))&& (date("m",strtotime($holiday->endDate))==date("m",strtotime($endDate))))
+            {
+                $etd = \Carbon\Carbon::parse($holiday->endDate);
+                $std = \Carbon\Carbon::parse($holiday->endDate)->startOfMonth();
+                    $holidayarray[]=(($etd->diffInDays($std))+1);
+
 
             }
+
         }
 
 
@@ -145,6 +150,7 @@
                      LEAVE_CATEGORY['Marriage'],LEAVE_CATEGORY['Leave with out pay'],LEAVE_CATEGORY['Team Leave']])->where('applicationStatus','Approved')->sum('noOfDays')
 
                         +array_sum($offday)+$joiningDate->day+array_sum($holidayarray));
+
 
                         echo $absent=((($diff_in_days-$res->totAttendance)-$totalLeaveOrOff));
 
@@ -189,6 +195,7 @@
             {{array_sum($offday)}}
 
 
+
         </td>
         <td width="10">
 
@@ -219,6 +226,28 @@
 
         </td>
         <td width="10">
+
+            <?php
+            if($res->actualJoinDate !=null){
+                $joiningDate = \Carbon\Carbon::parse($res->actualJoinDate);
+                if($joiningDate->year ==date('Y') && $joiningDate->month == date('m')){
+                    if ($res->practice != null){
+                        echo $res->practice;
+
+                    }else{
+                        echo 0;
+                    }
+                }else{
+                    echo 0;
+                }
+            }else{
+                echo 0;
+            }
+
+
+
+
+            ?>
 
         </td>
         <td width="10">{{$allLeave->where('fkEmployeeId',$res->employeeId)->where('categoryCode',LEAVE_CATEGORY['Team Leave'])->where('applicationStatus','Approved')->sum('noOfDays')}}</td>

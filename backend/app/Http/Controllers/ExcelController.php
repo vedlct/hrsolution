@@ -53,10 +53,10 @@ class ExcelController extends Controller
 
 
         $results = DB::select( DB::raw("select a.employeeId,CONCAT(COALESCE(a.firstName,''),' ',COALESCE(a.middleName,''),' ',COALESCE(a.lastName,'')) AS empname,a.departmentName,a.totalWeekend,count(a.attendanceDate) totAttendance, FORMAT(avg(a.workingTime),2) averageWorkingHour,
-            sum(case late when 'Y' then 1 else 0 end) totalLate,a.totalLeave,a.actualJoinDate
+            sum(case late when 'Y' then 1 else 0 end) totalLate,a.totalLeave,a.actualJoinDate,a.practice
             from
             (select ad.id,ad.attDeviceUserId,hdm.departmentName, em.employeeId, e.firstName,e.lastName,
-              e.middleName,e.actualJoinDate,e.weekend as totalWeekend
+              e.middleName,e.actualJoinDate,e.weekend as totalWeekend,e.practice
             , date_format(ad.accessTime,'%Y-%m-%d') attendanceDate
             , date_format(min(ad.accessTime),'%H:%i:%s %p') checkIn
             , date_format(max(ad.accessTime),'%H:%i:%s %p') checkOut
@@ -87,9 +87,8 @@ class ExcelController extends Controller
 
         $comments=Comment::whereBetween(DB::raw('DATE(created_at)'),[$start,$end])->get();
 
-        $allHoliday=OrganizationCalander::whereBetween('startDate',array($fromDate, $toDate))->get();
+        $allHoliday=OrganizationCalander::whereMonth('startDate', '=', date('m',strtotime($fromDate)))->orWhereMonth('endDate', '=', date('m',strtotime($toDate)))->get();
 
-//         return $comments;
 
 
         $excelName="test";
@@ -104,10 +103,10 @@ class ExcelController extends Controller
             'filePath'=>$fileName,
         );
 
-        $check=Excel::create($fileName,function($excel)use ($results,$allLeave,$startDate,$endDate,$comments) {
+        $check=Excel::create($fileName,function($excel)use ($results,$allLeave,$startDate,$endDate,$comments,$allHoliday) {
 
 
-            $excel->sheet('First sheet', function($sheet) use ($results,$allLeave,$startDate,$endDate,$comments) {
+            $excel->sheet('First sheet', function($sheet) use ($results,$allLeave,$startDate,$endDate,$comments,$allHoliday) {
 
 
                 $sheet->freezePane('B4');
@@ -120,7 +119,7 @@ class ExcelController extends Controller
                     )
                 ));
 
-                $sheet->loadView('Excel.attendence', compact('results','allLeave','startDate','endDate','comments'));
+                $sheet->loadView('Excel.attendence', compact('results','allLeave','startDate','endDate','comments','allHoliday'));
             });
 
         })->store('xls',$filePath);

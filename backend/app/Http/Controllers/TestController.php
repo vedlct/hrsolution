@@ -14,6 +14,8 @@ use Yajra\DataTables\DataTables;
 
 
 use Excel;
+use DateTime;
+
 
 
 
@@ -29,44 +31,49 @@ class TestController extends Controller
         $start = Carbon::now()->submonth()->startOfMonth()->format('Y-m-d');
         $end = Carbon::now()->submonth()->endOfMonth()->format('Y-m-d');
 
-         $startDate = Carbon::now()->submonth()->startOfMonth();
+          $startDate = Carbon::now()->submonth()->startOfMonth();
          $endDate = Carbon::now()->submonth()->endOfMonth();
         $fromDate=$start;
         $toDate=$end;
 
+//        $datetime1 = new DateTime('2018-12-01');
+//        $datetime2 = new DateTime('2018-12-30');
+//        $interval = $datetime1->diff($datetime2);
+//        return $interval->format('%Y-%m-%d');
 
 
-//         $diff_in_months = $end->diffInMonths($start);
+
+
+
+//        $myArray = explode(',', 'sunday');
+//         return $diff_in_months = $startDate->diffInMonths($endDate);
 //         $offday=[];
 //        for ($i=0;$i<=$diff_in_months;$i++){
 //
-//            $dateDay = $start;//use your date to get month and year
+//            $dateDay = $startDate;//use your date to get month and year
 //            $year = $dateDay->year;
 //            $month = $dateDay->month;
 //            $days = $dateDay->daysInMonth;
 //            $mondays=[];
 //            foreach (range(1, $days) as $day) {
 //                $date = Carbon::createFromDate($year, $month, $day);
-//                if ($date->isMonday()===true) {
-//                    $mondays[]=($date->day);
-//                }
-//                if ($date->isTuesday()===true) {
+//                if (in_array(strtolower($date->format('l')),$myArray)) {
 //                    $mondays[]=($date->day);
 //                }
 //            }
 //            $offday[]=count($mondays);
 //
-//            $start=$start->addMonths($i);
+//            $startDate=$startDate->addMonths($i);
 //        }
 //
-//        print_r(array_sum($offday));
+//        return count($mondays);
 
 
             $results = DB::select( DB::raw("select a.employeeId,CONCAT(COALESCE(a.firstName,''),' ',COALESCE(a.middleName,''),' ',COALESCE(a.lastName,'')) AS empname,a.departmentName,a.totalWeekend,count(a.attendanceDate) totAttendance, FORMAT(avg(a.workingTime),2) averageWorkingHour,
-            sum(case late when 'Y' then 1 else 0 end) totalLate,a.totalLeave,a.actualJoinDate
+            sum(case late when 'Y' then 1 else 0 end) totalLate,a.totalLeave,a.actualJoinDate,a.practice
             from
             (select ad.id,ad.attDeviceUserId,hdm.departmentName, em.employeeId, e.firstName,e.lastName,
-              e.middleName,e.actualJoinDate,e.weekend as totalWeekend
+              e.middleName,e.actualJoinDate,e.weekend as totalWeekend,e.practice
             , date_format(ad.accessTime,'%Y-%m-%d') attendanceDate
             , date_format(min(ad.accessTime),'%H:%i:%s %p') checkIn
             , date_format(max(ad.accessTime),'%H:%i:%s %p') checkOut
@@ -95,8 +102,13 @@ class TestController extends Controller
              ->whereBetween('startDate',array($fromDate, $toDate))
              ->get();
          //return $allLeave;
-        $allHoliday=OrganizationCalander::whereBetween('startDate',array($fromDate, $toDate))->get();
+        $allHoliday=OrganizationCalander::whereMonth('startDate', '=', date('m',strtotime($fromDate)))->orWhereMonth('endDate', '=', date('m',strtotime($toDate)))->get();
+
+//        whereBetween('startDate',array($fromDate, $toDate))->get();
+
        // return $allHoliday;
+
+        //return $endDate->diffInDays($startDate);
 
          $comments=Comment::whereBetween(DB::raw('DATE(created_at)'),[$start,$end])->get();
 
