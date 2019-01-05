@@ -171,7 +171,7 @@ Route::group([
 
 
     //=================================Excel Report========================================
-    Route::get('excel/generate','ExcelController@generate');
+    Route::post('excel/generate','ExcelController@generate');
 
 
 

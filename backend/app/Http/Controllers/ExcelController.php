@@ -16,40 +16,26 @@ use Excel;
 
 class ExcelController extends Controller
 {
-    public function generate(){
+    public function generate(Request $r){
 
-        $start = Carbon::now()->submonth()->startOfMonth()->format('Y-m-d');
-        $end = Carbon::now()->submonth()->endOfMonth()->format('Y-m-d');
+        $start = Carbon::parse($r->start)->startOfMonth()->format('Y-m-d');
 
-        $startDate = Carbon::now()->submonth()->startOfMonth();
-        $endDate = Carbon::now()->submonth()->endOfMonth();
+        $end = Carbon::parse($r->start)->endOfMonth()->format('Y-m-d');
+
+        $startDate = Carbon::parse($r->start)->startOfMonth();
+        $endDate = Carbon::parse($r->start)->endOfMonth();
         $fromDate=$start;
         $toDate=$end;
 
-//         $diff_in_months = $end->diffInMonths($start);
-//         $offday=[];
-//        for ($i=0;$i<=$diff_in_months;$i++){
+//        $start = Carbon::now()->submonth()->startOfMonth()->format('Y-m-d');
+//        $end = Carbon::now()->submonth()->endOfMonth()->format('Y-m-d');
 //
-//            $dateDay = $start;//use your date to get month and year
-//            $year = $dateDay->year;
-//            $month = $dateDay->month;
-//            $days = $dateDay->daysInMonth;
-//            $mondays=[];
-//            foreach (range(1, $days) as $day) {
-//                $date = Carbon::createFromDate($year, $month, $day);
-//                if ($date->isMonday()===true) {
-//                    $mondays[]=($date->day);
-//                }
-//                if ($date->isTuesday()===true) {
-//                    $mondays[]=($date->day);
-//                }
-//            }
-//            $offday[]=count($mondays);
-//
-//            $start=$start->addMonths($i);
-//        }
-//
-//        print_r(array_sum($offday));
+//        $startDate = Carbon::now()->submonth()->startOfMonth();
+//        $endDate = Carbon::now()->submonth()->endOfMonth();
+//        $fromDate=$start;
+//        $toDate=$end;
+
+
 
 
         $results = DB::select( DB::raw("select a.employeeId,CONCAT(COALESCE(a.firstName,''),' ',COALESCE(a.middleName,''),' ',COALESCE(a.lastName,'')) AS empname,a.departmentName,a.totalWeekend,count(a.attendanceDate) totAttendance, FORMAT(avg(a.workingTime),2) averageWorkingHour,

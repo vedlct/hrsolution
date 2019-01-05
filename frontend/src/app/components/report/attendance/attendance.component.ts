@@ -155,12 +155,11 @@ export class AttendanceComponent implements OnInit {
     }
 
     generateExcel(){
-        // excel/generate
-        // alert("Generate");
+
         this.spinner.show();
         const token=this.token.get();
 
-        this.http.get(Constants.API_URL+'excel/generate'+'?token='+token).subscribe(data => {
+        this.http.post(Constants.API_URL+'excel/generate'+'?token='+token,{start:$('#startDate').val()}).subscribe(data => {
                 // console.log(data);
                 console.log(Constants.Image_URL+'exportedExcel/'+data+'.xls');
                 this.spinner.hide();
