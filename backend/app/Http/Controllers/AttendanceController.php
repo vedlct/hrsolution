@@ -75,12 +75,12 @@ class AttendanceController extends Controller
 
         $results = DB::select( DB::raw("select ad.id,ad.attDeviceUserId, em.employeeId, e.firstName
             , date_format(ad.accessTime,'%Y-%m-%d') attendanceDate
-            , date_format(min(ad.accessTime),'%h:%i:%s %p') checkIn
-            , date_format(max(ad.accessTime),'%h:%i:%s %p') checkOut
-            , date_format(s.inTime,'%h:%i:%s %p') scheduleIn, date_format(s.outTime,'%h:%i:%s %p') scheduleOut
-            , case when SUBTIME(date_format(min(ad.accessTime),'%h:%i'),s.inTime) > '00:00:01' then 'Y' else 'N' end late 
-            , SUBTIME(date_format(min(ad.accessTime),'%h:%i'),s.inTime)  as lateTime
-            ,SUBTIME(date_format(max(ad.accessTime),'%H:%i:%s'),date_format(min(ad.accessTime),'%h:%i:%s')) workingTime
+            , date_format(min(ad.accessTime),'%H:%i:%s %p') checkIn
+            , date_format(max(ad.accessTime),'%H:%i:%s %p') checkOut
+            , date_format(s.inTime,'%H:%i:%s %p') scheduleIn, date_format(s.outTime,'%H:%i:%s %p') scheduleOut
+            , case when SUBTIME(date_format(min(ad.accessTime),'%H:%i'),s.inTime) > '00:00:01' then 'Y' else 'N' end late 
+            , SUBTIME(date_format(min(ad.accessTime),'%H:%i'),s.inTime)  as lateTime
+            ,SUBTIME(date_format(max(ad.accessTime),'%H:%i:%s'),date_format(min(ad.accessTime),'%H:%i:%s')) workingTime
             ,min(ad.accessTime) checkInFull, max(ad.accessTime) checkoutFull,ad.fkAttDevice
             from attendancedata ad left join attemployeemap em on ad.attDeviceUserId = em.attDeviceUserId
             left join employeeinfo e on em.employeeId = e.id
