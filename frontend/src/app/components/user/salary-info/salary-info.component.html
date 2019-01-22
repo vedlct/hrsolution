@@ -4,22 +4,93 @@
   </div>
 
   <div class="card-body">
+    <!--<div class="row">-->
+      <!--<div class="form-group col-md-6">-->
+        <!--<label>Consolidated Salary</label>-->
+        <!--<input type="text" name="consolidatedSalary" placeholder="salary"  [(ngModel)]="employeeSalaryForm.consolidatedSalary" class="form-control">-->
+      <!--</div>-->
+
+      <!--<div class="form-group col-md-6">-->
+        <!--<label>Payroll</label>-->
+        <!--<input type="text" name="payroll" placeholder="payroll" [(ngModel)]="employeeSalaryForm.payroll" class="form-control">-->
+      <!--</div>-->
+      <!--<div class="col-md-12">-->
+        <!--<button class="btn btn-success" (click)="submit()">Save</button>-->
+      <!--</div>-->
+
+
+
+    <!--</div>-->
+
     <div class="row">
-      <div class="form-group col-md-6">
-        <label>Consolidated Salary</label>
-        <input type="text" name="consolidatedSalary" placeholder="salary"  [(ngModel)]="employeeSalaryForm.consolidatedSalary" class="form-control">
-      </div>
 
       <div class="form-group col-md-6">
         <label>Payroll</label>
-        <input type="text" name="payroll" placeholder="payroll" [(ngModel)]="employeeSalaryForm.payroll" class="form-control">
+        <select class="form-control" [(ngModel)]="model.payroll">
+          <option value="">Select Payroll</option>
+          <option  *ngFor="let data of payrolls" [value]="data.id">
+            {{data.allowDeducTitle}}
+          </option>
+        </select>
       </div>
-      <div class="col-md-12">
-        <button class="btn btn-success" (click)="submit()">Save</button>
+
+      <div class="form-group col-md-6">
+        <label>Amount</label>
+        <input type="number" name="amount" placeholder="amount" [(ngModel)]="model.amount"  class="form-control">
+      </div>
+
+      <div class="form-group col-md-6">
+        <label>Description</label>
+        <input type="text" name="description" placeholder="description" [(ngModel)]="model.description" class="form-control">
+      </div>
+
+      <div class="form-group col-md-6">
+        <label>Gross Percent</label>
+        <input type="number" name="grossPercent" placeholder="grossPercent" [(ngModel)]="model.grossPercent"  class="form-control">
+      </div>
+      <div class="form-group col-md-12">
+
+        <button class="btn btn-success pull-right" (click)="update()">Update</button>
       </div>
 
 
 
     </div>
+
+    <br><hr><br>
+    <h4 align="center">Pay Advance Ledger</h4>
+    <div class="row">
+      <div class="form-group col-md-6">
+        <label>Date</label>
+        <input class="form-control" placeholder="date" [(ngModel)]="payAdvanceModel.advanceDate" type="date">
+      </div>
+
+
+      <div class="form-group col-md-6">
+        <label>DESCRIPTION</label>
+        <input class="form-control" placeholder="description" [(ngModel)]="payAdvanceModel.DESCRIPTION" type="text">
+      </div>
+
+      <div class="form-group col-md-6">
+        <label>Amount</label>
+        <input class="form-control" placeholder="TK" [(ngModel)]="payAdvanceModel.amount" type="number">
+      </div>
+
+      <div class="form-group col-md-6">
+        <label>Return Rate</label>
+        <input class="form-control" placeholder="%" [(ngModel)]="payAdvanceModel.returnRate" type="number">
+      </div>
+
+
+      <div class="form-group col-md-12">
+      <button class="btn btn-info pull-right" (click)="payAdvanceSubmit()">Submit</button>
+      </div>
+    </div>
+
+
   </div>
+
+
+
+
 </div>

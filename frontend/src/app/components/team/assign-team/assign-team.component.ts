@@ -120,7 +120,7 @@ export class AssignTeamComponent implements AfterViewInit,OnDestroy,OnInit {
       if (event.target.hasAttribute("data-emp-id")) {
 
         let id=event.target.getAttribute("data-emp-id");
-        console.log(id);
+        // console.log(id);
         let index = this.allEmp.indexOf(id.toString());
         if (index == -1){
           this.allEmp.push(id);
@@ -164,7 +164,7 @@ export class AssignTeamComponent implements AfterViewInit,OnDestroy,OnInit {
   selectShift(value){
     // this.getData();
     this.teamId=value;
-    console.log(this.teamId);
+    // console.log(this.teamId);
   }
 
 

@@ -175,4 +175,21 @@ Route::group([
 
 
 
+
+    //===================================Payroll============================================
+    Route::post('payroll/payhead/insert','PayrollController@insertPayhead');
+    Route::get('payroll/payhead/get','PayrollController@get');
+    Route::post('payroll/payhead/update','PayrollController@update');
+
+    //Salary Setup
+    Route::post('payroll/payhead/salarySetupGet','PayrollController@salarySetupGet');
+    Route::post('payroll/payhead/salarySetupSet','PayrollController@salarySetupSet');
+
+
+    //Pay Advance Ledger
+    Route::post('payroll/payadvance/ledger','PayrollController@payAdvanceLedger');
+
+
+
+
 });

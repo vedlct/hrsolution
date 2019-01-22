@@ -19,6 +19,8 @@ import {AttendanceComponent} from "./components/report/attendance/attendance.com
 import {ShowAttendanceComponent} from "./components/report/show-attendance/show-attendance.component";
 import {CreateTeamComponent} from "./components/team/create-team/create-team.component";
 import {AssignTeamComponent} from "./components/team/assign-team/assign-team.component";
+import {PayEmployeeSalarySetupComponent} from "./components/payroll/pay-employee-salary-setup/pay-employee-salary-setup.component";
+import {PayHeadComponent} from "./components/payroll/pay-head/pay-head.component";
 
 const routes: Routes = [
     {path: '', component: LoginComponent, canActivate: [GuestService] },
@@ -41,6 +43,8 @@ const routes: Routes = [
     { path: 'report/attendance/:id/:fromdate/:todate', component: ShowAttendanceComponent },
     { path: 'team/show', component: CreateTeamComponent },
     { path: 'team/assign', component: AssignTeamComponent },
+    { path: 'payroll/setup', component: PayEmployeeSalarySetupComponent },
+    { path: 'payroll/payhead', component: PayHeadComponent },
 
 ];
 

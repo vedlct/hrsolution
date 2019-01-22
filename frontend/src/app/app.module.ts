@@ -40,6 +40,7 @@ import { AttendanceComponent } from './components/report/attendance/attendance.c
 import { ShowAttendanceComponent } from './components/report/show-attendance/show-attendance.component';
 import { CreateTeamComponent } from './components/team/create-team/create-team.component';
 import { AssignTeamComponent } from './components/team/assign-team/assign-team.component';
+import { PayHeadComponent } from './components/payroll/pay-head/pay-head.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -72,7 +73,8 @@ import { AssignTeamComponent } from './components/team/assign-team/assign-team.c
     AttendanceComponent,
     ShowAttendanceComponent,
     CreateTeamComponent,
-    AssignTeamComponent
+    AssignTeamComponent,
+    PayHeadComponent
   ],
   imports: [
     BrowserModule,

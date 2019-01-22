@@ -51,12 +51,20 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _components_configuration_show_leave_show_leave_component__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ./components/configuration/show-leave/show-leave.component */ "./src/app/components/configuration/show-leave/show-leave.component.ts");
 /* harmony import */ var _components_report_attendance_attendance_component__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! ./components/report/attendance/attendance.component */ "./src/app/components/report/attendance/attendance.component.ts");
 /* harmony import */ var _components_report_show_attendance_show_attendance_component__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! ./components/report/show-attendance/show-attendance.component */ "./src/app/components/report/show-attendance/show-attendance.component.ts");
+/* harmony import */ var _components_team_create_team_create_team_component__WEBPACK_IMPORTED_MODULE_18__ = __webpack_require__(/*! ./components/team/create-team/create-team.component */ "./src/app/components/team/create-team/create-team.component.ts");
+/* harmony import */ var _components_team_assign_team_assign_team_component__WEBPACK_IMPORTED_MODULE_19__ = __webpack_require__(/*! ./components/team/assign-team/assign-team.component */ "./src/app/components/team/assign-team/assign-team.component.ts");
+/* harmony import */ var _components_payroll_pay_employee_salary_setup_pay_employee_salary_setup_component__WEBPACK_IMPORTED_MODULE_20__ = __webpack_require__(/*! ./components/payroll/pay-employee-salary-setup/pay-employee-salary-setup.component */ "./src/app/components/payroll/pay-employee-salary-setup/pay-employee-salary-setup.component.ts");
+/* harmony import */ var _components_payroll_pay_head_pay_head_component__WEBPACK_IMPORTED_MODULE_21__ = __webpack_require__(/*! ./components/payroll/pay-head/pay-head.component */ "./src/app/components/payroll/pay-head/pay-head.component.ts");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
     else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
+
+
+
+
 
 
 
@@ -92,7 +100,12 @@ var routes = [
     { path: 'configuration/leave', component: _components_configuration_leave_leave_component__WEBPACK_IMPORTED_MODULE_14__["LeaveComponent"] },
     { path: 'configuration/leave/show', component: _components_configuration_show_leave_show_leave_component__WEBPACK_IMPORTED_MODULE_15__["ShowLeaveComponent"] },
     { path: 'report/attendance', component: _components_report_attendance_attendance_component__WEBPACK_IMPORTED_MODULE_16__["AttendanceComponent"] },
-    { path: 'report/attendance/:id', component: _components_report_show_attendance_show_attendance_component__WEBPACK_IMPORTED_MODULE_17__["ShowAttendanceComponent"] },
+    // { path: 'report/attendance/:id', component: ShowAttendanceComponent },
+    { path: 'report/attendance/:id/:fromdate/:todate', component: _components_report_show_attendance_show_attendance_component__WEBPACK_IMPORTED_MODULE_17__["ShowAttendanceComponent"] },
+    { path: 'team/show', component: _components_team_create_team_create_team_component__WEBPACK_IMPORTED_MODULE_18__["CreateTeamComponent"] },
+    { path: 'team/assign', component: _components_team_assign_team_assign_team_component__WEBPACK_IMPORTED_MODULE_19__["AssignTeamComponent"] },
+    { path: 'payroll/setup', component: _components_payroll_pay_employee_salary_setup_pay_employee_salary_setup_component__WEBPACK_IMPORTED_MODULE_20__["PayEmployeeSalarySetupComponent"] },
+    { path: 'payroll/payhead', component: _components_payroll_pay_head_pay_head_component__WEBPACK_IMPORTED_MODULE_21__["PayHeadComponent"] },
 ];
 var AppRoutingModule = /** @class */ (function () {
     function AppRoutingModule() {
@@ -230,12 +243,18 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _components_configuration_show_leave_show_leave_component__WEBPACK_IMPORTED_MODULE_36__ = __webpack_require__(/*! ./components/configuration/show-leave/show-leave.component */ "./src/app/components/configuration/show-leave/show-leave.component.ts");
 /* harmony import */ var _components_report_attendance_attendance_component__WEBPACK_IMPORTED_MODULE_37__ = __webpack_require__(/*! ./components/report/attendance/attendance.component */ "./src/app/components/report/attendance/attendance.component.ts");
 /* harmony import */ var _components_report_show_attendance_show_attendance_component__WEBPACK_IMPORTED_MODULE_38__ = __webpack_require__(/*! ./components/report/show-attendance/show-attendance.component */ "./src/app/components/report/show-attendance/show-attendance.component.ts");
+/* harmony import */ var _components_team_create_team_create_team_component__WEBPACK_IMPORTED_MODULE_39__ = __webpack_require__(/*! ./components/team/create-team/create-team.component */ "./src/app/components/team/create-team/create-team.component.ts");
+/* harmony import */ var _components_team_assign_team_assign_team_component__WEBPACK_IMPORTED_MODULE_40__ = __webpack_require__(/*! ./components/team/assign-team/assign-team.component */ "./src/app/components/team/assign-team/assign-team.component.ts");
+/* harmony import */ var _components_payroll_pay_head_pay_head_component__WEBPACK_IMPORTED_MODULE_41__ = __webpack_require__(/*! ./components/payroll/pay-head/pay-head.component */ "./src/app/components/payroll/pay-head/pay-head.component.ts");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
     else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
+
+
+
 
 
 
@@ -309,7 +328,10 @@ var AppModule = /** @class */ (function () {
                 _components_configuration_leave_leave_component__WEBPACK_IMPORTED_MODULE_35__["LeaveComponent"],
                 _components_configuration_show_leave_show_leave_component__WEBPACK_IMPORTED_MODULE_36__["ShowLeaveComponent"],
                 _components_report_attendance_attendance_component__WEBPACK_IMPORTED_MODULE_37__["AttendanceComponent"],
-                _components_report_show_attendance_show_attendance_component__WEBPACK_IMPORTED_MODULE_38__["ShowAttendanceComponent"]
+                _components_report_show_attendance_show_attendance_component__WEBPACK_IMPORTED_MODULE_38__["ShowAttendanceComponent"],
+                _components_team_create_team_create_team_component__WEBPACK_IMPORTED_MODULE_39__["CreateTeamComponent"],
+                _components_team_assign_team_assign_team_component__WEBPACK_IMPORTED_MODULE_40__["AssignTeamComponent"],
+                _components_payroll_pay_head_pay_head_component__WEBPACK_IMPORTED_MODULE_41__["PayHeadComponent"]
             ],
             imports: [
                 _angular_platform_browser__WEBPACK_IMPORTED_MODULE_0__["BrowserModule"],
@@ -828,7 +850,7 @@ module.exports = ""
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"container-fluid\">\n  <div class=\"card\">\n    <div class=\"card-header\">Leave Assign</div>\n\n    <div class=\"card-body\">\n\n      <div class=\"row\">\n        <div class=\"form-group col-md-3\">\n          <label>Start Date</label>\n          <input bsDatepicker\n                 [bsConfig]=\"{ dateInputFormat: 'YYYY-MM-DD' }\"  name=\"resignDate\" [(ngModel)]=\"startDate\" class=\"form-control input\">\n        </div>\n\n        <div class=\"form-group col-md-3\">\n          <label>End Date</label>\n          <input bsDatepicker\n                 [bsConfig]=\"{ dateInputFormat: 'YYYY-MM-DD' }\"  name=\"resignDate\" [(ngModel)]=\"endDate\" class=\"form-control input\">\n        </div>\n\n        <div class=\"form-group col-md-3\">\n          <label>No Of Days</label>\n          <input type=\"number\" class=\"form-control input\" [(ngModel)]=\"noOfDays\" placeholder=\"number of days\">\n        </div>\n\n        <div class=\"form-group col-md-3\">\n          <label>Leave Category</label>\n          <select class=\"form-control input\" name=\"fkLeaveCategory\" [(ngModel)]=\"fkLeaveCategory\"  (change)=\"selectCategory($event.target.value)\">\n            <option value=\"\" selected>Select Category</option>\n            <option *ngFor=\"let lc of leaveCategories\" [value]=\"lc.id\">\n              {{lc.categoryName}}\n            </option>\n          </select>\n        </div>\n\n        <div class=\"form-group col-md-3\">\n          <label>Remark</label>\n          <textarea class=\"form-control input\" [(ngModel)]=\"remark\" placeholder=\"remark\"></textarea>\n        </div>\n\n        <div class=\"form-group col-md-3\">\n          <button class=\"btn btn-success btn-sm\" (click)=\"assignLeave()\">Assign</button>\n        </div>\n\n\n\n      </div>\n\n\n      <!--<input style=\"margin-left: 15px\" type=\"checkbox\" class=\"SelectAll\" id=\"selectall2\"  (click)=\"selectAll()\"/><b>Select All</b><br>-->\n      <table datatable class=\"table\" [dtOptions]=\"dtOptions\" [dtTrigger]=\"dtTrigger\">\n        <thead>\n        <tr>\n          <th style=\"text-align: center\"><input type=\"checkbox\" class=\"SelectAll\" id=\"selectall2\"  (click)=\"selectAll()\"/></th>\n          <th>Name</th>\n          <th>Employee ID</th>\n          <th>Shift Name</th>\n          <th>Weekend</th>\n          <th>Shift Start</th>\n\n        </tr>\n        </thead>\n\n        <tbody>\n\n        </tbody>\n\n      </table>\n\n\n    </div>\n  </div>\n</div>\n\n\n"
+module.exports = "<div class=\"container-fluid\">\n  <div class=\"card\">\n    <div class=\"card-header\">Leave Assign</div>\n\n    <div class=\"card-body\">\n\n      <div class=\"row\">\n        <div class=\"form-group col-md-3\">\n          <label>Start Date</label>\n          <input bsDatepicker\n                 [bsConfig]=\"{ dateInputFormat: 'YYYY-MM-DD' }\"  name=\"resignDate\" [(ngModel)]=\"startDate\" class=\"form-control input\">\n        </div>\n\n        <div class=\"form-group col-md-3\">\n          <label>End Date</label>\n          <input bsDatepicker\n                 [bsConfig]=\"{ dateInputFormat: 'YYYY-MM-DD' }\"  name=\"resignDate\" [(ngModel)]=\"endDate\" class=\"form-control input\">\n        </div>\n\n        <div class=\"form-group col-md-3\">\n          <label>No Of Days</label>\n          <input type=\"number\" class=\"form-control input\" [(ngModel)]=\"noOfDays\" placeholder=\"number of days\">\n        </div>\n\n        <div class=\"form-group col-md-3\">\n          <label>Leave Category</label>\n          <select class=\"form-control input\" name=\"fkLeaveCategory\" [(ngModel)]=\"fkLeaveCategory\"  (change)=\"selectCategory($event.target.value)\">\n            <option value=\"\" selected>Select Category</option>\n            <option *ngFor=\"let lc of leaveCategories\" [value]=\"lc.id\">\n              {{lc.categoryName}}\n            </option>\n          </select>\n        </div>\n\n        <div class=\"form-group col-md-3\">\n          <label>Team</label>\n          <select class=\"form-control\" name=\"shift\" id=\"team\"  (change)=\"selectTeam($event.target.value)\">\n            <option value=\"\">Select Team</option>\n            <option *ngFor=\"let tm of team\" [value]=\"tm.teamId\">\n              {{tm.teamName}}\n            </option>\n          </select>\n        </div>\n\n        <div class=\"form-group col-md-3\">\n          <label>Remark</label>\n          <textarea class=\"form-control input\" [(ngModel)]=\"remark\" placeholder=\"remark\"></textarea>\n        </div>\n\n        <div class=\"form-group col-md-3\">\n          <button class=\"btn btn-success btn-sm\" (click)=\"assignLeave()\">Assign</button>\n        </div>\n\n\n\n      </div>\n\n\n      <!--<input style=\"margin-left: 15px\" type=\"checkbox\" class=\"SelectAll\" id=\"selectall2\"  (click)=\"selectAll()\"/><b>Select All</b><br>-->\n      <table datatable class=\"table\" [dtOptions]=\"dtOptions\" [dtTrigger]=\"dtTrigger\">\n        <thead>\n        <tr>\n          <th style=\"text-align: center\"><input type=\"checkbox\" class=\"SelectAll\" id=\"selectall2\"  (click)=\"selectAll()\"/></th>\n          <th>Name</th>\n          <th>Employee ID</th>\n          <th>Shift Name</th>\n          <th>Weekend</th>\n          <th>Shift Start</th>\n          <th>Team</th>\n\n        </tr>\n        </thead>\n\n        <tbody>\n\n        </tbody>\n\n      </table>\n\n\n    </div>\n  </div>\n</div>\n\n\n"
 
 /***/ }),
 
@@ -901,12 +923,23 @@ var LeaveComponent = /** @class */ (function () {
         };
         this.getData();
         this.getCategory();
+        this.getTeam();
         this.fkLeaveCategory = '';
         this.startDate = '';
         this.endDate = '';
         this.noOfDays = '';
         this.remark = '';
         this.allEmp = [];
+    };
+    LeaveComponent.prototype.getTeam = function () {
+        var _this = this;
+        var token = this.token.get();
+        this.http.get(_constants__WEBPACK_IMPORTED_MODULE_1__["Constants"].API_URL + 'team/get' + '?token=' + token).subscribe(function (data) {
+            // console.log(data);
+            _this.team = data;
+        }, function (error) {
+            console.log(error);
+        });
     };
     LeaveComponent.prototype.getCategory = function () {
         var _this = this;
@@ -931,6 +964,7 @@ var LeaveComponent = /** @class */ (function () {
                 url: _constants__WEBPACK_IMPORTED_MODULE_1__["Constants"].API_URL + 'employee/shift/get' + '?token=' + token,
                 type: 'POST',
                 data: function (d) {
+                    d.teamId = $("#team").val();
                 },
             },
             columns: [
@@ -945,6 +979,7 @@ var LeaveComponent = /** @class */ (function () {
                 { data: 'shiftName', name: 'shift.shiftName' },
                 { data: 'weekend', name: 'shiftlog.weekend' },
                 { data: 'startDate', name: 'shiftlog.startDate' },
+                { data: 'teamName', name: 'team.teamName' },
             ],
             processing: true,
             serverSide: true,
@@ -973,6 +1008,9 @@ var LeaveComponent = /** @class */ (function () {
     LeaveComponent.prototype.ngOnDestroy = function () {
         // Do not forget to unsubscribe the event
         this.dtTrigger.unsubscribe();
+    };
+    LeaveComponent.prototype.selectTeam = function () {
+        this.rerender();
     };
     LeaveComponent.prototype.selectAll = function () {
         this.allEmp = [];
@@ -1399,7 +1437,7 @@ var ShiftComponent = /** @class */ (function () {
         var _this = this;
         var token = this.token.get();
         this.http.get(_constants__WEBPACK_IMPORTED_MODULE_1__["Constants"].API_URL + 'shift/get' + '?token=' + token).subscribe(function (data) {
-            console.log(data);
+            // console.log(data);
             _this.shifts = data;
             if (_this.checkTable == 0) {
                 _this.dtTeigger.next();
@@ -1858,7 +1896,7 @@ module.exports = ""
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<!-- Navigation Bar-->\n<header id=\"topnav\">\n  <div class=\"topbar-main\">\n    <div class=\"container-fluid\">\n\n      <div class=\"logo\">\n\n        <a routerLink=\"/home\" class=\"logo\">\n          <h3>HR</h3>\n        </a>\n\n      </div>\n\n      <div class=\"menu-extras topbar-custom\">\n        <!-- Search input -->\n        <div class=\"search-wrap\" id=\"search-wrap\">\n          <div class=\"search-bar\">\n            <input class=\"search-input\" type=\"search\" placeholder=\"Search\" />\n            <a href=\"#\" class=\"close-search toggle-search\" data-target=\"#search-wrap\">\n              <i class=\"mdi mdi-close-circle\"></i>\n            </a>\n          </div>\n        </div>\n\n        <ul class=\"list-inline float-right mb-0\">\n          <!-- Search -->\n          <li class=\"list-inline-item dropdown notification-list\">\n            <a class=\"nav-link waves-effect toggle-search\" href=\"#\"  data-target=\"#search-wrap\">\n              <i class=\"mdi mdi-magnify noti-icon\"></i>\n            </a>\n          </li>\n          <!-- Messages-->\n          <li class=\"list-inline-item dropdown notification-list\">\n            <a class=\"nav-link dropdown-toggle arrow-none waves-effect\" data-toggle=\"dropdown\" href=\"#\" role=\"button\"\n               aria-haspopup=\"false\" aria-expanded=\"false\">\n              <i class=\"mdi mdi-email-outline noti-icon\"></i>\n              <span class=\"badge badge-danger noti-icon-badge\">3</span>\n            </a>\n            <div class=\"dropdown-menu dropdown-menu-right dropdown-arrow dropdown-menu-lg\">\n              <!-- item-->\n              <div class=\"dropdown-item noti-title\">\n                <h5><span class=\"badge badge-danger float-right\">745</span>Messages</h5>\n              </div>\n\n              <!-- item-->\n              <a href=\"javascript:void(0);\" class=\"dropdown-item notify-item\">\n                <div class=\"notify-icon\"><img src=\"assets/images/users/avatar-2.jpg\" alt=\"user-img\" class=\"img-fluid rounded-circle\" /> </div>\n                <p class=\"notify-details\"><b>Charles M. Jones</b><small class=\"text-muted\">Dummy text of the printing and typesetting industry.</small></p>\n              </a>\n\n              <!-- item-->\n              <a href=\"javascript:void(0);\" class=\"dropdown-item notify-item\">\n                <div class=\"notify-icon\"><img src=\"assets/images/users/avatar-3.jpg\" alt=\"user-img\" class=\"img-fluid rounded-circle\" /> </div>\n                <p class=\"notify-details\"><b>Thomas J. Mimms</b><small class=\"text-muted\">You have 87 unread messages</small></p>\n              </a>\n\n              <!-- item-->\n              <a href=\"javascript:void(0);\" class=\"dropdown-item notify-item\">\n                <div class=\"notify-icon\"><img src=\"assets/images/users/avatar-4.jpg\" alt=\"user-img\" class=\"img-fluid rounded-circle\" /> </div>\n                <p class=\"notify-details\"><b>Luis M. Konrad</b><small class=\"text-muted\">It is a long established fact that a reader will</small></p>\n              </a>\n\n              <!-- All-->\n              <a href=\"javascript:void(0);\" class=\"dropdown-item notify-item\">\n                View All\n              </a>\n\n            </div>\n          </li>\n          <!-- notification-->\n          <li class=\"list-inline-item dropdown notification-list\">\n            <a class=\"nav-link dropdown-toggle arrow-none waves-effect\" data-toggle=\"dropdown\" href=\"#\" role=\"button\"\n               aria-haspopup=\"false\" aria-expanded=\"false\">\n              <i class=\"mdi mdi-bell-outline noti-icon\"></i>\n              <span class=\"badge badge-danger noti-icon-badge\">3</span>\n            </a>\n            <div class=\"dropdown-menu dropdown-menu-right dropdown-arrow dropdown-menu-lg\">\n              <!-- item-->\n              <div class=\"dropdown-item noti-title\">\n                <h5>Notification (3)</h5>\n              </div>\n\n              <!-- item-->\n              <a href=\"javascript:void(0);\" class=\"dropdown-item notify-item active\">\n                <div class=\"notify-icon bg-success\"><i class=\"mdi mdi-cart-outline\"></i></div>\n                <p class=\"notify-details\"><b>Your order is placed</b><small class=\"text-muted\">Dummy text of the printing and typesetting industry.</small></p>\n              </a>\n\n              <!-- item-->\n              <a href=\"javascript:void(0);\" class=\"dropdown-item notify-item\">\n                <div class=\"notify-icon bg-warning\"><i class=\"mdi mdi-message\"></i></div>\n                <p class=\"notify-details\"><b>New Message received</b><small class=\"text-muted\">You have 87 unread messages</small></p>\n              </a>\n\n              <!-- item-->\n              <a href=\"javascript:void(0);\" class=\"dropdown-item notify-item\">\n                <div class=\"notify-icon bg-info\"><i class=\"mdi mdi-martini\"></i></div>\n                <p class=\"notify-details\"><b>Your item is shipped</b><small class=\"text-muted\">It is a long established fact that a reader will</small></p>\n              </a>\n\n              <!-- All-->\n              <a href=\"javascript:void(0);\" class=\"dropdown-item notify-item\">\n                View All\n              </a>\n\n            </div>\n          </li>\n          <!-- User-->\n          <li class=\"list-inline-item dropdown notification-list\">\n            <a class=\"nav-link dropdown-toggle arrow-none waves-effect nav-user\" data-toggle=\"dropdown\" href=\"#\" role=\"button\"\n               aria-haspopup=\"false\" aria-expanded=\"false\">\n              <img src=\"assets/images/users/avatar-1.jpg\" alt=\"user\" class=\"rounded-circle\">\n            </a>\n            <div class=\"dropdown-menu dropdown-menu-right profile-dropdown \">\n              <a class=\"dropdown-item\" href=\"#\"><i class=\"dripicons-user text-muted\"></i> Profile</a>\n              <a class=\"dropdown-item\" href=\"#\"><i class=\"dripicons-wallet text-muted\"></i> My Wallet</a>\n              <a class=\"dropdown-item\" href=\"#\"><span class=\"badge badge-success pull-right m-t-5\">5</span><i class=\"dripicons-gear text-muted\"></i> Settings</a>\n              <a class=\"dropdown-item\" href=\"#\" (click)=\"whoAmI($event)\"><i class=\"dripicons-lock text-muted\"></i> Who Am I</a>\n              <div class=\"dropdown-divider\"></div>\n              <a class=\"dropdown-item\" href=\"#\" (click)=\"logout($event)\"><i class=\"dripicons-exit text-muted\"></i> Logout</a>\n            </div>\n          </li>\n          <li class=\"menu-item list-inline-item\">\n            <!-- Mobile menu toggle-->\n            <a class=\"navbar-toggle nav-link\">\n              <div class=\"lines\">\n                <span></span>\n                <span></span>\n                <span></span>\n              </div>\n            </a>\n            <!-- End mobile menu toggle-->\n          </li>\n\n        </ul>\n      </div>\n      <!-- end menu-extras -->\n\n      <div class=\"clearfix\"></div>\n\n    </div> <!-- end container -->\n  </div>\n  <!-- end topbar-main -->\n\n  <!-- MENU Start -->\n  <div class=\"navbar-custom\">\n    <div class=\"container-fluid\">\n      <div id=\"navigation\">\n        <!-- Navigation Menu-->\n        <ul class=\"navigation-menu\">\n\n          <li class=\"has-submenu\" routerLinkActive=\"active\">\n            <a routerLink=\"/home\" ><i class=\"ti-home\"></i>Dashboard</a>\n          </li>\n\n          <li class=\"has-submenu\" routerLinkActive=\"active\">\n            <a href=\"#\"><i class=\"ti-bookmark-alt\"></i>Components</a>\n            <ul class=\"submenu\">\n              <li class=\"has-submenu\">\n                <a href=\"#\">Shift</a>\n                <ul class=\"submenu\">\n                  <li><a routerLink=\"configuration/shift\">All Shift</a></li>\n                  <li><a routerLink=\"configuration/shift/assign\">Shift Assign</a></li>\n                </ul>\n              </li>\n\n              <li class=\"has-submenu\">\n                <a href=\"#\">Leave</a>\n                <ul class=\"submenu\">\n                  <li><a routerLink=\"configuration/leave\">Apply Lave</a></li>\n                  <li><a routerLink=\"configuration/leave/show\">Show Lave</a></li>\n                </ul>\n              </li>\n\n\n              <li class=\"has-submenu\">\n                <a href=\"#\">User</a>\n                <ul class=\"submenu\">\n                  <li><a routerLink=\"user/add\">Add User</a></li>\n                </ul>\n              </li>\n              <li class=\"has-submenu\">\n                <a href=\"#\">Employee</a>\n                <ul class=\"submenu\">\n                  <li><a routerLink=\"employee\">Employee</a></li>\n                  <li><a routerLink=\"employee/add\">Add Employee</a></li>\n                </ul>\n              </li>\n\n              <li class=\"has-submenu\" *ngIf=\"isAdmin()\">\n                <a href=\"#\">Company</a>\n                <ul class=\"submenu\">\n                  <li><a routerLink=\"company/add\">Company Info</a></li>\n                </ul>\n              </li>\n\n            </ul>\n          </li>\n\n\n          <li class=\"has-submenu\" routerLinkActive=\"active\">\n            <a routerLink=\"#\" ><i class=\"fa fa-chart\"></i>Report</a>\n            <ul class=\"submenu\">\n              <li class=\"\">\n                <a routerLink=\"report/attendance\">Attendance</a>\n\n              </li>\n            </ul>\n          </li>\n\n          <!--<li class=\"has-submenu\">-->\n            <!--<a href=\"#\"><i class=\"ti-files\"></i>Pages</a>-->\n            <!--<ul class=\"submenu megamenu\">-->\n              <!--<li>-->\n                <!--<ul>-->\n                  <!--<li><a routerLink=\"/login\">Login</a></li>-->\n                <!--</ul>-->\n              <!--</li>-->\n            <!--</ul>-->\n          <!--</li>-->\n\n        </ul>\n        <!-- End navigation menu -->\n      </div> <!-- end #navigation -->\n    </div> <!-- end container -->\n  </div> <!-- end navbar-custom -->\n\n\n\n\n</header>\n<!-- End Navigation Bar-->\n\n"
+module.exports = "<!-- Navigation Bar-->\n<header id=\"topnav\">\n  <div class=\"topbar-main\">\n    <div class=\"container-fluid\">\n\n      <div class=\"logo\">\n\n        <a routerLink=\"/home\" class=\"logo\">\n          <h3>HR</h3>\n        </a>\n\n      </div>\n\n      <div class=\"menu-extras topbar-custom\">\n        <!-- Search input -->\n        <div class=\"search-wrap\" id=\"search-wrap\">\n          <div class=\"search-bar\">\n            <input class=\"search-input\" type=\"search\" placeholder=\"Search\" />\n            <a href=\"#\" class=\"close-search toggle-search\" data-target=\"#search-wrap\">\n              <i class=\"mdi mdi-close-circle\"></i>\n            </a>\n          </div>\n        </div>\n\n        <ul class=\"list-inline float-right mb-0\">\n          <!-- Search -->\n          <li class=\"list-inline-item dropdown notification-list\">\n            <a class=\"nav-link waves-effect toggle-search\" href=\"#\"  data-target=\"#search-wrap\">\n              <i class=\"mdi mdi-magnify noti-icon\"></i>\n            </a>\n          </li>\n          <!-- Messages-->\n          <li class=\"list-inline-item dropdown notification-list\">\n            <a class=\"nav-link dropdown-toggle arrow-none waves-effect\" data-toggle=\"dropdown\" href=\"#\" role=\"button\"\n               aria-haspopup=\"false\" aria-expanded=\"false\">\n              <i class=\"mdi mdi-email-outline noti-icon\"></i>\n              <span class=\"badge badge-danger noti-icon-badge\">3</span>\n            </a>\n            <div class=\"dropdown-menu dropdown-menu-right dropdown-arrow dropdown-menu-lg\">\n              <!-- item-->\n              <div class=\"dropdown-item noti-title\">\n                <h5><span class=\"badge badge-danger float-right\">745</span>Messages</h5>\n              </div>\n\n              <!-- item-->\n              <a href=\"javascript:void(0);\" class=\"dropdown-item notify-item\">\n                <div class=\"notify-icon\"><img src=\"assets/images/users/avatar-2.jpg\" alt=\"user-img\" class=\"img-fluid rounded-circle\" /> </div>\n                <p class=\"notify-details\"><b>Charles M. Jones</b><small class=\"text-muted\">Dummy text of the printing and typesetting industry.</small></p>\n              </a>\n\n              <!-- item-->\n              <a href=\"javascript:void(0);\" class=\"dropdown-item notify-item\">\n                <div class=\"notify-icon\"><img src=\"assets/images/users/avatar-3.jpg\" alt=\"user-img\" class=\"img-fluid rounded-circle\" /> </div>\n                <p class=\"notify-details\"><b>Thomas J. Mimms</b><small class=\"text-muted\">You have 87 unread messages</small></p>\n              </a>\n\n              <!-- item-->\n              <a href=\"javascript:void(0);\" class=\"dropdown-item notify-item\">\n                <div class=\"notify-icon\"><img src=\"assets/images/users/avatar-4.jpg\" alt=\"user-img\" class=\"img-fluid rounded-circle\" /> </div>\n                <p class=\"notify-details\"><b>Luis M. Konrad</b><small class=\"text-muted\">It is a long established fact that a reader will</small></p>\n              </a>\n\n              <!-- All-->\n              <a href=\"javascript:void(0);\" class=\"dropdown-item notify-item\">\n                View All\n              </a>\n\n            </div>\n          </li>\n          <!-- notification-->\n          <li class=\"list-inline-item dropdown notification-list\">\n            <a class=\"nav-link dropdown-toggle arrow-none waves-effect\" data-toggle=\"dropdown\" href=\"#\" role=\"button\"\n               aria-haspopup=\"false\" aria-expanded=\"false\">\n              <i class=\"mdi mdi-bell-outline noti-icon\"></i>\n              <span class=\"badge badge-danger noti-icon-badge\">3</span>\n            </a>\n            <div class=\"dropdown-menu dropdown-menu-right dropdown-arrow dropdown-menu-lg\">\n              <!-- item-->\n              <div class=\"dropdown-item noti-title\">\n                <h5>Notification (3)</h5>\n              </div>\n\n              <!-- item-->\n              <a href=\"javascript:void(0);\" class=\"dropdown-item notify-item active\">\n                <div class=\"notify-icon bg-success\"><i class=\"mdi mdi-cart-outline\"></i></div>\n                <p class=\"notify-details\"><b>Your order is placed</b><small class=\"text-muted\">Dummy text of the printing and typesetting industry.</small></p>\n              </a>\n\n              <!-- item-->\n              <a href=\"javascript:void(0);\" class=\"dropdown-item notify-item\">\n                <div class=\"notify-icon bg-warning\"><i class=\"mdi mdi-message\"></i></div>\n                <p class=\"notify-details\"><b>New Message received</b><small class=\"text-muted\">You have 87 unread messages</small></p>\n              </a>\n\n              <!-- item-->\n              <a href=\"javascript:void(0);\" class=\"dropdown-item notify-item\">\n                <div class=\"notify-icon bg-info\"><i class=\"mdi mdi-martini\"></i></div>\n                <p class=\"notify-details\"><b>Your item is shipped</b><small class=\"text-muted\">It is a long established fact that a reader will</small></p>\n              </a>\n\n              <!-- All-->\n              <a href=\"javascript:void(0);\" class=\"dropdown-item notify-item\">\n                View All\n              </a>\n\n            </div>\n          </li>\n          <!-- User-->\n          <li class=\"list-inline-item dropdown notification-list\">\n            <a class=\"nav-link dropdown-toggle arrow-none waves-effect nav-user\" data-toggle=\"dropdown\" href=\"#\" role=\"button\"\n               aria-haspopup=\"false\" aria-expanded=\"false\">\n              <img src=\"assets/images/users/avatar-1.jpg\" alt=\"user\" class=\"rounded-circle\">\n            </a>\n            <div class=\"dropdown-menu dropdown-menu-right profile-dropdown \">\n              <a class=\"dropdown-item\" href=\"#\"><i class=\"dripicons-user text-muted\"></i> Profile</a>\n              <a class=\"dropdown-item\" href=\"#\"><i class=\"dripicons-wallet text-muted\"></i> My Wallet</a>\n              <a class=\"dropdown-item\" href=\"#\"><span class=\"badge badge-success pull-right m-t-5\">5</span><i class=\"dripicons-gear text-muted\"></i> Settings</a>\n              <a class=\"dropdown-item\" href=\"#\" (click)=\"whoAmI($event)\"><i class=\"dripicons-lock text-muted\"></i> Who Am I</a>\n              <div class=\"dropdown-divider\"></div>\n              <a class=\"dropdown-item\" href=\"#\" (click)=\"logout($event)\"><i class=\"dripicons-exit text-muted\"></i> Logout</a>\n            </div>\n          </li>\n          <li class=\"menu-item list-inline-item\">\n            <!-- Mobile menu toggle-->\n            <a class=\"navbar-toggle nav-link\">\n              <div class=\"lines\">\n                <span></span>\n                <span></span>\n                <span></span>\n              </div>\n            </a>\n            <!-- End mobile menu toggle-->\n          </li>\n\n        </ul>\n      </div>\n      <!-- end menu-extras -->\n\n      <div class=\"clearfix\"></div>\n\n    </div> <!-- end container -->\n  </div>\n  <!-- end topbar-main -->\n\n  <!-- MENU Start -->\n  <div class=\"navbar-custom\">\n    <div class=\"container-fluid\">\n      <div id=\"navigation\">\n        <!-- Navigation Menu-->\n        <ul class=\"navigation-menu\">\n\n          <li class=\"has-submenu\" routerLinkActive=\"active\">\n            <a routerLink=\"/home\" ><i class=\"ti-home\"></i>Dashboard</a>\n          </li>\n\n          <li class=\"has-submenu\" routerLinkActive=\"active\">\n            <a href=\"#\"><i class=\"ti-bookmark-alt\"></i>Components</a>\n            <ul class=\"submenu\">\n              <li class=\"has-submenu\">\n                <a href=\"#\">Shift</a>\n                <ul class=\"submenu\">\n                  <li><a routerLink=\"configuration/shift\">All Shift</a></li>\n                  <li><a routerLink=\"configuration/shift/assign\">Shift Assign</a></li>\n                </ul>\n              </li>\n\n              <li class=\"has-submenu\">\n                <a href=\"#\">Leave</a>\n                <ul class=\"submenu\">\n                  <li><a routerLink=\"configuration/leave\">Apply Lave</a></li>\n                  <li><a routerLink=\"configuration/leave/show\">Show Lave</a></li>\n                </ul>\n              </li>\n\n\n              <li class=\"has-submenu\">\n                <a href=\"#\">User</a>\n                <ul class=\"submenu\">\n                  <li><a routerLink=\"user/add\">Add User</a></li>\n                </ul>\n              </li>\n              <li class=\"has-submenu\">\n                <a href=\"#\">Employee</a>\n                <ul class=\"submenu\">\n                  <li><a routerLink=\"employee\">Employee</a></li>\n                  <li><a routerLink=\"employee/add\">Add Employee</a></li>\n                </ul>\n              </li>\n\n              <li class=\"has-submenu\" *ngIf=\"isAdmin()\">\n                <a href=\"#\">Company</a>\n                <ul class=\"submenu\">\n                  <li><a routerLink=\"company/add\">Company Info</a></li>\n                </ul>\n              </li>\n\n            </ul>\n          </li>\n\n\n          <li class=\"has-submenu\" routerLinkActive=\"active\">\n            <a routerLink=\"#\" ><i class=\"fa fa-chart\"></i>Report</a>\n            <ul class=\"submenu\">\n              <li class=\"\">\n                <a routerLink=\"report/attendance\">Attendance</a>\n\n              </li>\n            </ul>\n          </li>\n\n\n          <li class=\"has-submenu\" routerLinkActive=\"active\">\n            <a routerLink=\"#\" ><i class=\"fa fa-chart\"></i>Team</a>\n            <ul class=\"submenu\">\n              <li class=\"\">\n                <a routerLink=\"team/show\">Show Team</a>\n                <a routerLink=\"team/assign\">Assign Team</a>\n\n              </li>\n            </ul>\n          </li>\n\n\n          <li class=\"has-submenu\" routerLinkActive=\"active\">\n            <a routerLink=\"#\" ><i class=\"fa fa-chart\"></i>Payroll</a>\n            <ul class=\"submenu\">\n              <li class=\"\">\n                <a routerLink=\"payroll/payhead\">Pay Head</a>\n                <!--<a routerLink=\"team/assign\">Assign Team</a>-->\n\n              </li>\n            </ul>\n          </li>\n\n          <!--<li class=\"has-submenu\">-->\n            <!--<a href=\"#\"><i class=\"ti-files\"></i>Pages</a>-->\n            <!--<ul class=\"submenu megamenu\">-->\n              <!--<li>-->\n                <!--<ul>-->\n                  <!--<li><a routerLink=\"/login\">Login</a></li>-->\n                <!--</ul>-->\n              <!--</li>-->\n            <!--</ul>-->\n          <!--</li>-->\n\n        </ul>\n        <!-- End navigation menu -->\n      </div> <!-- end #navigation -->\n    </div> <!-- end container -->\n  </div> <!-- end navbar-custom -->\n\n\n\n\n</header>\n<!-- End Navigation Bar-->\n\n"
 
 /***/ }),
 
@@ -2041,6 +2079,145 @@ var PayEmployeeSalarySetupComponent = /** @class */ (function () {
 
 /***/ }),
 
+/***/ "./src/app/components/payroll/pay-head/pay-head.component.css":
+/*!********************************************************************!*\
+  !*** ./src/app/components/payroll/pay-head/pay-head.component.css ***!
+  \********************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = ""
+
+/***/ }),
+
+/***/ "./src/app/components/payroll/pay-head/pay-head.component.html":
+/*!*********************************************************************!*\
+  !*** ./src/app/components/payroll/pay-head/pay-head.component.html ***!
+  \*********************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "<!--modal-->\n<ng-template #content let-c=\"close\" let-d=\"dismiss\" >\n    <div class=\"modal-header\">\n        <h4 class=\"modal-title\">Pay Head</h4>\n        <button type=\"button\" class=\"close\" aria-label=\"Close\" (click)=\"d('Cross click')\">\n            <span aria-hidden=\"true\">&times;</span>\n        </button>\n    </div>\n    <div class=\"modal-body\">\n\n        <div class=\"row\">\n            <div class=\"form-group col-md-6\">\n                <label>Allow Deduc Title</label>\n                <input type=\"text\" [(ngModel)]=\"editModel.allowDeducTitle\" placeholder=\"allowDeducTitle\" class=\"form-control\">\n            </div>\n            <div class=\"form-group col-md-6\">\n                <label>description</label>\n                <input type=\"text\" [(ngModel)]=\"editModel.description\" class=\"form-control\">\n            </div>\n\n            <div class=\"form-group col-md-6\">\n                <label>Allow Deduction Type</label>\n\n                <select class=\"form-control\" name=\"allowDeducType\" [(ngModel)]=\"editModel.allowDeducType\"  required>\n                    <option selected value=\"\">Select type</option>\n                    <option>Allowance</option>\n                    <option>Deduction</option>\n                </select>\n                <!--<div *ngIf=\"myForm.submitted && allowDeducType.invalid\" class=\"alert alert-danger\">-->\n                    <!--<div *ngIf=\"allowDeducType.errors.required\">allowDeducType required</div>-->\n                <!--</div>-->\n\n            </div>\n            <!--<div class=\"form-group col-md-12\">-->\n\n                <!--<button class=\"btn btn-success pull-right\" (click)=\"onSubmit()\">Submit</button>-->\n            <!--</div>-->\n\n\n        </div>\n\n    </div>\n</ng-template>\n\n\n\n\n<div class=\"card\">\n    <div class=\"card-header-pills\">\n        <h3 align=\"center\" style=\"font-family: 'Righteous', cursive;\">Pay Head</h3>\n    </div>\n    <div class=\"card-body\">\n        <!--<pre>{{myForm.value | json}}</pre>-->\n        <form #myForm=\"ngForm\" (ngSubmit)=\"myForm.form.valid && onSubmit()\" novalidate>\n            <div class=\"row\">\n\n\n                <div class=\"form-group col-md-6\">\n                    <label>Allow Deduction Title</label>\n                    <input class=\"form-control\" placeholder=\"title\" required [(ngModel)]=\"model.allowDeducTitle\" #allowDeducTitle=\"ngModel\" name=\"allowDeducTitle\">\n\n                    <div *ngIf=\"myForm.submitted && allowDeducTitle.invalid\" class=\"alert alert-danger\">\n                        <div *ngIf=\"allowDeducTitle.errors.required\">Allow Deduction required</div>\n                    </div>\n                </div>\n\n\n\n                <div class=\"form-group col-md-6\">\n                    <label>Description</label>\n                    <input type=\"text\" placeholder=\"description\" required [(ngModel)]=\"model.description\"  #description=\"ngModel\" class=\"form-control\" name=\"description\">\n                    <div *ngIf=\"myForm.submitted && description.invalid\" class=\"alert alert-danger\">\n                        <div *ngIf=\"description.errors.required\">Description required</div>\n                    </div>\n                </div>\n\n                <div class=\"form-group col-md-6\">\n                    <label>Allow Deduction Type</label>\n\n                    <select class=\"form-control\" name=\"allowDeducType\" [(ngModel)]=\"model.allowDeducType\"  #allowDeducType=\"ngModel\" required>\n                        <option selected value=\"\">Select type</option>\n                        <option>Allowance</option>\n                        <option>Deduction</option>\n                    </select>\n                    <div *ngIf=\"myForm.submitted && allowDeducType.invalid\" class=\"alert alert-danger\">\n                        <div *ngIf=\"allowDeducType.errors.required\">allowDeducType required</div>\n                    </div>\n\n                </div>\n\n                <div class=\"form-group col-md-6\">\n                    <label>Applicable</label>\n                    <input type=\"checkbox\"  name=\"applicable\" class=\"form-control\" [(ngModel)]=\"model.applicable\"  #applicable=\"ngModel\"   >\n                </div>\n\n                <div class=\"form-group col-md-6\">\n                    <button class=\"btn btn-success\">Submit</button>\n                </div>\n\n\n            </div>\n        </form>\n\n\n        <br>\n        <hr>\n        <h3 align=\"center\">All Pay Heads</h3>\n        <br>\n\n        <table datatable  id=\"example\" class=\"table\" [dtOptions]=\"dtOptions\" [dtTrigger]=\"dtTeigger\">\n            <thead>\n            <tr>\n                <th>Allow Deduc Title</th>\n                <th>Allow Deduc Type</th>\n                <th>Description</th>\n                <th>Applicable</th>\n                <th>Action</th>\n            </tr>\n\n            </thead>\n            <tbody >\n\n            <tr  *ngFor=\"let data of payHeadData\" >\n                <td>{{data.allowDeducTitle}}</td>\n                <td>{{data.allowDeducType}}</td>\n                <td>{{data.description}}</td>\n                <td>{{data.applicable}}</td>\n                <td>  <button class=\"btn btn-info btn-sm\" (click)=\"edit(data,content)\"> Edit</button></td>\n                <!--<td>  <button class=\"btn btn-info\" (click)=\"edit(shift.shiftId,content)\"> Edit</button></td>-->\n\n            </tr>\n\n            </tbody>\n\n        </table>\n    </div>\n</div>"
+
+/***/ }),
+
+/***/ "./src/app/components/payroll/pay-head/pay-head.component.ts":
+/*!*******************************************************************!*\
+  !*** ./src/app/components/payroll/pay-head/pay-head.component.ts ***!
+  \*******************************************************************/
+/*! exports provided: PayHeadComponent */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "PayHeadComponent", function() { return PayHeadComponent; });
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var _constants__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../../constants */ "./src/app/constants.ts");
+/* harmony import */ var _angular_common_http__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/common/http */ "./node_modules/@angular/common/fesm5/http.js");
+/* harmony import */ var _services_token_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../services/token.service */ "./src/app/services/token.service.ts");
+/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm5/router.js");
+/* harmony import */ var ngx_spinner__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ngx-spinner */ "./node_modules/ngx-spinner/ngx-spinner.umd.js");
+/* harmony import */ var ngx_spinner__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(ngx_spinner__WEBPACK_IMPORTED_MODULE_5__);
+/* harmony import */ var rxjs__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! rxjs */ "./node_modules/rxjs/_esm5/index.js");
+/* harmony import */ var _ng_bootstrap_ng_bootstrap__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! @ng-bootstrap/ng-bootstrap */ "./node_modules/@ng-bootstrap/ng-bootstrap/index.js");
+var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (undefined && undefined.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+
+
+
+
+
+
+var PayHeadComponent = /** @class */ (function () {
+    function PayHeadComponent(modalService, renderer, http, token, route, router, spinner) {
+        this.modalService = modalService;
+        this.renderer = renderer;
+        this.http = http;
+        this.token = token;
+        this.route = route;
+        this.router = router;
+        this.spinner = spinner;
+        this.dtOptions = {};
+        this.dtTeigger = new rxjs__WEBPACK_IMPORTED_MODULE_6__["Subject"]();
+        this.checkTable = 0;
+        this.model = {};
+        this.editModel = {};
+    }
+    PayHeadComponent.prototype.ngOnInit = function () {
+        this.model.allowDeducType = '';
+        this.getData();
+    };
+    PayHeadComponent.prototype.getData = function () {
+        var _this = this;
+        this.spinner.show();
+        this.http.get(_constants__WEBPACK_IMPORTED_MODULE_1__["Constants"].API_URL + 'payroll/payhead/get').subscribe(function (data) {
+            _this.spinner.hide();
+            // console.log(data);
+            _this.payHeadData = data;
+            if (_this.checkTable == 0) {
+                _this.dtTeigger.next();
+                _this.checkTable++;
+            }
+        }, function (error) {
+            _this.spinner.hide();
+            // this.error=error.error.error;
+            console.log(error);
+        });
+    };
+    PayHeadComponent.prototype.onSubmit = function () {
+        var _this = this;
+        this.http.post(_constants__WEBPACK_IMPORTED_MODULE_1__["Constants"].API_URL + 'payroll/payhead/insert', this.model).subscribe(function (data) {
+            // this.spinner.hide();
+            console.log(data);
+            _this.model = [];
+        }, function (error) {
+            // this.spinner.hide();
+            // this.error=error.error.error;
+            console.log(error);
+        });
+    };
+    // openLg(content) {
+    //
+    //   this.modalRef =  this.modalService.open(content, { size: 'lg'});
+    //
+    // }
+    PayHeadComponent.prototype.update = function () {
+        this.modalRef.close();
+    };
+    PayHeadComponent.prototype.edit = function (data, content) {
+        // console.log(data);
+        this.editModel.id = data.id;
+        this.editModel.allowDeducTitle = data.allowDeducTitle;
+        this.editModel.allowDeducType = data.allowDeducType;
+        this.editModel.description = data.description;
+        this.editModel.applicable = data.applicable;
+        this.modalRef = this.modalService.open(content, { size: 'lg' });
+    };
+    PayHeadComponent = __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
+            selector: 'app-pay-head',
+            template: __webpack_require__(/*! ./pay-head.component.html */ "./src/app/components/payroll/pay-head/pay-head.component.html"),
+            styles: [__webpack_require__(/*! ./pay-head.component.css */ "./src/app/components/payroll/pay-head/pay-head.component.css")]
+        }),
+        __metadata("design:paramtypes", [_ng_bootstrap_ng_bootstrap__WEBPACK_IMPORTED_MODULE_7__["NgbModal"], _angular_core__WEBPACK_IMPORTED_MODULE_0__["Renderer"], _angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpClient"], _services_token_service__WEBPACK_IMPORTED_MODULE_3__["TokenService"],
+            _angular_router__WEBPACK_IMPORTED_MODULE_4__["ActivatedRoute"], _angular_router__WEBPACK_IMPORTED_MODULE_4__["Router"], ngx_spinner__WEBPACK_IMPORTED_MODULE_5__["NgxSpinnerService"]])
+    ], PayHeadComponent);
+    return PayHeadComponent;
+}());
+
+
+
+/***/ }),
+
 /***/ "./src/app/components/report/attendance/attendance.component.css":
 /*!***********************************************************************!*\
   !*** ./src/app/components/report/attendance/attendance.component.css ***!
@@ -2059,7 +2236,7 @@ module.exports = ""
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"container-fluid\">\n  <div class=\"card\">\n    <div class=\"card-header\"></div>\n    <div class=\"card-body\">\n      <div class=\"row\">\n        <div class=\"form-group col-md-3\">\n          <label>From</label>\n          <input class=\"form-control\"\n                 bsDatepicker\n                 [bsConfig]=\"{ dateInputFormat: 'YYYY-MM-DD'}\" id=\"startDate\">\n        </div>\n        <div class=\"form-group col-md-3\">\n          <label>To</label>\n          <input class=\"form-control\"\n                 bsDatepicker\n                 [bsConfig]=\"{ dateInputFormat: 'YYYY-MM-DD'}\"\n                 id=\"endDate\"\n          >\n        </div>\n\n        <div class=\"form-group\">\n          <br>\n\n          <button class=\"btn btn-success\" (click)=\"search()\">Search</button>\n        </div>\n\n      </div>\n      <hr>\n\n      <table datatable class=\"table\" [dtOptions]=\"dtOptions\" [dtTrigger]=\"dtTrigger\">\n        <thead>\n        <tr>\n          <th>First Name</th>\n          <th>Middle Name</th>\n          <th>Last Name</th>\n          <th>Department</th>\n          <th>Total Attendance</th>\n          <th>Total Late</th>\n          <th>Average Working hour</th>\n          <th>Action</th>\n        </tr>\n\n        </thead>\n      </table>\n\n\n\n    </div>\n  </div>\n</div>\n"
+module.exports = "<div class=\"container-fluid\">\n  <div class=\"card\">\n    <div class=\"card-header\"></div>\n    <div class=\"card-body\">\n      <div class=\"row\">\n        <div class=\"form-group col-md-3\">\n          <label>From</label>\n          <input class=\"form-control\"\n                 bsDatepicker\n                 [bsConfig]=\"{ dateInputFormat: 'YYYY-MM-DD'}\" id=\"startDate\">\n        </div>\n        <div class=\"form-group col-md-3\">\n          <label>To</label>\n          <input class=\"form-control\"\n                 bsDatepicker\n                 [bsConfig]=\"{ dateInputFormat: 'YYYY-MM-DD'}\"\n                 id=\"endDate\"\n          >\n        </div>\n\n\n\n        <div class=\"form-group col-md-3\">\n          <br>\n\n          <button class=\"btn btn-success\" (click)=\"search()\">Search</button>\n        </div>\n\n\n        <div class=\"form-group col-md-3\">\n          <br>\n\n          <button class=\"btn btn-info pull-right\" (click)=\"generateExcel()\">Generate Report</button>\n        </div>\n\n      </div>\n      <hr>\n\n      <table datatable class=\"table\" [dtOptions]=\"dtOptions\" [dtTrigger]=\"dtTrigger\">\n        <thead>\n        <tr>\n          <th>Name</th>\n          <!--<th>Middle Name</th>-->\n          <!--<th>Last Name</th>-->\n          <th>Department</th>\n          <th>Total Attendance</th>\n          <th>Total Late</th>\n          <th>Average Working hour</th>\n          <th>Total Leave</th>\n          <th>Weekend Count</th>\n          <th>Weekend</th>\n          <th>Action</th>\n        </tr>\n\n        </thead>\n      </table>\n\n\n\n    </div>\n  </div>\n</div>\n"
 
 /***/ }),
 
@@ -2080,6 +2257,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var rxjs__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! rxjs */ "./node_modules/rxjs/_esm5/index.js");
 /* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm5/router.js");
 /* harmony import */ var angular_datatables__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! angular-datatables */ "./node_modules/angular-datatables/index.js");
+/* harmony import */ var ngx_spinner__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ngx-spinner */ "./node_modules/ngx-spinner/ngx-spinner.umd.js");
+/* harmony import */ var ngx_spinner__WEBPACK_IMPORTED_MODULE_7___default = /*#__PURE__*/__webpack_require__.n(ngx_spinner__WEBPACK_IMPORTED_MODULE_7__);
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -2096,19 +2275,44 @@ var __metadata = (undefined && undefined.__metadata) || function (k, v) {
 
 
 
+
 var AttendanceComponent = /** @class */ (function () {
-    function AttendanceComponent(renderer, http, token, route, router) {
+    function AttendanceComponent(renderer, http, token, route, router, spinner) {
         this.renderer = renderer;
         this.http = http;
         this.token = token;
         this.route = route;
         this.router = router;
+        this.spinner = spinner;
         this.dtOptions = {};
         this.dtTrigger = new rxjs__WEBPACK_IMPORTED_MODULE_4__["Subject"]();
         this.allEmp = [];
     }
     AttendanceComponent.prototype.ngOnInit = function () {
         this.getData();
+        // console.log(new Date.today().clearTime().moveToFirstDayOfMonth());
+        var nowdate = new Date();
+        var monthStartDay = this.dateToYMD(new Date(nowdate.getFullYear(), nowdate.getMonth(), 1));
+        var monthEndDay = this.dateToYMD(new Date(nowdate.getFullYear(), nowdate.getMonth() + 1, 0));
+        $('#startDate').val(monthStartDay);
+        $('#endDate').val(monthEndDay);
+        // console.log(monthEndDay);
+        // console.log(monthStartDay);
+    };
+    AttendanceComponent.prototype.dateToYMD = function (date) {
+        var strArray = ['01', '02', '03', '04', '05', '06', '07', '08', '09', '10', '11', '12'];
+        var d = date.getDate();
+        var m = strArray[date.getMonth()];
+        var y = date.getFullYear();
+        // return '' + (d <= 9 ? '0' + d : d) + '-' + m + '-' + y;
+        return '' + y + '-' + m + '-' + (d <= 9 ? '0' + d : d);
+    };
+    AttendanceComponent.prototype.dateToYMD2 = function (date) {
+        var strArray = ['01', '02', '03', '04', '05', '06', '07', '08', '09', '10', '11', '12'];
+        var d = date.getDate();
+        var m = strArray[date.getMonth()];
+        var y = date.getFullYear();
+        return '' + (d <= 9 ? '0' + d : d) + '-' + m + '-' + y;
     };
     AttendanceComponent.prototype.getData = function () {
         var token = this.token.get();
@@ -2122,13 +2326,22 @@ var AttendanceComponent = /** @class */ (function () {
                 },
             },
             columns: [
-                { data: 'firstName', name: 'firstName' },
-                { data: 'middleName', name: 'middleName' },
-                { data: 'lastName', name: 'lastName' },
+                { data: 'empname', name: 'empname' },
+                // { data: 'middleName' ,name:'middleName'},
+                // { data: 'lastName' ,name:'lastName'},
                 { data: 'departmentName', name: 'departmentName' },
                 { data: 'totAttendance', name: 'totAttendance' },
                 { data: 'totalLate', name: 'totalLate' },
                 { data: 'averageWorkingHour', name: 'averageWorkingHour' },
+                // { data: 'totalLeave', name: 'totalLeave'},
+                {
+                    "data": function (data, type, full) {
+                        return '<button class="btn btn-sm btn-info" data-leaveemp-id="' + data.employeeId + '">' + data.totalLeave + '</button>';
+                    },
+                    "orderable": false, "searchable": false, "name": "selected_rows"
+                },
+                { data: 'weekends', name: 'weekends' },
+                { data: 'totalWeekend', name: 'totalWeekend' },
                 {
                     "data": function (data, type, full) {
                         return '<button class="btn btn-sm btn-info" data-emp-id="' + data.employeeId + '">View</button>';
@@ -2139,7 +2352,8 @@ var AttendanceComponent = /** @class */ (function () {
             processing: true,
             serverSide: true,
             pagingType: 'full_numbers',
-            pageLength: 10
+            pageLength: 10,
+            dom: 'Bfrtip',
         };
     };
     AttendanceComponent.prototype.ngAfterViewInit = function () {
@@ -2148,7 +2362,15 @@ var AttendanceComponent = /** @class */ (function () {
         this.renderer.listenGlobal('document', 'click', function (event) {
             if (event.target.hasAttribute("data-emp-id")) {
                 var id = event.target.getAttribute("data-emp-id");
-                _this.router.navigate(["report/attendance/" + id]);
+                var start = $('#startDate').val();
+                var end = $('#endDate').val();
+                _this.router.navigate(["report/attendance/" + id + '/' + start + '/' + end]);
+                // this.router.navigate(["report/attendance/" +id]);
+            }
+            if (event.target.hasAttribute("data-leaveemp-id")) {
+                var id = event.target.getAttribute("data-leaveemp-id");
+                // this.router.navigate(["report/attendance/" +id]);
+                console.log(id);
             }
         });
     };
@@ -2158,6 +2380,30 @@ var AttendanceComponent = /** @class */ (function () {
     };
     AttendanceComponent.prototype.search = function () {
         this.rerender();
+    };
+    AttendanceComponent.prototype.generateExcel = function () {
+        var _this = this;
+        this.spinner.show();
+        var token = this.token.get();
+        this.http.post(_constants__WEBPACK_IMPORTED_MODULE_1__["Constants"].API_URL + 'excel/generate' + '?token=' + token, { start: $('#startDate').val() }).subscribe(function (data) {
+            // console.log(data);
+            console.log(_constants__WEBPACK_IMPORTED_MODULE_1__["Constants"].Image_URL + 'exportedExcel/' + data + '.xls');
+            _this.spinner.hide();
+            // newWindow.location = 'http://' + window.location.hostname + '/customers/export';
+            var fileName = _constants__WEBPACK_IMPORTED_MODULE_1__["Constants"].Image_URL + 'exportedExcel/' + data;
+            var link = document.createElement("a");
+            link.download = data + ".xls";
+            var uri = fileName + ".xls";
+            link.href = uri;
+            document.body.appendChild(link);
+            link.click();
+            document.body.removeChild(link);
+            // delete link;
+        }, function (error) {
+            console.log(error);
+            _this.spinner.hide();
+        });
+        // this.spinner.hide();
     };
     AttendanceComponent.prototype.rerender = function () {
         var _this = this;
@@ -2176,7 +2422,8 @@ var AttendanceComponent = /** @class */ (function () {
             template: __webpack_require__(/*! ./attendance.component.html */ "./src/app/components/report/attendance/attendance.component.html"),
             styles: [__webpack_require__(/*! ./attendance.component.css */ "./src/app/components/report/attendance/attendance.component.css")]
         }),
-        __metadata("design:paramtypes", [_angular_core__WEBPACK_IMPORTED_MODULE_0__["Renderer"], _angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpClient"], _services_token_service__WEBPACK_IMPORTED_MODULE_3__["TokenService"], _angular_router__WEBPACK_IMPORTED_MODULE_5__["ActivatedRoute"], _angular_router__WEBPACK_IMPORTED_MODULE_5__["Router"]])
+        __metadata("design:paramtypes", [_angular_core__WEBPACK_IMPORTED_MODULE_0__["Renderer"], _angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpClient"], _services_token_service__WEBPACK_IMPORTED_MODULE_3__["TokenService"],
+            _angular_router__WEBPACK_IMPORTED_MODULE_5__["ActivatedRoute"], _angular_router__WEBPACK_IMPORTED_MODULE_5__["Router"], ngx_spinner__WEBPACK_IMPORTED_MODULE_7__["NgxSpinnerService"]])
     ], AttendanceComponent);
     return AttendanceComponent;
 }());
@@ -2203,7 +2450,7 @@ module.exports = ""
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"container-fluid\">\n  <div class=\"card\">\n    <div class=\"card-header\"></div>\n    <div class=\"card-body\">\n      <div class=\"row\">\n        <div class=\"form-group col-md-3\">\n          <label>From</label>\n          <input class=\"form-control\"\n                 bsDatepicker\n                 [bsConfig]=\"{ dateInputFormat: 'YYYY-MM-DD'}\" id=\"startDate\">\n        </div>\n        <div class=\"form-group col-md-3\">\n          <label>To</label>\n          <input class=\"form-control\"\n                 bsDatepicker\n                 [bsConfig]=\"{ dateInputFormat: 'YYYY-MM-DD'}\"\n                 id=\"endDate\"\n          >\n        </div>\n\n        <div class=\"form-group\">\n          <br>\n\n          <button class=\"btn btn-success\" (click)=\"search()\">Search</button>\n        </div>\n\n      </div>\n\n      <table datatable class=\"table\" [dtOptions]=\"dtOptions\" [dtTrigger]=\"dtTrigger\">\n      <!--<table datatable class=\"table\" >-->\n        <thead>\n        <tr>\n          <th>attDeviceUserId</th>\n          <th>firstName</th>\n          <th>attendanceDate</th>\n          <th>checkInFull</th>\n          <th>checkoutFull</th>\n          <th>late</th>\n          <th>lateTime</th>\n          <th>scheduleIn</th>\n          <th>scheduleOut</th>\n          <th>workingTime</th>\n        </tr>\n\n        </thead>\n      </table>\n\n\n\n    </div>\n  </div>\n</div>\n"
+module.exports = "<ng-template #content let-c=\"close\" let-d=\"dismiss\" >\n  <div class=\"modal-header\">\n    <h4 class=\"modal-title\">Comment</h4>\n    <button type=\"button\" class=\"close\" aria-label=\"Close\" (click)=\"d('Cross click')\">\n      <span aria-hidden=\"true\">&times;</span>\n    </button>\n  </div>\n  <div class=\"modal-body\">\n\n    <div class=\"row\">\n      <div class=\"form-group col-md-6\">\n        <label>Comment</label>\n        <textarea placeholder=\"remark\" class=\"form-control\" [(ngModel)]=\"comment\"></textarea>\n      </div>\n\n      <div class=\"form-group col-md-12\">\n\n        <button class=\"btn btn-success pull-right\" (click)=\"insertComment()\">Submit</button>\n      </div>\n\n\n    </div>\n\n  </div>\n</ng-template>\n\n\n\n\n\n<div class=\"container-fluid\">\n  <div class=\"card\">\n    <div class=\"card-header\">\n      <div class=\"row\">\n        <div class=\"form-group col-md-3\">\n          <label>From</label>\n          <input class=\"form-control\"\n                 bsDatepicker\n                 [bsConfig]=\"{ dateInputFormat: 'YYYY-MM-DD'}\" id=\"startDate\">\n        </div>\n        <div class=\"form-group col-md-3\">\n          <label>To</label>\n          <input class=\"form-control\"\n                 bsDatepicker\n                 [bsConfig]=\"{ dateInputFormat: 'YYYY-MM-DD'}\"\n                 id=\"endDate\"\n          >\n        </div>\n\n        <div class=\"form-group col-md-3\">\n          <br>\n\n          <button class=\"btn btn-success \" (click)=\"search()\">Search</button>\n        </div>\n\n        <div class=\"form-group col-md-3\">\n          <br>\n\n          <button class=\"btn btn-info pull-right\" (click)=\"commentModal(content)\">Add Comment</button>\n        </div>\n\n      </div>\n\n\n    </div>\n    <div class=\"card-body\">\n\n\n      <table datatable class=\"table\" [dtOptions]=\"dtOptions\" [dtTrigger]=\"dtTrigger\">\n      <!--<table datatable class=\"table\" >-->\n        <thead>\n        <tr>\n          <th>attDeviceUserId</th>\n          <th>firstName</th>\n          <th>attendanceDate</th>\n          <th>checkInFull</th>\n          <th>checkoutFull</th>\n          <th>late</th>\n          <th>lateTime</th>\n          <th>scheduleIn</th>\n          <th>scheduleOut</th>\n          <th>workingTime</th>\n        </tr>\n\n        </thead>\n      </table>\n\n<br>\n      <div class=\"row\">\n        <div class=\"col-md-8\">\n          <hr>\n          <h4 align=\"center\"><b>Leave</b></h4>\n          <hr>\n\n          <table datatable  id=\"example\" class=\"table\" [dtOptions]=\"dtOptions2\" [dtTrigger]=\"dtTrigger2\">\n            <thead>\n            <tr>\n\n              <th>Start Date</th>\n              <th>End Date</th>\n              <th>Days</th>\n              <th>Cause</th>\n              <th>Category</th>\n\n            </tr>\n\n            </thead>\n            <tbody >\n\n            <tr  *ngFor=\"let leave of leaves\" >\n              <td>{{leave.startDate}}</td>\n              <td>{{leave.endDate}}</td>\n              <td>{{leave.noOfDays}}</td>\n              <td>{{leave.remarks}}</td>\n              <td>{{leave.categoryName}}</td>\n\n            </tr>\n\n            </tbody>\n\n          </table>\n\n\n\n        </div>\n\n        <div class=\"col-md-4\">\n          <hr>\n          <h4 align=\"center\"><b>Comments</b></h4>\n          <hr>\n\n          <table class=\"table\">\n\n            <tr  *ngFor=\"let comment of allComments\" >\n              <td style=\"text-align: center\">{{comment.comment}}</td>\n\n\n            </tr>\n          </table>\n\n\n        </div>\n      </div>\n\n    </div>\n  </div>\n</div>\n"
 
 /***/ }),
 
@@ -2224,6 +2471,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var rxjs__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! rxjs */ "./node_modules/rxjs/_esm5/index.js");
 /* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm5/router.js");
 /* harmony import */ var angular_datatables__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! angular-datatables */ "./node_modules/angular-datatables/index.js");
+/* harmony import */ var _ng_bootstrap_ng_bootstrap__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! @ng-bootstrap/ng-bootstrap */ "./node_modules/@ng-bootstrap/ng-bootstrap/index.js");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -2240,8 +2488,10 @@ var __metadata = (undefined && undefined.__metadata) || function (k, v) {
 
 
 
+
 var ShowAttendanceComponent = /** @class */ (function () {
-    function ShowAttendanceComponent(renderer, http, token, route, router) {
+    function ShowAttendanceComponent(modalService, renderer, http, token, route, router) {
+        this.modalService = modalService;
         this.renderer = renderer;
         this.http = http;
         this.token = token;
@@ -2249,10 +2499,35 @@ var ShowAttendanceComponent = /** @class */ (function () {
         this.router = router;
         this.dtOptions = {};
         this.dtTrigger = new rxjs__WEBPACK_IMPORTED_MODULE_4__["Subject"]();
+        this.dtOptions2 = {};
+        this.dtTrigger2 = new rxjs__WEBPACK_IMPORTED_MODULE_4__["Subject"]();
+        this.checkTable = 0;
     }
     ShowAttendanceComponent.prototype.ngOnInit = function () {
         this.empid = this.route.snapshot.params.id;
+        this.startDate = this.route.snapshot.params.fromdate;
+        this.endDate = this.route.snapshot.params.todate;
+        $('#startDate').val(this.startDate);
+        $('#endDate').val(this.endDate);
         this.getData();
+        this.getLeave();
+        this.getComments();
+    };
+    ShowAttendanceComponent.prototype.getLeave = function () {
+        var _this = this;
+        var token = this.token.get();
+        var id = this.empid;
+        this.http.post(_constants__WEBPACK_IMPORTED_MODULE_1__["Constants"].API_URL + 'leave/getLeaveRequests/' + id + '?token=' + token, { startDate: this.startDate, endDate: this.endDate }).subscribe(function (data) {
+            // console.log(data);
+            _this.leaves = data;
+            // this.dtTrigger2.next();
+            if (_this.checkTable == 0) {
+                _this.dtTrigger2.next();
+                _this.checkTable++;
+            }
+        }, function (error) {
+            console.log(error);
+        });
     };
     ShowAttendanceComponent.prototype.getData = function () {
         var token = this.token.get();
@@ -2287,17 +2562,6 @@ var ShowAttendanceComponent = /** @class */ (function () {
     };
     ShowAttendanceComponent.prototype.ngAfterViewInit = function () {
         this.dtTrigger.next();
-        // this.renderer.listenGlobal('document', 'click', (event) => {
-        //     if (event.target.hasAttribute("data-emp-id")) {
-        //
-        //         let id=event.target.getAttribute("data-emp-id");
-        //         this.router.navigate(["report/attendance/" +id]);
-        //     }
-        //
-        //
-        //
-        //
-        // });
     };
     ShowAttendanceComponent.prototype.ngOnDestroy = function () {
         // Do not forget to unsubscribe the event
@@ -2305,6 +2569,8 @@ var ShowAttendanceComponent = /** @class */ (function () {
     };
     ShowAttendanceComponent.prototype.search = function () {
         this.rerender();
+        this.getComments();
+        this.getLeave();
     };
     ShowAttendanceComponent.prototype.rerender = function () {
         var _this = this;
@@ -2312,6 +2578,40 @@ var ShowAttendanceComponent = /** @class */ (function () {
             dtInstance.destroy();
             _this.dtTrigger.next();
         });
+    };
+    ShowAttendanceComponent.prototype.commentModal = function (content) {
+        this.modalRef = this.modalService.open(content, { size: 'lg' });
+    };
+    ShowAttendanceComponent.prototype.getComments = function () {
+        var _this = this;
+        var token = this.token.get();
+        var startDate = $('#startDate').val();
+        var endDate = $('#endDate').val();
+        var id = this.empid;
+        this.http.post(_constants__WEBPACK_IMPORTED_MODULE_1__["Constants"].API_URL + 'comment/get' + '?token=' + token, { id: id, startDate: startDate, endDate: endDate }).subscribe(function (data) {
+            // console.log(data);
+            _this.allComments = data;
+        }, function (error) {
+            console.log(error);
+        });
+    };
+    ShowAttendanceComponent.prototype.insertComment = function () {
+        var _this = this;
+        // alert(this.comment);
+        var token = this.token.get();
+        var id = this.empid;
+        if (this.comment) {
+            this.http.post(_constants__WEBPACK_IMPORTED_MODULE_1__["Constants"].API_URL + 'comment/add' + '?token=' + token, { id: id, comment: this.comment }).subscribe(function (data) {
+                // console.log(data);
+                _this.modalRef.close();
+                _this.getComments();
+            }, function (error) {
+                console.log(error);
+            });
+        }
+        else {
+            alert('Comment Field is Empty');
+        }
     };
     __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["ViewChild"])(angular_datatables__WEBPACK_IMPORTED_MODULE_6__["DataTableDirective"]),
@@ -2323,7 +2623,7 @@ var ShowAttendanceComponent = /** @class */ (function () {
             template: __webpack_require__(/*! ./show-attendance.component.html */ "./src/app/components/report/show-attendance/show-attendance.component.html"),
             styles: [__webpack_require__(/*! ./show-attendance.component.css */ "./src/app/components/report/show-attendance/show-attendance.component.css")]
         }),
-        __metadata("design:paramtypes", [_angular_core__WEBPACK_IMPORTED_MODULE_0__["Renderer"], _angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpClient"], _services_token_service__WEBPACK_IMPORTED_MODULE_3__["TokenService"], _angular_router__WEBPACK_IMPORTED_MODULE_5__["ActivatedRoute"], _angular_router__WEBPACK_IMPORTED_MODULE_5__["Router"]])
+        __metadata("design:paramtypes", [_ng_bootstrap_ng_bootstrap__WEBPACK_IMPORTED_MODULE_7__["NgbModal"], _angular_core__WEBPACK_IMPORTED_MODULE_0__["Renderer"], _angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpClient"], _services_token_service__WEBPACK_IMPORTED_MODULE_3__["TokenService"], _angular_router__WEBPACK_IMPORTED_MODULE_5__["ActivatedRoute"], _angular_router__WEBPACK_IMPORTED_MODULE_5__["Router"]])
     ], ShowAttendanceComponent);
     return ShowAttendanceComponent;
 }());
@@ -2390,6 +2690,358 @@ var TablesComponent = /** @class */ (function () {
         __metadata("design:paramtypes", [])
     ], TablesComponent);
     return TablesComponent;
+}());
+
+
+
+/***/ }),
+
+/***/ "./src/app/components/team/assign-team/assign-team.component.css":
+/*!***********************************************************************!*\
+  !*** ./src/app/components/team/assign-team/assign-team.component.css ***!
+  \***********************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = ""
+
+/***/ }),
+
+/***/ "./src/app/components/team/assign-team/assign-team.component.html":
+/*!************************************************************************!*\
+  !*** ./src/app/components/team/assign-team/assign-team.component.html ***!
+  \************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "<div class=\"container-fluid\">\n  <div class=\"card\">\n    <div class=\"card-header\">Employee Details</div>\n\n    <div class=\"card-body\">\n      <div class=\"row\">\n        <div class=\"form-group col-md-4\">\n          <label>Team</label>\n          <select class=\"form-control\" name=\"shift\"  (change)=\"selectShift($event.target.value)\">\n            <option value=\"\">Select Team</option>\n            <option *ngFor=\"let tm of team\" [value]=\"tm.teamId\">\n              {{tm.teamName}}\n            </option>\n          </select>\n        </div>\n\n\n        <div class=\"form-group col-md-4\">\n          <button class=\"btn btn-success btn-sm\" (click)=\"assignTeam()\">Assign</button>\n        </div>\n\n      </div>\n\n\n      <!--<input style=\"margin-left: 15px\" type=\"checkbox\" class=\"SelectAll\" id=\"selectall2\"  (click)=\"selectAll()\"/><b>Select All</b><br>-->\n      <table datatable class=\"table\" [dtOptions]=\"dtOptions\" [dtTrigger]=\"dtTrigger\">\n        <thead>\n        <tr>\n          <th style=\"text-align: center\"><input type=\"checkbox\" class=\"SelectAll\" id=\"selectall2\"  (click)=\"selectAll()\"/></th>\n          <th>First Name</th>\n          <th>Middle Name</th>\n          <th>Last Name</th>\n          <th>Employee ID</th>\n          <th>Shift Name</th>\n          <th>Weekend</th>\n          <th>Team Name</th>\n\n        </tr>\n        </thead>\n\n        <tbody>\n\n        </tbody>\n\n      </table>\n\n\n    </div>\n  </div>\n\n\n</div>"
+
+/***/ }),
+
+/***/ "./src/app/components/team/assign-team/assign-team.component.ts":
+/*!**********************************************************************!*\
+  !*** ./src/app/components/team/assign-team/assign-team.component.ts ***!
+  \**********************************************************************/
+/*! exports provided: AssignTeamComponent */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "AssignTeamComponent", function() { return AssignTeamComponent; });
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var _constants__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../../constants */ "./src/app/constants.ts");
+/* harmony import */ var _angular_common_http__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/common/http */ "./node_modules/@angular/common/fesm5/http.js");
+/* harmony import */ var _services_token_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../services/token.service */ "./src/app/services/token.service.ts");
+/* harmony import */ var rxjs__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! rxjs */ "./node_modules/rxjs/_esm5/index.js");
+/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm5/router.js");
+/* harmony import */ var angular_datatables__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! angular-datatables */ "./node_modules/angular-datatables/index.js");
+var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (undefined && undefined.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+
+
+
+
+
+var AssignTeamComponent = /** @class */ (function () {
+    function AssignTeamComponent(renderer, http, token, route, router) {
+        this.renderer = renderer;
+        this.http = http;
+        this.token = token;
+        this.route = route;
+        this.router = router;
+        this.dtOptions = {};
+        this.dtTrigger = new rxjs__WEBPACK_IMPORTED_MODULE_4__["Subject"]();
+        this.allEmp = [];
+        // DROPDOWN
+        this.dropdownList = [];
+        this.selectedItems = [];
+        this.dropdownSettings = {};
+    }
+    AssignTeamComponent.prototype.ngOnInit = function () {
+        this.dropdownList = [
+            { item_id: 'saturday', item_text: 'Saturday' },
+            { item_id: 'sunday', item_text: 'Sunday' },
+            { item_id: 'monday', item_text: 'Monday' },
+            { item_id: 'tuesday', item_text: 'Tuesday' },
+            { item_id: 'wednesday', item_text: 'Wednesday' },
+            { item_id: 'thursday', item_text: 'Thursday' },
+            { item_id: 'friday', item_text: 'Friday' }
+        ];
+        this.dropdownSettings = {
+            singleSelection: false,
+            idField: 'item_id',
+            textField: 'item_text',
+            selectAllText: 'Select All',
+            unSelectAllText: 'UnSelect All',
+            itemsShowLimit: 3,
+            allowSearchFilter: true
+        };
+        this.getData();
+        // this.getShift();
+        this.getTeam();
+    };
+    AssignTeamComponent.prototype.onItemSelect = function (value) {
+        // console.log(value);
+    };
+    AssignTeamComponent.prototype.onSelectAll = function (value) {
+        // console.log(value);
+    };
+    AssignTeamComponent.prototype.getTeam = function () {
+        var _this = this;
+        var token = this.token.get();
+        this.http.get(_constants__WEBPACK_IMPORTED_MODULE_1__["Constants"].API_URL + 'team/get' + '?token=' + token).subscribe(function (data) {
+            // console.log(data);
+            _this.team = data;
+        }, function (error) {
+            console.log(error);
+        });
+    };
+    AssignTeamComponent.prototype.getData = function () {
+        var token = this.token.get();
+        this.dtOptions = {
+            ajax: {
+                url: _constants__WEBPACK_IMPORTED_MODULE_1__["Constants"].API_URL + 'employee/shift/get' + '?token=' + token,
+                type: 'POST',
+                data: function (d) {
+                },
+            },
+            columns: [
+                {
+                    "data": function (data, type, full) {
+                        return '<input type="checkbox" class="chk form-control" name="selected_rows[]" value="' + data.empid + '" data-emp-id="' + data.empid + '">';
+                    },
+                    "orderable": false, "searchable": false, "name": "selected_rows"
+                },
+                { data: 'firstName', name: 'employeeinfo.firstName' },
+                { data: 'middleName', name: 'employeeinfo.middleName' },
+                { data: 'lastName', name: 'employeeinfo.lastName' },
+                { data: 'EmployeeId', name: 'employeeinfo.EmployeeId' },
+                { data: 'shiftName', name: 'shift.shiftName' },
+                { data: 'weekend', name: 'shiftlog.weekend' },
+                { data: 'teamName', name: 'team.teamName' },
+            ],
+            processing: true,
+            serverSide: true,
+            pagingType: 'full_numbers',
+            pageLength: 10
+        };
+    };
+    AssignTeamComponent.prototype.ngAfterViewInit = function () {
+        var _this = this;
+        this.dtTrigger.next();
+        this.renderer.listenGlobal('document', 'click', function (event) {
+            if (event.target.hasAttribute("data-emp-id")) {
+                var id = event.target.getAttribute("data-emp-id");
+                console.log(id);
+                var index = _this.allEmp.indexOf(id.toString());
+                if (index == -1) {
+                    _this.allEmp.push(id);
+                }
+                else {
+                    _this.allEmp.splice(index, 1);
+                }
+                // console.log(this.allEmp);
+            }
+        });
+    };
+    AssignTeamComponent.prototype.ngOnDestroy = function () {
+        // Do not forget to unsubscribe the event
+        this.dtTrigger.unsubscribe();
+    };
+    AssignTeamComponent.prototype.selectAll = function () {
+        this.allEmp = [];
+        if ($('#selectall2').is(":checked")) {
+            var checkboxes = document.getElementsByName('selected_rows[]');
+            $('input:checkbox').prop('checked', true);
+            var that_1 = this;
+            $(".chk:checked").each(function () {
+                that_1.allEmp.push($(this).val());
+            });
+            // console.log(this.allEmp);
+        }
+        else {
+            $(':checkbox:checked').prop('checked', false);
+        }
+    };
+    AssignTeamComponent.prototype.selectShift = function (value) {
+        // this.getData();
+        this.teamId = value;
+        console.log(this.teamId);
+    };
+    AssignTeamComponent.prototype.assignTeam = function () {
+        var _this = this;
+        if (this.teamId == null || this.allEmp.length == 0) {
+            alert("Please Select All");
+        }
+        else {
+            var form = {
+                allEmp: this.allEmp,
+                teamId: this.teamId,
+            };
+            var token = this.token.get();
+            // console.log(form);
+            this.http.post(_constants__WEBPACK_IMPORTED_MODULE_1__["Constants"].API_URL + 'team/assign' + '?token=' + token, form).subscribe(function (data) {
+                console.log(data);
+                _this.rerender();
+            }, function (error) {
+                console.log(error);
+            });
+        }
+    };
+    AssignTeamComponent.prototype.rerender = function () {
+        var _this = this;
+        this.dtElement.dtInstance.then(function (dtInstance) {
+            dtInstance.destroy();
+            _this.dtTrigger.next();
+        });
+    };
+    __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["ViewChild"])(angular_datatables__WEBPACK_IMPORTED_MODULE_6__["DataTableDirective"]),
+        __metadata("design:type", angular_datatables__WEBPACK_IMPORTED_MODULE_6__["DataTableDirective"])
+    ], AssignTeamComponent.prototype, "dtElement", void 0);
+    AssignTeamComponent = __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
+            selector: 'app-assign-team',
+            template: __webpack_require__(/*! ./assign-team.component.html */ "./src/app/components/team/assign-team/assign-team.component.html"),
+            styles: [__webpack_require__(/*! ./assign-team.component.css */ "./src/app/components/team/assign-team/assign-team.component.css")]
+        }),
+        __metadata("design:paramtypes", [_angular_core__WEBPACK_IMPORTED_MODULE_0__["Renderer"], _angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpClient"], _services_token_service__WEBPACK_IMPORTED_MODULE_3__["TokenService"], _angular_router__WEBPACK_IMPORTED_MODULE_5__["ActivatedRoute"], _angular_router__WEBPACK_IMPORTED_MODULE_5__["Router"]])
+    ], AssignTeamComponent);
+    return AssignTeamComponent;
+}());
+
+
+
+/***/ }),
+
+/***/ "./src/app/components/team/create-team/create-team.component.css":
+/*!***********************************************************************!*\
+  !*** ./src/app/components/team/create-team/create-team.component.css ***!
+  \***********************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = ""
+
+/***/ }),
+
+/***/ "./src/app/components/team/create-team/create-team.component.html":
+/*!************************************************************************!*\
+  !*** ./src/app/components/team/create-team/create-team.component.html ***!
+  \************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "\n<!--modal-->\n<ng-template #content let-c=\"close\" let-d=\"dismiss\" >\n  <div class=\"modal-header\">\n    <h4 class=\"modal-title\">Shift</h4>\n    <button type=\"button\" class=\"close\" aria-label=\"Close\" (click)=\"d('Cross click')\">\n      <span aria-hidden=\"true\">&times;</span>\n    </button>\n  </div>\n  <div class=\"modal-body\">\n\n    <div class=\"row\">\n      <div class=\"form-group col-md-6\">\n        <label>Team Name</label>\n        <input type=\"text\" [(ngModel)]=\"teamObj.teamName\" placeholder=\"shift\" class=\"form-control\">\n      </div>\n\n      <div class=\"form-group col-md-12\">\n\n        <button class=\"btn btn-success pull-right\" (click)=\"onSubmit()\">Submit</button>\n      </div>\n\n\n    </div>\n\n  </div>\n</ng-template>\n\n<!--modal end-->\n<div class=\"container\">\n  <div class=\"card\">\n    <div class=\"card-header\">Team Details</div>\n\n    <div class=\"card-body\">\n      <a style=\" float: right\" class=\"btn btn-outline-primary mb-2 mr-2\" (click)=\"openLg(content)\" >Add New</a>  <br><br>\n      <table datatable  id=\"example\" class=\"table\" [dtOptions]=\"dtOptions\" [dtTrigger]=\"dtTeigger\">\n        <thead>\n        <tr>\n          <th>Shift Name</th>\n          <th>Action</th>\n        </tr>\n\n        </thead>\n        <tbody >\n\n        <tr  *ngFor=\"let shift of teams\" >\n          <td>{{shift.teamName}}</td>\n          <!--<td>{{shift.inTime}}</td>-->\n          <!--<td>{{shift.outTime}}</td>-->\n          <td>  <button class=\"btn btn-info\" (click)=\"edit(shift.teamId,content)\"> Edit</button></td>\n\n        </tr>\n\n        </tbody>\n\n      </table>\n\n\n    </div>\n  </div>\n\n\n</div>"
+
+/***/ }),
+
+/***/ "./src/app/components/team/create-team/create-team.component.ts":
+/*!**********************************************************************!*\
+  !*** ./src/app/components/team/create-team/create-team.component.ts ***!
+  \**********************************************************************/
+/*! exports provided: CreateTeamComponent */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "CreateTeamComponent", function() { return CreateTeamComponent; });
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var _constants__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../../constants */ "./src/app/constants.ts");
+/* harmony import */ var _services_token_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../services/token.service */ "./src/app/services/token.service.ts");
+/* harmony import */ var _angular_common_http__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/common/http */ "./node_modules/@angular/common/fesm5/http.js");
+/* harmony import */ var rxjs__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! rxjs */ "./node_modules/rxjs/_esm5/index.js");
+/* harmony import */ var _ng_bootstrap_ng_bootstrap__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @ng-bootstrap/ng-bootstrap */ "./node_modules/@ng-bootstrap/ng-bootstrap/index.js");
+var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (undefined && undefined.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+
+
+
+
+var CreateTeamComponent = /** @class */ (function () {
+    function CreateTeamComponent(modalService, http, token) {
+        this.modalService = modalService;
+        this.http = http;
+        this.token = token;
+        this.teamObj = {
+            teamId: "",
+            teamName: ""
+        };
+        this.checkTable = 0;
+        this.dtOptions = {};
+        this.dtTeigger = new rxjs__WEBPACK_IMPORTED_MODULE_4__["Subject"]();
+    }
+    CreateTeamComponent.prototype.ngOnInit = function () {
+        this.getShift();
+    };
+    CreateTeamComponent.prototype.getShift = function () {
+        var _this = this;
+        var token = this.token.get();
+        this.http.get(_constants__WEBPACK_IMPORTED_MODULE_1__["Constants"].API_URL + 'team/get' + '?token=' + token).subscribe(function (data) {
+            // console.log(data);
+            _this.teams = data;
+            if (_this.checkTable == 0) {
+                _this.dtTeigger.next();
+                _this.checkTable++;
+            }
+        }, function (error) {
+            console.log(error);
+        });
+    };
+    CreateTeamComponent.prototype.openLg = function (content) {
+        this.teamObj = {};
+        this.modalRef = this.modalService.open(content, { size: 'lg' });
+    };
+    CreateTeamComponent.prototype.onSubmit = function () {
+        var _this = this;
+        // shift/post
+        var token = this.token.get();
+        this.http.post(_constants__WEBPACK_IMPORTED_MODULE_1__["Constants"].API_URL + 'team/post' + '?token=' + token, this.teamObj).subscribe(function (data) {
+            // console.log(data);
+            _this.getShift();
+        }, function (error) {
+            console.log(error);
+        });
+        this.modalRef.close();
+    };
+    CreateTeamComponent.prototype.edit = function (id, content) {
+        var i = 0;
+        for (i; i < this.teams.length; i++) {
+            if (this.teams[i].teamId == id) {
+                this.teamObj.teamName = this.teams[i].teamName;
+                this.teamObj.teamId = this.teams[i].teamId;
+                break;
+            }
+        }
+        this.modalRef = this.modalService.open(content, { size: 'lg' });
+    };
+    CreateTeamComponent = __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
+            selector: 'app-create-team',
+            template: __webpack_require__(/*! ./create-team.component.html */ "./src/app/components/team/create-team/create-team.component.html"),
+            styles: [__webpack_require__(/*! ./create-team.component.css */ "./src/app/components/team/create-team/create-team.component.css")]
+        }),
+        __metadata("design:paramtypes", [_ng_bootstrap_ng_bootstrap__WEBPACK_IMPORTED_MODULE_5__["NgbModal"], _angular_common_http__WEBPACK_IMPORTED_MODULE_3__["HttpClient"], _services_token_service__WEBPACK_IMPORTED_MODULE_2__["TokenService"]])
+    ], CreateTeamComponent);
+    return CreateTeamComponent;
 }());
 
 
@@ -3439,7 +4091,7 @@ module.exports = ""
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"card\">\n  <div class=\"card-header\">\n    Joining Info\n  </div>\n\n  <div class=\"card-body\">\n    <div class=\"row\">\n\n      <div class=\"form-group col-md-6\">\n        <label>Actual Join Date</label>\n\n        <input class=\"form-control\"\n               bsDatepicker\n                [(ngModel)]=\"employeeJoiningForm.actualJoinDate\"\n                [bsConfig]=\"{ dateInputFormat: 'YYYY-MM-DD'}\">\n      </div>\n\n      <div class=\"form-group col-md-6\">\n        <label>Recent Join Date</label>\n        <input name=\"recentJoinDate\" bsDatepicker\n               [bsConfig]=\"{ dateInputFormat: 'YYYY-MM-DD' }\" [(ngModel)]=\"employeeJoiningForm.recentJoinDate\" class=\"form-control\">\n      </div>\n\n      <div class=\"form-group col-md-6\">\n        <label>Resign Date</label>\n        <input bsDatepicker\n               [bsConfig]=\"{ dateInputFormat: 'YYYY-MM-DD' }\"  name=\"resignDate\" [(ngModel)]=\"employeeJoiningForm.resignDate\" class=\"form-control\">\n      </div>\n\n      <div class=\"form-group col-md-6\">\n        <label>Supervisor</label>\n        <input type=\"text\" name=\"supervisor\" placeholder=\"name\" [(ngModel)]=\"employeeJoiningForm.supervisor\" class=\"form-control\">\n      </div>\n\n      <div class=\"form-group col-md-6\">\n        <label>Probation Period</label>\n        <input type=\"text\" name=\"probationPeriod\" placeholder=\"month\" [(ngModel)]=\"employeeJoiningForm.probationPeriod\" class=\"form-control\">\n      </div>\n\n      <div class=\"form-group col-md-6\">\n\n        <!--<input type=\"text\" name=\"weekend\" placeholder=\"day\" [(ngModel)]=\"employeeJoiningForm.weekend\" class=\"form-control\">-->\n        <label>Weekend</label>\n        <ng-multiselect-dropdown\n                [placeholder]=\"'Select Weekend'\"\n                [data]=\"dropdownList\"\n                [(ngModel)]=\"selectedItems\"\n                [settings]=\"dropdownSettings\"\n                (onSelect)=\"onItemSelect($event)\"\n                (onDeSelect)=\"onItemDeSelect($event)\"\n\n        >\n        </ng-multiselect-dropdown>\n      </div>\n\n\n      <div class=\"form-group col-md-3\">\n        <label>Card Number</label>\n        <input type=\"text\" name=\"accessPin\" placeholder=\"pin\" [(ngModel)]=\"employeeJoiningForm.accessPin\" class=\"form-control\">\n      </div>\n      <div class=\"form-group col-md-3\">\n        <label>Attendance Device Pin</label>\n        <input type=\"text\" name=\"accessPin\" placeholder=\"pin\" [(ngModel)]=\"employeeJoiningForm.attDeviceUserId\" class=\"form-control\">\n      </div>\n\n\n\n      <div class=\"form-group col-md-6\">\n        <label>Shift</label>\n        <select class=\"form-control\" name=\"shift\"   (change)=\"selectShift($event.target.value)\">\n          <option value=\"\">Select Shift</option>\n          <option *ngFor=\"let sh of shift\" [value]=\"sh.shiftId\" [selected]=\"sh.shiftId==employeeJoiningForm.shiftId\">\n            {{sh.shiftName}}\n          </option>\n        </select>\n      </div>\n\n      <!--<div class=\"form-group col-md-6\">-->\n        <!--<label>Shift</label>-->\n        <!--<select class=\"form-control\" name=\"shift\"   (change)=\"selectShift($event.target.value)\">-->\n          <!--<option value=\"\">Select Shift</option>-->\n          <!--<option *ngFor=\"let sh of shift\" [value]=\"sh.shiftId\" [selected]=\"deg.id==educationForm.degreeId\">-->\n            <!--{{sh.shiftName}}-->\n          <!--</option>-->\n        <!--</select>-->\n      <!--</div>-->\n\n\n      <div class=\"form-group col-md-6\">\n        <label>Schedule In Time</label>\n        <input type=\"time\" name=\"scheduleInTime\" placeholder=\"in time\" [(ngModel)]=\"employeeJoiningForm.scheduleInTime\" class=\"form-control\" readonly>\n      </div>\n\n      <div class=\"form-group col-md-6\">\n        <label>Schedule Out Time</label>\n        <input type=\"time\" name=\"scheduleOutTime\" placeholder=\"out time\" [(ngModel)]=\"employeeJoiningForm.scheduleOutTime\" class=\"form-control\" readonly>\n      </div>\n\n      <div class=\"form-group col-md-6\">\n        <label>Special Allowance</label>\n        &nbsp;<input type=\"checkbox\" name=\"specialAllowance\" [(ngModel)]=\"employeeJoiningForm.specialAllowance\">\n      </div>\n\n\n\n\n      <div class=\"col-md-12\">\n        <button class=\"btn btn-success\" (click)=\"submit()\">Save</button>\n      </div>\n\n\n    </div>\n  </div>\n</div>"
+module.exports = "<div class=\"card\">\n  <div class=\"card-header\">\n    Joining Info\n  </div>\n\n  <div class=\"card-body\">\n    <div class=\"row\">\n\n      <div class=\"form-group col-md-6\">\n        <label>Actual Join Date</label>\n\n        <input class=\"form-control\"\n               bsDatepicker\n                [(ngModel)]=\"employeeJoiningForm.actualJoinDate\"\n                [bsConfig]=\"{ dateInputFormat: 'YYYY-MM-DD'}\">\n      </div>\n\n      <div class=\"form-group col-md-6\">\n        <label>Recent Join Date</label>\n        <input name=\"recentJoinDate\" bsDatepicker\n               [bsConfig]=\"{ dateInputFormat: 'YYYY-MM-DD' }\" [(ngModel)]=\"employeeJoiningForm.recentJoinDate\" class=\"form-control\">\n      </div>\n\n      <div class=\"form-group col-md-6\">\n        <label>Resign Date</label>\n        <input bsDatepicker\n               [bsConfig]=\"{ dateInputFormat: 'YYYY-MM-DD' }\"  name=\"resignDate\" [(ngModel)]=\"employeeJoiningForm.resignDate\" class=\"form-control\">\n      </div>\n\n      <div class=\"form-group col-md-6\">\n        <label>Supervisor</label>\n        <input type=\"text\" name=\"supervisor\" placeholder=\"name\" [(ngModel)]=\"employeeJoiningForm.supervisor\" class=\"form-control\">\n      </div>\n\n      <div class=\"form-group col-md-6\">\n        <label>Probation Period</label>\n        <input type=\"text\" name=\"probationPeriod\" placeholder=\"month\" [(ngModel)]=\"employeeJoiningForm.probationPeriod\" class=\"form-control\">\n      </div>\n\n      <div class=\"form-group col-md-6\">\n\n        <!--<input type=\"text\" name=\"weekend\" placeholder=\"day\" [(ngModel)]=\"employeeJoiningForm.weekend\" class=\"form-control\">-->\n        <label>Weekend</label>\n        <ng-multiselect-dropdown\n                [placeholder]=\"'Select Weekend'\"\n                [data]=\"dropdownList\"\n                [(ngModel)]=\"selectedItems\"\n                [settings]=\"dropdownSettings\"\n                (onSelect)=\"onItemSelect($event)\"\n                (onDeSelect)=\"onItemDeSelect($event)\"\n\n        >\n        </ng-multiselect-dropdown>\n      </div>\n\n\n      <div class=\"form-group col-md-4\">\n        <label>Card Number</label>\n        <input type=\"text\" name=\"accessPin\" placeholder=\"pin\" [(ngModel)]=\"employeeJoiningForm.accessPin\" class=\"form-control\">\n      </div>\n      <div class=\"form-group col-md-4\">\n        <label>Attendance Device Pin</label>\n        <input type=\"text\" name=\"accessPin\" placeholder=\"pin\" [(ngModel)]=\"employeeJoiningForm.attDeviceUserId\" class=\"form-control\">\n      </div>\n\n      <div class=\"form-group col-md-4\">\n        <label>Practice</label>\n        <input type=\"number\" name=\"practice\" placeholder=\"days\" [(ngModel)]=\"employeeJoiningForm.practice\"  class=\"form-control\">\n      </div>\n\n\n\n      <div class=\"form-group col-md-4\">\n        <label>Shift</label>\n        <select class=\"form-control\" name=\"shift\"   (change)=\"selectShift($event.target.value)\">\n          <option value=\"\">Select Shift</option>\n          <option *ngFor=\"let sh of shift\" [value]=\"sh.shiftId\" [selected]=\"sh.shiftId==employeeJoiningForm.shiftId\">\n            {{sh.shiftName}}\n          </option>\n        </select>\n      </div>\n\n      <!--<div class=\"form-group col-md-6\">-->\n        <!--<label>Shift</label>-->\n        <!--<select class=\"form-control\" name=\"shift\"   (change)=\"selectShift($event.target.value)\">-->\n          <!--<option value=\"\">Select Shift</option>-->\n          <!--<option *ngFor=\"let sh of shift\" [value]=\"sh.shiftId\" [selected]=\"deg.id==educationForm.degreeId\">-->\n            <!--{{sh.shiftName}}-->\n          <!--</option>-->\n        <!--</select>-->\n      <!--</div>-->\n\n\n      <div class=\"form-group col-md-4\">\n        <label>Schedule In Time</label>\n        <input type=\"time\" name=\"scheduleInTime\" placeholder=\"in time\" [(ngModel)]=\"employeeJoiningForm.scheduleInTime\" class=\"form-control\" readonly>\n      </div>\n\n      <div class=\"form-group col-md-4\">\n        <label>Schedule Out Time</label>\n        <input type=\"time\" name=\"scheduleOutTime\" placeholder=\"out time\" [(ngModel)]=\"employeeJoiningForm.scheduleOutTime\" class=\"form-control\" readonly>\n      </div>\n\n\n\n\n      <div class=\"form-group col-md-6\">\n        <label>Special Allowance</label>\n        &nbsp;<input type=\"checkbox\" name=\"specialAllowance\" [(ngModel)]=\"employeeJoiningForm.specialAllowance\">\n      </div>\n\n\n\n\n      <div class=\"col-md-12\">\n        <button class=\"btn btn-success\" (click)=\"submit()\">Save</button>\n      </div>\n\n\n      <!--Leave Limit-->\n      <div class=\"form-group col-md-12\">\n        <h5 align=\"center\">Leave Limit</h5>\n        <hr>\n      </div>\n\n      <div class=\"form-group col-md-6\">\n        <label>Total Leave</label>\n        <input type=\"text\" [(ngModel)]=\"totalLeaveAssigned\"  placeholder=\"total leave\" class=\"form-control\">\n      </div>\n\n\n      <div class=\"form-group col-md-6\">\n        <label>Leave Taken</label>\n        <input type=\"number\" [(ngModel)]=\"leaveTaken\"  placeholder=\"total leave taken\" class=\"form-control\" readonly>\n      </div>\n\n      <div class=\"col-md-12\">\n        <button class=\"btn btn-success\" (click)=\"submitLeaveLimit()\">Save Leave Limit</button>\n      </div>\n\n\n    </div>\n  </div>\n</div>"
 
 /***/ }),
 
@@ -3490,7 +4142,8 @@ var JoiningInfoComponent = /** @class */ (function () {
             attDeviceUserId: '',
             shiftId: '',
             supervisor: '',
-            probationPeriod: ''
+            probationPeriod: '',
+            practice: ''
         };
         // DROPDOWN
         this.dropdownList = [];
@@ -3519,20 +4172,44 @@ var JoiningInfoComponent = /** @class */ (function () {
         this.employeeJoiningForm.id = this.empid;
         this.getData();
         this.getShift();
+        this.getLeaveLimit();
+    };
+    JoiningInfoComponent.prototype.getLeaveLimit = function () {
+        var _this = this;
+        var token = this.token.get();
+        this.http.post(_constants__WEBPACK_IMPORTED_MODULE_1__["Constants"].API_URL + 'leave/limit/get' + '?token=' + token, { id: this.empid }).subscribe(function (data) {
+            _this.temp = data;
+            _this.totalLeaveAssigned = _this.temp.totalLeave;
+            _this.leaveTaken = _this.temp.leaveTaken;
+        }, function (error) {
+            console.log(error);
+        });
+    };
+    JoiningInfoComponent.prototype.submitLeaveLimit = function () {
+        var _this = this;
+        // console.log( this.totalLeaveAssigned);
+        var token = this.token.get();
+        this.http.post(_constants__WEBPACK_IMPORTED_MODULE_1__["Constants"].API_URL + 'leave/limit/post' + '?token=' + token, { id: this.empid, totalLeave: this.totalLeaveAssigned, leaveTaken: this.leaveTaken }).subscribe(function (data) {
+            // console.log(data);
+            _this.getLeaveLimit();
+        }, function (error) {
+            console.log(error);
+        });
     };
     JoiningInfoComponent.prototype.getData = function () {
         var _this = this;
         var token = this.token.get();
         this.http.post(_constants__WEBPACK_IMPORTED_MODULE_1__["Constants"].API_URL + 'joinInfo/get' + '?token=' + token, { id: this.employeeJoiningForm.id }).subscribe(function (data) {
-            // console.log(data);
+            console.log(data);
             _this.JoiningForm = data;
             _this.employeeJoiningForm.actualJoinDate = _this.JoiningForm.actualJoinDate;
             _this.employeeJoiningForm.recentJoinDate = _this.JoiningForm.recentJoinDate;
             _this.employeeJoiningForm.resignDate = _this.JoiningForm.resignDate;
             _this.employeeJoiningForm.weekend = _this.JoiningForm.weekend;
             _this.employeeJoiningForm.accessPin = _this.JoiningForm.accessPin;
-            _this.employeeJoiningForm.scheduleInTime = _this.JoiningForm.scheduleInTime;
-            _this.employeeJoiningForm.scheduleOutTime = _this.JoiningForm.scheduleOutTime;
+            _this.employeeJoiningForm.practice = _this.JoiningForm.practice;
+            // this.employeeJoiningForm.scheduleInTime=this.JoiningForm.scheduleInTime;
+            // this.employeeJoiningForm.scheduleOutTime=this.JoiningForm.scheduleOutTime;
             _this.employeeJoiningForm.specialAllowance = _this.JoiningForm.specialAllowance;
             _this.employeeJoiningForm.attDeviceUserId = _this.JoiningForm.attDeviceUserId;
             _this.employeeJoiningForm.supervisor = _this.JoiningForm.supervisor;
@@ -4037,13 +4714,13 @@ var Constants = /** @class */ (function () {
     function Constants() {
     }
     Object.defineProperty(Constants, "API_URL", {
-        get: function () { return "http://localhost:8000/hrsolution/backend/api/"; },
+        get: function () { return "http://192.168.3.20/hrsolution/backend/api/"; },
         enumerable: true,
         configurable: true
     });
     ;
     Object.defineProperty(Constants, "Image_URL", {
-        get: function () { return "http://localhost:8000/hrsolution/backend/public/"; },
+        get: function () { return "http://192.168.3.20/hrsolution/backend/public/"; },
         enumerable: true,
         configurable: true
     });

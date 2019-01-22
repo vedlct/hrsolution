@@ -18,25 +18,101 @@ export class SalaryInfoComponent implements OnInit {
     payroll:''
   };
   result:any;
+  payrolls:any;
+  model:any={};
+  payAdvanceModel:any={};
+  temp:any={};
   constructor(public http: HttpClient, private token:TokenService,private router: Router) { }
 
   ngOnInit() {
+      this.model.payroll="";
+      this.model.fkEmployeeId=this.empid;
+      this.payAdvanceModel.fkEmployeeId=this.empid;
+
     this.employeeSalaryForm.id=this.empid;
     const token=this.token.get();
-    this.http.post(Constants.API_URL+'SalryInfo/get'+'?token='+token,{id:this.employeeSalaryForm.id}).subscribe(data => {
-
-          this.salaryForm=data;
-          this.employeeSalaryForm.consolidatedSalary=this.salaryForm.consolidatedSalary;
-          this.employeeSalaryForm.payroll=this.salaryForm.payroll;
-
+    this.http.post(Constants.API_URL+'payroll/payhead/salarySetupGet'+'?token='+token, this.model).subscribe(data => {
+            this.temp=data;
+            this.model.payroll=this.temp.fkPaymentHeadId;
+            this.model.amount=this.temp.amount;
+            this.model.description=this.temp.description;
+            this.model.grossPercent=this.temp.grossPercent;
 
         },
         error => {
           console.log(error);
         }
     );
+    this.getData();
   }
 
+  getData(){
+      this.http.get(Constants.API_URL+'payroll/payhead/get').subscribe(data => {
+
+                this.payrolls=data;
+
+          },
+          error => {
+
+              console.log(error);
+
+          }
+      );
+  }
+
+  update(){
+      const token=this.token.get();
+      this.http.post(Constants.API_URL+'payroll/payhead/salarySetupSet'+'?token='+token,this.model).subscribe(data => {
+              $.alert({
+                  title: 'Success!',
+                  type: 'Green',
+                  content: "Success",
+                  buttons: {
+                      tryAgain: {
+                          text: 'Ok',
+                          btnClass: 'btn-red',
+                          action: function () {
+                          }
+                      }
+                  }
+              });
+
+          },
+          error => {
+              console.log(error);
+          }
+      );
+  }
+
+  payAdvanceSubmit(){
+      this.payAdvanceModel.fkPayHeadId=this.model.payroll;
+      //
+
+      // console.log(this.payAdvanceModel);
+
+      const token=this.token.get();
+      this.http.post(Constants.API_URL+'payroll/payadvance/ledger'+'?token='+token,this.payAdvanceModel).subscribe(data => {
+          console.log(data);
+              // $.alert({
+              //     title: 'Success!',
+              //     type: 'Green',
+              //     content: "Success",
+              //     buttons: {
+              //         tryAgain: {
+              //             text: 'Ok',
+              //             btnClass: 'btn-red',
+              //             action: function () {
+              //             }
+              //         }
+              //     }
+              // });
+
+          },
+          error => {
+              console.log(error);
+          }
+      );
+  }
 
   submit(){
     const token=this.token.get();

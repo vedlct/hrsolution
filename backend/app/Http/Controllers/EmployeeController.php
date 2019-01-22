@@ -314,7 +314,9 @@ public function updateBankInfo(Request $r){
 }
 
 public function getSalryInfo(Request $r){
-        $salaryInfo = EmployeeInfo::select('consolidatedSalary','payroll')->where('id','=',$r->id)->first();
+        $salaryInfo = EmployeeInfo::select('consolidatedSalary','payroll')
+            ->where('id','=',$r->id)
+            ->first();
 
         return response()->json($salaryInfo);
 }

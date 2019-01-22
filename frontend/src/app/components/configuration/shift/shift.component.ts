@@ -34,7 +34,7 @@ export class ShiftComponent implements OnInit {
   getShift(){
     const token=this.token.get();
     this.http.get(Constants.API_URL+'shift/get'+'?token='+token).subscribe(data => {
-          console.log(data);
+          // console.log(data);
           this.shifts=data;
           if(this.checkTable==0){
             this.dtTeigger.next();
