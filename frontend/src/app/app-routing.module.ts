@@ -21,6 +21,8 @@ import {CreateTeamComponent} from "./components/team/create-team/create-team.com
 import {AssignTeamComponent} from "./components/team/assign-team/assign-team.component";
 import {PayEmployeeSalarySetupComponent} from "./components/payroll/pay-employee-salary-setup/pay-employee-salary-setup.component";
 import {PayHeadComponent} from "./components/payroll/pay-head/pay-head.component";
+import {PaySalarySheetComponent} from "./components/payroll/pay-salary-sheet/pay-salary-sheet.component";
+import {PayAdvanceComponent} from "./components/payroll/pay-advance/pay-advance.component";
 
 const routes: Routes = [
     {path: '', component: LoginComponent, canActivate: [GuestService] },
@@ -45,6 +47,8 @@ const routes: Routes = [
     { path: 'team/assign', component: AssignTeamComponent },
     { path: 'payroll/setup', component: PayEmployeeSalarySetupComponent },
     { path: 'payroll/payhead', component: PayHeadComponent },
+    { path: 'payroll/salary-sheet', component: PaySalarySheetComponent },
+    { path: 'payroll/pay-advance', component: PayAdvanceComponent },
 
 ];
 

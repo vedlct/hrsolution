@@ -51,29 +51,45 @@ class PayrollController extends Controller
 
   }
     public function salarySetupSet(Request $r){
+
       $empSalarySetup=EmployeeSalarySetup::where('fkEmployeeId',$r->fkEmployeeId)
           ->first();
 
-      if($empSalarySetup){
-          $empSalarySetup=EmployeeSalarySetup::findOrFail($empSalarySetup->id);
-          $empSalarySetup->fkEmployeeId=$r->fkEmployeeId;
-          $empSalarySetup->fkPaymentHeadId=$r->payroll;
-          $empSalarySetup->amount=$r->amount;
-          $empSalarySetup->description=$r->description;
-          $empSalarySetup->grossPercent=$r->grossPercent;
-          $empSalarySetup->save();
-
+      if($r->id){
+          $empSalarySetup=EmployeeSalarySetup::findOrFail($r->id);
       }
-      else{
-          $empSalarySetup=new EmployeeSalarySetup();
-          $empSalarySetup->fkEmployeeId=$r->fkEmployeeId;
-          $empSalarySetup->fkPaymentHeadId=$r->payroll;
-          $empSalarySetup->amount=$r->amount;
-          $empSalarySetup->description=$r->description;
-          $empSalarySetup->grossPercent=$r->grossPercent;
-          $empSalarySetup->save();
 
-      }
+//      if($empSalarySetup){
+//          $empSalarySetup=EmployeeSalarySetup::findOrFail($empSalarySetup->id);
+//          $empSalarySetup->fkEmployeeId=$r->fkEmployeeId;
+//          $empSalarySetup->fkPaymentHeadId=$r->payroll;
+//          $empSalarySetup->amount=$r->amount;
+//          $empSalarySetup->description=$r->description;
+//          $empSalarySetup->grossPercent=$r->grossPercent;
+//          $empSalarySetup->save();
+//
+//      }
+//      else{
+//          $empSalarySetup=new EmployeeSalarySetup();
+//          $empSalarySetup->fkEmployeeId=$r->fkEmployeeId;
+//          $empSalarySetup->fkPaymentHeadId=$r->payroll;
+//          $empSalarySetup->amount=$r->amount;
+//          $empSalarySetup->description=$r->description;
+//          $empSalarySetup->grossPercent=$r->grossPercent;
+//          $empSalarySetup->save();
+//
+//      }
+
+        else{
+            $empSalarySetup=new EmployeeSalarySetup();
+        }
+
+        $empSalarySetup->fkEmployeeId=$r->fkEmployeeId;
+        $empSalarySetup->fkPaymentHeadId=$r->payroll;
+        $empSalarySetup->amount=$r->amount;
+        $empSalarySetup->description=$r->description;
+        $empSalarySetup->grossPercent=$r->grossPercent;
+        $empSalarySetup->save();
 
       return response()->json("Success");
 
@@ -81,8 +97,8 @@ class PayrollController extends Controller
     }
 
     public function payAdvanceLedger(Request $r){
-//      return  auth()->user();
-//      return $r;
+
+      return $r;
 
         $advance=new PayAdvancePayment();
         $advance->fkEmployeeId=$r->fkEmployeeId;
@@ -97,5 +113,20 @@ class PayrollController extends Controller
 
         return $advance;
 
+    }
+
+    public function getEmployeeData($id){
+       $salarySetup= EmployeeSalarySetup::select('payheads.*','payemployeesalarysetup.*','payemployeesalarysetup.id as salaryId')
+           ->where('fkEmployeeId',$id)
+           ->leftJoin('payheads','payheads.id','payemployeesalarysetup.fkPaymentHeadId')
+           ->get();
+
+       return $salarySetup;
+
+
+    }
+
+    public function paySalarySheet(Request $r){
+      return $r;
     }
 }

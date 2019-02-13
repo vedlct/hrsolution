@@ -66,6 +66,9 @@ export class LoginComponent implements OnInit {
 
   handleResponse(data) {
     this.token.handle(data.access_token);
+
+
+
     this.router.navigateByUrl('home');
   }
 

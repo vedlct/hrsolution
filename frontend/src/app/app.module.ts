@@ -41,6 +41,8 @@ import { ShowAttendanceComponent } from './components/report/show-attendance/sho
 import { CreateTeamComponent } from './components/team/create-team/create-team.component';
 import { AssignTeamComponent } from './components/team/assign-team/assign-team.component';
 import { PayHeadComponent } from './components/payroll/pay-head/pay-head.component';
+import { PaySalarySheetComponent } from './components/payroll/pay-salary-sheet/pay-salary-sheet.component';
+import { PayAdvanceComponent } from './components/payroll/pay-advance/pay-advance.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -74,7 +76,9 @@ import { PayHeadComponent } from './components/payroll/pay-head/pay-head.compone
     ShowAttendanceComponent,
     CreateTeamComponent,
     AssignTeamComponent,
-    PayHeadComponent
+    PayHeadComponent,
+    PaySalarySheetComponent,
+    PayAdvanceComponent
   ],
   imports: [
     BrowserModule,

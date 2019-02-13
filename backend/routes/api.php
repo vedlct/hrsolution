@@ -180,6 +180,7 @@ Route::group([
     Route::post('payroll/payhead/insert','PayrollController@insertPayhead');
     Route::get('payroll/payhead/get','PayrollController@get');
     Route::post('payroll/payhead/update','PayrollController@update');
+    Route::get('payroll/payhead/employee/get/{id}','PayrollController@getEmployeeData');
 
     //Salary Setup
     Route::post('payroll/payhead/salarySetupGet','PayrollController@salarySetupGet');

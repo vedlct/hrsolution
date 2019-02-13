@@ -19,6 +19,7 @@ export class SalaryInfoComponent implements OnInit {
   };
   result:any;
   payrolls:any;
+  empAllPayrolls:any;
   model:any={};
   payAdvanceModel:any={};
   temp:any={};
@@ -27,16 +28,22 @@ export class SalaryInfoComponent implements OnInit {
   ngOnInit() {
       this.model.payroll="";
       this.model.fkEmployeeId=this.empid;
+      this.model.amount="";
       this.payAdvanceModel.fkEmployeeId=this.empid;
 
     this.employeeSalaryForm.id=this.empid;
     const token=this.token.get();
     this.http.post(Constants.API_URL+'payroll/payhead/salarySetupGet'+'?token='+token, this.model).subscribe(data => {
-            this.temp=data;
-            this.model.payroll=this.temp.fkPaymentHeadId;
-            this.model.amount=this.temp.amount;
-            this.model.description=this.temp.description;
-            this.model.grossPercent=this.temp.grossPercent;
+       if(data){
+           this.temp=data;
+           // this.model.payroll=this.temp.fkPaymentHeadId;
+           // this.model.amount=this.temp.amount;
+           // this.model.description=this.temp.description;
+           // this.model.grossPercent=this.temp.grossPercent;
+       }
+       else {
+            // alert("empty");
+       }
 
         },
         error => {
@@ -44,12 +51,26 @@ export class SalaryInfoComponent implements OnInit {
         }
     );
     this.getData();
+    this.getEmployeeData();
   }
 
   getData(){
       this.http.get(Constants.API_URL+'payroll/payhead/get').subscribe(data => {
+          this.payrolls=data;
+          },
+          error => {
+              console.log(error);
 
-                this.payrolls=data;
+          }
+      );
+  }
+
+  getEmployeeData(){
+      const token=this.token.get();
+      this.http.get(Constants.API_URL+'payroll/payhead/employee/get/'+this.empid+'?token='+token).subscribe(data => {
+
+            // console.log(data);
+            this.empAllPayrolls=data;
 
           },
           error => {
@@ -58,10 +79,47 @@ export class SalaryInfoComponent implements OnInit {
 
           }
       );
-  }
 
+  }
   update(){
       const token=this.token.get();
+      console.log(this.model);
+      if(this.model.payroll==""){
+
+          $.alert({
+              title: 'Alert!',
+              type: 'Red',
+              content: "Please select payhead",
+              buttons: {
+                  tryAgain: {
+                      text: 'Ok',
+                      btnClass: 'btn-red',
+                      action: function () {
+                      }
+                  }
+              }
+          });
+          return false;
+      }
+
+      if(this.model.amount==""){
+
+          $.alert({
+              title: 'Alert!',
+              type: 'Red',
+              content: "Please insert amount",
+              buttons: {
+                  tryAgain: {
+                      text: 'Ok',
+                      btnClass: 'btn-red',
+                      action: function () {
+                      }
+                  }
+              }
+          });
+          return false;
+      }
+
       this.http.post(Constants.API_URL+'payroll/payhead/salarySetupSet'+'?token='+token,this.model).subscribe(data => {
               $.alert({
                   title: 'Success!',
@@ -76,6 +134,7 @@ export class SalaryInfoComponent implements OnInit {
                       }
                   }
               });
+              this.getEmployeeData();
 
           },
           error => {
@@ -92,20 +151,6 @@ export class SalaryInfoComponent implements OnInit {
 
       const token=this.token.get();
       this.http.post(Constants.API_URL+'payroll/payadvance/ledger'+'?token='+token,this.payAdvanceModel).subscribe(data => {
-          console.log(data);
-              // $.alert({
-              //     title: 'Success!',
-              //     type: 'Green',
-              //     content: "Success",
-              //     buttons: {
-              //         tryAgain: {
-              //             text: 'Ok',
-              //             btnClass: 'btn-red',
-              //             action: function () {
-              //             }
-              //         }
-              //     }
-              // });
 
           },
           error => {
@@ -114,11 +159,44 @@ export class SalaryInfoComponent implements OnInit {
       );
   }
 
+  editSheet(data){
+      // console.log(data);
+      this.model.amount=data.amount;
+      this.model.payroll=data.fkPaymentHeadId;
+      this.model.description=data.description;
+      this.model.grossPercent=data.grossPercent;
+      this.model.id=data.salaryId;
+      this.payAdvanceModel.fkEmployeeId=this.empid;
+
+  }
+
+  deleteSheet(data){
+      console.log(data);
+    }
+
+  resetSheet(){
+      this.model={};
+      this.payAdvanceModel.fkEmployeeId=this.empid;
+      this.model.payroll="";
+      this.model.amount="";
+
+  }
+  checkUpdateFlag(){
+      if(this.model.id){
+          return false;
+      }
+
+      if(this.model.id==""){
+          return false;
+      }
+      return true;
+  }
+
   submit(){
     const token=this.token.get();
     this.http.post(Constants.API_URL+'SalryInfo/post'+'?token='+token,this.employeeSalaryForm).subscribe(data => {
-
-          this.result=data;
+        console.log(data);
+        this.result=data;
           $.alert({
             title: 'Success!',
             type: 'Green',

@@ -56,14 +56,16 @@ export class PayHeadComponent implements OnInit {
     );
   }
 
+
   onSubmit(){
 
 
     this.http.post(Constants.API_URL+'payroll/payhead/insert',this.model).subscribe(data => {
           // this.spinner.hide();
 
-        console.log(data);
+        // console.log(data);
         this.model=[];
+        this.getData();
 
         },
         error => {

@@ -1,6 +1,6 @@
 <div class="card">
   <div class="card-header">
-    Salary Info
+    Salary Salary Sheet
   </div>
 
   <div class="card-body">
@@ -23,11 +23,40 @@
     <!--</div>-->
 
     <div class="row">
+      <div class="col-md-12">
+        <div class="container">
+          <table class="table table-bordered table-striped">
+            <thead>
+            <th>Pay Heads</th>
+            <th>Amount</th>
+            <th>Gross</th>
+            <th>Type</th>
+            <th>Action</th>
+            </thead>
+            <tbody>
+            <tr *ngFor="let data of empAllPayrolls">
+              <td>{{data.allowDeducTitle}}</td>
+              <td>{{data.amount}}</td>
+              <td>{{data.grossPercent}}</td>
+              <td>{{data.allowDeducType}}</td>
+              <td>
+                <button class="btn btn-sm btn-info" (click)="editSheet(data)">Edit</button>
+                <button class="btn btn-sm btn-danger" (click)="deleteSheet(data)">Delete</button>
+              </td>
+
+
+
+            </tr>
+            </tbody>
+          </table>
+        </div>
+
+      </div>
 
       <div class="form-group col-md-6">
-        <label>Payroll</label>
+        <label>Pay heads</label>
         <select class="form-control" [(ngModel)]="model.payroll">
-          <option value="">Select Payroll</option>
+          <option value="">Select Payhead</option>
           <option  *ngFor="let data of payrolls" [value]="data.id">
             {{data.allowDeducTitle}}
           </option>
@@ -48,28 +77,39 @@
         <label>Gross Percent</label>
         <input type="number" name="grossPercent" placeholder="grossPercent" [(ngModel)]="model.grossPercent"  class="form-control">
       </div>
-      <div class="form-group col-md-12">
+      <div class="form-group col-md-12" *ngIf="checkUpdateFlag();else other_content">
 
-        <button class="btn btn-success pull-right" (click)="update()">Update</button>
+        <button class="btn btn-success pull-right"  (click)="update()">Insert</button>
       </div>
+
+      <ng-template #other_content class="form-group col-md-12">
+        <div class="form-group col-md-12" >
+
+          <button class="btn btn-success pull-right"  (click)="update()">Update</button>
+          <button class="btn btn-danger pull-right"  (click)="resetSheet()">Reset</button>
+        </div>
+      </ng-template>
 
 
 
     </div>
 
     <br><hr><br>
-    <h4 align="center">Pay Advance Ledger</h4>
+    <h4 align="center">Salary Advance</h4>
+    <br>
     <div class="row">
       <div class="form-group col-md-6">
-        <label>Date</label>
+        <label>Advance Date</label>
         <input class="form-control" placeholder="date" [(ngModel)]="payAdvanceModel.advanceDate" type="date">
       </div>
 
-
       <div class="form-group col-md-6">
-        <label>DESCRIPTION</label>
-        <input class="form-control" placeholder="description" [(ngModel)]="payAdvanceModel.DESCRIPTION" type="text">
+        <label>Start Date</label>
+        <input class="form-control" [(ngModel)]="payAdvanceModel.startDate" placeholder="start date"  type="date">
       </div>
+
+
+
 
       <div class="form-group col-md-6">
         <label>Amount</label>
@@ -79,6 +119,20 @@
       <div class="form-group col-md-6">
         <label>Return Rate</label>
         <input class="form-control" placeholder="%" [(ngModel)]="payAdvanceModel.returnRate" type="number">
+      </div>
+
+      <div class="form-group col-md-6">
+        <label>Status</label>
+       <select class="form-control" [(ngModel)]="payAdvanceModel.status">
+         <option value="">Select status</option>
+         <option value="running">Running</option>
+         <option value="complete">Complete</option>
+       </select>
+      </div>
+
+      <div class="form-group col-md-12">
+        <label>DESCRIPTION</label>
+        <input class="form-control" placeholder="description" [(ngModel)]="payAdvanceModel.DESCRIPTION" type="text">
       </div>
 
 
