@@ -5,7 +5,9 @@ namespace App\Http\Controllers;
 use App\EmployeeSalarySetup;
 use App\PayAdvancePayment;
 use App\Payhead;
+use App\PaySalarySheetMain;
 use Illuminate\Http\Request;
+
 
 class PayrollController extends Controller
 {
@@ -128,5 +130,36 @@ class PayrollController extends Controller
 
     public function paySalarySheet(Request $r){
       return $r;
+    }
+
+
+    public function getPaySalarySheetMain($id){
+        $paySalarySheetMain = PaySalarySheetMain::findOrFail($id);
+        return $paySalarySheetMain;
+    }
+
+    public function insertPaySalarySheetMain(Request $r){
+
+        if($r->id)
+        {
+            $paySalarySheetMain = PaySalarySheetMain::findOrFail($r->id);
+        }
+        else
+        {
+            $paySalarySheetMain = new PaySalarySheetMain();
+        }
+
+        $paySalarySheetMain->salaryYear = $r->salaryYear;
+        $paySalarySheetMain->salaryMonth = $r->salaryMonth;
+        $paySalarySheetMain->fkPreparedBy = auth()->user()->id;
+        $paySalarySheetMain->fkVerifiedBy = auth()->user()->id;
+        $paySalarySheetMain->fkApprovedBy = auth()->user()->id;
+        $paySalarySheetMain->preparedDate = $r->preparedDate;
+        $paySalarySheetMain->verifiedDate = $r->verifiedDate;
+        $paySalarySheetMain->approvedDate = $r->approvedDate;
+        $paySalarySheetMain->fkCompanyId = $r->fkCompanyId;
+        $paySalarySheetMain->save();
+
+        return response()->json("success");
     }
 }
