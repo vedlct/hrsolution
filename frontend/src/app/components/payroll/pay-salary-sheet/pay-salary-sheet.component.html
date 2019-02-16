@@ -75,6 +75,14 @@
           <th style="text-align: center">Action</th>
         </thead>
         <tbody>
+        <tr  *ngFor="let data of salarySheetTable" >
+          <td>{{data.fkPayHead}}</td>
+          <td>{{data.AMOUNT}}</td>
+          <td>Edit</td>
+
+          <!--<td>  <button class="btn btn-info" (click)="edit(shift.shiftId,content)"> Edit</button></td>-->
+
+        </tr>
 
         </tbody>
 

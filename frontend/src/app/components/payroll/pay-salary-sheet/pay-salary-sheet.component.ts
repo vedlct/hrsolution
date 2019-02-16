@@ -19,6 +19,7 @@ export class PaySalarySheetComponent implements OnInit {
   dtTrigger: Subject<any> = new Subject();
   id: any;
   payAdvanceModel: any = {};
+  salarySheetTable:any;
 
   constructor(private renderer: Renderer, public http: HttpClient, private token: TokenService, public route: ActivatedRoute, private router: Router) {
   }
@@ -76,7 +77,7 @@ export class PaySalarySheetComponent implements OnInit {
 
 
   getSalarySheet() {
-    console.log(this.payAdvanceModel);
+    // console.log(this.payAdvanceModel);
 
 
     if (!this.payAdvanceModel.fkEmployeeId) {
@@ -135,6 +136,18 @@ export class PaySalarySheetComponent implements OnInit {
     }
 
 
+    const token = this.token.get();
+
+    this.http.post(Constants.API_URL+'payroll/paysalarysheetmain/get'+'?token='+token,this.payAdvanceModel).subscribe(data => {
+
+          console.log(data);
+          this.salarySheetTable=data;
+        },
+
+        error => {
+          console.log(error);
+        }
+    );
 
 
 
