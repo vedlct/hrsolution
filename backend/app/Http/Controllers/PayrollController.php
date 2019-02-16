@@ -6,6 +6,7 @@ use App\EmployeeSalarySetup;
 use App\PayAdvancePayment;
 use App\Payhead;
 use App\PaySalarySheetMain;
+use App\PaySalarySheetSub;
 use Illuminate\Http\Request;
 
 
@@ -133,8 +134,13 @@ class PayrollController extends Controller
     }
 
 
-    public function getPaySalarySheetMain($id){
-        $paySalarySheetMain = PaySalarySheetMain::findOrFail($id);
+    public function getPaySalarySheetMain(Request $r){
+        $paySalarySheetMain = PaySalarySheetMain::Join('paysalarysheetsub', 'paysalarysheetsub.fkSalarySheetId', 'paysalarysheetmain.id')
+                                                ->where('paysalarysheetsub.fkEmployeeId', $r->fkEmployeeId)
+                                                ->where('salaryYear', $r->salaryYear)
+                                                ->where('salaryMonth', $r->salaryMonth)
+                                                ->get();
+
         return $paySalarySheetMain;
     }
 
@@ -147,6 +153,7 @@ class PayrollController extends Controller
         else
         {
             $paySalarySheetMain = new PaySalarySheetMain();
+//            $paySalarySheetSub = new PaySalarySheetSub();
         }
 
         $paySalarySheetMain->salaryYear = $r->salaryYear;
@@ -157,8 +164,16 @@ class PayrollController extends Controller
         $paySalarySheetMain->preparedDate = $r->preparedDate;
         $paySalarySheetMain->verifiedDate = $r->verifiedDate;
         $paySalarySheetMain->approvedDate = $r->approvedDate;
-        $paySalarySheetMain->fkCompanyId = $r->fkCompanyId;
+        $paySalarySheetMain->fkCompanyId = auth()->user()->fkCompany;
         $paySalarySheetMain->save();
+
+//        $paySalarySheetSub->fkEmployeeId = $r->
+//        $paySalarySheetSub->fkSalarySheetId = $r->
+//        $paySalarySheetSub->fkPayHead = $r->
+//        $paySalarySheetSub->AMOUNT = $r->
+//        $paySalarySheetSub->DESCRIPTION = $r->DESCRIPTION;
+//        $paySalarySheetSub->save();
+
 
         return response()->json("success");
     }
