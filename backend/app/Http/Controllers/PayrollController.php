@@ -100,17 +100,17 @@ class PayrollController extends Controller
 
     public function payAdvanceLedger(Request $r){
 
-      return $r;
+//      return $r;
 
         $advance=new PayAdvancePayment();
-        $advance->fkEmployeeId=$r->fkEmployeeId;
+        $advance->fkEmployeeId=$r->empId;
         $advance->advanceDate=$r->advanceDate;
         $advance->advanceAmount=$r->amount;
         $advance->returnRate=$r->returnRate;
-        $advance->DESCRIPTION=$r->DESCRIPTION;
+        $advance->DESCRIPTION=$r->description;
         $advance->fkCompanyId=auth()->user()->fkCompany;
         $advance->fkApprovedBy=auth()->user()->id;
-        $advance->STATUS="approved";
+        $advance->STATUS=$r->status;
         $advance->save();
 
         return $advance;

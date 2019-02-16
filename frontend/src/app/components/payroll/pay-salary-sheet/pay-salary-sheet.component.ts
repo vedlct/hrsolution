@@ -4,7 +4,9 @@ import {HttpClient} from "@angular/common/http";
 import {TokenService} from "../../../services/token.service";
 import {ActivatedRoute, Router} from "@angular/router";
 import {NgxSpinnerService} from "ngx-spinner";
-
+import {Subject} from "rxjs";
+import {Constants} from "../../../constants";
+declare var $:any;
 @Component({
   selector: 'app-pay-salary-sheet',
   templateUrl: './pay-salary-sheet.component.html',
@@ -12,10 +14,131 @@ import {NgxSpinnerService} from "ngx-spinner";
 })
 export class PaySalarySheetComponent implements OnInit {
 
-  constructor(private modalService: NgbModal,private renderer: Renderer,public http: HttpClient, private token:TokenService ,
-              public route:ActivatedRoute, private router: Router,private spinner: NgxSpinnerService) { }
+  employee: any;
+  dtOptions: DataTables.Settings = {};
+  dtTrigger: Subject<any> = new Subject();
+  id: any;
+  payAdvanceModel: any = {};
+
+  constructor(private renderer: Renderer, public http: HttpClient, private token: TokenService, public route: ActivatedRoute, private router: Router) {
+  }
 
   ngOnInit() {
+    this.initiModel();
+
+    const token = this.token.get();
+    this.dtOptions = {
+      ajax: {
+        url: Constants.API_URL + 'employee/get' + '?token=' + token,
+        type: 'POST'
+      },
+      columns: [
+        {data: 'firstName', name: 'employeeinfo.firstName'},
+        {data: 'middleName', name: 'employeeinfo.middleName'},
+        {data: 'lastName', name: 'employeeinfo.lastName'},
+        {data: 'EmployeeId', name: 'employeeinfo.EmployeeId'},
+        {data: 'title', name: 'hrmdesignations.title'},
+        {data: 'departmentName', name: 'hrmdepartments.departmentName'},
+        {
+
+          "data": function (data: any, type: any, full: any) {
+            return ' <button class="btn btn-info" data-emp-id="' + data.empid + '" data-emp-name="' + data.firstName + ' ' + data.middleName + ' ' + data.lastName + '">Select</button>';
+          },
+          "orderable": false, "searchable": false, "name": "selected_rows"
+        }
+      ],
+      processing: true,
+      serverSide: true,
+      pagingType: 'full_numbers',
+      // pageLength: 5,
+      "lengthMenu": [[5, 10, 25, 50, 100, -1], [5, 10, 25, 50, 100, "All"]],
+    };
   }
+
+  initiModel(){
+    // this.payAdvanceModel.status = "";
+    // this.payAdvanceModel.empName = "";
+
+  }
+
+  ngAfterViewInit(): void {
+    this.dtTrigger.next();
+    this.renderer.listenGlobal('document', 'click', (event) => {
+
+      if (event.target.hasAttribute("data-emp-id")) {
+        this.payAdvanceModel.fkEmployeeId = event.target.getAttribute("data-emp-id");
+        this.payAdvanceModel.empName = event.target.getAttribute("data-emp-name").replace(null, "");
+      }
+
+
+    });
+  }
+
+
+  getSalarySheet() {
+    console.log(this.payAdvanceModel);
+
+
+    if (!this.payAdvanceModel.fkEmployeeId) {
+      $.alert({
+        title: 'Alert!',
+        type: 'Red',
+        content: "Please Select Employee",
+        buttons: {
+          tryAgain: {
+            text: 'Ok',
+            btnClass: 'btn-red',
+            action: function () {
+            }
+          }
+        }
+      });
+
+
+      return false;
+    }
+
+    if (!this.payAdvanceModel.salaryYear) {
+      $.alert({
+        title: 'Alert!',
+        type: 'Red',
+        content: "Please Select Year",
+        buttons: {
+          tryAgain: {
+            text: 'Ok',
+            btnClass: 'btn-red',
+            action: function () {
+            }
+          }
+        }
+      });
+
+
+      return false;
+    }
+
+    if (!this.payAdvanceModel.salaryMonth) {
+      $.alert({
+        title: 'Alert!',
+        type: 'Red',
+        content: "Please Select Month",
+        buttons: {
+          tryAgain: {
+            text: 'Ok',
+            btnClass: 'btn-red',
+            action: function () {
+            }
+          }
+        }
+      });
+      return false;
+    }
+
+
+
+
+
+  }
+
 
 }

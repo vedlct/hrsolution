@@ -4,7 +4,7 @@ import {HttpClient} from "@angular/common/http";
 import {TokenService} from "../../../services/token.service";
 import {ActivatedRoute, Router} from "@angular/router";
 import {Constants} from "../../../constants";
-
+declare var $:any;
 @Component({
   selector: 'app-pay-advance',
   templateUrl: './pay-advance.component.html',
@@ -74,19 +74,98 @@ export class PayAdvanceComponent implements OnInit {
         // this.payAdvanceModel.fkPayHeadId=this.model.payroll;
         //
 
-        console.log(this.payAdvanceModel);
+        // console.log(this.payAdvanceModel);
+        if(!this.payAdvanceModel.empId){
+            $.alert({
+                title: 'Alert!',
+                type: 'Red',
+                content: "Please Select Employee",
+                buttons: {
+                    tryAgain: {
+                        text: 'Ok',
+                        btnClass: 'btn-red',
+                        action: function () {
+                        }
+                    }
+                }
+            });
+
+            return false;
+        }
+
+        if(!this.payAdvanceModel.startDate){
+
+            $.alert({
+                title: 'Alert!',
+                type: 'Red',
+                content: "Please Select Start Date",
+                buttons: {
+                    tryAgain: {
+                        text: 'Ok',
+                        btnClass: 'btn-red',
+                        action: function () {
+                        }
+                    }
+                }
+            });
+
+            return false;
+        }
+
+        if(!this.payAdvanceModel.amount){
+
+            $.alert({
+                title: 'Alert!',
+                type: 'Red',
+                content: "Please Select Amount",
+                buttons: {
+                    tryAgain: {
+                        text: 'Ok',
+                        btnClass: 'btn-red',
+                        action: function () {
+                        }
+                    }
+                }
+            });
+
+            return false;
+        }
+
+        if(this.payAdvanceModel.status==""){
+
+                $.alert({
+                    title: 'Alert!',
+                    type: 'Red',
+                    content: "Please Select Status",
+                    buttons: {
+                        tryAgain: {
+                            text: 'Ok',
+                            btnClass: 'btn-red',
+                            action: function () {
+                            }
+                        }
+                    }
+                });
+
+                return false;
+            }
 
 
         const token = this.token.get();
-        //     this.http.post(Constants.API_URL+'payroll/payadvance/ledger'+'?token='+token,this.payAdvanceModel).subscribe(data => {
-        //
-        //         },
-        //         error => {
-        //             console.log(error);
-        //         }
-        //     );
-        // }
+
+        this.http.post(Constants.API_URL+'payroll/payadvance/ledger'+'?token='+token,this.payAdvanceModel).subscribe(data => {
+
+                console.log(data);
+            },
+
+                error => {
+                    console.log(error);
+                }
+            );
+
 
     }
+
+
 
 }
