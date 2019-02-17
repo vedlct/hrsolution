@@ -1,0 +1,62 @@
+<div class="container-fluid">
+  <div class="card">
+    <div class="card-header"></div>
+    <div class="card-body">
+      <div class="row">
+        <div class="form-group col-md-3">
+          <label>From</label>
+          <input class="form-control"
+                 bsDatepicker
+                 [bsConfig]="{ dateInputFormat: 'YYYY-MM-DD'}" id="startDate">
+        </div>
+        <div class="form-group col-md-3">
+          <label>To</label>
+          <input class="form-control"
+                 bsDatepicker
+                 [bsConfig]="{ dateInputFormat: 'YYYY-MM-DD'}"
+                 id="endDate"
+          >
+        </div>
+
+
+
+        <div class="form-group col-md-3">
+          <br>
+
+          <button class="btn btn-success" (click)="search()">Search</button>
+        </div>
+
+
+        <div class="form-group col-md-3">
+          <br>
+
+          <button class="btn btn-info pull-right" (click)="generateExcel()">Generate Report</button>
+        </div>
+
+      </div>
+      <hr>
+
+      <table datatable class="table" [dtOptions]="dtOptions" [dtTrigger]="dtTrigger">
+        <thead>
+        <tr>
+          <th>Name</th>
+          <!--<th>Middle Name</th>-->
+          <!--<th>Last Name</th>-->
+          <th>Department</th>
+          <th>Total Attendance</th>
+          <th>Total Late</th>
+          <th>Average Working hour</th>
+          <th>Total Leave</th>
+          <th>Weekend Count</th>
+          <th>Weekend</th>
+          <th>Action</th>
+        </tr>
+
+        </thead>
+      </table>
+
+
+
+    </div>
+  </div>
+</div>

@@ -1,0 +1,98 @@
+<div class="container" >
+    <div class="card">
+        <div class="card-header">Employee Advance Salary</div>
+
+        <div class="card-body">
+
+            <table datatable class="table" [dtOptions]="dtOptions" [dtTrigger]="dtTrigger">
+                <thead>
+                <tr>
+                    <th>First Name</th>
+                    <th>Middle Name</th>
+                    <th>Last Name</th>
+                    <th>Employee ID</th>
+                    <th>Designation</th>
+                    <th>Department</th>
+                    <th>Action</th>
+                </tr>
+                </thead>
+
+                <tbody>
+
+                </tbody>
+
+            </table>
+
+        </div>
+
+
+
+       <hr>
+        <h4 align="center">Salary Advance</h4>
+
+        <div class="row" style="padding: 20px;">
+            <div class="form-group col-md-12">
+                <label>Employee</label>
+                <input class="form-control" placeholder="name" value="Farzad" type="text" [(ngModel)]="payAdvanceModel.empName" readonly>
+            </div>
+            <div class="form-group col-md-6">
+                <label>Advance Date</label>
+                <input class="form-control" placeholder="date" [(ngModel)]="payAdvanceModel.advanceDate" type="date">
+            </div>
+
+            <div class="form-group col-md-6">
+                <label>Start Date</label>
+                <input class="form-control" [(ngModel)]="payAdvanceModel.startDate" placeholder="start date"  type="date">
+            </div>
+
+
+
+
+            <div class="form-group col-md-6">
+                <label>Amount</label>
+                <input class="form-control" placeholder="TK" [(ngModel)]="payAdvanceModel.amount" type="number">
+            </div>
+
+            <div class="form-group col-md-6">
+                <label>Return Rate</label>
+                <input class="form-control" placeholder="%" [(ngModel)]="payAdvanceModel.returnRate" type="number">
+            </div>
+
+            <div class="form-group col-md-6">
+                <label>Status</label>
+                <select class="form-control" [(ngModel)]="payAdvanceModel.status">
+                    <option value="">Select status</option>
+                    <option value="running">Running</option>
+                    <option value="complete">Complete</option>
+                </select>
+            </div>
+
+            <div class="form-group col-md-12">
+                <label>DESCRIPTION</label>
+                <input class="form-control" placeholder="description" [(ngModel)]="payAdvanceModel.description" type="text">
+            </div>
+
+
+            <div class="form-group col-md-12">
+                <button class="btn btn-info pull-right" (click)="payAdvanceSubmit()">Submit</button>
+            </div>
+        </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    </div>
+
+
+</div>

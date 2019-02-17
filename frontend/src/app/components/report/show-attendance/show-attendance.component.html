@@ -1,0 +1,147 @@
+<ng-template #content let-c="close" let-d="dismiss" >
+  <div class="modal-header">
+    <h4 class="modal-title">Comment</h4>
+    <button type="button" class="close" aria-label="Close" (click)="d('Cross click')">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+
+    <div class="row">
+      <div class="form-group col-md-6">
+        <label>Comment</label>
+        <textarea placeholder="remark" class="form-control" [(ngModel)]="comment"></textarea>
+      </div>
+
+      <div class="form-group col-md-12">
+
+        <button class="btn btn-success pull-right" (click)="insertComment()">Submit</button>
+      </div>
+
+
+    </div>
+
+  </div>
+</ng-template>
+
+
+
+
+
+<div class="container-fluid">
+  <div class="card">
+    <div class="card-header">
+      <div class="row">
+        <div class="form-group col-md-3">
+          <label>From</label>
+          <input class="form-control"
+                 bsDatepicker
+                 [bsConfig]="{ dateInputFormat: 'YYYY-MM-DD'}" id="startDate">
+        </div>
+        <div class="form-group col-md-3">
+          <label>To</label>
+          <input class="form-control"
+                 bsDatepicker
+                 [bsConfig]="{ dateInputFormat: 'YYYY-MM-DD'}"
+                 id="endDate"
+          >
+        </div>
+
+        <div class="form-group col-md-3">
+          <br>
+
+          <button class="btn btn-success " (click)="search()">Search</button>
+        </div>
+
+        <div class="form-group col-md-3">
+          <br>
+
+          <button class="btn btn-info pull-right" (click)="commentModal(content)">Add Comment</button>
+        </div>
+
+      </div>
+
+
+    </div>
+    <div class="card-body">
+
+
+      <table datatable class="table" [dtOptions]="dtOptions" [dtTrigger]="dtTrigger">
+      <!--<table datatable class="table" >-->
+        <thead>
+        <tr>
+          <th>attDeviceUserId</th>
+          <th>firstName</th>
+          <th>attendanceDate</th>
+          <th>checkInFull</th>
+          <th>checkoutFull</th>
+          <th>late</th>
+          <th>lateTime</th>
+          <th>scheduleIn</th>
+          <th>scheduleOut</th>
+          <th>workingTime</th>
+        </tr>
+
+        </thead>
+      </table>
+
+<br>
+      <div class="row">
+        <div class="col-md-8">
+          <hr>
+          <h4 align="center"><b>Leave</b></h4>
+          <hr>
+
+          <table datatable  id="example" class="table" [dtOptions]="dtOptions2" [dtTrigger]="dtTrigger2">
+            <thead>
+            <tr>
+
+              <th>Start Date</th>
+              <th>End Date</th>
+              <th>Days</th>
+              <th>Cause</th>
+              <th>Category</th>
+
+            </tr>
+
+            </thead>
+            <tbody >
+
+            <tr  *ngFor="let leave of leaves" >
+              <td>{{leave.startDate}}</td>
+              <td>{{leave.endDate}}</td>
+              <td>{{leave.noOfDays}}</td>
+              <td>{{leave.remarks}}</td>
+              <td>{{leave.categoryName}}</td>
+
+            </tr>
+
+            </tbody>
+
+          </table>
+
+
+
+        </div>
+
+        <div class="col-md-4">
+          <hr>
+          <h4 align="center"><b>Comments</b></h4>
+          <hr>
+
+          <table class="table">
+
+            <tr  *ngFor="let comment of allComments" >
+              <td style="text-align: center">{{comment.comment}}</td>
+
+
+            </tr>
+          </table>
+
+
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
