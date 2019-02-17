@@ -172,7 +172,7 @@
       'file' => 
       array (
         'driver' => 'file',
-        'path' => 'C:\\xampp\\htdocs\\angular\\hrsolution\\backend\\storage\\framework/cache/data',
+        'path' => 'F:\\xampp\\htdocs\\hrsolution\\backend\\storage\\framework/cache/data',
       ),
       'memcached' => 
       array (
@@ -350,12 +350,12 @@
       'local' => 
       array (
         'driver' => 'local',
-        'root' => 'C:\\xampp\\htdocs\\angular\\hrsolution\\backend\\storage\\app',
+        'root' => 'F:\\xampp\\htdocs\\hrsolution\\backend\\storage\\app',
       ),
       'public' => 
       array (
         'driver' => 'local',
-        'root' => 'C:\\xampp\\htdocs\\angular\\hrsolution\\backend\\storage\\app/public',
+        'root' => 'F:\\xampp\\htdocs\\hrsolution\\backend\\storage\\app/public',
         'url' => 'http://localhost/storage',
         'visibility' => 'public',
       ),
@@ -436,13 +436,13 @@
       'single' => 
       array (
         'driver' => 'single',
-        'path' => 'C:\\xampp\\htdocs\\angular\\hrsolution\\backend\\storage\\logs/laravel.log',
+        'path' => 'F:\\xampp\\htdocs\\hrsolution\\backend\\storage\\logs/laravel.log',
         'level' => 'debug',
       ),
       'daily' => 
       array (
         'driver' => 'daily',
-        'path' => 'C:\\xampp\\htdocs\\angular\\hrsolution\\backend\\storage\\logs/laravel.log',
+        'path' => 'F:\\xampp\\htdocs\\hrsolution\\backend\\storage\\logs/laravel.log',
         'level' => 'debug',
         'days' => 7,
       ),
@@ -494,7 +494,7 @@
       'theme' => 'default',
       'paths' => 
       array (
-        0 => 'C:\\xampp\\htdocs\\angular\\hrsolution\\backend\\resources\\views/vendor/mail',
+        0 => 'F:\\xampp\\htdocs\\hrsolution\\backend\\resources\\views/vendor/mail',
       ),
     ),
   ),
@@ -575,7 +575,7 @@
     'lifetime' => '120',
     'expire_on_close' => false,
     'encrypt' => false,
-    'files' => 'C:\\xampp\\htdocs\\angular\\hrsolution\\backend\\storage\\framework/sessions',
+    'files' => 'F:\\xampp\\htdocs\\hrsolution\\backend\\storage\\framework/sessions',
     'connection' => NULL,
     'table' => 'sessions',
     'store' => NULL,
@@ -595,9 +595,9 @@
   array (
     'paths' => 
     array (
-      0 => 'C:\\xampp\\htdocs\\angular\\hrsolution\\backend\\resources\\views',
+      0 => 'F:\\xampp\\htdocs\\hrsolution\\backend\\resources\\views',
     ),
-    'compiled' => 'C:\\xampp\\htdocs\\angular\\hrsolution\\backend\\storage\\framework\\views',
+    'compiled' => 'F:\\xampp\\htdocs\\hrsolution\\backend\\storage\\framework\\views',
   ),
   'trustedproxy' => 
   array (
