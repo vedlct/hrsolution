@@ -195,6 +195,8 @@ Route::group([
     Route::post('payroll/paysalarysheetmain','PayrollController@getPaySalarySheetMain');
     Route::post('payroll/paysalarysheetmain/insert','PayrollController@insertPaySalarySheetMain');
 
+    Route::post('payroll/paysalarysheetsub/update','PayrollController@updatePaySalarySheetSub');
+
 
 
 
