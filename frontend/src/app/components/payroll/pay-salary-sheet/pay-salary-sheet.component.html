@@ -76,9 +76,9 @@
         </thead>
         <tbody>
         <tr  *ngFor="let data of salarySheetTable" >
-          <td>{{data.fkPayHead}}</td>
+          <td>{{data.allowDeducTitle}}</td>
           <td>{{data.AMOUNT}}</td>
-          <td>Edit</td>
+          <td><button class="btn btn-info" (click)="editSubSheet(data)">edit</button></td>
 
           <!--<td>  <button class="btn btn-info" (click)="edit(shift.shiftId,content)"> Edit</button></td>-->
 
@@ -91,7 +91,7 @@
 
       <div class="form-group col-md-6">
         <label>Payhead</label>
-        <input class="form-control" placeholder="name" type="text" [(ngModel)]="payAdvanceModel.payhead">
+        <input class="form-control" placeholder="name" type="text" [(ngModel)]="payAdvanceModel.payhead" readonly>
       </div>
 
       <div class="form-group col-md-6">
@@ -103,6 +103,11 @@
         <input class="form-control" placeholder="" type="text" [(ngModel)]="payAdvanceModel.description">
       </div>
 
+
+
+      <div class="form-group col-md-12">
+        <button class="btn btn-success" (click)="updateSubSheet()">edit</button>
+      </div>
 
 
 

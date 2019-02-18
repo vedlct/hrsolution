@@ -140,7 +140,7 @@ export class PaySalarySheetComponent implements OnInit {
 
     this.http.post(Constants.API_URL+'payroll/paysalarysheetmain/get'+'?token='+token,this.payAdvanceModel).subscribe(data => {
 
-          console.log(data);
+          // console.log(data);
           this.salarySheetTable=data;
         },
 
@@ -151,6 +151,18 @@ export class PaySalarySheetComponent implements OnInit {
 
 
 
+  }
+
+  editSubSheet(data){
+    // console.log(data);
+    this.payAdvanceModel.payhead=data.allowDeducTitle;
+    this.payAdvanceModel.amount=data.AMOUNT;
+    this.payAdvanceModel.description=data.DESCRIPTION;
+    this.payAdvanceModel.id=data.paysalarysheetsub_id;
+  }
+
+  updateSubSheet(){
+    console.log(this.payAdvanceModel);
   }
 
 
