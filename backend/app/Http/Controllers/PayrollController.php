@@ -8,6 +8,7 @@ use App\Payhead;
 use App\PaySalarySheetMain;
 use App\PaySalarySheetSub;
 use Illuminate\Http\Request;
+use App\PayAdvanceLedger;
 
 
 class PayrollController extends Controller
@@ -190,6 +191,21 @@ class PayrollController extends Controller
         $paySalarySheetSub->AMOUNT = $r->amount;
         $paySalarySheetSub->DESCRIPTION = $r->description;
         $paySalarySheetSub->save();
+
+        return response()->json("success");
+    }
+
+    public function insertPayAdvanceLedger(Request $r){
+
+        $payAdvanceLedger = new PayAdvanceLedger();
+        $payAdvanceLedger->fkEmployeeId = $r->fkEmployeeId;
+        $payAdvanceLedger->fkPayHeadId = $r->fkPayHeadId;
+        $payAdvanceLedger->payMonth = $r->payMonth;
+        $payAdvanceLedger->payYear = $r->payYear;
+        $payAdvanceLedger->debit = $r->debit;
+        $payAdvanceLedger->credit = $r->credit;
+        $payAdvanceLedger->fkCompanyId = auth()->user()->fkCompany;
+        $payAdvanceLedger->save();
 
         return response()->json("success");
     }
