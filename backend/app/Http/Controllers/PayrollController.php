@@ -148,15 +148,15 @@ class PayrollController extends Controller
 
     public function insertPaySalarySheetMain(Request $r){
 
-        if($r->id)
-        {
-            $paySalarySheetMain = PaySalarySheetMain::findOrFail($r->id);
-        }
-        else
-        {
+//        if($r->id)
+//        {
+//            $paySalarySheetMain = PaySalarySheetMain::findOrFail($r->id);
+//        }
+//        else
+//        {
             $paySalarySheetMain = new PaySalarySheetMain();
 //            $paySalarySheetSub = new PaySalarySheetSub();
-        }
+//        }
 
         $paySalarySheetMain->salaryYear = $r->salaryYear;
         $paySalarySheetMain->salaryMonth = $r->salaryMonth;
@@ -179,4 +179,18 @@ class PayrollController extends Controller
 
         return response()->json("success");
     }
+
+    public function updatePaySalarySheetSub(Request $r){
+
+        $paySalarySheetSub = PaySalarySheetSub::findOrFail($r->id);
+        $paySalarySheetSub->fkEmployeeId = $r->fkEmployeeId;
+        $paySalarySheetSub->fkSalarySheetId = $r->fkSalarySheetId;
+        $paySalarySheetSub->fkPayHead = $r->fkPayHead;
+        $paySalarySheetSub->AMOUNT = $r->AMOUNT;
+        $paySalarySheetSub->DESCRIPTION = $r->DESCRIPTION;
+        $paySalarySheetSub->save();
+
+        return response()->json("success");
+    }
+
 }
