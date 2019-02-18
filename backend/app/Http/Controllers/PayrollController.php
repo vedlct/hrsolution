@@ -181,13 +181,14 @@ class PayrollController extends Controller
     }
 
     public function updatePaySalarySheetSub(Request $r){
+//      return $r;
 
         $paySalarySheetSub = PaySalarySheetSub::findOrFail($r->id);
-        $paySalarySheetSub->fkEmployeeId = $r->fkEmployeeId;
-        $paySalarySheetSub->fkSalarySheetId = $r->fkSalarySheetId;
-        $paySalarySheetSub->fkPayHead = $r->fkPayHead;
-        $paySalarySheetSub->AMOUNT = $r->AMOUNT;
-        $paySalarySheetSub->DESCRIPTION = $r->DESCRIPTION;
+//        $paySalarySheetSub->fkEmployeeId = $r->fkEmployeeId;
+//        $paySalarySheetSub->fkSalarySheetId = $r->fkSalarySheetId;
+//        $paySalarySheetSub->fkPayHead = $r->fkPayHead;
+        $paySalarySheetSub->AMOUNT = $r->amount;
+        $paySalarySheetSub->DESCRIPTION = $r->description;
         $paySalarySheetSub->save();
 
         return response()->json("success");

@@ -19,6 +19,7 @@ export class PaySalarySheetComponent implements OnInit {
   dtTrigger: Subject<any> = new Subject();
   id: any;
   payAdvanceModel: any = {};
+  subsheetModel: any = {};
   salarySheetTable:any;
 
   constructor(private renderer: Renderer, public http: HttpClient, private token: TokenService, public route: ActivatedRoute, private router: Router) {
@@ -137,10 +138,7 @@ export class PaySalarySheetComponent implements OnInit {
 
 
     const token = this.token.get();
-
     this.http.post(Constants.API_URL+'payroll/paysalarysheetmain/get'+'?token='+token,this.payAdvanceModel).subscribe(data => {
-
-          // console.log(data);
           this.salarySheetTable=data;
         },
 
@@ -155,14 +153,56 @@ export class PaySalarySheetComponent implements OnInit {
 
   editSubSheet(data){
     // console.log(data);
-    this.payAdvanceModel.payhead=data.allowDeducTitle;
-    this.payAdvanceModel.amount=data.AMOUNT;
-    this.payAdvanceModel.description=data.DESCRIPTION;
-    this.payAdvanceModel.id=data.paysalarysheetsub_id;
+    this.subsheetModel.payhead=data.allowDeducTitle;
+    this.subsheetModel.amount=data.AMOUNT;
+    this.subsheetModel.description=data.DESCRIPTION;
+    this.subsheetModel.id=data.paysalarysheetsub_id;
   }
 
   updateSubSheet(){
-    console.log(this.payAdvanceModel);
+
+
+    if (!this.payAdvanceModel.id) {
+      $.alert({
+        title: 'Alert!',
+        type: 'Red',
+        content: "Please Select Salary Sheet",
+        buttons: {
+          tryAgain: {
+            text: 'Ok',
+            btnClass: 'btn-red',
+            action: function () {
+            }
+          }
+        }
+      });
+      return false;
+    }
+
+    const token = this.token.get();
+    this.http.post(Constants.API_URL+'payroll/paysalarysheetsub/update'+'?token='+token,this.subsheetModel).subscribe(data => {
+          // console.log(data);
+          $.alert({
+            title: 'Success!',
+            type: 'Green',
+            content: "Updated",
+            buttons: {
+              tryAgain: {
+                text: 'Ok',
+                btnClass: 'btn-red',
+                action: function () {
+                }
+              }
+            }
+          });
+          this.getSalarySheet();
+          this.subsheetModel={};
+        },
+
+        error => {
+          console.log(error);
+        }
+    );
   }
 
 
