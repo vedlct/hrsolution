@@ -197,6 +197,8 @@ Route::group([
 
     Route::post('payroll/paysalarysheetsub/update','PayrollController@updatePaySalarySheetSub');
 
+    Route::post('payroll/payadvanceledger/insert','PayrollController@insertPayAdvanceLedger');
+
 
 
 
