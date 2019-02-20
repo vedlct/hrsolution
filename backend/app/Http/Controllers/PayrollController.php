@@ -8,6 +8,7 @@ use App\Payhead;
 use App\PaySalarySheetMain;
 use App\PaySalarySheetSub;
 use Illuminate\Http\Request;
+use App\PayAdvanceLedger;
 
 
 class PayrollController extends Controller
@@ -101,17 +102,17 @@ class PayrollController extends Controller
 
     public function payAdvanceLedger(Request $r){
 
-      return $r;
+//      return $r;
 
         $advance=new PayAdvancePayment();
-        $advance->fkEmployeeId=$r->fkEmployeeId;
+        $advance->fkEmployeeId=$r->empId;
         $advance->advanceDate=$r->advanceDate;
         $advance->advanceAmount=$r->amount;
         $advance->returnRate=$r->returnRate;
-        $advance->DESCRIPTION=$r->DESCRIPTION;
+        $advance->DESCRIPTION=$r->description;
         $advance->fkCompanyId=auth()->user()->fkCompany;
         $advance->fkApprovedBy=auth()->user()->id;
-        $advance->STATUS="approved";
+        $advance->STATUS=$r->status;
         $advance->save();
 
         return $advance;
@@ -148,15 +149,15 @@ class PayrollController extends Controller
 
     public function insertPaySalarySheetMain(Request $r){
 
-        if($r->id)
-        {
-            $paySalarySheetMain = PaySalarySheetMain::findOrFail($r->id);
-        }
-        else
-        {
+//        if($r->id)
+//        {
+//            $paySalarySheetMain = PaySalarySheetMain::findOrFail($r->id);
+//        }
+//        else
+//        {
             $paySalarySheetMain = new PaySalarySheetMain();
 //            $paySalarySheetSub = new PaySalarySheetSub();
-        }
+//        }
 
         $paySalarySheetMain->salaryYear = $r->salaryYear;
         $paySalarySheetMain->salaryMonth = $r->salaryMonth;
@@ -179,4 +180,34 @@ class PayrollController extends Controller
 
         return response()->json("success");
     }
+
+    public function updatePaySalarySheetSub(Request $r){
+//      return $r;
+
+        $paySalarySheetSub = PaySalarySheetSub::findOrFail($r->id);
+//        $paySalarySheetSub->fkEmployeeId = $r->fkEmployeeId;
+//        $paySalarySheetSub->fkSalarySheetId = $r->fkSalarySheetId;
+//        $paySalarySheetSub->fkPayHead = $r->fkPayHead;
+        $paySalarySheetSub->AMOUNT = $r->amount;
+        $paySalarySheetSub->DESCRIPTION = $r->description;
+        $paySalarySheetSub->save();
+
+        return response()->json("success");
+    }
+
+    public function insertPayAdvanceLedger(Request $r){
+
+        $payAdvanceLedger = new PayAdvanceLedger();
+        $payAdvanceLedger->fkEmployeeId = $r->fkEmployeeId;
+        $payAdvanceLedger->fkPayHeadId = $r->fkPayHeadId;
+        $payAdvanceLedger->payMonth = $r->payMonth;
+        $payAdvanceLedger->payYear = $r->payYear;
+        $payAdvanceLedger->debit = $r->debit;
+        $payAdvanceLedger->credit = $r->credit;
+        $payAdvanceLedger->fkCompanyId = auth()->user()->fkCompany;
+        $payAdvanceLedger->save();
+
+        return response()->json("success");
+    }
+
 }

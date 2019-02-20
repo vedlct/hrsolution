@@ -1,41 +1,127 @@
-<div class="container-fluid">
+<div class="container" >
+  <div class="card">
+    <div class="card-header">Employee Salary Sheet</div>
+
+    <div class="card-body">
+
+      <table datatable class="table" [dtOptions]="dtOptions" [dtTrigger]="dtTrigger">
+        <thead>
+        <tr>
+          <th>First Name</th>
+          <th>Middle Name</th>
+          <th>Last Name</th>
+          <th>Employee ID</th>
+          <th>Designation</th>
+          <th>Department</th>
+          <th>Action</th>
+        </tr>
+        </thead>
+
+        <tbody>
+
+        </tbody>
+
+      </table>
+
+    </div>
+    <hr>
+
+    <div class="row" style="padding: 20px;">
+
+      <div class="form-group col-md-12">
+        <label>Employee</label>
+        <input class="form-control" placeholder="name" type="text" [(ngModel)]="payAdvanceModel.empName" readonly>
+      </div>
+      <div class="form-group col-md-6">
+        <label>Year</label>
+        <select class="form-control" [(ngModel)]="payAdvanceModel.salaryYear">
+          <option value="">Select Year</option>
+          <option value="2016">2016</option>
+          <option value="2017">2017</option>
+          <option value="2018">2018</option>
+          <option value="2019">2019</option>
 
 
-<div class="card">
-  <div class="card-body">
-    <div class="row">
-      <div class="form-group col-md-4">
-        <label>Select Employee</label>
-        <select class="form-control">
-          <option>Emp 1</option>
-          <option>Emp 2</option>
-          <option>Emp 3</option>
         </select>
       </div>
+      <div class="form-group col-md-6">
+        <label>Month</label>
+        <select class="form-control"  [(ngModel)]="payAdvanceModel.salaryMonth">
+          <option value="">Select Month</option>
+          <option value="1">January</option>
+          <option value="2">February</option>
+          <option value="3">March</option>
+          <option value="4">April</option>
+          <option value="5">May</option>
+          <option value="6">June</option>
+          <option value="7">July</option>
+          <option value="8">August</option>
+          <option value="9">September</option>
+          <option value="10">October</option>
+          <option value="11">November</option>
+          <option value="10">December</option>
 
-      <div class="form-group col-md-4">
-        <label>Select payhead</label>
-        <select class="form-control">
-          <option>Payhead 1</option>
-          <option>Payhead 2</option>
-          <option>Payhead 3</option>
         </select>
       </div>
+      <div class="form-group col-md-12">
+        <button class="btn btn-info pull-right" (click)="getSalarySheet()">Submit</button>
+      </div>
 
-      <div class="form-group col-md-4">
+      <hr>
+      <table class="table table-bordered table-striped">
+        <thead>
+          <th style="text-align: center">Head</th>
+          <th style="text-align: center">Amount</th>
+          <th style="text-align: center">Action</th>
+        </thead>
+        <tbody>
+        <tr  *ngFor="let data of salarySheetTable" >
+          <td>{{data.allowDeducTitle}}</td>
+          <td>{{data.AMOUNT}}</td>
+          <td><button class="btn btn-info" (click)="editSubSheet(data)">edit</button></td>
+
+          <!--<td>  <button class="btn btn-info" (click)="edit(shift.shiftId,content)"> Edit</button></td>-->
+
+        </tr>
+
+        </tbody>
+
+      </table>
+      <hr>
+
+      <div class="form-group col-md-6">
+        <label>Payhead</label>
+        <input class="form-control" placeholder="head" type="text" [(ngModel)]="subsheetModel.payhead" readonly>
+      </div>
+
+      <div class="form-group col-md-6">
         <label>Amount</label>
-        <input type="number" class="form-control" placeholder="TK">
+        <input class="form-control" placeholder="name" type="text" [(ngModel)]="subsheetModel.amount">
+      </div>
+      <div class="form-group col-md-12">
+        <label>Description</label>
+        <input class="form-control" placeholder="" type="text" [(ngModel)]="subsheetModel.description">
       </div>
 
-      <div class="form-group col-md-4">
-        <textarea class="form-control" placeholder="Description"></textarea>
+
+
+      <div class="form-group col-md-12">
+        <button class="btn btn-success" (click)="updateSubSheet()">edit</button>
       </div>
+
 
 
     </div>
 
 
+
+
+
+
+
+
+
   </div>
-</div>
+
 
 </div>

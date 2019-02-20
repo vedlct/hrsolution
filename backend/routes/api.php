@@ -192,8 +192,12 @@ Route::group([
 
 
     //Pay Salary Sheet Main
-    Route::post('payroll/paysalarysheetmain','PayrollController@getPaySalarySheetMain');
+    Route::post('payroll/paysalarysheetmain/get','PayrollController@getPaySalarySheetMain');
     Route::post('payroll/paysalarysheetmain/insert','PayrollController@insertPaySalarySheetMain');
+
+    Route::post('payroll/paysalarysheetsub/update','PayrollController@updatePaySalarySheetSub');
+
+    Route::post('payroll/payadvanceledger/insert','PayrollController@insertPayAdvanceLedger');
 
 
 
