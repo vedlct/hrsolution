@@ -31,25 +31,25 @@ export class ShiftAssignComponent implements AfterViewInit,OnDestroy,OnInit {
   constructor(private renderer: Renderer,public http: HttpClient, private token:TokenService , public route:ActivatedRoute, private router: Router) { }
 
   ngOnInit() {
-    this.dropdownList = [
-      { item_id: 'saturday', item_text: 'Saturday' },
-      { item_id:'sunday', item_text: 'Sunday' },
-      { item_id: 'monday', item_text: 'Monday' },
-      { item_id: 'tuesday', item_text: 'Tuesday' },
-      { item_id: 'wednesday', item_text: 'Wednesday' },
-      { item_id: 'thursday', item_text: 'Thursday' },
-      { item_id:'friday', item_text: 'Friday' }
-    ];
+      this.dropdownList = [
+          { item_id: 'saturday', item_text: 'Saturday' },
+          { item_id:'sunday', item_text: 'Sunday' },
+          { item_id: 'monday', item_text: 'Monday' },
+          { item_id: 'tuesday', item_text: 'Tuesday' },
+          { item_id: 'wednesday', item_text: 'Wednesday' },
+          { item_id: 'thursday', item_text: 'Thursday' },
+          { item_id:'friday', item_text: 'Friday' }
+      ];
 
-    this.dropdownSettings = {
-      singleSelection: false,
-      idField: 'item_id',
-      textField: 'item_text',
-      selectAllText: 'Select All',
-      unSelectAllText: 'UnSelect All',
-      itemsShowLimit: 3,
-      allowSearchFilter: true
-    };
+      this.dropdownSettings = {
+          singleSelection: false,
+          idField: 'item_id',
+          textField: 'item_text',
+          selectAllText: 'Select All',
+          unSelectAllText: 'UnSelect All',
+          itemsShowLimit: 3,
+          allowSearchFilter: true
+      };
   this.getData();
   this.getShift();
 
@@ -94,6 +94,8 @@ export class ShiftAssignComponent implements AfterViewInit,OnDestroy,OnInit {
           "orderable": false, "searchable":false, "name":"selected_rows"
         },
         { data: 'firstName' ,name:'employeeinfo.firstName'},
+        { data: 'middleName' ,name:'employeeinfo.middleName'},
+        { data: 'lastName' ,name:'employeeinfo.lastName'},
         { data: 'EmployeeId' , name: 'employeeinfo.EmployeeId' },
         { data: 'shiftName', name: 'shift.shiftName'},
         { data: 'weekend', name: 'shiftlog.weekend'},
@@ -171,10 +173,12 @@ export class ShiftAssignComponent implements AfterViewInit,OnDestroy,OnInit {
       alert("Empty");
     }
     else {
+        // new Date(this.employeeJoiningForm.actualJoinDate).toLocaleDateString();
+
       let form={
         allEmp:this.allEmp,
         shiftId:this.shiftId,
-        startDate:this.startDate,
+        startDate:new Date(this.startDate).toLocaleDateString(),
         weekends:this.selectedItems
       };
       const token=this.token.get();

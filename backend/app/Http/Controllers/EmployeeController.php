@@ -25,7 +25,7 @@ class EmployeeController extends Controller
     }
 
     public function getAllEmployee(Request $r){
-        $employee = EmployeeInfo::select('employeeinfo.firstName','employeeinfo.EmployeeId','hrmdesignations.title','hrmdepartments.departmentName','employeeinfo.id as empid')
+        $employee = EmployeeInfo::select('employeeinfo.firstName','employeeinfo.lastName','employeeinfo.middleName','employeeinfo.EmployeeId','hrmdesignations.title','hrmdepartments.departmentName','employeeinfo.id as empid')
             ->leftjoin('hrmdesignations','hrmdesignations.id','=','employeeinfo.fkDesignation')
             ->leftjoin('hrmdepartments','hrmdepartments.id','=','employeeinfo.fkDepartmentId')
             ->where('employeeinfo.fkCompany' , auth()->user()->fkCompany);
@@ -35,14 +35,18 @@ class EmployeeController extends Controller
     }
 
     public function getAllEmployeeForAttendance(Request $r){
-        $employee = EmployeeInfo::select('shiftlog.startDate','shiftlog.weekend','shift.shiftName','employeeinfo.firstName','employeeinfo.EmployeeId','hrmdesignations.title','hrmdepartments.departmentName','employeeinfo.id as empid')
+        $employee = EmployeeInfo::select('team.teamName','shiftlog.startDate','shiftlog.weekend','shift.shiftName','employeeinfo.firstName','employeeinfo.middleName','employeeinfo.lastName','employeeinfo.EmployeeId','hrmdesignations.title','hrmdepartments.departmentName','employeeinfo.id as empid')
             ->leftjoin('hrmdesignations','hrmdesignations.id','=','employeeinfo.fkDesignation')
             ->leftjoin('hrmdepartments','hrmdepartments.id','=','employeeinfo.fkDepartmentId')
             ->leftjoin('shiftlog','shiftlog.fkemployeeId','=','employeeinfo.id')
             ->leftjoin('shift','shift.shiftId','=','shiftlog.fkshiftId')
+            ->leftjoin('team','team.teamId','=','employeeinfo.fkTeamId')
             ->where('employeeinfo.fkCompany' , auth()->user()->fkCompany)
             ->where('shiftlog.endDate',null);
-//
+
+        if($r->teamId){
+            $employee=$employee->where('employeeinfo.fkTeamId',$r->teamId);
+        }
 
         $datatables = Datatables::of($employee);
         return $datatables->make(true);
@@ -82,7 +86,7 @@ class EmployeeController extends Controller
 
     public function storeBasicInfo(Request $r){
 
-//        return auth()->user()->id;
+//        return auth()->user()->fkComapny;
 //        return $r;
        $this->validate($r, [
             'EmployeeId' => 'required|max:20',
@@ -111,12 +115,13 @@ class EmployeeController extends Controller
             $user->email=$r->email;
             $user->userName=$r->firstName;
             $user->fkUserType="emp";
-            $user->fkCompany=1;
+            $user->fkCompany=auth()->user()->fkComapny;
             $user->fkActivationStatus=1;
             $user->password=Hash::make('123456');
             $user->save();
             $employeeInfo->fkUserId=$user->id;
             $employeeInfo->createdBy=auth()->user()->id;
+            $employeeInfo->fkCompany=auth()->user()->fkCompany;
           //  $employeeInfo->createdBy=1;
         }
             $employeeInfo->EmployeeId =$r->EmployeeId;
@@ -188,7 +193,7 @@ public function getPersonalInfo(Request $r){
 }
 
 public function getJoinInfo(Request $r){
-        $joinInfo = EmployeeInfo::select('attemployeemap.attDeviceUserId','actualJoinDate','recentJoinDate','resignDate','weekend','accessPin','scheduleInTime','scheduleOutTime','specialAllowance','supervisor','probationPeriod')
+        $joinInfo = EmployeeInfo::select('attemployeemap.attDeviceUserId','actualJoinDate','recentJoinDate','resignDate','weekend','accessPin','scheduleInTime','scheduleOutTime','specialAllowance','supervisor','probationPeriod','employeeinfo.practice')
             ->leftJoin('attemployeemap','attemployeemap.employeeId','employeeinfo.id')
             ->where('employeeinfo.id','=',$r->id)
             ->first();
@@ -196,11 +201,10 @@ public function getJoinInfo(Request $r){
         return response()->json($joinInfo);
 }
 public function updateJoinInfo(Request $r){
+
+
+
         $this->validate($r,[
-            'actualJoinDate' => 'date',
-            'recentJoinDate' => 'date',
-            'resignDate' => 'date',
-            'weekend' => 'nullable|max:10',
             'accessPin' => 'nullable|max:11',
             'scheduleInTime' => 'nullable',
             'scheduleOutTime' => 'nullable',
@@ -209,17 +213,44 @@ public function updateJoinInfo(Request $r){
             'supervisor'   =>'max:80',
 
         ]);
+        $days=array();
+        for ($i=0;$i<count($r->weekend);$i++){
+            array_push($days,$r->weekend[$i]['item_id']);
+        }
+        $tags = implode(',',$days);
+//
+//        return Response()->json($tags);
+
+
 
         $joinInfo = EmployeeInfo::findOrFail($r->id);
-        $joinInfo->actualJoinDate = Carbon::parse($r->actualJoinDate)->format('y-m-d');
-        $joinInfo->recentJoinDate = Carbon::parse($r->recentJoinDate)->format('y-m-d');
-        $joinInfo->resignDate = Carbon::parse($r->recentJoinDate)->format('y-m-d');
-        $joinInfo->weekend = $r->weekend;
+        if($r->actualJoinDate==null){
+            $joinInfo->actualJoinDate = null;
+        }
+        else{
+            $joinInfo->actualJoinDate = Carbon::parse($r->actualJoinDate)->format('Y-m-d');
+        }
+    if($r->recentJoinDate==null){
+        $joinInfo->recentJoinDate = null;
+    }
+    else{
+        $joinInfo->recentJoinDate = Carbon::parse($r->recentJoinDate)->format('Y-m-d');
+    }
+    if($r->resignDate==null){
+        $joinInfo->resignDate = null;
+    }
+    else{
+        $joinInfo->resignDate = Carbon::parse($r->recentJoinDate)->format('Y-m-d');
+    }
+
+
+        $joinInfo->weekend = $tags;
         $joinInfo->accessPin = $r->accessPin;
         $joinInfo->scheduleInTime = $r->scheduleInTime;
         $joinInfo->scheduleOutTime = $r->scheduleOutTime;
         $joinInfo->supervisor = $r->supervisor;
         $joinInfo->probationPeriod = $r->probationPeriod;
+        $joinInfo->practice = $r->practice;
         if($r->specialAllowance==true){
             $joinInfo->specialAllowance = '1';
         }
@@ -245,14 +276,22 @@ public function updateJoinInfo(Request $r){
         ->update(['endDate'=>date('Y-m-d')]);
 
 
-      ShiftLog::create([
-          'fkemployeeId'=> $r->id,
-          'startDate' =>date('Y-m-d'),
-          'fkshiftId'=>$r->shiftId
-      ]);
+//      ShiftLog::create([
+//          'fkemployeeId'=> $r->id,
+//          'startDate' =>date('Y-m-d'),
+//          'fkshiftId'=>$r->shiftId,
+//          'weekend'=>$tags
+//      ]);
 
         $joinInfo->save();
-         return response()->json(["message"=>"Join Info updated"]);
+    $shiftLog=new ShiftLog();
+    $shiftLog->fkemployeeId=$r->id;
+    $shiftLog->startDate=date('Y-m-d');
+    $shiftLog->fkshiftId=$r->shiftId;
+    $shiftLog->weekend=$tags;
+    $shiftLog->save();
+
+    return response()->json(["message"=>"Join Info updated"]);
 }
 public function getBankInfo(Request $r){
         $bankInfo = EmployeeInfo::select('pfAccountNo','bankAccountNo','tinId')->where('id','=',$r->id)->first();
@@ -275,15 +314,17 @@ public function updateBankInfo(Request $r){
 }
 
 public function getSalryInfo(Request $r){
-        $salaryInfo = EmployeeInfo::select('consolidatedSalary','payroll')->where('id','=',$r->id)->first();
+        $salaryInfo = EmployeeInfo::select('consolidatedSalary','payroll')
+            ->where('id','=',$r->id)
+            ->first();
 
         return response()->json($salaryInfo);
 }
 
 public function updateSalryInfo(Request $r){
         $this->validate($r,[
-            'consolidatedSalary' => 'nullable|max:1',
-            'payroll' => 'nullable|max:1'
+            'consolidatedSalary' => 'nullable',
+            'payroll' => 'nullable'
 
         ]);
 
@@ -303,7 +344,7 @@ public function updateEudcation(Request $r,$empId){
             'result' => 'nullable|max:8',
             'resultoutof' => 'nullable|max:1',
             'degreeId' => 'required|max:11',
-            'country' => 'required|max:3',
+            'country' => 'required',
         ]);
 
 

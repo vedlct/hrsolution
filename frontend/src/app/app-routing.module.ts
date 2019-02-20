@@ -13,6 +13,16 @@ import {CompanyInfoComponent} from "./components/company/company-info/company-in
 import {EmployeeComponent} from "./components/user/employee/employee.component";
 import {ShiftComponent} from "./components/configuration/shift/shift.component";
 import {ShiftAssignComponent} from "./components/configuration/shift-assign/shift-assign.component";
+import {LeaveComponent} from "./components/configuration/leave/leave.component";
+import {ShowLeaveComponent} from "./components/configuration/show-leave/show-leave.component";
+import {AttendanceComponent} from "./components/report/attendance/attendance.component";
+import {ShowAttendanceComponent} from "./components/report/show-attendance/show-attendance.component";
+import {CreateTeamComponent} from "./components/team/create-team/create-team.component";
+import {AssignTeamComponent} from "./components/team/assign-team/assign-team.component";
+import {PayEmployeeSalarySetupComponent} from "./components/payroll/pay-employee-salary-setup/pay-employee-salary-setup.component";
+import {PayHeadComponent} from "./components/payroll/pay-head/pay-head.component";
+import {PaySalarySheetComponent} from "./components/payroll/pay-salary-sheet/pay-salary-sheet.component";
+import {PayAdvanceComponent} from "./components/payroll/pay-advance/pay-advance.component";
 
 const routes: Routes = [
     {path: '', component: LoginComponent, canActivate: [GuestService] },
@@ -28,8 +38,20 @@ const routes: Routes = [
     { path: 'configuration/shift', component: ShiftComponent,canActivate: [AuthService] },
     { path: 'configuration/shift/assign', component: ShiftAssignComponent,canActivate: [AuthService] },
     { path: 'configuration/department/add', component: AddDepartmentComponent },
+    { path: 'configuration/leave', component: LeaveComponent },
+    { path: 'configuration/leave/show', component: ShowLeaveComponent },
+    { path: 'report/attendance', component: AttendanceComponent },
+    // { path: 'report/attendance/:id', component: ShowAttendanceComponent },
+    { path: 'report/attendance/:id/:fromdate/:todate', component: ShowAttendanceComponent },
+    { path: 'team/show', component: CreateTeamComponent },
+    { path: 'team/assign', component: AssignTeamComponent },
+    { path: 'payroll/setup', component: PayEmployeeSalarySetupComponent },
+    { path: 'payroll/payhead', component: PayHeadComponent },
+    { path: 'payroll/salary-sheet', component: PaySalarySheetComponent },
+    { path: 'payroll/pay-advance', component: PayAdvanceComponent },
 
 ];
+
 @NgModule({
     exports: [ RouterModule ],
     imports: [ RouterModule.forRoot(routes) ],

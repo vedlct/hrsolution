@@ -34,7 +34,6 @@ export class BasicInfoComponent implements OnInit {
     gender:'',
     photo:''
 
-
   };
 
   selectedFile:File;
@@ -163,7 +162,7 @@ export class BasicInfoComponent implements OnInit {
             $.alert({
                 title: 'Alert!',
                 type: 'Red',
-                content: 'Please Create a user first',
+                content: 'Please Insert Mandatory Fields',
                 buttons: {
                     tryAgain: {
                         text: 'Ok',
@@ -188,10 +187,12 @@ export class BasicInfoComponent implements OnInit {
           fd.append('photo', this.selectedFile, this.selectedFile.name);
       }
 
+
       const token=this.token.get();
 
       this.http.post(Constants.API_URL+'employee/basic'+'?token='+token,fd).subscribe(data => {
 
+          // console.log(data);
            this.result=data;
               $.alert({
                   title: 'Success!',

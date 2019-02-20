@@ -4,7 +4,7 @@ import {HttpClient} from "@angular/common/http";
 import {Constants} from "../../../constants";
 import {TokenService} from "../../../services/token.service";
 import {EducationForm} from  "../../../model/educationForm.model";
-
+declare var $ :any;
 
 @Component({
   selector: 'app-education',
@@ -32,9 +32,32 @@ export class EducationComponent implements OnInit {
       country: '',
   };
   educations:any;
+    // DROPDOWN
+    dropdownList = [];
+    selectedItems = [];
+    dropdownSettings = {};
   @Input('empid') empid: any;
   constructor(private modalService: NgbModal, public http: HttpClient, private token:TokenService) {}
   ngOnInit() {
+      this.dropdownList = [
+          { item_id: 'saturday', item_text: 'Saturday' },
+          { item_id:'sunday', item_text: 'Sunday' },
+          { item_id: 'monday', item_text: 'Monday' },
+          { item_id: 'tuesday', item_text: 'Tuesday' },
+          { item_id: 'wednesday', item_text: 'Wednesday' },
+          { item_id: 'thursday', item_text: 'Thursday' },
+          { item_id:'friday', item_text: 'Friday' }
+      ];
+
+      this.dropdownSettings = {
+          singleSelection: false,
+          idField: 'item_id',
+          textField: 'item_text',
+          selectAllText: 'Select All',
+          unSelectAllText: 'UnSelect All',
+          itemsShowLimit: 3,
+          allowSearchFilter: true
+      };
 
     //Getting Deegree
     this.getAllDegree();
@@ -59,7 +82,7 @@ export class EducationComponent implements OnInit {
     getAllCountry(){
         const token=this.token.get();
         this.http.get(Constants.API_URL+'country/basic'+'?token='+token).subscribe(data => {
-                // console.log(data);
+                console.log(data);
                 this.country=data;
             },
             error => {
@@ -99,6 +122,30 @@ export class EducationComponent implements OnInit {
         // console.log(edu.result);
     }
 
+    deleteEducation(id){
+      // console.log(id);
+        if(!confirm("Are You Sure?")){
+            return false;
+        }
+        const token=this.token.get();
+        // delete-education
+        this.http.post(Constants.API_URL + 'delete-education'+'?token='+token, {id:id}).subscribe(data => {
+                // console.log(data);
+                // this.result=data;
+                this.getAlleducation();
+                $.alert({
+                    title: 'Success!',
+                    content: "Delete",
+                });
+
+            },
+            error => {
+                console.log(error.message);
+
+            }
+        );
+    }
+
   selectDegree(value){
     this.educationForm.degreeId=value;
   }
@@ -106,14 +153,30 @@ export class EducationComponent implements OnInit {
   openLg(content) {
        this.modalRef =  this.modalService.open(content, {});
 
+
   }
 
   saveEducation(){
       // education/post/{empId}
       const token=this.token.get();
       this.http.post(Constants.API_URL + 'education/post/'+this.empid+'?token='+token,this.educationForm).subscribe(data => {
-              console.log(data);
+              // console.log(data);
+              this.result=data;
+              $.alert({
+                  title: 'Success!',
+                  content: this.result.message,
+              });
             this.getAlleducation();
+            this.educationForm={
+                id:'',
+                institution: '',
+                degreeId: '',
+                result: '',
+                resultoutof: '',
+                board: '',
+                passingyear: '',
+                country: '',
+            };
 
           },
           error => {
@@ -135,12 +198,17 @@ export class EducationComponent implements OnInit {
 
     onSubmit(content){
 
+
         let fd = new FormData();
         fd.append('degree',this.newdegree);
         const token=this.token.get();
         this.http.post(Constants.API_URL + 'degree/insert'+'?token='+token, fd).subscribe(data => {
-                console.log(data);
-
+                // console.log(data);
+                // this.result=data;
+                $.alert({
+                    title: 'Success!',
+                    content: "added",
+                });
                 this.getAllDegree();
             },
             error => {

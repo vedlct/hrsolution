@@ -19,7 +19,7 @@ use Illuminate\Http\Request;
 
 Route::group([
 
-    'middleware' => 'api'
+    'middleware' => 'api',
 
 ], function (){
     Route::get('/', function () {
@@ -31,6 +31,10 @@ Route::group([
 
     });
 
+
+    //Test
+    Route::get('/test','TestController@test');
+
     Route::post('login','AuthController@login');
     Route::post('logout', 'AuthController@logout');
     Route::post('refresh', 'AuthController@refresh');
@@ -40,9 +44,6 @@ Route::group([
     Route::get('company/get','CompanyController@get');
     Route::get('company/get/department','CompanyController@getDepartment');
     Route::post('company/post/updateInfo','CompanyController@updateInfo');
-
-
-
 
 
 
@@ -75,6 +76,11 @@ Route::group([
     Route::post('degree/insert','DegreeController@newDegree');
 
 
+    //===============================Leave Limit==================================
+    Route::post('leave/limit/get','LeaveLimitController@get');
+    Route::post('leave/limit/post','LeaveLimitController@post');
+
+
 
 
     //get Country-nationality
@@ -100,6 +106,7 @@ Route::group([
     //Education
     Route::post('education/post/{empId}','EmployeeController@updateEudcation');
     Route::get('education/get/{id}','EducationController@getAlleducation');
+    Route::post('delete-education','EducationController@deleteEmpEducation');
 
 
     //Designation Info
@@ -122,10 +129,72 @@ Route::group([
     Route::post('/getAllShift','shiftController@getAllShift');
     Route::post('shift/assign','shiftController@assignToShift');
 
+    //Leave Apply
+    Route::get('leave/getLeaveCategory','LeaveController@getLeaveCategory');
+    Route::post('leave/assignLeave','LeaveController@assignLeave');
+
+    //Show Leave Requests
+    Route::post('leave/getLeaveRequests','LeaveController@getLeaveRequests');
+
+    Route::post('leave/getLeaveRequests/{id}','LeaveController@getLeaveRequestsIndividual');
+
+
+
 //Emergency Contact
 
     Route::post('emergency-contact/post','EmergencyContactController@createEmergencyContact');
     Route::post('emergency-contact/get','EmergencyContactController@getEmergencyContact');
+//Documents
+    Route::post('document/submit','DocumentController@submit');
+
+    Route::post('document/get','DocumentController@getDocuments');
+    //Documents
+//    Route::post('documents/post','EmployeeDocumentController@createDocuments');
+//===================================Team===========================================
+
+    Route::get('team/get','TeamController@getTeams');
+    Route::post('team/post','TeamController@postTeams');
+    Route::post('team/assign','TeamController@assignTeam');
+
+    //==================================Report==========================================
+
+
+    Route::post('report/attendance','AttendanceController@index');
+    Route::post('report/getEmployeeAttendance','AttendanceController@getEmployeeAttendance');
+
+
+
+    //========================================Comment======================================
+    Route::post('comment/add','CommentController@add');
+    Route::post('comment/get','CommentController@get');
+
+
+
+    //=================================Excel Report========================================
+    Route::post('excel/generate','ExcelController@generate');
+
+
+
+
+    //===================================Payroll============================================
+    Route::post('payroll/payhead/insert','PayrollController@insertPayhead');
+    Route::get('payroll/payhead/get','PayrollController@get');
+    Route::post('payroll/payhead/update','PayrollController@update');
+    Route::get('payroll/payhead/employee/get/{id}','PayrollController@getEmployeeData');
+
+    //Salary Setup
+    Route::post('payroll/payhead/salarySetupGet','PayrollController@salarySetupGet');
+    Route::post('payroll/payhead/salarySetupSet','PayrollController@salarySetupSet');
+
+
+    //Pay Advance Ledger
+    Route::post('payroll/payadvance/ledger','PayrollController@payAdvanceLedger');
+
+
+    //Pay Salary Sheet Main
+    Route::post('payroll/paysalarysheetmain','PayrollController@getPaySalarySheetMain');
+    Route::post('payroll/paysalarysheetmain/insert','PayrollController@insertPaySalarySheetMain');
+
 
 
 

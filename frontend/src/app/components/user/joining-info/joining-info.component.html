@@ -38,22 +38,39 @@
       </div>
 
       <div class="form-group col-md-6">
+
+        <!--<input type="text" name="weekend" placeholder="day" [(ngModel)]="employeeJoiningForm.weekend" class="form-control">-->
         <label>Weekend</label>
-        <input type="text" name="weekend" placeholder="day" [(ngModel)]="employeeJoiningForm.weekend" class="form-control">
+        <ng-multiselect-dropdown
+                [placeholder]="'Select Weekend'"
+                [data]="dropdownList"
+                [(ngModel)]="selectedItems"
+                [settings]="dropdownSettings"
+                (onSelect)="onItemSelect($event)"
+                (onDeSelect)="onItemDeSelect($event)"
+
+        >
+        </ng-multiselect-dropdown>
       </div>
 
-      <div class="form-group col-md-3">
-        <label>Access Pin</label>
+
+      <div class="form-group col-md-4">
+        <label>Card Number</label>
         <input type="text" name="accessPin" placeholder="pin" [(ngModel)]="employeeJoiningForm.accessPin" class="form-control">
       </div>
-      <div class="form-group col-md-3">
+      <div class="form-group col-md-4">
         <label>Attendance Device Pin</label>
         <input type="text" name="accessPin" placeholder="pin" [(ngModel)]="employeeJoiningForm.attDeviceUserId" class="form-control">
       </div>
 
+      <div class="form-group col-md-4">
+        <label>Practice</label>
+        <input type="number" name="practice" placeholder="days" [(ngModel)]="employeeJoiningForm.practice"  class="form-control">
+      </div>
 
 
-      <div class="form-group col-md-6">
+
+      <div class="form-group col-md-4">
         <label>Shift</label>
         <select class="form-control" name="shift"   (change)="selectShift($event.target.value)">
           <option value="">Select Shift</option>
@@ -74,15 +91,18 @@
       <!--</div>-->
 
 
-      <div class="form-group col-md-6">
+      <div class="form-group col-md-4">
         <label>Schedule In Time</label>
         <input type="time" name="scheduleInTime" placeholder="in time" [(ngModel)]="employeeJoiningForm.scheduleInTime" class="form-control" readonly>
       </div>
 
-      <div class="form-group col-md-6">
+      <div class="form-group col-md-4">
         <label>Schedule Out Time</label>
         <input type="time" name="scheduleOutTime" placeholder="out time" [(ngModel)]="employeeJoiningForm.scheduleOutTime" class="form-control" readonly>
       </div>
+
+
+
 
       <div class="form-group col-md-6">
         <label>Special Allowance</label>
@@ -94,6 +114,28 @@
 
       <div class="col-md-12">
         <button class="btn btn-success" (click)="submit()">Save</button>
+      </div>
+
+
+      <!--Leave Limit-->
+      <div class="form-group col-md-12">
+        <h5 align="center">Leave Limit</h5>
+        <hr>
+      </div>
+
+      <div class="form-group col-md-6">
+        <label>Total Leave</label>
+        <input type="text" [(ngModel)]="totalLeaveAssigned"  placeholder="total leave" class="form-control">
+      </div>
+
+
+      <div class="form-group col-md-6">
+        <label>Leave Taken</label>
+        <input type="number" [(ngModel)]="leaveTaken"  placeholder="total leave taken" class="form-control" readonly>
+      </div>
+
+      <div class="col-md-12">
+        <button class="btn btn-success" (click)="submitLeaveLimit()">Save Leave Limit</button>
       </div>
 
 

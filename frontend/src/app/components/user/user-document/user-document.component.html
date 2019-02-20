@@ -1,20 +1,40 @@
 <div class="card">
   <div class="card-header">All Documents</div>
   <div class="card-body">
-    <!--<ul>-->
-      <!--<li *ngFor="let index of formNumber">-->
-        <!--{{ index }}-->
+
+    <h4>Uploaded</h4>
+    <hr>
+    <!--<ol>-->
+      <!--<li  *ngFor="let index of userUploadedFile">-->
+       <!--File Name : {{index.title}}-->
+
+        <!--<a target="_blank" href="{{imageUrl+index.path}}" download class="btn btn-info btn-sm" >Download</a>-->
       <!--</li>-->
-    <!--</ul>-->
-    <div class="row" *ngFor="let index of formNumber">
+    <!--</ol>-->
+
+    <table class="table table-striped">
+      <tr *ngFor="let index of userUploadedFile">
+        <td>{{index.title}}</td>
+        <td><a target="_blank" href="{{imageUrl+index.path}}" download class="btn btn-info btn-sm" >Download</a></td>
+
+      </tr>
+    </table>
+
+
+
+
+    <h4>Add</h4>
+    <hr>
+    <div class="row" *ngFor="let index of userDocumentFormArray;let i = index">
       <div class="form-group col-md-6">
+
         <label>Name</label>
-        <input type="text" placeholder="title" class="form-control" [(ngModel)]="userDocumentFormArray[index].name">
+        <input type="text" placeholder="title" class="form-control" [(ngModel)]="index.name">
       </div>
 
       <div class="form-group col-md-6">
         <label>Document</label>
-        <input type="text" placeholder="title" class="form-control" [(ngModel)]="userDocumentFormArray[index].document">
+        <input type="file" class="form-control" name="photo" placeholder="document" (change)="onFileSelected(i,$event)">
       </div>
 
     </div>

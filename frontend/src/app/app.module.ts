@@ -34,6 +34,15 @@ import { ShiftAssignComponent } from './components/configuration/shift-assign/sh
 import { NgMultiSelectDropDownModule } from 'ng-multiselect-dropdown';
 import { EmergencyContactComponent } from './components/user/emergency-contact/emergency-contact.component';
 import { UserDocumentComponent } from './components/user/user-document/user-document.component';
+import { LeaveComponent } from './components/configuration/leave/leave.component';
+import { ShowLeaveComponent } from './components/configuration/show-leave/show-leave.component';
+import { AttendanceComponent } from './components/report/attendance/attendance.component';
+import { ShowAttendanceComponent } from './components/report/show-attendance/show-attendance.component';
+import { CreateTeamComponent } from './components/team/create-team/create-team.component';
+import { AssignTeamComponent } from './components/team/assign-team/assign-team.component';
+import { PayHeadComponent } from './components/payroll/pay-head/pay-head.component';
+import { PaySalarySheetComponent } from './components/payroll/pay-salary-sheet/pay-salary-sheet.component';
+import { PayAdvanceComponent } from './components/payroll/pay-advance/pay-advance.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -60,7 +69,16 @@ import { UserDocumentComponent } from './components/user/user-document/user-docu
     ShiftComponent,
     ShiftAssignComponent,
     EmergencyContactComponent,
-    UserDocumentComponent
+    UserDocumentComponent,
+    LeaveComponent,
+    ShowLeaveComponent,
+    AttendanceComponent,
+    ShowAttendanceComponent,
+    CreateTeamComponent,
+    AssignTeamComponent,
+    PayHeadComponent,
+    PaySalarySheetComponent,
+    PayAdvanceComponent
   ],
   imports: [
     BrowserModule,

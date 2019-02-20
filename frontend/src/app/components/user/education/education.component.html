@@ -9,7 +9,7 @@
     <!--<li *ngFor="let p of error">-->
       <!--{{p}}-->
     <!--</li>-->
-    <div *ngFor="let p of error" class="alert alert-secondary" role="alert">
+    <div *ngFor="let p of error" class="alert alert-danger" role="alert">
       {{p}}
     </div>
 
@@ -95,6 +95,7 @@
         <td>{{edu.passingYear}}</td>
         <td>
           <button class="btn btn-danger" (click)="editEducation(edu)" style="margin-left: 20px;">Edit</button>
+          <button class="btn btn-danger" (click)="deleteEducation(edu.id)" style="margin-left: 20px;">Delete</button>
         </td>
       </tr>
       </tbody>

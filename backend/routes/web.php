@@ -15,4 +15,9 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/test', 'EmployeeController@test');
+//Route::get('/test', 'EmployeeController@test');
+//Route::get('path',function (){
+//   return mkdir(public_path('documents/').'anjum', 0777, true);
+//});
+Route::get('test','TestController@test');
+Route::get('excel/generate','ExcelController@generate');

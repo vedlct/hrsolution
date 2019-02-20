@@ -40,6 +40,7 @@
       25 => 'App\\Providers\\AuthServiceProvider',
       26 => 'App\\Providers\\EventServiceProvider',
       27 => 'App\\Providers\\RouteServiceProvider',
+      28 => 'Maatwebsite\\Excel\\ExcelServiceProvider',
     ),
     'aliases' => 
     array (
@@ -78,6 +79,7 @@
       'View' => 'Illuminate\\Support\\Facades\\View',
       'JWTAuth' => 'Tymon\\JWTAuth\\Facades\\JWTAuth',
       'DataTables' => 'Yajra\\DataTables\\Facades\\DataTables',
+      'Excel' => 'Maatwebsite\\Excel\\Facades\\Excel',
     ),
   ),
   'auth' => 
@@ -172,7 +174,11 @@
       'file' => 
       array (
         'driver' => 'file',
+<<<<<<< HEAD
         'path' => 'F:\\xampp\\htdocs\\hrsolution\\backend\\storage\\framework/cache/data',
+=======
+        'path' => '/opt/lampp/htdocs/hrsolution/backend/storage/framework/cache/data',
+>>>>>>> bf55dde8a4bdced27ae3f7d25df21e0f161aac18
       ),
       'memcached' => 
       array (
@@ -216,8 +222,7 @@
     ),
     'allowedHeaders' => 
     array (
-      0 => 'Content-Type',
-      1 => 'X-Requested-With',
+      0 => '*',
     ),
     'allowedMethods' => 
     array (
@@ -242,7 +247,7 @@
       'mysql' => 
       array (
         'driver' => 'mysql',
-        'host' => '127.0.0.1',
+        'host' => 'localhost',
         'port' => '3306',
         'database' => 'tinyerp',
         'username' => 'root',
@@ -251,13 +256,13 @@
         'charset' => 'utf8mb4',
         'collation' => 'utf8mb4_unicode_ci',
         'prefix' => '',
-        'strict' => true,
+        'strict' => false,
         'engine' => NULL,
       ),
       'pgsql' => 
       array (
         'driver' => 'pgsql',
-        'host' => '127.0.0.1',
+        'host' => 'localhost',
         'port' => '3306',
         'database' => 'tinyerp',
         'username' => 'root',
@@ -270,7 +275,7 @@
       'sqlsrv' => 
       array (
         'driver' => 'sqlsrv',
-        'host' => '127.0.0.1',
+        'host' => 'localhost',
         'port' => '3306',
         'database' => 'tinyerp',
         'username' => 'root',
@@ -341,6 +346,265 @@
       'options' => 0,
     ),
   ),
+  'excel' => 
+  array (
+    'cache' => 
+    array (
+      'enable' => true,
+      'driver' => 'memory',
+      'settings' => 
+      array (
+        'memoryCacheSize' => '32MB',
+        'cacheTime' => 600,
+      ),
+      'memcache' => 
+      array (
+        'host' => 'localhost',
+        'port' => 11211,
+      ),
+      'dir' => '/opt/lampp/htdocs/hrsolution/backend/storage/cache',
+    ),
+    'properties' => 
+    array (
+      'creator' => 'Maatwebsite',
+      'lastModifiedBy' => 'Maatwebsite',
+      'title' => 'Spreadsheet',
+      'description' => 'Default spreadsheet export',
+      'subject' => 'Spreadsheet export',
+      'keywords' => 'maatwebsite, excel, export',
+      'category' => 'Excel',
+      'manager' => 'Maatwebsite',
+      'company' => 'Maatwebsite',
+    ),
+    'sheets' => 
+    array (
+      'pageSetup' => 
+      array (
+        'orientation' => 'portrait',
+        'paperSize' => '9',
+        'scale' => '100',
+        'fitToPage' => false,
+        'fitToHeight' => true,
+        'fitToWidth' => true,
+        'columnsToRepeatAtLeft' => 
+        array (
+          0 => '',
+          1 => '',
+        ),
+        'rowsToRepeatAtTop' => 
+        array (
+          0 => 0,
+          1 => 0,
+        ),
+        'horizontalCentered' => false,
+        'verticalCentered' => false,
+        'printArea' => NULL,
+        'firstPageNumber' => NULL,
+      ),
+    ),
+    'creator' => 'Maatwebsite',
+    'csv' => 
+    array (
+      'delimiter' => ',',
+      'enclosure' => '"',
+      'line_ending' => '
+',
+      'use_bom' => false,
+    ),
+    'export' => 
+    array (
+      'autosize' => true,
+      'autosize-method' => 'approx',
+      'generate_heading_by_indices' => true,
+      'merged_cell_alignment' => 'left',
+      'calculate' => false,
+      'includeCharts' => false,
+      'sheets' => 
+      array (
+        'page_margin' => false,
+        'nullValue' => NULL,
+        'startCell' => 'A1',
+        'strictNullComparison' => false,
+      ),
+      'store' => 
+      array (
+        'path' => '/opt/lampp/htdocs/hrsolution/backend/storage/exports',
+        'returnInfo' => false,
+      ),
+      'pdf' => 
+      array (
+        'driver' => 'DomPDF',
+        'drivers' => 
+        array (
+          'DomPDF' => 
+          array (
+            'path' => '/opt/lampp/htdocs/hrsolution/backend/vendor/dompdf/dompdf/',
+          ),
+          'tcPDF' => 
+          array (
+            'path' => '/opt/lampp/htdocs/hrsolution/backend/vendor/tecnick.com/tcpdf/',
+          ),
+          'mPDF' => 
+          array (
+            'path' => '/opt/lampp/htdocs/hrsolution/backend/vendor/mpdf/mpdf/',
+          ),
+        ),
+      ),
+    ),
+    'filters' => 
+    array (
+      'registered' => 
+      array (
+        'chunk' => 'Maatwebsite\\Excel\\Filters\\ChunkReadFilter',
+      ),
+      'enabled' => 
+      array (
+      ),
+    ),
+    'import' => 
+    array (
+      'heading' => 'slugged',
+      'startRow' => 1,
+      'separator' => '_',
+      'slug_whitelist' => '._',
+      'includeCharts' => false,
+      'to_ascii' => true,
+      'encoding' => 
+      array (
+        'input' => 'UTF-8',
+        'output' => 'UTF-8',
+      ),
+      'calculate' => true,
+      'ignoreEmpty' => false,
+      'force_sheets_collection' => false,
+      'dates' => 
+      array (
+        'enabled' => true,
+        'format' => false,
+        'columns' => 
+        array (
+        ),
+      ),
+      'sheets' => 
+      array (
+        'test' => 
+        array (
+          'firstname' => 'A2',
+        ),
+      ),
+    ),
+    'views' => 
+    array (
+      'styles' => 
+      array (
+        'th' => 
+        array (
+          'font' => 
+          array (
+            'bold' => true,
+            'size' => 12,
+          ),
+        ),
+        'strong' => 
+        array (
+          'font' => 
+          array (
+            'bold' => true,
+            'size' => 12,
+          ),
+        ),
+        'b' => 
+        array (
+          'font' => 
+          array (
+            'bold' => true,
+            'size' => 12,
+          ),
+        ),
+        'i' => 
+        array (
+          'font' => 
+          array (
+            'italic' => true,
+            'size' => 12,
+          ),
+        ),
+        'h1' => 
+        array (
+          'font' => 
+          array (
+            'bold' => true,
+            'size' => 24,
+          ),
+        ),
+        'h2' => 
+        array (
+          'font' => 
+          array (
+            'bold' => true,
+            'size' => 18,
+          ),
+        ),
+        'h3' => 
+        array (
+          'font' => 
+          array (
+            'bold' => true,
+            'size' => 13.5,
+          ),
+        ),
+        'h4' => 
+        array (
+          'font' => 
+          array (
+            'bold' => true,
+            'size' => 12,
+          ),
+        ),
+        'h5' => 
+        array (
+          'font' => 
+          array (
+            'bold' => true,
+            'size' => 10,
+          ),
+        ),
+        'h6' => 
+        array (
+          'font' => 
+          array (
+            'bold' => true,
+            'size' => 7.5,
+          ),
+        ),
+        'a' => 
+        array (
+          'font' => 
+          array (
+            'underline' => true,
+            'color' => 
+            array (
+              'argb' => 'FF0000FF',
+            ),
+          ),
+        ),
+        'hr' => 
+        array (
+          'borders' => 
+          array (
+            'bottom' => 
+            array (
+              'style' => 'thin',
+              'color' => 
+              array (
+                0 => 'FF000000',
+              ),
+            ),
+          ),
+        ),
+      ),
+    ),
+  ),
   'filesystems' => 
   array (
     'default' => 'local',
@@ -350,12 +614,20 @@
       'local' => 
       array (
         'driver' => 'local',
+<<<<<<< HEAD
         'root' => 'F:\\xampp\\htdocs\\hrsolution\\backend\\storage\\app',
+=======
+        'root' => '/opt/lampp/htdocs/hrsolution/backend/storage/app',
+>>>>>>> bf55dde8a4bdced27ae3f7d25df21e0f161aac18
       ),
       'public' => 
       array (
         'driver' => 'local',
+<<<<<<< HEAD
         'root' => 'F:\\xampp\\htdocs\\hrsolution\\backend\\storage\\app/public',
+=======
+        'root' => '/opt/lampp/htdocs/hrsolution/backend/storage/app/public',
+>>>>>>> bf55dde8a4bdced27ae3f7d25df21e0f161aac18
         'url' => 'http://localhost/storage',
         'visibility' => 'public',
       ),
@@ -393,7 +665,7 @@
       'private' => NULL,
       'passphrase' => NULL,
     ),
-    'ttl' => 60,
+    'ttl' => 525600,
     'refresh_ttl' => 20160,
     'algo' => 'HS256',
     'required_claims' => 
@@ -436,13 +708,21 @@
       'single' => 
       array (
         'driver' => 'single',
+<<<<<<< HEAD
         'path' => 'F:\\xampp\\htdocs\\hrsolution\\backend\\storage\\logs/laravel.log',
+=======
+        'path' => '/opt/lampp/htdocs/hrsolution/backend/storage/logs/laravel.log',
+>>>>>>> bf55dde8a4bdced27ae3f7d25df21e0f161aac18
         'level' => 'debug',
       ),
       'daily' => 
       array (
         'driver' => 'daily',
+<<<<<<< HEAD
         'path' => 'F:\\xampp\\htdocs\\hrsolution\\backend\\storage\\logs/laravel.log',
+=======
+        'path' => '/opt/lampp/htdocs/hrsolution/backend/storage/logs/laravel.log',
+>>>>>>> bf55dde8a4bdced27ae3f7d25df21e0f161aac18
         'level' => 'debug',
         'days' => 7,
       ),
@@ -494,7 +774,11 @@
       'theme' => 'default',
       'paths' => 
       array (
+<<<<<<< HEAD
         0 => 'F:\\xampp\\htdocs\\hrsolution\\backend\\resources\\views/vendor/mail',
+=======
+        0 => '/opt/lampp/htdocs/hrsolution/backend/resources/views/vendor/mail',
+>>>>>>> bf55dde8a4bdced27ae3f7d25df21e0f161aac18
       ),
     ),
   ),
@@ -575,7 +859,11 @@
     'lifetime' => '120',
     'expire_on_close' => false,
     'encrypt' => false,
+<<<<<<< HEAD
     'files' => 'F:\\xampp\\htdocs\\hrsolution\\backend\\storage\\framework/sessions',
+=======
+    'files' => '/opt/lampp/htdocs/hrsolution/backend/storage/framework/sessions',
+>>>>>>> bf55dde8a4bdced27ae3f7d25df21e0f161aac18
     'connection' => NULL,
     'table' => 'sessions',
     'store' => NULL,
@@ -595,9 +883,15 @@
   array (
     'paths' => 
     array (
+<<<<<<< HEAD
       0 => 'F:\\xampp\\htdocs\\hrsolution\\backend\\resources\\views',
     ),
     'compiled' => 'F:\\xampp\\htdocs\\hrsolution\\backend\\storage\\framework\\views',
+=======
+      0 => '/opt/lampp/htdocs/hrsolution/backend/resources/views',
+    ),
+    'compiled' => '/opt/lampp/htdocs/hrsolution/backend/storage/framework/views',
+>>>>>>> bf55dde8a4bdced27ae3f7d25df21e0f161aac18
   ),
   'trustedproxy' => 
   array (
@@ -606,6 +900,9 @@
   ),
   'tinker' => 
   array (
+    'commands' => 
+    array (
+    ),
     'dont_alias' => 
     array (
     ),
