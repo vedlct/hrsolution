@@ -43,6 +43,7 @@ import { AssignTeamComponent } from './components/team/assign-team/assign-team.c
 import { PayHeadComponent } from './components/payroll/pay-head/pay-head.component';
 import { PaySalarySheetComponent } from './components/payroll/pay-salary-sheet/pay-salary-sheet.component';
 import { PayAdvanceComponent } from './components/payroll/pay-advance/pay-advance.component';
+import { NgxPermissionsModule } from 'ngx-permissions';
 @NgModule({
   declarations: [
     AppComponent,
@@ -90,7 +91,8 @@ import { PayAdvanceComponent } from './components/payroll/pay-advance/pay-advanc
     ReactiveFormsModule,
     BsDatepickerModule.forRoot(),
     NgbModule.forRoot(),
-    NgMultiSelectDropDownModule.forRoot()
+    NgMultiSelectDropDownModule.forRoot(),
+    NgxPermissionsModule.forRoot()
   ],
   providers: [],
   bootstrap: [AppComponent]

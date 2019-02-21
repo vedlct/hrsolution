@@ -1,4 +1,4 @@
-export interface  User {
+export class  User {
     contactNo: string;
     email: string;
     fkActivationStatus: number;

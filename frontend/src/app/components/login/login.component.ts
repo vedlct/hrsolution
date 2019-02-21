@@ -5,6 +5,8 @@ import  { Constants }  from '../../constants';
 import {TokenService} from "../../services/token.service";
 import {FormGroup, FormControl, Validators} from '@angular/forms';
 import {NgxSpinnerService} from "ngx-spinner";
+import { NgxPermissionsService, NgxPermissionsConfigurationService } from 'ngx-permissions';
+import {User} from "../../model/user.model";
 
 
 @Component({
@@ -16,12 +18,15 @@ export class LoginComponent implements OnInit {
     form:any;
     error:null;
     submitted = false;
+    userModel={} as User;
 
 
   constructor(private http:HttpClient,
               private router:Router,
               private token:TokenService,
-              private spinner: NgxSpinnerService
+              private spinner: NgxSpinnerService,
+              private permissionsService: NgxPermissionsService,
+              private ngxPermissionsConfigurationService: NgxPermissionsConfigurationService,
   ) {
 
   }
@@ -66,8 +71,18 @@ export class LoginComponent implements OnInit {
 
   handleResponse(data) {
     this.token.handle(data.access_token);
+    this.token.getUser().subscribe(data => {
+              this.userModel=data as User;
+              let perm = [];
+              perm.push(this.userModel.fkUserType);
+              console.log(perm);
+              this.permissionsService.loadPermissions(perm);
+          },
+          error => {
+              console.log(error);
 
 
+    });
 
     this.router.navigateByUrl('home');
   }

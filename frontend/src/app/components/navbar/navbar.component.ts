@@ -3,6 +3,7 @@ import {Constants} from '../../constants';
 import {HttpClient} from '@angular/common/http';
 import {TokenService} from "../../services/token.service";
 import {User} from "../../model/user.model";
+import {NgxPermissionsService} from "ngx-permissions";
 
 @Component({
   selector: 'app-navbar',
@@ -12,7 +13,7 @@ import {User} from "../../model/user.model";
 export class NavbarComponent implements OnInit {
 
   data:any;
-  // user={} as User;
+  userModel={} as User;
     user:any={
         contactNo: "",
         email: "",
@@ -26,28 +27,30 @@ export class NavbarComponent implements OnInit {
         userName:  ""
 
     };
+    tokenUser:any={};
 
-  constructor(public http: HttpClient,private token:TokenService) {
+  constructor(private permissionsService: NgxPermissionsService,public http: HttpClient,private token:TokenService) {
 
   }
 
   ngOnInit() {
 
+      // this.token.getUser().subscribe(data => {
+      //         this.userModel=data as User;
+      //         // this.tokenUser=this.userModel;
+      //
+      //         let perm = [];
+      //         perm.push(this.userModel.fkUserType);
+      //         console.log(perm);
+      //         this.permissionsService.loadPermissions(perm);
+      //     },
+      //     error => {
+      //         console.log(error);
+      //
+      //
+      //     });
 
-      const token=this.token.get();
-      this.http.post(Constants.API_URL+'me?token='+token,null).subscribe(data => {
-              // console.log(data);
-              this.token.setUser(data);
-              this.user=this.token.getUser();
 
-
-          },
-          error => {
-              console.log(error);
-              this.handleError(error);
-
-          }
-      );
 
   }
 

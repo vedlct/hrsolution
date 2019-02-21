@@ -7,6 +7,7 @@ import {ActivatedRoute, Router} from "@angular/router";
 import {NgxSpinnerService} from "ngx-spinner";
 import {Subject} from "rxjs";
 import {NgbModal} from "@ng-bootstrap/ng-bootstrap";
+import {NgxPermissionsService} from 'ngx-permissions';
 
 @Component({
   selector: 'app-pay-head',
@@ -25,10 +26,13 @@ export class PayHeadComponent implements OnInit {
 
 
 
-  constructor(private modalService: NgbModal,private renderer: Renderer,public http: HttpClient, private token:TokenService ,
+  constructor(private permissionsService: NgxPermissionsService,private modalService: NgbModal,private renderer: Renderer,public http: HttpClient, private token:TokenService ,
               public route:ActivatedRoute, private router: Router,private spinner: NgxSpinnerService) { }
 
   ngOnInit() {
+    const perm = ["Moderator", "EDITOR"];
+    this.permissionsService.loadPermissions(perm);
+
     this.model.allowDeducType='';
     this.getData();
   }

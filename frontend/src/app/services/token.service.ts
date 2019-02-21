@@ -10,19 +10,37 @@ import {HttpClient} from "@angular/common/http";
 export class TokenService {
 
   token:boolean=false;
-  user:any;
+  user:any={};
   constructor(private router:Router,public http: HttpClient) {
     // setInterval(() => {
     //   this.isTokenExpired();
     // }, 4000);
   }
 
-  setUser(user){
-    this.user=user;
+  setUser(){
+    // this.user=user;
+      const token=this.get();
+      this.http.post(Constants.API_URL+'me?token='+token,null).subscribe(data => {
+              // console.log(data);
+
+              this.user=data;
+          },
+          error => {
+              console.log(error);
+
+
+          }
+      );
+  }
+
+  setUserDef(user){
+        this.user=user;
   }
 
   getUser(){
-    return this.user;
+     const token=this.get();
+     return this.http.post(Constants.API_URL+'me?token='+token,null);
+
   }
 
 
@@ -51,16 +69,16 @@ export class TokenService {
     localStorage.setItem('token', token);
     // console.log(this.payload(token));
 
-    // this.http.post(Constants.API_URL+'me?token='+token,null).subscribe(data => {
-    //       this.setUser(data);
-    //
-    //     },
-    //     error => {
-    //       console.log(error);
-    //       // this.handleError(error);
-    //
-    //     }
-    // );
+    this.http.post(Constants.API_URL+'me?token='+token,null).subscribe(data => {
+          this.setUserDef(data);
+
+        },
+        error => {
+          console.log(error);
+          // this.handleError(error);
+
+        }
+    );
   }
 
   get() {

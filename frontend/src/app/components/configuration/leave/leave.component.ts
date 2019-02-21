@@ -91,10 +91,7 @@ export class LeaveComponent implements OnInit {
         const token=this.token.get();
 
         this.http.get(Constants.API_URL+'leave/getLeaveCategory'+'?token='+token).subscribe(data => {
-                // console.log(data);
                 this.leaveCategories=data;
-
-
             },
             error => {
                 console.log(error);

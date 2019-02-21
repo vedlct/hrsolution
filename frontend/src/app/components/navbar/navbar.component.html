@@ -167,19 +167,20 @@
               <li class="has-submenu">
                 <a href="#">Leave</a>
                 <ul class="submenu">
-                  <li><a routerLink="configuration/leave">Apply Lave</a></li>
-                  <li><a routerLink="configuration/leave/show">Show Lave</a></li>
+                  <li><a routerLink="leave/apply">Apply Leave</a></li>
+                  <li><a routerLink="configuration/leave">Create Leave</a></li>
+                  <li><a routerLink="configuration/leave/show">Show Leave</a></li>
                 </ul>
               </li>
 
 
-              <li class="has-submenu">
+              <li class="has-submenu" *ngxPermissionsOnly="['admin']">
                 <a href="#">User</a>
                 <ul class="submenu">
                   <li><a routerLink="user/add">Add User</a></li>
                 </ul>
               </li>
-              <li class="has-submenu">
+              <li class="has-submenu" *ngxPermissionsOnly="['admin']">
                 <a href="#">Employee</a>
                 <ul class="submenu">
                   <li><a routerLink="employee">Employee</a></li>

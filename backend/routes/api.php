@@ -132,6 +132,7 @@ Route::group([
     //Leave Apply
     Route::get('leave/getLeaveCategory','LeaveController@getLeaveCategory');
     Route::post('leave/assignLeave','LeaveController@assignLeave');
+    Route::post('leave/assignLeavePersonal','LeaveController@assignLeavePersonal');
 
     //Show Leave Requests
     Route::post('leave/getLeaveRequests','LeaveController@getLeaveRequests');

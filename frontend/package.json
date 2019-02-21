@@ -33,6 +33,7 @@
     "ng-modal": "^1.0.2",
     "ng-multiselect-dropdown": "^0.2.1",
     "ngx-bootstrap": "^3.0.1",
+    "ngx-permissions": "^6.0.5",
     "ngx-spinner": "^6.0.0",
     "open-iconic": "^1.1.1",
     "rxjs": "^6.0.0",

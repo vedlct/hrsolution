@@ -1,6 +1,8 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { RouterModule, Routes } from '@angular/router';
+// import { RouterModule, Routes } from '@angular/router';
+import { ActivatedRouteSnapshot, RouterModule, RouterStateSnapshot, Routes } from '@angular/router';
+
 import {HomeComponent} from "./components/home/home.component";
 import {TablesComponent} from "./components/tables/tables.component";
 import {LoginComponent} from "./components/login/login.component";
@@ -23,7 +25,18 @@ import {PayEmployeeSalarySetupComponent} from "./components/payroll/pay-employee
 import {PayHeadComponent} from "./components/payroll/pay-head/pay-head.component";
 import {PaySalarySheetComponent} from "./components/payroll/pay-salary-sheet/pay-salary-sheet.component";
 import {PayAdvanceComponent} from "./components/payroll/pay-advance/pay-advance.component";
+import {AddLeaveComponent} from "./components/leave/add-leave/add-leave.component";
+import { NgxPermissionsGuard } from 'ngx-permissions';
 
+
+export function testPermissions(route: ActivatedRouteSnapshot, state: RouterStateSnapshot) {
+    console.log(route.params);
+    if (route.params['id'] === 42) {
+        return ['MANAGER', "UTILS"]
+    } else {
+        return 'ADMIN'
+    }
+}
 const routes: Routes = [
     {path: '', component: LoginComponent, canActivate: [GuestService] },
     { path: 'login', component: LoginComponent, canActivate: [GuestService] },
@@ -40,6 +53,7 @@ const routes: Routes = [
     { path: 'configuration/department/add', component: AddDepartmentComponent },
     { path: 'configuration/leave', component: LeaveComponent },
     { path: 'configuration/leave/show', component: ShowLeaveComponent },
+    { path: 'leave/apply', component: AddLeaveComponent },
     { path: 'report/attendance', component: AttendanceComponent },
     // { path: 'report/attendance/:id', component: ShowAttendanceComponent },
     { path: 'report/attendance/:id/:fromdate/:todate', component: ShowAttendanceComponent },
@@ -48,13 +62,35 @@ const routes: Routes = [
     { path: 'payroll/setup', component: PayEmployeeSalarySetupComponent },
     { path: 'payroll/payhead', component: PayHeadComponent },
     { path: 'payroll/salary-sheet', component: PaySalarySheetComponent },
-    { path: 'payroll/pay-advance', component: PayAdvanceComponent },
+    // { path: 'payroll/pay-advance', component: PayAdvanceComponent },
+    { path: 'payroll/pay-advance',
+        component: PayAdvanceComponent,
+        canActivate: [NgxPermissionsGuard],
+        data: {
+            permissions: {
+                only: ['admin'],
+                redirectTo: '/home'
+            }
+        }
+    },
 
 ];
 
+// @NgModule({
+//     exports: [ RouterModule ],
+//     imports: [ RouterModule.forRoot(routes) ],
+// })
+
 @NgModule({
-    exports: [ RouterModule ],
-    imports: [ RouterModule.forRoot(routes) ],
+    imports: [
+        RouterModule.forRoot(routes)
+    ],
+    exports: [
+        RouterModule
+    ],
+    providers: [
+        // CanDeactivateGuard
+    ]
 })
 
 

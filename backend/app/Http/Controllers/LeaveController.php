@@ -15,6 +15,23 @@ class LeaveController extends Controller
        return $category;
    }
 
+   public function assignLeavePersonal(Request $r){
+//       return auth()->user()->id;
+       $leave=new Leave();
+       $leave->fkEmployeeId=auth()->user()->id;
+       $leave->applicationDate=date('Y-m-d');
+       $leave->fkLeaveCategory=$r->fkLeaveCategory;
+//           Pending, Approved, Rejected
+       $leave->applicationStatus="Pending";
+
+       $leave->endDate= Carbon::parse($r->endDate)->format('Y-m-d');
+       $leave->startDate=Carbon::parse($r->startDate)->format('Y-m-d');
+       $leave->noOfDays=$r->noOfDays;
+       $leave->remarks=$r->remarks;
+       $leave->createdBy=auth()->user()->id;
+       $leave->save();
+   }
+
    public function assignLeave(Request $r){
        foreach ($r->allEmp as $empid){
            $leave=new Leave();
