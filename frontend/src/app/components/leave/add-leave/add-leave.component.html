@@ -44,7 +44,35 @@
           <button class="btn btn-success btn-sm" (click)="assignLeave()">Assign</button>
         </div>
 
+        <div class="col-md-12">
+          <hr>
+        </div>
 
+        <h4 class="col-md-12" align="center">My Leave</h4>
+
+        <table class="table table-bordered table-striped">
+          <thead>
+            <th style="text-align: center">applicationDate</th>
+            <th style="text-align: center">fkLeaveCategory</th>
+            <th style="text-align: center">applicationStatus</th>
+            <th style="text-align: center">startDate</th>
+            <th style="text-align: center">endDate</th>
+            <th style="text-align: center">noOfDays</th>
+            <th style="text-align: center">remarks</th>
+          </thead>
+          <tbody>
+            <tr *ngFor="let ml of myLeaves" [ngClass]="(ml.applicationStatus=='Pending')?'redcolumn':''">
+              <td style="text-align: center">{{ml.applicationDate}}</td>
+              <td style="text-align: center">{{ml.categoryName}}</td>
+              <td style="text-align: center">{{ml.applicationStatus}}</td>
+              <td style="text-align: center">{{ml.startDate}}</td>
+              <td style="text-align: center">{{ml.endDate}}</td>
+              <td style="text-align: center">{{ml.noOfDays}}</td>
+              <td style="text-align: center">{{ml.remarks}}</td>
+
+            </tr>
+          </tbody>
+        </table>
 
 
 

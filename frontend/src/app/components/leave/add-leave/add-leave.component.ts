@@ -12,11 +12,13 @@ declare var $ :any;
 export class AddLeaveComponent implements OnInit {
   employee:any= {};
   leaveCategories:any;
+  myLeaves:any;
 
   constructor(public http: HttpClient, private token:TokenService , public route:ActivatedRoute, private router: Router) { }
 
   ngOnInit() {
       this.getCategory();
+      this.getMyLeaves();
   }
 
   getCategory(){
@@ -30,6 +32,18 @@ export class AddLeaveComponent implements OnInit {
                 console.log(error);
             }
         );
+  }
+
+  getMyLeaves(){
+      const token=this.token.get();
+      this.http.post(Constants.API_URL+'leave/get/individual'+'?token='+token,{}).subscribe(data => {
+              console.log(data);
+              this.myLeaves=data;
+          },
+          error => {
+              console.log(error);
+          }
+      );
   }
 
   assignLeave(){
@@ -48,6 +62,7 @@ export class AddLeaveComponent implements OnInit {
 
       this.http.post(Constants.API_URL+'leave/assignLeavePersonal'+'?token='+token,form).subscribe(data => {
               console.log(data);
+              this.getMyLeaves();
 
 
               $.alert({

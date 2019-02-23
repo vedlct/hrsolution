@@ -43,6 +43,10 @@ export class TokenService {
 
   }
 
+  getUserLocal(){
+      return JSON.parse(localStorage.getItem('user'));
+  }
+
 
   //JWT Token
 
@@ -70,7 +74,8 @@ export class TokenService {
     // console.log(this.payload(token));
 
     this.http.post(Constants.API_URL+'me?token='+token,null).subscribe(data => {
-          this.setUserDef(data);
+        localStorage.setItem('user',JSON.stringify(data));
+          // this.setUserDef(data);
 
         },
         error => {
@@ -82,11 +87,12 @@ export class TokenService {
   }
 
   get() {
-
-    return localStorage.getItem('token');
+      return localStorage.getItem('token');
   }
+
   remove() {
     localStorage.removeItem('token');
+    localStorage.removeItem('user');
     this.router.navigate(['login']);
   }
 
@@ -116,8 +122,8 @@ export class TokenService {
 
 
   decode(payload) {
-    return JSON.parse(atob(payload));
 
+    return JSON.parse(atob(payload));
   }
 
 }

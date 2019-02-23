@@ -156,7 +156,7 @@
           <li class="has-submenu" routerLinkActive="active">
             <a href="#"><i class="ti-bookmark-alt"></i>Components</a>
             <ul class="submenu">
-              <li class="has-submenu">
+              <li class="has-submenu" *ngxPermissionsOnly="['admin']">
                 <a href="#">Shift</a>
                 <ul class="submenu">
                   <li><a routerLink="configuration/shift">All Shift</a></li>
@@ -168,8 +168,8 @@
                 <a href="#">Leave</a>
                 <ul class="submenu">
                   <li><a routerLink="leave/apply">Apply Leave</a></li>
-                  <li><a routerLink="configuration/leave">Create Leave</a></li>
-                  <li><a routerLink="configuration/leave/show">Show Leave</a></li>
+                  <li><a routerLink="configuration/leave" *ngxPermissionsOnly="['admin']">Create Leave</a></li>
+                  <li><a routerLink="configuration/leave/show" *ngxPermissionsOnly="['admin']">Show Leave</a></li>
                 </ul>
               </li>
 
@@ -188,7 +188,7 @@
                 </ul>
               </li>
 
-              <li class="has-submenu" *ngIf="isAdmin()">
+              <li class="has-submenu" >
                 <a href="#">Company</a>
                 <ul class="submenu">
                   <li><a routerLink="company/add">Company Info</a></li>
@@ -210,7 +210,7 @@
           </li>
 
 
-          <li class="has-submenu" routerLinkActive="active">
+          <li class="has-submenu" routerLinkActive="active" *ngxPermissionsOnly="['admin']">
             <a routerLink="#" ><i class="fa fa-chart"></i>Team</a>
             <ul class="submenu">
               <li class="">
@@ -222,7 +222,7 @@
           </li>
 
 
-          <li class="has-submenu" routerLinkActive="active">
+          <li class="has-submenu" routerLinkActive="active" *ngxPermissionsOnly="['admin']">
             <a routerLink="#" ><i class="fa fa-chart"></i>Payroll</a>
             <ul class="submenu">
               <li class="">

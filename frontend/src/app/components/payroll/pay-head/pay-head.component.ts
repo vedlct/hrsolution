@@ -30,8 +30,8 @@ export class PayHeadComponent implements OnInit {
               public route:ActivatedRoute, private router: Router,private spinner: NgxSpinnerService) { }
 
   ngOnInit() {
-    const perm = ["Moderator", "EDITOR"];
-    this.permissionsService.loadPermissions(perm);
+    // const perm = ["Moderator", "EDITOR"];
+    // this.permissionsService.loadPermissions(perm);
 
     this.model.allowDeducType='';
     this.getData();

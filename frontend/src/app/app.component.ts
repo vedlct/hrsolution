@@ -16,6 +16,7 @@ export class AppComponent {
   userModel={} as User;
   permission: string[] = ['guest'];
 
+
   constructor(private permissionsService: NgxPermissionsService,
     private ngxPermissionsConfigurationService: NgxPermissionsConfigurationService,
     private token:TokenService, public http: HttpClient,private renderer2: Renderer2,) {
@@ -26,19 +27,28 @@ export class AppComponent {
   }
 
   ngOnInit(): void {
-        this.permissionsService.loadPermissions(['admin']);
-          this.token.getUser().subscribe(data => {
-                  this.userModel=data as User;
-                  let perm = [];
-                  perm.push(this.userModel.fkUserType);
-                  // console.log(perm);
-                  this.permissionsService.loadPermissions(perm);
-              },
-              error => {
-                  console.log(error);
 
+      let perm = [];
+      perm.push(this.token.getUserLocal().fkUserType);
+      // console.log(perm);
+      this.permissionsService.loadPermissions(perm);
+      // fkUserType
+      // console.log(this.token.getUserLocal());
 
-              });
+        // this.permissionsService.loadPermissions(['admin']);
+        //   this.token.getUser().subscribe(data => {
+        //           this.userModel=data as User;
+        //           let perm = [];
+        //           perm.push(this.userModel.fkUserType);
+        //           // console.log(perm);
+        //           this.permissionsService.loadPermissions(perm);
+        //       },
+        //       error => {
+        //           console.log(error);
+        //
+        //
+        //       });
+
         // this.ngxPermissionsConfigurationService.addPermissionStrategy('disable', (tF: any) => {
         //     this.renderer2.setAttribute(tF.elementRef.nativeElement.nextSibling, 'disabled', 'true');
         // });

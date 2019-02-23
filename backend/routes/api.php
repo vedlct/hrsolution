@@ -136,8 +136,11 @@ Route::group([
 
     //Show Leave Requests
     Route::post('leave/getLeaveRequests','LeaveController@getLeaveRequests');
-
     Route::post('leave/getLeaveRequests/{id}','LeaveController@getLeaveRequestsIndividual');
+    Route::post('leave/get/individual','LeaveController@getMyLeave');
+    Route::post('leave/change/status','LeaveController@changeStatus');
+    Route::post('leave/get/individual','LeaveController@getIndividual');
+    Route::post('leave/individual/update','LeaveController@updateIndividual');
 
 
 
@@ -195,9 +198,7 @@ Route::group([
     //Pay Salary Sheet Main
     Route::post('payroll/paysalarysheetmain/get','PayrollController@getPaySalarySheetMain');
     Route::post('payroll/paysalarysheetmain/insert','PayrollController@insertPaySalarySheetMain');
-
     Route::post('payroll/paysalarysheetsub/update','PayrollController@updatePaySalarySheetSub');
-
     Route::post('payroll/payadvanceledger/insert','PayrollController@insertPayAdvanceLedger');
 
 
