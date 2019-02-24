@@ -44,6 +44,7 @@ import { PayHeadComponent } from './components/payroll/pay-head/pay-head.compone
 import { PaySalarySheetComponent } from './components/payroll/pay-salary-sheet/pay-salary-sheet.component';
 import { PayAdvanceComponent } from './components/payroll/pay-advance/pay-advance.component';
 import { NgxPermissionsModule } from 'ngx-permissions';
+import { PayGradeComponent } from './components/payroll/pay-grade/pay-grade.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -79,7 +80,8 @@ import { NgxPermissionsModule } from 'ngx-permissions';
     AssignTeamComponent,
     PayHeadComponent,
     PaySalarySheetComponent,
-    PayAdvanceComponent
+    PayAdvanceComponent,
+    PayGradeComponent
   ],
   imports: [
     BrowserModule,

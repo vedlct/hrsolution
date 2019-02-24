@@ -27,6 +27,7 @@ import {PaySalarySheetComponent} from "./components/payroll/pay-salary-sheet/pay
 import {PayAdvanceComponent} from "./components/payroll/pay-advance/pay-advance.component";
 import {AddLeaveComponent} from "./components/leave/add-leave/add-leave.component";
 import { NgxPermissionsGuard } from 'ngx-permissions';
+import {PayGradeComponent} from "./components/payroll/pay-grade/pay-grade.component";
 
 
 export function testPermissions(route: ActivatedRouteSnapshot, state: RouterStateSnapshot) {
@@ -62,9 +63,18 @@ const routes: Routes = [
     { path: 'payroll/setup', component: PayEmployeeSalarySetupComponent },
     { path: 'payroll/payhead', component: PayHeadComponent },
     { path: 'payroll/salary-sheet', component: PaySalarySheetComponent },
-    // { path: 'payroll/pay-advance', component: PayAdvanceComponent },
     { path: 'payroll/pay-advance',
         component: PayAdvanceComponent,
+        canActivate: [NgxPermissionsGuard],
+        data: {
+            permissions: {
+                only: ['admin'],
+                redirectTo: '/home'
+            }
+        }
+    },
+    { path: 'payroll/pay-grade',
+        component: PayGradeComponent,
         canActivate: [NgxPermissionsGuard],
         data: {
             permissions: {
