@@ -269,7 +269,7 @@ class PayrollController extends Controller
 
     // get
     public function getSalaryInfo(Request $r){
-        $employeeinfo = EmployeeInfo::findOrFail($r->id)->select('fkSalaryGrade', 'noOfIncrement', 'id');
+        $employeeinfo = EmployeeInfo::select('fkSalaryGrade', 'noOfIncrement', 'id')->findOrFail($r->id);
         return $employeeinfo;
     }
 
