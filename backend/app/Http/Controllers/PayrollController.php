@@ -210,4 +210,51 @@ class PayrollController extends Controller
         return response()->json("success");
     }
 
+
+
+
+    // insert Pay Grade Parent
+    public function insertPaygradeparent(Request $r){
+        $paygradeparent = new PayGradeParent();
+        $paygradeparent->gradeTitle = $r->gradeTitle;
+        $paygradeparent->BASIC = $r->BASIC;
+        $paygradeparent->eb1Rate = $r->eb1Rate;
+        $paygradeparent->eb1MaxTime = $r->eb1MaxTime;
+        $paygradeparent->eb2Rate = $r->eb2Rate;
+        $paygradeparent->eb2MaxTime = $r->eb2MaxTime;
+        $paygradeparent->DESCRIPTION = $r->DESCRIPTION;
+        $paygradeparent->save();
+
+        return response()->json("success");
+    }
+
+    // get Pay Grade Parent
+    public function getPaygradeparent(){
+        $paygradeparent = PayGradeParent::get();
+        return $paygradeparent;
+    }
+
+
+    // insert Pay Grade Details
+    public function insertPaygradedetail(Request $r){
+
+        $paygradedetail = new PayGradeDetail();
+        $paygradedetail->fkGradeParentId = $r->fkGradeParentId;
+        $paygradedetail->fkPayHeadId = $r->fkPayHeadId;
+        $paygradedetail->percentOfBasic = $r->percentOfBasic;
+        $paygradedetail->consolidated = $r->consolidated;
+        $paygradedetail->save();
+
+        return response()->json("success");
+    }
+
+    // get Pay Grade Details
+    public function getPaygradedetail(){
+        $paygradedetail = PayGradeDetail::get();
+        return $paygradedetail;
+    }
+
+
+
+
 }
