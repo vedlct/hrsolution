@@ -23,9 +23,11 @@ export class SalaryInfoComponent implements OnInit {
   model:any={};
   payAdvanceModel:any={};
   temp:any={};
+  payGradeModel:any={};
   constructor(public http: HttpClient, private token:TokenService,private router: Router) { }
 
   ngOnInit() {
+      this.payGradeModel.id=this.empid;
       this.model.payroll="";
       this.model.fkEmployeeId=this.empid;
       this.model.amount="";
@@ -36,10 +38,7 @@ export class SalaryInfoComponent implements OnInit {
     this.http.post(Constants.API_URL+'payroll/payhead/salarySetupGet'+'?token='+token, this.model).subscribe(data => {
        if(data){
            this.temp=data;
-           // this.model.payroll=this.temp.fkPaymentHeadId;
-           // this.model.amount=this.temp.amount;
-           // this.model.description=this.temp.description;
-           // this.model.grossPercent=this.temp.grossPercent;
+
        }
        else {
             // alert("empty");

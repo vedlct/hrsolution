@@ -245,7 +245,7 @@ class PayrollController extends Controller
         $paygradedetail->fkGradeParentId = $r->fkGradeParentId;
         $paygradedetail->fkPayHeadId = $r->fkPayHeadId;
         $paygradedetail->percentOfBasic = $r->percentOfBasic;
-        $paygradedetail->consolidated = $r->consolidated;
+//        $paygradedetail->consolidated = $r->consolidated;
         $paygradedetail->save();
 
         return response()->json("success");
@@ -253,7 +253,10 @@ class PayrollController extends Controller
 
     // get Pay Grade Details
     public function getPaygradedetail(){
-        $paygradedetail = PayGradeDetail::get();
+        $paygradedetail = PayGradeDetail::select('paygradedetail.*','paygradeparent.gradeTitle','payheads.allowDeducTitle')
+            ->leftJoin('paygradeparent','paygradeparent.id','paygradedetail.fkGradeParentId')
+            ->leftJoin('payheads','payheads.id','paygradedetail.fkPayHeadId')
+            ->get();
         return $paygradedetail;
     }
 

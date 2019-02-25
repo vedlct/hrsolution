@@ -16,6 +16,8 @@ export class PayGradeComponent implements OnInit {
 
   payGradeModel:any={};
   payDetailsModel:any={};
+  payGrades:any;
+  payDetails:any;
   payHeads:any;
     constructor(private modalService: NgbModal,public http: HttpClient, private token:TokenService ,
                 public route:ActivatedRoute, private router: Router,private spinner: NgxSpinnerService) { }
@@ -23,12 +25,15 @@ export class PayGradeComponent implements OnInit {
   ngOnInit() {
       this.initModel();
       this.getPayheads();
+      this.getPaygrades();
+      this.getPayDetails();
     }
 
     initModel(){
         // Parent
-        // this.payGradeModel.gradeTitle="";
+        this.payGradeModel={};
         // Details
+        this.payDetailsModel={};
         this.payDetailsModel.fkGradeParentId="";
         this.payDetailsModel.fkPayHeadId="";
     }
@@ -37,11 +42,8 @@ export class PayGradeComponent implements OnInit {
         this.spinner.show();
         this.http.get(Constants.API_URL+'payroll/payhead/get').subscribe(data => {
                 this.spinner.hide();
-
-                console.log(data);
+                // console.log(data);
                 this.payHeads=data;
-
-
 
             },
             error => {
@@ -53,6 +55,33 @@ export class PayGradeComponent implements OnInit {
         );
     }
 
+    getPaygrades(){
+        // payroll/paygradeparent/get
+        const token = this.token.get();
+        this.http.post(Constants.API_URL+'payroll/paygradeparent/get'+'?token='+token,{}).subscribe(data => {
+            // console.log(data);
+            this.payGrades=data;
+            },
+
+            error => {
+                console.log(error);
+            }
+        );
+
+    }
+
+    getPayDetails(){
+        const token = this.token.get();
+        this.http.post(Constants.API_URL+'payroll/paygradedetail/get'+'?token='+token,{}).subscribe(data => {
+                console.log(data);
+                this.payDetails=data;
+            },
+
+            error => {
+                console.log(error);
+            }
+        );
+    }
 
     insertPaygrade(){
         console.log(this.payGradeModel);
@@ -164,7 +193,9 @@ export class PayGradeComponent implements OnInit {
 
         this.http.post(Constants.API_URL+'payroll/paygradeparent/insert'+'?token='+token,this.payGradeModel).subscribe(data => {
 
-                console.log(data);
+                // console.log(data);
+            this.initModel();
+            this.getPaygrades();
             },
 
             error => {
@@ -172,7 +203,7 @@ export class PayGradeComponent implements OnInit {
             }
         );
 
-        // console.log(this.payGradeModel);
+
     }
 
     insertPaygradeDetails(){
@@ -210,7 +241,20 @@ export class PayGradeComponent implements OnInit {
             return false;
         }
 
-        console.log(this.payDetailsModel);
+        // console.log(this.payDetailsModel);
+        const token = this.token.get();
+
+        this.http.post(Constants.API_URL+'payroll/paygradedetail/insert'+'?token='+token,this.payDetailsModel).subscribe(data => {
+
+                console.log(data);
+                this.initModel();
+                this.getPayDetails();
+            },
+
+            error => {
+                console.log(error);
+            }
+        );
     }
 
 }

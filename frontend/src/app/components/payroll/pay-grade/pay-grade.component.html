@@ -44,6 +44,35 @@
 
         </div>
 
+      <table class="table table-bordered table-striped">
+        <thead>
+          <th>gradeTitle</th>
+          <th>BASIC</th>
+          <th>eb1Rate</th>
+          <th>eb1MaxTime</th>
+          <th>eb2Rate</th>
+          <th>eb2MaxTime</th>
+          <th>DESCRIPTION</th>
+          <th>Action</th>
+        </thead>
+        <tbody>
+          <tr *ngFor="let data of payGrades">
+            <td>{{data.gradeTitle}}</td>
+            <td>{{data.BASIC}}</td>
+            <td>{{data.eb1Rate}}</td>
+            <td>{{data.eb1MaxTime}}</td>
+            <td>{{data.eb2Rate}}</td>
+            <td>{{data.eb2MaxTime}}</td>
+            <td>{{data.DESCRIPTION}}</td>
+            <td>
+              <button class="btn btn-sm btn-info">Edit</button>
+            </td>
+
+          </tr>
+        </tbody>
+
+      </table>
+
 <!--=================================Details========================================-->
       <hr>
       <h4 align="center">Pay-grade Details</h4>
@@ -53,6 +82,9 @@
           <label>Pay Grade</label>
           <select class="form-control" name="fkGradeParentId" [(ngModel)]="payDetailsModel.fkGradeParentId">
             <option value="">Select Pay-grade</option>
+            <option *ngFor="let data of payGrades" [value]="data.id">
+              {{data.gradeTitle}}
+            </option>
           </select>
         </div>
 
@@ -77,6 +109,27 @@
           <button class="btn btn-success btn-sm pull-right" (click)="insertPaygradeDetails()">Insert</button>
         </div>
       </div>
+
+      <table class="table table-bordered table-striped">
+        <thead>
+        <th>fkGradeParentId</th>
+        <th>fkPayHeadId</th>
+        <th>percentOfBasic</th>
+        <th>Action</th>
+        </thead>
+        <tbody>
+        <tr *ngFor="let data of payDetails">
+          <td>{{data.gradeTitle}}</td>
+          <td>{{data.allowDeducTitle}}</td>
+          <td>{{data.percentOfBasic}}</td>
+          <td>
+            <button class="btn btn-sm btn-info">Edit</button>
+          </td>
+
+        </tr>
+        </tbody>
+
+      </table>
 
 
     </div>
