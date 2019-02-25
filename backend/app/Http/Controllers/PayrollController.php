@@ -4,11 +4,14 @@ namespace App\Http\Controllers;
 
 use App\EmployeeSalarySetup;
 use App\PayAdvancePayment;
+use App\PayGradeDetail;
+use App\PayGradeParent;
 use App\Payhead;
 use App\PaySalarySheetMain;
 use App\PaySalarySheetSub;
 use Illuminate\Http\Request;
 use App\PayAdvanceLedger;
+
 
 
 class PayrollController extends Controller
