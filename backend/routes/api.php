@@ -201,6 +201,14 @@ Route::group([
     Route::post('payroll/paysalarysheetsub/update','PayrollController@updatePaySalarySheetSub');
     Route::post('payroll/payadvanceledger/insert','PayrollController@insertPayAdvanceLedger');
 
+    //Pay Grade details
+    Route::post('payroll/paygradedetail/get','PayrollController@getPaygradedetail');
+    Route::post('payroll/paygradedetail/insert','PayrollController@insertPaygradedetail');
+
+    //Pay Grade Parent
+    Route::post('payroll/paygradeparent/get','PayrollController@getPaygradeparent');
+    Route::post('payroll/paygradeparent/insert','PayrollController@insertPaygradeparent');
+
 
 
 
