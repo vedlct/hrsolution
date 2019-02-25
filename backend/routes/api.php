@@ -210,6 +210,8 @@ Route::group([
     Route::post('payroll/paygradeparent/insert','PayrollController@insertPaygradeparent');
 
 
+    //Assign or update salary info
+    Route::post('payroll/update-salary-info/insert','PayrollController@assignOrUpdateSalaryInfo');
 
 
 });
