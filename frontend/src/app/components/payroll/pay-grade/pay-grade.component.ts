@@ -328,6 +328,8 @@ export class PayGradeComponent implements OnInit {
         this.http.post(Constants.API_URL+'payroll/paygradeparent/insert'+'?token='+token,this.editPayGradeModel).subscribe(data => {
 
                 // console.log(data);
+                $('#editGradeModal').modal('hide');
+
                 this.initModel();
                 this.getPaygrades();
             },
@@ -382,6 +384,7 @@ export class PayGradeComponent implements OnInit {
         this.http.post(Constants.API_URL+'payroll/paygradedetail/insert'+'?token='+token,this.payDetailsModel).subscribe(data => {
 
                 // console.log(data);
+
                 this.initModel();
                 this.getPayDetails();
             },
@@ -432,7 +435,7 @@ export class PayGradeComponent implements OnInit {
 
         this.http.post(Constants.API_URL+'payroll/paygradedetail/insert'+'?token='+token,this.editPayDetailsModel).subscribe(data => {
 
-                // console.log(data);
+                $('#editDetailModal').modal('hide');
                 this.initModel();
                 this.getPayDetails();
             },
