@@ -27,7 +27,7 @@ export class PayGradeComponent implements OnInit {
 
     initModel(){
         // Parent
-        this.payGradeModel.gradeTitle="";
+        // this.payGradeModel.gradeTitle="";
         // Details
         this.payDetailsModel.fkGradeParentId="";
         this.payDetailsModel.fkPayHeadId="";
@@ -55,6 +55,7 @@ export class PayGradeComponent implements OnInit {
 
 
     insertPaygrade(){
+        console.log(this.payGradeModel);
         if(!this.payGradeModel.gradeTitle){
             $.alert({
                 title: 'Alert!',
@@ -159,7 +160,19 @@ export class PayGradeComponent implements OnInit {
 
 
 
-        console.log(this.payGradeModel);
+        const token = this.token.get();
+
+        this.http.post(Constants.API_URL+'payroll/paygradeparent/insert'+'?token='+token,this.payGradeModel).subscribe(data => {
+
+                console.log(data);
+            },
+
+            error => {
+                console.log(error);
+            }
+        );
+
+        // console.log(this.payGradeModel);
     }
 
     insertPaygradeDetails(){

@@ -5,7 +5,7 @@
         <div class="row">
           <div class="form-group col-md-6">
             <label>Title</label>
-            <input class="form-control" placeholder="pay-grade" name="gradeTitle" [ngModel]="payGradeModel.gradeTitle">
+            <input class="form-control" placeholder="pay-grade"  [(ngModel)]="payGradeModel.gradeTitle">
             <!--<select class="form-control" placeholder="pay-head" name="gradeTitle" [ngModel]="payGradeModel.gradeTitle">-->
               <!--<option value="">Select Payhead</option>-->
               <!--<option *ngFor="let data of payHeads" [value]="data.id">-->
@@ -15,28 +15,28 @@
           </div>
           <div class="form-group col-md-6">
             <label>BASIC</label>
-            <input type="number" class="form-control" placeholder="basic" name="BASIC" [ngModel]="payGradeModel.BASIC">
+            <input type="number" class="form-control" placeholder="basic" name="BASIC" [(ngModel)]="payGradeModel.BASIC">
           </div>
 
           <div class="form-group col-md-6">
             <label>eb1Rate</label>
-            <input type="number" class="form-control" placeholder="%" name="eb1Rate" [ngModel]="payGradeModel.eb1Rate">
+            <input type="number" class="form-control" placeholder="%" name="eb1Rate" [(ngModel)]="payGradeModel.eb1Rate">
           </div>
           <div class="form-group col-md-6">
             <label>eb1MaxTime</label>
-            <input type="number" class="form-control" placeholder="year" name="eb1MaxTime" [ngModel]="payGradeModel.eb1MaxTime">
+            <input type="number" class="form-control" placeholder="year" name="eb1MaxTime" [(ngModel)]="payGradeModel.eb1MaxTime">
           </div>
           <div class="form-group col-md-6">
             <label>eb2Rate</label>
-            <input type="number" class="form-control" placeholder="%" name="eb2Rate" [ngModel]="payGradeModel.eb2Rate">
+            <input type="number" class="form-control" placeholder="%" name="eb2Rate" [(ngModel)]="payGradeModel.eb2Rate">
           </div>
           <div class="form-group col-md-6">
             <label>eb2MaxTime</label>
-            <input type="number" class="form-control" placeholder="year" name="eb2MaxTime" [ngModel]="payGradeModel.eb2MaxTime">
+            <input type="number" class="form-control" placeholder="year" name="eb2MaxTime" [(ngModel)]="payGradeModel.eb2MaxTime">
           </div>
           <div class="form-group col-md-6">
             <label>DESCRIPTION</label>
-            <input class="form-control" placeholder="description" name="DESCRIPTION" [ngModel]="payGradeModel.DESCRIPTION">
+            <input class="form-control" placeholder="description" name="DESCRIPTION" [(ngModel)]="payGradeModel.DESCRIPTION">
           </div>
           <div class="form-group col-md-12">
             <button class="btn btn-success btn-sm pull-right" (click)="insertPaygrade()">Insert</button>
@@ -51,7 +51,7 @@
 
         <div class="form-group col-md-6">
           <label>Pay Grade</label>
-          <select class="form-control" name="fkGradeParentId" [ngModel]="payDetailsModel.fkGradeParentId">
+          <select class="form-control" name="fkGradeParentId" [(ngModel)]="payDetailsModel.fkGradeParentId">
             <option value="">Select Pay-grade</option>
           </select>
         </div>
@@ -59,7 +59,7 @@
 
         <div class="form-group col-md-6">
           <label>Head</label>
-          <select class="form-control" name="fkPayHeadId" [ngModel]="payDetailsModel.fkPayHeadId">
+          <select class="form-control" name="fkPayHeadId" [(ngModel)]="payDetailsModel.fkPayHeadId">
           <option value="">Select Payhead</option>
           <option *ngFor="let data of payHeads" [value]="data.id">
             {{data.allowDeducTitle}}
@@ -70,7 +70,7 @@
 
         <div class="form-group col-md-6">
           <label>Percent Of Basic</label>
-          <input type="number" class="form-control" placeholder="%" name="percentOfBasic" [ngModel]="payDetailsModel.percentOfBasic">
+          <input type="number" class="form-control" placeholder="%" name="percentOfBasic" [(ngModel)]="payDetailsModel.percentOfBasic">
         </div>
 
         <div class="form-group col-md-12">
