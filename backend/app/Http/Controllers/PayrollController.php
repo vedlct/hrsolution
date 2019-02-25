@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\EmployeeInfo;
 use App\EmployeeSalarySetup;
 use App\PayAdvancePayment;
 use App\PayGradeDetail;
@@ -258,6 +259,15 @@ class PayrollController extends Controller
             ->leftJoin('payheads','payheads.id','paygradedetail.fkPayHeadId')
             ->get();
         return $paygradedetail;
+    }
+
+    public function updateSalaryInfo(Request $r){
+        $employeeinfo = EmployeeInfo::findOrFail($r->id);
+        $employeeinfo->fkSalaryGrade = $r->fkSalaryGrade;
+        $employeeinfo->noOfIncrement = $r->noOfIncrement;
+        $employeeinfo->save();
+
+        return response()->json("success");
     }
 
 
