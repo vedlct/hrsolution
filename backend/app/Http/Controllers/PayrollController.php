@@ -219,7 +219,16 @@ class PayrollController extends Controller
 
     // insert Pay Grade Parent
     public function insertPaygradeparent(Request $r){
-        $paygradeparent = new PayGradeParent();
+
+        if($r->id)
+        {
+            $paygradeparent = PayGradeParent::findOrFail($r->id);
+        }
+        else
+        {
+            $paygradeparent = new PayGradeParent();
+        }
+
         $paygradeparent->gradeTitle = $r->gradeTitle;
         $paygradeparent->BASIC = $r->BASIC;
         $paygradeparent->eb1Rate = $r->eb1Rate;
@@ -242,7 +251,15 @@ class PayrollController extends Controller
     // insert Pay Grade Details
     public function insertPaygradedetail(Request $r){
 
-        $paygradedetail = new PayGradeDetail();
+        if($r->id)
+        {
+            $paygradedetail = PayGradeDetail::findOrFail($r->id);
+        }
+        else
+        {
+            $paygradedetail = new PayGradeDetail();
+        }
+
         $paygradedetail->fkGradeParentId = $r->fkGradeParentId;
         $paygradedetail->fkPayHeadId = $r->fkPayHeadId;
         $paygradedetail->percentOfBasic = $r->percentOfBasic;
