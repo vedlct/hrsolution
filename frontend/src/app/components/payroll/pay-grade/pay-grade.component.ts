@@ -6,7 +6,7 @@ import {TokenService} from "../../../services/token.service";
 import {NgxSpinnerService} from "ngx-spinner";
 import {NgxPermissionsService} from "ngx-permissions";
 import {Constants} from "../../../constants";
-
+declare var $:any;
 @Component({
   selector: 'app-pay-grade',
   templateUrl: './pay-grade.component.html',
@@ -15,17 +15,22 @@ import {Constants} from "../../../constants";
 export class PayGradeComponent implements OnInit {
 
   payGradeModel:any={};
+  payDetailsModel:any={};
   payHeads:any;
     constructor(private modalService: NgbModal,public http: HttpClient, private token:TokenService ,
                 public route:ActivatedRoute, private router: Router,private spinner: NgxSpinnerService) { }
 
   ngOnInit() {
       this.initModel();
-    this.getPayheads();
+      this.getPayheads();
     }
 
     initModel(){
+        // Parent
         this.payGradeModel.gradeTitle="";
+        // Details
+        this.payDetailsModel.fkGradeParentId="";
+        this.payDetailsModel.fkPayHeadId="";
     }
 
     getPayheads(){
@@ -46,6 +51,153 @@ export class PayGradeComponent implements OnInit {
 
             }
         );
+    }
+
+
+    insertPaygrade(){
+        if(!this.payGradeModel.gradeTitle){
+            $.alert({
+                title: 'Alert!',
+                type: 'Red',
+                content: "Please Insert Pay-grade",
+                buttons: {
+                    tryAgain: {
+                        text: 'Ok',
+                        btnClass: 'btn-red',
+                        action: function () {
+                        }
+                    }
+                }
+            });
+            return false;
+        }
+        if(!this.payGradeModel.BASIC){
+            $.alert({
+                title: 'Alert!',
+                type: 'Red',
+                content: "Please Insert basic",
+                buttons: {
+                    tryAgain: {
+                        text: 'Ok',
+                        btnClass: 'btn-red',
+                        action: function () {
+                        }
+                    }
+                }
+            });
+            return false;
+        }
+
+        if(!this.payGradeModel.eb1Rate){
+            $.alert({
+                title: 'Alert!',
+                type: 'Red',
+                content: "Please Insert eb1Rate",
+                buttons: {
+                    tryAgain: {
+                        text: 'Ok',
+                        btnClass: 'btn-red',
+                        action: function () {
+                        }
+                    }
+                }
+            });
+            return false;
+        }
+
+
+        if(!this.payGradeModel.eb1MaxTime){
+            $.alert({
+                title: 'Alert!',
+                type: 'Red',
+                content: "Please Insert eb1MaxTime",
+                buttons: {
+                    tryAgain: {
+                        text: 'Ok',
+                        btnClass: 'btn-red',
+                        action: function () {
+                        }
+                    }
+                }
+            });
+            return false;
+        }
+
+        if(!this.payGradeModel.eb2Rate){
+            $.alert({
+                title: 'Alert!',
+                type: 'Red',
+                content: "Please Insert eb1MaxTime",
+                buttons: {
+                    tryAgain: {
+                        text: 'Ok',
+                        btnClass: 'btn-red',
+                        action: function () {
+                        }
+                    }
+                }
+            });
+            return false;
+        }
+
+        if(!this.payGradeModel.eb2MaxTime){
+            $.alert({
+                title: 'Alert!',
+                type: 'Red',
+                content: "Please Insert eb1MaxTime",
+                buttons: {
+                    tryAgain: {
+                        text: 'Ok',
+                        btnClass: 'btn-red',
+                        action: function () {
+                        }
+                    }
+                }
+            });
+            return false;
+        }
+
+
+
+        console.log(this.payGradeModel);
+    }
+
+    insertPaygradeDetails(){
+        if(this.payDetailsModel.fkGradeParentId==""){
+            $.alert({
+                title: 'Alert!',
+                type: 'Red',
+                content: "Please Select Pay-grade",
+                buttons: {
+                    tryAgain: {
+                        text: 'Ok',
+                        btnClass: 'btn-red',
+                        action: function () {
+                        }
+                    }
+                }
+            });
+            return false;
+        }
+
+        if(this.payDetailsModel.fkPayHeadId==""){
+            $.alert({
+                title: 'Alert!',
+                type: 'Red',
+                content: "Please Select Pay-head",
+                buttons: {
+                    tryAgain: {
+                        text: 'Ok',
+                        btnClass: 'btn-red',
+                        action: function () {
+                        }
+                    }
+                }
+            });
+            return false;
+        }
+
+        console.log(this.payDetailsModel);
     }
 
 }
