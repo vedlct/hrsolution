@@ -258,17 +258,9 @@ class PayrollController extends Controller
         return $paygradedetail;
     }
 
-    public function assignOrUpdateSalaryInfo(Request $r){
+    public function updateSalaryInfo(Request $r){
 
-        if($r->id)
-        {
-            $employeeinfo = EmployeeInfo::findOrFail($r->id);
-        }
-        else
-        {
-            $employeeinfo = new EmployeeInfo();
-        }
-
+        $employeeinfo = EmployeeInfo::findOrFail($r->id);
         $employeeinfo->fkSalaryGrade = $r->fkSalaryGrade;
         $employeeinfo->noOfIncrement = $r->noOfIncrement;
         $employeeinfo->save();

@@ -211,7 +211,7 @@ Route::group([
 
 
     //Assign or update salary info
-    Route::post('payroll/update-salary-info/insert','PayrollController@assignOrUpdateSalaryInfo');
+    Route::post('payroll/salary-info/update','PayrollController@updateSalaryInfo');
 
 
 });
