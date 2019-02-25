@@ -15,7 +15,9 @@ declare var $:any;
 export class PayGradeComponent implements OnInit {
 
   payGradeModel:any={};
+  editPayGradeModel:any={};
   payDetailsModel:any={};
+  editPayDetailsModel:any={};
   payGrades:any;
   payDetails:any;
   payHeads:any;
@@ -83,8 +85,18 @@ export class PayGradeComponent implements OnInit {
         );
     }
 
+    editPayGrade(data){
+        this.editPayGradeModel=data;
+        // console.log(data);
+        $('#editGradeModal').modal();
+    }
+    editDetails(data){
+        this.editPayDetailsModel=data;
+        // console.log(data);
+        $('#editDetailModal').modal();
+    }
+
     insertPaygrade(){
-        console.log(this.payGradeModel);
         if(!this.payGradeModel.gradeTitle){
             $.alert({
                 title: 'Alert!',
@@ -206,6 +218,129 @@ export class PayGradeComponent implements OnInit {
 
     }
 
+    updatePaygrade(){
+        if(!this.editPayGradeModel.gradeTitle){
+            $.alert({
+                title: 'Alert!',
+                type: 'Red',
+                content: "Please Insert Pay-grade",
+                buttons: {
+                    tryAgain: {
+                        text: 'Ok',
+                        btnClass: 'btn-red',
+                        action: function () {
+                        }
+                    }
+                }
+            });
+            return false;
+        }
+        if(!this.editPayGradeModel.BASIC){
+            $.alert({
+                title: 'Alert!',
+                type: 'Red',
+                content: "Please Insert basic",
+                buttons: {
+                    tryAgain: {
+                        text: 'Ok',
+                        btnClass: 'btn-red',
+                        action: function () {
+                        }
+                    }
+                }
+            });
+            return false;
+        }
+
+        if(!this.editPayGradeModel.eb1Rate){
+            $.alert({
+                title: 'Alert!',
+                type: 'Red',
+                content: "Please Insert eb1Rate",
+                buttons: {
+                    tryAgain: {
+                        text: 'Ok',
+                        btnClass: 'btn-red',
+                        action: function () {
+                        }
+                    }
+                }
+            });
+            return false;
+        }
+
+
+        if(!this.editPayGradeModel.eb1MaxTime){
+            $.alert({
+                title: 'Alert!',
+                type: 'Red',
+                content: "Please Insert eb1MaxTime",
+                buttons: {
+                    tryAgain: {
+                        text: 'Ok',
+                        btnClass: 'btn-red',
+                        action: function () {
+                        }
+                    }
+                }
+            });
+            return false;
+        }
+
+        if(!this.editPayGradeModel.eb2Rate){
+            $.alert({
+                title: 'Alert!',
+                type: 'Red',
+                content: "Please Insert eb1MaxTime",
+                buttons: {
+                    tryAgain: {
+                        text: 'Ok',
+                        btnClass: 'btn-red',
+                        action: function () {
+                        }
+                    }
+                }
+            });
+            return false;
+        }
+
+        if(!this.editPayGradeModel.eb2MaxTime){
+            $.alert({
+                title: 'Alert!',
+                type: 'Red',
+                content: "Please Insert eb1MaxTime",
+                buttons: {
+                    tryAgain: {
+                        text: 'Ok',
+                        btnClass: 'btn-red',
+                        action: function () {
+                        }
+                    }
+                }
+            });
+            return false;
+        }
+
+
+
+        const token = this.token.get();
+
+        this.http.post(Constants.API_URL+'payroll/paygradeparent/insert'+'?token='+token,this.editPayGradeModel).subscribe(data => {
+
+                // console.log(data);
+                this.initModel();
+                this.getPaygrades();
+            },
+
+            error => {
+                console.log(error);
+            }
+        );
+
+
+
+    }
+
     insertPaygradeDetails(){
         if(this.payDetailsModel.fkGradeParentId==""){
             $.alert({
@@ -246,7 +381,7 @@ export class PayGradeComponent implements OnInit {
 
         this.http.post(Constants.API_URL+'payroll/paygradedetail/insert'+'?token='+token,this.payDetailsModel).subscribe(data => {
 
-                console.log(data);
+                // console.log(data);
                 this.initModel();
                 this.getPayDetails();
             },
@@ -257,4 +392,54 @@ export class PayGradeComponent implements OnInit {
         );
     }
 
+    updatePaygradeDetails(){
+        if(this.editPayDetailsModel.fkGradeParentId==""){
+            $.alert({
+                title: 'Alert!',
+                type: 'Red',
+                content: "Please Select Pay-grade",
+                buttons: {
+                    tryAgain: {
+                        text: 'Ok',
+                        btnClass: 'btn-red',
+                        action: function () {
+                        }
+                    }
+                }
+            });
+            return false;
+        }
+
+        if(this.editPayDetailsModel.fkPayHeadId==""){
+            $.alert({
+                title: 'Alert!',
+                type: 'Red',
+                content: "Please Select Pay-head",
+                buttons: {
+                    tryAgain: {
+                        text: 'Ok',
+                        btnClass: 'btn-red',
+                        action: function () {
+                        }
+                    }
+                }
+            });
+            return false;
+        }
+
+        // console.log(this.payDetailsModel);
+        const token = this.token.get();
+
+        this.http.post(Constants.API_URL+'payroll/paygradedetail/insert'+'?token='+token,this.editPayDetailsModel).subscribe(data => {
+
+                // console.log(data);
+                this.initModel();
+                this.getPayDetails();
+            },
+
+            error => {
+                console.log(error);
+            }
+        );
+    }
 }

@@ -58,6 +58,20 @@ export class SalaryInfoComponent implements OnInit {
 
   initPayGrade(){
       this.payGradeModel.id=this.empid;
+
+      //
+      const token=this.token.get();
+      this.http.post(Constants.API_URL+'payroll/salary-info/get'+'?token='+token, {id:this.empid}).subscribe(data => {
+
+            this.payGradeModel=data;
+
+          },
+          error => {
+
+              console.log(error);
+
+          }
+      );
   }
 
   getData(){
@@ -201,7 +215,6 @@ export class SalaryInfoComponent implements OnInit {
   submit(){
     const token=this.token.get();
     this.http.post(Constants.API_URL+'SalryInfo/post'+'?token='+token,this.employeeSalaryForm).subscribe(data => {
-        console.log(data);
         this.result=data;
           $.alert({
             title: 'Success!',
@@ -245,8 +258,6 @@ export class SalaryInfoComponent implements OnInit {
       console.log(this.payGradeModel);
       const token=this.token.get();
       this.http.post(Constants.API_URL+'payroll/salary-info/update'+'?token='+token,this.payGradeModel).subscribe(data => {
-              console.log(data);
-
               $.alert({
                   title: 'Success!',
                   type: 'Green',
