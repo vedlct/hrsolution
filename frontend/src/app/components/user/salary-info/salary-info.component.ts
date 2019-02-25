@@ -18,6 +18,7 @@ export class SalaryInfoComponent implements OnInit {
     payroll:''
   };
   result:any;
+  payGrades:any;
   payrolls:any;
   empAllPayrolls:any;
   model:any={};
@@ -27,7 +28,7 @@ export class SalaryInfoComponent implements OnInit {
   constructor(public http: HttpClient, private token:TokenService,private router: Router) { }
 
   ngOnInit() {
-      this.payGradeModel.id=this.empid;
+
       this.model.payroll="";
       this.model.fkEmployeeId=this.empid;
       this.model.amount="";
@@ -51,6 +52,12 @@ export class SalaryInfoComponent implements OnInit {
     );
     this.getData();
     this.getEmployeeData();
+    this.initPayGrade();
+    this.getPaygrades();
+  }
+
+  initPayGrade(){
+      this.payGradeModel.id=this.empid;
   }
 
   getData(){
@@ -218,5 +225,49 @@ export class SalaryInfoComponent implements OnInit {
     );
 
   }
+
+  getPaygrades(){
+        // payroll/paygradeparent/get
+        const token = this.token.get();
+        this.http.post(Constants.API_URL+'payroll/paygradeparent/get'+'?token='+token,{}).subscribe(data => {
+                // console.log(data);
+                this.payGrades=data;
+            },
+
+            error => {
+                console.log(error);
+            }
+        );
+
+    }
+
+  assignPayGrade(){
+      console.log(this.payGradeModel);
+      const token=this.token.get();
+      this.http.post(Constants.API_URL+'payroll/salary-info/update'+'?token='+token,this.payGradeModel).subscribe(data => {
+              console.log(data);
+
+              $.alert({
+                  title: 'Success!',
+                  type: 'Green',
+                  content:"Pay-grade Updated",
+                  buttons: {
+                      tryAgain: {
+                          text: 'Ok',
+                          btnClass: 'btn-red',
+                          action: function () {
+                          }
+                      }
+                  }
+              });
+
+
+          },
+          error => {
+              console.log(error);
+          }
+      );
+
+    }
 
 }
