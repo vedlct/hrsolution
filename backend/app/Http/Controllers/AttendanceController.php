@@ -40,7 +40,7 @@ class AttendanceController extends Controller
             ,min(ad.accessTime) checkInFull, max(ad.accessTime) checkoutFull,ad.fkAttDevice,SUM(distinct hlv.noOfDays) as totalLeave
             from attendancedata ad left join attemployeemap em on ad.attDeviceUserId = em.attDeviceUserId and date_format(ad.accessTime,'%Y-%m-%d') between '" . $fromDate . "' and '" . $toDate . "'
             left join employeeinfo e on em.employeeId = e.id
-            left join hrmleaves hlv on e.id=hlv.fkEmployeeId and hlv.startDate between '" . $fromDate . "' and '" . $toDate . "'
+            left join hrmleaves hlv on e.id=hlv.fkEmployeeId and hlv.applicationStatus = 'Approved' and hlv.startDate between '" . $fromDate . "' and '" . $toDate . "'
             left join hrmdepartments hdm on e.fkDepartmentId = hdm.id
             left join shiftlog sl on em.employeeId = sl.fkemployeeId and date_format(ad.accessTime,'%Y-%m-%d') between date_format(sl.startDate,'%Y-%m-%d') and ifnull(date_format(sl.endDate,'%Y-%m-%d'),curdate())
             left join shift s on sl.fkshiftId = s.shiftId
@@ -66,7 +66,7 @@ class AttendanceController extends Controller
             ,min(ad.accessTime) checkInFull, max(ad.accessTime) checkoutFull,ad.fkAttDevice,SUM(distinct hlv.noOfDays) as totalLeave
             from attendancedata ad left join attemployeemap em on ad.attDeviceUserId = em.attDeviceUserId and date_format(ad.accessTime,'%Y-%m-%d') between '" . $fromDate . "' and '" . $toDate . "'
             left join employeeinfo e on em.employeeId = e.id
-            left join hrmleaves hlv on e.id=hlv.fkEmployeeId and hlv.startDate between '" . $fromDate . "' and '" . $toDate . "'
+            left join hrmleaves hlv on e.id=hlv.fkEmployeeId and hlv.applicationStatus = 'Approved' and hlv.startDate between '" . $fromDate . "' and '" . $toDate . "'
             left join hrmdepartments hdm on e.fkDepartmentId = hdm.id
             left join shiftlog sl on em.employeeId = sl.fkemployeeId and date_format(ad.accessTime,'%Y-%m-%d') between date_format(sl.startDate,'%Y-%m-%d') and ifnull(date_format(sl.endDate,'%Y-%m-%d'),curdate())
             left join shift s on sl.fkshiftId = s.shiftId
