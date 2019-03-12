@@ -18,6 +18,7 @@ class LeaveController extends Controller
    }
 
    public function assignLeavePersonal(Request $r){
+//       return $r;
 //       return auth()->user()->id;
        $emp=EmployeeInfo::where('fkUserId',auth()->user()->id)->first();
 
