@@ -1,3 +1,110 @@
-<p>
-  home works!
-</p>
+<div class="container-fluid">
+
+<div class="row">
+
+  <div class="col-md-4">
+    <div class="card">
+      <div class="card-header">Employee info / Evening shift</div>
+      <div class="card-body">
+        <table class="table table-bordered" style="font-weight: bold">
+
+          <tbody>
+
+          <tr>
+            <td>Total Employee</td>
+            <td>
+              {{attendanceModel.morningTotal}}
+
+            </td>
+          </tr>
+          <tr>
+            <td>Present Today</td>
+            <td>
+              {{attendanceModel.morningPresent}}
+
+            </td>
+          </tr>
+          <tr>
+            <td>On Leave</td>
+            <td>10</td>
+          </tr>
+          <tr>
+            <td>Absent</td>
+            <td>0</td>
+          </tr>
+          <tr>
+            <td>Late present</td>
+            <td>
+             {{attendanceModel.morningLate}}
+            </td>
+          </tr>
+
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+
+
+
+
+
+
+
+
+  <div class="col-md-4">
+    <div class="card">
+      <div class="card-header">Employee info / Morning shift</div>
+      <div class="card-body">
+
+        <div class="table-responsive">
+          <table class="table table-bordered" style="font-weight: bold">
+
+            <tbody>
+
+            <tr>
+              <td>Total Employee</td>
+              <td>
+               {{attendanceModel.eveningTotal}}
+              </td>
+            </tr>
+            <tr>
+              <td>Present Today</td>
+              <td>
+                {{attendanceModel.eveningPresent}}
+              </td>
+            </tr>
+            <tr>
+              <td>On Leave</td>
+              <td>0</td>
+            </tr>
+            <tr>
+              <td>Absent</td>
+              <td>0</td>
+            </tr>
+            <tr>
+              <td>Late present</td>
+              <td>
+                 {{attendanceModel.eveningTotal}}
+
+              </td>
+            </tr>
+
+            </tbody>
+          </table>
+
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+
+
+
+
+
+</div>
+
+</div>
