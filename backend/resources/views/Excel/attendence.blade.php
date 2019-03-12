@@ -75,7 +75,7 @@
         <td width="10" ></td>
         <td width="30" ></td>
     </tr>
-    @foreach($results as $res)
+    @foreach($results->where('fkDepartmentId',$ad->id) as $res)
 
         @php
 

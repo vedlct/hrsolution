@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\EmployeeInfo;
+use App\Leave;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use DB;
@@ -245,17 +246,23 @@ class AttendanceController extends Controller
             group by em.employeeId, date_format(ad.accessTime,'%Y-%m-%d')) a
             where a.late = 'Y'"));
 
+        $date = date('Y-m-d');
+        $onleaveCount = Leave::where('applicationStatus', 'Approved')
+//                        ->whereBetween($date, [startDate, endDate])
+            ->whereDate('startDate', '<=', $date)
+            ->whereDate('endDate', '>=', $date)
+            ->count();
 
 
 
         if($morningPresent){
-            $morningPresent= $morningPresent[0];
+            $morningPresent= $morningPresent[0]->present;
         }
         else{
             $morningPresent=0;
         }
         if($eveningPresent){
-            $eveningPresent= $eveningPresent[0];
+            $eveningPresent= $eveningPresent[0]->present;
         }
         else{
             $eveningPresent=0;
@@ -278,7 +285,7 @@ class AttendanceController extends Controller
 
 
     return response()->json(['morningTotal'=>$morningTotal,'morningPresent'=>$morningPresent,'morningLate'=>$morningLate,
-                    'eveningTotal'=>$eveningTotal,'eveningPresent'=>$eveningPresent,'eveningLate'=>$eveningLate]);
+                    'eveningTotal'=>$eveningTotal,'eveningPresent'=>$eveningPresent,'eveningLate'=>$eveningLate, 'onleaveCount'=>$onleaveCount]);
 
 
 
