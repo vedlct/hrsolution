@@ -20,6 +20,7 @@ export class ShiftAssignComponent implements AfterViewInit,OnDestroy,OnInit {
   dtTrigger:Subject<any>=new Subject();
   id:any;
   allEmp=[];
+  team:any;
   shiftId:number;
   shift:any;
   dtInstance:DataTables.Api;
@@ -52,6 +53,7 @@ export class ShiftAssignComponent implements AfterViewInit,OnDestroy,OnInit {
       };
   this.getData();
   this.getShift();
+  this.getTeam();
 
   }
   onItemSelect(value){
@@ -74,15 +76,28 @@ export class ShiftAssignComponent implements AfterViewInit,OnDestroy,OnInit {
     );
 
   }
+  getTeam(){
+    const token=this.token.get();
 
+    this.http.get(Constants.API_URL+'team/get'+'?token='+token).subscribe(data => {
+          // console.log(data);
+          this.team=data;
+
+
+        },
+        error => {
+          console.log(error);
+        }
+    );
+  }
   getData(){
     const token=this.token.get();
     this.dtOptions = {
       ajax: {
         url: Constants.API_URL+'employee/shift/get'+'?token='+token,
         type: 'POST',
-        data:function (d){
-
+        data:function (d:any){
+          d.teamId=$("#team").val();
         },
       },
       columns: [
@@ -195,6 +210,10 @@ export class ShiftAssignComponent implements AfterViewInit,OnDestroy,OnInit {
     }
 
 
+  }
+
+  selectTeam(){
+    this.rerender();
   }
   rerender(){
     this.dtElement.dtInstance.then((dtInstance: DataTables.Api) => {

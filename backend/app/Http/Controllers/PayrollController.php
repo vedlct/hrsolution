@@ -2,13 +2,17 @@
 
 namespace App\Http\Controllers;
 
+use App\EmployeeInfo;
 use App\EmployeeSalarySetup;
 use App\PayAdvancePayment;
+use App\PayGradeDetail;
+use App\PayGradeParent;
 use App\Payhead;
 use App\PaySalarySheetMain;
 use App\PaySalarySheetSub;
 use Illuminate\Http\Request;
 use App\PayAdvanceLedger;
+
 
 
 class PayrollController extends Controller
@@ -209,5 +213,88 @@ class PayrollController extends Controller
 
         return response()->json("success");
     }
+
+
+
+
+    // insert Pay Grade Parent
+    public function insertPaygradeparent(Request $r){
+
+        if($r->id)
+        {
+            $paygradeparent = PayGradeParent::findOrFail($r->id);
+        }
+        else
+        {
+            $paygradeparent = new PayGradeParent();
+        }
+
+        $paygradeparent->gradeTitle = $r->gradeTitle;
+        $paygradeparent->BASIC = $r->BASIC;
+        $paygradeparent->eb1Rate = $r->eb1Rate;
+        $paygradeparent->eb1MaxTime = $r->eb1MaxTime;
+        $paygradeparent->eb2Rate = $r->eb2Rate;
+        $paygradeparent->eb2MaxTime = $r->eb2MaxTime;
+        $paygradeparent->DESCRIPTION = $r->DESCRIPTION;
+        $paygradeparent->save();
+
+        return response()->json("success");
+    }
+
+    // get Pay Grade Parent
+    public function getPaygradeparent(){
+        $paygradeparent = PayGradeParent::get();
+        return $paygradeparent;
+    }
+
+
+    // insert Pay Grade Details
+    public function insertPaygradedetail(Request $r){
+
+        if($r->id)
+        {
+            $paygradedetail = PayGradeDetail::findOrFail($r->id);
+        }
+        else
+        {
+            $paygradedetail = new PayGradeDetail();
+        }
+
+        $paygradedetail->fkGradeParentId = $r->fkGradeParentId;
+        $paygradedetail->fkPayHeadId = $r->fkPayHeadId;
+        $paygradedetail->percentOfBasic = $r->percentOfBasic;
+//        $paygradedetail->consolidated = $r->consolidated;
+        $paygradedetail->save();
+
+        return response()->json("success");
+    }
+
+    // get Pay Grade Details
+    public function getPaygradedetail(){
+        $paygradedetail = PayGradeDetail::select('paygradedetail.*','paygradeparent.gradeTitle','payheads.allowDeducTitle')
+            ->leftJoin('paygradeparent','paygradeparent.id','paygradedetail.fkGradeParentId')
+            ->leftJoin('payheads','payheads.id','paygradedetail.fkPayHeadId')
+            ->get();
+        return $paygradedetail;
+    }
+
+    public function updateSalaryInfo(Request $r){
+        $employeeinfo = EmployeeInfo::findOrFail($r->id);
+        $employeeinfo->fkSalaryGrade = $r->fkSalaryGrade;
+        $employeeinfo->noOfIncrement = $r->noOfIncrement;
+        $employeeinfo->save();
+
+        return response()->json("success");
+    }
+
+    // get
+    public function getSalaryInfo(Request $r){
+//      return $r;
+        $employeeinfo = EmployeeInfo::select('fkSalaryGrade', 'noOfIncrement', 'id')->findOrFail($r->id);
+        return $employeeinfo;
+    }
+
+
+
 
 }

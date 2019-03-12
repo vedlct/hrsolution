@@ -1,43 +1,259 @@
-<div class="container">
-  <div class="card">
-    <div class="card-body">
+<!-- Edit Pay-Grade Modal -->
+<div class="modal" id="editGradeModal">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+
+      <!-- Modal Header -->
+      <div class="modal-header">
+        <h4 class="modal-title">Edit Pay-grade</h4>
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+      </div>
+      <!-- Modal body -->
+      <div class="modal-body">
+
         <div class="row">
           <div class="form-group col-md-6">
-            <label>Head</label>
-            <select class="form-control" placeholder="pay-head" name="gradeTitle" [ngModel]="payGradeModel.gradeTitle">
-              <option value="">Select Payhead</option>
-              <option *ngFor="let data of payHeads" [value]="data.id">
-                {{data.allowDeducTitle}}
-              </option>
-            </select>
+            <label>Title</label>
+            <input class="form-control" placeholder="pay-grade"  [(ngModel)]="editPayGradeModel.gradeTitle">
           </div>
           <div class="form-group col-md-6">
             <label>BASIC</label>
-            <input type="number" class="form-control" placeholder="basic" name="BASIC" [ngModel]="payGradeModel.BASIC">
+            <input type="number" class="form-control" placeholder="basic" name="BASIC" [(ngModel)]="editPayGradeModel.BASIC">
           </div>
 
           <div class="form-group col-md-6">
             <label>eb1Rate</label>
-            <input type="number" class="form-control" placeholder="%" name="eb1Rate" [ngModel]="payGradeModel.eb1Rate">
+            <input type="number" class="form-control" placeholder="%" name="eb1Rate" [(ngModel)]="editPayGradeModel.eb1Rate">
           </div>
           <div class="form-group col-md-6">
             <label>eb1MaxTime</label>
-            <input type="number" class="form-control" placeholder="year" name="eb1MaxTime" [ngModel]="payGradeModel.eb1MaxTime">
+            <input type="number" class="form-control" placeholder="year" name="eb1MaxTime" [(ngModel)]="editPayGradeModel.eb1MaxTime">
           </div>
           <div class="form-group col-md-6">
             <label>eb2Rate</label>
-            <input type="number" class="form-control" placeholder="%" name="eb2Rate" [ngModel]="payGradeModel.eb2Rate">
+            <input type="number" class="form-control" placeholder="%" name="eb2Rate" [(ngModel)]="editPayGradeModel.eb2Rate">
           </div>
           <div class="form-group col-md-6">
             <label>eb2MaxTime</label>
-            <input type="number" class="form-control" placeholder="year" name="eb2MaxTime" [ngModel]="payGradeModel.eb2MaxTime">
+            <input type="number" class="form-control" placeholder="year" name="eb2MaxTime" [(ngModel)]="editPayGradeModel.eb2MaxTime">
           </div>
           <div class="form-group col-md-6">
             <label>DESCRIPTION</label>
-            <input class="form-control" placeholder="description" name="DESCRIPTION" [ngModel]="payGradeModel.DESCRIPTION">
+            <input class="form-control" placeholder="description" name="DESCRIPTION" [(ngModel)]="editPayGradeModel.DESCRIPTION">
+          </div>
+          <div class="form-group col-md-12">
+            <button class="btn btn-success btn-sm pull-right" (click)="updatePaygrade()">Insert</button>
           </div>
 
         </div>
+
+
+
+      </div>
+
+      <!-- Modal footer -->
+      <div class="modal-footer">
+
+      </div>
+
+    </div>
+  </div>
+</div>
+
+
+
+<div class="container">
+  <div class="card">
+    <div class="card-body">
+      <h4 align="center">Pay-grade Setup</h4>
+        <div class="row">
+          <div class="form-group col-md-6">
+            <label>Title</label>
+            <input class="form-control" placeholder="pay-grade"  [(ngModel)]="payGradeModel.gradeTitle">
+          </div>
+          <div class="form-group col-md-6">
+            <label>BASIC</label>
+            <input type="number" class="form-control" placeholder="basic" name="BASIC" [(ngModel)]="payGradeModel.BASIC">
+          </div>
+
+          <div class="form-group col-md-6">
+            <label>eb1Rate</label>
+            <input type="number" class="form-control" placeholder="%" name="eb1Rate" [(ngModel)]="payGradeModel.eb1Rate">
+          </div>
+          <div class="form-group col-md-6">
+            <label>eb1MaxTime</label>
+            <input type="number" class="form-control" placeholder="year" name="eb1MaxTime" [(ngModel)]="payGradeModel.eb1MaxTime">
+          </div>
+          <div class="form-group col-md-6">
+            <label>eb2Rate</label>
+            <input type="number" class="form-control" placeholder="%" name="eb2Rate" [(ngModel)]="payGradeModel.eb2Rate">
+          </div>
+          <div class="form-group col-md-6">
+            <label>eb2MaxTime</label>
+            <input type="number" class="form-control" placeholder="year" name="eb2MaxTime" [(ngModel)]="payGradeModel.eb2MaxTime">
+          </div>
+          <div class="form-group col-md-6">
+            <label>DESCRIPTION</label>
+            <input class="form-control" placeholder="description" name="DESCRIPTION" [(ngModel)]="payGradeModel.DESCRIPTION">
+          </div>
+          <div class="form-group col-md-12">
+            <button class="btn btn-success btn-sm pull-right" (click)="insertPaygrade()">Insert</button>
+          </div>
+
+        </div>
+
+      <table class="table table-bordered table-striped">
+        <thead>
+          <th>gradeTitle</th>
+          <th>BASIC</th>
+          <th>eb1Rate</th>
+          <th>eb1MaxTime</th>
+          <th>eb2Rate</th>
+          <th>eb2MaxTime</th>
+          <th>DESCRIPTION</th>
+          <th>Action</th>
+        </thead>
+        <tbody>
+          <tr *ngFor="let data of payGrades">
+            <td>{{data.gradeTitle}}</td>
+            <td>{{data.BASIC}}</td>
+            <td>{{data.eb1Rate}}</td>
+            <td>{{data.eb1MaxTime}}</td>
+            <td>{{data.eb2Rate}}</td>
+            <td>{{data.eb2MaxTime}}</td>
+            <td>{{data.DESCRIPTION}}</td>
+            <td>
+              <button class="btn btn-sm btn-info" (click)="editPayGrade(data)">Edit</button>
+            </td>
+
+          </tr>
+        </tbody>
+
+      </table>
+
+<!--=================================Details========================================-->
+
+
+      <!-- Edit Pay-Grade-Details Modal -->
+      <div class="modal" id="editDetailModal">
+        <div class="modal-dialog modal-lg">
+          <div class="modal-content">
+
+            <!-- Modal Header -->
+            <div class="modal-header">
+              <h4 class="modal-title">Edit Pay-grade</h4>
+              <button type="button" class="close" data-dismiss="modal">&times;</button>
+            </div>
+            <!-- Modal body -->
+            <div class="modal-body">
+              <div class="row">
+
+                <div class="form-group col-md-6">
+                  <label>Pay Grade</label>
+                  <select class="form-control" name="fkGradeParentId" [(ngModel)]="editPayDetailsModel.fkGradeParentId">
+                    <option value="">Select Pay-grade</option>
+                    <option *ngFor="let data of payGrades" [value]="data.id">
+                      {{data.gradeTitle}}
+                    </option>
+                  </select>
+                </div>
+
+
+                <div class="form-group col-md-6">
+                  <label>Head</label>
+                  <select class="form-control" name="fkPayHeadId" [(ngModel)]="editPayDetailsModel.fkPayHeadId">
+                    <option value="">Select Payhead</option>
+                    <option *ngFor="let data of payHeads" [value]="data.id">
+                      {{data.allowDeducTitle}}
+                    </option>
+                  </select>
+                </div>
+
+
+                <div class="form-group col-md-6">
+                  <label>Percent Of Basic</label>
+                  <input type="number" class="form-control" placeholder="%" name="percentOfBasic" [(ngModel)]="editPayDetailsModel.percentOfBasic">
+                </div>
+
+                <div class="form-group col-md-12">
+                  <button class="btn btn-success btn-sm pull-right" (click)="updatePaygradeDetails()">Insert</button>
+                </div>
+              </div>
+
+            </div>
+
+            <!-- Modal footer -->
+            <div class="modal-footer">
+
+            </div>
+
+          </div>
+        </div>
+      </div>
+
+
+
+
+
+
+      <hr>
+      <h4 align="center">Pay-grade Details</h4>
+      <div class="row">
+
+        <div class="form-group col-md-6">
+          <label>Pay Grade</label>
+          <select class="form-control" name="fkGradeParentId" [(ngModel)]="payDetailsModel.fkGradeParentId">
+            <option value="">Select Pay-grade</option>
+            <option *ngFor="let data of payGrades" [value]="data.id">
+              {{data.gradeTitle}}
+            </option>
+          </select>
+        </div>
+
+
+        <div class="form-group col-md-6">
+          <label>Head</label>
+          <select class="form-control" name="fkPayHeadId" [(ngModel)]="payDetailsModel.fkPayHeadId">
+          <option value="">Select Payhead</option>
+          <option *ngFor="let data of payHeads" [value]="data.id">
+            {{data.allowDeducTitle}}
+          </option>
+          </select>
+        </div>
+
+
+        <div class="form-group col-md-6">
+          <label>Percent Of Basic</label>
+          <input type="number" class="form-control" placeholder="%" name="percentOfBasic" [(ngModel)]="payDetailsModel.percentOfBasic">
+        </div>
+
+        <div class="form-group col-md-12">
+          <button class="btn btn-success btn-sm pull-right" (click)="insertPaygradeDetails()">Insert</button>
+        </div>
+      </div>
+
+      <table class="table table-bordered table-striped">
+        <thead>
+        <th>fkGradeParentId</th>
+        <th>fkPayHeadId</th>
+        <th>percentOfBasic</th>
+        <th>Action</th>
+        </thead>
+        <tbody>
+        <tr *ngFor="let data of payDetails">
+          <td>{{data.gradeTitle}}</td>
+          <td>{{data.allowDeducTitle}}</td>
+          <td>{{data.percentOfBasic}}</td>
+          <td>
+            <button class="btn btn-sm btn-info" (click)="editDetails(data)">Edit</button>
+          </td>
+
+        </tr>
+        </tbody>
+
+      </table>
+
+
     </div>
   </div>
 </div>

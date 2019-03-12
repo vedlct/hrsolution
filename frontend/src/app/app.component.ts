@@ -4,6 +4,7 @@ import {Constants} from "./constants";
 import {HttpClient} from "@angular/common/http";
 import { NgxPermissionsService, NgxPermissionsConfigurationService } from 'ngx-permissions';
 import {User} from "./model/user.model";
+import {HashLocationStrategy, Location, LocationStrategy} from '@angular/common';
 
 @Component({
   selector: 'app-root',

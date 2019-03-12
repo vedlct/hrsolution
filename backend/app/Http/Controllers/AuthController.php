@@ -3,9 +3,11 @@
 namespace App\Http\Controllers;
 
 
+use App\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Hash;
 
 class AuthController extends Controller
 {
@@ -88,5 +90,24 @@ class AuthController extends Controller
         ]);
     }
 
+
+
+    public function changePassword(Request $r){
+        $user=User::findOrFail(auth()->user()->id);
+        $currentPass= Hash::make($r->currentPassword);
+        $newPass=Hash::make($r->password);
+
+
+        if(Hash::check($r->currentPassword, $user->password)){
+            $user->password= $newPass;
+            $user->save();
+//            Session::flash('message', 'Password Changed successfully');
+            return response()->json('Password Changed successfully');
+        }
+
+//        Session::flash('message', 'Password did not match');
+        return response()->json('Password did not match');
+
+    }
 
 }

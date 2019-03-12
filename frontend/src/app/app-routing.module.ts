@@ -28,6 +28,7 @@ import {PayAdvanceComponent} from "./components/payroll/pay-advance/pay-advance.
 import {AddLeaveComponent} from "./components/leave/add-leave/add-leave.component";
 import { NgxPermissionsGuard } from 'ngx-permissions';
 import {PayGradeComponent} from "./components/payroll/pay-grade/pay-grade.component";
+import {ProfileComponent} from "./components/user/profile/profile.component";
 
 
 export function testPermissions(route: ActivatedRouteSnapshot, state: RouterStateSnapshot) {
@@ -42,6 +43,7 @@ const routes: Routes = [
     {path: '', component: LoginComponent, canActivate: [GuestService] },
     { path: 'login', component: LoginComponent, canActivate: [GuestService] },
     { path: 'home', component: HomeComponent,canActivate: [AuthService] },
+    { path: 'profile', component: ProfileComponent,canActivate: [AuthService] },
     { path: 'datatable', component: TablesComponent },
     { path: 'user/add',component: AddUserComponent,canActivate: [AuthService] },
     { path: 'user/add/:id',component: AddUserComponent,canActivate: [AuthService] },

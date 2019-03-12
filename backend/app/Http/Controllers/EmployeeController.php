@@ -44,6 +44,7 @@ class EmployeeController extends Controller
             ->where('employeeinfo.fkCompany' , auth()->user()->fkCompany)
             ->where('shiftlog.endDate',null);
 
+
         if($r->teamId){
             $employee=$employee->where('employeeinfo.fkTeamId',$r->teamId);
         }

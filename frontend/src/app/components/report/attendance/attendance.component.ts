@@ -89,14 +89,15 @@ export class AttendanceComponent implements OnInit {
                 { data: 'totAttendance' , name: 'totAttendance' },
                 { data: 'totalLate', name: 'totalLate'},
                 { data: 'averageWorkingHour', name: 'averageWorkingHour'},
-                // { data: 'totalLeave', name: 'totalLeave'},
-                {
-
-                    "data": function (data: any, type: any, full: any) {
-                        return '<button class="btn btn-sm btn-info" data-leaveemp-id="'+data.employeeId+'">'+data.totalLeave+'</button>';
-                    },
-                    "orderable": false, "searchable":false, "name":"selected_rows"
-                },
+                { data: 'totalLeave', name: 'totalLeave'},
+              
+                // {
+                //
+                //     "data": function (data: any, type: any, full: any) {
+                //         return '<button class="btn btn-sm btn-info" data-leaveemp-id="'+data.employeeId+'">'+data.totalLeave+'</button>';
+                //     },
+                //     "orderable": false, "searchable":false, "name":"selected_rows"
+                // },
                 { data: 'weekends', name: 'weekends'},
                 { data: 'totalWeekend', name: 'totalWeekend'},
                 {

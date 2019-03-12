@@ -186,7 +186,8 @@ export class AssignTeamComponent implements AfterViewInit,OnDestroy,OnInit {
       // console.log(form);
 
       this.http.post(Constants.API_URL+'team/assign'+'?token='+token,form).subscribe(data => {
-            console.log(data);
+            // console.log(data);
+        this.allEmp=[];
             this.rerender();
           },
           error => {

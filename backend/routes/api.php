@@ -39,6 +39,7 @@ Route::group([
     Route::post('logout', 'AuthController@logout');
     Route::post('refresh', 'AuthController@refresh');
     Route::post('me', 'AuthController@me');
+    Route::post('profile/password/change', 'AuthController@changePassword');
 
     //Company Info
     Route::get('company/get','CompanyController@get');
@@ -201,7 +202,18 @@ Route::group([
     Route::post('payroll/paysalarysheetsub/update','PayrollController@updatePaySalarySheetSub');
     Route::post('payroll/payadvanceledger/insert','PayrollController@insertPayAdvanceLedger');
 
+    //Pay Grade details
+    Route::post('payroll/paygradedetail/get','PayrollController@getPaygradedetail');
+    Route::post('payroll/paygradedetail/insert','PayrollController@insertPaygradedetail');
 
+    //Pay Grade Parent
+    Route::post('payroll/paygradeparent/get','PayrollController@getPaygradeparent');
+    Route::post('payroll/paygradeparent/insert','PayrollController@insertPaygradeparent');
+
+
+    //Assign or update salary info
+    Route::post('payroll/salary-info/update','PayrollController@updateSalaryInfo');
+    Route::post('payroll/salary-info/get','PayrollController@getSalaryInfo');
 
 
 });

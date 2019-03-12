@@ -18,14 +18,17 @@ export class SalaryInfoComponent implements OnInit {
     payroll:''
   };
   result:any;
+  payGrades:any;
   payrolls:any;
   empAllPayrolls:any;
   model:any={};
   payAdvanceModel:any={};
   temp:any={};
+  payGradeModel:any={};
   constructor(public http: HttpClient, private token:TokenService,private router: Router) { }
 
   ngOnInit() {
+
       this.model.payroll="";
       this.model.fkEmployeeId=this.empid;
       this.model.amount="";
@@ -36,10 +39,7 @@ export class SalaryInfoComponent implements OnInit {
     this.http.post(Constants.API_URL+'payroll/payhead/salarySetupGet'+'?token='+token, this.model).subscribe(data => {
        if(data){
            this.temp=data;
-           // this.model.payroll=this.temp.fkPaymentHeadId;
-           // this.model.amount=this.temp.amount;
-           // this.model.description=this.temp.description;
-           // this.model.grossPercent=this.temp.grossPercent;
+
        }
        else {
             // alert("empty");
@@ -52,6 +52,26 @@ export class SalaryInfoComponent implements OnInit {
     );
     this.getData();
     this.getEmployeeData();
+    this.initPayGrade();
+    this.getPaygrades();
+  }
+
+  initPayGrade(){
+      this.payGradeModel.id=this.empid;
+
+      //
+      const token=this.token.get();
+      this.http.post(Constants.API_URL+'payroll/salary-info/get'+'?token='+token, {id:this.empid}).subscribe(data => {
+
+            this.payGradeModel=data;
+
+          },
+          error => {
+
+              console.log(error);
+
+          }
+      );
   }
 
   getData(){
@@ -195,7 +215,6 @@ export class SalaryInfoComponent implements OnInit {
   submit(){
     const token=this.token.get();
     this.http.post(Constants.API_URL+'SalryInfo/post'+'?token='+token,this.employeeSalaryForm).subscribe(data => {
-        console.log(data);
         this.result=data;
           $.alert({
             title: 'Success!',
@@ -219,5 +238,47 @@ export class SalaryInfoComponent implements OnInit {
     );
 
   }
+
+  getPaygrades(){
+        // payroll/paygradeparent/get
+        const token = this.token.get();
+        this.http.post(Constants.API_URL+'payroll/paygradeparent/get'+'?token='+token,{}).subscribe(data => {
+                // console.log(data);
+                this.payGrades=data;
+            },
+
+            error => {
+                console.log(error);
+            }
+        );
+
+    }
+
+  assignPayGrade(){
+      console.log(this.payGradeModel);
+      const token=this.token.get();
+      this.http.post(Constants.API_URL+'payroll/salary-info/update'+'?token='+token,this.payGradeModel).subscribe(data => {
+              $.alert({
+                  title: 'Success!',
+                  type: 'Green',
+                  content:"Pay-grade Updated",
+                  buttons: {
+                      tryAgain: {
+                          text: 'Ok',
+                          btnClass: 'btn-red',
+                          action: function () {
+                          }
+                      }
+                  }
+              });
+
+
+          },
+          error => {
+              console.log(error);
+          }
+      );
+
+    }
 
 }
