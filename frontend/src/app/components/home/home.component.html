@@ -26,11 +26,13 @@
           </tr>
           <tr>
             <td>On Leave</td>
-            <td>0</td>
+            <td>{{attendanceModel.onleaveCountMorning}}</td>
           </tr>
           <tr>
             <td>Absent</td>
-            <td>0</td>
+            <td>
+              {{ attendanceModel.morningTotal -  attendanceModel.morningPresent  - attendanceModel.onleaveCountMorning}}
+            </td>
           </tr>
           <tr>
             <td>Late present</td>
@@ -77,16 +79,18 @@
             </tr>
             <tr>
               <td>On Leave</td>
-              <td>0</td>
+              <td>{{attendanceModel.onleaveCountEvening}}</td>
             </tr>
             <tr>
               <td>Absent</td>
-              <td>0</td>
+              <td>
+                {{ attendanceModel.eveningTotal -  attendanceModel.eveningPresent  - attendanceModel.onleaveCountEvening}}
+              </td>
             </tr>
             <tr>
               <td>Late present</td>
               <td>
-                 {{attendanceModel.eveningTotal}}
+                 {{attendanceModel.eveningLate}}
 
               </td>
             </tr>

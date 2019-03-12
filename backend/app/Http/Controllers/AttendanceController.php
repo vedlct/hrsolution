@@ -247,10 +247,29 @@ class AttendanceController extends Controller
             where a.late = 'Y'"));
 
         $date = date('Y-m-d');
-        $onleaveCount = Leave::where('applicationStatus', 'Approved')
-//                        ->whereBetween($date, [startDate, endDate])
-            ->whereDate('startDate', '<=', $date)
-            ->whereDate('endDate', '>=', $date)
+
+
+
+        $onleaveCountMorning = Leave::where('hrmleaves.applicationStatus', 'Approved')
+            ->whereDate('hrmleaves.startDate', '<=', $date)
+            ->whereDate('hrmleaves.endDate', '>=', $date)
+            ->leftJoin('employeeinfo','employeeinfo.id','hrmleaves.fkEmployeeId')
+            ->leftJoin('shiftlog','shiftlog.fkemployeeId','employeeinfo.id')
+            ->leftJoin('shift','shift.shiftId','shiftlog.fkshiftId')
+            ->where('employeeinfo.fkDepartmentId',6)
+            ->where('shiftlog.endDate',null)
+            ->whereIn('shiftlog.fkshiftId',[2,4])
+            ->count();
+
+        $onleaveCountEvening = Leave::where('hrmleaves.applicationStatus', 'Approved')
+            ->whereDate('hrmleaves.startDate', '<=', $date)
+            ->whereDate('hrmleaves.endDate', '>=', $date)
+            ->leftJoin('employeeinfo','employeeinfo.id','hrmleaves.fkEmployeeId')
+            ->leftJoin('shiftlog','shiftlog.fkemployeeId','employeeinfo.id')
+            ->leftJoin('shift','shift.shiftId','shiftlog.fkshiftId')
+            ->where('employeeinfo.fkDepartmentId',6)
+            ->where('shiftlog.endDate',null)
+            ->where('shiftlog.fkshiftId',3)
             ->count();
 
 
@@ -285,7 +304,8 @@ class AttendanceController extends Controller
 
 
     return response()->json(['morningTotal'=>$morningTotal,'morningPresent'=>$morningPresent,'morningLate'=>$morningLate,
-                    'eveningTotal'=>$eveningTotal,'eveningPresent'=>$eveningPresent,'eveningLate'=>$eveningLate, 'onleaveCount'=>$onleaveCount]);
+                    'eveningTotal'=>$eveningTotal,'eveningPresent'=>$eveningPresent,'eveningLate'=>$eveningLate,
+        'onleaveCountMorning'=>$onleaveCountMorning,'onleaveCountEvening'=>$onleaveCountEvening]);
 
 
 
