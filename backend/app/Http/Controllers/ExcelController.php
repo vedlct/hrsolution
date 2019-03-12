@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 
 use App\AttendanceData;
 use App\Comment;
+use App\Department;
 use App\Leave;
 use App\OrganizationCalander;
 use App\User;
@@ -39,29 +40,34 @@ class ExcelController extends Controller
 
 
         $results = DB::select( DB::raw("select a.employeeId,CONCAT(COALESCE(a.firstName,''),' ',COALESCE(a.middleName,''),' ',COALESCE(a.lastName,'')) AS empname,a.departmentName,a.totalWeekend,count(a.attendanceDate) totAttendance, FORMAT(avg(a.workingTime),2) averageWorkingHour,
-            sum(case late when 'Y' then 1 else 0 end) totalLate,a.totalLeave,a.actualJoinDate,a.practice
+            sum(case late when 'Y' then 1 else 0 end) totalLate,a.totalLeave,a.actualJoinDate,a.practice,a.fkDepartmentId
             from
             (select ad.id,ad.attDeviceUserId,hdm.departmentName, em.employeeId, e.firstName,e.lastName,
-              e.middleName,e.actualJoinDate,e.weekend as totalWeekend,e.practice
+              e.middleName,e.actualJoinDate,e.weekend as totalWeekend,e.practice,e.fkDepartmentId
             , date_format(ad.accessTime,'%Y-%m-%d') attendanceDate
             , date_format(min(ad.accessTime),'%H:%i:%s %p') checkIn
             , date_format(max(ad.accessTime),'%H:%i:%s %p') checkOut
             , date_format(s.inTime,'%H:%i:%s %p') scheduleIn, date_format(s.outTime,'%H:%i:%s %p') scheduleOut
-            , case when SUBTIME(date_format(min(ad.accessTime),'%H:%i'),s.inTime) > '00:00:01' then 'Y' else 'N' end late 
+            , case when SUBTIME(date_format(min(ad.accessTime),'%H:%i'),s.inTime) > '00:00:01' then 'Y' else 'N' end late
             , SUBTIME(date_format(max(ad.accessTime),'%H:%i:%s'),date_format(min(ad.accessTime),'%H:%i:%s')) workingTime
             ,min(ad.accessTime) checkInFull, max(ad.accessTime) checkoutFull,ad.fkAttDevice,SUM(distinct hlv.noOfDays) as totalLeave
-            from attendancedata ad left join attemployeemap em on ad.attDeviceUserId = em.attDeviceUserId
+            from attendancedata ad left join attemployeemap em on ad.attDeviceUserId = em.attDeviceUserId and date_format(ad.accessTime,'%Y-%m-%d') between '" . $fromDate . "' and '" . $toDate . "'
             left join employeeinfo e on em.employeeId = e.id
-            left join hrmleaves hlv on e.id=hlv.fkEmployeeId
-            
+            left join hrmleaves hlv on e.id=hlv.fkEmployeeId and hlv.startDate between '" . $fromDate . "' and '" . $toDate . "'
             left join hrmdepartments hdm on e.fkDepartmentId = hdm.id
             left join shiftlog sl on em.employeeId = sl.fkemployeeId and date_format(ad.accessTime,'%Y-%m-%d') between date_format(sl.startDate,'%Y-%m-%d') and ifnull(date_format(sl.endDate,'%Y-%m-%d'),curdate())
             left join shift s on sl.fkshiftId = s.shiftId
-            where em.employeeId is not null and date_format(ad.accessTime,'%Y-%m-%d') between '".$fromDate."' and '".$toDate."'
-            or hlv.startDate between '".$fromDate."' and '".$toDate."'
-            group by ad.attDeviceUserId, date_format(ad.accessTime,'%Y-%m-%d')) a            
+            where em.employeeId is not null 
+            group by ad.attDeviceUserId,date_format(ad.accessTime,'%Y-%m-%d')) a     
             group by a.employeeId
             order by a.employeeId"));
+
+
+        $results=collect($results);
+
+//        return $results;
+
+        $allDepartment=Department::select('id','departmentName')->get();
 
 
 
@@ -77,7 +83,7 @@ class ExcelController extends Controller
 
 
 
-        $excelName="test";
+        $excelName="Attendence";
         $filePath=public_path ()."/exportedExcel";
 //        $fileName="AppliedCandidateList".date("Y-m-d_H-i-s");
 //        $fileName=$excelName." Info".date("Y-m-d_H-i-s");
@@ -89,24 +95,32 @@ class ExcelController extends Controller
             'filePath'=>$fileName,
         );
 
-        $check=Excel::create($fileName,function($excel)use ($results,$allLeave,$startDate,$endDate,$comments,$allHoliday) {
+        $check=Excel::create($fileName,function($excel)use ($results,$allLeave,$startDate,$endDate,$comments,$allHoliday,$allDepartment) {
 
 
-            $excel->sheet('First sheet', function($sheet) use ($results,$allLeave,$startDate,$endDate,$comments,$allHoliday) {
+
+            foreach ($allDepartment as $ad) {
 
 
-                $sheet->freezePane('B4');
 
-                $sheet->setStyle(array(
-                    'font' => array(
-                        'name'      =>  'Calibri',
-                        'size'      =>  10,
-                        'bold'      =>  false
-                    )
-                ));
+                $excel->sheet($ad->departmentName, function ($sheet) use ($results,$ad, $allLeave, $startDate, $endDate, $comments, $allHoliday, $allDepartment) {
 
-                $sheet->loadView('Excel.attendence', compact('results','allLeave','startDate','endDate','comments','allHoliday'));
-            });
+
+                    $sheet->freezePane('B4');
+
+                    $sheet->setStyle(array(
+                        'font' => array(
+                            'name' => 'Calibri',
+                            'size' => 10,
+                            'bold' => false
+                        )
+                    ));
+
+                    $sheet->loadView('Excel.attendence', compact('results', 'allLeave','ad', 'startDate', 'endDate', 'comments', 'allHoliday'));
+                });
+            }
+
+
 
         })->store('xls',$filePath);
 
