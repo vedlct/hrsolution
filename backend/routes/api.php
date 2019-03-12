@@ -138,9 +138,11 @@ Route::group([
     //Show Leave Requests
     Route::post('leave/getLeaveRequests','LeaveController@getLeaveRequests');
     Route::post('leave/getLeaveRequests/{id}','LeaveController@getLeaveRequestsIndividual');
+
     Route::post('leave/get/individual','LeaveController@getMyLeave');
     Route::post('leave/change/status','LeaveController@changeStatus');
-    Route::post('leave/get/individual','LeaveController@getIndividual');
+//    Route::post('leave/get/individual','LeaveController@getIndividual');
+
     Route::post('leave/individual/update','LeaveController@updateIndividual');
 
 
@@ -167,6 +169,8 @@ Route::group([
     Route::post('report/attendance','AttendanceController@index');
     Route::post('report/getEmployeeAttendance','AttendanceController@getEmployeeAttendance');
 
+    //==================================Live Attendance=================================
+    Route::post('report/attendance/live','AttendanceController@liveAttendance');
 
 
     //========================================Comment======================================
