@@ -39,6 +39,7 @@ Route::group([
     Route::post('logout', 'AuthController@logout');
     Route::post('refresh', 'AuthController@refresh');
     Route::post('me', 'AuthController@me');
+    Route::post('profile/password/change', 'AuthController@changePassword');
 
     //Company Info
     Route::get('company/get','CompanyController@get');
