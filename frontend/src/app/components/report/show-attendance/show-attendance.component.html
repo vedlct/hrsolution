@@ -56,7 +56,7 @@
         <div class="form-group col-md-3">
           <br>
 
-          <button class="btn btn-info pull-right" (click)="commentModal(content)">Add Comment</button>
+          <button class="btn btn-info pull-right" (click)="commentModal(content)" *ngxPermissionsOnly="['admin']">Add Comment</button>
         </div>
 
       </div>
