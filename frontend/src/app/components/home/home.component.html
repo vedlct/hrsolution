@@ -1,3 +1,464 @@
-<p>
-  home works!
-</p>
+<div class="container-fluid">
+
+    <!-- Row 1 -->
+    <div class="row">
+
+        <!-- PPD -->
+        <div class="col-md-6">
+            <div class="card">
+                <div class="card-header">
+                    PPD
+                </div>
+                <div class="card-body">
+
+
+                    <div class="row">
+
+                        <div class="col-md-6">
+                            <div class="card">
+                                <div class="card-header">Employee info / Evening shift</div>
+                                <div class="card-body">
+                                    <table class="table table-bordered" style="font-weight: bold">
+
+                                        <tbody>
+
+                                        <tr>
+                                            <td>Total Employee</td>
+                                            <td>
+                                                {{attendanceModel.morningTotal}}
+
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>Present Today</td>
+                                            <td>
+                                                {{attendanceModel.morningPresent}}
+
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>On Leave</td>
+                                            <td>{{attendanceModel.onleaveCountMorning}}</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Absent</td>
+                                            <td>
+                                                {{ attendanceModel.morningTotal - attendanceModel.morningPresent - attendanceModel.onleaveCountMorning}}
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>Late present</td>
+                                            <td>
+                                                {{attendanceModel.morningLate}}
+                                            </td>
+                                        </tr>
+
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+
+
+                        <div class="col-md-6">
+                            <div class="card">
+                                <div class="card-header">Employee info / Morning shift</div>
+                                <div class="card-body">
+
+                                    <div class="table-responsive">
+                                        <table class="table table-bordered" style="font-weight: bold">
+
+                                            <tbody>
+
+                                            <tr>
+                                                <td>Total Employee</td>
+                                                <td>
+                                                    {{attendanceModel.eveningTotal}}
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>Present Today</td>
+                                                <td>
+                                                    {{attendanceModel.eveningPresent}}
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>On Leave</td>
+                                                <td>{{attendanceModel.onleaveCountEvening}}</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Absent</td>
+                                                <td>
+                                                    {{ attendanceModel.eveningTotal - attendanceModel.eveningPresent - attendanceModel.onleaveCountEvening}}
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>Late present</td>
+                                                <td>
+                                                    {{attendanceModel.eveningLate}}
+
+                                                </td>
+                                            </tr>
+
+                                            </tbody>
+                                        </table>
+
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Software and Digital Marketing -->
+        <div class="col-md-6">
+            <div class="card">
+                <div class="card-header">
+                    Software Division and Global Marketing
+                </div>
+                <div class="card-body">
+
+
+                    <div class="row">
+
+                        <div class="col-md-6">
+                            <div class="card">
+                                <div class="card-header">Software Division</div>
+                                <div class="card-body">
+                                    <table class="table table-bordered" style="font-weight: bold">
+
+                                        <tbody>
+
+                                        <tr>
+                                            <td>Total Employee</td>
+                                            <td>
+                                                {{attendanceModel.softwareTotalEmp}}
+
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>Present Today</td>
+                                            <td>
+                                                {{attendanceModel.softwarePresent}}
+
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>On Leave</td>
+                                            <td>{{attendanceModel.softwareOnleave}}</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Absent</td>
+                                            <td>
+                                                {{ attendanceModel.softwareTotalEmp - attendanceModel.softwarePresent - attendanceModel.softwareOnleave}}
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>Late present</td>
+                                            <td>
+                                                {{attendanceModel.softwareLate}}
+                                            </td>
+                                        </tr>
+
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+
+
+                        <div class="col-md-6">
+                            <div class="card">
+                                <div class="card-header">Global Marketing</div>
+                                <div class="card-body">
+
+                                    <div class="table-responsive">
+                                        <table class="table table-bordered" style="font-weight: bold">
+
+                                            <tbody>
+
+                                            <tr>
+                                                <td>Total Employee</td>
+                                                <td>
+                                                    {{attendanceModel.globalTotalEmp}}
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>Present Today</td>
+                                                <td>
+                                                    {{attendanceModel.globalPresent}}
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>On Leave</td>
+                                                <td>{{attendanceModel.globalOnleave}}</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Absent</td>
+                                                <td>
+                                                    {{ attendanceModel.globalTotalEmp - attendanceModel.globalPresent - attendanceModel.globalOnleave}}
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>Late present</td>
+                                                <td>
+                                                    {{attendanceModel.globalLate}}
+
+                                                </td>
+                                            </tr>
+
+                                            </tbody>
+                                        </table>
+
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- Row 2 -->
+    <div class="row mt-2">
+
+        <!-- PPD -->
+        <div class="col-md-6">
+            <div class="card">
+                <div class="card-header">
+                    Digital Marketing
+                </div>
+                <div class="card-body">
+
+
+                    <div class="row">
+
+                        <div class="col-md-6">
+                            <div class="card">
+                                <div class="card-header">Employee info / Digital Marketing</div>
+                                <div class="card-body">
+                                    <table class="table table-bordered" style="font-weight: bold">
+
+                                        <tbody>
+
+                                        <tr>
+                                            <td>Total Employee</td>
+                                            <td>
+                                                {{attendanceModel.digitalTotalEmp}}
+
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>Present Today</td>
+                                            <td>
+                                                {{attendanceModel.digitalPresent}}
+
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>On Leave</td>
+                                            <td>{{attendanceModel.digitalOnleave}}</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Absent</td>
+                                            <td>
+                                                {{ attendanceModel.digitalTotalEmp - attendanceModel.digitalPresent - attendanceModel.digitalOnleave}}
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>Late present</td>
+                                            <td>
+                                                {{attendanceModel.digitalLate}}
+                                            </td>
+                                        </tr>
+
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+
+
+                        <!--<div class="col-md-6">-->
+                            <!--<div class="card">-->
+                                <!--<div class="card-header">Employee info / Morning shift</div>-->
+                                <!--<div class="card-body">-->
+
+                                    <!--<div class="table-responsive">-->
+                                        <!--<table class="table table-bordered" style="font-weight: bold">-->
+
+                                            <!--<tbody>-->
+
+                                            <!--<tr>-->
+                                                <!--<td>Total Employee</td>-->
+                                                <!--<td>-->
+                                                    <!--{{attendanceModel.eveningTotal}}-->
+                                                <!--</td>-->
+                                            <!--</tr>-->
+                                            <!--<tr>-->
+                                                <!--<td>Present Today</td>-->
+                                                <!--<td>-->
+                                                    <!--{{attendanceModel.eveningPresent}}-->
+                                                <!--</td>-->
+                                            <!--</tr>-->
+                                            <!--<tr>-->
+                                                <!--<td>On Leave</td>-->
+                                                <!--<td>{{attendanceModel.onleaveCountEvening}}</td>-->
+                                            <!--</tr>-->
+                                            <!--<tr>-->
+                                                <!--<td>Absent</td>-->
+                                                <!--<td>-->
+                                                    <!--{{ attendanceModel.eveningTotal - attendanceModel.eveningPresent - attendanceModel.onleaveCountEvening}}-->
+                                                <!--</td>-->
+                                            <!--</tr>-->
+                                            <!--<tr>-->
+                                                <!--<td>Late present</td>-->
+                                                <!--<td>-->
+                                                    <!--{{attendanceModel.eveningLate}}-->
+
+                                                <!--</td>-->
+                                            <!--</tr>-->
+
+                                            <!--</tbody>-->
+                                        <!--</table>-->
+
+                                    <!--</div>-->
+
+                                <!--</div>-->
+                            <!--</div>-->
+                        <!--</div>-->
+
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Software and Digital Marketing -->
+        <!--<div class="col-md-6">-->
+            <!--<div class="card">-->
+                <!--<div class="card-header">-->
+                    <!--Software and Digital Marketing-->
+                <!--</div>-->
+                <!--<div class="card-body">-->
+
+
+                    <!--<div class="row">-->
+
+                        <!--<div class="col-md-6">-->
+                            <!--<div class="card">-->
+                                <!--<div class="card-header">Software Division</div>-->
+                                <!--<div class="card-body">-->
+                                    <!--<table class="table table-bordered" style="font-weight: bold">-->
+
+                                        <!--<tbody>-->
+
+                                        <!--<tr>-->
+                                            <!--<td>Total Employee</td>-->
+                                            <!--<td>-->
+                                                <!--{{attendanceModel.softwareTotalEmp}}-->
+
+                                            <!--</td>-->
+                                        <!--</tr>-->
+                                        <!--<tr>-->
+                                            <!--<td>Present Today</td>-->
+                                            <!--<td>-->
+                                                <!--{{attendanceModel.softwarePresent}}-->
+
+                                            <!--</td>-->
+                                        <!--</tr>-->
+                                        <!--<tr>-->
+                                            <!--<td>On Leave</td>-->
+                                            <!--<td>{{attendanceModel.softwareOnleave}}</td>-->
+                                        <!--</tr>-->
+                                        <!--<tr>-->
+                                            <!--<td>Absent</td>-->
+                                            <!--<td>-->
+                                                <!--{{ attendanceModel.softwareTotalEmp - attendanceModel.softwarePresent - attendanceModel.softwareOnleave}}-->
+                                            <!--</td>-->
+                                        <!--</tr>-->
+                                        <!--<tr>-->
+                                            <!--<td>Late present</td>-->
+                                            <!--<td>-->
+                                                <!--{{attendanceModel.softwareLate}}-->
+                                            <!--</td>-->
+                                        <!--</tr>-->
+
+                                        <!--</tbody>-->
+                                    <!--</table>-->
+                                <!--</div>-->
+                            <!--</div>-->
+                        <!--</div>-->
+
+
+                        <!--<div class="col-md-6">-->
+                            <!--<div class="card">-->
+                                <!--<div class="card-header">Global Marketing</div>-->
+                                <!--<div class="card-body">-->
+
+                                    <!--<div class="table-responsive">-->
+                                        <!--<table class="table table-bordered" style="font-weight: bold">-->
+
+                                            <!--<tbody>-->
+
+                                            <!--<tr>-->
+                                                <!--<td>Total Employee</td>-->
+                                                <!--<td>-->
+                                                    <!--{{attendanceModel.globalTotalEmp}}-->
+                                                <!--</td>-->
+                                            <!--</tr>-->
+                                            <!--<tr>-->
+                                                <!--<td>Present Today</td>-->
+                                                <!--<td>-->
+                                                    <!--{{attendanceModel.globalPresent}}-->
+                                                <!--</td>-->
+                                            <!--</tr>-->
+                                            <!--<tr>-->
+                                                <!--<td>On Leave</td>-->
+                                                <!--<td>{{attendanceModel.globalOnleave}}</td>-->
+                                            <!--</tr>-->
+                                            <!--<tr>-->
+                                                <!--<td>Absent</td>-->
+                                                <!--<td>-->
+                                                    <!--{{ attendanceModel.globalTotalEmp - attendanceModel.globalPresent - attendanceModel.globalOnleave}}-->
+                                                <!--</td>-->
+                                            <!--</tr>-->
+                                            <!--<tr>-->
+                                                <!--<td>Late present</td>-->
+                                                <!--<td>-->
+                                                    <!--{{attendanceModel.globalLate}}-->
+
+                                                <!--</td>-->
+                                            <!--</tr>-->
+
+                                            <!--</tbody>-->
+                                        <!--</table>-->
+
+                                    <!--</div>-->
+
+                                <!--</div>-->
+                            <!--</div>-->
+                        <!--</div>-->
+
+
+                    <!--</div>-->
+                <!--</div>-->
+            <!--</div>-->
+        <!--</div>-->
+
+    </div>
+
+
+
+
+</div>

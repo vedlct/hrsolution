@@ -37,7 +37,7 @@ export class AddLeaveComponent implements OnInit {
   getMyLeaves(){
       const token=this.token.get();
       this.http.post(Constants.API_URL+'leave/get/individual'+'?token='+token,{}).subscribe(data => {
-              console.log(data);
+              // console.log(data);
               this.myLeaves=data;
           },
           error => {

@@ -120,7 +120,7 @@ export class ShiftAssignComponent implements AfterViewInit,OnDestroy,OnInit {
       processing: true,
       serverSide: true,
       pagingType: 'full_numbers',
-      pageLength: 10
+      pageLength: 50
     };
   }
 

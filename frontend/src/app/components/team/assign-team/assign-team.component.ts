@@ -29,7 +29,7 @@ export class AssignTeamComponent implements AfterViewInit,OnDestroy,OnInit {
   dropdownList = [];
   selectedItems = [];
   dropdownSettings = {};
-  constructor(private renderer: Renderer,public http: HttpClient, private token:TokenService , public route:ActivatedRoute, private router: Router) { }
+  constructor(private renderer: Renderer,public http: HttpClient, private token:TokenService , public route:ActivatedRoute) { }
 
   ngOnInit() {
     this.dropdownList = [
@@ -92,8 +92,8 @@ export class AssignTeamComponent implements AfterViewInit,OnDestroy,OnInit {
       columns: [
         {
 
-          "data": function (data: any, type: any, full: any) {
-            return '<input type="checkbox" class="chk form-control" name="selected_rows[]" value="'+ data.empid +'" data-emp-id="'+data.empid+'">';
+          "data": function (data: any) {
+            return '<input type="checkbox" class="chk form-control" name="selected_rows[]" value="'+data.empid +'" data-emp-id="'+data.empid+'">';
           },
           "orderable": false, "searchable":false, "name":"selected_rows"
         },
@@ -186,7 +186,8 @@ export class AssignTeamComponent implements AfterViewInit,OnDestroy,OnInit {
       // console.log(form);
 
       this.http.post(Constants.API_URL+'team/assign'+'?token='+token,form).subscribe(data => {
-            console.log(data);
+            // console.log(data);
+        this.allEmp=[];
             this.rerender();
           },
           error => {

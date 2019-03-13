@@ -28,6 +28,7 @@ import {PayAdvanceComponent} from "./components/payroll/pay-advance/pay-advance.
 import {AddLeaveComponent} from "./components/leave/add-leave/add-leave.component";
 import { NgxPermissionsGuard } from 'ngx-permissions';
 import {PayGradeComponent} from "./components/payroll/pay-grade/pay-grade.component";
+import {ProfileComponent} from "./components/user/profile/profile.component";
 
 
 export function testPermissions(route: ActivatedRouteSnapshot, state: RouterStateSnapshot) {
@@ -42,6 +43,7 @@ const routes: Routes = [
     {path: '', component: LoginComponent, canActivate: [GuestService] },
     { path: 'login', component: LoginComponent, canActivate: [GuestService] },
     { path: 'home', component: HomeComponent,canActivate: [AuthService] },
+    { path: 'profile', component: ProfileComponent,canActivate: [AuthService] },
     { path: 'datatable', component: TablesComponent },
     { path: 'user/add',component: AddUserComponent,canActivate: [AuthService] },
     { path: 'user/add/:id',component: AddUserComponent,canActivate: [AuthService] },
@@ -51,11 +53,11 @@ const routes: Routes = [
     { path: 'company/add', component: CompanyInfoComponent,canActivate: [AuthService] },
     { path: 'configuration/shift', component: ShiftComponent,canActivate: [AuthService] },
     { path: 'configuration/shift/assign', component: ShiftAssignComponent,canActivate: [AuthService] },
-    { path: 'configuration/department/add', component: AddDepartmentComponent },
-    { path: 'configuration/leave', component: LeaveComponent },
-    { path: 'configuration/leave/show', component: ShowLeaveComponent },
-    { path: 'leave/apply', component: AddLeaveComponent },
-    { path: 'report/attendance', component: AttendanceComponent },
+    { path: 'configuration/department/add', component: AddDepartmentComponent,canActivate: [AuthService]  },
+    { path: 'configuration/leave', component: LeaveComponent,canActivate: [AuthService]  },
+    { path: 'configuration/leave/show', component: ShowLeaveComponent,canActivate: [AuthService]  },
+    { path: 'leave/apply', component: AddLeaveComponent ,canActivate: [AuthService] },
+    { path: 'report/attendance', component: AttendanceComponent,canActivate: [AuthService]  },
     // { path: 'report/attendance/:id', component: ShowAttendanceComponent },
     { path: 'report/attendance/:id/:fromdate/:todate', component: ShowAttendanceComponent },
     { path: 'team/show', component: CreateTeamComponent },
