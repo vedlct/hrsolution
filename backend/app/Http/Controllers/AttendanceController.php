@@ -167,6 +167,7 @@ class AttendanceController extends Controller
             ->leftJoin('shift','shift.shiftId','shiftlog.fkshiftId')
             ->where('employeeinfo.fkDepartmentId',6)
             ->where('shiftlog.endDate',null)
+            ->where('employeeinfo.fkActivationStatus', 1)
             ->whereIn('shiftlog.fkshiftId',[2,4])
             ->count();
 
@@ -174,6 +175,7 @@ class AttendanceController extends Controller
         $eveningTotal=EmployeeInfo::leftJoin('shiftlog','shiftlog.fkemployeeId','employeeinfo.id')
             ->leftJoin('shift','shift.shiftId','shiftlog.fkshiftId')
             ->where('employeeinfo.fkDepartmentId',6)
+            ->where('employeeinfo.fkActivationStatus', 1)
             ->where('shiftlog.endDate',null)
             ->where('shiftlog.fkshiftId',3)
             ->count();
@@ -201,13 +203,6 @@ class AttendanceController extends Controller
 
 
 
-
-
-
-
-
-
-
         $morningLate = DB::select( DB::raw("select count(*) as LateTotal from
             (select ad.id,ad.attDeviceUserId, em.employeeId, e.firstName
             , date_format(ad.accessTime,'%Y-%m-%d %h:%i:%s') attendanceDate
@@ -222,12 +217,6 @@ class AttendanceController extends Controller
             where (date_format(ad.accessTime,'%Y-%m-%d %H:%i:%s') between '".$today." 07:02:00' and '".$today." 13:59:59') and e.fkDepartmentId = 6
             group by em.employeeId, date_format(ad.accessTime,'%Y-%m-%d')) a
             where a.late = 'Y'"));
-
-
-
-
-
-
 
 
 
@@ -247,7 +236,6 @@ class AttendanceController extends Controller
             where a.late = 'Y'"));
 
         $date = date('Y-m-d');
-
 
 
         $onleaveCountMorning = Leave::where('hrmleaves.applicationStatus', 'Approved')
@@ -301,11 +289,196 @@ class AttendanceController extends Controller
             $eveningLate=0;
         }
 
+        // Dept Wise
+
+        // Software
+
+        $softwareTotalEmp = EmployeeInfo::where('employeeinfo.fkDepartmentId',2)
+                                        ->where('fkActivationStatus', 1)
+                                        ->count();
+
+
+        $softwarePresent = DB::select( DB::raw("select count(DISTINCT(e.id)) as present
+                from attendancedata ad left join attemployeemap em on ad.attDeviceUserId = em.attDeviceUserId
+                left join employeeinfo e on em.employeeId = e.id
+                left join shiftlog sl on e.id = sl.fkemployeeId 
+                where sl.endDate is null and e.fkActivationStatus=1 and (date_format(ad.accessTime,'%Y-%m-%d %H:%i:%s') between '".$today." 09:00:00' and '".$today." 18:59:59') and e.fkDepartmentId = 2 
+            "));
+
+
+        $softwareOnleave = Leave::where('hrmleaves.applicationStatus', 'Approved')
+            ->whereDate('hrmleaves.startDate', '<=', $date)
+            ->whereDate('hrmleaves.endDate', '>=', $date)
+            ->leftJoin('employeeinfo','employeeinfo.id','hrmleaves.fkEmployeeId')
+            ->leftJoin('shiftlog','shiftlog.fkemployeeId','employeeinfo.id')
+            ->leftJoin('shift','shift.shiftId','shiftlog.fkshiftId')
+            ->where('employeeinfo.fkDepartmentId',2)
+            ->where('shiftlog.endDate',null)
+            ->whereIn('shiftlog.fkshiftId',[2,4])
+            ->count();
+
+        $softwareLate = DB::select( DB::raw("select count(*) as LateTotal from
+            (select ad.id,ad.attDeviceUserId, em.employeeId, e.firstName
+            , date_format(ad.accessTime,'%Y-%m-%d %h:%i:%s') attendanceDate
+            , date_format(min(ad.accessTime),'%h:%i:%s %p') checkIn
+            , date_format(max(ad.accessTime),'%h:%i:%s %p') checkOut
+            , case when SUBTIME(date_format(min(ad.accessTime),'%H:%i'),s.inTime) > '00:00:01' then 'Y' else 'N' end late
+            
+            from attendancedata ad left join attemployeemap em on ad.attDeviceUserId = em.attDeviceUserId
+            left join employeeinfo e on em.employeeId = e.id
+            left join shiftlog sl on em.employeeId = sl.fkemployeeId and date_format(ad.accessTime,'%Y-%m-%d') between date_format(sl.startDate,'%Y-%m-%d') and ifnull(date_format(sl.endDate,'%Y-%m-%d'),curdate())
+            left join shift s on sl.fkshiftId = s.shiftId
+            where (date_format(ad.accessTime,'%Y-%m-%d %H:%i:%s') between '".$today." 09:30:00' and '".$today." 18:59:59') and e.fkDepartmentId = 2
+            group by em.employeeId, date_format(ad.accessTime,'%Y-%m-%d')) a
+            where a.late = 'Y'"));
+
+
+
+        if($softwarePresent){
+            $softwarePresent= $softwarePresent[0]->present;
+        }
+        else{
+            $softwarePresent =0;
+        }
+
+        if($softwareLate){
+            $softwareLate= $softwareLate[0]->LateTotal;
+        }
+        else{
+            $softwareLate =0;
+        }
+
+
+
+        // Global Marketing
+
+        $globalTotalEmp = EmployeeInfo::where('employeeinfo.fkDepartmentId',3)
+            ->where('fkActivationStatus', 1)
+            ->count();
+
+
+        $globalPresent = DB::select( DB::raw("select count(DISTINCT(e.id)) as present
+                from attendancedata ad left join attemployeemap em on ad.attDeviceUserId = em.attDeviceUserId
+                left join employeeinfo e on em.employeeId = e.id
+                left join shiftlog sl on e.id = sl.fkemployeeId 
+                where sl.endDate is null and e.fkActivationStatus=1 and (date_format(ad.accessTime,'%Y-%m-%d %H:%i:%s') between '".$today." 14:00:00' and '".$today." 20:59:59') and e.fkDepartmentId = 3
+            "));
+
+
+        $globalOnleave = Leave::where('hrmleaves.applicationStatus', 'Approved')
+            ->whereDate('hrmleaves.startDate', '<=', $date)
+            ->whereDate('hrmleaves.endDate', '>=', $date)
+            ->leftJoin('employeeinfo','employeeinfo.id','hrmleaves.fkEmployeeId')
+            ->leftJoin('shiftlog','shiftlog.fkemployeeId','employeeinfo.id')
+            ->leftJoin('shift','shift.shiftId','shiftlog.fkshiftId')
+            ->where('employeeinfo.fkDepartmentId', 3)
+            ->where('shiftlog.endDate',null)
+            ->whereIn('shiftlog.fkshiftId',[2,4])
+            ->count();
+
+        $globalLate = DB::select( DB::raw("select count(*) as LateTotal from
+            (select ad.id,ad.attDeviceUserId, em.employeeId, e.firstName
+            , date_format(ad.accessTime,'%Y-%m-%d %h:%i:%s') attendanceDate
+            , date_format(min(ad.accessTime),'%h:%i:%s %p') checkIn
+            , date_format(max(ad.accessTime),'%h:%i:%s %p') checkOut
+            , case when SUBTIME(date_format(min(ad.accessTime),'%H:%i'),s.inTime) > '00:00:01' then 'Y' else 'N' end late
+            
+            from attendancedata ad left join attemployeemap em on ad.attDeviceUserId = em.attDeviceUserId
+            left join employeeinfo e on em.employeeId = e.id
+            left join shiftlog sl on em.employeeId = sl.fkemployeeId and date_format(ad.accessTime,'%Y-%m-%d') between date_format(sl.startDate,'%Y-%m-%d') and ifnull(date_format(sl.endDate,'%Y-%m-%d'),curdate())
+            left join shift s on sl.fkshiftId = s.shiftId
+            where (date_format(ad.accessTime,'%Y-%m-%d %H:%i:%s') between '".$today." 14:30:00' and '".$today." 20:59:59') and e.fkDepartmentId = 3
+            group by em.employeeId, date_format(ad.accessTime,'%Y-%m-%d')) a
+            where a.late = 'Y'"));
+
+
+
+        if($globalPresent){
+            $globalPresent= $globalPresent[0]->present;
+        }
+        else{
+            $globalPresent =0;
+        }
+
+        if($globalLate){
+            $globalLate= $globalLate[0]->LateTotal;
+        }
+        else{
+            $globalLate =0;
+        }
+
+
+
+
+        // Digital Marketing
+
+        $digitalTotalEmp = EmployeeInfo::where('employeeinfo.fkDepartmentId',4)
+            ->where('fkActivationStatus', 1)
+            ->count();
+
+
+        $digitalPresent = DB::select( DB::raw("select count(DISTINCT(e.id)) as present
+                from attendancedata ad left join attemployeemap em on ad.attDeviceUserId = em.attDeviceUserId
+                left join employeeinfo e on em.employeeId = e.id
+                left join shiftlog sl on e.id = sl.fkemployeeId 
+                where sl.endDate is null and e.fkActivationStatus=1 and (date_format(ad.accessTime,'%Y-%m-%d %H:%i:%s') between '".$today." 9:00:00' and '".$today." 17:59:59') and e.fkDepartmentId = 4
+            "));
+
+
+        $digitalOnleave = Leave::where('hrmleaves.applicationStatus', 'Approved')
+            ->whereDate('hrmleaves.startDate', '<=', $date)
+            ->whereDate('hrmleaves.endDate', '>=', $date)
+            ->leftJoin('employeeinfo','employeeinfo.id','hrmleaves.fkEmployeeId')
+            ->leftJoin('shiftlog','shiftlog.fkemployeeId','employeeinfo.id')
+            ->leftJoin('shift','shift.shiftId','shiftlog.fkshiftId')
+            ->where('employeeinfo.fkDepartmentId', 3)
+            ->where('shiftlog.endDate',null)
+            ->whereIn('shiftlog.fkshiftId',[2,4])
+            ->count();
+
+        $digitalLate = DB::select( DB::raw("select count(*) as LateTotal from
+            (select ad.id,ad.attDeviceUserId, em.employeeId, e.firstName
+            , date_format(ad.accessTime,'%Y-%m-%d %h:%i:%s') attendanceDate
+            , date_format(min(ad.accessTime),'%h:%i:%s %p') checkIn
+            , date_format(max(ad.accessTime),'%h:%i:%s %p') checkOut
+            , case when SUBTIME(date_format(min(ad.accessTime),'%H:%i'),s.inTime) > '00:00:01' then 'Y' else 'N' end late
+            
+            from attendancedata ad left join attemployeemap em on ad.attDeviceUserId = em.attDeviceUserId
+            left join employeeinfo e on em.employeeId = e.id
+            left join shiftlog sl on em.employeeId = sl.fkemployeeId and date_format(ad.accessTime,'%Y-%m-%d') between date_format(sl.startDate,'%Y-%m-%d') and ifnull(date_format(sl.endDate,'%Y-%m-%d'),curdate())
+            left join shift s on sl.fkshiftId = s.shiftId
+            where (date_format(ad.accessTime,'%Y-%m-%d %H:%i:%s') between '".$today." 9:30:00' and '".$today." 17:59:59') and e.fkDepartmentId = 3
+            group by em.employeeId, date_format(ad.accessTime,'%Y-%m-%d')) a
+            where a.late = 'Y'"));
+
+
+
+        if($digitalPresent){
+            $digitalPresent= $digitalPresent[0]->present;
+        }
+        else{
+            $digitalPresent =0;
+        }
+
+        if($digitalLate){
+            $digitalLate= $digitalLate[0]->LateTotal;
+        }
+        else{
+            $digitalLate =0;
+        }
+
+
+
+
 
 
     return response()->json(['morningTotal'=>$morningTotal,'morningPresent'=>$morningPresent,'morningLate'=>$morningLate,
                     'eveningTotal'=>$eveningTotal,'eveningPresent'=>$eveningPresent,'eveningLate'=>$eveningLate,
-        'onleaveCountMorning'=>$onleaveCountMorning,'onleaveCountEvening'=>$onleaveCountEvening]);
+                    'onleaveCountMorning'=>$onleaveCountMorning,'onleaveCountEvening'=>$onleaveCountEvening,
+                    'softwareTotalEmp'=>$softwareTotalEmp,'softwarePresent'=>$softwarePresent, 'softwareOnleave'=>$softwareOnleave, 'softwareLate'=>$softwareLate,
+                    'globalTotalEmp'=>$globalTotalEmp,'globalPresent'=>$globalPresent, 'globalOnleave'=>$globalOnleave, 'globalLate'=>$globalLate,
+                    'digitalTotalEmp'=>$digitalTotalEmp,'digitalPresent'=>$digitalPresent, 'digitalOnleave'=>$digitalOnleave, 'digitalLate'=>$digitalLate,
+        ]);
 
 
 
