@@ -104,7 +104,7 @@ export class ShiftAssignComponent implements AfterViewInit,OnDestroy,OnInit {
         {
 
           "data": function (data: any, type: any, full: any) {
-            return '<input type="checkbox" class="chk form-control" name="selected_rows[]" value="'+ data.empid +'" data-emp-id="'+data.empid+'">';
+            return '<input type="checkbox" class="chk form-control" name="selected_rows[]" value="'+ data.empid +'" data-panel-id="'+data.empid+'">';
           },
           "orderable": false, "searchable":false, "name":"selected_rows"
         },
@@ -117,6 +117,27 @@ export class ShiftAssignComponent implements AfterViewInit,OnDestroy,OnInit {
         { data: 'startDate', name: 'shiftlog.startDate'},
 
       ],
+      // drawCallback: () => {
+      //   $('.chk').on('click', (event) => {
+      //
+      //     let id=event.target.getAttribute("data-panel-id");
+      //
+      //     // let that=this;
+      //     // // $(that).prop('checked',true);
+      //
+      //
+      //
+      //
+      //
+      //   //  $(that)[0].checked = true;
+      //
+      //    // return false;
+      //
+      //     this.test(id);
+      //     return true;
+      //
+      //   });
+      // },
       processing: true,
       serverSide: true,
       pagingType: 'full_numbers',
@@ -126,29 +147,19 @@ export class ShiftAssignComponent implements AfterViewInit,OnDestroy,OnInit {
 
   ngAfterViewInit(): void {
     this.dtTrigger.next();
-    this.renderer.listenGlobal('document', 'click', (event) => {
 
-      if (event.target.hasAttribute("data-emp-id")) {
-
-        let id=event.target.getAttribute("data-emp-id");
-        console.log(id);
-        let index = this.allEmp.indexOf(id.toString());
-        if (index == -1){
-          this.allEmp.push(id);
-        }else {
-          this.allEmp.splice(index, 1);
-        }
-        // console.log(this.allEmp);
-      }
-
-
-
-
-    });
   }
   ngOnDestroy(): void {
     // Do not forget to unsubscribe the event
     this.dtTrigger.unsubscribe();
+  }
+  test(id){
+
+
+
+    alert(id);
+
+    // return false;
   }
 
   selectAll(){
@@ -159,11 +170,6 @@ export class ShiftAssignComponent implements AfterViewInit,OnDestroy,OnInit {
 
      $('input:checkbox').prop('checked',true);
 
-      let that=this;
-      $(".chk:checked").each(function () {
-        that.allEmp.push($(this).val());
-      });
-      // console.log(this.allEmp);
     }
     else {
 
@@ -180,9 +186,15 @@ export class ShiftAssignComponent implements AfterViewInit,OnDestroy,OnInit {
 
 
   assignShift(){
+    let that=this;
 
-    // console.log(this.selectedItems);
-    // return false;
+    this.allEmp=[];
+    $(".chk:checked").each(function () {
+      that.allEmp.push($(this).val());
+    });
+
+    console.log(this.allEmp);
+    return false;
 
     if(this.shiftId == null || this.startDate ==null || this.allEmp.length ==0 || this.selectedItems.length==0){
       alert("Empty");
