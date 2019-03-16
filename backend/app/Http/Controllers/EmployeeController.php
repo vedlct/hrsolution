@@ -194,7 +194,8 @@ public function getPersonalInfo(Request $r){
 }
 
 public function getJoinInfo(Request $r){
-        $joinInfo = EmployeeInfo::select('attemployeemap.attDeviceUserId','actualJoinDate','recentJoinDate','resignDate','weekend','accessPin','scheduleInTime','scheduleOutTime','specialAllowance','supervisor','probationPeriod','employeeinfo.practice')
+        $joinInfo = EmployeeInfo::select('attemployeemap.attDeviceUserId','actualJoinDate','recentJoinDate','resignDate','weekend','accessPin','scheduleInTime',
+            'scheduleOutTime','specialAllowance','supervisor','probationPeriod','employeeinfo.practice','employeeinfo.fkActivationStatus')
             ->leftJoin('attemployeemap','attemployeemap.employeeId','employeeinfo.id')
             ->where('employeeinfo.id','=',$r->id)
             ->first();
@@ -252,6 +253,7 @@ public function updateJoinInfo(Request $r){
         $joinInfo->supervisor = $r->supervisor;
         $joinInfo->probationPeriod = $r->probationPeriod;
         $joinInfo->practice = $r->practice;
+        $joinInfo->fkActivationStatus = $r->fkActivationStatus;
         if($r->specialAllowance==true){
             $joinInfo->specialAllowance = '1';
         }

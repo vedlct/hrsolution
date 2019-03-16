@@ -17,7 +17,7 @@
         <div class="form-group col-md-4">
           <label>Start Date</label>
           <input bsDatepicker
-                 [bsConfig]="{ dateInputFormat: 'YYYY-MM-DD' }"  name="resignDate" [(ngModel)]="startDate" class="form-control">
+                 [bsConfig]="{ dateInputFormat: 'YYYY-MM-DD' }"  name="resignDate" [(ngModel)]="startDate" autocomplete="off" class="form-control">
         </div>
 
         <div class="form-group col-md-4">
@@ -44,7 +44,7 @@
         </div>
 
         <div class="form-group col-md-4">
-          <button class="btn btn-success btn-sm" (click)="assignShift()">Assign</button>
+          <button class="btn btn-success btn-sm" style="margin-top: 30px" (click)="assignShift()">Assign</button>
         </div>
 
       </div>

@@ -6,6 +6,7 @@ import {Subject} from "rxjs";
 import {ActivatedRoute, Router} from "@angular/router";
 import {DataTableDirective} from "angular-datatables";
 import {NgxSpinnerService} from "ngx-spinner";
+import {st} from "@angular/core/src/render3";
 declare var $ :any;
 
 @Component({
@@ -44,6 +45,10 @@ export class AttendanceComponent implements OnInit {
         $('#endDate').val(monthEndDay);
         // console.log(monthEndDay);
         // console.log(monthStartDay);
+
+
+
+
     }
 
 
@@ -103,12 +108,25 @@ export class AttendanceComponent implements OnInit {
                 {
 
                     "data": function (data: any, type: any, full: any) {
-                        return '<button class="btn btn-sm btn-info" data-emp-id="'+data.employeeId+'">View</button>';
+                        return '<button class="btn btn-sm btn-info edit-user" data-emp-id="'+data.employeeId+'">View</button>';
                     },
                     "orderable": false, "searchable":false, "name":"selected_rows"
                 },
 
             ],
+            drawCallback: () => {
+                $('.edit-user').on('click', (event) => {
+
+                    let id=event.target.getAttribute("data-emp-id");
+                    let start =$('#startDate').val();
+                    let end = $('#endDate').val();
+
+
+
+                    this.router.navigate(["report/attendance/" +id+'/'+start+'/'+end]);
+                    return false;
+                });
+            },
 
             processing: true,
             serverSide: true,
@@ -123,28 +141,40 @@ export class AttendanceComponent implements OnInit {
 
     }
 
+
+
     ngAfterViewInit(): void {
         this.dtTrigger.next();
-        this.renderer.listenGlobal('document', 'click', (event) => {
-            if (event.target.hasAttribute("data-emp-id")) {
+        // // this.renderer.listenGlobal('document', 'click', (event) => {
+        //     if (event.target.hasAttribute("data-emp-id")) {
+        //
+        //         let id=event.target.getAttribute("data-emp-id");
+        //        let start =$('#startDate').val();
+        //         let end = $('#endDate').val();
+        //
+        //         this.router.navigate(["report/attendance/" +id+'/'+start+'/'+end]);
+        //
+        //     }
+        //
+        //     if (event.target.hasAttribute("data-leaveemp-id")) {
+        //
+        //         let id=event.target.getAttribute("data-leaveemp-id");
+        //         console.log(id);
+        //     }
+        //
+        // });
 
-                let id=event.target.getAttribute("data-emp-id");
-               let start =$('#startDate').val();
-                let end = $('#endDate').val();
-                this.router.navigate(["report/attendance/" +id+'/'+start+'/'+end]);
-                // this.router.navigate(["report/attendance/" +id]);
-            }
-            if (event.target.hasAttribute("data-leaveemp-id")) {
-
-                let id=event.target.getAttribute("data-leaveemp-id");
-                // this.router.navigate(["report/attendance/" +id]);
-                console.log(id);
-            }
+        // this.dtElement.dtInstance.then(dtInstance =>{
+        //     dtInstance.on('click', function(event){
+        //         let row_dom = $(this).event.attr("data-emp-id");
+        //         //let row = dtInstance.row(row_dom.employeeId).data();
+        //             // alert(row);
+        //         console.log(row_dom);
+        //     })
+        //
+        // });
 
 
-
-
-        });
     }
     ngOnDestroy(): void {
         // Do not forget to unsubscribe the event
