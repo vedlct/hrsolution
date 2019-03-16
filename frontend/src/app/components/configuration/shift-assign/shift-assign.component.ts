@@ -193,8 +193,8 @@ export class ShiftAssignComponent implements AfterViewInit,OnDestroy,OnInit {
       that.allEmp.push($(this).val());
     });
 
-    console.log(this.allEmp);
-    return false;
+    // console.log(this.allEmp);
+    // return false;
 
     if(this.shiftId == null || this.startDate ==null || this.allEmp.length ==0 || this.selectedItems.length==0){
       alert("Empty");
