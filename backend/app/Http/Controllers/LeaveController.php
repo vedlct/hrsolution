@@ -72,6 +72,7 @@ class LeaveController extends Controller
 //       return $r;
        $leaves=Leave::select('hrmleaves.*','hrmleavecategories.categoryName')
            ->where('fkEmployeeId',$id)
+           ->where('hrmleaves.applicationStatus','Approved')
            ->where('startDate','>=',$r->startDate)
            ->where('endDate','<=',$r->endDate)
            ->leftJoin('hrmleavecategories','hrmleavecategories.id','hrmleaves.fkLeaveCategory')
@@ -90,6 +91,7 @@ class LeaveController extends Controller
 
        $leaves=Leave::select('hrmleaves.*','hrmleavecategories.categoryName')
            ->where('fkEmployeeId',$emp->id)
+
            ->leftJoin('hrmleavecategories','hrmleavecategories.id','hrmleaves.fkLeaveCategory')
            ->orderBy('hrmleaves.id','desc')
            ->get();
