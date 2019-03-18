@@ -4,9 +4,9 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Team extends Model
+class LeaveTeam extends Model
 {
-    public $timestamps = false;
-    protected $table = "team";
+    protected $table = "leave_team";
     protected $primaryKey='teamId';
+    public $timestamps = false;
 }
