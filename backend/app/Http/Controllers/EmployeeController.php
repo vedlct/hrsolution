@@ -28,6 +28,18 @@ class EmployeeController extends Controller
         $employee = EmployeeInfo::select('employeeinfo.firstName','employeeinfo.lastName','employeeinfo.middleName','employeeinfo.EmployeeId','hrmdesignations.title','hrmdepartments.departmentName','employeeinfo.id as empid')
             ->leftjoin('hrmdesignations','hrmdesignations.id','=','employeeinfo.fkDesignation')
             ->leftjoin('hrmdepartments','hrmdepartments.id','=','employeeinfo.fkDepartmentId')
+            ->where('resignDate', null)
+            ->where('employeeinfo.fkCompany' , auth()->user()->fkCompany);
+
+        $datatables = Datatables::of($employee);
+        return $datatables->make(true);
+    }
+
+    public function getAllResignedEmployee(Request $r){
+        $employee = EmployeeInfo::select('employeeinfo.firstName','employeeinfo.lastName','employeeinfo.middleName','employeeinfo.EmployeeId','hrmdesignations.title','hrmdepartments.departmentName','employeeinfo.id as empid')
+            ->leftjoin('hrmdesignations','hrmdesignations.id','=','employeeinfo.fkDesignation')
+            ->leftjoin('hrmdepartments','hrmdepartments.id','=','employeeinfo.fkDepartmentId')
+            ->where('resignDate', '!=', null)
             ->where('employeeinfo.fkCompany' , auth()->user()->fkCompany);
 
         $datatables = Datatables::of($employee);
