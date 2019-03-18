@@ -117,27 +117,7 @@ export class ShiftAssignComponent implements AfterViewInit,OnDestroy,OnInit {
         { data: 'startDate', name: 'shiftlog.startDate'},
 
       ],
-      // drawCallback: () => {
-      //   $('.chk').on('click', (event) => {
-      //
-      //     let id=event.target.getAttribute("data-panel-id");
-      //
-      //     // let that=this;
-      //     // // $(that).prop('checked',true);
-      //
-      //
-      //
-      //
-      //
-      //   //  $(that)[0].checked = true;
-      //
-      //    // return false;
-      //
-      //     this.test(id);
-      //     return true;
-      //
-      //   });
-      // },
+
       processing: true,
       serverSide: true,
       pagingType: 'full_numbers',
@@ -153,14 +133,7 @@ export class ShiftAssignComponent implements AfterViewInit,OnDestroy,OnInit {
     // Do not forget to unsubscribe the event
     this.dtTrigger.unsubscribe();
   }
-  test(id){
 
-
-
-    alert(id);
-
-    // return false;
-  }
 
   selectAll(){
     this.allEmp=[];
@@ -193,8 +166,7 @@ export class ShiftAssignComponent implements AfterViewInit,OnDestroy,OnInit {
       that.allEmp.push($(this).val());
     });
 
-    console.log(this.allEmp);
-    return false;
+
 
     if(this.shiftId == null || this.startDate ==null || this.allEmp.length ==0 || this.selectedItems.length==0){
       alert("Empty");

@@ -92,8 +92,8 @@ export class AssignTeamComponent implements AfterViewInit,OnDestroy,OnInit {
       columns: [
         {
 
-          "data": function (data: any) {
-            return '<input type="checkbox" class="chk form-control" name="selected_rows[]" value="'+data.empid +'" data-emp-id="'+data.empid+'">';
+          "data": function (data: any, type: any, full: any) {
+            return '<input type="checkbox" class="chk form-control" name="selected_rows[]" value="'+ data.empid +'" data-panel-id="'+data.empid+'">';
           },
           "orderable": false, "searchable":false, "name":"selected_rows"
         },
@@ -115,25 +115,7 @@ export class AssignTeamComponent implements AfterViewInit,OnDestroy,OnInit {
 
   ngAfterViewInit(): void {
     this.dtTrigger.next();
-    this.renderer.listenGlobal('document', 'click', (event) => {
 
-      if (event.target.hasAttribute("data-emp-id")) {
-
-        let id=event.target.getAttribute("data-emp-id");
-        // console.log(id);
-        let index = this.allEmp.indexOf(id.toString());
-        if (index == -1){
-          this.allEmp.push(id);
-        }else {
-          this.allEmp.splice(index, 1);
-        }
-        // console.log(this.allEmp);
-      }
-
-
-
-
-    });
   }
   ngOnDestroy(): void {
     // Do not forget to unsubscribe the event
@@ -141,18 +123,13 @@ export class AssignTeamComponent implements AfterViewInit,OnDestroy,OnInit {
   }
 
   selectAll(){
-    this.allEmp=[];
     if($('#selectall2').is(":checked")) {
 
       let  checkboxes = document.getElementsByName('selected_rows[]');
 
       $('input:checkbox').prop('checked',true);
 
-      let that=this;
-      $(".chk:checked").each(function () {
-        that.allEmp.push($(this).val());
-      });
-      // console.log(this.allEmp);
+
     }
     else {
 
@@ -169,6 +146,12 @@ export class AssignTeamComponent implements AfterViewInit,OnDestroy,OnInit {
 
 
   assignTeam(){
+    this.allEmp=[];
+    let that=this;
+    $(".chk:checked").each(function () {
+      that.allEmp.push($(this).val());
+    });
+
 
     if(this.teamId == null  || this.allEmp.length ==0){
       alert("Please Select All");
