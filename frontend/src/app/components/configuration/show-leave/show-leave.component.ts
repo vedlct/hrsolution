@@ -121,6 +121,8 @@ export class ShowLeaveComponent implements AfterViewInit,OnDestroy,OnInit {
 
 
     edit(id){
+        // console.log(id);
+        // return false;
         const token=this.token.get();
         this.http.post(Constants.API_URL+'leave/get/individual'+'?token='+token,{id:id}).subscribe(data => {
                 console.log(data);
