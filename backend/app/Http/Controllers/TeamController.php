@@ -30,6 +30,22 @@ class TeamController extends Controller
         return Response()->json("Success");
     }
 
+    public function postLeaveTeams(Request $r){
+        if($r->teamId){
+            $team=LeaveTeam::findOrFail($r->teamId);
+        }
+        else{
+            $team=new LeaveTeam();
+        }
+
+        $team->fkCompanyId=auth()->user()->fkCompany;
+//        $team->createdBy=auth()->user()->id;
+        $team->teamName=$r->teamName;
+        $team->save();
+        return Response()->json("Success");
+    }
+
+
 
     public function assignTeam(Request $r){
 //        $allEmp=$r->allEmp;

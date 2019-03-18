@@ -163,6 +163,7 @@ Route::group([
     Route::get('team/get','TeamController@getTeams');
     Route::get('team/leave/get','TeamController@getLeaveTeam');
     Route::post('team/post','TeamController@postTeams');
+    Route::post('team/leave/post','TeamController@postLeaveTeams');
     Route::post('team/assign','TeamController@assignTeam');
     Route::post('team/leave/assign','TeamController@assignLeaveTeam');
 
