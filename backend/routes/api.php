@@ -141,7 +141,7 @@ Route::group([
 
     Route::post('leave/get/individual','LeaveController@getMyLeave');
     Route::post('leave/change/status','LeaveController@changeStatus');
-//    Route::post('leave/get/individual','LeaveController@getIndividual');
+
 
     Route::post('leave/individual/update','LeaveController@updateIndividual');
 

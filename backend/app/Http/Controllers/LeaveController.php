@@ -20,6 +20,7 @@ class LeaveController extends Controller
    public function assignLeavePersonal(Request $r){
 //       return $r;
 //       return auth()->user()->id;
+
        $emp=EmployeeInfo::where('fkUserId',auth()->user()->id)->first();
 
        $leave=new Leave();
@@ -68,6 +69,7 @@ class LeaveController extends Controller
    }
 
    public function getLeaveRequestsIndividual($id,Request $r){
+//       return $r;
        $leaves=Leave::select('hrmleaves.*','hrmleavecategories.categoryName')
            ->where('fkEmployeeId',$id)
            ->where('startDate','>=',$r->startDate)
@@ -80,7 +82,11 @@ class LeaveController extends Controller
 
    public function getMyLeave(Request $r){
 
+//       return $r;
+
        $emp=EmployeeInfo::where('fkUserId',auth()->user()->id)->first();
+
+//       return $emp;
 
        $leaves=Leave::select('hrmleaves.*','hrmleavecategories.categoryName')
            ->where('fkEmployeeId',$emp->id)
