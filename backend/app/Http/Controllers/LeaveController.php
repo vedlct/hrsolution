@@ -105,6 +105,7 @@ class LeaveController extends Controller
    }
 
    public function getIndividual(Request $r){
+//       return $r->id;
        return Leave::select('hrmleaves.*','employeeinfo.firstName','employeeinfo.middleName','employeeinfo.lastName')
            ->leftJoin('employeeinfo','employeeinfo.id','hrmleaves.fkEmployeeId')
            ->findOrFail($r->id);
@@ -119,6 +120,14 @@ class LeaveController extends Controller
        $leave->startDate=Carbon::parse($r->startDate)->format('Y-m-d');
        $leave->noOfDays=$r->noOfDays;
        $leave->remarks=$r->remark;
+
+       if($r->status){
+           $leave->applicationStatus=$r->status;
+       }
+       if($r->rejectCause){
+           $leave->rejectCause=$r->rejectCause;
+       }
+
        $leave->save();
 
    }

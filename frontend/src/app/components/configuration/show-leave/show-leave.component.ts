@@ -33,6 +33,7 @@ export class ShowLeaveComponent implements AfterViewInit,OnDestroy,OnInit {
     selectedItems = [];
     dropdownSettings = {};
     modalRef:any;
+    rejectModel:any={};
     leaveCategories:any;
 
 
@@ -88,6 +89,7 @@ export class ShowLeaveComponent implements AfterViewInit,OnDestroy,OnInit {
                 { data: 'startDate' ,name:'hrmleaves.startDate'},
                 { data: 'endDate' ,name:'hrmleaves.endDate'},
                 { data: 'noOfDays' ,name:'hrmleaves.noOfDays'},
+                { data: 'rejectCause' ,name:'hrmleaves.rejectCause'},
                 { data: 'applicationStatus' ,name:'hrmleaves.applicationStatus'},
                 {
 
@@ -115,16 +117,13 @@ export class ShowLeaveComponent implements AfterViewInit,OnDestroy,OnInit {
     }
 
 
-    temp(data){
-        console.log(data);
-    }
 
 
     edit(id){
 
         const token=this.token.get();
         this.http.post(Constants.API_URL+'leave/get/individual'+'?token='+token,{id:id}).subscribe(data => {
-                console.log(data);
+                // console.log(data);
                 this.employee=data;
                 $('#myModal').modal();
             },
@@ -157,12 +156,14 @@ export class ShowLeaveComponent implements AfterViewInit,OnDestroy,OnInit {
                 let id=event.target.getAttribute("data-approve-id");
                 this.changeStatus(id,'Approved');
 
+
             }
 
             else if (event.target.hasAttribute("data-reject-id")) {
 
                 let id=event.target.getAttribute("data-reject-id");
-                this.changeStatus(id,'Rejected');
+                // this.changeStatus(id,'Rejected');
+                this.reject(id);
             }
 
             else if (event.target.hasAttribute("data-edit-id")) {
@@ -174,6 +175,66 @@ export class ShowLeaveComponent implements AfterViewInit,OnDestroy,OnInit {
 
         });
     }
+
+    reject(id){
+        // alert(id);
+        const token=this.token.get();
+        this.http.post(Constants.API_URL+'leave/get/individual'+'?token='+token,{id:id}).subscribe(data => {
+                console.log(data);
+                // this.employee=data;
+                this.rejectModel=data;
+                $('#rejectModal').modal();
+            },
+            error => {
+                console.log(error);
+            }
+        );
+    }
+
+
+    updateReject(){
+        // console.log(this.rejectModel);
+        let form={
+            id:this.rejectModel.id,
+            startDate:new Date(this.rejectModel.startDate).toLocaleDateString(),
+            endDate:new Date(this.rejectModel.endDate).toLocaleDateString(),
+            noOfDays:this.rejectModel.noOfDays,
+            remark:this.rejectModel.remark,
+            fkLeaveCategory:this.rejectModel.fkLeaveCategory,
+            status:'Rejected',
+            rejectCause:this.rejectModel.rejectCause,
+
+        };
+
+
+        const token=this.token.get();
+
+        this.http.post(Constants.API_URL+'leave/individual/update'+'?token='+token,form).subscribe(data => {
+                // console.log(data);
+                $('#rejectModal').modal('hide');
+                this.rerender();
+
+
+                $.alert({
+                    title: 'Success!',
+                    type: 'Green',
+                    content: 'Leave Rejected',
+                    buttons: {
+                        tryAgain: {
+                            text: 'Ok',
+                            btnClass: 'btn-red',
+                            action: function () {
+                            }
+                        }
+                    }
+                });
+            },
+            error => {
+                console.log(error);
+            }
+        );
+    }
+
     openLg(content) {
         // this.shiftObj={};
         this.modalRef =  this.modalService.open(content, { size: 'lg'});
@@ -188,7 +249,6 @@ export class ShowLeaveComponent implements AfterViewInit,OnDestroy,OnInit {
 
 
         let form={
-            // allEmp:this.allEmp,
             id:this.employee.id,
             startDate:new Date(this.employee.startDate).toLocaleDateString(),
             endDate:new Date(this.employee.endDate).toLocaleDateString(),
@@ -197,7 +257,7 @@ export class ShowLeaveComponent implements AfterViewInit,OnDestroy,OnInit {
             fkLeaveCategory:this.employee.fkLeaveCategory,
 
         };
-        // leave/assignLeavePersonal
+
 
         const token=this.token.get();
 
