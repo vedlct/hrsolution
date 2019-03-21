@@ -124,6 +124,7 @@ Route::group([
 
     //Shift
     Route::post('employee/shift/get','EmployeeController@getAllEmployeeForAttendance');
+    Route::post('employee/leaveteam/get','EmployeeController@leaveTeam');
 
     Route::get('shift/get','shiftController@getShiftName');
     Route::post('shift/post','shiftController@createShift');
@@ -140,7 +141,8 @@ Route::group([
     Route::post('leave/getLeaveRequests','LeaveController@getLeaveRequests');
     Route::post('leave/getLeaveRequests/{id}','LeaveController@getLeaveRequestsIndividual');
 
-    Route::post('leave/get/individual','LeaveController@getMyLeave');
+    Route::post('leave/get/individual','LeaveController@getIndividual');
+    Route::post('leave/get/myleave','LeaveController@getMyLeave');
     Route::post('leave/change/status','LeaveController@changeStatus');
 
 
@@ -161,8 +163,11 @@ Route::group([
 //===================================Team===========================================
 
     Route::get('team/get','TeamController@getTeams');
+    Route::get('team/leave/get','TeamController@getLeaveTeam');
     Route::post('team/post','TeamController@postTeams');
+    Route::post('team/leave/post','TeamController@postLeaveTeams');
     Route::post('team/assign','TeamController@assignTeam');
+    Route::post('team/leave/assign','TeamController@assignLeaveTeam');
 
     //==================================Report==========================================
 

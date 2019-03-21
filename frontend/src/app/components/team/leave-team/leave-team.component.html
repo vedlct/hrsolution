@@ -1,0 +1,52 @@
+<div class="container-fluid">
+  <div class="card">
+    <div class="card-header">Employee Details</div>
+
+    <div class="card-body">
+      <div class="row">
+        <div class="form-group col-md-4">
+          <label>Team</label>
+          <select class="form-control" name="shift"  (change)="selectShift($event.target.value)">
+            <option value="">Select Team</option>
+            <option *ngFor="let tm of team" [value]="tm.teamId">
+              {{tm.teamName}}
+            </option>
+          </select>
+        </div>
+
+
+        <div class="form-group col-md-4">
+          <button class="btn btn-success btn-sm" style="margin-top: 30px"  (click)="assignTeam()">Assign</button>
+        </div>
+
+      </div>
+
+
+      <!--<input style="margin-left: 15px" type="checkbox" class="SelectAll" id="selectall2"  (click)="selectAll()"/><b>Select All</b><br>-->
+      <table datatable class="table" [dtOptions]="dtOptions" [dtTrigger]="dtTrigger">
+        <thead>
+        <tr>
+          <th style="text-align: center"><input type="checkbox" class="SelectAll" id="selectall2"  (click)="selectAll()"/></th>
+          <th>First Name</th>
+          <th>Middle Name</th>
+          <th>Last Name</th>
+          <th>Employee ID</th>
+          <th>Shift Name</th>
+          <th>Weekend</th>
+          <th>Team Name</th>
+
+        </tr>
+        </thead>
+
+        <tbody>
+
+        </tbody>
+
+      </table>
+
+
+    </div>
+  </div>
+
+
+</div>

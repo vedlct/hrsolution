@@ -11,7 +11,6 @@ import {Constants} from "../../../constants";
   styleUrls: ['./past-employee.component.css']
 })
 export class PastEmployeeComponent implements OnInit {
-
   employee:any;
   dtOptions:DataTables.Settings={};
   dtTrigger:Subject<any>=new Subject();
@@ -62,21 +61,5 @@ export class PastEmployeeComponent implements OnInit {
     });
   }
 
-  //
-  // getAllemployee(){
-  //   const token=this.token.get();
-  //
-  //   this.http.get(Constants.API_URL+'employee/get'+'?token='+token).subscribe(data => {
-  //         // console.log(data);
-  //         this.employee=data;
-  //         this.dtTrigger.next();
-  //         // console.log(data);
-  //       },
-  //       error => {
-  //         console.log(error);
-  //       }
-  //   );
-  //
-  // }
 
 }

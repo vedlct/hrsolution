@@ -75,7 +75,7 @@ export class LeaveComponent implements OnInit {
     getTeam(){
         const token=this.token.get();
 
-        this.http.get(Constants.API_URL+'team/get'+'?token='+token).subscribe(data => {
+        this.http.get(Constants.API_URL+'team/leave/get'+'?token='+token).subscribe(data => {
                 // console.log(data);
                 this.team=data;
 
@@ -112,7 +112,7 @@ export class LeaveComponent implements OnInit {
         const token=this.token.get();
         this.dtOptions = {
             ajax: {
-                url: Constants.API_URL+'employee/shift/get'+'?token='+token,
+                url: Constants.API_URL+'employee/leaveteam/get'+'?token='+token,
                 type: 'POST',
                 data:function (d:any){
                     d.teamId=$("#team").val();

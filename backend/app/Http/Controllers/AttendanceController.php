@@ -495,7 +495,7 @@ class AttendanceController extends Controller
                     'softwareTotalEmp'=>$softwareTotalEmp,'softwarePresent'=>$softwarePresent, 'softwareOnleave'=>$softwareOnleave, 'softwareLate'=>$softwareLate,
                     'globalTotalEmp'=>$globalTotalEmp,'globalPresent'=>$globalPresent, 'globalOnleave'=>$globalOnleave, 'globalLate'=>$globalLate,
                     'digitalTotalEmp'=>$digitalTotalEmp,'digitalPresent'=>$digitalPresent, 'digitalOnleave'=>$digitalOnleave, 'digitalLate'=>$digitalLate,
-                    'morningAbsentList_ppd'=>$morningAbsentList_ppd,'$eveningAbsentList_ppd'=>$eveningAbsentList_ppd
+                    'morningAbsentList_ppd'=>$morningAbsentList_ppd,'eveningAbsentList_ppd'=>$eveningAbsentList_ppd
         ]);
 
 
