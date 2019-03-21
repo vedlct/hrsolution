@@ -260,6 +260,23 @@ class AttendanceController extends Controller
             ->where('shiftlog.fkshiftId',3)
             ->count();
 
+        $morningAbsentList_ppd = DB::select( DB::raw(
+            "SELECT * FROM attemployeemap AS a
+              LEFT JOIN employeeinfo e on e.id = a.employeeId
+              LEFT JOIN shiftlog s on e.id = s.fkemployeeId
+              WHERE e.resignDate is null AND e.fkDepartmentId = 6 and s.endDate is null and s.fkshiftId IN (2,4) and e.fkActivationStatus = 1
+              and NOT EXISTS ( SELECT * FROM attendancedata AS b WHERE a.attDeviceUserId = b.attDeviceUserId AND date(b.accessTime) = '$today' ) 
+              AND not EXISTS ( SELECT * FROM hrmleaves as l WHERE e.id = l.fkEmployeeId AND '$today' BETWEEN l.startDate AND l.endDate )"
+        ));
+
+        $eveningAbsentList_ppd = DB::select( DB::raw(
+            "SELECT * FROM attemployeemap AS a
+              LEFT JOIN employeeinfo e on e.id = a.employeeId
+              LEFT JOIN shiftlog s on e.id = s.fkemployeeId
+              WHERE e.resignDate is null AND e.fkDepartmentId = 6 and s.endDate is null and s.fkshiftId IN (3) and e.fkActivationStatus = 1
+              and NOT EXISTS ( SELECT * FROM attendancedata AS b WHERE a.attDeviceUserId = b.attDeviceUserId AND date(b.accessTime) = '$today' ) 
+              AND not EXISTS ( SELECT * FROM hrmleaves as l WHERE e.id = l.fkEmployeeId AND '$today' BETWEEN l.startDate AND l.endDate )"
+        ));
 
 
         if($morningPresent){
@@ -478,6 +495,7 @@ class AttendanceController extends Controller
                     'softwareTotalEmp'=>$softwareTotalEmp,'softwarePresent'=>$softwarePresent, 'softwareOnleave'=>$softwareOnleave, 'softwareLate'=>$softwareLate,
                     'globalTotalEmp'=>$globalTotalEmp,'globalPresent'=>$globalPresent, 'globalOnleave'=>$globalOnleave, 'globalLate'=>$globalLate,
                     'digitalTotalEmp'=>$digitalTotalEmp,'digitalPresent'=>$digitalPresent, 'digitalOnleave'=>$digitalOnleave, 'digitalLate'=>$digitalLate,
+                    'morningAbsentList_ppd'=>$morningAbsentList_ppd,'$eveningAbsentList_ppd'=>$eveningAbsentList_ppd
         ]);
 
 

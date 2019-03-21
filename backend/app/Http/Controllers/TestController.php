@@ -37,6 +37,20 @@ class TestController extends Controller
         $fromDate=$start;
         $toDate=$end;
 
+
+
+
+//        $morningAbsentList_ppd = DB::select( DB::raw(
+//            "SELECT * FROM attemployeemap AS a
+//              LEFT JOIN employeeinfo e on e.id = a.employeeId
+//              LEFT JOIN shiftlog s on e.id = s.fkemployeeId
+//              WHERE e.resignDate is null AND e.fkDepartmentId = 6 and s.endDate is null and s.fkshiftId IN (2,4)
+//              and NOT EXISTS ( SELECT * FROM attendancedata AS b WHERE a.attDeviceUserId = b.attDeviceUserId AND date(b.accessTime) = '2019-03-20' )
+//              AND not EXISTS ( SELECT * FROM hrmleaves as l WHERE e.id = l.fkEmployeeId AND '2019-03-20' BETWEEN l.startDate AND l.endDate )"
+//        ));
+
+        return $morningAbsentList_ppd;
+
 //        $datetime1 = new DateTime('2018-12-01');
 //        $datetime2 = new DateTime('2018-12-30');
 //        $interval = $datetime1->diff($datetime2);

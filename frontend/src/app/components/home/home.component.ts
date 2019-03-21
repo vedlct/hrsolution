@@ -26,7 +26,7 @@ export class HomeComponent implements OnInit {
     const token=this.token.get();
     this.http.post(Constants.API_URL+'report/attendance/live'+'?token='+token,{}).subscribe(data => {
 
-              // console.log(data);
+              console.log(data);
               this.attendanceModel=data;
         },
         error => {
