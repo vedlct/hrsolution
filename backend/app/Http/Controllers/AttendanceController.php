@@ -170,6 +170,7 @@ class AttendanceController extends Controller
             ->where('employeeinfo.resignDate',null)
             ->where('employeeinfo.fkActivationStatus', 1)
             ->whereIn('shiftlog.fkshiftId',[2,4])
+
             ->count();
 
 
@@ -262,8 +263,8 @@ class AttendanceController extends Controller
               LEFT JOIN employeeinfo e on e.id = a.employeeId
               LEFT JOIN shiftlog s on e.id = s.fkemployeeId
               WHERE e.resignDate is null AND e.fkDepartmentId = 6 and s.endDate is null and s.fkshiftId IN (2,4) and e.fkActivationStatus = 1
-              and NOT EXISTS ( SELECT * FROM attendancedata AS b WHERE a.attDeviceUserId = b.attDeviceUserId AND date(b.accessTime) = '$date' ) 
-              AND not EXISTS ( SELECT * FROM hrmleaves as l WHERE e.id = l.fkEmployeeId AND '$date' BETWEEN l.startDate AND l.endDate )"
+              and NOT EXISTS ( SELECT * FROM attendancedata AS b WHERE a.attDeviceUserId = b.attDeviceUserId AND date_format(b.accessTime,'%Y-%m-%d %H:%i:%s') between '2019-03-22 06:00:00' and '2019-03-22 14:59:59' )
+              AND not EXISTS ( SELECT * FROM hrmleaves as l WHERE e.id = l.fkEmployeeId AND '2019-03-22' BETWEEN l.startDate AND l.endDate AND l.applicationStatus = 'Approved' )"
         ));
 
 
