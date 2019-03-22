@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\AttendanceData;
 use App\Comment;
 use App\Department;
+use App\EmployeeInfo;
 use App\Leave;
 use App\OrganizationCalander;
 use App\User;
@@ -36,6 +37,9 @@ class TestController extends Controller
          $endDate = Carbon::now()->endOfMonth();
         $fromDate=$start;
         $toDate=$end;
+
+
+
 
 //        $datetime1 = new DateTime('2018-12-01');
 //        $datetime2 = new DateTime('2018-12-30');
