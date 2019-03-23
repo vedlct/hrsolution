@@ -12,6 +12,8 @@ declare var $ :any;
 })
 export class HomeComponent implements OnInit {
   attendanceModel:any={};
+  absentModel:any;
+
 
   constructor(private check:CheckService,public http: HttpClient, private token:TokenService , public route:ActivatedRoute, private router: Router) {
 
@@ -20,7 +22,12 @@ export class HomeComponent implements OnInit {
 
   ngOnInit() {
     this.getLiveAttendance();
+      // setInterval(() => { this.testData(); }, 5000);
   }
+
+    testData(){
+      console.log(1);
+    }
 
   getLiveAttendance(){
     const token=this.token.get();
@@ -46,9 +53,13 @@ export class HomeComponent implements OnInit {
       * digital
       *
       * */
+      // absentList_software
         if(department=='ppdMorning'){console.log(department)}
         if(department=='ppdEvening'){console.log(department)}
-        if(department=='software'){console.log(department)}
+        if(department=='software'){
+            this.absentModel=this.attendanceModel.absentList_software;
+            console.log(this.absentModel);
+        }
         if(department=='global'){console.log(department)}
         if(department=='digital'){console.log(department)}
 

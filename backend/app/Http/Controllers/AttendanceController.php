@@ -351,7 +351,7 @@ class AttendanceController extends Controller
             where a.late = 'Y'"));
 
         $absentList_software = DB::select( DB::raw(
-            "SELECT * FROM attemployeemap AS a
+            "SELECT firstName,middleName,lastName FROM attemployeemap AS a
               LEFT JOIN employeeinfo e on e.id = a.employeeId
               WHERE e.resignDate is null AND e.fkDepartmentId = 2 and e.fkActivationStatus = 1
               and NOT EXISTS ( SELECT * FROM attendancedata AS b WHERE a.attDeviceUserId = b.attDeviceUserId AND date(b.accessTime) = '$date' )

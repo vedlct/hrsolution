@@ -38,8 +38,7 @@ export class LoginComponent implements OnInit {
               Validators.email
           ]),
           password:new FormControl('',[
-              Validators.required,
-              Validators.minLength(6)
+              Validators.required
           ])
       });
 
@@ -60,8 +59,12 @@ export class LoginComponent implements OnInit {
         },
         error => {
             this.spinner.hide();
-            // this.error=error.error.error;
-          console.log(error);
+
+          console.log(error.error['error']);
+          if(error.statusText=='Unauthorized'){
+              this.error=error.error['error'];
+          }
+
 
         }
     );
@@ -80,6 +83,7 @@ export class LoginComponent implements OnInit {
           },
           error => {
               console.log(error);
+
 
 
     });

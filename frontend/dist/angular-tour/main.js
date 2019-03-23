@@ -62,6 +62,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var ngx_permissions__WEBPACK_IMPORTED_MODULE_25__ = __webpack_require__(/*! ngx-permissions */ "./node_modules/ngx-permissions/ngx-permissions.umd.js");
 /* harmony import */ var ngx_permissions__WEBPACK_IMPORTED_MODULE_25___default = /*#__PURE__*/__webpack_require__.n(ngx_permissions__WEBPACK_IMPORTED_MODULE_25__);
 /* harmony import */ var _components_payroll_pay_grade_pay_grade_component__WEBPACK_IMPORTED_MODULE_26__ = __webpack_require__(/*! ./components/payroll/pay-grade/pay-grade.component */ "./src/app/components/payroll/pay-grade/pay-grade.component.ts");
+/* harmony import */ var _components_user_profile_profile_component__WEBPACK_IMPORTED_MODULE_27__ = __webpack_require__(/*! ./components/user/profile/profile.component */ "./src/app/components/user/profile/profile.component.ts");
+/* harmony import */ var _components_team_leave_team_leave_team_component__WEBPACK_IMPORTED_MODULE_28__ = __webpack_require__(/*! ./components/team/leave-team/leave-team.component */ "./src/app/components/team/leave-team/leave-team.component.ts");
+/* harmony import */ var _components_user_past_employee_past_employee_component__WEBPACK_IMPORTED_MODULE_29__ = __webpack_require__(/*! ./components/user/past-employee/past-employee.component */ "./src/app/components/user/past-employee/past-employee.component.ts");
+/* harmony import */ var _components_team_create_leave_team_create_leave_team_component__WEBPACK_IMPORTED_MODULE_30__ = __webpack_require__(/*! ./components/team/create-leave-team/create-leave-team.component */ "./src/app/components/team/create-leave-team/create-leave-team.component.ts");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -70,6 +74,10 @@ var __decorate = (undefined && undefined.__decorate) || function (decorators, ta
 };
 
 // import { RouterModule, Routes } from '@angular/router';
+
+
+
+
 
 
 
@@ -109,20 +117,42 @@ var routes = [
     { path: '', component: _components_login_login_component__WEBPACK_IMPORTED_MODULE_4__["LoginComponent"], canActivate: [_services_guest_service__WEBPACK_IMPORTED_MODULE_8__["GuestService"]] },
     { path: 'login', component: _components_login_login_component__WEBPACK_IMPORTED_MODULE_4__["LoginComponent"], canActivate: [_services_guest_service__WEBPACK_IMPORTED_MODULE_8__["GuestService"]] },
     { path: 'home', component: _components_home_home_component__WEBPACK_IMPORTED_MODULE_2__["HomeComponent"], canActivate: [_services_auth_service__WEBPACK_IMPORTED_MODULE_9__["AuthService"]] },
+    { path: 'profile', component: _components_user_profile_profile_component__WEBPACK_IMPORTED_MODULE_27__["ProfileComponent"], canActivate: [_services_auth_service__WEBPACK_IMPORTED_MODULE_9__["AuthService"]] },
     { path: 'datatable', component: _components_tables_tables_component__WEBPACK_IMPORTED_MODULE_3__["TablesComponent"] },
     { path: 'user/add', component: _components_user_add_user_add_user_component__WEBPACK_IMPORTED_MODULE_5__["AddUserComponent"], canActivate: [_services_auth_service__WEBPACK_IMPORTED_MODULE_9__["AuthService"]] },
     { path: 'user/add/:id', component: _components_user_add_user_add_user_component__WEBPACK_IMPORTED_MODULE_5__["AddUserComponent"], canActivate: [_services_auth_service__WEBPACK_IMPORTED_MODULE_9__["AuthService"]] },
     { path: 'employee/add', component: _components_user_add_employee_add_employee_component__WEBPACK_IMPORTED_MODULE_6__["AddEmployeeComponent"], canActivate: [_services_auth_service__WEBPACK_IMPORTED_MODULE_9__["AuthService"]] },
     { path: 'employee/edit/:id', component: _components_user_add_employee_add_employee_component__WEBPACK_IMPORTED_MODULE_6__["AddEmployeeComponent"], canActivate: [_services_auth_service__WEBPACK_IMPORTED_MODULE_9__["AuthService"]] },
     { path: 'employee', component: _components_user_employee_employee_component__WEBPACK_IMPORTED_MODULE_11__["EmployeeComponent"], canActivate: [_services_auth_service__WEBPACK_IMPORTED_MODULE_9__["AuthService"]] },
+    { path: 'employee/past', component: _components_user_past_employee_past_employee_component__WEBPACK_IMPORTED_MODULE_29__["PastEmployeeComponent"], canActivate: [_services_auth_service__WEBPACK_IMPORTED_MODULE_9__["AuthService"]] },
     { path: 'company/add', component: _components_company_company_info_company_info_component__WEBPACK_IMPORTED_MODULE_10__["CompanyInfoComponent"], canActivate: [_services_auth_service__WEBPACK_IMPORTED_MODULE_9__["AuthService"]] },
     { path: 'configuration/shift', component: _components_configuration_shift_shift_component__WEBPACK_IMPORTED_MODULE_12__["ShiftComponent"], canActivate: [_services_auth_service__WEBPACK_IMPORTED_MODULE_9__["AuthService"]] },
     { path: 'configuration/shift/assign', component: _components_configuration_shift_assign_shift_assign_component__WEBPACK_IMPORTED_MODULE_13__["ShiftAssignComponent"], canActivate: [_services_auth_service__WEBPACK_IMPORTED_MODULE_9__["AuthService"]] },
-    { path: 'configuration/department/add', component: _components_configuration_department_add_department_add_department_component__WEBPACK_IMPORTED_MODULE_7__["AddDepartmentComponent"] },
-    { path: 'configuration/leave', component: _components_configuration_leave_leave_component__WEBPACK_IMPORTED_MODULE_14__["LeaveComponent"] },
-    { path: 'configuration/leave/show', component: _components_configuration_show_leave_show_leave_component__WEBPACK_IMPORTED_MODULE_15__["ShowLeaveComponent"] },
-    { path: 'leave/apply', component: _components_leave_add_leave_add_leave_component__WEBPACK_IMPORTED_MODULE_24__["AddLeaveComponent"] },
-    { path: 'report/attendance', component: _components_report_attendance_attendance_component__WEBPACK_IMPORTED_MODULE_16__["AttendanceComponent"] },
+    { path: 'configuration/department/add', component: _components_configuration_department_add_department_add_department_component__WEBPACK_IMPORTED_MODULE_7__["AddDepartmentComponent"], canActivate: [_services_auth_service__WEBPACK_IMPORTED_MODULE_9__["AuthService"]] },
+    { path: 'configuration/leave', component: _components_configuration_leave_leave_component__WEBPACK_IMPORTED_MODULE_14__["LeaveComponent"], canActivate: [_services_auth_service__WEBPACK_IMPORTED_MODULE_9__["AuthService"]] },
+    { path: 'configuration/leave/show', component: _components_configuration_show_leave_show_leave_component__WEBPACK_IMPORTED_MODULE_15__["ShowLeaveComponent"], canActivate: [_services_auth_service__WEBPACK_IMPORTED_MODULE_9__["AuthService"]] },
+    { path: 'leave/apply', component: _components_leave_add_leave_add_leave_component__WEBPACK_IMPORTED_MODULE_24__["AddLeaveComponent"], canActivate: [_services_auth_service__WEBPACK_IMPORTED_MODULE_9__["AuthService"]] },
+    { path: 'leave/team',
+        component: _components_team_leave_team_leave_team_component__WEBPACK_IMPORTED_MODULE_28__["LeaveTeamComponent"],
+        canActivate: [ngx_permissions__WEBPACK_IMPORTED_MODULE_25__["NgxPermissionsGuard"]],
+        data: {
+            permissions: {
+                only: ['admin'],
+                redirectTo: '/home'
+            }
+        }
+    },
+    { path: 'leave/team/add',
+        component: _components_team_create_leave_team_create_leave_team_component__WEBPACK_IMPORTED_MODULE_30__["CreateLeaveTeamComponent"],
+        canActivate: [ngx_permissions__WEBPACK_IMPORTED_MODULE_25__["NgxPermissionsGuard"]],
+        data: {
+            permissions: {
+                only: ['admin'],
+                redirectTo: '/home'
+            }
+        }
+    },
+    { path: 'report/attendance', component: _components_report_attendance_attendance_component__WEBPACK_IMPORTED_MODULE_16__["AttendanceComponent"], canActivate: [_services_auth_service__WEBPACK_IMPORTED_MODULE_9__["AuthService"]] },
     // { path: 'report/attendance/:id', component: ShowAttendanceComponent },
     { path: 'report/attendance/:id/:fromdate/:todate', component: _components_report_show_attendance_show_attendance_component__WEBPACK_IMPORTED_MODULE_17__["ShowAttendanceComponent"] },
     { path: 'team/show', component: _components_team_create_team_create_team_component__WEBPACK_IMPORTED_MODULE_18__["CreateTeamComponent"] },
@@ -362,12 +392,20 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var ngx_permissions__WEBPACK_IMPORTED_MODULE_44__ = __webpack_require__(/*! ngx-permissions */ "./node_modules/ngx-permissions/ngx-permissions.umd.js");
 /* harmony import */ var ngx_permissions__WEBPACK_IMPORTED_MODULE_44___default = /*#__PURE__*/__webpack_require__.n(ngx_permissions__WEBPACK_IMPORTED_MODULE_44__);
 /* harmony import */ var _components_payroll_pay_grade_pay_grade_component__WEBPACK_IMPORTED_MODULE_45__ = __webpack_require__(/*! ./components/payroll/pay-grade/pay-grade.component */ "./src/app/components/payroll/pay-grade/pay-grade.component.ts");
+/* harmony import */ var _components_user_profile_profile_component__WEBPACK_IMPORTED_MODULE_46__ = __webpack_require__(/*! ./components/user/profile/profile.component */ "./src/app/components/user/profile/profile.component.ts");
+/* harmony import */ var _components_team_leave_team_leave_team_component__WEBPACK_IMPORTED_MODULE_47__ = __webpack_require__(/*! ./components/team/leave-team/leave-team.component */ "./src/app/components/team/leave-team/leave-team.component.ts");
+/* harmony import */ var _components_user_past_employee_past_employee_component__WEBPACK_IMPORTED_MODULE_48__ = __webpack_require__(/*! ./components/user/past-employee/past-employee.component */ "./src/app/components/user/past-employee/past-employee.component.ts");
+/* harmony import */ var _components_team_create_leave_team_create_leave_team_component__WEBPACK_IMPORTED_MODULE_49__ = __webpack_require__(/*! ./components/team/create-leave-team/create-leave-team.component */ "./src/app/components/team/create-leave-team/create-leave-team.component.ts");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
     else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
+
+
+
+
 
 
 
@@ -454,7 +492,11 @@ var AppModule = /** @class */ (function () {
                 _components_payroll_pay_head_pay_head_component__WEBPACK_IMPORTED_MODULE_41__["PayHeadComponent"],
                 _components_payroll_pay_salary_sheet_pay_salary_sheet_component__WEBPACK_IMPORTED_MODULE_42__["PaySalarySheetComponent"],
                 _components_payroll_pay_advance_pay_advance_component__WEBPACK_IMPORTED_MODULE_43__["PayAdvanceComponent"],
-                _components_payroll_pay_grade_pay_grade_component__WEBPACK_IMPORTED_MODULE_45__["PayGradeComponent"]
+                _components_payroll_pay_grade_pay_grade_component__WEBPACK_IMPORTED_MODULE_45__["PayGradeComponent"],
+                _components_user_profile_profile_component__WEBPACK_IMPORTED_MODULE_46__["ProfileComponent"],
+                _components_team_leave_team_leave_team_component__WEBPACK_IMPORTED_MODULE_47__["LeaveTeamComponent"],
+                _components_user_past_employee_past_employee_component__WEBPACK_IMPORTED_MODULE_48__["PastEmployeeComponent"],
+                _components_team_create_leave_team_create_leave_team_component__WEBPACK_IMPORTED_MODULE_49__["CreateLeaveTeamComponent"]
             ],
             imports: [
                 _angular_platform_browser__WEBPACK_IMPORTED_MODULE_0__["BrowserModule"],
@@ -498,7 +540,7 @@ module.exports = ""
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"card\">\n    <div class=\"card-header-pills\">  <h3 align=\"center\" style=\"font-family: 'Righteous', cursive;\">Add Company</h3></div>\n    <div class=\"card-body\">\n      <div class=\"row\">\n        <div class=\"form-group col-md-6\">\n          <label>Company Name</label>\n          <input type=\"text\" class=\"form-control\" name=\"companyName\" [(ngModel)]=\"companyInfo.companyName\" placeholder=\"name\">\n        </div>\n\n        <div class=\"form-group col-md-6\">\n          <label>Company Address</label>\n          <textarea class=\"form-control\" name=\"companyAddress\" [(ngModel)]=\"companyInfo.companyAddress\" placeholder=\"address\"></textarea>\n        </div>\n\n        <div class=\"form-group col-md-6\">\n          <label>Phone</label>\n          <input type=\"text\" class=\"form-control\" name=\"phone\" [(ngModel)]=\"companyInfo.phone\" placeholder=\"+8801.....\">\n        </div>\n\n        <div class=\"form-group col-md-6\">\n          <label>Fax</label>\n          <input type=\"text\" class=\"form-control\" name=\"fax\" [(ngModel)]=\"companyInfo.fax\" placeholder=\"fax\">\n        </div>\n\n        <div class=\"form-group col-md-6\">\n          <label>Email</label>\n          <input type=\"email\" class=\"form-control\" name=\"email\" [(ngModel)]=\"companyInfo.email\" placeholder=\"abc@abc.com\">\n        </div>\n\n        <div class=\"form-group col-md-6\">\n          <label>WebSite</label>\n          <input type=\"text\" class=\"form-control\" name=\"webSite\" [(ngModel)]=\"companyInfo.webSite\" placeholder=\"www\">\n        </div>\n\n        <div class=\"form-group col-md-6\">\n          <label>Logo</label>\n          <input type=\"file\" class=\"form-control\"  name=\"logo\" (change)=\"onFileSelected($event)\" multiple>\n        </div>\n\n        <div class=\"form-group col-md-6\">\n          <label>Logo Url</label>\n          <input type=\"text\" class=\"form-control\" name=\"logoUrl\">\n        </div>\n\n        <div class=\"form-group col-md-6\">\n          <label>Status</label>\n          <select class=\"form-control\" name=\"fkActivationStatus\">\n            <option>Active</option>\n            <option>Inactive</option>\n          </select>\n        </div>\n\n        <div class=\"form-group col-md-6\" style=\"margin-top: 30px\">\n          <button class=\"btn btn-success\" (click)=\"onSubmit()\">Submit</button>\n        </div>\n\n\n\n\n      </div>\n\n    </div>\n</div>\n\n\n"
+module.exports = "<div class=\"card\">\n    <div class=\"card-header-pills\">  <h3 align=\"center\" style=\"font-family: 'Righteous', cursive;\">Add Company</h3></div>\n    <div class=\"card-body\">\n      <div class=\"row\">\n        <div class=\"form-group col-md-6\">\n          <label>Company Name</label>\n          <input type=\"text\" class=\"form-control\" name=\"companyName\" [(ngModel)]=\"companyInfo.companyName\" placeholder=\"name\">\n        </div>\n\n        <div class=\"form-group col-md-6\">\n          <label>Company Address</label>\n          <textarea class=\"form-control\" name=\"companyAddress\" [(ngModel)]=\"companyInfo.companyAddress\" placeholder=\"address\"></textarea>\n        </div>\n\n        <div class=\"form-group col-md-6\">\n          <label>Phone</label>\n          <input type=\"text\" class=\"form-control\" name=\"phone\" [(ngModel)]=\"companyInfo.phone\" placeholder=\"+8801.....\">\n        </div>\n\n        <div class=\"form-group col-md-6\">\n          <label>Fax</label>\n          <input type=\"text\" class=\"form-control\" name=\"fax\" [(ngModel)]=\"companyInfo.fax\" placeholder=\"fax\">\n        </div>\n\n        <div class=\"form-group col-md-6\">\n          <label>Email</label>\n          <input type=\"email\" class=\"form-control\" name=\"email\" [(ngModel)]=\"companyInfo.email\" placeholder=\"abc@abc.com\">\n        </div>\n\n        <div class=\"form-group col-md-6\">\n          <label>Website</label>\n          <input type=\"text\" class=\"form-control\" name=\"webSite\" [(ngModel)]=\"companyInfo.webSite\" placeholder=\"www\">\n        </div>\n\n        <div class=\"form-group col-md-6\">\n          <label>Logo</label>\n          <input type=\"file\" class=\"form-control\"  name=\"logo\" (change)=\"onFileSelected($event)\" multiple>\n        </div>\n\n        <div class=\"form-group col-md-6\">\n          <label>Logo Url</label>\n          <input type=\"text\" class=\"form-control\" name=\"logoUrl\">\n        </div>\n\n        <div class=\"form-group col-md-6\">\n          <label>Status</label>\n          <select class=\"form-control\" name=\"fkActivationStatus\">\n            <option>Active</option>\n            <option>Inactive</option>\n          </select>\n        </div>\n\n        <div class=\"form-group col-md-6\" style=\"margin-top: 30px\">\n          <button class=\"btn btn-success\" (click)=\"onSubmit()\">Submit</button>\n        </div>\n\n\n\n\n      </div>\n\n    </div>\n</div>\n\n\n"
 
 /***/ }),
 
@@ -864,7 +906,7 @@ module.exports = ""
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"card\">\n  <div class=\"card-header-pills\"> <h3 align=\"center\" style=\"font-family: 'Righteous', cursive;\">Designation</h3></div>\n  <div class=\"card-body\">\n    <div class=\"row\">\n\n      <div class=\"form-group col-md-6\">\n        <label>Title</label>\n        <input type=\"text\" class=\"form-control\" name=\"title\" [(ngModel)]=\"designationForm.title\">\n      </div>\n\n      <div class=\"form-group col-md-6\">\n        <label>Short Name</label>\n        <input type=\"text\" class=\"form-control\" name=\"shortName\" [(ngModel)]=\"designationForm.shortName\">\n      </div>\n\n      <div class=\"form-group col-md-6\">\n        <label>Salary Grade</label>\n        <input type=\"text\" class=\"form-control\" name=\"salaryGrade\" [(ngModel)]=\"designationForm.salaryGrade\">\n      </div>\n\n      <div class=\"form-group col-md-6\">\n        <label>desigLevel</label>\n        <!--<select name=\"desigLevel\" class=\"form-control\">-->\n          <!--<option>level 1</option>-->\n          <!--<option>level 2</option>-->\n          <!--<option>level 3</option>-->\n        <!--</select>-->\n        <input type=\"number\" class=\"form-control\" name=\"desigLevel\" [(ngModel)]=\"designationForm.desigLevel\">\n\n      </div>\n\n      <div class=\"form-group col-md-2\" *ngIf=\"checkId();else other_content\">\n        <button class=\"btn btn-success\" (click)=\"onSubmit()\">Insert</button>\n      </div>\n\n      <ng-template #other_content>\n        <div class=\"form-group col-md-2\">\n          <button class=\"btn btn-success\" (click)=\"onSubmit()\">Update</button>\n        </div>\n      </ng-template>\n      <div class=\"form-group col-md-2\">\n        <button class=\"btn btn-danger\" (click)=\"reset()\">Reset</button>\n      </div>\n\n\n\n      <table class=\"table table-striped\">\n        <thead>\n        <tr>\n          <th>Designation Name</th>\n          <th>shortName</th>\n          <th>salaryGrade</th>\n          <th>desigLevel</th>\n          <th>Action</th>\n        </tr>\n        </thead>\n        <tbody>\n        <tr *ngFor=\"let desig of designation\">\n          <td>{{desig.title}}</td>\n          <td>{{desig.shortName}}</td>\n          <td>{{desig.salaryGrade}}</td>\n          <td>{{desig.desigLevel}}</td>\n          <td>\n            <!--<button class=\"btn btn-danger\" (click)=\"deleteUser(user)\"> Delete</button>-->\n            <button class=\"btn btn-danger\" style=\"margin-left: 20px;\" (click)=\"editDsig(desig)\">Edit</button>\n          </td>\n        </tr>\n        </tbody>\n      </table>\n\n\n\n\n\n    </div>\n\n\n  </div>\n\n</div>"
+module.exports = "<div class=\"card\">\n  <div class=\"card-header-pills\"> <h3 align=\"center\" style=\"font-family: 'Righteous', cursive;\">Designation</h3></div>\n  <div class=\"card-body\">\n    <div class=\"row\">\n\n      <div class=\"form-group col-md-6\">\n        <label>Title</label>\n        <input type=\"text\" class=\"form-control\" name=\"title\" [(ngModel)]=\"designationForm.title\">\n      </div>\n\n      <div class=\"form-group col-md-6\">\n        <label>Short Name</label>\n        <input type=\"text\" class=\"form-control\" name=\"shortName\" [(ngModel)]=\"designationForm.shortName\">\n      </div>\n\n      <div class=\"form-group col-md-6\">\n        <label>Salary Grade</label>\n        <input type=\"text\" class=\"form-control\" name=\"salaryGrade\" [(ngModel)]=\"designationForm.salaryGrade\">\n      </div>\n\n      <div class=\"form-group col-md-6\">\n        <label>Designation Level</label>\n        <!--<select name=\"desigLevel\" class=\"form-control\">-->\n          <!--<option>level 1</option>-->\n          <!--<option>level 2</option>-->\n          <!--<option>level 3</option>-->\n        <!--</select>-->\n        <input type=\"number\" class=\"form-control\" name=\"desigLevel\" [(ngModel)]=\"designationForm.desigLevel\">\n\n      </div>\n\n      <div class=\"form-group col-md-2\" *ngIf=\"checkId();else other_content\">\n        <button class=\"btn btn-success\" (click)=\"onSubmit()\">Insert</button>\n      </div>\n\n      <ng-template #other_content>\n        <div class=\"form-group col-md-2\">\n          <button class=\"btn btn-success\" (click)=\"onSubmit()\">Update</button>\n        </div>\n      </ng-template>\n      <div class=\"form-group col-md-2\">\n        <button class=\"btn btn-danger\" (click)=\"reset()\">Reset</button>\n      </div>\n\n\n\n      <table class=\"table table-striped\">\n        <thead>\n        <tr>\n          <th>Designation Name</th>\n          <th>shortName</th>\n          <th>salaryGrade</th>\n          <th>desigLevel</th>\n          <th>Action</th>\n        </tr>\n        </thead>\n        <tbody>\n        <tr *ngFor=\"let desig of designation\">\n          <td>{{desig.title}}</td>\n          <td>{{desig.shortName}}</td>\n          <td>{{desig.salaryGrade}}</td>\n          <td>{{desig.desigLevel}}</td>\n          <td>\n            <!--<button class=\"btn btn-danger\" (click)=\"deleteUser(user)\"> Delete</button>-->\n            <button class=\"btn btn-danger\" style=\"margin-left: 20px;\" (click)=\"editDsig(desig)\">Edit</button>\n          </td>\n        </tr>\n        </tbody>\n      </table>\n\n\n\n\n\n    </div>\n\n\n  </div>\n\n</div>"
 
 /***/ }),
 
@@ -974,7 +1016,7 @@ module.exports = ""
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"container-fluid\">\n  <div class=\"card\">\n    <div class=\"card-header\">Leave Assign</div>\n\n    <div class=\"card-body\">\n\n      <div class=\"row\">\n        <div class=\"form-group col-md-3\">\n          <label>Start Date</label>\n          <input bsDatepicker\n                 [bsConfig]=\"{ dateInputFormat: 'YYYY-MM-DD' }\"  name=\"resignDate\" [(ngModel)]=\"startDate\" class=\"form-control input\">\n        </div>\n\n        <div class=\"form-group col-md-3\">\n          <label>End Date</label>\n          <input bsDatepicker\n                 [bsConfig]=\"{ dateInputFormat: 'YYYY-MM-DD' }\"  name=\"resignDate\" [(ngModel)]=\"endDate\" class=\"form-control input\">\n        </div>\n\n        <div class=\"form-group col-md-3\">\n          <label>No Of Days</label>\n          <input type=\"number\" class=\"form-control input\" [(ngModel)]=\"noOfDays\" placeholder=\"number of days\">\n        </div>\n\n        <div class=\"form-group col-md-3\">\n          <label>Leave Category</label>\n          <select class=\"form-control input\" name=\"fkLeaveCategory\" [(ngModel)]=\"fkLeaveCategory\"  (change)=\"selectCategory($event.target.value)\">\n            <option value=\"\" selected>Select Category</option>\n            <option *ngFor=\"let lc of leaveCategories\" [value]=\"lc.id\">\n              {{lc.categoryName}}\n            </option>\n          </select>\n        </div>\n\n        <div class=\"form-group col-md-3\">\n          <label>Team</label>\n          <select class=\"form-control\" name=\"shift\" id=\"team\"  (change)=\"selectTeam($event.target.value)\">\n            <option value=\"\">Select Team</option>\n            <option *ngFor=\"let tm of team\" [value]=\"tm.teamId\">\n              {{tm.teamName}}\n            </option>\n          </select>\n        </div>\n\n        <div class=\"form-group col-md-3\">\n          <label>Remark</label>\n          <textarea class=\"form-control input\" [(ngModel)]=\"remark\" placeholder=\"remark\"></textarea>\n        </div>\n\n        <div class=\"form-group col-md-3\">\n          <button class=\"btn btn-success btn-sm\" (click)=\"assignLeave()\">Assign</button>\n        </div>\n\n\n\n      </div>\n\n\n      <!--<input style=\"margin-left: 15px\" type=\"checkbox\" class=\"SelectAll\" id=\"selectall2\"  (click)=\"selectAll()\"/><b>Select All</b><br>-->\n      <table datatable class=\"table\" [dtOptions]=\"dtOptions\" [dtTrigger]=\"dtTrigger\">\n        <thead>\n        <tr>\n          <th style=\"text-align: center\"><input type=\"checkbox\" class=\"SelectAll\" id=\"selectall2\"  (click)=\"selectAll()\"/></th>\n          <th>Name</th>\n          <th>Employee ID</th>\n          <th>Shift Name</th>\n          <th>Weekend</th>\n          <th>Shift Start</th>\n          <th>Team</th>\n\n        </tr>\n        </thead>\n\n        <tbody>\n\n        </tbody>\n\n      </table>\n\n\n    </div>\n  </div>\n</div>\n\n\n"
+module.exports = "<div class=\"container-fluid\">\n  <div class=\"card\">\n    <div class=\"card-header\">Leave Assign</div>\n\n    <div class=\"card-body\">\n\n      <div class=\"row\">\n        <div class=\"form-group col-md-3\">\n          <label>Start Date</label>\n          <input bsDatepicker\n                 [bsConfig]=\"{ dateInputFormat: 'YYYY-MM-DD' }\"  name=\"resignDate\" [(ngModel)]=\"startDate\" class=\"form-control input\">\n        </div>\n\n        <div class=\"form-group col-md-3\">\n          <label>End Date</label>\n          <input bsDatepicker\n                 [bsConfig]=\"{ dateInputFormat: 'YYYY-MM-DD' }\"  name=\"resignDate\" [(ngModel)]=\"endDate\" class=\"form-control input\">\n        </div>\n\n        <div class=\"form-group col-md-3\">\n          <label>No Of Days</label>\n          <input type=\"number\" class=\"form-control input\" [(ngModel)]=\"noOfDays\" placeholder=\"number of days\">\n        </div>\n\n        <div class=\"form-group col-md-3\">\n          <label>Leave Category</label>\n          <select class=\"form-control input\" name=\"fkLeaveCategory\" [(ngModel)]=\"fkLeaveCategory\"  (change)=\"selectCategory($event.target.value)\">\n            <option value=\"\" selected>Select Category</option>\n            <option *ngFor=\"let lc of leaveCategories\" [value]=\"lc.id\">\n              {{lc.categoryName}}\n            </option>\n          </select>\n        </div>\n\n        <div class=\"form-group col-md-3\">\n          <label>Leave Team</label>\n          <select class=\"form-control\" name=\"shift\" id=\"team\"  (change)=\"selectTeam($event.target.value)\">\n            <option value=\"\">Select Team</option>\n            <option *ngFor=\"let tm of team\" [value]=\"tm.teamId\">\n              {{tm.teamName}}\n            </option>\n          </select>\n        </div>\n\n        <div class=\"form-group col-md-3\">\n          <label>Remark</label>\n          <textarea class=\"form-control input\" [(ngModel)]=\"remark\" placeholder=\"remark\"></textarea>\n        </div>\n\n        <div class=\"form-group col-md-3\">\n          <button class=\"btn btn-success btn-sm\" (click)=\"assignLeave()\">Assign</button>\n        </div>\n\n\n\n      </div>\n\n\n      <!--<input style=\"margin-left: 15px\" type=\"checkbox\" class=\"SelectAll\" id=\"selectall2\"  (click)=\"selectAll()\"/><b>Select All</b><br>-->\n      <table datatable class=\"table\" [dtOptions]=\"dtOptions\" [dtTrigger]=\"dtTrigger\">\n        <thead>\n        <tr>\n          <th style=\"text-align: center\"><input type=\"checkbox\" class=\"SelectAll\" id=\"selectall2\"  (click)=\"selectAll()\"/></th>\n          <th>Name</th>\n          <th>Employee ID</th>\n          <th>Shift Name</th>\n          <th>Weekend</th>\n          <th>Shift Start</th>\n          <th>Team</th>\n\n        </tr>\n        </thead>\n\n        <tbody>\n\n        </tbody>\n\n      </table>\n\n\n    </div>\n  </div>\n</div>\n\n\n"
 
 /***/ }),
 
@@ -1058,7 +1100,7 @@ var LeaveComponent = /** @class */ (function () {
     LeaveComponent.prototype.getTeam = function () {
         var _this = this;
         var token = this.token.get();
-        this.http.get(_constants__WEBPACK_IMPORTED_MODULE_1__["Constants"].API_URL + 'team/get' + '?token=' + token).subscribe(function (data) {
+        this.http.get(_constants__WEBPACK_IMPORTED_MODULE_1__["Constants"].API_URL + 'team/leave/get' + '?token=' + token).subscribe(function (data) {
             // console.log(data);
             _this.team = data;
         }, function (error) {
@@ -1084,7 +1126,7 @@ var LeaveComponent = /** @class */ (function () {
         var token = this.token.get();
         this.dtOptions = {
             ajax: {
-                url: _constants__WEBPACK_IMPORTED_MODULE_1__["Constants"].API_URL + 'employee/shift/get' + '?token=' + token,
+                url: _constants__WEBPACK_IMPORTED_MODULE_1__["Constants"].API_URL + 'employee/leaveteam/get' + '?token=' + token,
                 type: 'POST',
                 data: function (d) {
                     d.teamId = $("#team").val();
@@ -1273,7 +1315,7 @@ module.exports = ""
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"container-fluid\">\n  <div class=\"card\">\n    <div class=\"card-header\">Employee Details</div>\n\n    <div class=\"card-body\">\n      <div class=\"row\">\n        <div class=\"form-group col-md-4\">\n          <label>Shift</label>\n          <select class=\"form-control\" name=\"shift\"  (change)=\"selectShift($event.target.value)\">\n            <option value=\"\">Select Shift</option>\n            <option *ngFor=\"let sh of shift\" [value]=\"sh.shiftId\">\n              {{sh.shiftName}}\n            </option>\n          </select>\n        </div>\n\n        <div class=\"form-group col-md-4\">\n          <label>Start Date</label>\n          <input bsDatepicker\n                 [bsConfig]=\"{ dateInputFormat: 'YYYY-MM-DD' }\"  name=\"resignDate\" [(ngModel)]=\"startDate\" class=\"form-control\">\n        </div>\n\n        <div class=\"form-group col-md-4\">\n          <label>Weekend</label>\n          <ng-multiselect-dropdown\n                  [placeholder]=\"'Select Weekend'\"\n                  [data]=\"dropdownList\"\n                  [(ngModel)]=\"selectedItems\"\n                  [settings]=\"dropdownSettings\"\n                  (onSelect)=\"onItemSelect($event)\"\n                  (onSelectAll)=\"onSelectAll($event)\"\n          >\n          </ng-multiselect-dropdown>\n        </div>\n\n        <div class=\"form-group col-md-3\">\n          <label>Team</label>\n          <select class=\"form-control\" name=\"shift\" id=\"team\"  (change)=\"selectTeam($event.target.value)\">\n            <option value=\"\">Select Team</option>\n            <option *ngFor=\"let tm of team\" [value]=\"tm.teamId\">\n              {{tm.teamName}}\n            </option>\n          </select>\n        </div>\n\n        <div class=\"form-group col-md-4\">\n          <button class=\"btn btn-success btn-sm\" (click)=\"assignShift()\">Assign</button>\n        </div>\n\n      </div>\n\n\n      <!--<input style=\"margin-left: 15px\" type=\"checkbox\" class=\"SelectAll\" id=\"selectall2\"  (click)=\"selectAll()\"/><b>Select All</b><br>-->\n      <table datatable class=\"table\" [dtOptions]=\"dtOptions\" [dtTrigger]=\"dtTrigger\">\n        <thead>\n        <tr>\n          <th style=\"text-align: center\"><input type=\"checkbox\" class=\"SelectAll\" id=\"selectall2\"  (click)=\"selectAll()\"/></th>\n          <th>First Name</th>\n          <th>Middle Name</th>\n          <th>Last Name</th>\n          <th>Employee ID</th>\n          <th>Shift Name</th>\n          <th>Weekend</th>\n          <th>Shift Start</th>\n\n        </tr>\n        </thead>\n\n        <tbody>\n\n        </tbody>\n\n      </table>\n\n\n    </div>\n  </div>\n\n\n</div>"
+module.exports = "<div class=\"container-fluid\">\n  <div class=\"card\">\n    <div class=\"card-header\">Employee Details</div>\n\n    <div class=\"card-body\">\n      <div class=\"row\">\n        <div class=\"form-group col-md-4\">\n          <label>Shift</label>\n          <select class=\"form-control\" name=\"shift\"  (change)=\"selectShift($event.target.value)\">\n            <option value=\"\">Select Shift</option>\n            <option *ngFor=\"let sh of shift\" [value]=\"sh.shiftId\">\n              {{sh.shiftName}}\n            </option>\n          </select>\n        </div>\n\n        <div class=\"form-group col-md-4\">\n          <label>Start Date</label>\n          <input bsDatepicker\n                 [bsConfig]=\"{ dateInputFormat: 'YYYY-MM-DD' }\"  name=\"resignDate\" [(ngModel)]=\"startDate\" autocomplete=\"off\" class=\"form-control\">\n        </div>\n\n        <div class=\"form-group col-md-4\">\n          <label>Weekend</label>\n          <ng-multiselect-dropdown\n                  [placeholder]=\"'Select Weekend'\"\n                  [data]=\"dropdownList\"\n                  [(ngModel)]=\"selectedItems\"\n                  [settings]=\"dropdownSettings\"\n                  (onSelect)=\"onItemSelect($event)\"\n                  (onSelectAll)=\"onSelectAll($event)\"\n          >\n          </ng-multiselect-dropdown>\n        </div>\n\n        <div class=\"form-group col-md-3\">\n          <label>Team</label>\n          <select class=\"form-control\" name=\"shift\" id=\"team\"  (change)=\"selectTeam($event.target.value)\">\n            <option value=\"\">Select Team</option>\n            <option *ngFor=\"let tm of team\" [value]=\"tm.teamId\">\n              {{tm.teamName}}\n            </option>\n          </select>\n        </div>\n\n        <div class=\"form-group col-md-4\">\n          <button class=\"btn btn-success btn-sm\" style=\"margin-top: 30px\" (click)=\"assignShift()\">Assign</button>\n        </div>\n\n      </div>\n\n\n      <!--<input style=\"margin-left: 15px\" type=\"checkbox\" class=\"SelectAll\" id=\"selectall2\"  (click)=\"selectAll()\"/><b>Select All</b><br>-->\n      <table datatable class=\"table\" [dtOptions]=\"dtOptions\" [dtTrigger]=\"dtTrigger\">\n        <thead>\n        <tr>\n          <th style=\"text-align: center\"><input type=\"checkbox\" class=\"SelectAll\" id=\"selectall2\"  (click)=\"selectAll()\"/></th>\n          <th>First Name</th>\n          <th>Middle Name</th>\n          <th>Last Name</th>\n          <th>Employee ID</th>\n          <th>Shift Name</th>\n          <th>Weekend</th>\n          <th>Shift Start</th>\n\n        </tr>\n        </thead>\n\n        <tbody>\n\n        </tbody>\n\n      </table>\n\n\n    </div>\n  </div>\n\n\n</div>"
 
 /***/ }),
 
@@ -1387,7 +1429,7 @@ var ShiftAssignComponent = /** @class */ (function () {
             columns: [
                 {
                     "data": function (data, type, full) {
-                        return '<input type="checkbox" class="chk form-control" name="selected_rows[]" value="' + data.empid + '" data-emp-id="' + data.empid + '">';
+                        return '<input type="checkbox" class="chk form-control" name="selected_rows[]" value="' + data.empid + '" data-panel-id="' + data.empid + '">';
                     },
                     "orderable": false, "searchable": false, "name": "selected_rows"
                 },
@@ -1402,26 +1444,11 @@ var ShiftAssignComponent = /** @class */ (function () {
             processing: true,
             serverSide: true,
             pagingType: 'full_numbers',
-            pageLength: 10
+            pageLength: 50
         };
     };
     ShiftAssignComponent.prototype.ngAfterViewInit = function () {
-        var _this = this;
         this.dtTrigger.next();
-        this.renderer.listenGlobal('document', 'click', function (event) {
-            if (event.target.hasAttribute("data-emp-id")) {
-                var id = event.target.getAttribute("data-emp-id");
-                console.log(id);
-                var index = _this.allEmp.indexOf(id.toString());
-                if (index == -1) {
-                    _this.allEmp.push(id);
-                }
-                else {
-                    _this.allEmp.splice(index, 1);
-                }
-                // console.log(this.allEmp);
-            }
-        });
     };
     ShiftAssignComponent.prototype.ngOnDestroy = function () {
         // Do not forget to unsubscribe the event
@@ -1432,11 +1459,6 @@ var ShiftAssignComponent = /** @class */ (function () {
         if ($('#selectall2').is(":checked")) {
             var checkboxes = document.getElementsByName('selected_rows[]');
             $('input:checkbox').prop('checked', true);
-            var that_1 = this;
-            $(".chk:checked").each(function () {
-                that_1.allEmp.push($(this).val());
-            });
-            // console.log(this.allEmp);
         }
         else {
             $(':checkbox:checked').prop('checked', false);
@@ -1448,9 +1470,12 @@ var ShiftAssignComponent = /** @class */ (function () {
         console.log(this.shiftId);
     };
     ShiftAssignComponent.prototype.assignShift = function () {
-        // console.log(this.selectedItems);
-        // return false;
         var _this = this;
+        var that = this;
+        this.allEmp = [];
+        $(".chk:checked").each(function () {
+            that.allEmp.push($(this).val());
+        });
         if (this.shiftId == null || this.startDate == null || this.allEmp.length == 0 || this.selectedItems.length == 0) {
             alert("Empty");
         }
@@ -1647,7 +1672,7 @@ module.exports = ".redcolumn{\n    background: #FC7153 !important;\n    color: w
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<!--modal-->\n<!-- The Modal -->\n<div class=\"modal\" id=\"myModal\">\n  <div class=\"modal-dialog modal-lg\">\n    <div class=\"modal-content \">\n\n      <!-- Modal Header -->\n      <div class=\"modal-header\">\n        <h4 class=\"modal-title\">Edit</h4>\n        <button type=\"button\" class=\"close\" data-dismiss=\"modal\">&times;</button>\n      </div>\n\n      <!-- Modal body -->\n      <div class=\"modal-body\">\n        <div class=\"row\">\n          <div class=\"form-group col-md-6\">\n            <label>Name</label>\n            <input class=\"form-control\" readonly value=\"{{employee.firstName+' '+employee.lastName}}\">\n          </div>\n          <div class=\"form-group col-md-6\">\n            <label>Start Date</label>\n            <input bsDatepicker\n                   [bsConfig]=\"{ dateInputFormat: 'YYYY-MM-DD' }\"  name=\"resignDate\" [(ngModel)]=\"employee.startDate\" class=\"form-control input\" placeholder=\"start\">\n          </div>\n\n          <div class=\"form-group col-md-6\">\n            <label>End Date</label>\n            <input bsDatepicker\n                   [bsConfig]=\"{ dateInputFormat: 'YYYY-MM-DD' }\"  name=\"resignDate\" [(ngModel)]=\"employee.endDate\" class=\"form-control input\" placeholder=\"end\">\n          </div>\n\n\n          <div class=\"form-group col-md-6\">\n            <label>No Of Days</label>\n            <input type=\"number\" class=\"form-control input\" [(ngModel)]=\"employee.noOfDays\" placeholder=\"number of days\">\n          </div>\n\n          <div class=\"form-group col-md-6\">\n            <label>Leave Category</label>\n            <select class=\"form-control input\" name=\"fkLeaveCategory\" [(ngModel)]=\"employee.fkLeaveCategory\">\n              <option value=\"\" selected>Select Category</option>\n              <option *ngFor=\"let lc of leaveCategories\" [value]=\"lc.id\">\n                {{lc.categoryName}}\n              </option>\n            </select>\n          </div>\n\n          <div class=\"form-group col-md-6\">\n            <label>Remark</label>\n            <textarea class=\"form-control input\" [(ngModel)]=\"employee.remarks\" placeholder=\"cause\"></textarea>\n          </div>\n          <div class=\"form-group col-md-12\">\n            <button class=\"btn btn-success btn-sm\" (click)=\"updateLeave()\">Update</button>\n          </div>\n\n\n\n\n\n        </div>\n      </div>\n\n      <!-- Modal footer -->\n      <div class=\"modal-footer\">\n        <button type=\"button\" class=\"btn btn-danger\" data-dismiss=\"modal\">Close</button>\n      </div>\n\n    </div>\n  </div>\n</div>\n\n\n\n<div class=\"card\">\n  <div class=\"card-header\">\n    Showing Leave Requests\n  </div>\n\n  <div class=\"card-body\">\n\n    <table datatable class=\"table table-striped table-bordered\" [dtOptions]=\"dtOptions\" [dtTrigger]=\"dtTrigger\">\n      <thead>\n      <tr>\n        <th>First Name</th>\n        <th>Last Name</th>\n        <th>Start</th>\n        <th>End</th>\n        <th>Days</th>\n        <th>Status</th>\n        <th>Action</th>\n\n      </tr>\n      </thead>\n\n      <tbody>\n\n      </tbody>\n\n    </table>\n\n\n\n  </div>\n</div>"
+module.exports = "<!--modal-->\n<!-- The Modal -->\n<div class=\"modal\" id=\"myModal\">\n  <div class=\"modal-dialog modal-lg\">\n    <div class=\"modal-content \">\n\n      <!-- Modal Header -->\n      <div class=\"modal-header\">\n        <h4 class=\"modal-title\">Edit</h4>\n        <button type=\"button\" class=\"close\" data-dismiss=\"modal\">&times;</button>\n      </div>\n\n      <!-- Modal body -->\n      <div class=\"modal-body\">\n        <div class=\"row\">\n          <div class=\"form-group col-md-6\">\n            <label>Name</label>\n            <input class=\"form-control\" readonly value=\"{{employee.firstName+' '+employee.lastName}}\">\n          </div>\n          <div class=\"form-group col-md-6\">\n            <label>Start Date</label>\n            <input bsDatepicker\n                   [bsConfig]=\"{ dateInputFormat: 'YYYY-MM-DD' }\"  name=\"resignDate\" [(ngModel)]=\"employee.startDate\" class=\"form-control input\" placeholder=\"start\">\n          </div>\n\n          <div class=\"form-group col-md-6\">\n            <label>End Date</label>\n            <input bsDatepicker\n                   [bsConfig]=\"{ dateInputFormat: 'YYYY-MM-DD' }\"  name=\"resignDate\" [(ngModel)]=\"employee.endDate\" class=\"form-control input\" placeholder=\"end\">\n          </div>\n\n\n          <div class=\"form-group col-md-6\">\n            <label>No Of Days</label>\n            <input type=\"number\" class=\"form-control input\" [(ngModel)]=\"employee.noOfDays\" placeholder=\"number of days\">\n          </div>\n\n          <div class=\"form-group col-md-6\">\n            <label>Leave Category</label>\n            <select class=\"form-control input\" name=\"fkLeaveCategory\" [(ngModel)]=\"employee.fkLeaveCategory\">\n              <option value=\"\" selected>Select Category</option>\n              <option *ngFor=\"let lc of leaveCategories\" [value]=\"lc.id\">\n                {{lc.categoryName}}\n              </option>\n            </select>\n          </div>\n\n          <div class=\"form-group col-md-6\">\n            <label>Remark</label>\n            <textarea class=\"form-control input\" [(ngModel)]=\"employee.remarks\" placeholder=\"cause\"></textarea>\n          </div>\n          <div class=\"form-group col-md-12\">\n            <button class=\"btn btn-success btn-sm\" (click)=\"updateLeave()\">Update</button>\n          </div>\n\n\n\n\n\n        </div>\n      </div>\n\n      <!-- Modal footer -->\n      <div class=\"modal-footer\">\n        <button type=\"button\" class=\"btn btn-danger\" data-dismiss=\"modal\">Close</button>\n      </div>\n\n    </div>\n  </div>\n</div>\n\n<!-- The Reject Modal -->\n<div class=\"modal\" id=\"rejectModal\">\n  <div class=\"modal-dialog modal-lg\">\n    <div class=\"modal-content \">\n\n      <!-- Modal Header -->\n      <div class=\"modal-header\">\n        <h4 class=\"modal-title\">Reject Comment</h4>\n        <button type=\"button\" class=\"close\" data-dismiss=\"modal\">&times;</button>\n      </div>\n\n      <!-- Modal body -->\n      <div class=\"modal-body\">\n        <div class=\"row\">\n          <div class=\"form-group col-md-6\">\n            <label>Name</label>\n            <input class=\"form-control\" readonly value=\"{{rejectModel.firstName+' '+rejectModel.lastName}}\">\n          </div>\n          <div class=\"form-group col-md-6\">\n            <label>Start Date</label>\n            <input bsDatepicker\n                   [bsConfig]=\"{ dateInputFormat: 'YYYY-MM-DD' }\"  name=\"resignDate\" [(ngModel)]=\"rejectModel.startDate\" class=\"form-control input\" placeholder=\"start\" readonly>\n          </div>\n\n          <div class=\"form-group col-md-6\">\n            <label>End Date</label>\n            <input bsDatepicker\n                   [bsConfig]=\"{ dateInputFormat: 'YYYY-MM-DD' }\"  name=\"resignDate\" [(ngModel)]=\"rejectModel.endDate\" class=\"form-control input\" placeholder=\"end\" readonly>\n          </div>\n\n\n          <div class=\"form-group col-md-6\">\n            <label>No Of Days</label>\n            <input type=\"number\" class=\"form-control input\" [(ngModel)]=\"rejectModel.noOfDays\" placeholder=\"number of days\" readonly>\n          </div>\n\n          <div class=\"form-group col-md-6\">\n            <label>Leave Category</label>\n            <select class=\"form-control input\" name=\"fkLeaveCategory\" [(ngModel)]=\"rejectModel.fkLeaveCategory\" disabled>\n              <option value=\"\" selected>Select Category</option>\n              <option *ngFor=\"let lc of leaveCategories\" [value]=\"lc.id\">\n                {{lc.categoryName}}\n              </option>\n            </select>\n          </div>\n\n          <div class=\"form-group col-md-6\">\n            <label>Remark</label>\n            <textarea class=\"form-control input\" [(ngModel)]=\"rejectModel.remarks\" placeholder=\"cause\" readonly></textarea>\n          </div>\n\n          <div class=\"form-group col-md-12\">\n            <label>Reason Of Rejection</label>\n            <textarea class=\"form-control input\" [(ngModel)]=\"rejectModel.rejectCause\" placeholder=\"cause\"></textarea>\n          </div>\n\n          <div class=\"form-group col-md-12\">\n            <button class=\"btn btn-success btn-sm\" (click)=\"updateReject()\">Reject</button>\n          </div>\n\n\n\n\n\n        </div>\n      </div>\n\n      <!-- Modal footer -->\n      <div class=\"modal-footer\">\n        <button type=\"button\" class=\"btn btn-danger\" data-dismiss=\"modal\">Close</button>\n      </div>\n\n    </div>\n  </div>\n</div>\n\n\n\n\n<div class=\"card\">\n  <div class=\"card-header\">\n    Showing Leave Requests\n  </div>\n\n  <div class=\"card-body\">\n\n    <table datatable class=\"table table-striped table-bordered\" [dtOptions]=\"dtOptions\" [dtTrigger]=\"dtTrigger\">\n      <thead>\n      <tr>\n        <th>First Name</th>\n        <th>Last Name</th>\n        <th>Start</th>\n        <th>End</th>\n        <th>Days</th>\n        <th>Reject Cause</th>\n        <th>Status</th>\n        <th>Action</th>\n\n      </tr>\n      </thead>\n\n      <tbody>\n\n      </tbody>\n\n    </table>\n\n\n\n  </div>\n</div>"
 
 /***/ }),
 
@@ -1702,6 +1727,7 @@ var ShowLeaveComponent = /** @class */ (function () {
         this.dropdownList = [];
         this.selectedItems = [];
         this.dropdownSettings = {};
+        this.rejectModel = {};
     }
     ShowLeaveComponent.prototype.ngOnInit = function () {
         this.getData();
@@ -1743,6 +1769,7 @@ var ShowLeaveComponent = /** @class */ (function () {
                 { data: 'startDate', name: 'hrmleaves.startDate' },
                 { data: 'endDate', name: 'hrmleaves.endDate' },
                 { data: 'noOfDays', name: 'hrmleaves.noOfDays' },
+                { data: 'rejectCause', name: 'hrmleaves.rejectCause' },
                 { data: 'applicationStatus', name: 'hrmleaves.applicationStatus' },
                 {
                     "data": function (data, type, full) {
@@ -1765,14 +1792,11 @@ var ShowLeaveComponent = /** @class */ (function () {
             pageLength: 10
         };
     };
-    ShowLeaveComponent.prototype.temp = function (data) {
-        console.log(data);
-    };
     ShowLeaveComponent.prototype.edit = function (id) {
         var _this = this;
         var token = this.token.get();
         this.http.post(_constants__WEBPACK_IMPORTED_MODULE_1__["Constants"].API_URL + 'leave/get/individual' + '?token=' + token, { id: id }).subscribe(function (data) {
-            console.log(data);
+            // console.log(data);
             _this.employee = data;
             $('#myModal').modal();
         }, function (error) {
@@ -1799,12 +1823,61 @@ var ShowLeaveComponent = /** @class */ (function () {
             }
             else if (event.target.hasAttribute("data-reject-id")) {
                 var id = event.target.getAttribute("data-reject-id");
-                _this.changeStatus(id, 'Rejected');
+                // this.changeStatus(id,'Rejected');
+                _this.reject(id);
             }
             else if (event.target.hasAttribute("data-edit-id")) {
                 var id = event.target.getAttribute("data-edit-id");
                 _this.edit(id);
             }
+        });
+    };
+    ShowLeaveComponent.prototype.reject = function (id) {
+        var _this = this;
+        // alert(id);
+        var token = this.token.get();
+        this.http.post(_constants__WEBPACK_IMPORTED_MODULE_1__["Constants"].API_URL + 'leave/get/individual' + '?token=' + token, { id: id }).subscribe(function (data) {
+            console.log(data);
+            // this.employee=data;
+            _this.rejectModel = data;
+            $('#rejectModal').modal();
+        }, function (error) {
+            console.log(error);
+        });
+    };
+    ShowLeaveComponent.prototype.updateReject = function () {
+        var _this = this;
+        // console.log(this.rejectModel);
+        var form = {
+            id: this.rejectModel.id,
+            startDate: new Date(this.rejectModel.startDate).toLocaleDateString(),
+            endDate: new Date(this.rejectModel.endDate).toLocaleDateString(),
+            noOfDays: this.rejectModel.noOfDays,
+            remark: this.rejectModel.remark,
+            fkLeaveCategory: this.rejectModel.fkLeaveCategory,
+            status: 'Rejected',
+            rejectCause: this.rejectModel.rejectCause,
+        };
+        var token = this.token.get();
+        this.http.post(_constants__WEBPACK_IMPORTED_MODULE_1__["Constants"].API_URL + 'leave/individual/update' + '?token=' + token, form).subscribe(function (data) {
+            // console.log(data);
+            $('#rejectModal').modal('hide');
+            _this.rerender();
+            $.alert({
+                title: 'Success!',
+                type: 'Green',
+                content: 'Leave Rejected',
+                buttons: {
+                    tryAgain: {
+                        text: 'Ok',
+                        btnClass: 'btn-red',
+                        action: function () {
+                        }
+                    }
+                }
+            });
+        }, function (error) {
+            console.log(error);
         });
     };
     ShowLeaveComponent.prototype.openLg = function (content) {
@@ -1818,7 +1891,6 @@ var ShowLeaveComponent = /** @class */ (function () {
     ShowLeaveComponent.prototype.updateLeave = function () {
         var _this = this;
         var form = {
-            // allEmp:this.allEmp,
             id: this.employee.id,
             startDate: new Date(this.employee.startDate).toLocaleDateString(),
             endDate: new Date(this.employee.endDate).toLocaleDateString(),
@@ -1826,7 +1898,6 @@ var ShowLeaveComponent = /** @class */ (function () {
             remark: this.employee.remark,
             fkLeaveCategory: this.employee.fkLeaveCategory,
         };
-        // leave/assignLeavePersonal
         var token = this.token.get();
         this.http.post(_constants__WEBPACK_IMPORTED_MODULE_1__["Constants"].API_URL + 'leave/individual/update' + '?token=' + token, form).subscribe(function (data) {
             console.log(data);
@@ -1893,7 +1964,7 @@ module.exports = ""
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<p>\n  home works!\n</p>\n"
+module.exports = "<!-- The Modal -->\n<div class=\"modal\" id=\"myModal\">\n    <div class=\"modal-dialog modal-lg\">\n        <div class=\"modal-content\">\n\n            <!-- Modal Header -->\n            <div class=\"modal-header\">\n                <h6 class=\"modal-title\">Absent</h6>\n                <button type=\"button\" class=\"close\" data-dismiss=\"modal\">&times;</button>\n            </div>\n\n            <!-- Modal body -->\n            <div class=\"modal-body\">\n               <table class=\"table table-striped table-bordered\">\n                   <thead>\n                    <th>First Name</th>\n                    <th>Last Name</th>\n                   </thead>\n                   <tbody>\n                        <tr *ngFor=\"let user of absentModel\">\n                            <td>{{user.firstName}}</td>\n                            <td>{{user.lastName}}</td>\n                        </tr>\n                   </tbody>\n               </table>\n            </div>\n\n            <!-- Modal footer -->\n            <div class=\"modal-footer\">\n                <button type=\"button\" class=\"btn btn-danger\" data-dismiss=\"modal\">Close</button>\n            </div>\n\n        </div>\n    </div>\n</div>\n\n\n\n\n<div class=\"container-fluid\" *ngxPermissionsOnly=\"['admin']\">\n\n    <!-- Row 1 -->\n    <div class=\"row\">\n\n        <!-- PPD -->\n        <div class=\"col-md-6\">\n            <div class=\"card\">\n                <div class=\"card-header\">\n                    PPD\n                </div>\n                <div class=\"card-body\">\n\n\n                    <div class=\"row\">\n\n                        <div class=\"col-md-6\">\n                            <div class=\"card\">\n                                <div class=\"card-header\">Employee info / Morning shift</div>\n                                <div class=\"card-body\">\n                                    <table class=\"table table-bordered\" style=\"font-weight: bold\">\n\n                                        <tbody>\n\n                                        <tr>\n                                            <td>Total Employee</td>\n                                            <td>\n                                                {{attendanceModel.morningTotal}}\n\n                                            </td>\n                                        </tr>\n                                        <tr>\n                                            <td>Present Today</td>\n                                            <td>\n                                                {{attendanceModel.morningPresent}}\n\n                                            </td>\n                                        </tr>\n                                        <tr>\n                                            <td>On Leave</td>\n                                            <td>{{attendanceModel.onleaveCountMorning}}</td>\n                                        </tr>\n                                        <tr (click)=\"showAbsent('ppdMorning')\">\n                                            <td>Absent</td>\n                                            <td>\n                                                {{ attendanceModel.morningTotal - attendanceModel.morningPresent - attendanceModel.onleaveCountMorning}}\n                                            </td>\n                                        </tr>\n                                        <tr>\n                                            <td>Late present</td>\n                                            <td>\n                                                {{attendanceModel.morningLate}}\n                                            </td>\n                                        </tr>\n\n                                        </tbody>\n                                    </table>\n                                </div>\n                            </div>\n                        </div>\n\n\n                        <div class=\"col-md-6\">\n                            <div class=\"card\">\n                                <div class=\"card-header\">Employee info / Evening shift</div>\n                                <div class=\"card-body\">\n\n                                    <div class=\"table-responsive\">\n                                        <table class=\"table table-bordered\" style=\"font-weight: bold\">\n\n                                            <tbody>\n\n                                            <tr>\n                                                <td>Total Employee</td>\n                                                <td>\n                                                    {{attendanceModel.eveningTotal}}\n                                                </td>\n                                            </tr>\n                                            <tr>\n                                                <td>Present Today</td>\n                                                <td>\n                                                    {{attendanceModel.eveningPresent}}\n                                                </td>\n                                            </tr>\n                                            <tr>\n                                                <td>On Leave</td>\n                                                <td>{{attendanceModel.onleaveCountEvening}}</td>\n                                            </tr>\n                                            <tr (click)=\"showAbsent('ppdEvening')\">\n                                                <td>Absent</td>\n                                                <td>\n                                                    {{ attendanceModel.eveningTotal - attendanceModel.eveningPresent - attendanceModel.onleaveCountEvening}}\n                                                </td>\n                                            </tr>\n                                            <tr>\n                                                <td>Late present</td>\n                                                <td>\n                                                    {{attendanceModel.eveningLate}}\n\n                                                </td>\n                                            </tr>\n\n                                            </tbody>\n                                        </table>\n\n                                    </div>\n\n                                </div>\n                            </div>\n                        </div>\n\n\n                    </div>\n                </div>\n            </div>\n        </div>\n\n        <!-- Software and Digital Marketing -->\n        <div class=\"col-md-6\">\n            <div class=\"card\">\n                <div class=\"card-header\">\n                    Software Division and Global Marketing\n                </div>\n                <div class=\"card-body\">\n\n\n                    <div class=\"row\">\n\n                        <div class=\"col-md-6\">\n                            <div class=\"card\">\n                                <div class=\"card-header\">Software Division</div>\n                                <div class=\"card-body\">\n                                    <table class=\"table table-bordered\" style=\"font-weight: bold\">\n\n                                        <tbody>\n\n                                        <tr>\n                                            <td>Total Employee</td>\n                                            <td>\n                                                {{attendanceModel.softwareTotalEmp}}\n\n                                            </td>\n                                        </tr>\n                                        <tr>\n                                            <td>Present Today</td>\n                                            <td>\n                                                {{attendanceModel.softwarePresent}}\n\n                                            </td>\n                                        </tr>\n                                        <tr>\n                                            <td>On Leave</td>\n                                            <td>{{attendanceModel.softwareOnleave}}</td>\n                                        </tr>\n                                        <tr (click)=\"showAbsent('software')\">\n                                            <td>Absent</td>\n                                            <td>\n                                                {{ attendanceModel.softwareTotalEmp - attendanceModel.softwarePresent - attendanceModel.softwareOnleave}}\n                                            </td>\n                                        </tr>\n                                        <tr>\n                                            <td>Late present</td>\n                                            <td>\n                                                {{attendanceModel.softwareLate}}\n                                            </td>\n                                        </tr>\n\n                                        </tbody>\n                                    </table>\n                                </div>\n                            </div>\n                        </div>\n\n\n                        <div class=\"col-md-6\">\n                            <div class=\"card\">\n                                <div class=\"card-header\">Global Marketing</div>\n                                <div class=\"card-body\">\n\n                                    <div class=\"table-responsive\">\n                                        <table class=\"table table-bordered\" style=\"font-weight: bold\">\n\n                                            <tbody>\n\n                                            <tr>\n                                                <td>Total Employee</td>\n                                                <td>\n                                                    {{attendanceModel.globalTotalEmp}}\n                                                </td>\n                                            </tr>\n                                            <tr>\n                                                <td>Present Today</td>\n                                                <td>\n                                                    {{attendanceModel.globalPresent}}\n                                                </td>\n                                            </tr>\n                                            <tr>\n                                                <td>On Leave</td>\n                                                <td>{{attendanceModel.globalOnleave}}</td>\n                                            </tr>\n                                            <tr (click)=\"showAbsent('global')\">\n                                                <td>Absent</td>\n                                                <td>\n                                                    {{ attendanceModel.globalTotalEmp - attendanceModel.globalPresent - attendanceModel.globalOnleave}}\n                                                </td>\n                                            </tr>\n                                            <tr>\n                                                <td>Late present</td>\n                                                <td>\n                                                    {{attendanceModel.globalLate}}\n\n                                                </td>\n                                            </tr>\n\n                                            </tbody>\n                                        </table>\n\n                                    </div>\n\n                                </div>\n                            </div>\n                        </div>\n\n\n                    </div>\n                </div>\n            </div>\n        </div>\n\n    </div>\n\n    <!-- Row 2 -->\n    <div class=\"row mt-2\">\n\n        <!-- PPD -->\n        <div class=\"col-md-6\">\n            <div class=\"card\">\n                <div class=\"card-header\">\n                    Digital Marketing\n                </div>\n                <div class=\"card-body\">\n\n\n                    <div class=\"row\">\n\n                        <div class=\"col-md-6\">\n                            <div class=\"card\">\n                                <div class=\"card-header\">Employee info / Digital Marketing</div>\n                                <div class=\"card-body\">\n                                    <table class=\"table table-bordered\" style=\"font-weight: bold\">\n\n                                        <tbody>\n\n                                        <tr>\n                                            <td>Total Employee</td>\n                                            <td>\n                                                {{attendanceModel.digitalTotalEmp}}\n\n                                            </td>\n                                        </tr>\n                                        <tr>\n                                            <td>Present Today</td>\n                                            <td>\n                                                {{attendanceModel.digitalPresent}}\n\n                                            </td>\n                                        </tr>\n                                        <tr>\n                                            <td>On Leave</td>\n                                            <td>{{attendanceModel.digitalOnleave}}</td>\n                                        </tr>\n                                        <tr (click)=\"showAbsent('digital')\">\n                                            <td>Absent</td>\n                                            <td>\n                                                {{ attendanceModel.digitalTotalEmp - attendanceModel.digitalPresent - attendanceModel.digitalOnleave}}\n                                            </td>\n                                        </tr>\n                                        <tr>\n                                            <td>Late present</td>\n                                            <td>\n                                                {{attendanceModel.digitalLate}}\n                                            </td>\n                                        </tr>\n\n                                        </tbody>\n                                    </table>\n                                </div>\n                            </div>\n                        </div>\n\n\n                        <!--<div class=\"col-md-6\">-->\n                            <!--<div class=\"card\">-->\n                                <!--<div class=\"card-header\">Employee info / Morning shift</div>-->\n                                <!--<div class=\"card-body\">-->\n\n                                    <!--<div class=\"table-responsive\">-->\n                                        <!--<table class=\"table table-bordered\" style=\"font-weight: bold\">-->\n\n                                            <!--<tbody>-->\n\n                                            <!--<tr>-->\n                                                <!--<td>Total Employee</td>-->\n                                                <!--<td>-->\n                                                    <!--{{attendanceModel.eveningTotal}}-->\n                                                <!--</td>-->\n                                            <!--</tr>-->\n                                            <!--<tr>-->\n                                                <!--<td>Present Today</td>-->\n                                                <!--<td>-->\n                                                    <!--{{attendanceModel.eveningPresent}}-->\n                                                <!--</td>-->\n                                            <!--</tr>-->\n                                            <!--<tr>-->\n                                                <!--<td>On Leave</td>-->\n                                                <!--<td>{{attendanceModel.onleaveCountEvening}}</td>-->\n                                            <!--</tr>-->\n                                            <!--<tr>-->\n                                                <!--<td>Absent</td>-->\n                                                <!--<td>-->\n                                                    <!--{{ attendanceModel.eveningTotal - attendanceModel.eveningPresent - attendanceModel.onleaveCountEvening}}-->\n                                                <!--</td>-->\n                                            <!--</tr>-->\n                                            <!--<tr>-->\n                                                <!--<td>Late present</td>-->\n                                                <!--<td>-->\n                                                    <!--{{attendanceModel.eveningLate}}-->\n\n                                                <!--</td>-->\n                                            <!--</tr>-->\n\n                                            <!--</tbody>-->\n                                        <!--</table>-->\n\n                                    <!--</div>-->\n\n                                <!--</div>-->\n                            <!--</div>-->\n                        <!--</div>-->\n\n\n                    </div>\n                </div>\n            </div>\n        </div>\n\n        <!-- Software and Digital Marketing -->\n        <!--<div class=\"col-md-6\">-->\n            <!--<div class=\"card\">-->\n                <!--<div class=\"card-header\">-->\n                    <!--Software and Digital Marketing-->\n                <!--</div>-->\n                <!--<div class=\"card-body\">-->\n\n\n                    <!--<div class=\"row\">-->\n\n                        <!--<div class=\"col-md-6\">-->\n                            <!--<div class=\"card\">-->\n                                <!--<div class=\"card-header\">Software Division</div>-->\n                                <!--<div class=\"card-body\">-->\n                                    <!--<table class=\"table table-bordered\" style=\"font-weight: bold\">-->\n\n                                        <!--<tbody>-->\n\n                                        <!--<tr>-->\n                                            <!--<td>Total Employee</td>-->\n                                            <!--<td>-->\n                                                <!--{{attendanceModel.softwareTotalEmp}}-->\n\n                                            <!--</td>-->\n                                        <!--</tr>-->\n                                        <!--<tr>-->\n                                            <!--<td>Present Today</td>-->\n                                            <!--<td>-->\n                                                <!--{{attendanceModel.softwarePresent}}-->\n\n                                            <!--</td>-->\n                                        <!--</tr>-->\n                                        <!--<tr>-->\n                                            <!--<td>On Leave</td>-->\n                                            <!--<td>{{attendanceModel.softwareOnleave}}</td>-->\n                                        <!--</tr>-->\n                                        <!--<tr>-->\n                                            <!--<td>Absent</td>-->\n                                            <!--<td>-->\n                                                <!--{{ attendanceModel.softwareTotalEmp - attendanceModel.softwarePresent - attendanceModel.softwareOnleave}}-->\n                                            <!--</td>-->\n                                        <!--</tr>-->\n                                        <!--<tr>-->\n                                            <!--<td>Late present</td>-->\n                                            <!--<td>-->\n                                                <!--{{attendanceModel.softwareLate}}-->\n                                            <!--</td>-->\n                                        <!--</tr>-->\n\n                                        <!--</tbody>-->\n                                    <!--</table>-->\n                                <!--</div>-->\n                            <!--</div>-->\n                        <!--</div>-->\n\n\n                        <!--<div class=\"col-md-6\">-->\n                            <!--<div class=\"card\">-->\n                                <!--<div class=\"card-header\">Global Marketing</div>-->\n                                <!--<div class=\"card-body\">-->\n\n                                    <!--<div class=\"table-responsive\">-->\n                                        <!--<table class=\"table table-bordered\" style=\"font-weight: bold\">-->\n\n                                            <!--<tbody>-->\n\n                                            <!--<tr>-->\n                                                <!--<td>Total Employee</td>-->\n                                                <!--<td>-->\n                                                    <!--{{attendanceModel.globalTotalEmp}}-->\n                                                <!--</td>-->\n                                            <!--</tr>-->\n                                            <!--<tr>-->\n                                                <!--<td>Present Today</td>-->\n                                                <!--<td>-->\n                                                    <!--{{attendanceModel.globalPresent}}-->\n                                                <!--</td>-->\n                                            <!--</tr>-->\n                                            <!--<tr>-->\n                                                <!--<td>On Leave</td>-->\n                                                <!--<td>{{attendanceModel.globalOnleave}}</td>-->\n                                            <!--</tr>-->\n                                            <!--<tr>-->\n                                                <!--<td>Absent</td>-->\n                                                <!--<td>-->\n                                                    <!--{{ attendanceModel.globalTotalEmp - attendanceModel.globalPresent - attendanceModel.globalOnleave}}-->\n                                                <!--</td>-->\n                                            <!--</tr>-->\n                                            <!--<tr>-->\n                                                <!--<td>Late present</td>-->\n                                                <!--<td>-->\n                                                    <!--{{attendanceModel.globalLate}}-->\n\n                                                <!--</td>-->\n                                            <!--</tr>-->\n\n                                            <!--</tbody>-->\n                                        <!--</table>-->\n\n                                    <!--</div>-->\n\n                                <!--</div>-->\n                            <!--</div>-->\n                        <!--</div>-->\n\n\n                    <!--</div>-->\n                <!--</div>-->\n            <!--</div>-->\n        <!--</div>-->\n\n    </div>\n\n\n\n\n</div>"
 
 /***/ }),
 
@@ -1909,6 +1980,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "HomeComponent", function() { return HomeComponent; });
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
 /* harmony import */ var _services_check_service__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../services/check.service */ "./src/app/services/check.service.ts");
+/* harmony import */ var _services_token_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../services/token.service */ "./src/app/services/token.service.ts");
+/* harmony import */ var _angular_common_http__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/common/http */ "./node_modules/@angular/common/fesm5/http.js");
+/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm5/router.js");
+/* harmony import */ var _constants__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../constants */ "./src/app/constants.ts");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -1920,12 +1995,59 @@ var __metadata = (undefined && undefined.__metadata) || function (k, v) {
 };
 
 
+
+
+
+
 var HomeComponent = /** @class */ (function () {
-    function HomeComponent(check) {
+    function HomeComponent(check, http, token, route, router) {
         this.check = check;
-        this.hellow = "hii";
+        this.http = http;
+        this.token = token;
+        this.route = route;
+        this.router = router;
+        this.attendanceModel = {};
     }
     HomeComponent.prototype.ngOnInit = function () {
+        this.getLiveAttendance();
+    };
+    HomeComponent.prototype.getLiveAttendance = function () {
+        var _this = this;
+        var token = this.token.get();
+        this.http.post(_constants__WEBPACK_IMPORTED_MODULE_5__["Constants"].API_URL + 'report/attendance/live' + '?token=' + token, {}).subscribe(function (data) {
+            console.log(data);
+            _this.attendanceModel = data;
+        }, function (error) {
+            console.log(error);
+        });
+    };
+    HomeComponent.prototype.showAbsent = function (department) {
+        /*
+        * ppdMorning
+        * ppdEvening
+        * software
+        * global
+        * digital
+        *
+        * */
+        // absentList_software
+        if (department == 'ppdMorning') {
+            console.log(department);
+        }
+        if (department == 'ppdEvening') {
+            console.log(department);
+        }
+        if (department == 'software') {
+            this.absentModel = this.attendanceModel.absentList_software;
+            console.log(this.absentModel);
+        }
+        if (department == 'global') {
+            console.log(department);
+        }
+        if (department == 'digital') {
+            console.log(department);
+        }
+        $('#myModal').modal();
     };
     HomeComponent = __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
@@ -1933,7 +2055,7 @@ var HomeComponent = /** @class */ (function () {
             template: __webpack_require__(/*! ./home.component.html */ "./src/app/components/home/home.component.html"),
             styles: [__webpack_require__(/*! ./home.component.css */ "./src/app/components/home/home.component.css")]
         }),
-        __metadata("design:paramtypes", [_services_check_service__WEBPACK_IMPORTED_MODULE_1__["CheckService"]])
+        __metadata("design:paramtypes", [_services_check_service__WEBPACK_IMPORTED_MODULE_1__["CheckService"], _angular_common_http__WEBPACK_IMPORTED_MODULE_3__["HttpClient"], _services_token_service__WEBPACK_IMPORTED_MODULE_2__["TokenService"], _angular_router__WEBPACK_IMPORTED_MODULE_4__["ActivatedRoute"], _angular_router__WEBPACK_IMPORTED_MODULE_4__["Router"]])
     ], HomeComponent);
     return HomeComponent;
 }());
@@ -1960,7 +2082,7 @@ module.exports = ".redcolumn{\n    background: #FC7153 !important;\n    color: w
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"container\">\n  <div class=\"card\">\n    <div class=\"card-header-pills\">\n      <h3 align=\"center\" style=\"font-family: 'Righteous', cursive;\">Leave</h3>\n    </div>\n    <div class=\"card-body\">\n      <div class=\"row\">\n\n        <div class=\"form-group col-md-3\">\n          <label>Start Date</label>\n          <input bsDatepicker\n                 [bsConfig]=\"{ dateInputFormat: 'YYYY-MM-DD' }\"  name=\"resignDate\" [(ngModel)]=\"employee.startDate\" class=\"form-control input\" placeholder=\"start\">\n        </div>\n\n        <div class=\"form-group col-md-3\">\n          <label>End Date</label>\n          <input bsDatepicker\n                 [bsConfig]=\"{ dateInputFormat: 'YYYY-MM-DD' }\"  name=\"resignDate\" [(ngModel)]=\"employee.endDate\" class=\"form-control input\" placeholder=\"end\">\n        </div>\n\n\n        <div class=\"form-group col-md-3\">\n          <label>No Of Days</label>\n          <input type=\"number\" class=\"form-control input\" [(ngModel)]=\"employee.noOfDays\" placeholder=\"number of days\">\n        </div>\n\n\n        <div class=\"form-group col-md-3\">\n          <label>Leave Category</label>\n          <select class=\"form-control input\" name=\"fkLeaveCategory\" [(ngModel)]=\"employee.fkLeaveCategory\">\n            <option value=\"\" selected>Select Category</option>\n            <option *ngFor=\"let lc of leaveCategories\" [value]=\"lc.id\">\n              {{lc.categoryName}}\n            </option>\n          </select>\n        </div>\n\n        <div class=\"form-group col-md-4\">\n          <label>Remark</label>\n          <textarea class=\"form-control input\" [(ngModel)]=\"employee.remark\" placeholder=\"cause\"></textarea>\n        </div>\n\n        <div class=\"form-group col-md-3\">\n          <button class=\"btn btn-success btn-sm\" (click)=\"assignLeave()\">Assign</button>\n        </div>\n\n        <div class=\"col-md-12\">\n          <hr>\n        </div>\n\n        <h4 class=\"col-md-12\" align=\"center\">My Leave</h4>\n\n        <table class=\"table table-bordered table-striped\">\n          <thead>\n            <th style=\"text-align: center\">applicationDate</th>\n            <th style=\"text-align: center\">fkLeaveCategory</th>\n            <th style=\"text-align: center\">applicationStatus</th>\n            <th style=\"text-align: center\">startDate</th>\n            <th style=\"text-align: center\">endDate</th>\n            <th style=\"text-align: center\">noOfDays</th>\n            <th style=\"text-align: center\">remarks</th>\n          </thead>\n          <tbody>\n            <tr *ngFor=\"let ml of myLeaves\" [ngClass]=\"(ml.applicationStatus=='Pending')?'redcolumn':''\">\n              <td style=\"text-align: center\">{{ml.applicationDate}}</td>\n              <td style=\"text-align: center\">{{ml.categoryName}}</td>\n              <td style=\"text-align: center\">{{ml.applicationStatus}}</td>\n              <td style=\"text-align: center\">{{ml.startDate}}</td>\n              <td style=\"text-align: center\">{{ml.endDate}}</td>\n              <td style=\"text-align: center\">{{ml.noOfDays}}</td>\n              <td style=\"text-align: center\">{{ml.remarks}}</td>\n\n            </tr>\n          </tbody>\n        </table>\n\n\n\n      </div>\n    </div>\n\n  </div>\n\n</div>\n"
+module.exports = "<div class=\"container\">\n  <div class=\"card\">\n    <div class=\"card-header-pills\">\n      <h3 align=\"center\" style=\"font-family: 'Righteous', cursive;\">Leave</h3>\n    </div>\n    <div class=\"card-body\">\n      <div class=\"row\">\n\n        <div class=\"form-group col-md-3\">\n          <label>Start Date</label>\n          <input bsDatepicker\n                 [bsConfig]=\"{ dateInputFormat: 'YYYY-MM-DD' }\"  name=\"resignDate\" [(ngModel)]=\"employee.startDate\" class=\"form-control input\" placeholder=\"start\">\n        </div>\n\n        <div class=\"form-group col-md-3\">\n          <label>End Date</label>\n          <input bsDatepicker\n                 [bsConfig]=\"{ dateInputFormat: 'YYYY-MM-DD' }\"  name=\"resignDate\" [(ngModel)]=\"employee.endDate\" class=\"form-control input\" placeholder=\"end\">\n        </div>\n\n\n        <div class=\"form-group col-md-3\">\n          <label>No of Days</label>\n          <input type=\"number\" class=\"form-control input\" [(ngModel)]=\"employee.noOfDays\" placeholder=\"number of days\">\n        </div>\n\n\n        <div class=\"form-group col-md-3\">\n          <label>Leave Category</label>\n          <select class=\"form-control input\" name=\"fkLeaveCategory\" [(ngModel)]=\"employee.fkLeaveCategory\">\n            <option value=\"\" selected>Select Category</option>\n            <option *ngFor=\"let lc of leaveCategories\" [value]=\"lc.id\">\n              {{lc.categoryName}}\n            </option>\n          </select>\n        </div>\n\n        <div class=\"form-group col-md-4\">\n          <label>Remark</label>\n          <textarea class=\"form-control input\" [(ngModel)]=\"employee.remark\" placeholder=\"cause\"></textarea>\n        </div>\n\n        <div class=\"form-group col-md-3\">\n          <button class=\"btn btn-success btn-sm\" (click)=\"assignLeave()\">Assign</button>\n        </div>\n\n        <div class=\"col-md-12\">\n          <hr>\n        </div>\n\n        <h4 class=\"col-md-12\" align=\"center\">My Leave</h4>\n\n        <table class=\"table table-bordered table-striped\">\n          <thead>\n            <th style=\"text-align: center\">applicationDate</th>\n            <th style=\"text-align: center\">fkLeaveCategory</th>\n            <th style=\"text-align: center\">applicationStatus</th>\n            <th style=\"text-align: center\">startDate</th>\n            <th style=\"text-align: center\">endDate</th>\n            <th style=\"text-align: center\">noOfDays</th>\n            <th style=\"text-align: center\">remarks</th>\n            <th style=\"text-align: center\">Reject Cause</th>\n          </thead>\n          <tbody>\n            <tr *ngFor=\"let ml of myLeaves\" [ngClass]=\"(ml.applicationStatus=='Pending')?'redcolumn':''\">\n              <td style=\"text-align: center\">{{ml.applicationDate}}</td>\n              <td style=\"text-align: center\">{{ml.categoryName}}</td>\n              <td style=\"text-align: center\">{{ml.applicationStatus}}</td>\n              <td style=\"text-align: center\">{{ml.startDate}}</td>\n              <td style=\"text-align: center\">{{ml.endDate}}</td>\n              <td style=\"text-align: center\">{{ml.noOfDays}}</td>\n              <td style=\"text-align: center\">{{ml.remarks}}</td>\n              <td style=\"text-align: center\">{{ml.rejectCause}}</td>\n\n            </tr>\n          </tbody>\n        </table>\n\n\n\n      </div>\n    </div>\n\n  </div>\n\n</div>\n"
 
 /***/ }),
 
@@ -2018,8 +2140,9 @@ var AddLeaveComponent = /** @class */ (function () {
     AddLeaveComponent.prototype.getMyLeaves = function () {
         var _this = this;
         var token = this.token.get();
-        this.http.post(_constants__WEBPACK_IMPORTED_MODULE_4__["Constants"].API_URL + 'leave/get/individual' + '?token=' + token, {}).subscribe(function (data) {
-            console.log(data);
+        // leave/get/individual
+        this.http.post(_constants__WEBPACK_IMPORTED_MODULE_4__["Constants"].API_URL + 'leave/get/myleave' + '?token=' + token, {}).subscribe(function (data) {
+            // console.log(data);
             _this.myLeaves = data;
         }, function (error) {
             console.log(error);
@@ -2149,8 +2272,7 @@ var LoginComponent = /** @class */ (function () {
                 _angular_forms__WEBPACK_IMPORTED_MODULE_5__["Validators"].email
             ]),
             password: new _angular_forms__WEBPACK_IMPORTED_MODULE_5__["FormControl"]('', [
-                _angular_forms__WEBPACK_IMPORTED_MODULE_5__["Validators"].required,
-                _angular_forms__WEBPACK_IMPORTED_MODULE_5__["Validators"].minLength(6)
+                _angular_forms__WEBPACK_IMPORTED_MODULE_5__["Validators"].required
             ])
         });
     };
@@ -2167,8 +2289,10 @@ var LoginComponent = /** @class */ (function () {
             _this.handleResponse(data);
         }, function (error) {
             _this.spinner.hide();
-            // this.error=error.error.error;
-            console.log(error);
+            console.log(error.error['error']);
+            if (error.statusText == 'Unauthorized') {
+                _this.error = error.error['error'];
+            }
         });
     };
     Object.defineProperty(LoginComponent.prototype, "f", {
@@ -2228,7 +2352,7 @@ module.exports = ""
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<!-- Navigation Bar-->\n<header id=\"topnav\">\n  <div class=\"topbar-main\">\n    <div class=\"container-fluid\">\n\n      <div class=\"logo\">\n\n        <a routerLink=\"/home\" class=\"logo\">\n          <h3>HR</h3>\n        </a>\n\n      </div>\n\n      <div class=\"menu-extras topbar-custom\">\n        <!-- Search input -->\n        <div class=\"search-wrap\" id=\"search-wrap\">\n          <div class=\"search-bar\">\n            <input class=\"search-input\" type=\"search\" placeholder=\"Search\" />\n            <a href=\"#\" class=\"close-search toggle-search\" data-target=\"#search-wrap\">\n              <i class=\"mdi mdi-close-circle\"></i>\n            </a>\n          </div>\n        </div>\n\n        <ul class=\"list-inline float-right mb-0\">\n          <!-- Search -->\n          <li class=\"list-inline-item dropdown notification-list\">\n            <a class=\"nav-link waves-effect toggle-search\" href=\"#\"  data-target=\"#search-wrap\">\n              <i class=\"mdi mdi-magnify noti-icon\"></i>\n            </a>\n          </li>\n          <!-- Messages-->\n          <li class=\"list-inline-item dropdown notification-list\">\n            <a class=\"nav-link dropdown-toggle arrow-none waves-effect\" data-toggle=\"dropdown\" href=\"#\" role=\"button\"\n               aria-haspopup=\"false\" aria-expanded=\"false\">\n              <i class=\"mdi mdi-email-outline noti-icon\"></i>\n              <span class=\"badge badge-danger noti-icon-badge\">3</span>\n            </a>\n            <div class=\"dropdown-menu dropdown-menu-right dropdown-arrow dropdown-menu-lg\">\n              <!-- item-->\n              <div class=\"dropdown-item noti-title\">\n                <h5><span class=\"badge badge-danger float-right\">745</span>Messages</h5>\n              </div>\n\n              <!-- item-->\n              <a href=\"javascript:void(0);\" class=\"dropdown-item notify-item\">\n                <div class=\"notify-icon\"><img src=\"assets/images/users/avatar-2.jpg\" alt=\"user-img\" class=\"img-fluid rounded-circle\" /> </div>\n                <p class=\"notify-details\"><b>Charles M. Jones</b><small class=\"text-muted\">Dummy text of the printing and typesetting industry.</small></p>\n              </a>\n\n              <!-- item-->\n              <a href=\"javascript:void(0);\" class=\"dropdown-item notify-item\">\n                <div class=\"notify-icon\"><img src=\"assets/images/users/avatar-3.jpg\" alt=\"user-img\" class=\"img-fluid rounded-circle\" /> </div>\n                <p class=\"notify-details\"><b>Thomas J. Mimms</b><small class=\"text-muted\">You have 87 unread messages</small></p>\n              </a>\n\n              <!-- item-->\n              <a href=\"javascript:void(0);\" class=\"dropdown-item notify-item\">\n                <div class=\"notify-icon\"><img src=\"assets/images/users/avatar-4.jpg\" alt=\"user-img\" class=\"img-fluid rounded-circle\" /> </div>\n                <p class=\"notify-details\"><b>Luis M. Konrad</b><small class=\"text-muted\">It is a long established fact that a reader will</small></p>\n              </a>\n\n              <!-- All-->\n              <a href=\"javascript:void(0);\" class=\"dropdown-item notify-item\">\n                View All\n              </a>\n\n            </div>\n          </li>\n          <!-- notification-->\n          <li class=\"list-inline-item dropdown notification-list\">\n            <a class=\"nav-link dropdown-toggle arrow-none waves-effect\" data-toggle=\"dropdown\" href=\"#\" role=\"button\"\n               aria-haspopup=\"false\" aria-expanded=\"false\">\n              <i class=\"mdi mdi-bell-outline noti-icon\"></i>\n              <span class=\"badge badge-danger noti-icon-badge\">3</span>\n            </a>\n            <div class=\"dropdown-menu dropdown-menu-right dropdown-arrow dropdown-menu-lg\">\n              <!-- item-->\n              <div class=\"dropdown-item noti-title\">\n                <h5>Notification (3)</h5>\n              </div>\n\n              <!-- item-->\n              <a href=\"javascript:void(0);\" class=\"dropdown-item notify-item active\">\n                <div class=\"notify-icon bg-success\"><i class=\"mdi mdi-cart-outline\"></i></div>\n                <p class=\"notify-details\"><b>Your order is placed</b><small class=\"text-muted\">Dummy text of the printing and typesetting industry.</small></p>\n              </a>\n\n              <!-- item-->\n              <a href=\"javascript:void(0);\" class=\"dropdown-item notify-item\">\n                <div class=\"notify-icon bg-warning\"><i class=\"mdi mdi-message\"></i></div>\n                <p class=\"notify-details\"><b>New Message received</b><small class=\"text-muted\">You have 87 unread messages</small></p>\n              </a>\n\n              <!-- item-->\n              <a href=\"javascript:void(0);\" class=\"dropdown-item notify-item\">\n                <div class=\"notify-icon bg-info\"><i class=\"mdi mdi-martini\"></i></div>\n                <p class=\"notify-details\"><b>Your item is shipped</b><small class=\"text-muted\">It is a long established fact that a reader will</small></p>\n              </a>\n\n              <!-- All-->\n              <a href=\"javascript:void(0);\" class=\"dropdown-item notify-item\">\n                View All\n              </a>\n\n            </div>\n          </li>\n          <!-- User-->\n          <li class=\"list-inline-item dropdown notification-list\">\n            <a class=\"nav-link dropdown-toggle arrow-none waves-effect nav-user\" data-toggle=\"dropdown\" href=\"#\" role=\"button\"\n               aria-haspopup=\"false\" aria-expanded=\"false\">\n              <img src=\"assets/images/users/avatar-1.jpg\" alt=\"user\" class=\"rounded-circle\">\n            </a>\n            <div class=\"dropdown-menu dropdown-menu-right profile-dropdown \">\n              <a class=\"dropdown-item\" href=\"#\"><i class=\"dripicons-user text-muted\"></i> Profile</a>\n              <a class=\"dropdown-item\" href=\"#\"><i class=\"dripicons-wallet text-muted\"></i> My Wallet</a>\n              <a class=\"dropdown-item\" href=\"#\"><span class=\"badge badge-success pull-right m-t-5\">5</span><i class=\"dripicons-gear text-muted\"></i> Settings</a>\n              <a class=\"dropdown-item\" href=\"#\" (click)=\"whoAmI($event)\"><i class=\"dripicons-lock text-muted\"></i> Who Am I</a>\n              <div class=\"dropdown-divider\"></div>\n              <a class=\"dropdown-item\" href=\"#\" (click)=\"logout($event)\"><i class=\"dripicons-exit text-muted\"></i> Logout</a>\n            </div>\n          </li>\n          <li class=\"menu-item list-inline-item\">\n            <!-- Mobile menu toggle-->\n            <a class=\"navbar-toggle nav-link\">\n              <div class=\"lines\">\n                <span></span>\n                <span></span>\n                <span></span>\n              </div>\n            </a>\n            <!-- End mobile menu toggle-->\n          </li>\n\n        </ul>\n      </div>\n      <!-- end menu-extras -->\n\n      <div class=\"clearfix\"></div>\n\n    </div> <!-- end container -->\n  </div>\n  <!-- end topbar-main -->\n\n  <!-- MENU Start -->\n  <div class=\"navbar-custom\">\n    <div class=\"container-fluid\">\n      <div id=\"navigation\">\n        <!-- Navigation Menu-->\n        <ul class=\"navigation-menu\">\n\n          <li class=\"has-submenu\" routerLinkActive=\"active\">\n            <a routerLink=\"/home\" ><i class=\"ti-home\"></i>Dashboard</a>\n          </li>\n\n          <li class=\"has-submenu\" routerLinkActive=\"active\">\n            <a href=\"#\"><i class=\"ti-bookmark-alt\"></i>Components</a>\n            <ul class=\"submenu\">\n              <li class=\"has-submenu\" *ngxPermissionsOnly=\"['admin']\">\n                <a href=\"#\">Shift</a>\n                <ul class=\"submenu\">\n                  <li><a routerLink=\"configuration/shift\">All Shift</a></li>\n                  <li><a routerLink=\"configuration/shift/assign\">Shift Assign</a></li>\n                </ul>\n              </li>\n\n              <li class=\"has-submenu\">\n                <a href=\"#\">Leave</a>\n                <ul class=\"submenu\">\n                  <li><a routerLink=\"leave/apply\">Apply Leave</a></li>\n                  <li><a routerLink=\"configuration/leave\" *ngxPermissionsOnly=\"['admin']\">Create Leave</a></li>\n                  <li><a routerLink=\"configuration/leave/show\" *ngxPermissionsOnly=\"['admin']\">Show Leave</a></li>\n                </ul>\n              </li>\n\n\n              <li class=\"has-submenu\" *ngxPermissionsOnly=\"['admin']\">\n                <a href=\"#\">User</a>\n                <ul class=\"submenu\">\n                  <li><a routerLink=\"user/add\">Add User</a></li>\n                </ul>\n              </li>\n              <li class=\"has-submenu\" *ngxPermissionsOnly=\"['admin']\">\n                <a href=\"#\">Employee</a>\n                <ul class=\"submenu\">\n                  <li><a routerLink=\"employee\">Employee</a></li>\n                  <li><a routerLink=\"employee/add\">Add Employee</a></li>\n                </ul>\n              </li>\n\n              <li class=\"has-submenu\" >\n                <a href=\"#\">Company</a>\n                <ul class=\"submenu\">\n                  <li><a routerLink=\"company/add\">Company Info</a></li>\n                </ul>\n              </li>\n\n            </ul>\n          </li>\n\n\n          <li class=\"has-submenu\" routerLinkActive=\"active\">\n            <a routerLink=\"#\" ><i class=\"fa fa-chart\"></i>Report</a>\n            <ul class=\"submenu\">\n              <li class=\"\">\n                <a routerLink=\"report/attendance\">Attendance</a>\n\n              </li>\n            </ul>\n          </li>\n\n\n          <li class=\"has-submenu\" routerLinkActive=\"active\" *ngxPermissionsOnly=\"['admin']\">\n            <a routerLink=\"#\" ><i class=\"fa fa-chart\"></i>Team</a>\n            <ul class=\"submenu\">\n              <li class=\"\">\n                <a routerLink=\"team/show\">Show Team</a>\n                <a routerLink=\"team/assign\">Assign Team</a>\n              </li>\n            </ul>\n          </li>\n\n\n          <li class=\"has-submenu\" routerLinkActive=\"active\" *ngxPermissionsOnly=\"['admin']\">\n            <a routerLink=\"#\" ><i class=\"fa fa-chart\"></i>Payroll</a>\n            <ul class=\"submenu\">\n              <li class=\"\">\n                <a routerLink=\"payroll/pay-grade\">Pay Grade</a>\n                <a routerLink=\"payroll/payhead\">Pay Head</a>\n                <a routerLink=\"payroll/salary-sheet\">Salary Sheet</a>\n                <a routerLink=\"payroll/pay-advance\">Advance Payment</a>\n\n              </li>\n            </ul>\n          </li>\n\n          <!--<li class=\"has-submenu\">-->\n            <!--<a href=\"#\"><i class=\"ti-files\"></i>Pages</a>-->\n            <!--<ul class=\"submenu megamenu\">-->\n              <!--<li>-->\n                <!--<ul>-->\n                  <!--<li><a routerLink=\"/login\">Login</a></li>-->\n                <!--</ul>-->\n              <!--</li>-->\n            <!--</ul>-->\n          <!--</li>-->\n\n        </ul>\n        <!-- End navigation menu -->\n      </div> <!-- end #navigation -->\n    </div> <!-- end container -->\n  </div> <!-- end navbar-custom -->\n\n\n\n\n</header>\n<!-- End Navigation Bar-->\n\n"
+module.exports = "<!-- Navigation Bar-->\n<header id=\"topnav\">\n  <div class=\"topbar-main\">\n    <div class=\"container-fluid\">\n\n      <div class=\"logo\">\n\n        <a routerLink=\"/home\" class=\"logo\">\n          <h3>HR</h3>\n        </a>\n\n      </div>\n\n      <div class=\"menu-extras topbar-custom\">\n        <!-- Search input -->\n        <div class=\"search-wrap\" id=\"search-wrap\">\n          <div class=\"search-bar\">\n            <input class=\"search-input\" type=\"search\" placeholder=\"Search\" />\n            <a href=\"#\" class=\"close-search toggle-search\" data-target=\"#search-wrap\">\n              <i class=\"mdi mdi-close-circle\"></i>\n            </a>\n          </div>\n        </div>\n\n        <ul class=\"list-inline float-right mb-0\">\n          <!-- Search -->\n          <li class=\"list-inline-item dropdown notification-list\">\n            <a class=\"nav-link waves-effect toggle-search\" href=\"#\"  data-target=\"#search-wrap\">\n              <i class=\"mdi mdi-magnify noti-icon\"></i>\n            </a>\n          </li>\n          <!-- Messages-->\n          <li class=\"list-inline-item dropdown notification-list\">\n            <a class=\"nav-link dropdown-toggle arrow-none waves-effect\" data-toggle=\"dropdown\" href=\"#\" role=\"button\"\n               aria-haspopup=\"false\" aria-expanded=\"false\">\n              <i class=\"mdi mdi-email-outline noti-icon\"></i>\n              <span class=\"badge badge-danger noti-icon-badge\">3</span>\n            </a>\n            <div class=\"dropdown-menu dropdown-menu-right dropdown-arrow dropdown-menu-lg\">\n              <!-- item-->\n              <div class=\"dropdown-item noti-title\">\n                <h5><span class=\"badge badge-danger float-right\">745</span>Messages</h5>\n              </div>\n\n              <!-- item-->\n              <a href=\"javascript:void(0);\" class=\"dropdown-item notify-item\">\n                <div class=\"notify-icon\"><img src=\"assets/images/users/avatar-2.jpg\" alt=\"user-img\" class=\"img-fluid rounded-circle\" /> </div>\n                <p class=\"notify-details\"><b>Charles M. Jones</b><small class=\"text-muted\">Dummy text of the printing and typesetting industry.</small></p>\n              </a>\n\n              <!-- item-->\n              <a href=\"javascript:void(0);\" class=\"dropdown-item notify-item\">\n                <div class=\"notify-icon\"><img src=\"assets/images/users/avatar-3.jpg\" alt=\"user-img\" class=\"img-fluid rounded-circle\" /> </div>\n                <p class=\"notify-details\"><b>Thomas J. Mimms</b><small class=\"text-muted\">You have 87 unread messages</small></p>\n              </a>\n\n              <!-- item-->\n              <a href=\"javascript:void(0);\" class=\"dropdown-item notify-item\">\n                <div class=\"notify-icon\"><img src=\"assets/images/users/avatar-4.jpg\" alt=\"user-img\" class=\"img-fluid rounded-circle\" /> </div>\n                <p class=\"notify-details\"><b>Luis M. Konrad</b><small class=\"text-muted\">It is a long established fact that a reader will</small></p>\n              </a>\n\n              <!-- All-->\n              <a href=\"javascript:void(0);\" class=\"dropdown-item notify-item\">\n                View All\n              </a>\n\n            </div>\n          </li>\n          <!-- notification-->\n          <li class=\"list-inline-item dropdown notification-list\">\n            <a class=\"nav-link dropdown-toggle arrow-none waves-effect\" data-toggle=\"dropdown\" href=\"#\" role=\"button\"\n               aria-haspopup=\"false\" aria-expanded=\"false\">\n              <i class=\"mdi mdi-bell-outline noti-icon\"></i>\n              <span class=\"badge badge-danger noti-icon-badge\">3</span>\n            </a>\n            <div class=\"dropdown-menu dropdown-menu-right dropdown-arrow dropdown-menu-lg\">\n              <!-- item-->\n              <div class=\"dropdown-item noti-title\">\n                <h5>Notification (3)</h5>\n              </div>\n\n              <!-- item-->\n              <a href=\"javascript:void(0);\" class=\"dropdown-item notify-item active\">\n                <div class=\"notify-icon bg-success\"><i class=\"mdi mdi-cart-outline\"></i></div>\n                <p class=\"notify-details\"><b>Your order is placed</b><small class=\"text-muted\">Dummy text of the printing and typesetting industry.</small></p>\n              </a>\n\n              <!-- item-->\n              <a href=\"javascript:void(0);\" class=\"dropdown-item notify-item\">\n                <div class=\"notify-icon bg-warning\"><i class=\"mdi mdi-message\"></i></div>\n                <p class=\"notify-details\"><b>New Message received</b><small class=\"text-muted\">You have 87 unread messages</small></p>\n              </a>\n\n              <!-- item-->\n              <a href=\"javascript:void(0);\" class=\"dropdown-item notify-item\">\n                <div class=\"notify-icon bg-info\"><i class=\"mdi mdi-martini\"></i></div>\n                <p class=\"notify-details\"><b>Your item is shipped</b><small class=\"text-muted\">It is a long established fact that a reader will</small></p>\n              </a>\n\n              <!-- All-->\n              <a href=\"javascript:void(0);\" class=\"dropdown-item notify-item\">\n                View All\n              </a>\n\n            </div>\n          </li>\n          <!-- User-->\n          <li class=\"list-inline-item dropdown notification-list\">\n            <a class=\"nav-link dropdown-toggle arrow-none waves-effect nav-user\" data-toggle=\"dropdown\" href=\"#\" role=\"button\"\n               aria-haspopup=\"false\" aria-expanded=\"false\">\n              <img src=\"assets/images/users/avatar-1.jpg\" alt=\"user\" class=\"rounded-circle\">\n            </a>\n            <div class=\"dropdown-menu dropdown-menu-right profile-dropdown \">\n              <a class=\"dropdown-item\" routerLink=\"profile\"><i class=\"dripicons-user text-muted\"></i> Profile</a>\n              <a class=\"dropdown-item\" href=\"#\"><i class=\"dripicons-wallet text-muted\"></i> My Wallet</a>\n              <a class=\"dropdown-item\" href=\"#\"><span class=\"badge badge-success pull-right m-t-5\">5</span><i class=\"dripicons-gear text-muted\"></i> Settings</a>\n              <a class=\"dropdown-item\" href=\"#\" (click)=\"whoAmI($event)\"><i class=\"dripicons-lock text-muted\"></i> Who Am I</a>\n              <div class=\"dropdown-divider\"></div>\n              <a class=\"dropdown-item\" href=\"#\" (click)=\"logout($event)\"><i class=\"dripicons-exit text-muted\"></i> Logout</a>\n            </div>\n          </li>\n          <li class=\"menu-item list-inline-item\">\n            <!-- Mobile menu toggle-->\n            <a class=\"navbar-toggle nav-link\">\n              <div class=\"lines\">\n                <span></span>\n                <span></span>\n                <span></span>\n              </div>\n            </a>\n            <!-- End mobile menu toggle-->\n          </li>\n\n        </ul>\n      </div>\n      <!-- end menu-extras -->\n\n      <div class=\"clearfix\"></div>\n\n    </div> <!-- end container -->\n  </div>\n  <!-- end topbar-main -->\n\n  <!-- MENU Start -->\n  <div class=\"navbar-custom\">\n    <div class=\"container-fluid\">\n      <div id=\"navigation\">\n        <!-- Navigation Menu-->\n        <ul class=\"navigation-menu\">\n\n          <li class=\"has-submenu\" routerLinkActive=\"active\">\n            <a routerLink=\"/home\" ><i class=\"ti-home\"></i>Dashboard</a>\n          </li>\n\n          <li class=\"has-submenu\" routerLinkActive=\"active\">\n            <a href=\"#\"><i class=\"ti-bookmark-alt\"></i>Components</a>\n            <ul class=\"submenu\">\n              <li class=\"has-submenu\" *ngxPermissionsOnly=\"['admin']\">\n                <a href=\"#\">Shift</a>\n                <ul class=\"submenu\">\n                  <li><a routerLink=\"configuration/shift\">All Shift</a></li>\n                  <li><a routerLink=\"configuration/shift/assign\">Shift Assign</a></li>\n                </ul>\n              </li>\n\n              <li class=\"has-submenu\">\n                <a href=\"#\">Leave</a>\n                <ul class=\"submenu\">\n                  <li><a routerLink=\"leave/apply\">Apply Leave</a></li>\n                  <li><a routerLink=\"configuration/leave\" *ngxPermissionsOnly=\"['admin']\">Create Leave</a></li>\n                  <li><a routerLink=\"configuration/leave/show\" *ngxPermissionsOnly=\"['admin']\">Show Leave</a></li>\n                </ul>\n              </li>\n\n\n              <li class=\"has-submenu\" *ngxPermissionsOnly=\"['admin']\">\n                <a href=\"#\">User</a>\n                <ul class=\"submenu\">\n                  <li><a routerLink=\"user/add\">Add User</a></li>\n                </ul>\n              </li>\n              <li class=\"has-submenu\" *ngxPermissionsOnly=\"['admin']\">\n                <a href=\"#\">Employee</a>\n                <ul class=\"submenu\">\n                  <li><a routerLink=\"employee\">Employee</a></li>\n                  <li><a routerLink=\"employee/past\">Past Employee</a></li>\n                  <li><a routerLink=\"employee/add\">Add Employee</a></li>\n                </ul>\n              </li>\n\n              <li class=\"has-submenu\" *ngxPermissionsOnly=\"['admin']\">\n                <a href=\"#\">Company</a>\n                <ul class=\"submenu\">\n                  <li><a routerLink=\"company/add\">Company Info</a></li>\n                </ul>\n              </li>\n\n            </ul>\n          </li>\n\n\n          <li class=\"has-submenu\" routerLinkActive=\"active\">\n            <a routerLink=\"#\" ><i class=\"fa fa-chart\"></i>Report</a>\n            <ul class=\"submenu\">\n              <li class=\"\">\n                <a routerLink=\"report/attendance\">Attendance</a>\n\n              </li>\n            </ul>\n          </li>\n\n\n          <li class=\"has-submenu\" routerLinkActive=\"active\" *ngxPermissionsOnly=\"['admin']\">\n            <a routerLink=\"#\" ><i class=\"fa fa-chart\"></i>Team</a>\n            <ul class=\"submenu\">\n              <li class=\"\">\n                <a routerLink=\"team/show\">Show Team</a>\n                <a routerLink=\"team/assign\">Assign Team</a>\n                <a routerLink=\"leave/team/add\">Show Leave Team</a>\n                <a routerLink=\"leave/team\">Leave Team</a>\n              </li>\n            </ul>\n          </li>\n\n\n          <li class=\"has-submenu\" routerLinkActive=\"active\" *ngxPermissionsOnly=\"['admin']\">\n            <a routerLink=\"#\" ><i class=\"fa fa-chart\"></i>Payroll</a>\n            <ul class=\"submenu\">\n              <li class=\"\">\n                <a routerLink=\"payroll/pay-grade\">Pay Grade</a>\n                <a routerLink=\"payroll/payhead\">Pay Head</a>\n                <a routerLink=\"payroll/salary-sheet\">Salary Sheet</a>\n                <a routerLink=\"payroll/pay-advance\">Advance Payment</a>\n\n              </li>\n            </ul>\n          </li>\n\n          <!--<li class=\"has-submenu\">-->\n            <!--<a href=\"#\"><i class=\"ti-files\"></i>Pages</a>-->\n            <!--<ul class=\"submenu megamenu\">-->\n              <!--<li>-->\n                <!--<ul>-->\n                  <!--<li><a routerLink=\"/login\">Login</a></li>-->\n                <!--</ul>-->\n              <!--</li>-->\n            <!--</ul>-->\n          <!--</li>-->\n\n        </ul>\n        <!-- End navigation menu -->\n      </div> <!-- end #navigation -->\n    </div> <!-- end container -->\n  </div> <!-- end navbar-custom -->\n\n\n\n\n</header>\n<!-- End Navigation Bar-->\n\n"
 
 /***/ }),
 
@@ -2372,7 +2496,7 @@ module.exports = ""
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"container\" >\n    <div class=\"card\">\n        <div class=\"card-header\">Employee Advance Salary</div>\n\n        <div class=\"card-body\">\n\n            <table datatable class=\"table\" [dtOptions]=\"dtOptions\" [dtTrigger]=\"dtTrigger\">\n                <thead>\n                <tr>\n                    <th>First Name</th>\n                    <th>Middle Name</th>\n                    <th>Last Name</th>\n                    <th>Employee ID</th>\n                    <th>Designation</th>\n                    <th>Department</th>\n                    <th>Action</th>\n                </tr>\n                </thead>\n\n                <tbody>\n\n                </tbody>\n\n            </table>\n\n        </div>\n\n\n\n       <hr>\n        <h4 align=\"center\">Salary Advance</h4>\n\n        <div class=\"row\" style=\"padding: 20px;\">\n            <div class=\"form-group col-md-12\">\n                <label>Employee</label>\n                <input class=\"form-control\" placeholder=\"name\" type=\"text\" [(ngModel)]=\"payAdvanceModel.empName\" readonly>\n            </div>\n            <div class=\"form-group col-md-6\">\n                <label>Advance Date</label>\n                <input class=\"form-control\" placeholder=\"date\" [(ngModel)]=\"payAdvanceModel.advanceDate\" type=\"date\">\n            </div>\n\n            <div class=\"form-group col-md-6\">\n                <label>Start Date</label>\n                <input class=\"form-control\" [(ngModel)]=\"payAdvanceModel.startDate\" placeholder=\"start date\"  type=\"date\">\n            </div>\n\n\n\n\n            <div class=\"form-group col-md-6\">\n                <label>Amount</label>\n                <input class=\"form-control\" placeholder=\"TK\" [(ngModel)]=\"payAdvanceModel.amount\" type=\"number\">\n            </div>\n\n            <div class=\"form-group col-md-6\">\n                <label>Return Rate</label>\n                <input class=\"form-control\" placeholder=\"%\" [(ngModel)]=\"payAdvanceModel.returnRate\" type=\"number\">\n            </div>\n\n            <div class=\"form-group col-md-6\">\n                <label>Status</label>\n                <select class=\"form-control\" [(ngModel)]=\"payAdvanceModel.status\">\n                    <option value=\"\">Select status</option>\n                    <option value=\"running\">Running</option>\n                    <option value=\"complete\">Complete</option>\n                </select>\n            </div>\n\n            <div class=\"form-group col-md-12\">\n                <label>DESCRIPTION</label>\n                <input class=\"form-control\" placeholder=\"description\" [(ngModel)]=\"payAdvanceModel.description\" type=\"text\">\n            </div>\n\n\n            <div class=\"form-group col-md-12\">\n                <button class=\"btn btn-info pull-right\" (click)=\"payAdvanceSubmit()\">Submit</button>\n            </div>\n        </div>\n\n\n\n\n\n    </div>\n\n\n</div>"
+module.exports = "<div class=\"container\" >\n    <div class=\"card\">\n        <div class=\"card-header\">Employee Advance Salary</div>\n\n        <div class=\"card-body\">\n\n            <table datatable class=\"table\" [dtOptions]=\"dtOptions\" [dtTrigger]=\"dtTrigger\">\n                <thead>\n                <tr>\n                    <th>First Name</th>\n                    <th>Middle Name</th>\n                    <th>Last Name</th>\n                    <th>Employee ID</th>\n                    <th>Designation</th>\n                    <th>Department</th>\n                    <th>Action</th>\n                </tr>\n                </thead>\n\n                <tbody>\n\n                </tbody>\n\n            </table>\n\n        </div>\n\n\n\n       <hr>\n        <h4 align=\"center\">Salary Advance</h4>\n\n        <div class=\"row\" style=\"padding: 20px;\">\n            <div class=\"form-group col-md-12\">\n                <label>Employee</label>\n                <input class=\"form-control\" placeholder=\"name\" type=\"text\" [(ngModel)]=\"payAdvanceModel.empName\" readonly>\n            </div>\n            <div class=\"form-group col-md-6\">\n                <label>Advance Date</label>\n                <input class=\"form-control\" placeholder=\"date\" [(ngModel)]=\"payAdvanceModel.advanceDate\" type=\"date\">\n            </div>\n\n            <div class=\"form-group col-md-6\">\n                <label>Start Date</label>\n                <input class=\"form-control\" [(ngModel)]=\"payAdvanceModel.startDate\" placeholder=\"start date\"  type=\"date\">\n            </div>\n\n\n\n\n            <div class=\"form-group col-md-6\">\n                <label>Amount</label>\n                <input class=\"form-control\" placeholder=\"TK\" [(ngModel)]=\"payAdvanceModel.amount\" type=\"number\">\n            </div>\n\n            <div class=\"form-group col-md-6\">\n                <label>Return Rate</label>\n                <input class=\"form-control\" placeholder=\"%\" [(ngModel)]=\"payAdvanceModel.returnRate\" type=\"number\">\n            </div>\n\n            <div class=\"form-group col-md-6\">\n                <label>Status</label>\n                <select class=\"form-control\" [(ngModel)]=\"payAdvanceModel.status\">\n                    <option value=\"\">Select status</option>\n                    <option value=\"running\">Running</option>\n                    <option value=\"complete\">Complete</option>\n                </select>\n            </div>\n\n            <div class=\"form-group col-md-12\">\n                <label>Description</label>\n                <input class=\"form-control\" placeholder=\"description\" [(ngModel)]=\"payAdvanceModel.description\" type=\"text\">\n            </div>\n\n\n            <div class=\"form-group col-md-12\">\n                <button class=\"btn btn-info pull-right\" (click)=\"payAdvanceSubmit()\">Submit</button>\n            </div>\n        </div>\n\n\n\n\n\n    </div>\n\n\n</div>"
 
 /***/ }),
 
@@ -2634,7 +2758,7 @@ module.exports = ""
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<!-- Edit Pay-Grade Modal -->\n<div class=\"modal\" id=\"editGradeModal\">\n  <div class=\"modal-dialog modal-lg\">\n    <div class=\"modal-content\">\n\n      <!-- Modal Header -->\n      <div class=\"modal-header\">\n        <h4 class=\"modal-title\">Edit Pay-grade</h4>\n        <button type=\"button\" class=\"close\" data-dismiss=\"modal\">&times;</button>\n      </div>\n      <!-- Modal body -->\n      <div class=\"modal-body\">\n\n        <div class=\"row\">\n          <div class=\"form-group col-md-6\">\n            <label>Title</label>\n            <input class=\"form-control\" placeholder=\"pay-grade\"  [(ngModel)]=\"editPayGradeModel.gradeTitle\">\n          </div>\n          <div class=\"form-group col-md-6\">\n            <label>BASIC</label>\n            <input type=\"number\" class=\"form-control\" placeholder=\"basic\" name=\"BASIC\" [(ngModel)]=\"editPayGradeModel.BASIC\">\n          </div>\n\n          <div class=\"form-group col-md-6\">\n            <label>eb1Rate</label>\n            <input type=\"number\" class=\"form-control\" placeholder=\"%\" name=\"eb1Rate\" [(ngModel)]=\"editPayGradeModel.eb1Rate\">\n          </div>\n          <div class=\"form-group col-md-6\">\n            <label>eb1MaxTime</label>\n            <input type=\"number\" class=\"form-control\" placeholder=\"year\" name=\"eb1MaxTime\" [(ngModel)]=\"editPayGradeModel.eb1MaxTime\">\n          </div>\n          <div class=\"form-group col-md-6\">\n            <label>eb2Rate</label>\n            <input type=\"number\" class=\"form-control\" placeholder=\"%\" name=\"eb2Rate\" [(ngModel)]=\"editPayGradeModel.eb2Rate\">\n          </div>\n          <div class=\"form-group col-md-6\">\n            <label>eb2MaxTime</label>\n            <input type=\"number\" class=\"form-control\" placeholder=\"year\" name=\"eb2MaxTime\" [(ngModel)]=\"editPayGradeModel.eb2MaxTime\">\n          </div>\n          <div class=\"form-group col-md-6\">\n            <label>DESCRIPTION</label>\n            <input class=\"form-control\" placeholder=\"description\" name=\"DESCRIPTION\" [(ngModel)]=\"editPayGradeModel.DESCRIPTION\">\n          </div>\n          <div class=\"form-group col-md-12\">\n            <button class=\"btn btn-success btn-sm pull-right\" (click)=\"updatePaygrade()\">Insert</button>\n          </div>\n\n        </div>\n\n\n\n      </div>\n\n      <!-- Modal footer -->\n      <div class=\"modal-footer\">\n\n      </div>\n\n    </div>\n  </div>\n</div>\n\n\n\n<div class=\"container\">\n  <div class=\"card\">\n    <div class=\"card-body\">\n      <h4 align=\"center\">Pay-grade Setup</h4>\n        <div class=\"row\">\n          <div class=\"form-group col-md-6\">\n            <label>Title</label>\n            <input class=\"form-control\" placeholder=\"pay-grade\"  [(ngModel)]=\"payGradeModel.gradeTitle\">\n          </div>\n          <div class=\"form-group col-md-6\">\n            <label>BASIC</label>\n            <input type=\"number\" class=\"form-control\" placeholder=\"basic\" name=\"BASIC\" [(ngModel)]=\"payGradeModel.BASIC\">\n          </div>\n\n          <div class=\"form-group col-md-6\">\n            <label>eb1Rate</label>\n            <input type=\"number\" class=\"form-control\" placeholder=\"%\" name=\"eb1Rate\" [(ngModel)]=\"payGradeModel.eb1Rate\">\n          </div>\n          <div class=\"form-group col-md-6\">\n            <label>eb1MaxTime</label>\n            <input type=\"number\" class=\"form-control\" placeholder=\"year\" name=\"eb1MaxTime\" [(ngModel)]=\"payGradeModel.eb1MaxTime\">\n          </div>\n          <div class=\"form-group col-md-6\">\n            <label>eb2Rate</label>\n            <input type=\"number\" class=\"form-control\" placeholder=\"%\" name=\"eb2Rate\" [(ngModel)]=\"payGradeModel.eb2Rate\">\n          </div>\n          <div class=\"form-group col-md-6\">\n            <label>eb2MaxTime</label>\n            <input type=\"number\" class=\"form-control\" placeholder=\"year\" name=\"eb2MaxTime\" [(ngModel)]=\"payGradeModel.eb2MaxTime\">\n          </div>\n          <div class=\"form-group col-md-6\">\n            <label>DESCRIPTION</label>\n            <input class=\"form-control\" placeholder=\"description\" name=\"DESCRIPTION\" [(ngModel)]=\"payGradeModel.DESCRIPTION\">\n          </div>\n          <div class=\"form-group col-md-12\">\n            <button class=\"btn btn-success btn-sm pull-right\" (click)=\"insertPaygrade()\">Insert</button>\n          </div>\n\n        </div>\n\n      <table class=\"table table-bordered table-striped\">\n        <thead>\n          <th>gradeTitle</th>\n          <th>BASIC</th>\n          <th>eb1Rate</th>\n          <th>eb1MaxTime</th>\n          <th>eb2Rate</th>\n          <th>eb2MaxTime</th>\n          <th>DESCRIPTION</th>\n          <th>Action</th>\n        </thead>\n        <tbody>\n          <tr *ngFor=\"let data of payGrades\">\n            <td>{{data.gradeTitle}}</td>\n            <td>{{data.BASIC}}</td>\n            <td>{{data.eb1Rate}}</td>\n            <td>{{data.eb1MaxTime}}</td>\n            <td>{{data.eb2Rate}}</td>\n            <td>{{data.eb2MaxTime}}</td>\n            <td>{{data.DESCRIPTION}}</td>\n            <td>\n              <button class=\"btn btn-sm btn-info\" (click)=\"editPayGrade(data)\">Edit</button>\n            </td>\n\n          </tr>\n        </tbody>\n\n      </table>\n\n<!--=================================Details========================================-->\n\n\n      <!-- Edit Pay-Grade-Details Modal -->\n      <div class=\"modal\" id=\"editDetailModal\">\n        <div class=\"modal-dialog modal-lg\">\n          <div class=\"modal-content\">\n\n            <!-- Modal Header -->\n            <div class=\"modal-header\">\n              <h4 class=\"modal-title\">Edit Pay-grade</h4>\n              <button type=\"button\" class=\"close\" data-dismiss=\"modal\">&times;</button>\n            </div>\n            <!-- Modal body -->\n            <div class=\"modal-body\">\n              <div class=\"row\">\n\n                <div class=\"form-group col-md-6\">\n                  <label>Pay Grade</label>\n                  <select class=\"form-control\" name=\"fkGradeParentId\" [(ngModel)]=\"editPayDetailsModel.fkGradeParentId\">\n                    <option value=\"\">Select Pay-grade</option>\n                    <option *ngFor=\"let data of payGrades\" [value]=\"data.id\">\n                      {{data.gradeTitle}}\n                    </option>\n                  </select>\n                </div>\n\n\n                <div class=\"form-group col-md-6\">\n                  <label>Head</label>\n                  <select class=\"form-control\" name=\"fkPayHeadId\" [(ngModel)]=\"editPayDetailsModel.fkPayHeadId\">\n                    <option value=\"\">Select Payhead</option>\n                    <option *ngFor=\"let data of payHeads\" [value]=\"data.id\">\n                      {{data.allowDeducTitle}}\n                    </option>\n                  </select>\n                </div>\n\n\n                <div class=\"form-group col-md-6\">\n                  <label>Percent Of Basic</label>\n                  <input type=\"number\" class=\"form-control\" placeholder=\"%\" name=\"percentOfBasic\" [(ngModel)]=\"editPayDetailsModel.percentOfBasic\">\n                </div>\n\n                <div class=\"form-group col-md-12\">\n                  <button class=\"btn btn-success btn-sm pull-right\" (click)=\"updatePaygradeDetails()\">Insert</button>\n                </div>\n              </div>\n\n            </div>\n\n            <!-- Modal footer -->\n            <div class=\"modal-footer\">\n\n            </div>\n\n          </div>\n        </div>\n      </div>\n\n\n\n\n\n\n      <hr>\n      <h4 align=\"center\">Pay-grade Details</h4>\n      <div class=\"row\">\n\n        <div class=\"form-group col-md-6\">\n          <label>Pay Grade</label>\n          <select class=\"form-control\" name=\"fkGradeParentId\" [(ngModel)]=\"payDetailsModel.fkGradeParentId\">\n            <option value=\"\">Select Pay-grade</option>\n            <option *ngFor=\"let data of payGrades\" [value]=\"data.id\">\n              {{data.gradeTitle}}\n            </option>\n          </select>\n        </div>\n\n\n        <div class=\"form-group col-md-6\">\n          <label>Head</label>\n          <select class=\"form-control\" name=\"fkPayHeadId\" [(ngModel)]=\"payDetailsModel.fkPayHeadId\">\n          <option value=\"\">Select Payhead</option>\n          <option *ngFor=\"let data of payHeads\" [value]=\"data.id\">\n            {{data.allowDeducTitle}}\n          </option>\n          </select>\n        </div>\n\n\n        <div class=\"form-group col-md-6\">\n          <label>Percent Of Basic</label>\n          <input type=\"number\" class=\"form-control\" placeholder=\"%\" name=\"percentOfBasic\" [(ngModel)]=\"payDetailsModel.percentOfBasic\">\n        </div>\n\n        <div class=\"form-group col-md-12\">\n          <button class=\"btn btn-success btn-sm pull-right\" (click)=\"insertPaygradeDetails()\">Insert</button>\n        </div>\n      </div>\n\n      <table class=\"table table-bordered table-striped\">\n        <thead>\n        <th>fkGradeParentId</th>\n        <th>fkPayHeadId</th>\n        <th>percentOfBasic</th>\n        <th>Action</th>\n        </thead>\n        <tbody>\n        <tr *ngFor=\"let data of payDetails\">\n          <td>{{data.gradeTitle}}</td>\n          <td>{{data.allowDeducTitle}}</td>\n          <td>{{data.percentOfBasic}}</td>\n          <td>\n            <button class=\"btn btn-sm btn-info\" (click)=\"editDetails(data)\">Edit</button>\n          </td>\n\n        </tr>\n        </tbody>\n\n      </table>\n\n\n    </div>\n  </div>\n</div>\n\n"
+module.exports = "<!-- Edit Pay-Grade Modal -->\n<div class=\"modal\" id=\"editGradeModal\">\n  <div class=\"modal-dialog modal-lg\">\n    <div class=\"modal-content\">\n\n      <!-- Modal Header -->\n      <div class=\"modal-header\">\n        <h4 class=\"modal-title\">Edit Pay-grade</h4>\n        <button type=\"button\" class=\"close\" data-dismiss=\"modal\">&times;</button>\n      </div>\n      <!-- Modal body -->\n      <div class=\"modal-body\">\n\n        <div class=\"row\">\n          <div class=\"form-group col-md-6\">\n            <label>Title</label>\n            <input class=\"form-control\" placeholder=\"pay-grade\"  [(ngModel)]=\"editPayGradeModel.gradeTitle\">\n          </div>\n          <div class=\"form-group col-md-6\">\n            <label>Basic</label>\n            <input type=\"number\" class=\"form-control\" placeholder=\"basic\" name=\"BASIC\" [(ngModel)]=\"editPayGradeModel.BASIC\">\n          </div>\n\n          <div class=\"form-group col-md-6\">\n            <label>eb1Rate</label>\n            <input type=\"number\" class=\"form-control\" placeholder=\"%\" name=\"eb1Rate\" [(ngModel)]=\"editPayGradeModel.eb1Rate\">\n          </div>\n          <div class=\"form-group col-md-6\">\n            <label>eb1MaxTime</label>\n            <input type=\"number\" class=\"form-control\" placeholder=\"year\" name=\"eb1MaxTime\" [(ngModel)]=\"editPayGradeModel.eb1MaxTime\">\n          </div>\n          <div class=\"form-group col-md-6\">\n            <label>eb2Rate</label>\n            <input type=\"number\" class=\"form-control\" placeholder=\"%\" name=\"eb2Rate\" [(ngModel)]=\"editPayGradeModel.eb2Rate\">\n          </div>\n          <div class=\"form-group col-md-6\">\n            <label>eb2MaxTime</label>\n            <input type=\"number\" class=\"form-control\" placeholder=\"year\" name=\"eb2MaxTime\" [(ngModel)]=\"editPayGradeModel.eb2MaxTime\">\n          </div>\n          <div class=\"form-group col-md-6\">\n            <label>Description</label>\n            <input class=\"form-control\" placeholder=\"description\" name=\"DESCRIPTION\" [(ngModel)]=\"editPayGradeModel.DESCRIPTION\">\n          </div>\n          <div class=\"form-group col-md-12\">\n            <button class=\"btn btn-success btn-sm pull-right\" (click)=\"updatePaygrade()\">Insert</button>\n          </div>\n\n        </div>\n\n\n\n      </div>\n\n      <!-- Modal footer -->\n      <div class=\"modal-footer\">\n\n      </div>\n\n    </div>\n  </div>\n</div>\n\n\n\n<div class=\"container\">\n  <div class=\"card\">\n    <div class=\"card-body\">\n      <h4 align=\"center\">Pay-grade Setup</h4>\n        <div class=\"row\">\n          <div class=\"form-group col-md-6\">\n            <label>Title</label>\n            <input class=\"form-control\" placeholder=\"pay-grade\"  [(ngModel)]=\"payGradeModel.gradeTitle\">\n          </div>\n          <div class=\"form-group col-md-6\">\n            <label>BASIC</label>\n            <input type=\"number\" class=\"form-control\" placeholder=\"basic\" name=\"BASIC\" [(ngModel)]=\"payGradeModel.BASIC\">\n          </div>\n\n          <div class=\"form-group col-md-6\">\n            <label>eb1Rate</label>\n            <input type=\"number\" class=\"form-control\" placeholder=\"%\" name=\"eb1Rate\" [(ngModel)]=\"payGradeModel.eb1Rate\">\n          </div>\n          <div class=\"form-group col-md-6\">\n            <label>eb1MaxTime</label>\n            <input type=\"number\" class=\"form-control\" placeholder=\"year\" name=\"eb1MaxTime\" [(ngModel)]=\"payGradeModel.eb1MaxTime\">\n          </div>\n          <div class=\"form-group col-md-6\">\n            <label>eb2Rate</label>\n            <input type=\"number\" class=\"form-control\" placeholder=\"%\" name=\"eb2Rate\" [(ngModel)]=\"payGradeModel.eb2Rate\">\n          </div>\n          <div class=\"form-group col-md-6\">\n            <label>eb2MaxTime</label>\n            <input type=\"number\" class=\"form-control\" placeholder=\"year\" name=\"eb2MaxTime\" [(ngModel)]=\"payGradeModel.eb2MaxTime\">\n          </div>\n          <div class=\"form-group col-md-6\">\n            <label>DESCRIPTION</label>\n            <input class=\"form-control\" placeholder=\"description\" name=\"DESCRIPTION\" [(ngModel)]=\"payGradeModel.DESCRIPTION\">\n          </div>\n          <div class=\"form-group col-md-12\">\n            <button class=\"btn btn-success btn-sm pull-right\" (click)=\"insertPaygrade()\">Insert</button>\n          </div>\n\n        </div>\n\n      <table class=\"table table-bordered table-striped\">\n        <thead>\n          <th>gradeTitle</th>\n          <th>BASIC</th>\n          <th>eb1Rate</th>\n          <th>eb1MaxTime</th>\n          <th>eb2Rate</th>\n          <th>eb2MaxTime</th>\n          <th>DESCRIPTION</th>\n          <th>Action</th>\n        </thead>\n        <tbody>\n          <tr *ngFor=\"let data of payGrades\">\n            <td>{{data.gradeTitle}}</td>\n            <td>{{data.BASIC}}</td>\n            <td>{{data.eb1Rate}}</td>\n            <td>{{data.eb1MaxTime}}</td>\n            <td>{{data.eb2Rate}}</td>\n            <td>{{data.eb2MaxTime}}</td>\n            <td>{{data.DESCRIPTION}}</td>\n            <td>\n              <button class=\"btn btn-sm btn-info\" (click)=\"editPayGrade(data)\">Edit</button>\n            </td>\n\n          </tr>\n        </tbody>\n\n      </table>\n\n<!--=================================Details========================================-->\n\n\n      <!-- Edit Pay-Grade-Details Modal -->\n      <div class=\"modal\" id=\"editDetailModal\">\n        <div class=\"modal-dialog modal-lg\">\n          <div class=\"modal-content\">\n\n            <!-- Modal Header -->\n            <div class=\"modal-header\">\n              <h4 class=\"modal-title\">Edit Pay-grade</h4>\n              <button type=\"button\" class=\"close\" data-dismiss=\"modal\">&times;</button>\n            </div>\n            <!-- Modal body -->\n            <div class=\"modal-body\">\n              <div class=\"row\">\n\n                <div class=\"form-group col-md-6\">\n                  <label>Pay Grade</label>\n                  <select class=\"form-control\" name=\"fkGradeParentId\" [(ngModel)]=\"editPayDetailsModel.fkGradeParentId\">\n                    <option value=\"\">Select Pay-grade</option>\n                    <option *ngFor=\"let data of payGrades\" [value]=\"data.id\">\n                      {{data.gradeTitle}}\n                    </option>\n                  </select>\n                </div>\n\n\n                <div class=\"form-group col-md-6\">\n                  <label>Head</label>\n                  <select class=\"form-control\" name=\"fkPayHeadId\" [(ngModel)]=\"editPayDetailsModel.fkPayHeadId\">\n                    <option value=\"\">Select Payhead</option>\n                    <option *ngFor=\"let data of payHeads\" [value]=\"data.id\">\n                      {{data.allowDeducTitle}}\n                    </option>\n                  </select>\n                </div>\n\n\n                <div class=\"form-group col-md-6\">\n                  <label>Percent Of Basic</label>\n                  <input type=\"number\" class=\"form-control\" placeholder=\"%\" name=\"percentOfBasic\" [(ngModel)]=\"editPayDetailsModel.percentOfBasic\">\n                </div>\n\n                <div class=\"form-group col-md-12\">\n                  <button class=\"btn btn-success btn-sm pull-right\" (click)=\"updatePaygradeDetails()\">Insert</button>\n                </div>\n              </div>\n\n            </div>\n\n            <!-- Modal footer -->\n            <div class=\"modal-footer\">\n\n            </div>\n\n          </div>\n        </div>\n      </div>\n\n\n\n\n\n\n      <hr>\n      <h4 align=\"center\">Pay-grade Details</h4>\n      <div class=\"row\">\n\n        <div class=\"form-group col-md-6\">\n          <label>Pay Grade</label>\n          <select class=\"form-control\" name=\"fkGradeParentId\" [(ngModel)]=\"payDetailsModel.fkGradeParentId\">\n            <option value=\"\">Select Pay-grade</option>\n            <option *ngFor=\"let data of payGrades\" [value]=\"data.id\">\n              {{data.gradeTitle}}\n            </option>\n          </select>\n        </div>\n\n\n        <div class=\"form-group col-md-6\">\n          <label>Head</label>\n          <select class=\"form-control\" name=\"fkPayHeadId\" [(ngModel)]=\"payDetailsModel.fkPayHeadId\">\n          <option value=\"\">Select Payhead</option>\n          <option *ngFor=\"let data of payHeads\" [value]=\"data.id\">\n            {{data.allowDeducTitle}}\n          </option>\n          </select>\n        </div>\n\n\n        <div class=\"form-group col-md-6\">\n          <label>Percent Of Basic</label>\n          <input type=\"number\" class=\"form-control\" placeholder=\"%\" name=\"percentOfBasic\" [(ngModel)]=\"payDetailsModel.percentOfBasic\">\n        </div>\n\n        <div class=\"form-group col-md-12\">\n          <button class=\"btn btn-success btn-sm pull-right\" (click)=\"insertPaygradeDetails()\">Insert</button>\n        </div>\n      </div>\n\n      <table class=\"table table-bordered table-striped\">\n        <thead>\n        <th>fkGradeParentId</th>\n        <th>fkPayHeadId</th>\n        <th>percentOfBasic</th>\n        <th>Action</th>\n        </thead>\n        <tbody>\n        <tr *ngFor=\"let data of payDetails\">\n          <td>{{data.gradeTitle}}</td>\n          <td>{{data.allowDeducTitle}}</td>\n          <td>{{data.percentOfBasic}}</td>\n          <td>\n            <button class=\"btn btn-sm btn-info\" (click)=\"editDetails(data)\">Edit</button>\n          </td>\n\n        </tr>\n        </tbody>\n\n      </table>\n\n\n    </div>\n  </div>\n</div>\n\n"
 
 /***/ }),
 
@@ -3540,6 +3664,7 @@ var AttendanceComponent = /** @class */ (function () {
         return '' + (d <= 9 ? '0' + d : d) + '-' + m + '-' + y;
     };
     AttendanceComponent.prototype.getData = function () {
+        var _this = this;
         var token = this.token.get();
         this.dtOptions = {
             ajax: {
@@ -3558,22 +3683,32 @@ var AttendanceComponent = /** @class */ (function () {
                 { data: 'totAttendance', name: 'totAttendance' },
                 { data: 'totalLate', name: 'totalLate' },
                 { data: 'averageWorkingHour', name: 'averageWorkingHour' },
-                // { data: 'totalLeave', name: 'totalLeave'},
-                {
-                    "data": function (data, type, full) {
-                        return '<button class="btn btn-sm btn-info" data-leaveemp-id="' + data.employeeId + '">' + data.totalLeave + '</button>';
-                    },
-                    "orderable": false, "searchable": false, "name": "selected_rows"
-                },
+                { data: 'totalLeave', name: 'totalLeave' },
+                // {
+                //
+                //     "data": function (data: any, type: any, full: any) {
+                //         return '<button class="btn btn-sm btn-info" data-leaveemp-id="'+data.employeeId+'">'+data.totalLeave+'</button>';
+                //     },
+                //     "orderable": false, "searchable":false, "name":"selected_rows"
+                // },
                 { data: 'weekends', name: 'weekends' },
                 { data: 'totalWeekend', name: 'totalWeekend' },
                 {
                     "data": function (data, type, full) {
-                        return '<button class="btn btn-sm btn-info" data-emp-id="' + data.employeeId + '">View</button>';
+                        return '<button class="btn btn-sm btn-info edit-user" data-emp-id="' + data.employeeId + '">View</button>';
                     },
                     "orderable": false, "searchable": false, "name": "selected_rows"
                 },
             ],
+            drawCallback: function () {
+                $('.edit-user').on('click', function (event) {
+                    var id = event.target.getAttribute("data-emp-id");
+                    var start = $('#startDate').val();
+                    var end = $('#endDate').val();
+                    _this.router.navigate(["report/attendance/" + id + '/' + start + '/' + end]);
+                    return false;
+                });
+            },
             processing: true,
             serverSide: true,
             pagingType: 'full_numbers',
@@ -3582,22 +3717,34 @@ var AttendanceComponent = /** @class */ (function () {
         };
     };
     AttendanceComponent.prototype.ngAfterViewInit = function () {
-        var _this = this;
         this.dtTrigger.next();
-        this.renderer.listenGlobal('document', 'click', function (event) {
-            if (event.target.hasAttribute("data-emp-id")) {
-                var id = event.target.getAttribute("data-emp-id");
-                var start = $('#startDate').val();
-                var end = $('#endDate').val();
-                _this.router.navigate(["report/attendance/" + id + '/' + start + '/' + end]);
-                // this.router.navigate(["report/attendance/" +id]);
-            }
-            if (event.target.hasAttribute("data-leaveemp-id")) {
-                var id = event.target.getAttribute("data-leaveemp-id");
-                // this.router.navigate(["report/attendance/" +id]);
-                console.log(id);
-            }
-        });
+        // // this.renderer.listenGlobal('document', 'click', (event) => {
+        //     if (event.target.hasAttribute("data-emp-id")) {
+        //
+        //         let id=event.target.getAttribute("data-emp-id");
+        //        let start =$('#startDate').val();
+        //         let end = $('#endDate').val();
+        //
+        //         this.router.navigate(["report/attendance/" +id+'/'+start+'/'+end]);
+        //
+        //     }
+        //
+        //     if (event.target.hasAttribute("data-leaveemp-id")) {
+        //
+        //         let id=event.target.getAttribute("data-leaveemp-id");
+        //         console.log(id);
+        //     }
+        //
+        // });
+        // this.dtElement.dtInstance.then(dtInstance =>{
+        //     dtInstance.on('click', function(event){
+        //         let row_dom = $(this).event.attr("data-emp-id");
+        //         //let row = dtInstance.row(row_dom.employeeId).data();
+        //             // alert(row);
+        //         console.log(row_dom);
+        //     })
+        //
+        // });
     };
     AttendanceComponent.prototype.ngOnDestroy = function () {
         // Do not forget to unsubscribe the event
@@ -3939,7 +4086,7 @@ module.exports = ""
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"container-fluid\">\n  <div class=\"card\">\n    <div class=\"card-header\">Employee Details</div>\n\n    <div class=\"card-body\">\n      <div class=\"row\">\n        <div class=\"form-group col-md-4\">\n          <label>Team</label>\n          <select class=\"form-control\" name=\"shift\"  (change)=\"selectShift($event.target.value)\">\n            <option value=\"\">Select Team</option>\n            <option *ngFor=\"let tm of team\" [value]=\"tm.teamId\">\n              {{tm.teamName}}\n            </option>\n          </select>\n        </div>\n\n\n        <div class=\"form-group col-md-4\">\n          <button class=\"btn btn-success btn-sm\" (click)=\"assignTeam()\">Assign</button>\n        </div>\n\n      </div>\n\n\n      <!--<input style=\"margin-left: 15px\" type=\"checkbox\" class=\"SelectAll\" id=\"selectall2\"  (click)=\"selectAll()\"/><b>Select All</b><br>-->\n      <table datatable class=\"table\" [dtOptions]=\"dtOptions\" [dtTrigger]=\"dtTrigger\">\n        <thead>\n        <tr>\n          <th style=\"text-align: center\"><input type=\"checkbox\" class=\"SelectAll\" id=\"selectall2\"  (click)=\"selectAll()\"/></th>\n          <th>First Name</th>\n          <th>Middle Name</th>\n          <th>Last Name</th>\n          <th>Employee ID</th>\n          <th>Shift Name</th>\n          <th>Weekend</th>\n          <th>Team Name</th>\n\n        </tr>\n        </thead>\n\n        <tbody>\n\n        </tbody>\n\n      </table>\n\n\n    </div>\n  </div>\n\n\n</div>"
+module.exports = "<div class=\"container-fluid\">\n  <div class=\"card\">\n    <div class=\"card-header\">Employee Details</div>\n\n    <div class=\"card-body\">\n      <div class=\"row\">\n        <div class=\"form-group col-md-4\">\n          <label>Team</label>\n          <select class=\"form-control\" name=\"shift\"  (change)=\"selectShift($event.target.value)\">\n            <option value=\"\">Select Team</option>\n            <option *ngFor=\"let tm of team\" [value]=\"tm.teamId\">\n              {{tm.teamName}}\n            </option>\n          </select>\n        </div>\n\n\n        <div class=\"form-group col-md-4\">\n          <button class=\"btn btn-success btn-sm\" style=\"margin-top: 30px\"  (click)=\"assignTeam()\">Assign</button>\n        </div>\n\n      </div>\n\n\n      <!--<input style=\"margin-left: 15px\" type=\"checkbox\" class=\"SelectAll\" id=\"selectall2\"  (click)=\"selectAll()\"/><b>Select All</b><br>-->\n      <table datatable class=\"table\" [dtOptions]=\"dtOptions\" [dtTrigger]=\"dtTrigger\">\n        <thead>\n        <tr>\n          <th style=\"text-align: center\"><input type=\"checkbox\" class=\"SelectAll\" id=\"selectall2\"  (click)=\"selectAll()\"/></th>\n          <th>First Name</th>\n          <th>Middle Name</th>\n          <th>Last Name</th>\n          <th>Employee ID</th>\n          <th>Shift Name</th>\n          <th>Weekend</th>\n          <th>Team Name</th>\n\n        </tr>\n        </thead>\n\n        <tbody>\n\n        </tbody>\n\n      </table>\n\n\n    </div>\n  </div>\n\n\n</div>"
 
 /***/ }),
 
@@ -3977,12 +4124,11 @@ var __metadata = (undefined && undefined.__metadata) || function (k, v) {
 
 
 var AssignTeamComponent = /** @class */ (function () {
-    function AssignTeamComponent(renderer, http, token, route, router) {
+    function AssignTeamComponent(renderer, http, token, route) {
         this.renderer = renderer;
         this.http = http;
         this.token = token;
         this.route = route;
-        this.router = router;
         this.dtOptions = {};
         this.dtTrigger = new rxjs__WEBPACK_IMPORTED_MODULE_4__["Subject"]();
         this.allEmp = [];
@@ -4042,7 +4188,7 @@ var AssignTeamComponent = /** @class */ (function () {
             columns: [
                 {
                     "data": function (data, type, full) {
-                        return '<input type="checkbox" class="chk form-control" name="selected_rows[]" value="' + data.empid + '" data-emp-id="' + data.empid + '">';
+                        return '<input type="checkbox" class="chk form-control" name="selected_rows[]" value="' + data.empid + '" data-panel-id="' + data.empid + '">';
                     },
                     "orderable": false, "searchable": false, "name": "selected_rows"
                 },
@@ -4061,37 +4207,16 @@ var AssignTeamComponent = /** @class */ (function () {
         };
     };
     AssignTeamComponent.prototype.ngAfterViewInit = function () {
-        var _this = this;
         this.dtTrigger.next();
-        this.renderer.listenGlobal('document', 'click', function (event) {
-            if (event.target.hasAttribute("data-emp-id")) {
-                var id = event.target.getAttribute("data-emp-id");
-                // console.log(id);
-                var index = _this.allEmp.indexOf(id.toString());
-                if (index == -1) {
-                    _this.allEmp.push(id);
-                }
-                else {
-                    _this.allEmp.splice(index, 1);
-                }
-                // console.log(this.allEmp);
-            }
-        });
     };
     AssignTeamComponent.prototype.ngOnDestroy = function () {
         // Do not forget to unsubscribe the event
         this.dtTrigger.unsubscribe();
     };
     AssignTeamComponent.prototype.selectAll = function () {
-        this.allEmp = [];
         if ($('#selectall2').is(":checked")) {
             var checkboxes = document.getElementsByName('selected_rows[]');
             $('input:checkbox').prop('checked', true);
-            var that_1 = this;
-            $(".chk:checked").each(function () {
-                that_1.allEmp.push($(this).val());
-            });
-            // console.log(this.allEmp);
         }
         else {
             $(':checkbox:checked').prop('checked', false);
@@ -4104,6 +4229,11 @@ var AssignTeamComponent = /** @class */ (function () {
     };
     AssignTeamComponent.prototype.assignTeam = function () {
         var _this = this;
+        this.allEmp = [];
+        var that = this;
+        $(".chk:checked").each(function () {
+            that.allEmp.push($(this).val());
+        });
         if (this.teamId == null || this.allEmp.length == 0) {
             alert("Please Select All");
         }
@@ -4115,7 +4245,8 @@ var AssignTeamComponent = /** @class */ (function () {
             var token = this.token.get();
             // console.log(form);
             this.http.post(_constants__WEBPACK_IMPORTED_MODULE_1__["Constants"].API_URL + 'team/assign' + '?token=' + token, form).subscribe(function (data) {
-                console.log(data);
+                // console.log(data);
+                _this.allEmp = [];
                 _this.rerender();
             }, function (error) {
                 console.log(error);
@@ -4139,9 +4270,134 @@ var AssignTeamComponent = /** @class */ (function () {
             template: __webpack_require__(/*! ./assign-team.component.html */ "./src/app/components/team/assign-team/assign-team.component.html"),
             styles: [__webpack_require__(/*! ./assign-team.component.css */ "./src/app/components/team/assign-team/assign-team.component.css")]
         }),
-        __metadata("design:paramtypes", [_angular_core__WEBPACK_IMPORTED_MODULE_0__["Renderer"], _angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpClient"], _services_token_service__WEBPACK_IMPORTED_MODULE_3__["TokenService"], _angular_router__WEBPACK_IMPORTED_MODULE_5__["ActivatedRoute"], _angular_router__WEBPACK_IMPORTED_MODULE_5__["Router"]])
+        __metadata("design:paramtypes", [_angular_core__WEBPACK_IMPORTED_MODULE_0__["Renderer"], _angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpClient"], _services_token_service__WEBPACK_IMPORTED_MODULE_3__["TokenService"], _angular_router__WEBPACK_IMPORTED_MODULE_5__["ActivatedRoute"]])
     ], AssignTeamComponent);
     return AssignTeamComponent;
+}());
+
+
+
+/***/ }),
+
+/***/ "./src/app/components/team/create-leave-team/create-leave-team.component.css":
+/*!***********************************************************************************!*\
+  !*** ./src/app/components/team/create-leave-team/create-leave-team.component.css ***!
+  \***********************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = ""
+
+/***/ }),
+
+/***/ "./src/app/components/team/create-leave-team/create-leave-team.component.html":
+/*!************************************************************************************!*\
+  !*** ./src/app/components/team/create-leave-team/create-leave-team.component.html ***!
+  \************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "\n<!--modal-->\n<ng-template #content let-c=\"close\" let-d=\"dismiss\" >\n    <div class=\"modal-header\">\n        <h4 class=\"modal-title\">Shift</h4>\n        <button type=\"button\" class=\"close\" aria-label=\"Close\" (click)=\"d('Cross click')\">\n            <span aria-hidden=\"true\">&times;</span>\n        </button>\n    </div>\n    <div class=\"modal-body\">\n\n        <div class=\"row\">\n            <div class=\"form-group col-md-6\">\n                <label>Team Name</label>\n                <input type=\"text\" [(ngModel)]=\"teamObj.teamName\" placeholder=\"shift\" class=\"form-control\">\n            </div>\n\n            <div class=\"form-group col-md-12\">\n\n                <button class=\"btn btn-success pull-right\" (click)=\"onSubmit()\">Submit</button>\n            </div>\n\n\n        </div>\n\n    </div>\n</ng-template>\n\n<!--modal end-->\n<div class=\"container\">\n    <div class=\"card\">\n        <div class=\"card-header\">Leave Team Details</div>\n\n        <div class=\"card-body\">\n            <a style=\" float: right\" class=\"btn btn-outline-primary mb-2 mr-2\" (click)=\"openLg(content)\" >Add New</a>  <br><br>\n            <table datatable  id=\"example\" class=\"table\" [dtOptions]=\"dtOptions\" [dtTrigger]=\"dtTeigger\">\n                <thead>\n                <tr>\n                    <th>Shift Name</th>\n                    <th>Action</th>\n                </tr>\n\n                </thead>\n                <tbody >\n\n                <tr  *ngFor=\"let shift of teams\" >\n                    <td>{{shift.teamName}}</td>\n                    <!--<td>{{shift.inTime}}</td>-->\n                    <!--<td>{{shift.outTime}}</td>-->\n                    <td>  <button class=\"btn btn-info\" (click)=\"edit(shift.teamId,content)\"> Edit</button></td>\n\n                </tr>\n\n                </tbody>\n\n            </table>\n\n\n        </div>\n    </div>\n\n\n</div>"
+
+/***/ }),
+
+/***/ "./src/app/components/team/create-leave-team/create-leave-team.component.ts":
+/*!**********************************************************************************!*\
+  !*** ./src/app/components/team/create-leave-team/create-leave-team.component.ts ***!
+  \**********************************************************************************/
+/*! exports provided: CreateLeaveTeamComponent */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "CreateLeaveTeamComponent", function() { return CreateLeaveTeamComponent; });
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var _constants__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../../constants */ "./src/app/constants.ts");
+/* harmony import */ var _services_token_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../services/token.service */ "./src/app/services/token.service.ts");
+/* harmony import */ var _angular_common_http__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/common/http */ "./node_modules/@angular/common/fesm5/http.js");
+/* harmony import */ var rxjs__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! rxjs */ "./node_modules/rxjs/_esm5/index.js");
+/* harmony import */ var _ng_bootstrap_ng_bootstrap__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @ng-bootstrap/ng-bootstrap */ "./node_modules/@ng-bootstrap/ng-bootstrap/index.js");
+var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (undefined && undefined.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+
+
+
+
+var CreateLeaveTeamComponent = /** @class */ (function () {
+    function CreateLeaveTeamComponent(modalService, http, token) {
+        this.modalService = modalService;
+        this.http = http;
+        this.token = token;
+        this.teamObj = {
+            teamId: "",
+            teamName: ""
+        };
+        this.checkTable = 0;
+        this.dtOptions = {};
+        this.dtTeigger = new rxjs__WEBPACK_IMPORTED_MODULE_4__["Subject"]();
+    }
+    CreateLeaveTeamComponent.prototype.ngOnInit = function () {
+        this.getShift();
+    };
+    CreateLeaveTeamComponent.prototype.getShift = function () {
+        var _this = this;
+        var token = this.token.get();
+        this.http.get(_constants__WEBPACK_IMPORTED_MODULE_1__["Constants"].API_URL + 'team/leave/get' + '?token=' + token).subscribe(function (data) {
+            // console.log(data);
+            _this.teams = data;
+            if (_this.checkTable == 0) {
+                _this.dtTeigger.next();
+                _this.checkTable++;
+            }
+        }, function (error) {
+            console.log(error);
+        });
+    };
+    CreateLeaveTeamComponent.prototype.openLg = function (content) {
+        this.teamObj = {};
+        this.modalRef = this.modalService.open(content, { size: 'lg' });
+    };
+    CreateLeaveTeamComponent.prototype.onSubmit = function () {
+        var _this = this;
+        // shift/post
+        var token = this.token.get();
+        this.http.post(_constants__WEBPACK_IMPORTED_MODULE_1__["Constants"].API_URL + 'team/leave/post' + '?token=' + token, this.teamObj).subscribe(function (data) {
+            // console.log(data);
+            _this.getShift();
+        }, function (error) {
+            console.log(error);
+        });
+        this.modalRef.close();
+    };
+    CreateLeaveTeamComponent.prototype.edit = function (id, content) {
+        var i = 0;
+        for (i; i < this.teams.length; i++) {
+            if (this.teams[i].teamId == id) {
+                this.teamObj.teamName = this.teams[i].teamName;
+                this.teamObj.teamId = this.teams[i].teamId;
+                break;
+            }
+        }
+        this.modalRef = this.modalService.open(content, { size: 'lg' });
+    };
+    CreateLeaveTeamComponent = __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
+            selector: 'app-create-leave-team',
+            template: __webpack_require__(/*! ./create-leave-team.component.html */ "./src/app/components/team/create-leave-team/create-leave-team.component.html"),
+            styles: [__webpack_require__(/*! ./create-leave-team.component.css */ "./src/app/components/team/create-leave-team/create-leave-team.component.css")]
+        }),
+        __metadata("design:paramtypes", [_ng_bootstrap_ng_bootstrap__WEBPACK_IMPORTED_MODULE_5__["NgbModal"], _angular_common_http__WEBPACK_IMPORTED_MODULE_3__["HttpClient"], _services_token_service__WEBPACK_IMPORTED_MODULE_2__["TokenService"]])
+    ], CreateLeaveTeamComponent);
+    return CreateLeaveTeamComponent;
 }());
 
 
@@ -4267,6 +4523,213 @@ var CreateTeamComponent = /** @class */ (function () {
         __metadata("design:paramtypes", [_ng_bootstrap_ng_bootstrap__WEBPACK_IMPORTED_MODULE_5__["NgbModal"], _angular_common_http__WEBPACK_IMPORTED_MODULE_3__["HttpClient"], _services_token_service__WEBPACK_IMPORTED_MODULE_2__["TokenService"]])
     ], CreateTeamComponent);
     return CreateTeamComponent;
+}());
+
+
+
+/***/ }),
+
+/***/ "./src/app/components/team/leave-team/leave-team.component.css":
+/*!*********************************************************************!*\
+  !*** ./src/app/components/team/leave-team/leave-team.component.css ***!
+  \*********************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = ""
+
+/***/ }),
+
+/***/ "./src/app/components/team/leave-team/leave-team.component.html":
+/*!**********************************************************************!*\
+  !*** ./src/app/components/team/leave-team/leave-team.component.html ***!
+  \**********************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "<div class=\"container-fluid\">\n  <div class=\"card\">\n    <div class=\"card-header\">Employee Details</div>\n\n    <div class=\"card-body\">\n      <div class=\"row\">\n        <div class=\"form-group col-md-4\">\n          <label>Team</label>\n          <select class=\"form-control\" name=\"shift\"  (change)=\"selectShift($event.target.value)\">\n            <option value=\"\">Select Team</option>\n            <option *ngFor=\"let tm of team\" [value]=\"tm.teamId\">\n              {{tm.teamName}}\n            </option>\n          </select>\n        </div>\n\n\n        <div class=\"form-group col-md-4\">\n          <button class=\"btn btn-success btn-sm\" style=\"margin-top: 30px\"  (click)=\"assignTeam()\">Assign</button>\n        </div>\n\n      </div>\n\n\n      <!--<input style=\"margin-left: 15px\" type=\"checkbox\" class=\"SelectAll\" id=\"selectall2\"  (click)=\"selectAll()\"/><b>Select All</b><br>-->\n      <table datatable class=\"table\" [dtOptions]=\"dtOptions\" [dtTrigger]=\"dtTrigger\">\n        <thead>\n        <tr>\n          <th style=\"text-align: center\"><input type=\"checkbox\" class=\"SelectAll\" id=\"selectall2\"  (click)=\"selectAll()\"/></th>\n          <th>First Name</th>\n          <th>Middle Name</th>\n          <th>Last Name</th>\n          <th>Employee ID</th>\n          <th>Shift Name</th>\n          <th>Weekend</th>\n          <th>Team Name</th>\n\n        </tr>\n        </thead>\n\n        <tbody>\n\n        </tbody>\n\n      </table>\n\n\n    </div>\n  </div>\n\n\n</div>"
+
+/***/ }),
+
+/***/ "./src/app/components/team/leave-team/leave-team.component.ts":
+/*!********************************************************************!*\
+  !*** ./src/app/components/team/leave-team/leave-team.component.ts ***!
+  \********************************************************************/
+/*! exports provided: LeaveTeamComponent */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "LeaveTeamComponent", function() { return LeaveTeamComponent; });
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var _constants__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../../constants */ "./src/app/constants.ts");
+/* harmony import */ var _angular_common_http__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/common/http */ "./node_modules/@angular/common/fesm5/http.js");
+/* harmony import */ var _services_token_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../services/token.service */ "./src/app/services/token.service.ts");
+/* harmony import */ var rxjs__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! rxjs */ "./node_modules/rxjs/_esm5/index.js");
+/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm5/router.js");
+/* harmony import */ var angular_datatables__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! angular-datatables */ "./node_modules/angular-datatables/index.js");
+var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (undefined && undefined.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+
+
+
+
+
+var LeaveTeamComponent = /** @class */ (function () {
+    function LeaveTeamComponent(renderer, http, token, route) {
+        this.renderer = renderer;
+        this.http = http;
+        this.token = token;
+        this.route = route;
+        this.dtOptions = {};
+        this.dtTrigger = new rxjs__WEBPACK_IMPORTED_MODULE_4__["Subject"]();
+        this.allEmp = [];
+        // DROPDOWN
+        this.dropdownList = [];
+        this.selectedItems = [];
+        this.dropdownSettings = {};
+    }
+    LeaveTeamComponent.prototype.ngOnInit = function () {
+        this.dropdownList = [
+            { item_id: 'saturday', item_text: 'Saturday' },
+            { item_id: 'sunday', item_text: 'Sunday' },
+            { item_id: 'monday', item_text: 'Monday' },
+            { item_id: 'tuesday', item_text: 'Tuesday' },
+            { item_id: 'wednesday', item_text: 'Wednesday' },
+            { item_id: 'thursday', item_text: 'Thursday' },
+            { item_id: 'friday', item_text: 'Friday' }
+        ];
+        this.dropdownSettings = {
+            singleSelection: false,
+            idField: 'item_id',
+            textField: 'item_text',
+            selectAllText: 'Select All',
+            unSelectAllText: 'UnSelect All',
+            itemsShowLimit: 3,
+            allowSearchFilter: true
+        };
+        this.getData();
+        this.getTeam();
+    };
+    LeaveTeamComponent.prototype.onItemSelect = function (value) {
+        // console.log(value);
+    };
+    LeaveTeamComponent.prototype.onSelectAll = function (value) {
+        // console.log(value);
+    };
+    LeaveTeamComponent.prototype.getTeam = function () {
+        var _this = this;
+        var token = this.token.get();
+        this.http.get(_constants__WEBPACK_IMPORTED_MODULE_1__["Constants"].API_URL + 'team/leave/get' + '?token=' + token).subscribe(function (data) {
+            // console.log(data);
+            _this.team = data;
+        }, function (error) {
+            console.log(error);
+        });
+    };
+    LeaveTeamComponent.prototype.getData = function () {
+        var token = this.token.get();
+        this.dtOptions = {
+            ajax: {
+                url: _constants__WEBPACK_IMPORTED_MODULE_1__["Constants"].API_URL + 'employee/leaveteam/get' + '?token=' + token,
+                type: 'POST',
+                data: function (d) {
+                },
+            },
+            columns: [
+                {
+                    "data": function (data, type, full) {
+                        return '<input type="checkbox" class="chk form-control" name="selected_rows[]" value="' + data.empid + '" data-panel-id="' + data.empid + '">';
+                    },
+                    "orderable": false, "searchable": false, "name": "selected_rows"
+                },
+                { data: 'firstName', name: 'employeeinfo.firstName' },
+                { data: 'middleName', name: 'employeeinfo.middleName' },
+                { data: 'lastName', name: 'employeeinfo.lastName' },
+                { data: 'EmployeeId', name: 'employeeinfo.EmployeeId' },
+                { data: 'shiftName', name: 'shift.shiftName' },
+                { data: 'weekend', name: 'shiftlog.weekend' },
+                { data: 'teamName', name: 'team.teamName' },
+            ],
+            processing: true,
+            serverSide: true,
+            pagingType: 'full_numbers',
+            pageLength: 10
+        };
+    };
+    LeaveTeamComponent.prototype.ngAfterViewInit = function () {
+        this.dtTrigger.next();
+    };
+    LeaveTeamComponent.prototype.ngOnDestroy = function () {
+        // Do not forget to unsubscribe the event
+        this.dtTrigger.unsubscribe();
+    };
+    LeaveTeamComponent.prototype.selectAll = function () {
+        if ($('#selectall2').is(":checked")) {
+            var checkboxes = document.getElementsByName('selected_rows[]');
+            $('input:checkbox').prop('checked', true);
+        }
+        else {
+            $(':checkbox:checked').prop('checked', false);
+        }
+    };
+    LeaveTeamComponent.prototype.selectShift = function (value) {
+        this.teamId = value;
+    };
+    LeaveTeamComponent.prototype.assignTeam = function () {
+        var _this = this;
+        this.allEmp = [];
+        var that = this;
+        $(".chk:checked").each(function () {
+            that.allEmp.push($(this).val());
+        });
+        if (this.teamId == null || this.allEmp.length == 0) {
+            alert("Please Select All");
+        }
+        else {
+            var form = {
+                allEmp: this.allEmp,
+                teamId: this.teamId,
+            };
+            var token = this.token.get();
+            this.http.post(_constants__WEBPACK_IMPORTED_MODULE_1__["Constants"].API_URL + 'team/leave/assign' + '?token=' + token, form).subscribe(function (data) {
+                console.log(data);
+                _this.allEmp = [];
+                _this.rerender();
+            }, function (error) {
+                console.log(error);
+            });
+        }
+    };
+    LeaveTeamComponent.prototype.rerender = function () {
+        var _this = this;
+        this.dtElement.dtInstance.then(function (dtInstance) {
+            dtInstance.destroy();
+            _this.dtTrigger.next();
+        });
+    };
+    __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["ViewChild"])(angular_datatables__WEBPACK_IMPORTED_MODULE_6__["DataTableDirective"]),
+        __metadata("design:type", angular_datatables__WEBPACK_IMPORTED_MODULE_6__["DataTableDirective"])
+    ], LeaveTeamComponent.prototype, "dtElement", void 0);
+    LeaveTeamComponent = __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
+            selector: 'app-leave-team',
+            template: __webpack_require__(/*! ./leave-team.component.html */ "./src/app/components/team/leave-team/leave-team.component.html"),
+            styles: [__webpack_require__(/*! ./leave-team.component.css */ "./src/app/components/team/leave-team/leave-team.component.css")]
+        }),
+        __metadata("design:paramtypes", [_angular_core__WEBPACK_IMPORTED_MODULE_0__["Renderer"], _angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpClient"], _services_token_service__WEBPACK_IMPORTED_MODULE_3__["TokenService"], _angular_router__WEBPACK_IMPORTED_MODULE_5__["ActivatedRoute"]])
+    ], LeaveTeamComponent);
+    return LeaveTeamComponent;
 }());
 
 
@@ -4581,7 +5044,7 @@ module.exports = ""
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"card\" >\n    <div class=\"card-header\">\n        <h5>Basic Information</h5>\n    </div>\n\n    <div class=\"card-body\">\n        <div class=\"row\">\n\n\n\n            <div class=\"form-group col-md-4\">\n\n                <label >First Name <span style=\"color: red\">*</span></label>\n\n                <input type=\"text\" class=\"form-control\" placeholder=\"First name\" [(ngModel)]=\"employeeBasicForm.firstName\" required>\n\n            </div>\n            <br>\n            <!--<div class=\"col-md-12\"><hr></div>-->\n            <div class=\" form-group col-md-4\">\n\n                <label >Middle Name</label>\n\n                <input type=\"text\" class=\"form-control\" placeholder=\"Middle name\" [(ngModel)]=\"employeeBasicForm.middleName\" required>\n\n            </div>\n\n            <div class=\"form-group col-md-4\">\n                <label >Last Name <span style=\"color: red\">*</span></label>\n                <input type=\"text\" class=\"form-control\" placeholder=\"Last name\" [(ngModel)]=\"employeeBasicForm.lastName\" required>\n            </div>\n            <div class=\"form-group col-md-4\">\n                <label >Nick Name</label>\n                <input type=\"text\" class=\"form-control\" placeholder=\"Nick name\" [(ngModel)]=\"employeeBasicForm.nickName\" required>\n\n            </div>\n\n            <div class=\" form-group col-md-4\">\n\n                <label >Employee Id <span style=\"color: red\">*</span></label>\n\n                <input type=\"text\" class=\"form-control\" placeholder=\"employee id\" [(ngModel)]=\"employeeBasicForm.EmployeeId\" required>\n\n            </div>\n\n            <!--<div class=\"col-md-12\"><hr></div>-->\n\n            <div class=\"form-group col-md-4\">\n                <label>Department <span style=\"color: red\">*</span></label>\n                <select class=\"form-control\" (change)=\"selectDepartment($event.target.value)\" [(ngModel)]=\"employeeBasicForm.department\" required>\n                    <option value=\"\">Select Department</option>\n                    <option *ngFor=\"let dept of department\" [value]=\"dept.id\">\n                        {{dept.departmentName}}\n                    </option>\n                </select>\n            </div>\n\n            <div class=\"form-group col-md-4\">\n                <label>Designation <span style=\"color: red\">*</span></label>\n                <select class=\"form-control\" (change)=\"selectDesignation($event.target.value)\" [(ngModel)]=\"employeeBasicForm.designation\" required>\n                    <option value=\"\">Select Designation</option>\n                    <option *ngFor=\"let desg of designation\" [value]=\"desg.id\">\n                        {{desg.title}}\n                    </option>\n                </select>\n            </div>\n\n            <div class=\"form-group col-md-4\">\n                <label>Employee Type <span style=\"color: red\">*</span></label>\n                <select class=\"form-control\" name=\"fkEmployeeType\" [(ngModel)]=\"employeeBasicForm.empType\" required>\n                    <option value=\"\">Select Employee Type</option>\n                    <option *ngFor=\"let type of empType\" [value]=\"type.id\">\n                        {{type.typeTitle}}\n                    </option>\n                </select>\n            </div>\n\n\n\n\n\n            <!--<div class=\"col-md-12\"><hr></div>-->\n\n            <div class=\"form-group col-md-4\">\n                <label>Email</label>\n                <input type=\"email\" class=\"form-control\" name=\"email\" placeholder=\"email\" [(ngModel)]=\"employeeBasicForm.email\" required>\n            </div>\n\n            <div class=\"form-group col-md-4\">\n                <label>Contact Number <span style=\"color: red\">*</span></label>\n                <input type=\"text\" class=\"form-control\" name=\"contactNo\" placeholder=\"phone\" [(ngModel)]=\"employeeBasicForm.contactNo\" required>\n            </div>\n            <div class=\"form-group col-md-4\">\n                <label>Alternative Number</label>\n                <input type=\"text\" class=\"form-control\" name=\"contactNo\" placeholder=\"alternative phone\" [(ngModel)]=\"employeeBasicForm.alterContactNo\" required>\n            </div>\n\n            <div class=\"form-group col-md-4\">\n                <label>Date Of Birth <span style=\"color: red\">*</span></label>\n                <input type=\"date\" class=\"form-control\" name=\"birthdate\" [(ngModel)]=\"employeeBasicForm.birthdate\" required>\n            </div>\n\n\n            <!--<div class=\"col-md-12\"><hr></div>-->\n\n            <div class=\"form-group col-md-4\">\n                <label>Gender <span style=\"color: red\">*</span></label>\n\n                &nbsp;&nbsp;<p style=\"margin-left: 20px\">\n                <input  type=\"radio\" class=\"form-check-input\" value=\"M\" name=\"gender\" [(ngModel)]=\"employeeBasicForm.gender\">Male\n\n                &nbsp;&nbsp;&nbsp;\n                <input type=\"radio\" class=\"form-check-input\" value=\"F\" name=\"gender\" [(ngModel)]=\"employeeBasicForm.gender\">Female\n\n                &nbsp;&nbsp;&nbsp;\n                <input type=\"radio\" class=\"form-check-input\" value=\"O\" name=\"gender\" [(ngModel)]=\"employeeBasicForm.gender\">Other\n            </p>\n            </div>\n\n            <div class=\"form-group col-md-8\">\n                <label>Image</label>\n                <input type=\"file\" class=\"form-control\" name=\"photo\" placeholder=\"image\" (change)=\"onFileSelected($event)\">\n            </div>\n\n\n             <img  *ngIf=\"employeeBasicForm.photo\" [src]=\"employeeBasicForm.photo\" height=\"200\" width=\"200\">\n\n\n\n\n            <div class=\"form-group col-md-12\" align=\"right\" style=\"margin-top: 20px\" >\n                <button  class=\"btn btn-lg btn-success \" (click)=\"onSubmit()\">Save Data</button>\n            </div>\n\n\n\n        </div>\n    </div>\n\n</div>\n<div class=\"col-md-12\">\n    <hr>\n</div>\n<div>\n    <app-emergency-contact [empid]=\"empid\"></app-emergency-contact>\n</div>\n"
+module.exports = "<div class=\"card\" >\n    <div class=\"card-header\">\n        <h5>Basic Information</h5>\n    </div>\n\n    <div class=\"card-body\">\n        <div class=\"row\">\n\n\n\n            <div class=\"form-group col-md-4\">\n\n                <label >First Name <span style=\"color: red\">*</span></label>\n\n                <input type=\"text\" class=\"form-control\" placeholder=\"First name\" [(ngModel)]=\"employeeBasicForm.firstName\" required>\n\n            </div>\n            <br>\n            <!--<div class=\"col-md-12\"><hr></div>-->\n            <div class=\" form-group col-md-4\">\n\n                <label >Middle Name</label>\n\n                <input type=\"text\" class=\"form-control\" placeholder=\"Middle name\" [(ngModel)]=\"employeeBasicForm.middleName\" required>\n\n            </div>\n\n            <div class=\"form-group col-md-4\">\n                <label >Last Name <span style=\"color: red\">*</span></label>\n                <input type=\"text\" class=\"form-control\" placeholder=\"Last name\" [(ngModel)]=\"employeeBasicForm.lastName\" required>\n            </div>\n            <div class=\"form-group col-md-4\">\n                <label >Nick Name</label>\n                <input type=\"text\" class=\"form-control\" placeholder=\"Nick name\" [(ngModel)]=\"employeeBasicForm.nickName\" required>\n\n            </div>\n\n            <div class=\" form-group col-md-4\">\n\n                <label >Employee Id <span style=\"color: red\">*</span></label>\n\n                <input type=\"text\" class=\"form-control\" placeholder=\"employee id\" [(ngModel)]=\"employeeBasicForm.EmployeeId\" required>\n\n            </div>\n\n            <!--<div class=\"col-md-12\"><hr></div>-->\n\n            <div class=\"form-group col-md-4\">\n                <label>Department <span style=\"color: red\">*</span></label>\n                <select class=\"form-control\" (change)=\"selectDepartment($event.target.value)\" [(ngModel)]=\"employeeBasicForm.department\" required>\n                    <option value=\"\">Select Department</option>\n                    <option *ngFor=\"let dept of department\" [value]=\"dept.id\">\n                        {{dept.departmentName}}\n                    </option>\n                </select>\n            </div>\n\n            <div class=\"form-group col-md-4\">\n                <label>Designation <span style=\"color: red\">*</span></label>\n                <select class=\"form-control\" (change)=\"selectDesignation($event.target.value)\" [(ngModel)]=\"employeeBasicForm.designation\" required>\n                    <option value=\"\">Select Designation</option>\n                    <option *ngFor=\"let desg of designation\" [value]=\"desg.id\">\n                        {{desg.title}}\n                    </option>\n                </select>\n            </div>\n\n            <div class=\"form-group col-md-4\">\n                <label>Employee Type <span style=\"color: red\">*</span></label>\n                <select class=\"form-control\" name=\"fkEmployeeType\" [(ngModel)]=\"employeeBasicForm.empType\" required>\n                    <option value=\"\">Select Employee Type</option>\n                    <option *ngFor=\"let type of empType\" [value]=\"type.id\">\n                        {{type.typeTitle}}\n                    </option>\n                </select>\n            </div>\n\n\n\n\n\n            <!--<div class=\"col-md-12\"><hr></div>-->\n\n            <div class=\"form-group col-md-4\">\n                <label>Email</label>\n                <input type=\"email\" class=\"form-control\" name=\"email\" placeholder=\"email\" [(ngModel)]=\"employeeBasicForm.email\" required>\n            </div>\n\n            <div class=\"form-group col-md-4\">\n                <label>Contact Number <span style=\"color: red\">*</span></label>\n                <input type=\"text\" class=\"form-control\" name=\"contactNo\" placeholder=\"phone\" [(ngModel)]=\"employeeBasicForm.contactNo\" required>\n            </div>\n            <div class=\"form-group col-md-4\">\n                <label>Alternative Number</label>\n                <input type=\"text\" class=\"form-control\" name=\"contactNo\" placeholder=\"alternative phone\" [(ngModel)]=\"employeeBasicForm.alterContactNo\" required>\n            </div>\n\n            <div class=\"form-group col-md-4\">\n                <label>Date of Birth <span style=\"color: red\">*</span></label>\n                <input type=\"date\" class=\"form-control\" name=\"birthdate\" [(ngModel)]=\"employeeBasicForm.birthdate\" required>\n            </div>\n\n\n            <!--<div class=\"col-md-12\"><hr></div>-->\n\n            <div class=\"form-group col-md-4\">\n                <label>Gender <span style=\"color: red\">*</span></label>\n\n                &nbsp;&nbsp;<p style=\"margin-left: 20px\">\n                <input  type=\"radio\" class=\"form-check-input\" value=\"M\" name=\"gender\" [(ngModel)]=\"employeeBasicForm.gender\">Male\n\n                &nbsp;&nbsp;&nbsp;\n                <input type=\"radio\" class=\"form-check-input\" value=\"F\" name=\"gender\" [(ngModel)]=\"employeeBasicForm.gender\">Female\n\n                &nbsp;&nbsp;&nbsp;\n                <input type=\"radio\" class=\"form-check-input\" value=\"O\" name=\"gender\" [(ngModel)]=\"employeeBasicForm.gender\">Other\n            </p>\n            </div>\n\n            <div class=\"form-group col-md-8\">\n                <label>Image</label>\n                <input type=\"file\" class=\"form-control\" name=\"photo\" placeholder=\"image\" (change)=\"onFileSelected($event)\">\n            </div>\n\n\n             <img  *ngIf=\"employeeBasicForm.photo\" [src]=\"employeeBasicForm.photo\" height=\"200\" width=\"200\">\n\n\n\n\n            <div class=\"form-group col-md-12\" align=\"right\" style=\"margin-top: 20px\" >\n                <button  class=\"btn btn-lg btn-success \" (click)=\"onSubmit()\">Save Data</button>\n            </div>\n\n\n\n        </div>\n    </div>\n\n</div>\n<div class=\"col-md-12\">\n    <hr>\n</div>\n<div>\n    <app-emergency-contact [empid]=\"empid\"></app-emergency-contact>\n</div>\n"
 
 /***/ }),
 
@@ -5316,7 +5779,7 @@ module.exports = ""
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"card\">\n  <div class=\"card-header\">\n    Joining Info\n  </div>\n\n  <div class=\"card-body\">\n    <div class=\"row\">\n\n      <div class=\"form-group col-md-6\">\n        <label>Actual Join Date</label>\n\n        <input class=\"form-control\"\n               bsDatepicker\n                [(ngModel)]=\"employeeJoiningForm.actualJoinDate\"\n                [bsConfig]=\"{ dateInputFormat: 'YYYY-MM-DD'}\">\n      </div>\n\n      <div class=\"form-group col-md-6\">\n        <label>Recent Join Date</label>\n        <input name=\"recentJoinDate\" bsDatepicker\n               [bsConfig]=\"{ dateInputFormat: 'YYYY-MM-DD' }\" [(ngModel)]=\"employeeJoiningForm.recentJoinDate\" class=\"form-control\">\n      </div>\n\n      <div class=\"form-group col-md-6\">\n        <label>Resign Date</label>\n        <input bsDatepicker\n               [bsConfig]=\"{ dateInputFormat: 'YYYY-MM-DD' }\"  name=\"resignDate\" [(ngModel)]=\"employeeJoiningForm.resignDate\" class=\"form-control\">\n      </div>\n\n      <div class=\"form-group col-md-6\">\n        <label>Supervisor</label>\n        <input type=\"text\" name=\"supervisor\" placeholder=\"name\" [(ngModel)]=\"employeeJoiningForm.supervisor\" class=\"form-control\">\n      </div>\n\n      <div class=\"form-group col-md-6\">\n        <label>Probation Period</label>\n        <input type=\"text\" name=\"probationPeriod\" placeholder=\"month\" [(ngModel)]=\"employeeJoiningForm.probationPeriod\" class=\"form-control\">\n      </div>\n\n      <div class=\"form-group col-md-6\">\n\n        <!--<input type=\"text\" name=\"weekend\" placeholder=\"day\" [(ngModel)]=\"employeeJoiningForm.weekend\" class=\"form-control\">-->\n        <label>Weekend</label>\n        <ng-multiselect-dropdown\n                [placeholder]=\"'Select Weekend'\"\n                [data]=\"dropdownList\"\n                [(ngModel)]=\"selectedItems\"\n                [settings]=\"dropdownSettings\"\n                (onSelect)=\"onItemSelect($event)\"\n                (onDeSelect)=\"onItemDeSelect($event)\"\n\n        >\n        </ng-multiselect-dropdown>\n      </div>\n\n\n      <div class=\"form-group col-md-4\">\n        <label>Card Number</label>\n        <input type=\"text\" name=\"accessPin\" placeholder=\"pin\" [(ngModel)]=\"employeeJoiningForm.accessPin\" class=\"form-control\">\n      </div>\n      <div class=\"form-group col-md-4\">\n        <label>Attendance Device Pin</label>\n        <input type=\"text\" name=\"accessPin\" placeholder=\"pin\" [(ngModel)]=\"employeeJoiningForm.attDeviceUserId\" class=\"form-control\">\n      </div>\n\n      <div class=\"form-group col-md-4\">\n        <label>Practice</label>\n        <input type=\"number\" name=\"practice\" placeholder=\"days\" [(ngModel)]=\"employeeJoiningForm.practice\"  class=\"form-control\">\n      </div>\n\n\n\n      <div class=\"form-group col-md-4\">\n        <label>Shift</label>\n        <select class=\"form-control\" name=\"shift\"   (change)=\"selectShift($event.target.value)\">\n          <option value=\"\">Select Shift</option>\n          <option *ngFor=\"let sh of shift\" [value]=\"sh.shiftId\" [selected]=\"sh.shiftId==employeeJoiningForm.shiftId\">\n            {{sh.shiftName}}\n          </option>\n        </select>\n      </div>\n\n      <!--<div class=\"form-group col-md-6\">-->\n        <!--<label>Shift</label>-->\n        <!--<select class=\"form-control\" name=\"shift\"   (change)=\"selectShift($event.target.value)\">-->\n          <!--<option value=\"\">Select Shift</option>-->\n          <!--<option *ngFor=\"let sh of shift\" [value]=\"sh.shiftId\" [selected]=\"deg.id==educationForm.degreeId\">-->\n            <!--{{sh.shiftName}}-->\n          <!--</option>-->\n        <!--</select>-->\n      <!--</div>-->\n\n\n      <div class=\"form-group col-md-4\">\n        <label>Schedule In Time</label>\n        <input type=\"time\" name=\"scheduleInTime\" placeholder=\"in time\" [(ngModel)]=\"employeeJoiningForm.scheduleInTime\" class=\"form-control\" readonly>\n      </div>\n\n      <div class=\"form-group col-md-4\">\n        <label>Schedule Out Time</label>\n        <input type=\"time\" name=\"scheduleOutTime\" placeholder=\"out time\" [(ngModel)]=\"employeeJoiningForm.scheduleOutTime\" class=\"form-control\" readonly>\n      </div>\n\n\n\n\n      <div class=\"form-group col-md-6\">\n        <label>Special Allowance</label>\n        &nbsp;<input type=\"checkbox\" name=\"specialAllowance\" [(ngModel)]=\"employeeJoiningForm.specialAllowance\">\n      </div>\n\n\n\n\n      <div class=\"col-md-12\">\n        <button class=\"btn btn-success\" (click)=\"submit()\">Save</button>\n      </div>\n\n\n      <!--Leave Limit-->\n      <div class=\"form-group col-md-12\">\n        <h5 align=\"center\">Leave Limit</h5>\n        <hr>\n      </div>\n\n      <div class=\"form-group col-md-6\">\n        <label>Total Leave</label>\n        <input type=\"text\" [(ngModel)]=\"totalLeaveAssigned\"  placeholder=\"total leave\" class=\"form-control\">\n      </div>\n\n\n      <div class=\"form-group col-md-6\">\n        <label>Leave Taken</label>\n        <input type=\"number\" [(ngModel)]=\"leaveTaken\"  placeholder=\"total leave taken\" class=\"form-control\" readonly>\n      </div>\n\n      <div class=\"col-md-12\">\n        <button class=\"btn btn-success\" (click)=\"submitLeaveLimit()\">Save Leave Limit</button>\n      </div>\n\n\n    </div>\n  </div>\n</div>"
+module.exports = "<div class=\"card\">\n  <div class=\"card-header\">\n    Joining Info\n  </div>\n\n  <div class=\"card-body\">\n    <div class=\"row\">\n\n      <div class=\"form-group col-md-6\">\n        <label>Actual Join Date</label>\n\n        <input class=\"form-control\"\n               bsDatepicker\n                [(ngModel)]=\"employeeJoiningForm.actualJoinDate\"\n                [bsConfig]=\"{ dateInputFormat: 'YYYY-MM-DD'}\">\n      </div>\n\n      <div class=\"form-group col-md-6\">\n        <label>Recent Join Date</label>\n        <input name=\"recentJoinDate\" bsDatepicker\n               [bsConfig]=\"{ dateInputFormat: 'YYYY-MM-DD' }\" [(ngModel)]=\"employeeJoiningForm.recentJoinDate\" class=\"form-control\">\n      </div>\n\n      <div class=\"form-group col-md-6\">\n        <label>Resign Date</label>\n        <input bsDatepicker\n               [bsConfig]=\"{ dateInputFormat: 'YYYY-MM-DD' }\"  name=\"resignDate\" [(ngModel)]=\"employeeJoiningForm.resignDate\" class=\"form-control\">\n      </div>\n\n      <div class=\"form-group col-md-6\">\n        <label>Supervisor</label>\n        <input type=\"text\" name=\"supervisor\" placeholder=\"name\" [(ngModel)]=\"employeeJoiningForm.supervisor\" class=\"form-control\">\n      </div>\n\n      <div class=\"form-group col-md-3\">\n        <label>Status</label>\n        <select class=\"form-control\" [(ngModel)]=\"employeeJoiningForm.fkActivationStatus\">\n          <option value=\"1\">Active</option>\n          <option value=\"2\">Inactive</option>\n        </select>\n      </div>\n      <div class=\"form-group col-md-3\">\n        <label>Probation Period</label>\n        <input type=\"text\" name=\"probationPeriod\" placeholder=\"month\" [(ngModel)]=\"employeeJoiningForm.probationPeriod\" class=\"form-control\">\n      </div>\n\n      <div class=\"form-group col-md-6\">\n\n        <!--<input type=\"text\" name=\"weekend\" placeholder=\"day\" [(ngModel)]=\"employeeJoiningForm.weekend\" class=\"form-control\">-->\n        <label>Weekend</label>\n        <ng-multiselect-dropdown\n                [placeholder]=\"'Select Weekend'\"\n                [data]=\"dropdownList\"\n                [(ngModel)]=\"selectedItems\"\n                [settings]=\"dropdownSettings\"\n                (onSelect)=\"onItemSelect($event)\"\n                (onDeSelect)=\"onItemDeSelect($event)\"\n\n        >\n        </ng-multiselect-dropdown>\n      </div>\n\n\n      <div class=\"form-group col-md-4\">\n        <label>Card Number</label>\n        <input type=\"text\" name=\"accessPin\" placeholder=\"pin\" [(ngModel)]=\"employeeJoiningForm.accessPin\" class=\"form-control\">\n      </div>\n      <div class=\"form-group col-md-4\">\n        <label>Attendance Device Pin</label>\n        <input type=\"text\" name=\"accessPin\" placeholder=\"pin\" [(ngModel)]=\"employeeJoiningForm.attDeviceUserId\" class=\"form-control\">\n      </div>\n\n      <div class=\"form-group col-md-4\">\n        <label>Practice</label>\n        <input type=\"number\" name=\"practice\" placeholder=\"days\" [(ngModel)]=\"employeeJoiningForm.practice\"  class=\"form-control\">\n      </div>\n\n\n\n      <div class=\"form-group col-md-4\">\n        <label>Shift</label>\n        <select class=\"form-control\" name=\"shift\"   (change)=\"selectShift($event.target.value)\">\n          <option value=\"\">Select Shift</option>\n          <option *ngFor=\"let sh of shift\" [value]=\"sh.shiftId\" [selected]=\"sh.shiftId==employeeJoiningForm.shiftId\">\n            {{sh.shiftName}}\n          </option>\n        </select>\n      </div>\n\n      <!--<div class=\"form-group col-md-6\">-->\n        <!--<label>Shift</label>-->\n        <!--<select class=\"form-control\" name=\"shift\"   (change)=\"selectShift($event.target.value)\">-->\n          <!--<option value=\"\">Select Shift</option>-->\n          <!--<option *ngFor=\"let sh of shift\" [value]=\"sh.shiftId\" [selected]=\"deg.id==educationForm.degreeId\">-->\n            <!--{{sh.shiftName}}-->\n          <!--</option>-->\n        <!--</select>-->\n      <!--</div>-->\n\n\n      <div class=\"form-group col-md-4\">\n        <label>Schedule In Time</label>\n        <input type=\"time\" name=\"scheduleInTime\" placeholder=\"in time\" [(ngModel)]=\"employeeJoiningForm.scheduleInTime\" class=\"form-control\" readonly>\n      </div>\n\n      <div class=\"form-group col-md-4\">\n        <label>Schedule Out Time</label>\n        <input type=\"time\" name=\"scheduleOutTime\" placeholder=\"out time\" [(ngModel)]=\"employeeJoiningForm.scheduleOutTime\" class=\"form-control\" readonly>\n      </div>\n\n\n\n\n      <div class=\"form-group col-md-6\">\n        <label>Special Allowance</label>\n        &nbsp;<input type=\"checkbox\" name=\"specialAllowance\" [(ngModel)]=\"employeeJoiningForm.specialAllowance\">\n      </div>\n\n\n\n\n      <div class=\"col-md-12\">\n        <button class=\"btn btn-success\" (click)=\"submit()\">Save</button>\n      </div>\n\n\n      <!--Leave Limit-->\n      <div class=\"form-group col-md-12\">\n        <h5 align=\"center\">Leave Limit</h5>\n        <hr>\n      </div>\n\n      <div class=\"form-group col-md-6\">\n        <label>Total Leave</label>\n        <input type=\"text\" [(ngModel)]=\"totalLeaveAssigned\"  placeholder=\"total leave\" class=\"form-control\">\n      </div>\n\n\n      <div class=\"form-group col-md-6\">\n        <label>Leave Taken</label>\n        <input type=\"number\" [(ngModel)]=\"leaveTaken\"  placeholder=\"total leave taken\" class=\"form-control\" readonly>\n      </div>\n\n      <div class=\"col-md-12\">\n        <button class=\"btn btn-success\" (click)=\"submitLeaveLimit()\">Save Leave Limit</button>\n      </div>\n\n\n    </div>\n  </div>\n</div>"
 
 /***/ }),
 
@@ -5368,7 +5831,8 @@ var JoiningInfoComponent = /** @class */ (function () {
             shiftId: '',
             supervisor: '',
             probationPeriod: '',
-            practice: ''
+            practice: '',
+            fkActivationStatus: ''
         };
         // DROPDOWN
         this.dropdownList = [];
@@ -5433,6 +5897,7 @@ var JoiningInfoComponent = /** @class */ (function () {
             _this.employeeJoiningForm.weekend = _this.JoiningForm.weekend;
             _this.employeeJoiningForm.accessPin = _this.JoiningForm.accessPin;
             _this.employeeJoiningForm.practice = _this.JoiningForm.practice;
+            _this.employeeJoiningForm.fkActivationStatus = _this.JoiningForm.fkActivationStatus;
             // this.employeeJoiningForm.scheduleInTime=this.JoiningForm.scheduleInTime;
             // this.employeeJoiningForm.scheduleOutTime=this.JoiningForm.scheduleOutTime;
             _this.employeeJoiningForm.specialAllowance = _this.JoiningForm.specialAllowance;
@@ -5519,6 +5984,120 @@ var JoiningInfoComponent = /** @class */ (function () {
         __metadata("design:paramtypes", [_angular_common_http__WEBPACK_IMPORTED_MODULE_4__["HttpClient"], _services_token_service__WEBPACK_IMPORTED_MODULE_3__["TokenService"], _angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"]])
     ], JoiningInfoComponent);
     return JoiningInfoComponent;
+}());
+
+
+
+/***/ }),
+
+/***/ "./src/app/components/user/past-employee/past-employee.component.css":
+/*!***************************************************************************!*\
+  !*** ./src/app/components/user/past-employee/past-employee.component.css ***!
+  \***************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = ""
+
+/***/ }),
+
+/***/ "./src/app/components/user/past-employee/past-employee.component.html":
+/*!****************************************************************************!*\
+  !*** ./src/app/components/user/past-employee/past-employee.component.html ***!
+  \****************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "<div class=\"container-fluid\">\n  <div class=\"card\">\n    <div class=\"card-header\">Past Employee Details</div>\n\n    <div class=\"card-body\">\n      <a style=\" float: right\" class=\"btn btn-outline-primary mb-2 mr-2\" routerLink=\"add\" >Add New</a>  <br><br>\n      <table datatable class=\"table\" [dtOptions]=\"dtOptions\" [dtTrigger]=\"dtTrigger\">\n        <thead>\n        <tr>\n          <th>First Name</th>\n          <th>Middle Name</th>\n          <th>Last Name</th>\n          <th>Employee ID</th>\n          <th>Designation</th>\n          <th>Department</th>\n          <th>Action</th>\n        </tr>\n        </thead>\n\n        <tbody>\n\n        </tbody>\n\n      </table>\n\n\n    </div>\n  </div>\n\n\n</div>"
+
+/***/ }),
+
+/***/ "./src/app/components/user/past-employee/past-employee.component.ts":
+/*!**************************************************************************!*\
+  !*** ./src/app/components/user/past-employee/past-employee.component.ts ***!
+  \**************************************************************************/
+/*! exports provided: PastEmployeeComponent */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "PastEmployeeComponent", function() { return PastEmployeeComponent; });
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var rxjs__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! rxjs */ "./node_modules/rxjs/_esm5/index.js");
+/* harmony import */ var _angular_common_http__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/common/http */ "./node_modules/@angular/common/fesm5/http.js");
+/* harmony import */ var _services_token_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../services/token.service */ "./src/app/services/token.service.ts");
+/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm5/router.js");
+/* harmony import */ var _constants__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../../constants */ "./src/app/constants.ts");
+var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (undefined && undefined.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+
+
+
+
+var PastEmployeeComponent = /** @class */ (function () {
+    function PastEmployeeComponent(renderer, http, token, route, router) {
+        this.renderer = renderer;
+        this.http = http;
+        this.token = token;
+        this.route = route;
+        this.router = router;
+        this.dtOptions = {};
+        this.dtTrigger = new rxjs__WEBPACK_IMPORTED_MODULE_1__["Subject"]();
+    }
+    PastEmployeeComponent.prototype.ngOnInit = function () {
+        var token = this.token.get();
+        this.dtOptions = {
+            ajax: {
+                url: _constants__WEBPACK_IMPORTED_MODULE_5__["Constants"].API_URL + 'employee/past/get' + '?token=' + token,
+                type: 'POST'
+            },
+            columns: [
+                { data: 'firstName', name: 'employeeinfo.firstName' },
+                { data: 'middleName', name: 'employeeinfo.middleName' },
+                { data: 'lastName', name: 'employeeinfo.lastName' },
+                { data: 'EmployeeId', name: 'employeeinfo.EmployeeId' },
+                { data: 'title', name: 'hrmdesignations.title' },
+                { data: 'departmentName', name: 'hrmdepartments.departmentName' },
+                {
+                    "data": function (data, type, full) {
+                        return ' <button class="btn btn-info" data-emp-id="' + data.empid + '"> Edit</button>';
+                    },
+                    "orderable": false, "searchable": false, "name": "selected_rows"
+                }
+            ],
+            processing: true,
+            serverSide: true,
+            pagingType: 'full_numbers',
+            pageLength: 10
+        };
+    };
+    PastEmployeeComponent.prototype.ngAfterViewInit = function () {
+        var _this = this;
+        this.dtTrigger.next();
+        this.renderer.listenGlobal('document', 'click', function (event) {
+            if (event.target.hasAttribute("data-emp-id")) {
+                _this.router.navigate(["employee/edit/" + event.target.getAttribute("data-emp-id")]);
+            }
+        });
+    };
+    PastEmployeeComponent = __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
+            selector: 'app-past-employee',
+            template: __webpack_require__(/*! ./past-employee.component.html */ "./src/app/components/user/past-employee/past-employee.component.html"),
+            styles: [__webpack_require__(/*! ./past-employee.component.css */ "./src/app/components/user/past-employee/past-employee.component.css")]
+        }),
+        __metadata("design:paramtypes", [_angular_core__WEBPACK_IMPORTED_MODULE_0__["Renderer"], _angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpClient"], _services_token_service__WEBPACK_IMPORTED_MODULE_3__["TokenService"], _angular_router__WEBPACK_IMPORTED_MODULE_4__["ActivatedRoute"], _angular_router__WEBPACK_IMPORTED_MODULE_4__["Router"]])
+    ], PastEmployeeComponent);
+    return PastEmployeeComponent;
 }());
 
 
@@ -5672,6 +6251,179 @@ var PersonalInfoComponent = /** @class */ (function () {
         __metadata("design:paramtypes", [_angular_common_http__WEBPACK_IMPORTED_MODULE_3__["HttpClient"], _services_token_service__WEBPACK_IMPORTED_MODULE_2__["TokenService"], _angular_router__WEBPACK_IMPORTED_MODULE_1__["Router"]])
     ], PersonalInfoComponent);
     return PersonalInfoComponent;
+}());
+
+
+
+/***/ }),
+
+/***/ "./src/app/components/user/profile/profile.component.css":
+/*!***************************************************************!*\
+  !*** ./src/app/components/user/profile/profile.component.css ***!
+  \***************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = ""
+
+/***/ }),
+
+/***/ "./src/app/components/user/profile/profile.component.html":
+/*!****************************************************************!*\
+  !*** ./src/app/components/user/profile/profile.component.html ***!
+  \****************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "<div class=\"container\">\n<div class=\"card\" style=\"width: 40%; padding: 10px; float: left;\">\n    <div class=\"row\">\n        <div class=\"col-md-3\">\n            <b>Name :</b>\n        </div>\n\n        <div class=\"col-md-9\">\n            {{userModel.userName}}\n        </div>\n\n\n        <div class=\"col-md-3\">\n            <b>Email :</b>\n        </div>\n\n\n        <div class=\"col-md-9\">\n            {{userModel.email}}\n        </div>\n\n\n         <div class=\"col-md-3\">\n            <b>User Type :</b>\n        </div>\n\n\n        <div class=\"col-md-9\">\n            {{userModel.fkUserType}}\n        </div>\n\n\n\n\n\n    </div>\n\n\n</div>\n\n\n\n\n<div class=\"card\" style=\"max-width: 40%; padding: 10px; float: right; margin-right: 20%;\">\n\n    <h2 align=\"center\"><b>Change Password</b></h2><hr>\n\n    <form action=\"\" method=\"post\" id=\"myform\">\n\n        <div class=\"form-group\">\n            <label for=\"pwd\">Current Password:</label>\n            <input type=\"password\" class=\"form-control\" id=\"pwd\" name=\"currentPassword\" [(ngModel)]=\"userModel.currentPassword\">\n\n        </div>\n\n        <div class=\"form-group\">\n            <label for=\"pwd\">New Password:</label>\n            <input type=\"password\" class=\"form-control\" id=\"password\" name=\"password\" [(ngModel)]=\"userModel.password\">\n\n\n\n        </div>\n\n        <div class=\"form-group\">\n            <label for=\"pwd\">Confirm New Password:</label>\n            <input type=\"password\" class=\"form-control\" id=\"password_again\" name=\"password_again\" [(ngModel)]=\"userModel.password_again\">\n        </div>\n\n        <button type=\"submit\" class=\"btn btn-primary\" (click)=\"changePassword()\">Submit</button>\n    </form>\n\n\n\n\n\n</div>\n\n</div>"
+
+/***/ }),
+
+/***/ "./src/app/components/user/profile/profile.component.ts":
+/*!**************************************************************!*\
+  !*** ./src/app/components/user/profile/profile.component.ts ***!
+  \**************************************************************/
+/*! exports provided: ProfileComponent */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ProfileComponent", function() { return ProfileComponent; });
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var _constants__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../../constants */ "./src/app/constants.ts");
+/* harmony import */ var _angular_common_http__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/common/http */ "./node_modules/@angular/common/fesm5/http.js");
+/* harmony import */ var _services_token_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../services/token.service */ "./src/app/services/token.service.ts");
+var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (undefined && undefined.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+
+
+var ProfileComponent = /** @class */ (function () {
+    function ProfileComponent(http, token) {
+        this.http = http;
+        this.token = token;
+        this.userModel = {};
+    }
+    ProfileComponent.prototype.ngOnInit = function () {
+        this.getData();
+    };
+    ProfileComponent.prototype.getData = function () {
+        var _this = this;
+        var token = this.token.get();
+        this.http.post(_constants__WEBPACK_IMPORTED_MODULE_1__["Constants"].API_URL + 'me?token=' + token, null).subscribe(function (data) {
+            _this.userModel = data;
+            _this.userModel.currentPassword = "";
+            _this.userModel.password = "";
+            _this.userModel.password_again = "";
+            console.log(data);
+        }, function (error) {
+            console.log(error);
+        });
+    };
+    ProfileComponent.prototype.changePassword = function () {
+        var _this = this;
+        if (this.userModel.password != this.userModel.password_again) {
+            $.alert({
+                title: 'Alert!',
+                type: 'Red',
+                content: "Password did not match",
+                buttons: {
+                    tryAgain: {
+                        text: 'Ok',
+                        btnClass: 'btn-red',
+                        action: function () {
+                        }
+                    }
+                }
+            });
+            return false;
+        }
+        if (this.userModel.currentPassword == "") {
+            $.alert({
+                title: 'Alert!',
+                type: 'Red',
+                content: "Old password required",
+                buttons: {
+                    tryAgain: {
+                        text: 'Ok',
+                        btnClass: 'btn-red',
+                        action: function () {
+                        }
+                    }
+                }
+            });
+            return false;
+        }
+        if (this.userModel.password == "") {
+            $.alert({
+                title: 'Alert!',
+                type: 'Red',
+                content: "New password required",
+                buttons: {
+                    tryAgain: {
+                        text: 'Ok',
+                        btnClass: 'btn-red',
+                        action: function () {
+                        }
+                    }
+                }
+            });
+            return false;
+        }
+        if (this.userModel.password_again == "") {
+            $.alert({
+                title: 'Alert!',
+                type: 'Red',
+                content: "Confirm password required",
+                buttons: {
+                    tryAgain: {
+                        text: 'Ok',
+                        btnClass: 'btn-red',
+                        action: function () {
+                        }
+                    }
+                }
+            });
+            return false;
+        }
+        var token = this.token.get();
+        this.http.post(_constants__WEBPACK_IMPORTED_MODULE_1__["Constants"].API_URL + 'profile/password/change' + '?token=' + token, this.userModel).subscribe(function (data) {
+            // console.log(data);
+            $.alert({
+                title: 'Success!',
+                type: 'Green',
+                content: data,
+                buttons: {
+                    tryAgain: {
+                        text: 'Ok',
+                        btnClass: 'btn-red',
+                        action: function () {
+                        }
+                    }
+                }
+            });
+            _this.getData();
+        }, function (error) {
+            console.log(error);
+        });
+    };
+    ProfileComponent = __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
+            selector: 'app-profile',
+            template: __webpack_require__(/*! ./profile.component.html */ "./src/app/components/user/profile/profile.component.html"),
+            styles: [__webpack_require__(/*! ./profile.component.css */ "./src/app/components/user/profile/profile.component.css")]
+        }),
+        __metadata("design:paramtypes", [_angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpClient"], _services_token_service__WEBPACK_IMPORTED_MODULE_3__["TokenService"]])
+    ], ProfileComponent);
+    return ProfileComponent;
 }());
 
 
@@ -6113,7 +6865,7 @@ var Constants = /** @class */ (function () {
     });
     ;
     Object.defineProperty(Constants, "Image_URL", {
-        get: function () { return "http://192.168.3.95:8000/hrsolution/backend/public/"; },
+        get: function () { return "http://192.168.3.89/hrsolution/backend/public/"; },
         enumerable: true,
         configurable: true
     });
