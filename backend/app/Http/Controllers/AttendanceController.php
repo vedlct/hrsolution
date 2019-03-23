@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\AttEmployeeMap;
 use App\EmployeeInfo;
 use App\Leave;
 use Carbon\Carbon;
@@ -268,6 +269,9 @@ class AttendanceController extends Controller
         ));
 
 
+
+
+
         $eveningAbsentList_ppd = DB::select( DB::raw(
             "SELECT * FROM attemployeemap AS a
               LEFT JOIN employeeinfo e on e.id = a.employeeId
@@ -326,12 +330,10 @@ class AttendanceController extends Controller
             ->whereDate('hrmleaves.startDate', '<=', $date)
             ->whereDate('hrmleaves.endDate', '>=', $date)
             ->leftJoin('employeeinfo','employeeinfo.id','hrmleaves.fkEmployeeId')
-            ->leftJoin('shiftlog','shiftlog.fkemployeeId','employeeinfo.id')
-            ->leftJoin('shift','shift.shiftId','shiftlog.fkshiftId')
             ->where('employeeinfo.fkDepartmentId',2)
-//            ->where('shiftlog.endDate',null)
-//            ->whereIn('shiftlog.fkshiftId',[2,4])
             ->count();
+
+//        return $softwareOnleave;
 
         $softwareLate = DB::select( DB::raw("select count(*) as LateTotal from
             (select ad.id,ad.attDeviceUserId, em.employeeId, e.firstName
@@ -351,10 +353,33 @@ class AttendanceController extends Controller
         $absentList_software = DB::select( DB::raw(
             "SELECT * FROM attemployeemap AS a
               LEFT JOIN employeeinfo e on e.id = a.employeeId
-              WHERE e.resignDate is null AND e.fkDepartmentId = 6 and e.fkActivationStatus = 2
-              and NOT EXISTS ( SELECT * FROM attendancedata AS b WHERE a.attDeviceUserId = b.attDeviceUserId AND date(b.accessTime) = '$date' ) 
-              AND not EXISTS ( SELECT * FROM hrmleaves as l WHERE e.id = l.fkEmployeeId AND '$date' BETWEEN l.startDate AND l.endDate )"
+              WHERE e.resignDate is null AND e.fkDepartmentId = 2 and e.fkActivationStatus = 1
+              and NOT EXISTS ( SELECT * FROM attendancedata AS b WHERE a.attDeviceUserId = b.attDeviceUserId AND date(b.accessTime) = '$date' )
+              AND not EXISTS ( SELECT * FROM hrmleaves as l WHERE e.id = l.fkEmployeeId AND '$date' BETWEEN l.startDate AND l.endDate AND l.applicationStatus='Approved')"
         ));
+
+
+//        $absentList_software=AttEmployeeMap::select('firstName','lastName')->leftJoin('employeeinfo','employeeinfo.id','attemployeemap.employeeId')
+//            ->where('employeeinfo.resignDate',null)
+//            ->where('employeeinfo.fkDepartmentId',2)
+//            ->where('employeeinfo.fkActivationStatus',1)
+//            ->whereNotExists(function($query)
+//            {
+//                $query->from('attendancedata')
+//                    ->where('attemployeemap.attDeviceUserId','attendancedata.attDeviceUserId')
+//                    ->whereDate('attendancedata.accessTime',date('Y-m-d'));
+//            })
+//            ->whereNotExists(function($query)
+//            {
+//                $query->from('hrmleaves')
+//                    ->where('employeeinfo.id','hrmleaves.fkEmployeeId')
+//                    ->where('hrmleaves.applicationStatus','!=','Approved')
+//                    ->whereDate('hrmleaves.startDate','>=',date('Y-m-d'))
+//                    ->whereDate('hrmleaves.endDate','<=',date('Y-m-d'));
+//            })
+//            ->toSql();
+//
+//        return $absentList_software;
 
         if($softwarePresent){
             $softwarePresent= $softwarePresent[0]->present;
@@ -391,11 +416,8 @@ class AttendanceController extends Controller
             ->whereDate('hrmleaves.startDate', '<=', $date)
             ->whereDate('hrmleaves.endDate', '>=', $date)
             ->leftJoin('employeeinfo','employeeinfo.id','hrmleaves.fkEmployeeId')
-            ->leftJoin('shiftlog','shiftlog.fkemployeeId','employeeinfo.id')
-            ->leftJoin('shift','shift.shiftId','shiftlog.fkshiftId')
             ->where('employeeinfo.fkDepartmentId', 3)
-//            ->where('shiftlog.endDate',null)
-//            ->whereIn('shiftlog.fkshiftId',[2,4])
+
             ->count();
 
         $globalLate = DB::select( DB::raw("select count(*) as LateTotal from
@@ -457,11 +479,7 @@ class AttendanceController extends Controller
             ->whereDate('hrmleaves.startDate', '<=', $date)
             ->whereDate('hrmleaves.endDate', '>=', $date)
             ->leftJoin('employeeinfo','employeeinfo.id','hrmleaves.fkEmployeeId')
-            ->leftJoin('shiftlog','shiftlog.fkemployeeId','employeeinfo.id')
-            ->leftJoin('shift','shift.shiftId','shiftlog.fkshiftId')
             ->where('employeeinfo.fkDepartmentId', 4)
-//            ->where('shiftlog.endDate',null)
-//            ->whereIn('shiftlog.fkshiftId',[2,4])
             ->count();
 
         $digitalLate = DB::select( DB::raw("select count(*) as LateTotal from
