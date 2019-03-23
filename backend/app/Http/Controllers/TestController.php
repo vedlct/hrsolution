@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\AttEmployeeMap;
 use App\AttendanceData;
 use App\Comment;
 use App\Department;

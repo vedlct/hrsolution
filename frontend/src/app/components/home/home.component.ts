@@ -4,7 +4,7 @@ import {TokenService} from "../../services/token.service";
 import {HttpClient} from "@angular/common/http";
 import {ActivatedRoute, Router} from "@angular/router";
 import {Constants} from "../../constants";
-
+declare var $ :any;
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
@@ -34,6 +34,25 @@ export class HomeComponent implements OnInit {
         }
     );
 
+  }
+
+
+  showAbsent(department){
+      /*
+      * ppdMorning
+      * ppdEvening
+      * software
+      * global
+      * digital
+      *
+      * */
+        if(department=='ppdMorning'){console.log(department)}
+        if(department=='ppdEvening'){console.log(department)}
+        if(department=='software'){console.log(department)}
+        if(department=='global'){console.log(department)}
+        if(department=='digital'){console.log(department)}
+
+      $('#myModal').modal();
   }
 
 }
