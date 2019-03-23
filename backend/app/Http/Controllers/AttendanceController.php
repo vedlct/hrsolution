@@ -440,7 +440,7 @@ class AttendanceController extends Controller
               LEFT JOIN employeeinfo e on e.id = a.employeeId
               WHERE e.resignDate is null AND e.fkDepartmentId = 3 and e.fkActivationStatus = 1
               and NOT EXISTS ( SELECT * FROM attendancedata AS b WHERE a.attDeviceUserId = b.attDeviceUserId AND date(b.accessTime) = '$date' ) 
-              AND not EXISTS ( SELECT * FROM hrmleaves as l WHERE e.id = l.fkEmployeeId AND '$date' BETWEEN l.startDate AND l.endDate )"
+              AND not EXISTS ( SELECT * FROM hrmleaves as l WHERE e.id = l.fkEmployeeId AND '$date' BETWEEN l.startDate AND l.endDate AND l.applicationStatus = 'Approved' )"
         ));
 
         if($globalPresent){
@@ -502,7 +502,7 @@ class AttendanceController extends Controller
               LEFT JOIN employeeinfo e on e.id = a.employeeId
               WHERE e.resignDate is null AND e.fkDepartmentId = 4 and e.fkActivationStatus = 1
               and NOT EXISTS ( SELECT * FROM attendancedata AS b WHERE a.attDeviceUserId = b.attDeviceUserId AND date(b.accessTime) = '$date' ) 
-              AND not EXISTS ( SELECT * FROM hrmleaves as l WHERE e.id = l.fkEmployeeId AND '$date' BETWEEN l.startDate AND l.endDate )"
+              AND not EXISTS ( SELECT * FROM hrmleaves as l WHERE e.id = l.fkEmployeeId AND '$date' BETWEEN l.startDate AND l.endDate AND l.applicationStatus = 'Approved' )"
         ));
 
         if($digitalPresent){
