@@ -54,14 +54,24 @@ export class HomeComponent implements OnInit {
       *
       * */
       // absentList_software
-        if(department=='ppdMorning'){console.log(department)}
-        if(department=='ppdEvening'){console.log(department)}
+        if(department=='ppdMorning'){
+            this.absentModel=this.attendanceModel.morningAbsentList_ppd;
+        }
+        if(department=='ppdEvening'){
+
+            this.absentModel=this.attendanceModel.eveningAbsentList_ppd;
+        }
         if(department=='software'){
             this.absentModel=this.attendanceModel.absentList_software;
-            console.log(this.absentModel);
+            // console.log(this.absentModel);
         }
-        if(department=='global'){console.log(department)}
-        if(department=='digital'){console.log(department)}
+        if(department=='global'){
+
+            this.absentModel=this.attendanceModel.absentList_global;
+        }
+        if(department=='digital'){
+            this.absentModel=this.attendanceModel.absentList_digital;
+        }
 
       $('#myModal').modal();
   }
