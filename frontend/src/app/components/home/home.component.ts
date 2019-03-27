@@ -63,7 +63,6 @@ export class HomeComponent implements OnInit {
         }
         if(department=='software'){
             this.absentModel=this.attendanceModel.absentList_software;
-            // console.log(this.absentModel);
         }
         if(department=='global'){
 

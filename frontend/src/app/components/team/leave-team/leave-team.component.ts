@@ -103,7 +103,7 @@ export class LeaveTeamComponent implements OnInit {
         { data: 'EmployeeId' , name: 'employeeinfo.EmployeeId' },
         { data: 'shiftName', name: 'shift.shiftName'},
         { data: 'weekend', name: 'shiftlog.weekend'},
-        { data: 'teamName', name: 'team.teamName'},
+        { data: 'teamName', name: 'leave_team.teamName'},
 
       ],
       processing: true,
