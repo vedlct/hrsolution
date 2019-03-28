@@ -131,7 +131,7 @@ export class LeaveComponent implements OnInit {
                 { data: 'shiftName', name: 'shift.shiftName'},
                 { data: 'weekend', name: 'shiftlog.weekend'},
                 { data: 'startDate', name: 'shiftlog.startDate'},
-                { data: 'teamName', name: 'team.teamName'},
+                { data: 'teamName', name: 'leave_team.teamName'},
 
             ],
             processing: true,

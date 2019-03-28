@@ -64,6 +64,7 @@ class EmployeeController extends Controller
         $datatables = Datatables::of($employee);
         return $datatables->make(true);
     }
+
   public function leaveTeam(Request $r){
         $employee = EmployeeInfo::select('leave_team.teamName','shiftlog.startDate','shiftlog.weekend','shift.shiftName','employeeinfo.firstName','employeeinfo.middleName','employeeinfo.lastName','employeeinfo.EmployeeId','hrmdesignations.title','hrmdepartments.departmentName','employeeinfo.id as empid')
             ->leftjoin('hrmdesignations','hrmdesignations.id','=','employeeinfo.fkDesignation')
@@ -76,7 +77,7 @@ class EmployeeController extends Controller
 
 
         if($r->teamId){
-            $employee=$employee->where('employeeinfo.fkTeamId',$r->teamId);
+            $employee=$employee->where('employeeinfo.fkleaveTeam',$r->teamId);
         }
 
         $datatables = Datatables::of($employee);
@@ -272,7 +273,7 @@ public function updateJoinInfo(Request $r){
         $joinInfo->resignDate = null;
     }
     else{
-        $joinInfo->resignDate = Carbon::parse($r->recentJoinDate)->format('Y-m-d');
+        $joinInfo->resignDate = Carbon::parse($r->resignDate)->format('Y-m-d');
     }
 
 
