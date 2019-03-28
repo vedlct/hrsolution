@@ -28,6 +28,18 @@ class EmployeeController extends Controller
         $employee = EmployeeInfo::select('employeeinfo.firstName','employeeinfo.lastName','employeeinfo.middleName','employeeinfo.EmployeeId','hrmdesignations.title','hrmdepartments.departmentName','employeeinfo.id as empid')
             ->leftjoin('hrmdesignations','hrmdesignations.id','=','employeeinfo.fkDesignation')
             ->leftjoin('hrmdepartments','hrmdepartments.id','=','employeeinfo.fkDepartmentId')
+            ->where('resignDate', null)
+            ->where('employeeinfo.fkCompany' , auth()->user()->fkCompany);
+
+        $datatables = Datatables::of($employee);
+        return $datatables->make(true);
+    }
+
+    public function getAllResignedEmployee(Request $r){
+        $employee = EmployeeInfo::select('employeeinfo.firstName','employeeinfo.lastName','employeeinfo.middleName','employeeinfo.EmployeeId','hrmdesignations.title','hrmdepartments.departmentName','employeeinfo.id as empid')
+            ->leftjoin('hrmdesignations','hrmdesignations.id','=','employeeinfo.fkDesignation')
+            ->leftjoin('hrmdepartments','hrmdepartments.id','=','employeeinfo.fkDepartmentId')
+            ->where('resignDate', '!=', null)
             ->where('employeeinfo.fkCompany' , auth()->user()->fkCompany);
 
         $datatables = Datatables::of($employee);
@@ -41,6 +53,24 @@ class EmployeeController extends Controller
             ->leftjoin('shiftlog','shiftlog.fkemployeeId','=','employeeinfo.id')
             ->leftjoin('shift','shift.shiftId','=','shiftlog.fkshiftId')
             ->leftjoin('team','team.teamId','=','employeeinfo.fkTeamId')
+            ->where('employeeinfo.fkCompany' , auth()->user()->fkCompany)
+            ->where('shiftlog.endDate',null);
+
+
+        if($r->teamId){
+            $employee=$employee->where('employeeinfo.fkTeamId',$r->teamId);
+        }
+
+        $datatables = Datatables::of($employee);
+        return $datatables->make(true);
+    }
+  public function leaveTeam(Request $r){
+        $employee = EmployeeInfo::select('leave_team.teamName','shiftlog.startDate','shiftlog.weekend','shift.shiftName','employeeinfo.firstName','employeeinfo.middleName','employeeinfo.lastName','employeeinfo.EmployeeId','hrmdesignations.title','hrmdepartments.departmentName','employeeinfo.id as empid')
+            ->leftjoin('hrmdesignations','hrmdesignations.id','=','employeeinfo.fkDesignation')
+            ->leftjoin('hrmdepartments','hrmdepartments.id','=','employeeinfo.fkDepartmentId')
+            ->leftjoin('shiftlog','shiftlog.fkemployeeId','=','employeeinfo.id')
+            ->leftjoin('shift','shift.shiftId','=','shiftlog.fkshiftId')
+            ->leftjoin('leave_team','leave_team.teamId','=','employeeinfo.fkleaveTeam')
             ->where('employeeinfo.fkCompany' , auth()->user()->fkCompany)
             ->where('shiftlog.endDate',null);
 

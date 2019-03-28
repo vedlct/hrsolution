@@ -59,6 +59,7 @@
             <th style="text-align: center">endDate</th>
             <th style="text-align: center">noOfDays</th>
             <th style="text-align: center">remarks</th>
+            <th style="text-align: center">Reject Cause</th>
           </thead>
           <tbody>
             <tr *ngFor="let ml of myLeaves" [ngClass]="(ml.applicationStatus=='Pending')?'redcolumn':''">
@@ -69,6 +70,7 @@
               <td style="text-align: center">{{ml.endDate}}</td>
               <td style="text-align: center">{{ml.noOfDays}}</td>
               <td style="text-align: center">{{ml.remarks}}</td>
+              <td style="text-align: center">{{ml.rejectCause}}</td>
 
             </tr>
           </tbody>

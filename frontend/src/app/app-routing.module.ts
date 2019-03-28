@@ -29,6 +29,10 @@ import {AddLeaveComponent} from "./components/leave/add-leave/add-leave.componen
 import { NgxPermissionsGuard } from 'ngx-permissions';
 import {PayGradeComponent} from "./components/payroll/pay-grade/pay-grade.component";
 import {ProfileComponent} from "./components/user/profile/profile.component";
+import {LeaveTeamComponent} from "./components/team/leave-team/leave-team.component";
+import {PastEmployeeComponent} from "./components/user/past-employee/past-employee.component";
+import {CreateLeaveTeamComponent} from "./components/team/create-leave-team/create-leave-team.component";
+
 
 
 export function testPermissions(route: ActivatedRouteSnapshot, state: RouterStateSnapshot) {
@@ -50,6 +54,7 @@ const routes: Routes = [
     { path: 'employee/add', component: AddEmployeeComponent,canActivate: [AuthService] },
     { path: 'employee/edit/:id', component: AddEmployeeComponent,canActivate: [AuthService] },
     { path: 'employee', component: EmployeeComponent,canActivate: [AuthService] },
+    { path: 'employee/past', component: PastEmployeeComponent,canActivate: [AuthService] },
     { path: 'company/add', component: CompanyInfoComponent,canActivate: [AuthService] },
     { path: 'configuration/shift', component: ShiftComponent,canActivate: [AuthService] },
     { path: 'configuration/shift/assign', component: ShiftAssignComponent,canActivate: [AuthService] },
@@ -57,6 +62,26 @@ const routes: Routes = [
     { path: 'configuration/leave', component: LeaveComponent,canActivate: [AuthService]  },
     { path: 'configuration/leave/show', component: ShowLeaveComponent,canActivate: [AuthService]  },
     { path: 'leave/apply', component: AddLeaveComponent ,canActivate: [AuthService] },
+    { path: 'leave/team',
+        component: LeaveTeamComponent,
+        canActivate: [NgxPermissionsGuard],
+        data: {
+            permissions: {
+                only: ['admin'],
+                redirectTo: '/home'
+            }
+        }
+    },
+    { path: 'leave/team/add',
+        component: CreateLeaveTeamComponent,
+        canActivate: [NgxPermissionsGuard],
+        data: {
+            permissions: {
+                only: ['admin'],
+                redirectTo: '/home'
+            }
+        }
+    },
     { path: 'report/attendance', component: AttendanceComponent,canActivate: [AuthService]  },
     // { path: 'report/attendance/:id', component: ShowAttendanceComponent },
     { path: 'report/attendance/:id/:fromdate/:todate', component: ShowAttendanceComponent },

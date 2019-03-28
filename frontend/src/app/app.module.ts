@@ -46,6 +46,9 @@ import { PayAdvanceComponent } from './components/payroll/pay-advance/pay-advanc
 import { NgxPermissionsModule } from 'ngx-permissions';
 import { PayGradeComponent } from './components/payroll/pay-grade/pay-grade.component';
 import { ProfileComponent } from './components/user/profile/profile.component';
+import { LeaveTeamComponent } from './components/team/leave-team/leave-team.component';
+import { PastEmployeeComponent } from './components/user/past-employee/past-employee.component';
+import { CreateLeaveTeamComponent } from './components/team/create-leave-team/create-leave-team.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -83,7 +86,10 @@ import { ProfileComponent } from './components/user/profile/profile.component';
     PaySalarySheetComponent,
     PayAdvanceComponent,
     PayGradeComponent,
-    ProfileComponent
+    ProfileComponent,
+    LeaveTeamComponent,
+    PastEmployeeComponent,
+    CreateLeaveTeamComponent
   ],
   imports: [
     BrowserModule,

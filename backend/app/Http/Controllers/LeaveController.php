@@ -72,6 +72,7 @@ class LeaveController extends Controller
 //       return $r;
        $leaves=Leave::select('hrmleaves.*','hrmleavecategories.categoryName')
            ->where('fkEmployeeId',$id)
+           ->where('hrmleaves.applicationStatus','Approved')
            ->where('startDate','>=',$r->startDate)
            ->where('endDate','<=',$r->endDate)
            ->leftJoin('hrmleavecategories','hrmleavecategories.id','hrmleaves.fkLeaveCategory')
@@ -90,6 +91,7 @@ class LeaveController extends Controller
 
        $leaves=Leave::select('hrmleaves.*','hrmleavecategories.categoryName')
            ->where('fkEmployeeId',$emp->id)
+
            ->leftJoin('hrmleavecategories','hrmleavecategories.id','hrmleaves.fkLeaveCategory')
            ->orderBy('hrmleaves.id','desc')
            ->get();
@@ -103,6 +105,7 @@ class LeaveController extends Controller
    }
 
    public function getIndividual(Request $r){
+//       return $r->id;
        return Leave::select('hrmleaves.*','employeeinfo.firstName','employeeinfo.middleName','employeeinfo.lastName')
            ->leftJoin('employeeinfo','employeeinfo.id','hrmleaves.fkEmployeeId')
            ->findOrFail($r->id);
@@ -117,6 +120,14 @@ class LeaveController extends Controller
        $leave->startDate=Carbon::parse($r->startDate)->format('Y-m-d');
        $leave->noOfDays=$r->noOfDays;
        $leave->remarks=$r->remark;
+
+       if($r->status){
+           $leave->applicationStatus=$r->status;
+       }
+       if($r->rejectCause){
+           $leave->rejectCause=$r->rejectCause;
+       }
+
        $leave->save();
 
    }

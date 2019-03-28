@@ -33,7 +33,7 @@
         </div>
 
         <div class="form-group col-md-3">
-          <label>Team</label>
+          <label>Leave Team</label>
           <select class="form-control" name="shift" id="team"  (change)="selectTeam($event.target.value)">
             <option value="">Select Team</option>
             <option *ngFor="let tm of team" [value]="tm.teamId">
