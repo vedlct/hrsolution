@@ -21,6 +21,7 @@ export class PaySalarySheetComponent implements OnInit {
   payAdvanceModel: any = {};
   subsheetModel: any = {};
   salarySheetTable:any;
+  showSalary=false;
 
   constructor(private renderer: Renderer, public http: HttpClient, private token: TokenService, public route: ActivatedRoute, private router: Router) {
   }
@@ -54,6 +55,7 @@ export class PaySalarySheetComponent implements OnInit {
 
           this.payAdvanceModel.fkEmployeeId = event.target.getAttribute("data-panel-id");
           this.payAdvanceModel.empName = event.target.getAttribute("data-emp-name").replace(null, "");
+          this.showSalary=false;
           return false;
 
         });
@@ -86,6 +88,7 @@ export class PaySalarySheetComponent implements OnInit {
 
 
   getSalarySheet() {
+
 
     this.payAdvanceModel.year=$('#year').val();
 
@@ -131,7 +134,8 @@ export class PaySalarySheetComponent implements OnInit {
 
     const token = this.token.get();
     this.http.post(Constants.API_URL+'payroll/paysalarysheetmain/get'+'?token='+token,this.payAdvanceModel).subscribe(data => {
-         console.log(data);
+         // console.log(data);
+          this.showSalary=true;
           this.salarySheetTable=data;
         },
 

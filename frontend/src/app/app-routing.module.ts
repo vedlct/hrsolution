@@ -111,12 +111,19 @@ const routes: Routes = [
         }
     },
 
+    { path: 'payroll/salary/setup',
+        component: PayEmployeeSalarySetupComponent,
+        canActivate: [NgxPermissionsGuard],
+        data: {
+            permissions: {
+                only: ['admin'],
+                redirectTo: '/home'
+            }
+        }
+    },
 ];
 
-// @NgModule({
-//     exports: [ RouterModule ],
-//     imports: [ RouterModule.forRoot(routes) ],
-// })
+
 
 @NgModule({
     imports: [
