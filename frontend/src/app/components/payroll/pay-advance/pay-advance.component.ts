@@ -41,11 +41,20 @@ export class PayAdvanceComponent implements OnInit {
                 {
 
                     "data": function (data: any, type: any, full: any) {
-                        return ' <button class="btn btn-info" data-emp-id="' + data.empid + '" data-emp-name="' + data.firstName + ' ' + data.middleName + ' ' + data.lastName + '">Select</button>';
+                        return ' <button class="btn btn-info select-user" data-panel-id="' + data.empid + '" data-emp-name="' + data.firstName + ' ' + data.middleName + ' ' + data.lastName + '">Select</button>';
                     },
                     "orderable": false, "searchable": false, "name": "selected_rows"
                 }
             ],
+            drawCallback: () => {
+                $('.select-user').on('click', (event) => {
+
+                    this.payAdvanceModel.fkEmployeeId = event.target.getAttribute("data-panel-id");
+                    this.payAdvanceModel.empName = event.target.getAttribute("data-emp-name").replace(null, "");
+                    return false;
+
+                });
+            },
             processing: true,
             serverSide: true,
             pagingType: 'full_numbers',
@@ -56,17 +65,17 @@ export class PayAdvanceComponent implements OnInit {
 
     ngAfterViewInit(): void {
         this.dtTrigger.next();
-        this.renderer.listenGlobal('document', 'click', (event) => {
-
-            if (event.target.hasAttribute("data-emp-id")) {
-                // this.router.navigate(["employee/edit/" + event.target.getAttribute("data-emp-id")]);
-                // alert(event.target.getAttribute("data-emp-id"));
-                this.payAdvanceModel.empId = event.target.getAttribute("data-emp-id");
-                this.payAdvanceModel.empName = event.target.getAttribute("data-emp-name").replace(null, "");
-            }
-
-
-        });
+        // this.renderer.listenGlobal('document', 'click', (event) => {
+        //
+        //     if (event.target.hasAttribute("data-emp-id")) {
+        //         // this.router.navigate(["employee/edit/" + event.target.getAttribute("data-emp-id")]);
+        //         // alert(event.target.getAttribute("data-emp-id"));
+        //         this.payAdvanceModel.empId = event.target.getAttribute("data-emp-id");
+        //         this.payAdvanceModel.empName = event.target.getAttribute("data-emp-name").replace(null, "");
+        //     }
+        //
+        //
+        // });
     }
 
 

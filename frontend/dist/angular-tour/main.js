@@ -1144,7 +1144,7 @@ var LeaveComponent = /** @class */ (function () {
                 { data: 'shiftName', name: 'shift.shiftName' },
                 { data: 'weekend', name: 'shiftlog.weekend' },
                 { data: 'startDate', name: 'shiftlog.startDate' },
-                { data: 'teamName', name: 'team.teamName' },
+                { data: 'teamName', name: 'leave_team.teamName' },
             ],
             processing: true,
             serverSide: true,
@@ -2010,6 +2010,10 @@ var HomeComponent = /** @class */ (function () {
     }
     HomeComponent.prototype.ngOnInit = function () {
         this.getLiveAttendance();
+        // setInterval(() => { this.testData(); }, 5000);
+    };
+    HomeComponent.prototype.testData = function () {
+        console.log(1);
     };
     HomeComponent.prototype.getLiveAttendance = function () {
         var _this = this;
@@ -2032,20 +2036,19 @@ var HomeComponent = /** @class */ (function () {
         * */
         // absentList_software
         if (department == 'ppdMorning') {
-            console.log(department);
+            this.absentModel = this.attendanceModel.morningAbsentList_ppd;
         }
         if (department == 'ppdEvening') {
-            console.log(department);
+            this.absentModel = this.attendanceModel.eveningAbsentList_ppd;
         }
         if (department == 'software') {
             this.absentModel = this.attendanceModel.absentList_software;
-            console.log(this.absentModel);
         }
         if (department == 'global') {
-            console.log(department);
+            this.absentModel = this.attendanceModel.absentList_global;
         }
         if (department == 'digital') {
-            console.log(department);
+            this.absentModel = this.attendanceModel.absentList_digital;
         }
         $('#myModal').modal();
     };
@@ -4658,7 +4661,7 @@ var LeaveTeamComponent = /** @class */ (function () {
                 { data: 'EmployeeId', name: 'employeeinfo.EmployeeId' },
                 { data: 'shiftName', name: 'shift.shiftName' },
                 { data: 'weekend', name: 'shiftlog.weekend' },
-                { data: 'teamName', name: 'team.teamName' },
+                { data: 'teamName', name: 'leave_team.teamName' },
             ],
             processing: true,
             serverSide: true,

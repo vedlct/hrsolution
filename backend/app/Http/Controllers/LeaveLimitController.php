@@ -2,9 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Leave;
 use App\LeaveLimit;
 use Illuminate\Http\Request;
-
+use DB;
 class LeaveLimitController extends Controller
 {
     public function get(Request $r){
@@ -17,15 +18,24 @@ class LeaveLimitController extends Controller
             $leaveLimit->fkemployeeId=$r->id;
             $leaveLimit->year=date('Y');
             $leaveLimit->save();
-            return $leaveLimit;
+
         }
 
         else{
             $leaveLimit=LeaveLimit::where('fkemployeeId',$r->id)
                 ->where('year',date('Y'))
                 ->first();
-            return $leaveLimit;
+
         }
+        $leaveTaken=Leave::where('fkemployeeId',$r->id)
+            ->where(DB::raw('YEAR(applicationDate)'),date('Y'))
+            ->where('applicationStatus','Approved')
+            ->sum('noOfDays');
+//
+//        return $leaveTaken;
+//        return $leaveLimit;
+
+        return response()->json(['leaveTaken'=>$leaveTaken,'leaveLimit'=>$leaveLimit]);
 
     }
 
