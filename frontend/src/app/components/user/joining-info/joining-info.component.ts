@@ -75,9 +75,10 @@ export class JoiningInfoComponent implements OnInit {
   getLeaveLimit(){
       const token=this.token.get();
       this.http.post(Constants.API_URL+'leave/limit/get'+'?token='+token,{id:this.empid}).subscribe(data => {
+          // console.log(data);
               this.temp=data;
-              this.totalLeaveAssigned=this.temp.totalLeave;
-              this.leaveTaken=this.temp.leaveTaken;
+              this.totalLeaveAssigned=this.temp['leaveLimit'].totalLeave;
+              this.leaveTaken=this.temp['leaveTaken'];
 
           },
           error => {
@@ -103,7 +104,7 @@ export class JoiningInfoComponent implements OnInit {
   getData(){
       const token=this.token.get();
       this.http.post(Constants.API_URL+'joinInfo/get'+'?token='+token,{id:this.employeeJoiningForm.id}).subscribe(data => {
-              console.log(data);
+              // console.log(data);
               this.JoiningForm=data;
               this.employeeJoiningForm.actualJoinDate=this.JoiningForm.actualJoinDate;
               this.employeeJoiningForm.recentJoinDate=this.JoiningForm.recentJoinDate;

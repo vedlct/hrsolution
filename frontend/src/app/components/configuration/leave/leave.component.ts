@@ -122,7 +122,7 @@ export class LeaveComponent implements OnInit {
             columns: [
                 {
                     "data": function (data: any, type: any, full: any) {
-                        return '<input type="checkbox" class="chk form-control" name="selected_rows[]" value="'+ data.empid +'" data-emp-id="'+data.empid+'">';
+                        return '<input type="checkbox" class="chk form-control" name="selected_rows[]" value="'+ data.empid +'">';
                     },
                     "orderable": false, "searchable":false, "name":"selected_rows"
                 },
@@ -143,25 +143,7 @@ export class LeaveComponent implements OnInit {
 
     ngAfterViewInit(): void {
         this.dtTrigger.next();
-        this.renderer.listenGlobal('document', 'click', (event) => {
 
-            if (event.target.hasAttribute("data-emp-id")) {
-
-                let id=event.target.getAttribute("data-emp-id");
-                console.log(id);
-                let index = this.allEmp.indexOf(id.toString());
-                if (index == -1){
-                    this.allEmp.push(id);
-                }else {
-                    this.allEmp.splice(index, 1);
-                }
-                // console.log(this.allEmp);
-            }
-
-
-
-
-        });
     }
     ngOnDestroy(): void {
         // Do not forget to unsubscribe the event
@@ -215,6 +197,11 @@ export class LeaveComponent implements OnInit {
 
         };
 
+        this.allEmp=[];
+        let that=this;
+        $(".chk:checked").each(function () {
+            that.allEmp.push($(this).val());
+        });
 
         const token=this.token.get();
 

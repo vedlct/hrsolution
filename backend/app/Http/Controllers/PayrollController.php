@@ -10,6 +10,7 @@ use App\PayGradeParent;
 use App\Payhead;
 use App\PaySalarySheetMain;
 use App\PaySalarySheetSub;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 use App\PayAdvanceLedger;
 
@@ -140,12 +141,13 @@ class PayrollController extends Controller
 
 
     public function getPaySalarySheetMain(Request $r){
+//      return $r;
         $paySalarySheetMain = PaySalarySheetMain::select('paysalarysheetsub.*', 'paysalarysheetmain.*', 'payheads.allowDeducTitle', 'paysalarysheetsub.id as paysalarysheetsub_id', 'paysalarysheetmain.id as paysalarysheetmain_id' )
                                                 ->leftJoin('paysalarysheetsub', 'paysalarysheetsub.fkSalarySheetId', 'paysalarysheetmain.id')
                                                 ->leftJoin('payheads', 'payheads.id', 'paysalarysheetsub.fkPayHead')
                                                 ->where('paysalarysheetsub.fkEmployeeId', $r->fkEmployeeId)
-                                                ->where('salaryYear', $r->salaryYear)
-                                                ->where('salaryMonth', $r->salaryMonth)
+                                                ->where('salaryYear',Carbon::parse($r->year)->format('Y'))
+                                                ->where('salaryMonth', Carbon::parse($r->year)->format('M'))
                                                 ->get();
 
         return $paySalarySheetMain;

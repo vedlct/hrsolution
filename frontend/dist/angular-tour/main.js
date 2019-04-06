@@ -180,11 +180,17 @@ var routes = [
             }
         }
     },
+    { path: 'payroll/salary/setup',
+        component: _components_payroll_pay_employee_salary_setup_pay_employee_salary_setup_component__WEBPACK_IMPORTED_MODULE_20__["PayEmployeeSalarySetupComponent"],
+        canActivate: [ngx_permissions__WEBPACK_IMPORTED_MODULE_25__["NgxPermissionsGuard"]],
+        data: {
+            permissions: {
+                only: ['admin'],
+                redirectTo: '/home'
+            }
+        }
+    },
 ];
-// @NgModule({
-//     exports: [ RouterModule ],
-//     imports: [ RouterModule.forRoot(routes) ],
-// })
 var AppRoutingModule = /** @class */ (function () {
     function AppRoutingModule() {
     }
@@ -1016,7 +1022,11 @@ module.exports = ""
 /*! no static exports found */
 /***/ (function(module, exports) {
 
+<<<<<<< HEAD
 module.exports = "<div class=\"container-fluid\">\r\n  <div class=\"card\">\r\n    <div class=\"card-header\">Leave Assign</div>\r\n\r\n    <div class=\"card-body\">\r\n\r\n      <div class=\"row\">\r\n        <div class=\"form-group col-md-3\">\r\n          <label>Start Date</label>\r\n          <input bsDatepicker\r\n                 [bsConfig]=\"{ dateInputFormat: 'YYYY-MM-DD' }\"  name=\"resignDate\" [(ngModel)]=\"startDate\" class=\"form-control input\">\r\n        </div>\r\n\r\n        <div class=\"form-group col-md-3\">\r\n          <label>End Date</label>\r\n          <input bsDatepicker\r\n                 [bsConfig]=\"{ dateInputFormat: 'YYYY-MM-DD' }\"  name=\"resignDate\" [(ngModel)]=\"endDate\" class=\"form-control input\">\r\n        </div>\r\n\r\n        <div class=\"form-group col-md-3\">\r\n          <label>No Of Days</label>\r\n          <input type=\"number\" class=\"form-control input\" [(ngModel)]=\"noOfDays\" placeholder=\"number of days\">\r\n        </div>\r\n\r\n        <div class=\"form-group col-md-3\">\r\n          <label>Leave Category</label>\r\n          <select class=\"form-control input\" name=\"fkLeaveCategory\" [(ngModel)]=\"fkLeaveCategory\"  (change)=\"selectCategory($event.target.value)\">\r\n            <option value=\"\" selected>Select Category</option>\r\n            <option *ngFor=\"let lc of leaveCategories\" [value]=\"lc.id\">\r\n              {{lc.categoryName}}\r\n            </option>\r\n          </select>\r\n        </div>\r\n\r\n        <div class=\"form-group col-md-3\">\r\n          <label>Leave Team</label>\r\n          <select class=\"form-control\" name=\"shift\" id=\"team\"  (change)=\"selectTeam($event.target.value)\">\r\n            <option value=\"\">Select Team</option>\r\n            <option *ngFor=\"let tm of team\" [value]=\"tm.teamId\">\r\n              {{tm.teamName}}\r\n            </option>\r\n          </select>\r\n        </div>\r\n\r\n        <div class=\"form-group col-md-3\">\r\n          <label>Remark</label>\r\n          <textarea class=\"form-control input\" [(ngModel)]=\"remark\" placeholder=\"remark\"></textarea>\r\n        </div>\r\n\r\n        <div class=\"form-group col-md-3\">\r\n          <button class=\"btn btn-success btn-sm\" (click)=\"assignLeave()\">Assign</button>\r\n        </div>\r\n\r\n\r\n\r\n      </div>\r\n\r\n\r\n      <!--<input style=\"margin-left: 15px\" type=\"checkbox\" class=\"SelectAll\" id=\"selectall2\"  (click)=\"selectAll()\"/><b>Select All</b><br>-->\r\n      <table datatable class=\"table\" [dtOptions]=\"dtOptions\" [dtTrigger]=\"dtTrigger\">\r\n        <thead>\r\n        <tr>\r\n          <th style=\"text-align: center\"><input type=\"checkbox\" class=\"SelectAll\" id=\"selectall2\"  (click)=\"selectAll()\"/></th>\r\n          <th>Name</th>\r\n          <th>Employee ID</th>\r\n          <th>Shift Name</th>\r\n          <th>Weekend</th>\r\n          <th>Shift Start</th>\r\n          <th>Team</th>\r\n\r\n        </tr>\r\n        </thead>\r\n\r\n        <tbody>\r\n\r\n        </tbody>\r\n\r\n      </table>\r\n\r\n\r\n    </div>\r\n  </div>\r\n</div>\r\n\r\n\r\n"
+=======
+module.exports = "<div class=\"container-fluid\">\n  <div class=\"card\">\n    <div class=\"card-header\">Leave Assign</div>\n\n    <div class=\"card-body\">\n\n      <div class=\"row\">\n        <div class=\"form-group col-md-3\">\n          <label>Start Date</label>\n          <input bsDatepicker\n                 [bsConfig]=\"{ dateInputFormat: 'YYYY-MM-DD' }\" name=\"resignDate\" [(ngModel)]=\"startDate\" class=\"form-control input\">\n        </div>\n\n        <div class=\"form-group col-md-3\">\n          <label>End Date</label>\n          <input bsDatepicker\n                 [bsConfig]=\"{ dateInputFormat: 'YYYY-MM-DD' }\"  name=\"resignDate\" [(ngModel)]=\"endDate\" class=\"form-control input\">\n        </div>\n\n        <div class=\"form-group col-md-3\">\n          <label>No Of Days</label>\n          <input type=\"number\" class=\"form-control input\" [(ngModel)]=\"noOfDays\" placeholder=\"number of days\">\n        </div>\n\n        <div class=\"form-group col-md-3\">\n          <label>Leave Category</label>\n          <select class=\"form-control input\" name=\"fkLeaveCategory\" [(ngModel)]=\"fkLeaveCategory\"  (change)=\"selectCategory($event.target.value)\">\n            <option value=\"\" selected>Select Category</option>\n            <option *ngFor=\"let lc of leaveCategories\" [value]=\"lc.id\">\n              {{lc.categoryName}}\n            </option>\n          </select>\n        </div>\n\n        <div class=\"form-group col-md-3\">\n          <label>Leave Team</label>\n          <select class=\"form-control\" name=\"shift\" id=\"team\"  (change)=\"selectTeam($event.target.value)\">\n            <option value=\"\">Select Team</option>\n            <option *ngFor=\"let tm of team\" [value]=\"tm.teamId\">\n              {{tm.teamName}}\n            </option>\n          </select>\n        </div>\n\n        <div class=\"form-group col-md-3\">\n          <label>Remark</label>\n          <textarea class=\"form-control input\" [(ngModel)]=\"remark\" placeholder=\"remark\"></textarea>\n        </div>\n\n        <div class=\"form-group col-md-3\">\n          <button class=\"btn btn-success btn-sm\" (click)=\"assignLeave()\">Assign</button>\n        </div>\n\n\n\n      </div>\n\n\n      <!--<input style=\"margin-left: 15px\" type=\"checkbox\" class=\"SelectAll\" id=\"selectall2\"  (click)=\"selectAll()\"/><b>Select All</b><br>-->\n      <table datatable class=\"table\" [dtOptions]=\"dtOptions\" [dtTrigger]=\"dtTrigger\">\n        <thead>\n        <tr>\n          <th style=\"text-align: center\"><input type=\"checkbox\" class=\"SelectAll\" id=\"selectall2\"  (click)=\"selectAll()\"/></th>\n          <th>Name</th>\n          <th>Employee ID</th>\n          <th>Shift Name</th>\n          <th>Weekend</th>\n          <th>Shift Start</th>\n          <th>Team</th>\n\n        </tr>\n        </thead>\n\n        <tbody>\n\n        </tbody>\n\n      </table>\n\n\n    </div>\n  </div>\n</div>\n\n\n"
+>>>>>>> b051dd25e6d4a0df63c94fd965cb30eaeb0192db
 
 /***/ }),
 
@@ -1135,7 +1145,7 @@ var LeaveComponent = /** @class */ (function () {
             columns: [
                 {
                     "data": function (data, type, full) {
-                        return '<input type="checkbox" class="chk form-control" name="selected_rows[]" value="' + data.empid + '" data-emp-id="' + data.empid + '">';
+                        return '<input type="checkbox" class="chk form-control" name="selected_rows[]" value="' + data.empid + '">';
                     },
                     "orderable": false, "searchable": false, "name": "selected_rows"
                 },
@@ -1153,22 +1163,7 @@ var LeaveComponent = /** @class */ (function () {
         };
     };
     LeaveComponent.prototype.ngAfterViewInit = function () {
-        var _this = this;
         this.dtTrigger.next();
-        this.renderer.listenGlobal('document', 'click', function (event) {
-            if (event.target.hasAttribute("data-emp-id")) {
-                var id = event.target.getAttribute("data-emp-id");
-                console.log(id);
-                var index = _this.allEmp.indexOf(id.toString());
-                if (index == -1) {
-                    _this.allEmp.push(id);
-                }
-                else {
-                    _this.allEmp.splice(index, 1);
-                }
-                // console.log(this.allEmp);
-            }
-        });
     };
     LeaveComponent.prototype.ngOnDestroy = function () {
         // Do not forget to unsubscribe the event
@@ -1208,6 +1203,11 @@ var LeaveComponent = /** @class */ (function () {
             remark: this.remark,
             fkLeaveCategory: this.fkLeaveCategory,
         };
+        this.allEmp = [];
+        var that = this;
+        $(".chk:checked").each(function () {
+            that.allEmp.push($(this).val());
+        });
         var token = this.token.get();
         this.http.post(_constants__WEBPACK_IMPORTED_MODULE_1__["Constants"].API_URL + 'leave/assignLeave' + '?token=' + token, form).subscribe(function (data) {
             // console.log(data);
@@ -2355,7 +2355,11 @@ module.exports = ""
 /*! no static exports found */
 /***/ (function(module, exports) {
 
+<<<<<<< HEAD
 module.exports = "<!-- Navigation Bar-->\r\n<header id=\"topnav\">\r\n  <div class=\"topbar-main\">\r\n    <div class=\"container-fluid\">\r\n\r\n      <div class=\"logo\">\r\n\r\n        <a routerLink=\"/home\" class=\"logo\">\r\n          <h3>HR</h3>\r\n        </a>\r\n\r\n      </div>\r\n\r\n      <div class=\"menu-extras topbar-custom\">\r\n        <!-- Search input -->\r\n        <div class=\"search-wrap\" id=\"search-wrap\">\r\n          <div class=\"search-bar\">\r\n            <input class=\"search-input\" type=\"search\" placeholder=\"Search\" />\r\n            <a href=\"#\" class=\"close-search toggle-search\" data-target=\"#search-wrap\">\r\n              <i class=\"mdi mdi-close-circle\"></i>\r\n            </a>\r\n          </div>\r\n        </div>\r\n\r\n        <ul class=\"list-inline float-right mb-0\">\r\n          <!-- Search -->\r\n          <li class=\"list-inline-item dropdown notification-list\">\r\n            <a class=\"nav-link waves-effect toggle-search\" href=\"#\"  data-target=\"#search-wrap\">\r\n              <i class=\"mdi mdi-magnify noti-icon\"></i>\r\n            </a>\r\n          </li>\r\n          <!-- Messages-->\r\n          <li class=\"list-inline-item dropdown notification-list\">\r\n            <a class=\"nav-link dropdown-toggle arrow-none waves-effect\" data-toggle=\"dropdown\" href=\"#\" role=\"button\"\r\n               aria-haspopup=\"false\" aria-expanded=\"false\">\r\n              <i class=\"mdi mdi-email-outline noti-icon\"></i>\r\n              <span class=\"badge badge-danger noti-icon-badge\">3</span>\r\n            </a>\r\n            <div class=\"dropdown-menu dropdown-menu-right dropdown-arrow dropdown-menu-lg\">\r\n              <!-- item-->\r\n              <div class=\"dropdown-item noti-title\">\r\n                <h5><span class=\"badge badge-danger float-right\">745</span>Messages</h5>\r\n              </div>\r\n\r\n              <!-- item-->\r\n              <a href=\"javascript:void(0);\" class=\"dropdown-item notify-item\">\r\n                <div class=\"notify-icon\"><img src=\"assets/images/users/avatar-2.jpg\" alt=\"user-img\" class=\"img-fluid rounded-circle\" /> </div>\r\n                <p class=\"notify-details\"><b>Charles M. Jones</b><small class=\"text-muted\">Dummy text of the printing and typesetting industry.</small></p>\r\n              </a>\r\n\r\n              <!-- item-->\r\n              <a href=\"javascript:void(0);\" class=\"dropdown-item notify-item\">\r\n                <div class=\"notify-icon\"><img src=\"assets/images/users/avatar-3.jpg\" alt=\"user-img\" class=\"img-fluid rounded-circle\" /> </div>\r\n                <p class=\"notify-details\"><b>Thomas J. Mimms</b><small class=\"text-muted\">You have 87 unread messages</small></p>\r\n              </a>\r\n\r\n              <!-- item-->\r\n              <a href=\"javascript:void(0);\" class=\"dropdown-item notify-item\">\r\n                <div class=\"notify-icon\"><img src=\"assets/images/users/avatar-4.jpg\" alt=\"user-img\" class=\"img-fluid rounded-circle\" /> </div>\r\n                <p class=\"notify-details\"><b>Luis M. Konrad</b><small class=\"text-muted\">It is a long established fact that a reader will</small></p>\r\n              </a>\r\n\r\n              <!-- All-->\r\n              <a href=\"javascript:void(0);\" class=\"dropdown-item notify-item\">\r\n                View All\r\n              </a>\r\n\r\n            </div>\r\n          </li>\r\n          <!-- notification-->\r\n          <li class=\"list-inline-item dropdown notification-list\">\r\n            <a class=\"nav-link dropdown-toggle arrow-none waves-effect\" data-toggle=\"dropdown\" href=\"#\" role=\"button\"\r\n               aria-haspopup=\"false\" aria-expanded=\"false\">\r\n              <i class=\"mdi mdi-bell-outline noti-icon\"></i>\r\n              <span class=\"badge badge-danger noti-icon-badge\">3</span>\r\n            </a>\r\n            <div class=\"dropdown-menu dropdown-menu-right dropdown-arrow dropdown-menu-lg\">\r\n              <!-- item-->\r\n              <div class=\"dropdown-item noti-title\">\r\n                <h5>Notification (3)</h5>\r\n              </div>\r\n\r\n              <!-- item-->\r\n              <a href=\"javascript:void(0);\" class=\"dropdown-item notify-item active\">\r\n                <div class=\"notify-icon bg-success\"><i class=\"mdi mdi-cart-outline\"></i></div>\r\n                <p class=\"notify-details\"><b>Your order is placed</b><small class=\"text-muted\">Dummy text of the printing and typesetting industry.</small></p>\r\n              </a>\r\n\r\n              <!-- item-->\r\n              <a href=\"javascript:void(0);\" class=\"dropdown-item notify-item\">\r\n                <div class=\"notify-icon bg-warning\"><i class=\"mdi mdi-message\"></i></div>\r\n                <p class=\"notify-details\"><b>New Message received</b><small class=\"text-muted\">You have 87 unread messages</small></p>\r\n              </a>\r\n\r\n              <!-- item-->\r\n              <a href=\"javascript:void(0);\" class=\"dropdown-item notify-item\">\r\n                <div class=\"notify-icon bg-info\"><i class=\"mdi mdi-martini\"></i></div>\r\n                <p class=\"notify-details\"><b>Your item is shipped</b><small class=\"text-muted\">It is a long established fact that a reader will</small></p>\r\n              </a>\r\n\r\n              <!-- All-->\r\n              <a href=\"javascript:void(0);\" class=\"dropdown-item notify-item\">\r\n                View All\r\n              </a>\r\n\r\n            </div>\r\n          </li>\r\n          <!-- User-->\r\n          <li class=\"list-inline-item dropdown notification-list\">\r\n            <a class=\"nav-link dropdown-toggle arrow-none waves-effect nav-user\" data-toggle=\"dropdown\" href=\"#\" role=\"button\"\r\n               aria-haspopup=\"false\" aria-expanded=\"false\">\r\n              <img src=\"assets/images/users/avatar-1.jpg\" alt=\"user\" class=\"rounded-circle\">\r\n            </a>\r\n            <div class=\"dropdown-menu dropdown-menu-right profile-dropdown \">\r\n              <a class=\"dropdown-item\" routerLink=\"profile\"><i class=\"dripicons-user text-muted\"></i> Profile</a>\r\n              <a class=\"dropdown-item\" href=\"#\"><i class=\"dripicons-wallet text-muted\"></i> My Wallet</a>\r\n              <a class=\"dropdown-item\" href=\"#\"><span class=\"badge badge-success pull-right m-t-5\">5</span><i class=\"dripicons-gear text-muted\"></i> Settings</a>\r\n              <a class=\"dropdown-item\" href=\"#\" (click)=\"whoAmI($event)\"><i class=\"dripicons-lock text-muted\"></i> Who Am I</a>\r\n              <div class=\"dropdown-divider\"></div>\r\n              <a class=\"dropdown-item\" href=\"#\" (click)=\"logout($event)\"><i class=\"dripicons-exit text-muted\"></i> Logout</a>\r\n            </div>\r\n          </li>\r\n          <li class=\"menu-item list-inline-item\">\r\n            <!-- Mobile menu toggle-->\r\n            <a class=\"navbar-toggle nav-link\">\r\n              <div class=\"lines\">\r\n                <span></span>\r\n                <span></span>\r\n                <span></span>\r\n              </div>\r\n            </a>\r\n            <!-- End mobile menu toggle-->\r\n          </li>\r\n\r\n        </ul>\r\n      </div>\r\n      <!-- end menu-extras -->\r\n\r\n      <div class=\"clearfix\"></div>\r\n\r\n    </div> <!-- end container -->\r\n  </div>\r\n  <!-- end topbar-main -->\r\n\r\n  <!-- MENU Start -->\r\n  <div class=\"navbar-custom\">\r\n    <div class=\"container-fluid\">\r\n      <div id=\"navigation\">\r\n        <!-- Navigation Menu-->\r\n        <ul class=\"navigation-menu\">\r\n\r\n          <li class=\"has-submenu\" routerLinkActive=\"active\">\r\n            <a routerLink=\"/home\" ><i class=\"ti-home\"></i>Dashboard</a>\r\n          </li>\r\n\r\n          <li class=\"has-submenu\" routerLinkActive=\"active\">\r\n            <a href=\"#\"><i class=\"ti-bookmark-alt\"></i>Components</a>\r\n            <ul class=\"submenu\">\r\n              <li class=\"has-submenu\" *ngxPermissionsOnly=\"['admin']\">\r\n                <a href=\"#\">Shift</a>\r\n                <ul class=\"submenu\">\r\n                  <li><a routerLink=\"configuration/shift\">All Shift</a></li>\r\n                  <li><a routerLink=\"configuration/shift/assign\">Shift Assign</a></li>\r\n                </ul>\r\n              </li>\r\n\r\n              <li class=\"has-submenu\">\r\n                <a href=\"#\">Leave</a>\r\n                <ul class=\"submenu\">\r\n                  <li><a routerLink=\"leave/apply\">Apply Leave</a></li>\r\n                  <li><a routerLink=\"configuration/leave\" *ngxPermissionsOnly=\"['admin']\">Create Leave</a></li>\r\n                  <li><a routerLink=\"configuration/leave/show\" *ngxPermissionsOnly=\"['admin']\">Show Leave</a></li>\r\n                </ul>\r\n              </li>\r\n\r\n\r\n              <li class=\"has-submenu\" *ngxPermissionsOnly=\"['admin']\">\r\n                <a href=\"#\">User</a>\r\n                <ul class=\"submenu\">\r\n                  <li><a routerLink=\"user/add\">Add User</a></li>\r\n                </ul>\r\n              </li>\r\n              <li class=\"has-submenu\" *ngxPermissionsOnly=\"['admin']\">\r\n                <a href=\"#\">Employee</a>\r\n                <ul class=\"submenu\">\r\n                  <li><a routerLink=\"employee\">Employee</a></li>\r\n                  <li><a routerLink=\"employee/past\">Past Employee</a></li>\r\n                  <li><a routerLink=\"employee/add\">Add Employee</a></li>\r\n                </ul>\r\n              </li>\r\n\r\n              <li class=\"has-submenu\" *ngxPermissionsOnly=\"['admin']\">\r\n                <a href=\"#\">Company</a>\r\n                <ul class=\"submenu\">\r\n                  <li><a routerLink=\"company/add\">Company Info</a></li>\r\n                </ul>\r\n              </li>\r\n\r\n            </ul>\r\n          </li>\r\n\r\n\r\n          <li class=\"has-submenu\" routerLinkActive=\"active\">\r\n            <a routerLink=\"#\" ><i class=\"fa fa-chart\"></i>Report</a>\r\n            <ul class=\"submenu\">\r\n              <li class=\"\">\r\n                <a routerLink=\"report/attendance\">Attendance</a>\r\n\r\n              </li>\r\n            </ul>\r\n          </li>\r\n\r\n\r\n          <li class=\"has-submenu\" routerLinkActive=\"active\" *ngxPermissionsOnly=\"['admin']\">\r\n            <a routerLink=\"#\" ><i class=\"fa fa-chart\"></i>Team</a>\r\n            <ul class=\"submenu\">\r\n              <li class=\"\">\r\n                <a routerLink=\"team/show\">Show Team</a>\r\n                <a routerLink=\"team/assign\">Assign Team</a>\r\n                <a routerLink=\"leave/team/add\">Show Leave Team</a>\r\n                <a routerLink=\"leave/team\">Leave Team</a>\r\n              </li>\r\n            </ul>\r\n          </li>\r\n\r\n\r\n          <li class=\"has-submenu\" routerLinkActive=\"active\" *ngxPermissionsOnly=\"['admin']\">\r\n            <a routerLink=\"#\" ><i class=\"fa fa-chart\"></i>Payroll</a>\r\n            <ul class=\"submenu\">\r\n              <li class=\"\">\r\n                <a routerLink=\"payroll/pay-grade\">Pay Grade</a>\r\n                <a routerLink=\"payroll/payhead\">Pay Head</a>\r\n                <a routerLink=\"payroll/salary-sheet\">Salary Sheet</a>\r\n                <a routerLink=\"payroll/pay-advance\">Advance Payment</a>\r\n\r\n              </li>\r\n            </ul>\r\n          </li>\r\n\r\n          <!--<li class=\"has-submenu\">-->\r\n            <!--<a href=\"#\"><i class=\"ti-files\"></i>Pages</a>-->\r\n            <!--<ul class=\"submenu megamenu\">-->\r\n              <!--<li>-->\r\n                <!--<ul>-->\r\n                  <!--<li><a routerLink=\"/login\">Login</a></li>-->\r\n                <!--</ul>-->\r\n              <!--</li>-->\r\n            <!--</ul>-->\r\n          <!--</li>-->\r\n\r\n        </ul>\r\n        <!-- End navigation menu -->\r\n      </div> <!-- end #navigation -->\r\n    </div> <!-- end container -->\r\n  </div> <!-- end navbar-custom -->\r\n\r\n\r\n\r\n\r\n</header>\r\n<!-- End Navigation Bar-->\r\n\r\n"
+=======
+module.exports = "<!-- Navigation Bar-->\n<header id=\"topnav\">\n  <div class=\"topbar-main\">\n    <div class=\"container-fluid\">\n\n      <div class=\"logo\">\n\n        <a routerLink=\"/home\" class=\"logo\">\n          <h3>HR</h3>\n        </a>\n\n      </div>\n\n      <div class=\"menu-extras topbar-custom\">\n        <!-- Search input -->\n        <div class=\"search-wrap\" id=\"search-wrap\">\n          <div class=\"search-bar\">\n            <input class=\"search-input\" type=\"search\" placeholder=\"Search\" />\n            <a href=\"#\" class=\"close-search toggle-search\" data-target=\"#search-wrap\">\n              <i class=\"mdi mdi-close-circle\"></i>\n            </a>\n          </div>\n        </div>\n\n        <ul class=\"list-inline float-right mb-0\">\n          <!-- Search -->\n          <li class=\"list-inline-item dropdown notification-list\">\n            <a class=\"nav-link waves-effect toggle-search\" href=\"#\"  data-target=\"#search-wrap\">\n              <i class=\"mdi mdi-magnify noti-icon\"></i>\n            </a>\n          </li>\n          <!-- Messages-->\n          <li class=\"list-inline-item dropdown notification-list\">\n            <a class=\"nav-link dropdown-toggle arrow-none waves-effect\" data-toggle=\"dropdown\" href=\"#\" role=\"button\"\n               aria-haspopup=\"false\" aria-expanded=\"false\">\n              <i class=\"mdi mdi-email-outline noti-icon\"></i>\n              <span class=\"badge badge-danger noti-icon-badge\">3</span>\n            </a>\n            <div class=\"dropdown-menu dropdown-menu-right dropdown-arrow dropdown-menu-lg\">\n              <!-- item-->\n              <div class=\"dropdown-item noti-title\">\n                <h5><span class=\"badge badge-danger float-right\">745</span>Messages</h5>\n              </div>\n\n              <!-- item-->\n              <a href=\"javascript:void(0);\" class=\"dropdown-item notify-item\">\n                <div class=\"notify-icon\"><img src=\"assets/images/users/avatar-2.jpg\" alt=\"user-img\" class=\"img-fluid rounded-circle\" /> </div>\n                <p class=\"notify-details\"><b>Charles M. Jones</b><small class=\"text-muted\">Dummy text of the printing and typesetting industry.</small></p>\n              </a>\n\n              <!-- item-->\n              <a href=\"javascript:void(0);\" class=\"dropdown-item notify-item\">\n                <div class=\"notify-icon\"><img src=\"assets/images/users/avatar-3.jpg\" alt=\"user-img\" class=\"img-fluid rounded-circle\" /> </div>\n                <p class=\"notify-details\"><b>Thomas J. Mimms</b><small class=\"text-muted\">You have 87 unread messages</small></p>\n              </a>\n\n              <!-- item-->\n              <a href=\"javascript:void(0);\" class=\"dropdown-item notify-item\">\n                <div class=\"notify-icon\"><img src=\"assets/images/users/avatar-4.jpg\" alt=\"user-img\" class=\"img-fluid rounded-circle\" /> </div>\n                <p class=\"notify-details\"><b>Luis M. Konrad</b><small class=\"text-muted\">It is a long established fact that a reader will</small></p>\n              </a>\n\n              <!-- All-->\n              <a href=\"javascript:void(0);\" class=\"dropdown-item notify-item\">\n                View All\n              </a>\n\n            </div>\n          </li>\n          <!-- notification-->\n          <li class=\"list-inline-item dropdown notification-list\">\n            <a class=\"nav-link dropdown-toggle arrow-none waves-effect\" data-toggle=\"dropdown\" href=\"#\" role=\"button\"\n               aria-haspopup=\"false\" aria-expanded=\"false\">\n              <i class=\"mdi mdi-bell-outline noti-icon\"></i>\n              <span class=\"badge badge-danger noti-icon-badge\">3</span>\n            </a>\n            <div class=\"dropdown-menu dropdown-menu-right dropdown-arrow dropdown-menu-lg\">\n              <!-- item-->\n              <div class=\"dropdown-item noti-title\">\n                <h5>Notification (3)</h5>\n              </div>\n\n              <!-- item-->\n              <a href=\"javascript:void(0);\" class=\"dropdown-item notify-item active\">\n                <div class=\"notify-icon bg-success\"><i class=\"mdi mdi-cart-outline\"></i></div>\n                <p class=\"notify-details\"><b>Your order is placed</b><small class=\"text-muted\">Dummy text of the printing and typesetting industry.</small></p>\n              </a>\n\n              <!-- item-->\n              <a href=\"javascript:void(0);\" class=\"dropdown-item notify-item\">\n                <div class=\"notify-icon bg-warning\"><i class=\"mdi mdi-message\"></i></div>\n                <p class=\"notify-details\"><b>New Message received</b><small class=\"text-muted\">You have 87 unread messages</small></p>\n              </a>\n\n              <!-- item-->\n              <a href=\"javascript:void(0);\" class=\"dropdown-item notify-item\">\n                <div class=\"notify-icon bg-info\"><i class=\"mdi mdi-martini\"></i></div>\n                <p class=\"notify-details\"><b>Your item is shipped</b><small class=\"text-muted\">It is a long established fact that a reader will</small></p>\n              </a>\n\n              <!-- All-->\n              <a href=\"javascript:void(0);\" class=\"dropdown-item notify-item\">\n                View All\n              </a>\n\n            </div>\n          </li>\n          <!-- User-->\n          <li class=\"list-inline-item dropdown notification-list\">\n            <a class=\"nav-link dropdown-toggle arrow-none waves-effect nav-user\" data-toggle=\"dropdown\" href=\"#\" role=\"button\"\n               aria-haspopup=\"false\" aria-expanded=\"false\">\n              <img src=\"assets/images/users/avatar-1.jpg\" alt=\"user\" class=\"rounded-circle\">\n            </a>\n            <div class=\"dropdown-menu dropdown-menu-right profile-dropdown \">\n              <a class=\"dropdown-item\" routerLink=\"profile\"><i class=\"dripicons-user text-muted\"></i> Profile</a>\n              <a class=\"dropdown-item\" href=\"#\"><i class=\"dripicons-wallet text-muted\"></i> My Wallet</a>\n              <a class=\"dropdown-item\" href=\"#\"><span class=\"badge badge-success pull-right m-t-5\">5</span><i class=\"dripicons-gear text-muted\"></i> Settings</a>\n              <a class=\"dropdown-item\" href=\"#\" (click)=\"whoAmI($event)\"><i class=\"dripicons-lock text-muted\"></i> Who Am I</a>\n              <div class=\"dropdown-divider\"></div>\n              <a class=\"dropdown-item\" href=\"#\" (click)=\"logout($event)\"><i class=\"dripicons-exit text-muted\"></i> Logout</a>\n            </div>\n          </li>\n          <li class=\"menu-item list-inline-item\">\n            <!-- Mobile menu toggle-->\n            <a class=\"navbar-toggle nav-link\">\n              <div class=\"lines\">\n                <span></span>\n                <span></span>\n                <span></span>\n              </div>\n            </a>\n            <!-- End mobile menu toggle-->\n          </li>\n\n        </ul>\n      </div>\n      <!-- end menu-extras -->\n\n      <div class=\"clearfix\"></div>\n\n    </div> <!-- end container -->\n  </div>\n  <!-- end topbar-main -->\n\n  <!-- MENU Start -->\n  <div class=\"navbar-custom\">\n    <div class=\"container-fluid\">\n      <div id=\"navigation\">\n        <!-- Navigation Menu-->\n        <ul class=\"navigation-menu\">\n\n          <li class=\"has-submenu\" routerLinkActive=\"active\">\n            <a routerLink=\"/home\" ><i class=\"ti-home\"></i>Dashboard</a>\n          </li>\n\n          <li class=\"has-submenu\" routerLinkActive=\"active\">\n            <a href=\"#\"><i class=\"ti-bookmark-alt\"></i>Components</a>\n            <ul class=\"submenu\">\n              <li class=\"has-submenu\" *ngxPermissionsOnly=\"['admin']\">\n                <a href=\"#\">Shift</a>\n                <ul class=\"submenu\">\n                  <li><a routerLink=\"configuration/shift\">All Shift</a></li>\n                  <li><a routerLink=\"configuration/shift/assign\">Shift Assign</a></li>\n                </ul>\n              </li>\n\n              <li class=\"has-submenu\">\n                <a href=\"#\">Leave</a>\n                <ul class=\"submenu\">\n                  <li><a routerLink=\"leave/apply\">Apply Leave</a></li>\n                  <li><a routerLink=\"configuration/leave\" *ngxPermissionsOnly=\"['admin']\">Create Leave</a></li>\n                  <li><a routerLink=\"configuration/leave/show\" *ngxPermissionsOnly=\"['admin']\">Show Leave</a></li>\n                </ul>\n              </li>\n\n\n              <li class=\"has-submenu\" *ngxPermissionsOnly=\"['admin']\">\n                <a href=\"#\">User</a>\n                <ul class=\"submenu\">\n                  <li><a routerLink=\"user/add\">Add User</a></li>\n                </ul>\n              </li>\n              <li class=\"has-submenu\" *ngxPermissionsOnly=\"['admin']\">\n                <a href=\"#\">Employee</a>\n                <ul class=\"submenu\">\n                  <li><a routerLink=\"employee\">Employee</a></li>\n                  <li><a routerLink=\"employee/past\">Past Employee</a></li>\n                  <li><a routerLink=\"employee/add\">Add Employee</a></li>\n                </ul>\n              </li>\n\n              <li class=\"has-submenu\" *ngxPermissionsOnly=\"['admin']\">\n                <a href=\"#\">Company</a>\n                <ul class=\"submenu\">\n                  <li><a routerLink=\"company/add\">Company Info</a></li>\n                </ul>\n              </li>\n\n            </ul>\n          </li>\n\n\n          <li class=\"has-submenu\" routerLinkActive=\"active\">\n            <a routerLink=\"#\" ><i class=\"fa fa-chart\"></i>Report</a>\n            <ul class=\"submenu\">\n              <li class=\"\">\n                <a routerLink=\"report/attendance\">Attendance</a>\n\n              </li>\n            </ul>\n          </li>\n\n\n          <li class=\"has-submenu\" routerLinkActive=\"active\" *ngxPermissionsOnly=\"['admin']\">\n            <a routerLink=\"#\" ><i class=\"fa fa-chart\"></i>Team</a>\n            <ul class=\"submenu\">\n              <li class=\"\">\n                <a routerLink=\"team/show\">Show Team</a>\n                <a routerLink=\"team/assign\">Assign Team</a>\n                <a routerLink=\"leave/team/add\">Show Leave Team</a>\n                <a routerLink=\"leave/team\">Leave Team</a>\n              </li>\n            </ul>\n          </li>\n\n\n          <li class=\"has-submenu\" routerLinkActive=\"active\" *ngxPermissionsOnly=\"['admin']\">\n            <a routerLink=\"#\" ><i class=\"fa fa-chart\"></i>Payroll</a>\n            <ul class=\"submenu\">\n              <li class=\"\">\n                <a routerLink=\"payroll/pay-grade\">Pay Grade</a>\n                <a routerLink=\"payroll/payhead\">Pay Head</a>\n                <a routerLink=\"payroll/salary-sheet\">Salary Sheet</a>\n                <a routerLink=\"payroll/pay-advance\">Advance Payment</a>\n                <a routerLink=\"payroll/salary/setup\">Salary Setup</a>\n\n              </li>\n            </ul>\n          </li>\n\n          <!--<li class=\"has-submenu\">-->\n            <!--<a href=\"#\"><i class=\"ti-files\"></i>Pages</a>-->\n            <!--<ul class=\"submenu megamenu\">-->\n              <!--<li>-->\n                <!--<ul>-->\n                  <!--<li><a routerLink=\"/login\">Login</a></li>-->\n                <!--</ul>-->\n              <!--</li>-->\n            <!--</ul>-->\n          <!--</li>-->\n\n        </ul>\n        <!-- End navigation menu -->\n      </div> <!-- end #navigation -->\n    </div> <!-- end container -->\n  </div> <!-- end navbar-custom -->\n\n\n\n\n</header>\n<!-- End Navigation Bar-->\n\n"
+>>>>>>> b051dd25e6d4a0df63c94fd965cb30eaeb0192db
 
 /***/ }),
 
@@ -2488,7 +2492,7 @@ var NavbarComponent = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = ""
+module.exports = "hr{\n    border: 1px dotted #ff0000;\n    border-style: none none dotted;\n    color: #fff;\n    background-color: #fff;\n}"
 
 /***/ }),
 
@@ -2546,6 +2550,7 @@ var PayAdvanceComponent = /** @class */ (function () {
         this.payAdvanceModel = {};
     }
     PayAdvanceComponent.prototype.ngOnInit = function () {
+        var _this = this;
         this.payAdvanceModel.status = "";
         this.payAdvanceModel.empName = "";
         var token = this.token.get();
@@ -2563,11 +2568,18 @@ var PayAdvanceComponent = /** @class */ (function () {
                 { data: 'departmentName', name: 'hrmdepartments.departmentName' },
                 {
                     "data": function (data, type, full) {
-                        return ' <button class="btn btn-info" data-emp-id="' + data.empid + '" data-emp-name="' + data.firstName + ' ' + data.middleName + ' ' + data.lastName + '">Select</button>';
+                        return ' <button class="btn btn-info select-user" data-panel-id="' + data.empid + '" data-emp-name="' + data.firstName + ' ' + data.middleName + ' ' + data.lastName + '">Select</button>';
                     },
                     "orderable": false, "searchable": false, "name": "selected_rows"
                 }
             ],
+            drawCallback: function () {
+                $('.select-user').on('click', function (event) {
+                    _this.payAdvanceModel.fkEmployeeId = event.target.getAttribute("data-panel-id");
+                    _this.payAdvanceModel.empName = event.target.getAttribute("data-emp-name").replace(null, "");
+                    return false;
+                });
+            },
             processing: true,
             serverSide: true,
             pagingType: 'full_numbers',
@@ -2576,16 +2588,18 @@ var PayAdvanceComponent = /** @class */ (function () {
         };
     };
     PayAdvanceComponent.prototype.ngAfterViewInit = function () {
-        var _this = this;
         this.dtTrigger.next();
-        this.renderer.listenGlobal('document', 'click', function (event) {
-            if (event.target.hasAttribute("data-emp-id")) {
-                // this.router.navigate(["employee/edit/" + event.target.getAttribute("data-emp-id")]);
-                // alert(event.target.getAttribute("data-emp-id"));
-                _this.payAdvanceModel.empId = event.target.getAttribute("data-emp-id");
-                _this.payAdvanceModel.empName = event.target.getAttribute("data-emp-name").replace(null, "");
-            }
-        });
+        // this.renderer.listenGlobal('document', 'click', (event) => {
+        //
+        //     if (event.target.hasAttribute("data-emp-id")) {
+        //         // this.router.navigate(["employee/edit/" + event.target.getAttribute("data-emp-id")]);
+        //         // alert(event.target.getAttribute("data-emp-id"));
+        //         this.payAdvanceModel.empId = event.target.getAttribute("data-emp-id");
+        //         this.payAdvanceModel.empName = event.target.getAttribute("data-emp-name").replace(null, "");
+        //     }
+        //
+        //
+        // });
     };
     PayAdvanceComponent.prototype.payAdvanceSubmit = function () {
         // this.payAdvanceModel.fkPayHeadId=this.model.payroll;
@@ -2695,7 +2709,11 @@ module.exports = ""
 /*! no static exports found */
 /***/ (function(module, exports) {
 
+<<<<<<< HEAD
 module.exports = "<div class=\"card\">\r\n  <div class=\"card-header-pills\">\r\n    <h3 align=\"center\" style=\"font-family: 'Righteous', cursive;\">Add Employee Salary</h3>\r\n  </div>\r\n  <div class=\"card-body\">\r\n    <pre>{{myForm.value | json}}</pre>\r\n    <form #myForm=\"ngForm\">\r\n      <div class=\"row\">\r\n\r\n\r\n        <div class=\"form-group col-md-6\">\r\n          <label>Select Employee</label>\r\n\r\n          <select class=\"form-control\" name=\"fkEmployeeId\">\r\n            <option>Select Employee</option>\r\n            <option>Emp 1</option>\r\n            <option>Emp 2</option>\r\n            <option>Emp 3</option>\r\n          </select>\r\n\r\n        </div>\r\n\r\n\r\n        <div class=\"form-group col-md-6\">\r\n          <label>Amount</label>\r\n          <input type=\"number\" placeholder=\"tk\" name=\"amount\" class=\"form-control\">\r\n        </div>\r\n\r\n        <div class=\"form-group col-md-6\">\r\n          <label>Description</label>\r\n          <input type=\"text\" placeholder=\"description\" name=\"description\" class=\"form-control\">\r\n        </div>\r\n\r\n        <div class=\"form-group col-md-6\">\r\n          <label>Gross Percent</label>\r\n          <input type=\"number\" placeholder=\"grossPercent\"  name=\"grossPercent\" class=\"form-control\" [(ngModel)]=\"grossPercent\" required >\r\n        </div>\r\n\r\n        <div class=\"form-group col-md-6\">\r\n          <button class=\"btn btn-success\" [disabled]=\"!myForm.valid\">Submit</button>\r\n        </div>\r\n\r\n\r\n      </div>\r\n    </form>\r\n  </div>\r\n</div>"
+=======
+module.exports = "<div class=\"container\">\n    <div class=\"card\">\n        <div class=\"card-header\">Employee Salary Setup</div>\n\n        <div class=\"card-body\">\n\n            <table datatable class=\"table\" [dtOptions]=\"dtOptions\" [dtTrigger]=\"dtTrigger\">\n                <thead>\n                <tr>\n                    <th>First Name</th>\n                    <th>Middle Name</th>\n                    <th>Last Name</th>\n                    <th>Employee ID</th>\n                    <th>Designation</th>\n                    <th>Department</th>\n                    <th>Action</th>\n                </tr>\n                </thead>\n\n                <tbody>\n\n                </tbody>\n\n            </table>\n\n        </div>\n        <hr>\n\n        <div class=\"row\" style=\"padding: 20px;\">\n\n            <div class=\"form-group col-md-12\">\n                <label>Employee</label>\n                <input class=\"form-control\" placeholder=\"name\" type=\"text\" [(ngModel)]=\"payAdvanceModel.empName\"\n                       readonly>\n            </div>\n\n            <div class=\"col-md-12\">\n                <div class=\"container\">\n                    <table class=\"table table-bordered table-striped\">\n                        <thead>\n                        <th>Pay Heads</th>\n                        <th>Amount</th>\n                        <th>Gross</th>\n                        <th>Type</th>\n                        <th>Action</th>\n                        </thead>\n                        <tbody>\n                        <tr *ngFor=\"let data of empAllPayrolls\">\n                            <td>{{data.allowDeducTitle}}</td>\n                            <td>{{data.amount}}</td>\n                            <td>{{data.grossPercent}}</td>\n                            <td>{{data.allowDeducType}}</td>\n                            <td>\n                                <button class=\"btn btn-sm btn-info\" (click)=\"editSheet(data)\">Edit</button>\n                            </td>\n\n\n                        </tr>\n                        </tbody>\n                    </table>\n                </div>\n            </div>\n            <div class=\"form-group col-md-6\">\n                <label>Pay heads</label>\n                <select class=\"form-control\" [(ngModel)]=\"model.payroll\">\n                    <option value=\"\">Select Payhead</option>\n                    <option *ngFor=\"let data of payrolls\" [value]=\"data.id\">\n                        {{data.allowDeducTitle}}\n                    </option>\n                </select>\n            </div>\n\n            <div class=\"form-group col-md-6\">\n                <label>Amount</label>\n                <input type=\"number\" name=\"amount\" placeholder=\"amount\" [(ngModel)]=\"model.amount\" class=\"form-control\">\n            </div>\n\n            <div class=\"form-group col-md-6\">\n                <label>Description</label>\n                <input type=\"text\" name=\"description\" placeholder=\"description\" [(ngModel)]=\"model.description\"\n                       class=\"form-control\">\n            </div>\n\n            <div class=\"form-group col-md-6\">\n                <label>Gross Percent</label>\n                <input type=\"number\" name=\"grossPercent\" placeholder=\"grossPercent\" [(ngModel)]=\"model.grossPercent\"\n                       class=\"form-control\">\n            </div>\n\n            <div class=\"form-group col-md-12\" *ngIf=\"checkUpdateFlag();else other_content\">\n\n                <button class=\"btn btn-success pull-right\" (click)=\"update()\">Insert</button>\n            </div>\n\n            <ng-template #other_content class=\"form-group col-md-12\">\n                <div class=\"form-group col-md-12\">\n\n                    <button class=\"btn btn-success pull-right\" (click)=\"update()\">Update</button>\n                    <button class=\"btn btn-danger pull-right\" (click)=\"resetSheet()\">Reset</button>\n                </div>\n            </ng-template>\n\n\n        </div>\n\n\n    </div>\n\n\n</div>"
+>>>>>>> b051dd25e6d4a0df63c94fd965cb30eaeb0192db
 
 /***/ }),
 
@@ -2710,6 +2728,11 @@ module.exports = "<div class=\"card\">\r\n  <div class=\"card-header-pills\">\r\
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "PayEmployeeSalarySetupComponent", function() { return PayEmployeeSalarySetupComponent; });
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var _angular_common_http__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/common/http */ "./node_modules/@angular/common/fesm5/http.js");
+/* harmony import */ var _services_token_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../services/token.service */ "./src/app/services/token.service.ts");
+/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm5/router.js");
+/* harmony import */ var rxjs__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! rxjs */ "./node_modules/rxjs/_esm5/index.js");
+/* harmony import */ var _constants__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../../constants */ "./src/app/constants.ts");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -2720,13 +2743,211 @@ var __metadata = (undefined && undefined.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 
+
+
+
+
+
 var PayEmployeeSalarySetupComponent = /** @class */ (function () {
-    function PayEmployeeSalarySetupComponent() {
+    function PayEmployeeSalarySetupComponent(renderer, http, token, route, router) {
+        this.renderer = renderer;
+        this.http = http;
+        this.token = token;
+        this.route = route;
+        this.router = router;
+        this.dtOptions = {};
+        this.dtTrigger = new rxjs__WEBPACK_IMPORTED_MODULE_4__["Subject"]();
+        this.payAdvanceModel = {};
+        this.subsheetModel = {};
+        this.showSalary = false;
+        this.model = {};
     }
-    PayEmployeeSalarySetupComponent.prototype.print = function () {
-        console.log(this.grossPercent);
-    };
     PayEmployeeSalarySetupComponent.prototype.ngOnInit = function () {
+        var _this = this;
+        this.initModel();
+        var token = this.token.get();
+        this.dtOptions = {
+            ajax: {
+                url: _constants__WEBPACK_IMPORTED_MODULE_5__["Constants"].API_URL + 'employee/get' + '?token=' + token,
+                type: 'POST'
+            },
+            columns: [
+                { data: 'firstName', name: 'employeeinfo.firstName' },
+                { data: 'middleName', name: 'employeeinfo.middleName' },
+                { data: 'lastName', name: 'employeeinfo.lastName' },
+                { data: 'EmployeeId', name: 'employeeinfo.EmployeeId' },
+                { data: 'title', name: 'hrmdesignations.title' },
+                { data: 'departmentName', name: 'hrmdepartments.departmentName' },
+                {
+                    "data": function (data, type, full) {
+                        return ' <button class="btn btn-info select-user" data-panel-id="' + data.empid + '" data-emp-name="' + data.firstName + ' ' + data.middleName + ' ' + data.lastName + '">Select</button>';
+                    },
+                    "orderable": false, "searchable": false, "name": "selected_rows"
+                }
+            ],
+            drawCallback: function () {
+                $('.select-user').on('click', function (event) {
+                    _this.payAdvanceModel.fkEmployeeId = event.target.getAttribute("data-panel-id");
+                    _this.payAdvanceModel.empName = event.target.getAttribute("data-emp-name").replace(null, "");
+                    _this.showSalary = false;
+                    _this.model.fkEmployeeId = _this.payAdvanceModel.fkEmployeeId;
+                    _this.getEmployeeData(_this.payAdvanceModel.fkEmployeeId);
+                    return false;
+                });
+            },
+            processing: true,
+            serverSide: true,
+            pagingType: 'full_numbers',
+            // pageLength: 5,
+            "lengthMenu": [[5, 10, 25, 50, 100, -1], [5, 10, 25, 50, 100, "All"]],
+        };
+    };
+    PayEmployeeSalarySetupComponent.prototype.getEmployeeData = function (id) {
+        var _this = this;
+        var token = this.token.get();
+        this.http.get(_constants__WEBPACK_IMPORTED_MODULE_5__["Constants"].API_URL + 'payroll/payhead/employee/get/' + id + '?token=' + token).subscribe(function (data) {
+            console.log(data);
+            _this.empAllPayrolls = data;
+        }, function (error) {
+            console.log(error);
+        });
+    };
+    PayEmployeeSalarySetupComponent.prototype.editSheet = function (data) {
+        console.log(data);
+        this.model.amount = data.amount;
+        this.model.payroll = data.fkPaymentHeadId;
+        this.model.description = data.description;
+        this.model.grossPercent = data.grossPercent;
+        this.model.id = data.salaryId;
+    };
+    PayEmployeeSalarySetupComponent.prototype.initModel = function () {
+        var _this = this;
+        this.model.payroll = "";
+        this.model.amount = "";
+        this.http.get(_constants__WEBPACK_IMPORTED_MODULE_5__["Constants"].API_URL + 'payroll/payhead/get').subscribe(function (data) {
+            _this.payrolls = data;
+        }, function (error) {
+            console.log(error);
+        });
+    };
+    PayEmployeeSalarySetupComponent.prototype.checkUpdateFlag = function () {
+        if (this.model.id) {
+            return false;
+        }
+        else if (this.model.id == "") {
+            return false;
+        }
+        return true;
+    };
+    PayEmployeeSalarySetupComponent.prototype.update = function () {
+        var _this = this;
+        var token = this.token.get();
+        // console.log(this.model);
+        if (this.model.payroll == "") {
+            $.alert({
+                title: 'Alert!',
+                type: 'Red',
+                content: "Please select payhead",
+                buttons: {
+                    tryAgain: {
+                        text: 'Ok',
+                        btnClass: 'btn-red',
+                        action: function () {
+                        }
+                    }
+                }
+            });
+            return false;
+        }
+        if (this.model.amount == "") {
+            $.alert({
+                title: 'Alert!',
+                type: 'Red',
+                content: "Please insert amount",
+                buttons: {
+                    tryAgain: {
+                        text: 'Ok',
+                        btnClass: 'btn-red',
+                        action: function () {
+                        }
+                    }
+                }
+            });
+            return false;
+        }
+        this.http.post(_constants__WEBPACK_IMPORTED_MODULE_5__["Constants"].API_URL + 'payroll/payhead/salarySetupSet' + '?token=' + token, this.model).subscribe(function (data) {
+            $.alert({
+                title: 'Success!',
+                type: 'Green',
+                content: "Success",
+                buttons: {
+                    tryAgain: {
+                        text: 'Ok',
+                        btnClass: 'btn-red',
+                        action: function () {
+                        }
+                    }
+                }
+            });
+            _this.getEmployeeData(_this.payAdvanceModel.fkEmployeeId);
+        }, function (error) {
+            console.log(error);
+        });
+    };
+    PayEmployeeSalarySetupComponent.prototype.ngAfterViewInit = function () {
+        this.dtTrigger.next();
+    };
+    PayEmployeeSalarySetupComponent.prototype.resetSheet = function () {
+        this.model = {};
+        // this.payAdvanceModel.fkEmployeeId=this.empid;
+        this.model.payroll = "";
+        this.model.amount = "";
+    };
+    PayEmployeeSalarySetupComponent.prototype.editSubSheet = function (data) {
+        // console.log(data);
+        this.subsheetModel.payhead = data.allowDeducTitle;
+        this.subsheetModel.amount = data.AMOUNT;
+        this.subsheetModel.description = data.DESCRIPTION;
+        this.subsheetModel.id = data.paysalarysheetsub_id;
+    };
+    PayEmployeeSalarySetupComponent.prototype.updateSubSheet = function () {
+        var _this = this;
+        if (!this.payAdvanceModel.id) {
+            $.alert({
+                title: 'Alert!',
+                type: 'Red',
+                content: "Please Select Salary Sheet",
+                buttons: {
+                    tryAgain: {
+                        text: 'Ok',
+                        btnClass: 'btn-red',
+                        action: function () {
+                        }
+                    }
+                }
+            });
+            return false;
+        }
+        var token = this.token.get();
+        this.http.post(_constants__WEBPACK_IMPORTED_MODULE_5__["Constants"].API_URL + 'payroll/paysalarysheetsub/update' + '?token=' + token, this.subsheetModel).subscribe(function (data) {
+            // console.log(data);
+            $.alert({
+                title: 'Success!',
+                type: 'Green',
+                content: "Updated",
+                buttons: {
+                    tryAgain: {
+                        text: 'Ok',
+                        btnClass: 'btn-red',
+                        action: function () {
+                        }
+                    }
+                }
+            });
+            _this.subsheetModel = {};
+        }, function (error) {
+            console.log(error);
+        });
     };
     PayEmployeeSalarySetupComponent = __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
@@ -2734,7 +2955,7 @@ var PayEmployeeSalarySetupComponent = /** @class */ (function () {
             template: __webpack_require__(/*! ./pay-employee-salary-setup.component.html */ "./src/app/components/payroll/pay-employee-salary-setup/pay-employee-salary-setup.component.html"),
             styles: [__webpack_require__(/*! ./pay-employee-salary-setup.component.css */ "./src/app/components/payroll/pay-employee-salary-setup/pay-employee-salary-setup.component.css")]
         }),
-        __metadata("design:paramtypes", [])
+        __metadata("design:paramtypes", [_angular_core__WEBPACK_IMPORTED_MODULE_0__["Renderer"], _angular_common_http__WEBPACK_IMPORTED_MODULE_1__["HttpClient"], _services_token_service__WEBPACK_IMPORTED_MODULE_2__["TokenService"], _angular_router__WEBPACK_IMPORTED_MODULE_3__["ActivatedRoute"], _angular_router__WEBPACK_IMPORTED_MODULE_3__["Router"]])
     ], PayEmployeeSalarySetupComponent);
     return PayEmployeeSalarySetupComponent;
 }());
@@ -3349,7 +3570,7 @@ var PayHeadComponent = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = ""
+module.exports = "hr{\n    border: 1px dotted #ff0000;\n    border-style: none none dotted;\n    color: #fff;\n    background-color: #fff;\n}"
 
 /***/ }),
 
@@ -3360,7 +3581,11 @@ module.exports = ""
 /*! no static exports found */
 /***/ (function(module, exports) {
 
+<<<<<<< HEAD
 module.exports = "<div class=\"container\" >\r\n  <div class=\"card\">\r\n    <div class=\"card-header\">Employee Salary Sheet</div>\r\n\r\n    <div class=\"card-body\">\r\n\r\n      <table datatable class=\"table\" [dtOptions]=\"dtOptions\" [dtTrigger]=\"dtTrigger\">\r\n        <thead>\r\n        <tr>\r\n          <th>First Name</th>\r\n          <th>Middle Name</th>\r\n          <th>Last Name</th>\r\n          <th>Employee ID</th>\r\n          <th>Designation</th>\r\n          <th>Department</th>\r\n          <th>Action</th>\r\n        </tr>\r\n        </thead>\r\n\r\n        <tbody>\r\n\r\n        </tbody>\r\n\r\n      </table>\r\n\r\n    </div>\r\n    <hr>\r\n\r\n    <div class=\"row\" style=\"padding: 20px;\">\r\n\r\n      <div class=\"form-group col-md-12\">\r\n        <label>Employee</label>\r\n        <input class=\"form-control\" placeholder=\"name\" type=\"text\" [(ngModel)]=\"payAdvanceModel.empName\" readonly>\r\n      </div>\r\n      <div class=\"form-group col-md-6\">\r\n        <label>Year</label>\r\n        <select class=\"form-control\" [(ngModel)]=\"payAdvanceModel.salaryYear\">\r\n          <option value=\"\">Select Year</option>\r\n          <option value=\"2016\">2016</option>\r\n          <option value=\"2017\">2017</option>\r\n          <option value=\"2018\">2018</option>\r\n          <option value=\"2019\">2019</option>\r\n\r\n\r\n        </select>\r\n      </div>\r\n      <div class=\"form-group col-md-6\">\r\n        <label>Month</label>\r\n        <select class=\"form-control\"  [(ngModel)]=\"payAdvanceModel.salaryMonth\">\r\n          <option value=\"\">Select Month</option>\r\n          <option value=\"1\">January</option>\r\n          <option value=\"2\">February</option>\r\n          <option value=\"3\">March</option>\r\n          <option value=\"4\">April</option>\r\n          <option value=\"5\">May</option>\r\n          <option value=\"6\">June</option>\r\n          <option value=\"7\">July</option>\r\n          <option value=\"8\">August</option>\r\n          <option value=\"9\">September</option>\r\n          <option value=\"10\">October</option>\r\n          <option value=\"11\">November</option>\r\n          <option value=\"10\">December</option>\r\n\r\n        </select>\r\n      </div>\r\n      <div class=\"form-group col-md-12\">\r\n        <button class=\"btn btn-info pull-right\" (click)=\"getSalarySheet()\">Submit</button>\r\n      </div>\r\n\r\n      <hr>\r\n      <table class=\"table table-bordered table-striped\">\r\n        <thead>\r\n          <th style=\"text-align: center\">Head</th>\r\n          <th style=\"text-align: center\">Amount</th>\r\n          <th style=\"text-align: center\">Action</th>\r\n        </thead>\r\n        <tbody>\r\n        <tr  *ngFor=\"let data of salarySheetTable\" >\r\n          <td>{{data.allowDeducTitle}}</td>\r\n          <td>{{data.AMOUNT}}</td>\r\n          <td><button class=\"btn btn-info\" (click)=\"editSubSheet(data)\">edit</button></td>\r\n\r\n          <!--<td>  <button class=\"btn btn-info\" (click)=\"edit(shift.shiftId,content)\"> Edit</button></td>-->\r\n\r\n        </tr>\r\n\r\n        </tbody>\r\n\r\n      </table>\r\n      <hr>\r\n\r\n      <div class=\"form-group col-md-6\">\r\n        <label>Payhead</label>\r\n        <input class=\"form-control\" placeholder=\"head\" type=\"text\" [(ngModel)]=\"subsheetModel.payhead\" readonly>\r\n      </div>\r\n\r\n      <div class=\"form-group col-md-6\">\r\n        <label>Amount</label>\r\n        <input class=\"form-control\" placeholder=\"name\" type=\"text\" [(ngModel)]=\"subsheetModel.amount\">\r\n      </div>\r\n      <div class=\"form-group col-md-12\">\r\n        <label>Description</label>\r\n        <input class=\"form-control\" placeholder=\"\" type=\"text\" [(ngModel)]=\"subsheetModel.description\">\r\n      </div>\r\n\r\n\r\n\r\n      <div class=\"form-group col-md-12\">\r\n        <button class=\"btn btn-success\" (click)=\"updateSubSheet()\">edit</button>\r\n      </div>\r\n\r\n\r\n\r\n    </div>\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n  </div>\r\n\r\n\r\n</div>"
+=======
+module.exports = "<div class=\"container\">\n    <div class=\"card\">\n        <div class=\"card-header\">Employee Salary Sheet</div>\n\n        <div class=\"card-body\">\n\n            <table datatable class=\"table\" [dtOptions]=\"dtOptions\" [dtTrigger]=\"dtTrigger\">\n                <thead>\n                <tr>\n                    <th>First Name</th>\n                    <th>Middle Name</th>\n                    <th>Last Name</th>\n                    <th>Employee ID</th>\n                    <th>Designation</th>\n                    <th>Department</th>\n                    <th>Action</th>\n                </tr>\n                </thead>\n\n                <tbody>\n\n                </tbody>\n\n            </table>\n\n        </div>\n        <hr>\n\n        <div class=\"row\" style=\"padding: 20px;\">\n\n            <div class=\"form-group col-md-12\">\n                <label>Employee</label>\n                <input class=\"form-control\" placeholder=\"name\" type=\"text\" [(ngModel)]=\"payAdvanceModel.empName\"\n                       readonly>\n            </div>\n            <div class=\"form-group col-md-6\">\n                <label>Year</label>\n                <input bsDatepicker\n                       [bsConfig]=\"{ dateInputFormat: 'YYYY-MM' }\" name=\"resignDate\" class=\"form-control\" id=\"year\"\n                       (onShown)=\"onOpenCalendar($event)\">\n            </div>\n\n\n            <div class=\"form-group col-md-12\">\n                <button class=\"btn btn-info pull-right\" (click)=\"getSalarySheet()\">Submit</button>\n            </div>\n        </div>\n\n        <ng-template [ngIf]=\"showSalary\">\n            <hr>\n            <div class=\"row\" style=\"padding: 20px;\">\n                <table class=\"table table-bordered table-striped\">\n                    <thead>\n                    <th style=\"text-align: center\">Head</th>\n                    <th style=\"text-align: center\">Amount</th>\n                    <th style=\"text-align: center\">Action</th>\n                    </thead>\n                    <tbody>\n                    <tr *ngFor=\"let data of salarySheetTable\">\n                        <td>{{data.allowDeducTitle}}</td>\n                        <td>{{data.AMOUNT}}</td>\n                        <td>\n                            <button class=\"btn btn-info\" (click)=\"editSubSheet(data)\">edit</button>\n                        </td>\n\n                        <!--<td>  <button class=\"btn btn-info\" (click)=\"edit(shift.shiftId,content)\"> Edit</button></td>-->\n\n                    </tr>\n\n                    </tbody>\n\n                </table>\n                <hr>\n\n                <div class=\"form-group col-md-6\">\n                    <label>Payhead</label>\n                    <input class=\"form-control\" placeholder=\"head\" type=\"text\" [(ngModel)]=\"subsheetModel.payhead\"\n                           readonly>\n                </div>\n\n                <div class=\"form-group col-md-6\">\n                    <label>Amount</label>\n                    <input class=\"form-control\" placeholder=\"name\" type=\"text\" [(ngModel)]=\"subsheetModel.amount\">\n                </div>\n                <div class=\"form-group col-md-12\">\n                    <label>Description</label>\n                    <input class=\"form-control\" placeholder=\"\" type=\"text\" [(ngModel)]=\"subsheetModel.description\">\n                </div>\n\n\n                <div class=\"form-group col-md-12\">\n                    <button class=\"btn btn-success\" (click)=\"updateSubSheet()\">edit</button>\n                </div>\n\n\n            </div>\n        </ng-template>\n\n    </div>\n\n\n</div>"
+>>>>>>> b051dd25e6d4a0df63c94fd965cb30eaeb0192db
 
 /***/ }),
 
@@ -3406,9 +3631,11 @@ var PaySalarySheetComponent = /** @class */ (function () {
         this.dtTrigger = new rxjs__WEBPACK_IMPORTED_MODULE_4__["Subject"]();
         this.payAdvanceModel = {};
         this.subsheetModel = {};
+        this.showSalary = false;
     }
     PaySalarySheetComponent.prototype.ngOnInit = function () {
-        this.initiModel();
+        var _this = this;
+        this.initModel();
         var token = this.token.get();
         this.dtOptions = {
             ajax: {
@@ -3424,11 +3651,19 @@ var PaySalarySheetComponent = /** @class */ (function () {
                 { data: 'departmentName', name: 'hrmdepartments.departmentName' },
                 {
                     "data": function (data, type, full) {
-                        return ' <button class="btn btn-info" data-emp-id="' + data.empid + '" data-emp-name="' + data.firstName + ' ' + data.middleName + ' ' + data.lastName + '">Select</button>';
+                        return ' <button class="btn btn-info select-user" data-panel-id="' + data.empid + '" data-emp-name="' + data.firstName + ' ' + data.middleName + ' ' + data.lastName + '">Select</button>';
                     },
                     "orderable": false, "searchable": false, "name": "selected_rows"
                 }
             ],
+            drawCallback: function () {
+                $('.select-user').on('click', function (event) {
+                    _this.payAdvanceModel.fkEmployeeId = event.target.getAttribute("data-panel-id");
+                    _this.payAdvanceModel.empName = event.target.getAttribute("data-emp-name").replace(null, "");
+                    _this.showSalary = false;
+                    return false;
+                });
+            },
             processing: true,
             serverSide: true,
             pagingType: 'full_numbers',
@@ -3436,23 +3671,22 @@ var PaySalarySheetComponent = /** @class */ (function () {
             "lengthMenu": [[5, 10, 25, 50, 100, -1], [5, 10, 25, 50, 100, "All"]],
         };
     };
-    PaySalarySheetComponent.prototype.initiModel = function () {
+    PaySalarySheetComponent.prototype.onOpenCalendar = function (container) {
+        container.monthSelectHandler = function (event) {
+            container._store.dispatch(container._actions.select(event.date));
+        };
+        container.setViewMode('month');
+    };
+    PaySalarySheetComponent.prototype.initModel = function () {
         // this.payAdvanceModel.status = "";
         // this.payAdvanceModel.empName = "";
     };
     PaySalarySheetComponent.prototype.ngAfterViewInit = function () {
-        var _this = this;
         this.dtTrigger.next();
-        this.renderer.listenGlobal('document', 'click', function (event) {
-            if (event.target.hasAttribute("data-emp-id")) {
-                _this.payAdvanceModel.fkEmployeeId = event.target.getAttribute("data-emp-id");
-                _this.payAdvanceModel.empName = event.target.getAttribute("data-emp-name").replace(null, "");
-            }
-        });
     };
     PaySalarySheetComponent.prototype.getSalarySheet = function () {
-        // console.log(this.payAdvanceModel);
         var _this = this;
+        this.payAdvanceModel.year = $('#year').val();
         if (!this.payAdvanceModel.fkEmployeeId) {
             $.alert({
                 title: 'Alert!',
@@ -3469,7 +3703,7 @@ var PaySalarySheetComponent = /** @class */ (function () {
             });
             return false;
         }
-        if (!this.payAdvanceModel.salaryYear) {
+        if (this.payAdvanceModel.year == '') {
             $.alert({
                 title: 'Alert!',
                 type: 'Red',
@@ -3485,24 +3719,10 @@ var PaySalarySheetComponent = /** @class */ (function () {
             });
             return false;
         }
-        if (!this.payAdvanceModel.salaryMonth) {
-            $.alert({
-                title: 'Alert!',
-                type: 'Red',
-                content: "Please Select Month",
-                buttons: {
-                    tryAgain: {
-                        text: 'Ok',
-                        btnClass: 'btn-red',
-                        action: function () {
-                        }
-                    }
-                }
-            });
-            return false;
-        }
         var token = this.token.get();
         this.http.post(_constants__WEBPACK_IMPORTED_MODULE_5__["Constants"].API_URL + 'payroll/paysalarysheetmain/get' + '?token=' + token, this.payAdvanceModel).subscribe(function (data) {
+            // console.log(data);
+            _this.showSalary = true;
             _this.salarySheetTable = data;
         }, function (error) {
             console.log(error);
@@ -5870,9 +6090,10 @@ var JoiningInfoComponent = /** @class */ (function () {
         var _this = this;
         var token = this.token.get();
         this.http.post(_constants__WEBPACK_IMPORTED_MODULE_1__["Constants"].API_URL + 'leave/limit/get' + '?token=' + token, { id: this.empid }).subscribe(function (data) {
+            // console.log(data);
             _this.temp = data;
-            _this.totalLeaveAssigned = _this.temp.totalLeave;
-            _this.leaveTaken = _this.temp.leaveTaken;
+            _this.totalLeaveAssigned = _this.temp['leaveLimit'].totalLeave;
+            _this.leaveTaken = _this.temp['leaveTaken'];
         }, function (error) {
             console.log(error);
         });
@@ -5892,7 +6113,7 @@ var JoiningInfoComponent = /** @class */ (function () {
         var _this = this;
         var token = this.token.get();
         this.http.post(_constants__WEBPACK_IMPORTED_MODULE_1__["Constants"].API_URL + 'joinInfo/get' + '?token=' + token, { id: this.employeeJoiningForm.id }).subscribe(function (data) {
-            console.log(data);
+            // console.log(data);
             _this.JoiningForm = data;
             _this.employeeJoiningForm.actualJoinDate = _this.JoiningForm.actualJoinDate;
             _this.employeeJoiningForm.recentJoinDate = _this.JoiningForm.recentJoinDate;
@@ -6451,7 +6672,11 @@ module.exports = ""
 /*! no static exports found */
 /***/ (function(module, exports) {
 
+<<<<<<< HEAD
 module.exports = "<div class=\"card\">\r\n  <div class=\"card-header\">\r\n    Pay-grade Setup\r\n  </div>\r\n  <div class=\"card-body\">\r\n    <div class=\"row\">\r\n      <div class=\"form-group col-md-6\">\r\n        <label>Pay-grade</label>\r\n       <select class=\"form-control\" [(ngModel)]=\"payGradeModel.fkSalaryGrade\">\r\n         <option>Select Pay-grade</option>\r\n         <option *ngFor=\"let data of payGrades\" [value]=\"data.id\">\r\n           {{data.gradeTitle}}\r\n         </option>\r\n       </select>\r\n      </div>\r\n      <div class=\"form-group col-md-6\">\r\n        <label>No. Of Increment </label>\r\n        <input type=\"number\" class=\"form-control\" [(ngModel)]=\"payGradeModel.noOfIncrement\">\r\n      </div>\r\n\r\n      <div class=\"form-group col-md-6\">\r\n        <button class=\"btn btn-sm btn-success\" (click)=\"assignPayGrade()\">Update</button>\r\n      </div>\r\n\r\n    </div>\r\n\r\n\r\n  </div>\r\n</div>\r\n\r\n\r\n<br>\r\n<div class=\"card\">\r\n  <div class=\"card-header\">\r\n    Salary Salary Sheet\r\n  </div>\r\n\r\n  <div class=\"card-body\">\r\n\r\n    <div class=\"row\">\r\n      <div class=\"col-md-12\">\r\n        <div class=\"container\">\r\n          <table class=\"table table-bordered table-striped\">\r\n            <thead>\r\n            <th>Pay Heads</th>\r\n            <th>Amount</th>\r\n            <th>Gross</th>\r\n            <th>Type</th>\r\n            <th>Action</th>\r\n            </thead>\r\n            <tbody>\r\n            <tr *ngFor=\"let data of empAllPayrolls\">\r\n              <td>{{data.allowDeducTitle}}</td>\r\n              <td>{{data.amount}}</td>\r\n              <td>{{data.grossPercent}}</td>\r\n              <td>{{data.allowDeducType}}</td>\r\n              <td>\r\n                <button class=\"btn btn-sm btn-info\" (click)=\"editSheet(data)\">Edit</button>\r\n                <button class=\"btn btn-sm btn-danger\" (click)=\"deleteSheet(data)\">Delete</button>\r\n              </td>\r\n\r\n\r\n\r\n            </tr>\r\n            </tbody>\r\n          </table>\r\n        </div>\r\n\r\n      </div>\r\n\r\n      <div class=\"form-group col-md-6\">\r\n        <label>Pay heads</label>\r\n        <select class=\"form-control\" [(ngModel)]=\"model.payroll\">\r\n          <option value=\"\">Select Payhead</option>\r\n          <option  *ngFor=\"let data of payrolls\" [value]=\"data.id\">\r\n            {{data.allowDeducTitle}}\r\n          </option>\r\n        </select>\r\n      </div>\r\n\r\n      <div class=\"form-group col-md-6\">\r\n        <label>Amount</label>\r\n        <input type=\"number\" name=\"amount\" placeholder=\"amount\" [(ngModel)]=\"model.amount\"  class=\"form-control\">\r\n      </div>\r\n\r\n      <div class=\"form-group col-md-6\">\r\n        <label>Description</label>\r\n        <input type=\"text\" name=\"description\" placeholder=\"description\" [(ngModel)]=\"model.description\" class=\"form-control\">\r\n      </div>\r\n\r\n      <div class=\"form-group col-md-6\">\r\n        <label>Gross Percent</label>\r\n        <input type=\"number\" name=\"grossPercent\" placeholder=\"grossPercent\" [(ngModel)]=\"model.grossPercent\"  class=\"form-control\">\r\n      </div>\r\n      <div class=\"form-group col-md-12\" *ngIf=\"checkUpdateFlag();else other_content\">\r\n\r\n        <button class=\"btn btn-success pull-right\"  (click)=\"update()\">Insert</button>\r\n      </div>\r\n\r\n      <ng-template #other_content class=\"form-group col-md-12\">\r\n        <div class=\"form-group col-md-12\" >\r\n\r\n          <button class=\"btn btn-success pull-right\"  (click)=\"update()\">Update</button>\r\n          <button class=\"btn btn-danger pull-right\"  (click)=\"resetSheet()\">Reset</button>\r\n        </div>\r\n      </ng-template>\r\n\r\n\r\n\r\n    </div>\r\n\r\n    <br><hr><br>\r\n    <h4 align=\"center\">Salary Advance</h4>\r\n    <br>\r\n    <div class=\"row\">\r\n      <div class=\"form-group col-md-6\">\r\n        <label>Advance Date</label>\r\n        <input class=\"form-control\" placeholder=\"date\" [(ngModel)]=\"payAdvanceModel.advanceDate\" type=\"date\">\r\n      </div>\r\n\r\n      <div class=\"form-group col-md-6\">\r\n        <label>Start Date</label>\r\n        <input class=\"form-control\" [(ngModel)]=\"payAdvanceModel.startDate\" placeholder=\"start date\"  type=\"date\">\r\n      </div>\r\n\r\n\r\n\r\n\r\n      <div class=\"form-group col-md-6\">\r\n        <label>Amount</label>\r\n        <input class=\"form-control\" placeholder=\"TK\" [(ngModel)]=\"payAdvanceModel.amount\" type=\"number\">\r\n      </div>\r\n\r\n      <div class=\"form-group col-md-6\">\r\n        <label>Return Rate</label>\r\n        <input class=\"form-control\" placeholder=\"%\" [(ngModel)]=\"payAdvanceModel.returnRate\" type=\"number\">\r\n      </div>\r\n\r\n      <div class=\"form-group col-md-6\">\r\n        <label>Status</label>\r\n       <select class=\"form-control\" [(ngModel)]=\"payAdvanceModel.status\">\r\n         <option value=\"\">Select status</option>\r\n         <option value=\"running\">Running</option>\r\n         <option value=\"complete\">Complete</option>\r\n       </select>\r\n      </div>\r\n\r\n      <div class=\"form-group col-md-12\">\r\n        <label>DESCRIPTION</label>\r\n        <input class=\"form-control\" placeholder=\"description\" [(ngModel)]=\"payAdvanceModel.DESCRIPTION\" type=\"text\">\r\n      </div>\r\n\r\n\r\n      <div class=\"form-group col-md-12\">\r\n      <button class=\"btn btn-info pull-right\" (click)=\"payAdvanceSubmit()\">Submit</button>\r\n      </div>\r\n    </div>\r\n\r\n\r\n  </div>\r\n\r\n\r\n\r\n\r\n</div>"
+=======
+module.exports = "<div class=\"card\">\n  <div class=\"card-header\">\n    Pay-grade Setup\n  </div>\n  <div class=\"card-body\">\n    <div class=\"row\">\n      <div class=\"form-group col-md-6\">\n        <label>Pay-grade</label>\n       <select class=\"form-control\" [(ngModel)]=\"payGradeModel.fkSalaryGrade\">\n         <option>Select Pay-grade</option>\n         <option *ngFor=\"let data of payGrades\" [value]=\"data.id\">\n           {{data.gradeTitle}}\n         </option>\n       </select>\n      </div>\n      <div class=\"form-group col-md-6\">\n        <label>No. Of Increment </label>\n        <input type=\"number\" class=\"form-control\" [(ngModel)]=\"payGradeModel.noOfIncrement\">\n      </div>\n\n      <div class=\"form-group col-md-6\">\n        <button class=\"btn btn-sm btn-success\" (click)=\"assignPayGrade()\">Update</button>\n      </div>\n\n    </div>\n\n\n  </div>\n</div>\n\n\n<br>\n<div class=\"card\">\n  <div class=\"card-header\">\n    Salary Salary Setup\n  </div>\n\n  <div class=\"card-body\">\n\n    <div class=\"row\">\n      <div class=\"col-md-12\">\n        <div class=\"container\">\n          <table class=\"table table-bordered table-striped\">\n            <thead>\n            <th>Pay Heads</th>\n            <th>Amount</th>\n            <th>Gross</th>\n            <th>Type</th>\n            <th>Action</th>\n            </thead>\n            <tbody>\n            <tr *ngFor=\"let data of empAllPayrolls\">\n              <td>{{data.allowDeducTitle}}</td>\n              <td>{{data.amount}}</td>\n              <td>{{data.grossPercent}}</td>\n              <td>{{data.allowDeducType}}</td>\n              <td>\n                <button class=\"btn btn-sm btn-info\" (click)=\"editSheet(data)\">Edit</button>\n                <button class=\"btn btn-sm btn-danger\" (click)=\"deleteSheet(data)\">Delete</button>\n              </td>\n            </tr>\n            </tbody>\n          </table>\n        </div>\n\n      </div>\n\n      <div class=\"form-group col-md-6\">\n        <label>Pay heads</label>\n        <select class=\"form-control\" [(ngModel)]=\"model.payroll\">\n          <option value=\"\">Select Payhead</option>\n          <option  *ngFor=\"let data of payrolls\" [value]=\"data.id\">\n            {{data.allowDeducTitle}}\n          </option>\n        </select>\n      </div>\n\n      <div class=\"form-group col-md-6\">\n        <label>Amount</label>\n        <input type=\"number\" name=\"amount\" placeholder=\"amount\" [(ngModel)]=\"model.amount\"  class=\"form-control\">\n      </div>\n\n      <div class=\"form-group col-md-6\">\n        <label>Description</label>\n        <input type=\"text\" name=\"description\" placeholder=\"description\" [(ngModel)]=\"model.description\" class=\"form-control\">\n      </div>\n\n      <div class=\"form-group col-md-6\">\n        <label>Gross Percent</label>\n        <input type=\"number\" name=\"grossPercent\" placeholder=\"grossPercent\" [(ngModel)]=\"model.grossPercent\"  class=\"form-control\">\n      </div>\n      <div class=\"form-group col-md-12\" *ngIf=\"checkUpdateFlag();else other_content\">\n\n        <button class=\"btn btn-success pull-right\"  (click)=\"update()\">Insert</button>\n      </div>\n\n      <ng-template #other_content class=\"form-group col-md-12\">\n        <div class=\"form-group col-md-12\" >\n\n          <button class=\"btn btn-success pull-right\"  (click)=\"update()\">Update</button>\n          <button class=\"btn btn-danger pull-right\"  (click)=\"resetSheet()\">Reset</button>\n        </div>\n      </ng-template>\n\n\n\n    </div>\n\n    <br><hr><br>\n    <h4 align=\"center\">Salary Advance</h4>\n    <br>\n    <div class=\"row\">\n      <div class=\"form-group col-md-6\">\n        <label>Advance Date</label>\n        <input class=\"form-control\" placeholder=\"date\" [(ngModel)]=\"payAdvanceModel.advanceDate\" type=\"date\">\n      </div>\n\n      <div class=\"form-group col-md-6\">\n        <label>Start Date</label>\n        <input class=\"form-control\" [(ngModel)]=\"payAdvanceModel.startDate\" placeholder=\"start date\"  type=\"date\">\n      </div>\n\n\n\n\n      <div class=\"form-group col-md-6\">\n        <label>Amount</label>\n        <input class=\"form-control\" placeholder=\"TK\" [(ngModel)]=\"payAdvanceModel.amount\" type=\"number\">\n      </div>\n\n      <div class=\"form-group col-md-6\">\n        <label>Return Rate</label>\n        <input class=\"form-control\" placeholder=\"%\" [(ngModel)]=\"payAdvanceModel.returnRate\" type=\"number\">\n      </div>\n\n      <div class=\"form-group col-md-6\">\n        <label>Status</label>\n       <select class=\"form-control\" [(ngModel)]=\"payAdvanceModel.status\">\n         <option value=\"\">Select status</option>\n         <option value=\"running\">Running</option>\n         <option value=\"complete\">Complete</option>\n       </select>\n      </div>\n\n      <div class=\"form-group col-md-12\">\n        <label>DESCRIPTION</label>\n        <input class=\"form-control\" placeholder=\"description\" [(ngModel)]=\"payAdvanceModel.DESCRIPTION\" type=\"text\">\n      </div>\n\n\n      <div class=\"form-group col-md-12\">\n      <button class=\"btn btn-info pull-right\" (click)=\"payAdvanceSubmit()\">Submit</button>\n      </div>\n    </div>\n\n\n  </div>\n\n\n\n\n</div>"
+>>>>>>> b051dd25e6d4a0df63c94fd965cb30eaeb0192db
 
 /***/ }),
 
@@ -6868,7 +7093,11 @@ var Constants = /** @class */ (function () {
     });
     ;
     Object.defineProperty(Constants, "Image_URL", {
+<<<<<<< HEAD
         get: function () { return "http://192.168.3.20/hrsolution/backend/public/"; },
+=======
+        get: function () { return "http://192.168.3.95:8000/hrsolution/backend/public/"; },
+>>>>>>> b051dd25e6d4a0df63c94fd965cb30eaeb0192db
         enumerable: true,
         configurable: true
     });

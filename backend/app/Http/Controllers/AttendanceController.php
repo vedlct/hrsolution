@@ -164,14 +164,25 @@ class AttendanceController extends Controller
         $today=date('Y-m-d');
 
 
-        $morningTotal=EmployeeInfo::leftJoin('shiftlog','shiftlog.fkemployeeId','employeeinfo.id')
-            ->leftJoin('shift','shift.shiftId','shiftlog.fkshiftId')
-            ->where('employeeinfo.fkDepartmentId',6)
-            ->where('shiftlog.endDate',null)
-            ->where('employeeinfo.resignDate',null)
-            ->where('employeeinfo.fkActivationStatus', 1)
-            ->whereIn('shiftlog.fkshiftId',[2,4])
+//        $morningTotal=EmployeeInfo::leftJoin('shiftlog','shiftlog.fkemployeeId','employeeinfo.id')
+//            ->leftJoin('shift','shift.shiftId','shiftlog.fkshiftId')
+//            ->where('employeeinfo.fkDepartmentId',6)
+//            ->where('shiftlog.endDate',null)
+//            ->where('employeeinfo.resignDate',null)
+//            ->where('employeeinfo.fkActivationStatus', 1)
+//            ->whereIn('shiftlog.fkshiftId',[2,4])
+//            ->count();
 
+        $morningTotal = EmployeeInfo::leftjoin('hrmdesignations','hrmdesignations.id','=','employeeinfo.fkDesignation')
+            ->leftjoin('hrmdepartments','hrmdepartments.id','=','employeeinfo.fkDepartmentId')
+            ->leftjoin('shiftlog','shiftlog.fkemployeeId','=','employeeinfo.id')
+            ->leftjoin('shift','shift.shiftId','=','shiftlog.fkshiftId')
+            ->leftjoin('team','team.teamId','=','employeeinfo.fkTeamId')
+            ->where('employeeinfo.fkActivationStatus', 1)
+            ->where('employeeinfo.fkCompany',auth()->user()->fkCompany)
+            ->where('shiftlog.endDate',null)
+            ->where('employeeinfo.fkDepartmentId',6)
+            ->whereIn('shiftlog.fkshiftId',[2,4])
             ->count();
 
 
