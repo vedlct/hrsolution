@@ -53,6 +53,7 @@ class EmployeeController extends Controller
             ->leftjoin('shiftlog','shiftlog.fkemployeeId','=','employeeinfo.id')
             ->leftjoin('shift','shift.shiftId','=','shiftlog.fkshiftId')
             ->leftjoin('team','team.teamId','=','employeeinfo.fkTeamId')
+            ->where('employeeinfo.fkActivationStatus', 1)
             ->where('employeeinfo.fkCompany' , auth()->user()->fkCompany)
             ->where('shiftlog.endDate',null);
 
