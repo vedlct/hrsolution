@@ -32,7 +32,7 @@ class TestController extends Controller
     public function test(){
 
 
-      
+
 
 
         $start = Carbon::now()->startOfMonth()->format('Y-m-d');
