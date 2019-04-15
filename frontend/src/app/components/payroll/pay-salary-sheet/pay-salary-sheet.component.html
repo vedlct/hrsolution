@@ -1,8 +1,7 @@
 <div class="container">
     <div class="card">
-        <div class="card-header">Employee Salary Sheet</div>
-
-        <div class="card-body">
+        <div class="card-header">
+            <h5 align="center"><b>Employee Salary Sheet</b></h5>
 
             <table datatable class="table" [dtOptions]="dtOptions" [dtTrigger]="dtTrigger">
                 <thead>
@@ -24,79 +23,84 @@
             </table>
 
         </div>
-        <hr>
 
-        <div class="row" style="padding: 20px;">
-
-            <div class="form-group col-md-8">
-                <label>Employee</label>
-                <input class="form-control" placeholder="name" type="text" [(ngModel)]="payAdvanceModel.empName"
-                       readonly>
-            </div>
-            <div class="form-group col-md-4">
-                <label>Year</label>
-                <input bsDatepicker
-                       [bsConfig]="{ dateInputFormat: 'YYYY-MM' }" name="resignDate" class="form-control" id="year"
-                       (onShown)="onOpenCalendar($event)">
-            </div>
+        <div class="card-body">
 
 
-            <div class="form-group col-md-12">
-                <button class="btn btn-info pull-right" (click)="getSalarySheet()">Submit</button>
-            </div>
-        </div>
-
-        <ng-template [ngIf]="showSalary">
-            <hr>
             <div class="row" style="padding: 20px;">
-                <table class="table table-bordered table-striped">
-                    <thead>
-                    <th style="text-align: center">Head</th>
-                    <th style="text-align: center">Amount</th>
-                    <th style="text-align: center">Action</th>
-                    </thead>
-                    <tbody>
-                    <tr *ngFor="let data of salarySheetTable">
-                        <td>{{data.allowDeducTitle}}</td>
-                        <td>{{data.AMOUNT}}</td>
-                        <td>
-                            <button class="btn btn-info" (click)="editSubSheet(data)">edit</button>
-                        </td>
 
-                        <!--<td>  <button class="btn btn-info" (click)="edit(shift.shiftId,content)"> Edit</button></td>-->
-
-                    </tr>
-
-                    </tbody>
-
-                </table>
-                <hr>
-
-                <div class="form-group col-md-6">
-                    <label>Payhead</label>
-                    <input class="form-control" placeholder="head" type="text" [(ngModel)]="subsheetModel.payhead"
+                <div class="form-group col-md-8">
+                    <label>Employee</label>
+                    <input class="form-control" placeholder="name" type="text" [(ngModel)]="payAdvanceModel.empName"
                            readonly>
                 </div>
-
-                <div class="form-group col-md-6">
-                    <label>Amount</label>
-                    <input class="form-control" placeholder="name" type="text" [(ngModel)]="subsheetModel.amount">
-                </div>
-                <div class="form-group col-md-12">
-                    <label>Description</label>
-                    <input class="form-control" placeholder="" type="text" [(ngModel)]="subsheetModel.description">
+                <div class="form-group col-md-4">
+                    <label>Year</label>
+                    <input bsDatepicker
+                           [bsConfig]="{ dateInputFormat: 'YYYY-MM' }" name="resignDate" class="form-control" id="year"
+                           (onShown)="onOpenCalendar($event)" autocomplete="off">
                 </div>
 
 
                 <div class="form-group col-md-12">
-                    <button class="btn btn-success" (click)="updateSubSheet()">edit</button>
+                    <button class="btn btn-success pull-right" (click)="getSalarySheet()">Submit</button>
                 </div>
-
-
             </div>
-        </ng-template>
+
+            <ng-template [ngIf]="showSalary">
+                <hr>
+                <div class="row" style="padding: 20px;">
+                    <table class="table table-bordered table-striped">
+                        <thead>
+                        <th style="text-align: center">Head</th>
+                        <th style="text-align: center">Amount</th>
+                        <th style="text-align: center">Action</th>
+                        </thead>
+                        <tbody>
+                        <tr *ngFor="let data of salarySheetTable">
+                            <td>{{data.allowDeducTitle}}</td>
+                            <td>{{data.AMOUNT}}</td>
+                            <td>
+                                <button class="btn btn-info" (click)="editSubSheet(data)">edit</button>
+                            </td>
+
+
+                        </tr>
+
+                        </tbody>
+
+                    </table>
+                    <div class="col-md-12">
+                        <hr>
+                    </div>
+
+
+                    <div class="form-group col-md-6">
+                        <label>Payhead</label>
+                        <input class="form-control" placeholder="head" type="text" [(ngModel)]="subsheetModel.payhead"
+                               readonly>
+                    </div>
+
+                    <div class="form-group col-md-6">
+                        <label>Amount</label>
+                        <input class="form-control" placeholder="name" type="text" [(ngModel)]="subsheetModel.amount">
+                    </div>
+                    <div class="form-group col-md-12">
+                        <label>Description</label>
+                        <input class="form-control" placeholder="" type="text" [(ngModel)]="subsheetModel.description">
+                    </div>
+
+
+                    <div class="form-group col-md-12">
+                        <button class="btn btn-success" (click)="updateSubSheet()">edit</button>
+                    </div>
+
+
+                </div>
+            </ng-template>
+
+        </div>
 
     </div>
-
 
 </div>
