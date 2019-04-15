@@ -1,0 +1,51 @@
+<div class="container">
+    <div class="card">
+        <div class="card-header">
+            <div class="row">
+                <div class="form-group col-md-6">
+                    <label>Select Month <span style="color: red">*</span></label>
+                    <input name="recentJoinDate" bsDatepicker
+                           [bsConfig]="{ dateInputFormat: 'YYYY-MM-DD' }" [(ngModel)]="salaryModel.date"  class="form-control">
+                </div>
+
+
+                <div class="col-md-6" style="padding-top: 28px">
+
+                    <button class="btn btn-info" (click)="generateSalary()">Generate Salary</button>
+                </div>
+
+            </div>
+        </div>
+        <div class="card-body">
+            <h5 align="center"><b>Salary Main Sheet</b></h5>
+
+            <table datatable  id="example" class="table" [dtOptions]="dtOptions" [dtTrigger]="dtTeigger">
+                <thead>
+                <tr>
+                    <th>Salary Year</th>
+                    <th>Salary Month</th>
+                    <th>Prepared By</th>
+                    <th>Prepared Date</th>
+                    <th>Action</th>
+                </tr>
+
+                </thead>
+                <tbody >
+
+                <tr  *ngFor="let data of salaryMain" >
+                    <td>{{data.salaryYear}}</td>
+                    <td>{{data.salaryMonth}}</td>
+                    <td>{{data.fkPreparedBy}}</td>
+                    <td>{{data.preparedDate}}</td>
+                    <td>  <button class="btn btn-info btn-sm"> Edit</button></td>
+
+                </tr>
+
+                </tbody>
+
+            </table>
+
+
+        </div>
+    </div>
+</div>
