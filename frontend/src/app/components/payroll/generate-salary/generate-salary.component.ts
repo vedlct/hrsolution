@@ -25,8 +25,8 @@ export class GenerateSalaryComponent implements OnInit {
 
   getSalarySheet(){
     const token=this.token.get();
-    this.http.get(Constants.API_URL+'salary/get-main-sheet'+'?token=').subscribe(data => {
-
+    this.http.get(Constants.API_URL+'salary/get-main-sheet'+'?token='+token).subscribe(data => {
+            console.log(data);
           this.salaryMain=data;
           if(this.checkTable==0){
             this.dtTeigger.next();
@@ -77,6 +77,37 @@ export class GenerateSalaryComponent implements OnInit {
         content: 'Please Select Month',
       });
     }
+
+  }
+
+
+  downloadSalarySheet(value){
+      this.spinner.show();
+      const token=this.token.get();
+      this.http.post(Constants.API_URL+'salary/main-sheet/download'+'?token='+token,value).subscribe(data => {
+              this.spinner.hide();
+              // console.log(data);
+              let fileName=Constants.Image_URL+'exportedExcel/'+data;
+
+              let link = document.createElement("a");
+              link.download = data+".xls";
+              let uri = fileName+".xls";
+              link.href = uri;
+              document.body.appendChild(link);
+              link.click();
+              document.body.removeChild(link);
+
+
+          },
+          error => {
+              this.spinner.hide();
+              $.alert({
+                  title: 'Oops!',
+                  content: 'Something went wrong',
+              });
+              console.log(error);
+          }
+      );
 
   }
 }

@@ -28,16 +28,6 @@ class ExcelController extends Controller
         $fromDate=$start;
         $toDate=$end;
 
-//        $start = Carbon::now()->submonth()->startOfMonth()->format('Y-m-d');
-//        $end = Carbon::now()->submonth()->endOfMonth()->format('Y-m-d');
-//
-//        $startDate = Carbon::now()->submonth()->startOfMonth();
-//        $endDate = Carbon::now()->submonth()->endOfMonth();
-//        $fromDate=$start;
-//        $toDate=$end;
-
-
-
 
         $results = DB::select( DB::raw("select a.employeeId,CONCAT(COALESCE(a.firstName,''),' ',COALESCE(a.middleName,''),' ',COALESCE(a.lastName,'')) AS empname,a.departmentName,a.totalWeekend,count(a.attendanceDate) totAttendance, FORMAT(avg(a.workingTime),2) averageWorkingHour,
             sum(case late when 'Y' then 1 else 0 end) totalLate,a.totalLeave,a.actualJoinDate,a.practice,a.fkDepartmentId
@@ -132,9 +122,29 @@ class ExcelController extends Controller
         return response()->json($fileName);
 
 
-
-
     }
 
+
+    public function generateSalarySheet($data){
+
+        $excelName="salary_sheet";
+        $filePath=public_path ()."/exportedExcel";
+        $fileName=$excelName."_Info";
+
+        $check=Excel::create($fileName,function($excel)use ($data) {
+
+
+            $excel->sheet('New_sheet', function($sheet)use ($data) {
+
+                $sheet->loadView('Excel.salarySheet',compact('data'));
+
+            });
+
+
+
+        })->store('xls',$filePath);
+
+        return response()->json($fileName);
+    }
 
 }

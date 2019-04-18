@@ -25,4 +25,18 @@ class SalaryController extends Controller
 
     }
 
+    public function downloadMainSheet(Request $r){
+//        return $r;
+        $data=DB::table('vw_salary_sheet_support')
+            ->where('SALARY_YEAR',$r->salaryYear)
+            ->where('SALARY_MONTH',$r->salaryMonth)
+            ->get();
+
+        return (new ExcelController)->generateSalarySheet($data);
+
+
+
+
+    }
+
 }

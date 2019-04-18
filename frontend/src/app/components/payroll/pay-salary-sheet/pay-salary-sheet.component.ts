@@ -18,6 +18,7 @@ export class PaySalarySheetComponent implements OnInit {
   dtOptions: DataTables.Settings = {};
   dtTrigger: Subject<any> = new Subject();
   id: any;
+  payHeads: any;
   payAdvanceModel: any = {};
   subsheetModel: any = {};
   salarySheetTable:any;
@@ -28,6 +29,7 @@ export class PaySalarySheetComponent implements OnInit {
 
   ngOnInit() {
     this.initModel();
+    this.getAllPayHeads();
 
     const token = this.token.get();
     this.dtOptions = {
@@ -79,6 +81,18 @@ export class PaySalarySheetComponent implements OnInit {
     // this.payAdvanceModel.status = "";
     // this.payAdvanceModel.empName = "";
 
+  }
+
+  getAllPayHeads(){
+    this.http.get(Constants.API_URL+'payroll/payhead/get').subscribe(data => {
+          this.payHeads=data;
+          // console.log(data);
+        },
+        error => {
+          console.log(error);
+
+        }
+    );
   }
 
   ngAfterViewInit(): void {
@@ -136,6 +150,10 @@ export class PaySalarySheetComponent implements OnInit {
     this.http.post(Constants.API_URL+'payroll/paysalarysheetmain/get'+'?token='+token,this.payAdvanceModel).subscribe(data => {
           this.showSalary=true;
           this.salarySheetTable=data;
+          if( this.salarySheetTable.length>0){
+            this.subsheetModel.fkSalarySheetId=this.salarySheetTable[0].paysalarysheetmain_id;
+            this.subsheetModel.fkEmployeeId=this.salarySheetTable[0].fkEmployeeId;
+          }
         },
 
         error => {
@@ -148,7 +166,6 @@ export class PaySalarySheetComponent implements OnInit {
   }
 
   editSubSheet(data){
-    // console.log(data);
     this.subsheetModel.payhead=data.allowDeducTitle;
     this.subsheetModel.fkPayHead=data.fkPayHead;
     this.subsheetModel.fkEmployeeId=data.fkEmployeeId;
@@ -159,24 +176,6 @@ export class PaySalarySheetComponent implements OnInit {
   }
 
   updateSubSheet(){
-
-    //
-    // if (!this.payAdvanceModel.id) {
-    //   $.alert({
-    //     title: 'Alert!',
-    //     type: 'Red',
-    //     content: "Please Select Salary Sheet",
-    //     buttons: {
-    //       tryAgain: {
-    //         text: 'Ok',
-    //         btnClass: 'btn-red',
-    //         action: function () {
-    //         }
-    //       }
-    //     }
-    //   });
-    //   return false;
-    // }
 
     const token = this.token.get();
     this.http.post(Constants.API_URL+'payroll/paysalarysheetsub/update'+'?token='+token,this.subsheetModel).subscribe(data => {
@@ -199,6 +198,53 @@ export class PaySalarySheetComponent implements OnInit {
 
         error => {
           console.log(error);
+        }
+    );
+  }
+
+
+  insertSubSheet(){
+    // console.log(this.subsheetModel);
+
+    const token = this.token.get();
+    this.http.post(Constants.API_URL+'payroll/paysalarysheetsub/insert'+'?token='+token,this.subsheetModel).subscribe(data => {
+
+          $.alert({
+            title: 'Success!',
+            type: 'green',
+            content: "Inserted",
+            buttons: {
+              tryAgain: {
+                text: 'Ok',
+                btnClass: 'btn-red',
+                action: function () {
+                }
+              }
+            }
+          });
+          this.getSalarySheet();
+          this.subsheetModel={};
+          if( this.salarySheetTable.length>0){
+            this.subsheetModel.fkSalarySheetId=this.salarySheetTable[0].paysalarysheetmain_id;
+            this.subsheetModel.fkEmployeeId=this.salarySheetTable[0].fkEmployeeId;
+          }
+        },
+
+        error => {
+          console.log(error);
+          $.alert({
+            title: 'Alert!',
+            type: 'red',
+            content: "Oops Something went wrong",
+            buttons: {
+              tryAgain: {
+                text: 'Ok',
+                btnClass: 'btn-red',
+                action: function () {
+                }
+              }
+            }
+          });
         }
     );
   }

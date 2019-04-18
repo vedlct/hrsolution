@@ -66,6 +66,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _components_team_leave_team_leave_team_component__WEBPACK_IMPORTED_MODULE_28__ = __webpack_require__(/*! ./components/team/leave-team/leave-team.component */ "./src/app/components/team/leave-team/leave-team.component.ts");
 /* harmony import */ var _components_user_past_employee_past_employee_component__WEBPACK_IMPORTED_MODULE_29__ = __webpack_require__(/*! ./components/user/past-employee/past-employee.component */ "./src/app/components/user/past-employee/past-employee.component.ts");
 /* harmony import */ var _components_team_create_leave_team_create_leave_team_component__WEBPACK_IMPORTED_MODULE_30__ = __webpack_require__(/*! ./components/team/create-leave-team/create-leave-team.component */ "./src/app/components/team/create-leave-team/create-leave-team.component.ts");
+/* harmony import */ var _components_payroll_generate_salary_generate_salary_component__WEBPACK_IMPORTED_MODULE_31__ = __webpack_require__(/*! ./components/payroll/generate-salary/generate-salary.component */ "./src/app/components/payroll/generate-salary/generate-salary.component.ts");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -74,6 +75,7 @@ var __decorate = (undefined && undefined.__decorate) || function (decorators, ta
 };
 
 // import { RouterModule, Routes } from '@angular/router';
+
 
 
 
@@ -182,6 +184,16 @@ var routes = [
     },
     { path: 'payroll/salary/setup',
         component: _components_payroll_pay_employee_salary_setup_pay_employee_salary_setup_component__WEBPACK_IMPORTED_MODULE_20__["PayEmployeeSalarySetupComponent"],
+        canActivate: [ngx_permissions__WEBPACK_IMPORTED_MODULE_25__["NgxPermissionsGuard"]],
+        data: {
+            permissions: {
+                only: ['admin'],
+                redirectTo: '/home'
+            }
+        }
+    },
+    { path: 'payroll/salary/generate',
+        component: _components_payroll_generate_salary_generate_salary_component__WEBPACK_IMPORTED_MODULE_31__["GenerateSalaryComponent"],
         canActivate: [ngx_permissions__WEBPACK_IMPORTED_MODULE_25__["NgxPermissionsGuard"]],
         data: {
             permissions: {
@@ -402,12 +414,14 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _components_team_leave_team_leave_team_component__WEBPACK_IMPORTED_MODULE_47__ = __webpack_require__(/*! ./components/team/leave-team/leave-team.component */ "./src/app/components/team/leave-team/leave-team.component.ts");
 /* harmony import */ var _components_user_past_employee_past_employee_component__WEBPACK_IMPORTED_MODULE_48__ = __webpack_require__(/*! ./components/user/past-employee/past-employee.component */ "./src/app/components/user/past-employee/past-employee.component.ts");
 /* harmony import */ var _components_team_create_leave_team_create_leave_team_component__WEBPACK_IMPORTED_MODULE_49__ = __webpack_require__(/*! ./components/team/create-leave-team/create-leave-team.component */ "./src/app/components/team/create-leave-team/create-leave-team.component.ts");
+/* harmony import */ var _components_payroll_generate_salary_generate_salary_component__WEBPACK_IMPORTED_MODULE_50__ = __webpack_require__(/*! ./components/payroll/generate-salary/generate-salary.component */ "./src/app/components/payroll/generate-salary/generate-salary.component.ts");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
     else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
+
 
 
 
@@ -502,7 +516,8 @@ var AppModule = /** @class */ (function () {
                 _components_user_profile_profile_component__WEBPACK_IMPORTED_MODULE_46__["ProfileComponent"],
                 _components_team_leave_team_leave_team_component__WEBPACK_IMPORTED_MODULE_47__["LeaveTeamComponent"],
                 _components_user_past_employee_past_employee_component__WEBPACK_IMPORTED_MODULE_48__["PastEmployeeComponent"],
-                _components_team_create_leave_team_create_leave_team_component__WEBPACK_IMPORTED_MODULE_49__["CreateLeaveTeamComponent"]
+                _components_team_create_leave_team_create_leave_team_component__WEBPACK_IMPORTED_MODULE_49__["CreateLeaveTeamComponent"],
+                _components_payroll_generate_salary_generate_salary_component__WEBPACK_IMPORTED_MODULE_50__["GenerateSalaryComponent"]
             ],
             imports: [
                 _angular_platform_browser__WEBPACK_IMPORTED_MODULE_0__["BrowserModule"],
@@ -2212,7 +2227,7 @@ module.exports = ""
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"accountbg\"></div>\n<div class=\"wrapper-page\">\n\n  <div class=\"card\">\n    <div class=\"card-header\">\n      <h3 class=\"text-center\">\n        <b class=\"waves-effect waves-light\">HR Solution</b>\n      </h3>\n\n    </div>\n    <div class=\"card-body\">\n\n      <div class=\"alert alert-danger\" [hidden]=\"!error\">\n        {{error}}\n      </div>\n\n      <div align=\"center\">\n        <img src=\"assets/logo/TCL_logo.png\" height=\"150\" width=\"200\">\n      </div>\n\n      <div class=\"p-3\">\n        <form #loginForm=ngForm (ngSubmit)=\"onSubmit(form.value)\" [formGroup]=\"form\" class=\"form-horizontal m-t-20\">\n\n\n          <div class=\"form-group row\">\n            <div class=\"col-12\">\n              <input type=\"email\" class=\"form-control\" placeholder=\"email\" name=\"email\" formControlName=\"email\" required autofocus>\n              <div *ngIf=\"submitted && f.email.errors\">\n                <div *ngIf=\"f.email.errors.required\" class=\"badge badge-danger\">Email required</div>\n                <div *ngIf=\"f.email.errors.email\" class=\"badge badge-danger\">must be a valid email</div>\n              </div>\n            </div>\n          </div>\n\n          <div class=\"form-group row\">\n            <div class=\"col-12\">\n              <input class=\"form-control\" name=\"password\" type=\"password\" placeholder=\"Password\" formControlName=\"password\" required>\n\n              <div *ngIf=\"submitted && f.password.errors\">\n                <div *ngIf=\"f.password.errors.required\" class=\"badge badge-danger\">password required</div>\n                <div *ngIf=\"f.password.errors.minlength\" class=\"badge badge-danger\">at least 6 characters </div>\n              </div>\n\n            </div>\n          </div>\n\n\n          <div class=\"form-group text-center row m-t-20\">\n            <div class=\"col-12\">\n              <!--<button class=\"btn btn-block btn-info\">Log In</button>-->\n              <button type=\"submit\" class=\"btn btn-block btn-info\" style=\"text-align: center\" >Sign in</button>\n\n\n            </div>\n          </div>\n\n\n        </form>\n      </div>\n\n    </div>\n  </div>\n</div>"
+module.exports = "<div class=\"accountbg\"></div>\n<div class=\"wrapper-page\">\n\n  <div class=\"card\">\n    <div class=\"card-header\">\n      <h3 class=\"text-center\">\n        <b class=\"waves-effect waves-light\">HR Solution</b>\n      </h3>\n\n    </div>\n    <div class=\"card-body\">\n\n      <div class=\"alert alert-danger\" [hidden]=\"!error\">\n        {{error}}\n      </div>\n\n      <div align=\"center\">\n        <img src=\"assets/logo/TCL_logo.png\" height=\"150\" width=\"200\">\n\n      </div>\n\n      <div class=\"p-3\">\n        <form #loginForm=ngForm (ngSubmit)=\"onSubmit(form.value)\" [formGroup]=\"form\" class=\"form-horizontal m-t-20\">\n\n\n          <div class=\"form-group row\">\n            <div class=\"col-12\">\n              <input type=\"email\" class=\"form-control\" placeholder=\"email\" name=\"email\" formControlName=\"email\" required autofocus>\n              <div *ngIf=\"submitted && f.email.errors\">\n                <div *ngIf=\"f.email.errors.required\" class=\"badge badge-danger\">Email required</div>\n                <div *ngIf=\"f.email.errors.email\" class=\"badge badge-danger\">must be a valid email</div>\n              </div>\n            </div>\n          </div>\n\n          <div class=\"form-group row\">\n            <div class=\"col-12\">\n              <input class=\"form-control\" name=\"password\" type=\"password\" placeholder=\"Password\" formControlName=\"password\" required>\n\n              <div *ngIf=\"submitted && f.password.errors\">\n                <div *ngIf=\"f.password.errors.required\" class=\"badge badge-danger\">password required</div>\n                <div *ngIf=\"f.password.errors.minlength\" class=\"badge badge-danger\">at least 6 characters </div>\n              </div>\n\n            </div>\n          </div>\n\n\n          <div class=\"form-group text-center row m-t-20\">\n            <div class=\"col-12\">\n              <!--<button class=\"btn btn-block btn-info\">Log In</button>-->\n              <button type=\"submit\" class=\"btn btn-block btn-info\" style=\"text-align: center\" >Sign in</button>\n\n\n            </div>\n          </div>\n\n\n        </form>\n      </div>\n\n    </div>\n  </div>\n</div>"
 
 /***/ }),
 
@@ -2351,7 +2366,7 @@ module.exports = ""
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<!-- Navigation Bar-->\n<header id=\"topnav\">\n  <div class=\"topbar-main\">\n    <div class=\"container-fluid\">\n\n      <div class=\"logo\">\n\n        <a routerLink=\"/home\" class=\"logo\">\n          <h3>HR</h3>\n        </a>\n\n      </div>\n\n      <div class=\"menu-extras topbar-custom\">\n        <!-- Search input -->\n        <div class=\"search-wrap\" id=\"search-wrap\">\n          <div class=\"search-bar\">\n            <input class=\"search-input\" type=\"search\" placeholder=\"Search\" />\n            <a href=\"#\" class=\"close-search toggle-search\" data-target=\"#search-wrap\">\n              <i class=\"mdi mdi-close-circle\"></i>\n            </a>\n          </div>\n        </div>\n\n        <ul class=\"list-inline float-right mb-0\">\n          <!-- Search -->\n          <li class=\"list-inline-item dropdown notification-list\">\n            <a class=\"nav-link waves-effect toggle-search\" href=\"#\"  data-target=\"#search-wrap\">\n              <i class=\"mdi mdi-magnify noti-icon\"></i>\n            </a>\n          </li>\n          <!-- Messages-->\n          <li class=\"list-inline-item dropdown notification-list\">\n            <a class=\"nav-link dropdown-toggle arrow-none waves-effect\" data-toggle=\"dropdown\" href=\"#\" role=\"button\"\n               aria-haspopup=\"false\" aria-expanded=\"false\">\n              <i class=\"mdi mdi-email-outline noti-icon\"></i>\n              <span class=\"badge badge-danger noti-icon-badge\">3</span>\n            </a>\n            <div class=\"dropdown-menu dropdown-menu-right dropdown-arrow dropdown-menu-lg\">\n              <!-- item-->\n              <div class=\"dropdown-item noti-title\">\n                <h5><span class=\"badge badge-danger float-right\">745</span>Messages</h5>\n              </div>\n\n              <!-- item-->\n              <a href=\"javascript:void(0);\" class=\"dropdown-item notify-item\">\n                <div class=\"notify-icon\"><img src=\"assets/images/users/avatar-2.jpg\" alt=\"user-img\" class=\"img-fluid rounded-circle\" /> </div>\n                <p class=\"notify-details\"><b>Charles M. Jones</b><small class=\"text-muted\">Dummy text of the printing and typesetting industry.</small></p>\n              </a>\n\n              <!-- item-->\n              <a href=\"javascript:void(0);\" class=\"dropdown-item notify-item\">\n                <div class=\"notify-icon\"><img src=\"assets/images/users/avatar-3.jpg\" alt=\"user-img\" class=\"img-fluid rounded-circle\" /> </div>\n                <p class=\"notify-details\"><b>Thomas J. Mimms</b><small class=\"text-muted\">You have 87 unread messages</small></p>\n              </a>\n\n              <!-- item-->\n              <a href=\"javascript:void(0);\" class=\"dropdown-item notify-item\">\n                <div class=\"notify-icon\"><img src=\"assets/images/users/avatar-4.jpg\" alt=\"user-img\" class=\"img-fluid rounded-circle\" /> </div>\n                <p class=\"notify-details\"><b>Luis M. Konrad</b><small class=\"text-muted\">It is a long established fact that a reader will</small></p>\n              </a>\n\n              <!-- All-->\n              <a href=\"javascript:void(0);\" class=\"dropdown-item notify-item\">\n                View All\n              </a>\n\n            </div>\n          </li>\n          <!-- notification-->\n          <li class=\"list-inline-item dropdown notification-list\">\n            <a class=\"nav-link dropdown-toggle arrow-none waves-effect\" data-toggle=\"dropdown\" href=\"#\" role=\"button\"\n               aria-haspopup=\"false\" aria-expanded=\"false\">\n              <i class=\"mdi mdi-bell-outline noti-icon\"></i>\n              <span class=\"badge badge-danger noti-icon-badge\">3</span>\n            </a>\n            <div class=\"dropdown-menu dropdown-menu-right dropdown-arrow dropdown-menu-lg\">\n              <!-- item-->\n              <div class=\"dropdown-item noti-title\">\n                <h5>Notification (3)</h5>\n              </div>\n\n              <!-- item-->\n              <a href=\"javascript:void(0);\" class=\"dropdown-item notify-item active\">\n                <div class=\"notify-icon bg-success\"><i class=\"mdi mdi-cart-outline\"></i></div>\n                <p class=\"notify-details\"><b>Your order is placed</b><small class=\"text-muted\">Dummy text of the printing and typesetting industry.</small></p>\n              </a>\n\n              <!-- item-->\n              <a href=\"javascript:void(0);\" class=\"dropdown-item notify-item\">\n                <div class=\"notify-icon bg-warning\"><i class=\"mdi mdi-message\"></i></div>\n                <p class=\"notify-details\"><b>New Message received</b><small class=\"text-muted\">You have 87 unread messages</small></p>\n              </a>\n\n              <!-- item-->\n              <a href=\"javascript:void(0);\" class=\"dropdown-item notify-item\">\n                <div class=\"notify-icon bg-info\"><i class=\"mdi mdi-martini\"></i></div>\n                <p class=\"notify-details\"><b>Your item is shipped</b><small class=\"text-muted\">It is a long established fact that a reader will</small></p>\n              </a>\n\n              <!-- All-->\n              <a href=\"javascript:void(0);\" class=\"dropdown-item notify-item\">\n                View All\n              </a>\n\n            </div>\n          </li>\n          <!-- User-->\n          <li class=\"list-inline-item dropdown notification-list\">\n            <a class=\"nav-link dropdown-toggle arrow-none waves-effect nav-user\" data-toggle=\"dropdown\" href=\"#\" role=\"button\"\n               aria-haspopup=\"false\" aria-expanded=\"false\">\n              <img src=\"assets/images/users/avatar-1.jpg\" alt=\"user\" class=\"rounded-circle\">\n            </a>\n            <div class=\"dropdown-menu dropdown-menu-right profile-dropdown \">\n              <a class=\"dropdown-item\" routerLink=\"profile\"><i class=\"dripicons-user text-muted\"></i> Profile</a>\n              <a class=\"dropdown-item\" href=\"#\"><i class=\"dripicons-wallet text-muted\"></i> My Wallet</a>\n              <a class=\"dropdown-item\" href=\"#\"><span class=\"badge badge-success pull-right m-t-5\">5</span><i class=\"dripicons-gear text-muted\"></i> Settings</a>\n              <a class=\"dropdown-item\" href=\"#\" (click)=\"whoAmI($event)\"><i class=\"dripicons-lock text-muted\"></i> Who Am I</a>\n              <div class=\"dropdown-divider\"></div>\n              <a class=\"dropdown-item\" href=\"#\" (click)=\"logout($event)\"><i class=\"dripicons-exit text-muted\"></i> Logout</a>\n            </div>\n          </li>\n          <li class=\"menu-item list-inline-item\">\n            <!-- Mobile menu toggle-->\n            <a class=\"navbar-toggle nav-link\">\n              <div class=\"lines\">\n                <span></span>\n                <span></span>\n                <span></span>\n              </div>\n            </a>\n            <!-- End mobile menu toggle-->\n          </li>\n\n        </ul>\n      </div>\n      <!-- end menu-extras -->\n\n      <div class=\"clearfix\"></div>\n\n    </div> <!-- end container -->\n  </div>\n  <!-- end topbar-main -->\n\n  <!-- MENU Start -->\n  <div class=\"navbar-custom\">\n    <div class=\"container-fluid\">\n      <div id=\"navigation\">\n        <!-- Navigation Menu-->\n        <ul class=\"navigation-menu\">\n\n          <li class=\"has-submenu\" routerLinkActive=\"active\">\n            <a routerLink=\"/home\" ><i class=\"ti-home\"></i>Dashboard</a>\n          </li>\n\n          <li class=\"has-submenu\" routerLinkActive=\"active\">\n            <a href=\"#\"><i class=\"ti-bookmark-alt\"></i>Components</a>\n            <ul class=\"submenu\">\n              <li class=\"has-submenu\" *ngxPermissionsOnly=\"['admin']\">\n                <a href=\"#\">Shift</a>\n                <ul class=\"submenu\">\n                  <li><a routerLink=\"configuration/shift\">All Shift</a></li>\n                  <li><a routerLink=\"configuration/shift/assign\">Shift Assign</a></li>\n                </ul>\n              </li>\n\n              <li class=\"has-submenu\">\n                <a href=\"#\">Leave</a>\n                <ul class=\"submenu\">\n                  <li><a routerLink=\"leave/apply\">Apply Leave</a></li>\n                  <li><a routerLink=\"configuration/leave\" *ngxPermissionsOnly=\"['admin']\">Create Leave</a></li>\n                  <li><a routerLink=\"configuration/leave/show\" *ngxPermissionsOnly=\"['admin']\">Show Leave</a></li>\n                </ul>\n              </li>\n\n\n              <li class=\"has-submenu\" *ngxPermissionsOnly=\"['admin']\">\n                <a href=\"#\">User</a>\n                <ul class=\"submenu\">\n                  <li><a routerLink=\"user/add\">Add User</a></li>\n                </ul>\n              </li>\n              <li class=\"has-submenu\" *ngxPermissionsOnly=\"['admin']\">\n                <a href=\"#\">Employee</a>\n                <ul class=\"submenu\">\n                  <li><a routerLink=\"employee\">Employee</a></li>\n                  <li><a routerLink=\"employee/past\">Past Employee</a></li>\n                  <li><a routerLink=\"employee/add\">Add Employee</a></li>\n                </ul>\n              </li>\n\n              <li class=\"has-submenu\" *ngxPermissionsOnly=\"['admin']\">\n                <a href=\"#\">Company</a>\n                <ul class=\"submenu\">\n                  <li><a routerLink=\"company/add\">Company Info</a></li>\n                </ul>\n              </li>\n\n            </ul>\n          </li>\n\n\n          <li class=\"has-submenu\" routerLinkActive=\"active\">\n            <a routerLink=\"#\" ><i class=\"fa fa-chart\"></i>Report</a>\n            <ul class=\"submenu\">\n              <li class=\"\">\n                <a routerLink=\"report/attendance\">Attendance</a>\n\n              </li>\n            </ul>\n          </li>\n\n\n          <li class=\"has-submenu\" routerLinkActive=\"active\" *ngxPermissionsOnly=\"['admin']\">\n            <a routerLink=\"#\" ><i class=\"fa fa-chart\"></i>Team</a>\n            <ul class=\"submenu\">\n              <li class=\"\">\n                <a routerLink=\"team/show\">Show Team</a>\n                <a routerLink=\"team/assign\">Assign Team</a>\n                <a routerLink=\"leave/team/add\">Show Leave Team</a>\n                <a routerLink=\"leave/team\">Leave Team</a>\n              </li>\n            </ul>\n          </li>\n\n\n          <li class=\"has-submenu\" routerLinkActive=\"active\" *ngxPermissionsOnly=\"['admin']\">\n            <a routerLink=\"#\" ><i class=\"fa fa-chart\"></i>Payroll</a>\n            <ul class=\"submenu\">\n              <li class=\"\">\n                <a routerLink=\"payroll/pay-grade\">Pay Grade</a>\n                <a routerLink=\"payroll/payhead\">Pay Head</a>\n                <a routerLink=\"payroll/salary-sheet\">Salary Sheet</a>\n                <a routerLink=\"payroll/pay-advance\">Advance Payment</a>\n                <a routerLink=\"payroll/salary/setup\">Salary Setup</a>\n\n              </li>\n            </ul>\n          </li>\n\n          <!--<li class=\"has-submenu\">-->\n            <!--<a href=\"#\"><i class=\"ti-files\"></i>Pages</a>-->\n            <!--<ul class=\"submenu megamenu\">-->\n              <!--<li>-->\n                <!--<ul>-->\n                  <!--<li><a routerLink=\"/login\">Login</a></li>-->\n                <!--</ul>-->\n              <!--</li>-->\n            <!--</ul>-->\n          <!--</li>-->\n\n        </ul>\n        <!-- End navigation menu -->\n      </div> <!-- end #navigation -->\n    </div> <!-- end container -->\n  </div> <!-- end navbar-custom -->\n\n\n\n\n</header>\n<!-- End Navigation Bar-->\n\n"
+module.exports = "<!-- Navigation Bar-->\n<header id=\"topnav\">\n  <div class=\"topbar-main\">\n    <div class=\"container-fluid\">\n\n      <div class=\"logo\">\n\n        <a routerLink=\"/home\" class=\"logo\">\n          <h3>HR</h3>\n        </a>\n\n      </div>\n\n      <div class=\"menu-extras topbar-custom\">\n\n\n        <ul class=\"list-inline float-right mb-0\">\n\n          <!-- Messages-->\n          <li class=\"list-inline-item dropdown notification-list\">\n            <a class=\"nav-link dropdown-toggle arrow-none waves-effect\" data-toggle=\"dropdown\" href=\"#\" role=\"button\"\n               aria-haspopup=\"false\" aria-expanded=\"false\">\n              <i class=\"mdi mdi-email-outline noti-icon\"></i>\n              <span class=\"badge badge-danger noti-icon-badge\">3</span>\n            </a>\n            <div class=\"dropdown-menu dropdown-menu-right dropdown-arrow dropdown-menu-lg\">\n              <!-- item-->\n              <div class=\"dropdown-item noti-title\">\n                <h5><span class=\"badge badge-danger float-right\">745</span>Messages</h5>\n              </div>\n\n              <!-- item-->\n<!--              <a href=\"javascript:void(0);\" class=\"dropdown-item notify-item\">-->\n<!--                <div class=\"notify-icon\"><img src=\"assets/images/users/avatar-2.jpg\" alt=\"user-img\" class=\"img-fluid rounded-circle\" /> </div>-->\n<!--                <p class=\"notify-details\"><b>Charles M. Jones</b><small class=\"text-muted\">Dummy text of the printing and typesetting industry.</small></p>-->\n<!--              </a>-->\n\n<!--              &lt;!&ndash; item&ndash;&gt;-->\n<!--              <a href=\"javascript:void(0);\" class=\"dropdown-item notify-item\">-->\n<!--                <div class=\"notify-icon\"><img src=\"assets/images/users/avatar-3.jpg\" alt=\"user-img\" class=\"img-fluid rounded-circle\" /> </div>-->\n<!--                <p class=\"notify-details\"><b>Thomas J. Mimms</b><small class=\"text-muted\">You have 87 unread messages</small></p>-->\n<!--              </a>-->\n\n<!--              &lt;!&ndash; item&ndash;&gt;-->\n<!--              <a href=\"javascript:void(0);\" class=\"dropdown-item notify-item\">-->\n<!--                <div class=\"notify-icon\"><img src=\"assets/images/users/avatar-4.jpg\" alt=\"user-img\" class=\"img-fluid rounded-circle\" /> </div>-->\n<!--                <p class=\"notify-details\"><b>Luis M. Konrad</b><small class=\"text-muted\">It is a long established fact that a reader will</small></p>-->\n<!--              </a>-->\n\n<!--              &lt;!&ndash; All&ndash;&gt;-->\n              <a href=\"javascript:void(0);\" class=\"dropdown-item notify-item\">\n                View All\n              </a>\n\n            </div>\n          </li>\n          <!-- notification-->\n          <li class=\"list-inline-item dropdown notification-list\">\n            <a class=\"nav-link dropdown-toggle arrow-none waves-effect\" data-toggle=\"dropdown\" href=\"#\" role=\"button\"\n               aria-haspopup=\"false\" aria-expanded=\"false\">\n              <i class=\"mdi mdi-bell-outline noti-icon\"></i>\n              <span class=\"badge badge-danger noti-icon-badge\">3</span>\n            </a>\n            <div class=\"dropdown-menu dropdown-menu-right dropdown-arrow dropdown-menu-lg\">\n              <!-- item-->\n              <div class=\"dropdown-item noti-title\">\n                <h5>Notification (3)</h5>\n              </div>\n\n<!--              &lt;!&ndash; item&ndash;&gt;-->\n<!--              <a href=\"javascript:void(0);\" class=\"dropdown-item notify-item active\">-->\n<!--                <div class=\"notify-icon bg-success\"><i class=\"mdi mdi-cart-outline\"></i></div>-->\n<!--                <p class=\"notify-details\"><b>Your order is placed</b><small class=\"text-muted\">Dummy text of the printing and typesetting industry.</small></p>-->\n<!--              </a>-->\n\n<!--              &lt;!&ndash; item&ndash;&gt;-->\n<!--              <a href=\"javascript:void(0);\" class=\"dropdown-item notify-item\">-->\n<!--                <div class=\"notify-icon bg-warning\"><i class=\"mdi mdi-message\"></i></div>-->\n<!--                <p class=\"notify-details\"><b>New Message received</b><small class=\"text-muted\">You have 87 unread messages</small></p>-->\n<!--              </a>-->\n\n<!--              &lt;!&ndash; item&ndash;&gt;-->\n<!--              <a href=\"javascript:void(0);\" class=\"dropdown-item notify-item\">-->\n<!--                <div class=\"notify-icon bg-info\"><i class=\"mdi mdi-martini\"></i></div>-->\n<!--                <p class=\"notify-details\"><b>Your item is shipped</b><small class=\"text-muted\">It is a long established fact that a reader will</small></p>-->\n<!--              </a>-->\n\n              <!-- All-->\n              <a href=\"javascript:void(0);\" class=\"dropdown-item notify-item\">\n                View All\n              </a>\n\n            </div>\n          </li>\n          <!-- User-->\n          <li class=\"list-inline-item dropdown notification-list\">\n            <a class=\"nav-link dropdown-toggle arrow-none waves-effect nav-user\" data-toggle=\"dropdown\" href=\"#\" role=\"button\"\n               aria-haspopup=\"false\" aria-expanded=\"false\">\n              <img src=\"assets/images/users/avatar-1.jpg\" alt=\"user\" class=\"rounded-circle\">\n            </a>\n            <div class=\"dropdown-menu dropdown-menu-right profile-dropdown \">\n              <a class=\"dropdown-item\" routerLink=\"profile\"><i class=\"dripicons-user text-muted\"></i> Profile</a>\n<!--              <a class=\"dropdown-item\" href=\"#\"><i class=\"dripicons-wallet text-muted\"></i> My Wallet</a>-->\n<!--              <a class=\"dropdown-item\" href=\"#\"><span class=\"badge badge-success pull-right m-t-5\">5</span><i class=\"dripicons-gear text-muted\"></i> Settings</a>-->\n<!--              <a class=\"dropdown-item\" href=\"#\" (click)=\"whoAmI($event)\"><i class=\"dripicons-lock text-muted\"></i> Who Am I</a>-->\n              <div class=\"dropdown-divider\"></div>\n              <a class=\"dropdown-item\" href=\"#\" (click)=\"logout($event)\"><i class=\"dripicons-exit text-muted\"></i> Logout</a>\n            </div>\n          </li>\n          <li class=\"menu-item list-inline-item\">\n            <!-- Mobile menu toggle-->\n            <a class=\"navbar-toggle nav-link\">\n              <div class=\"lines\">\n                <span></span>\n                <span></span>\n                <span></span>\n              </div>\n            </a>\n            <!-- End mobile menu toggle-->\n          </li>\n\n        </ul>\n      </div>\n      <!-- end menu-extras -->\n\n      <div class=\"clearfix\"></div>\n\n    </div> <!-- end container -->\n  </div>\n  <!-- end topbar-main -->\n\n  <!-- MENU Start -->\n  <div class=\"navbar-custom\">\n    <div class=\"container-fluid\">\n      <div id=\"navigation\">\n        <!-- Navigation Menu-->\n        <ul class=\"navigation-menu\">\n\n          <li class=\"has-submenu\" routerLinkActive=\"active\">\n            <a routerLink=\"/home\" ><i class=\"ti-home\"></i>Dashboard</a>\n          </li>\n\n          <li class=\"has-submenu\" routerLinkActive=\"active\">\n            <a href=\"#\"><i class=\"ti-bookmark-alt\"></i>Components</a>\n            <ul class=\"submenu\">\n              <li class=\"has-submenu\" *ngxPermissionsOnly=\"['admin']\">\n                <a href=\"#\">Shift</a>\n                <ul class=\"submenu\">\n                  <li><a routerLink=\"configuration/shift\">All Shift</a></li>\n                  <li><a routerLink=\"configuration/shift/assign\">Shift Assign</a></li>\n                </ul>\n              </li>\n\n              <li class=\"has-submenu\">\n                <a href=\"#\">Leave</a>\n                <ul class=\"submenu\">\n                  <li><a routerLink=\"leave/apply\">Apply Leave</a></li>\n                  <li><a routerLink=\"configuration/leave\" *ngxPermissionsOnly=\"['admin']\">Create Leave</a></li>\n                  <li><a routerLink=\"configuration/leave/show\" *ngxPermissionsOnly=\"['admin']\">Show Leave</a></li>\n                </ul>\n              </li>\n\n\n              <li class=\"has-submenu\" *ngxPermissionsOnly=\"['admin']\">\n                <a href=\"#\">User</a>\n                <ul class=\"submenu\">\n                  <li><a routerLink=\"user/add\">Add User</a></li>\n                </ul>\n              </li>\n              <li class=\"has-submenu\" *ngxPermissionsOnly=\"['admin']\">\n                <a href=\"#\">Employee</a>\n                <ul class=\"submenu\">\n                  <li><a routerLink=\"employee\">Employee</a></li>\n                  <li><a routerLink=\"employee/past\">Past Employee</a></li>\n                  <li><a routerLink=\"employee/add\">Add Employee</a></li>\n                </ul>\n              </li>\n\n              <li class=\"has-submenu\" *ngxPermissionsOnly=\"['admin']\">\n                <a href=\"#\">Company</a>\n                <ul class=\"submenu\">\n                  <li><a routerLink=\"company/add\">Company Info</a></li>\n                </ul>\n              </li>\n\n            </ul>\n          </li>\n\n\n          <li class=\"has-submenu\" routerLinkActive=\"active\">\n            <a routerLink=\"#\" ><i class=\"fa fa-chart\"></i>Report</a>\n            <ul class=\"submenu\">\n              <li class=\"\">\n                <a routerLink=\"report/attendance\">Attendance</a>\n\n              </li>\n            </ul>\n          </li>\n\n\n          <li class=\"has-submenu\" routerLinkActive=\"active\" *ngxPermissionsOnly=\"['admin']\">\n            <a routerLink=\"#\" ><i class=\"fa fa-chart\"></i>Team</a>\n            <ul class=\"submenu\">\n              <li class=\"\">\n                <a routerLink=\"team/show\">Show Team</a>\n                <a routerLink=\"team/assign\">Assign Team</a>\n                <a routerLink=\"leave/team/add\">Show Leave Team</a>\n                <a routerLink=\"leave/team\">Leave Team</a>\n              </li>\n            </ul>\n          </li>\n\n\n          <li class=\"has-submenu\" routerLinkActive=\"active\" *ngxPermissionsOnly=\"['admin']\">\n            <a routerLink=\"#\" ><i class=\"fa fa-chart\"></i>Payroll</a>\n            <ul class=\"submenu\">\n              <li class=\"\">\n                <a routerLink=\"payroll/salary/generate\">Generate Salary</a>\n                <a routerLink=\"payroll/pay-grade\">Pay Grade</a>\n                <a routerLink=\"payroll/payhead\">Pay Head</a>\n                <a routerLink=\"payroll/salary-sheet\">Salary Sheet</a>\n                <a routerLink=\"payroll/pay-advance\">Advance Payment</a>\n                <a routerLink=\"payroll/salary/setup\">Salary Setup</a>\n\n              </li>\n            </ul>\n          </li>\n\n          <!--<li class=\"has-submenu\">-->\n            <!--<a href=\"#\"><i class=\"ti-files\"></i>Pages</a>-->\n            <!--<ul class=\"submenu megamenu\">-->\n              <!--<li>-->\n                <!--<ul>-->\n                  <!--<li><a routerLink=\"/login\">Login</a></li>-->\n                <!--</ul>-->\n              <!--</li>-->\n            <!--</ul>-->\n          <!--</li>-->\n\n        </ul>\n        <!-- End navigation menu -->\n      </div> <!-- end #navigation -->\n    </div> <!-- end container -->\n  </div> <!-- end navbar-custom -->\n\n\n\n\n</header>\n<!-- End Navigation Bar-->\n\n"
 
 /***/ }),
 
@@ -2471,6 +2486,164 @@ var NavbarComponent = /** @class */ (function () {
         __metadata("design:paramtypes", [ngx_permissions__WEBPACK_IMPORTED_MODULE_4__["NgxPermissionsService"], _angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpClient"], _services_token_service__WEBPACK_IMPORTED_MODULE_3__["TokenService"]])
     ], NavbarComponent);
     return NavbarComponent;
+}());
+
+
+
+/***/ }),
+
+/***/ "./src/app/components/payroll/generate-salary/generate-salary.component.css":
+/*!**********************************************************************************!*\
+  !*** ./src/app/components/payroll/generate-salary/generate-salary.component.css ***!
+  \**********************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = ""
+
+/***/ }),
+
+/***/ "./src/app/components/payroll/generate-salary/generate-salary.component.html":
+/*!***********************************************************************************!*\
+  !*** ./src/app/components/payroll/generate-salary/generate-salary.component.html ***!
+  \***********************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "<div class=\"container\">\n    <div class=\"card\">\n        <div class=\"card-header\">\n            <div class=\"row\">\n                <div class=\"form-group col-md-6\">\n                    <label>Select Month <span style=\"color: red\">*</span></label>\n                    <input name=\"recentJoinDate\" bsDatepicker\n                           [bsConfig]=\"{ dateInputFormat: 'YYYY-MM-DD' }\" [(ngModel)]=\"salaryModel.date\"  class=\"form-control\">\n                </div>\n\n\n                <div class=\"col-md-6\" style=\"padding-top: 28px\">\n\n                    <button class=\"btn btn-info\" (click)=\"generateSalary()\">Generate Salary</button>\n                </div>\n\n            </div>\n        </div>\n        <div class=\"card-body\">\n            <h5 align=\"center\"><b>Salary Main Sheet</b></h5>\n\n            <table datatable  id=\"example\" class=\"table\" [dtOptions]=\"dtOptions\" [dtTrigger]=\"dtTeigger\">\n                <thead>\n                <tr>\n                    <th>Salary Year</th>\n                    <th>Salary Month</th>\n                    <th>Prepared By</th>\n                    <th>Prepared Date</th>\n                    <th>Action</th>\n                </tr>\n\n                </thead>\n                <tbody >\n\n                <tr  *ngFor=\"let data of salaryMain\" >\n                    <td>{{data.salaryYear}}</td>\n                    <td>{{data.salaryMonth}}</td>\n                    <td>{{data.fkPreparedBy}}</td>\n                    <td>{{data.preparedDate}}</td>\n                    <td>  <button class=\"btn btn-info btn-sm\" (click)=\"downloadSalarySheet(data)\"> Download</button></td>\n\n                </tr>\n\n                </tbody>\n\n            </table>\n\n\n        </div>\n    </div>\n</div>"
+
+/***/ }),
+
+/***/ "./src/app/components/payroll/generate-salary/generate-salary.component.ts":
+/*!*********************************************************************************!*\
+  !*** ./src/app/components/payroll/generate-salary/generate-salary.component.ts ***!
+  \*********************************************************************************/
+/*! exports provided: GenerateSalaryComponent */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "GenerateSalaryComponent", function() { return GenerateSalaryComponent; });
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var _angular_common_http__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/common/http */ "./node_modules/@angular/common/fesm5/http.js");
+/* harmony import */ var _services_token_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../services/token.service */ "./src/app/services/token.service.ts");
+/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm5/router.js");
+/* harmony import */ var ngx_spinner__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ngx-spinner */ "./node_modules/ngx-spinner/ngx-spinner.umd.js");
+/* harmony import */ var ngx_spinner__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(ngx_spinner__WEBPACK_IMPORTED_MODULE_4__);
+/* harmony import */ var _constants__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../../constants */ "./src/app/constants.ts");
+/* harmony import */ var rxjs__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! rxjs */ "./node_modules/rxjs/_esm5/index.js");
+var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (undefined && undefined.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+
+
+
+
+
+var GenerateSalaryComponent = /** @class */ (function () {
+    function GenerateSalaryComponent(http, token, router, spinner) {
+        this.http = http;
+        this.token = token;
+        this.router = router;
+        this.spinner = spinner;
+        this.dtOptions = {};
+        this.dtTeigger = new rxjs__WEBPACK_IMPORTED_MODULE_6__["Subject"]();
+        this.salaryModel = {};
+        this.checkTable = 0;
+    }
+    GenerateSalaryComponent.prototype.ngOnInit = function () {
+        this.getSalarySheet();
+    };
+    GenerateSalaryComponent.prototype.getSalarySheet = function () {
+        var _this = this;
+        var token = this.token.get();
+        this.http.get(_constants__WEBPACK_IMPORTED_MODULE_5__["Constants"].API_URL + 'salary/get-main-sheet' + '?token=' + token).subscribe(function (data) {
+            console.log(data);
+            _this.salaryMain = data;
+            if (_this.checkTable == 0) {
+                _this.dtTeigger.next();
+                _this.checkTable++;
+            }
+        }, function (error) {
+            $.alert({
+                title: 'Oops!',
+                content: 'Something went wrong',
+            });
+            console.log(error);
+        });
+    };
+    GenerateSalaryComponent.prototype.generateSalary = function () {
+        var _this = this;
+        if (this.salaryModel.date) {
+            this.salaryModel.date = new Date(this.salaryModel.date).toLocaleDateString();
+            this.spinner.show();
+            var token = this.token.get();
+            this.http.post(_constants__WEBPACK_IMPORTED_MODULE_5__["Constants"].API_URL + 'salary/generate' + '?token=' + token, this.salaryModel).subscribe(function (data) {
+                _this.salaryModel.date = "";
+                _this.spinner.hide();
+                $.alert({
+                    title: 'Success!',
+                    content: 'Salary Generated Successfully',
+                });
+                _this.getSalarySheet();
+            }, function (error) {
+                _this.salaryModel.date = "";
+                _this.spinner.hide();
+                $.alert({
+                    title: 'Oops!',
+                    content: 'Something went wrong',
+                });
+                console.log(error);
+            });
+        }
+        else {
+            $.alert({
+                title: 'Alert!',
+                content: 'Please Select Month',
+            });
+        }
+    };
+    GenerateSalaryComponent.prototype.downloadSalarySheet = function (value) {
+        var _this = this;
+        this.spinner.show();
+        var token = this.token.get();
+        this.http.post(_constants__WEBPACK_IMPORTED_MODULE_5__["Constants"].API_URL + 'salary/main-sheet/download' + '?token=' + token, value).subscribe(function (data) {
+            _this.spinner.hide();
+            // console.log(data);
+            var fileName = _constants__WEBPACK_IMPORTED_MODULE_5__["Constants"].Image_URL + 'exportedExcel/' + data;
+            var link = document.createElement("a");
+            link.download = data + ".xls";
+            var uri = fileName + ".xls";
+            link.href = uri;
+            document.body.appendChild(link);
+            link.click();
+            document.body.removeChild(link);
+        }, function (error) {
+            _this.spinner.hide();
+            $.alert({
+                title: 'Oops!',
+                content: 'Something went wrong',
+            });
+            console.log(error);
+        });
+    };
+    GenerateSalaryComponent = __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
+            selector: 'app-generate-salary',
+            template: __webpack_require__(/*! ./generate-salary.component.html */ "./src/app/components/payroll/generate-salary/generate-salary.component.html"),
+            styles: [__webpack_require__(/*! ./generate-salary.component.css */ "./src/app/components/payroll/generate-salary/generate-salary.component.css")]
+        }),
+        __metadata("design:paramtypes", [_angular_common_http__WEBPACK_IMPORTED_MODULE_1__["HttpClient"], _services_token_service__WEBPACK_IMPORTED_MODULE_2__["TokenService"], _angular_router__WEBPACK_IMPORTED_MODULE_3__["Router"], ngx_spinner__WEBPACK_IMPORTED_MODULE_4__["NgxSpinnerService"]])
+    ], GenerateSalaryComponent);
+    return GenerateSalaryComponent;
 }());
 
 
@@ -3569,7 +3742,7 @@ module.exports = "hr{\n    border: 1px dotted #ff0000;\n    border-style: none n
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"container\">\n    <div class=\"card\">\n        <div class=\"card-header\">Employee Salary Sheet</div>\n\n        <div class=\"card-body\">\n\n            <table datatable class=\"table\" [dtOptions]=\"dtOptions\" [dtTrigger]=\"dtTrigger\">\n                <thead>\n                <tr>\n                    <th>First Name</th>\n                    <th>Middle Name</th>\n                    <th>Last Name</th>\n                    <th>Employee ID</th>\n                    <th>Designation</th>\n                    <th>Department</th>\n                    <th>Action</th>\n                </tr>\n                </thead>\n\n                <tbody>\n\n                </tbody>\n\n            </table>\n\n        </div>\n        <hr>\n\n        <div class=\"row\" style=\"padding: 20px;\">\n\n            <div class=\"form-group col-md-12\">\n                <label>Employee</label>\n                <input class=\"form-control\" placeholder=\"name\" type=\"text\" [(ngModel)]=\"payAdvanceModel.empName\"\n                       readonly>\n            </div>\n            <div class=\"form-group col-md-6\">\n                <label>Year</label>\n                <input bsDatepicker\n                       [bsConfig]=\"{ dateInputFormat: 'YYYY-MM' }\" name=\"resignDate\" class=\"form-control\" id=\"year\"\n                       (onShown)=\"onOpenCalendar($event)\">\n            </div>\n\n\n            <div class=\"form-group col-md-12\">\n                <button class=\"btn btn-info pull-right\" (click)=\"getSalarySheet()\">Submit</button>\n            </div>\n        </div>\n\n        <ng-template [ngIf]=\"showSalary\">\n            <hr>\n            <div class=\"row\" style=\"padding: 20px;\">\n                <table class=\"table table-bordered table-striped\">\n                    <thead>\n                    <th style=\"text-align: center\">Head</th>\n                    <th style=\"text-align: center\">Amount</th>\n                    <th style=\"text-align: center\">Action</th>\n                    </thead>\n                    <tbody>\n                    <tr *ngFor=\"let data of salarySheetTable\">\n                        <td>{{data.allowDeducTitle}}</td>\n                        <td>{{data.AMOUNT}}</td>\n                        <td>\n                            <button class=\"btn btn-info\" (click)=\"editSubSheet(data)\">edit</button>\n                        </td>\n\n                        <!--<td>  <button class=\"btn btn-info\" (click)=\"edit(shift.shiftId,content)\"> Edit</button></td>-->\n\n                    </tr>\n\n                    </tbody>\n\n                </table>\n                <hr>\n\n                <div class=\"form-group col-md-6\">\n                    <label>Payhead</label>\n                    <input class=\"form-control\" placeholder=\"head\" type=\"text\" [(ngModel)]=\"subsheetModel.payhead\"\n                           readonly>\n                </div>\n\n                <div class=\"form-group col-md-6\">\n                    <label>Amount</label>\n                    <input class=\"form-control\" placeholder=\"name\" type=\"text\" [(ngModel)]=\"subsheetModel.amount\">\n                </div>\n                <div class=\"form-group col-md-12\">\n                    <label>Description</label>\n                    <input class=\"form-control\" placeholder=\"\" type=\"text\" [(ngModel)]=\"subsheetModel.description\">\n                </div>\n\n\n                <div class=\"form-group col-md-12\">\n                    <button class=\"btn btn-success\" (click)=\"updateSubSheet()\">edit</button>\n                </div>\n\n\n            </div>\n        </ng-template>\n\n    </div>\n\n\n</div>"
+module.exports = "<div class=\"container\">\n    <div class=\"card\">\n        <div class=\"card-header\">\n            <h5 align=\"center\"><b>Employee Salary Sheet</b></h5>\n\n            <table datatable class=\"table\" [dtOptions]=\"dtOptions\" [dtTrigger]=\"dtTrigger\">\n                <thead>\n                <tr>\n                    <th>First Name</th>\n                    <th>Middle Name</th>\n                    <th>Last Name</th>\n                    <th>Employee ID</th>\n                    <th>Designation</th>\n                    <th>Department</th>\n                    <th>Action</th>\n                </tr>\n                </thead>\n\n                <tbody>\n\n                </tbody>\n\n            </table>\n\n        </div>\n\n        <div class=\"card-body\">\n\n\n            <div class=\"row\" style=\"padding: 20px;\">\n\n                <div class=\"form-group col-md-8\">\n                    <label>Employee</label>\n                    <input class=\"form-control\" placeholder=\"name\" type=\"text\" [(ngModel)]=\"payAdvanceModel.empName\"\n                           readonly>\n                </div>\n                <div class=\"form-group col-md-4\">\n                    <label>Year</label>\n                    <input bsDatepicker\n                           [bsConfig]=\"{ dateInputFormat: 'YYYY-MM' }\" name=\"resignDate\" class=\"form-control\" id=\"year\"\n                           (onShown)=\"onOpenCalendar($event)\" autocomplete=\"off\">\n                </div>\n\n\n                <div class=\"form-group col-md-12\">\n                    <button class=\"btn btn-success pull-right\" (click)=\"getSalarySheet()\">Submit</button>\n                </div>\n            </div>\n\n            <ng-template [ngIf]=\"showSalary\">\n                <hr>\n                <div class=\"row\" style=\"padding: 20px;\">\n                    <table class=\"table table-bordered table-striped\">\n                        <thead>\n                        <th style=\"text-align: center\">Head</th>\n                        <th style=\"text-align: center\">Amount</th>\n                        <th style=\"text-align: center\">Action</th>\n                        </thead>\n                        <tbody>\n                        <tr *ngFor=\"let data of salarySheetTable\">\n                            <td>{{data.allowDeducTitle}}</td>\n                            <td>{{data.AMOUNT}}</td>\n                            <td>\n                                <button class=\"btn btn-info\" (click)=\"editSubSheet(data)\">edit</button>\n                            </td>\n\n\n                        </tr>\n\n                        </tbody>\n\n                    </table>\n                    <div class=\"col-md-12\">\n                        <hr>\n                    </div>\n\n\n                    <div class=\"form-group col-md-6\">\n                        <label>Payhead</label>\n                        <input class=\"form-control\" placeholder=\"head\" type=\"text\" [(ngModel)]=\"subsheetModel.payhead\"\n                               readonly>\n                    </div>\n\n                    <div class=\"form-group col-md-6\">\n                        <label>Amount</label>\n                        <input class=\"form-control\" placeholder=\"name\" type=\"text\" [(ngModel)]=\"subsheetModel.amount\">\n                    </div>\n                    <div class=\"form-group col-md-12\">\n                        <label>Description</label>\n                        <input class=\"form-control\" placeholder=\"\" type=\"text\" [(ngModel)]=\"subsheetModel.description\">\n                    </div>\n\n\n                    <div class=\"form-group col-md-12\">\n                        <button class=\"btn btn-success\" (click)=\"updateSubSheet()\">edit</button>\n                    </div>\n\n\n                </div>\n            </ng-template>\n\n        </div>\n\n    </div>\n\n</div>"
 
 /***/ }),
 
@@ -3705,7 +3878,6 @@ var PaySalarySheetComponent = /** @class */ (function () {
         }
         var token = this.token.get();
         this.http.post(_constants__WEBPACK_IMPORTED_MODULE_5__["Constants"].API_URL + 'payroll/paysalarysheetmain/get' + '?token=' + token, this.payAdvanceModel).subscribe(function (data) {
-            // console.log(data);
             _this.showSalary = true;
             _this.salarySheetTable = data;
         }, function (error) {
@@ -3715,31 +3887,33 @@ var PaySalarySheetComponent = /** @class */ (function () {
     PaySalarySheetComponent.prototype.editSubSheet = function (data) {
         // console.log(data);
         this.subsheetModel.payhead = data.allowDeducTitle;
+        this.subsheetModel.fkPayHead = data.fkPayHead;
+        this.subsheetModel.fkEmployeeId = data.fkEmployeeId;
         this.subsheetModel.amount = data.AMOUNT;
         this.subsheetModel.description = data.DESCRIPTION;
-        this.subsheetModel.id = data.paysalarysheetsub_id;
+        this.subsheetModel.fkSalarySheetId = data.paysalarysheetmain_id;
     };
     PaySalarySheetComponent.prototype.updateSubSheet = function () {
+        //
+        // if (!this.payAdvanceModel.id) {
+        //   $.alert({
+        //     title: 'Alert!',
+        //     type: 'Red',
+        //     content: "Please Select Salary Sheet",
+        //     buttons: {
+        //       tryAgain: {
+        //         text: 'Ok',
+        //         btnClass: 'btn-red',
+        //         action: function () {
+        //         }
+        //       }
+        //     }
+        //   });
+        //   return false;
+        // }
         var _this = this;
-        if (!this.payAdvanceModel.id) {
-            $.alert({
-                title: 'Alert!',
-                type: 'Red',
-                content: "Please Select Salary Sheet",
-                buttons: {
-                    tryAgain: {
-                        text: 'Ok',
-                        btnClass: 'btn-red',
-                        action: function () {
-                        }
-                    }
-                }
-            });
-            return false;
-        }
         var token = this.token.get();
         this.http.post(_constants__WEBPACK_IMPORTED_MODULE_5__["Constants"].API_URL + 'payroll/paysalarysheetsub/update' + '?token=' + token, this.subsheetModel).subscribe(function (data) {
-            // console.log(data);
             $.alert({
                 title: 'Success!',
                 type: 'Green',
@@ -7067,13 +7241,13 @@ var Constants = /** @class */ (function () {
     function Constants() {
     }
     Object.defineProperty(Constants, "API_URL", {
-        get: function () { return "http://192.168.3.95:8000/hrsolution/backend/api/"; },
+        get: function () { return "http://demo.techcloudltd.com/hrm/backend/api/"; },
         enumerable: true,
         configurable: true
     });
     ;
     Object.defineProperty(Constants, "Image_URL", {
-        get: function () { return "http://192.168.3.95:8000/hrsolution/backend/public/"; },
+        get: function () { return "http://demo.techcloudltd.com/hrm/backend/public/"; },
         enumerable: true,
         configurable: true
     });

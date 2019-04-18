@@ -205,6 +205,7 @@ Route::group([
     //Salary Generate
     Route::post('salary/generate','SalaryController@generateSalary');
     Route::get('salary/get-main-sheet','SalaryController@getMainSheet');
+    Route::post('salary/main-sheet/download','SalaryController@downloadMainSheet');
 
     //Pay Advance Ledger
     Route::post('payroll/payadvance/ledger','PayrollController@payAdvanceLedger');
@@ -214,6 +215,9 @@ Route::group([
     Route::post('payroll/paysalarysheetmain/get','PayrollController@getPaySalarySheetMain');
     Route::post('payroll/paysalarysheetmain/insert','PayrollController@insertPaySalarySheetMain');
     Route::post('payroll/paysalarysheetsub/update','PayrollController@updatePaySalarySheetSub');
+    Route::post('payroll/paysalarysheetsub/insert','PayrollController@insertPaySalarySheetSub');
+
+
     Route::post('payroll/payadvanceledger/insert','PayrollController@insertPayAdvanceLedger');
 
     //Pay Grade details
