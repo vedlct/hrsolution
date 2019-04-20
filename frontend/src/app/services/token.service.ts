@@ -66,16 +66,16 @@ export class TokenService {
   }
 
   handle(token) {
+
     this.set(token);
   }
 
   set(token) {
     localStorage.setItem('token', token);
-    // console.log(this.payload(token));
+    // For User Role
 
     this.http.post(Constants.API_URL+'me?token='+token,null).subscribe(data => {
         localStorage.setItem('user',JSON.stringify(data));
-          // this.setUserDef(data);
 
         },
         error => {
