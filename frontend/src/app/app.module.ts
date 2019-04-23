@@ -49,6 +49,7 @@ import { ProfileComponent } from './components/user/profile/profile.component';
 import { LeaveTeamComponent } from './components/team/leave-team/leave-team.component';
 import { PastEmployeeComponent } from './components/user/past-employee/past-employee.component';
 import { CreateLeaveTeamComponent } from './components/team/create-leave-team/create-leave-team.component';
+import { GenerateSalaryComponent } from './components/payroll/generate-salary/generate-salary.component';
 
 @NgModule({
   declarations: [
@@ -90,7 +91,8 @@ import { CreateLeaveTeamComponent } from './components/team/create-leave-team/cr
     ProfileComponent,
     LeaveTeamComponent,
     PastEmployeeComponent,
-    CreateLeaveTeamComponent
+    CreateLeaveTeamComponent,
+    GenerateSalaryComponent
   ],
   imports: [
     BrowserModule,

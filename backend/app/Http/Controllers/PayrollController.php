@@ -142,12 +142,12 @@ class PayrollController extends Controller
 
     public function getPaySalarySheetMain(Request $r){
 //      return $r;
-        $paySalarySheetMain = PaySalarySheetMain::select('paysalarysheetsub.*', 'paysalarysheetmain.*', 'payheads.allowDeducTitle', 'paysalarysheetsub.id as paysalarysheetsub_id', 'paysalarysheetmain.id as paysalarysheetmain_id' )
+        $paySalarySheetMain = PaySalarySheetMain::select('paysalarysheetsub.*', 'paysalarysheetmain.*', 'payheads.allowDeducTitle', 'paysalarysheetmain.id as paysalarysheetmain_id' )
                                                 ->leftJoin('paysalarysheetsub', 'paysalarysheetsub.fkSalarySheetId', 'paysalarysheetmain.id')
                                                 ->leftJoin('payheads', 'payheads.id', 'paysalarysheetsub.fkPayHead')
                                                 ->where('paysalarysheetsub.fkEmployeeId', $r->fkEmployeeId)
                                                 ->where('salaryYear',Carbon::parse($r->year)->format('Y'))
-                                                ->where('salaryMonth', Carbon::parse($r->year)->format('M'))
+                                                ->where('salaryMonth', Carbon::parse($r->year)->format('m'))
                                                 ->get();
 
         return $paySalarySheetMain;
@@ -188,15 +188,12 @@ class PayrollController extends Controller
     }
 
     public function updatePaySalarySheetSub(Request $r){
-//      return $r;
 
-        $paySalarySheetSub = PaySalarySheetSub::findOrFail($r->id);
-//        $paySalarySheetSub->fkEmployeeId = $r->fkEmployeeId;
-//        $paySalarySheetSub->fkSalarySheetId = $r->fkSalarySheetId;
-//        $paySalarySheetSub->fkPayHead = $r->fkPayHead;
-        $paySalarySheetSub->AMOUNT = $r->amount;
-        $paySalarySheetSub->DESCRIPTION = $r->description;
-        $paySalarySheetSub->save();
+
+        PaySalarySheetSub::where('fkEmployeeId',$r->fkEmployeeId)
+            ->where('fkPayHead',$r->fkPayHead)
+            ->where('fkSalarySheetId',$r->fkSalarySheetId)
+            ->update(['AMOUNT'=>$r->amount]);
 
         return response()->json("success");
     }
