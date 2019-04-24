@@ -198,6 +198,20 @@ class PayrollController extends Controller
         return response()->json("success");
     }
 
+    public function insertPaySalarySheetSub(Request $r){
+
+        $sub=new PaySalarySheetSub();
+        $sub->fkEmployeeId=$r->fkEmployeeId;
+        $sub->fkPayHead=$r->fkPayHead;
+        $sub->fkSalarySheetId=$r->fkSalarySheetId;
+        $sub->AMOUNT=$r->amount;
+        $sub->DESCRIPTION=$r->description;
+        $sub->save();
+
+        return response()->json("success");
+    }
+
+
     public function insertPayAdvanceLedger(Request $r){
 
         $payAdvanceLedger = new PayAdvanceLedger();

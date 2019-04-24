@@ -1,7 +1,7 @@
 <div class="container">
     <div class="card">
         <div class="card-header">
-            <h5 align="center"><b>Employee Salary Sheet</b></h5>
+            <h5 align="center"><b>Edit Employee Salary Sheet</b></h5>
 
             <table datatable class="table" [dtOptions]="dtOptions" [dtTrigger]="dtTrigger">
                 <thead>
@@ -77,8 +77,14 @@
 
                     <div class="form-group col-md-6">
                         <label>Payhead</label>
-                        <input class="form-control" placeholder="head" type="text" [(ngModel)]="subsheetModel.payhead"
-                               readonly>
+<!--                        <input class="form-control" placeholder="head" type="text" [(ngModel)]="subsheetModel.payhead"-->
+<!--                               readonly>-->
+                        <select class="form-control"  [(ngModel)]="subsheetModel.fkPayHead">
+                            <option value="">Select Pay-head</option>
+                            <option *ngFor="let sh of payHeads" [value]="sh.id" [selected]="sh.id==subsheetModel.fkPayHead">
+                                {{sh.description}}
+                            </option>
+                        </select>
                     </div>
 
                     <div class="form-group col-md-6">
@@ -92,7 +98,8 @@
 
 
                     <div class="form-group col-md-12">
-                        <button class="btn btn-success" (click)="updateSubSheet()">edit</button>
+                        <button class="btn btn-info" (click)="updateSubSheet()">edit</button>
+                        <button class="btn btn-success ml-2" (click)="insertSubSheet()">Insert</button>
                     </div>
 
 

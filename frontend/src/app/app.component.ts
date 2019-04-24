@@ -16,6 +16,7 @@ export class AppComponent {
   master = 'Master';
   userModel={} as User;
   permission: string[] = ['guest'];
+  loadPage=false;
 
 
   constructor(private permissionsService: NgxPermissionsService,
@@ -23,38 +24,36 @@ export class AppComponent {
     private token:TokenService, public http: HttpClient,private renderer2: Renderer2,) {
 
       this.token.isValid();
+      setTimeout(() => {
+          console.log("setted");
+          this.loadPage=true;
 
+
+      }, 2000);
+
+      // const token=this.token.get();
+      this.http.post(Constants.API_URL+'me?token='+token.get(),null).subscribe(data => {
+              // console.log(data);
+              localStorage.setItem('user',JSON.stringify(data));
+
+              let perm = [];
+              perm.push(token.getUserLocal().fkUserType);
+              permissionsService.loadPermissions(perm);
+
+          },
+          error => {
+              console.log(error);
+              // this.handleError(error);
+
+          }
+      );
 
   }
 
   ngOnInit(): void {
 
-      let perm = [];
-      perm.push(this.token.getUserLocal().fkUserType);
-      // console.log(perm);
-      this.permissionsService.loadPermissions(perm);
-      // fkUserType
-      // console.log(this.token.getUserLocal());
 
-        // this.permissionsService.loadPermissions(['admin']);
-        //   this.token.getUser().subscribe(data => {
-        //           this.userModel=data as User;
-        //           let perm = [];
-        //           perm.push(this.userModel.fkUserType);
-        //           // console.log(perm);
-        //           this.permissionsService.loadPermissions(perm);
-        //       },
-        //       error => {
-        //           console.log(error);
-        //
-        //
-        //       });
 
-        // this.ngxPermissionsConfigurationService.addPermissionStrategy('disable', (tF: any) => {
-        //     this.renderer2.setAttribute(tF.elementRef.nativeElement.nextSibling, 'disabled', 'true');
-        // });
-
-        // this.ngxPermissionsConfigurationService.setDefaultOnUnauthorizedStrategy('disable');
     }
 
   isLogIn(){
