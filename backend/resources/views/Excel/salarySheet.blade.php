@@ -5,7 +5,7 @@
         <td>FULL_NAME</td>
         <td>DESIGNATION_TITLE</td>
         <td>DEPARTMENT_NAME</td>
-        <td>CONSOLIDATED_SALARY</td>
+{{--        <td>CONSOLIDATED_SALARY</td>--}}
         <td>Basic</td>
         <td>HR</td>
         <td>MA</td>
@@ -15,6 +15,7 @@
         <td>AD</td>
         <td>TAX</td>
         <td>LWP</td>
+        <td>Net Pay</td>
         <td>SALARY_YEAR</td>
         <td>SALARY_MONTH</td>
     </tr>
@@ -24,7 +25,7 @@
                 <td>{{$d->FULL_NAME}}</td>
                 <td>{{$d->DESIGNATION_TITLE}}</td>
                 <td>{{$d->DEPARTMENT_NAME}}</td>
-                <td>{{$d->CONSOLIDATED_SALARY}}</td>
+{{--                <td>{{$d->CONSOLIDATED_SALARY}}</td>--}}
                 <td>{{$d->Basic}}</td>
                 <td>{{$d->HR}}</td>
                 <td>{{$d->MA}}</td>
@@ -34,6 +35,7 @@
                 <td>{{$d->AD}}</td>
                 <td>{{$d->TAX}}</td>
                 <td>{{$d->LWP}}</td>
+                <td>{{$d->netPay}}</td>
                 <td>{{$d->SALARY_YEAR}}</td>
                 <td>{{$d->SALARY_MONTH}}</td>
 
