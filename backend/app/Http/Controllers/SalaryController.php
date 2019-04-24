@@ -27,12 +27,27 @@ class SalaryController extends Controller
 
     public function downloadMainSheet(Request $r){
 //        return $r;
-        $data=DB::table('vw_salary_sheet_support')
-            ->where('SALARY_YEAR',$r->salaryYear)
-            ->where('SALARY_MONTH',$r->salaryMonth)
-            ->get();
+//
+//        select ss.EMPLOYEE_ID, ss.FULL_NAME, ss.DESIGNATION_TITLE, ss.DEPARTMENT_NAME, ss.Basic,ss.HR,ss.MA, ss.CA,ss.LD
+//,ss.Advance, ss.AD, ss.TAX, ss.LWP
+//, case when ss.Basic > 0 then ((ss.Basic + ss.HR + ss.MA + ss.CA) - (ss.LD + ss.Advance + ss.AD + ss.TAX + ss.LWP)) else ss.CONSOLIDATED_SALARY end as netPay
+//from vw_salary_sheet_support ss where ss.SALARY_YEAR = 2019 and ss.SALARY_MONTH = 3
+//order by ss.EMPLOYEE_ID
 
-        return (new ExcelController)->generateSalarySheet($data);
+        $data=DB::select(DB::raw('select ss.EMPLOYEE_ID, ss.FULL_NAME, ss.DESIGNATION_TITLE, ss.DEPARTMENT_NAME, ss.Basic,ss.HR,ss.MA, ss.CA,ss.LD
+                    ,ss.Advance, ss.AD, ss.TAX, ss.LWP,ss.SALARY_YEAR,ss.SALARY_MONTH  
+                    , case when ss.Basic > 0 then ((ss.Basic + ss.HR + ss.MA + ss.CA) - (ss.LD + ss.Advance + ss.AD + ss.TAX + ss.LWP)) else ss.CONSOLIDATED_SALARY end as netPay
+                    from vw_salary_sheet_support ss where ss.SALARY_YEAR = '.$r->salaryYear.' and ss.SALARY_MONTH = '.$r->salaryMonth.'
+                    order by ss.EMPLOYEE_ID'));
+
+//        return collect($data);
+
+//        $data=DB::table('vw_salary_sheet_support')
+//            ->where('SALARY_YEAR',$r->salaryYear)
+//            ->where('SALARY_MONTH',$r->salaryMonth)
+//            ->get();
+
+        return (new ExcelController)->generateSalarySheet(collect($data));
 
 
 
