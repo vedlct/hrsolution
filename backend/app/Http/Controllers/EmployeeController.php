@@ -74,12 +74,17 @@ class EmployeeController extends Controller
             ->leftjoin('shift','shift.shiftId','=','shiftlog.fkshiftId')
             ->leftjoin('leave_team','leave_team.teamId','=','employeeinfo.fkleaveTeam')
             ->where('employeeinfo.fkCompany' , auth()->user()->fkCompany)
-            ->where('shiftlog.endDate',null);
+            ->where('shiftlog.endDate',null)
+            ->where('resignDate',null);
 
 
         if($r->teamId){
             $employee=$employee->where('employeeinfo.fkleaveTeam',$r->teamId);
         }
+
+      if($r->shiftTeamId){
+          $employee=$employee->where('employeeinfo.fkTeamId',$r->shiftTeamId);
+      }
 
         $datatables = Datatables::of($employee);
         return $datatables->make(true);
