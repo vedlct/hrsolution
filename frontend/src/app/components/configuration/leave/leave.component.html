@@ -43,6 +43,16 @@
         </div>
 
         <div class="form-group col-md-3">
+          <label>Shift Team</label>
+          <select class="form-control" name="shift" id="shiftTeam"  (change)="selectTeam($event.target.value)">
+            <option value="">Select Team</option>
+            <option *ngFor="let tm of shiftTeam" [value]="tm.teamId">
+              {{tm.teamName}}
+            </option>
+          </select>
+        </div>
+
+        <div class="form-group col-md-3">
           <label>Remark</label>
           <textarea class="form-control input" [(ngModel)]="remark" placeholder="remark"></textarea>
         </div>

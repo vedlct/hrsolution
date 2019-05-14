@@ -23,6 +23,7 @@ export class LeaveComponent implements OnInit {
     shiftId:number;
     shift:any;
     team:any;
+    shiftTeam:any;
     dtInstance:DataTables.Api;
     startDate:string;
     endDate:string;
@@ -85,6 +86,18 @@ export class LeaveComponent implements OnInit {
                 console.log(error);
             }
         );
+
+
+        this.http.get(Constants.API_URL+'team/get'+'?token='+token).subscribe(data => {
+                // console.log(data);
+                this.shiftTeam=data;
+
+
+            },
+            error => {
+                console.log(error);
+            }
+        );
     }
 
     getCategory(){
@@ -116,6 +129,7 @@ export class LeaveComponent implements OnInit {
                 type: 'POST',
                 data:function (d:any){
                     d.teamId=$("#team").val();
+                    d.shiftTeamId=$("#shiftTeam").val();
 
                 },
             },
