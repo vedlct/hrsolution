@@ -38,6 +38,11 @@ export class ShowAttendanceComponent implements OnInit {
     modalRef:any;
     comment:any;
     allComments:any;
+    timeForm:any={
+        date:'',
+        time:'',
+
+    };
 
     constructor(private modalService: NgbModal,private renderer: Renderer,public http: HttpClient, private token:TokenService , public route:ActivatedRoute, private router: Router) { }
 
@@ -183,6 +188,49 @@ export class ShowAttendanceComponent implements OnInit {
         else {
             alert('Comment Field is Empty');
         }
+
+
+
+    }
+
+    openTimeModal(){
+        $('#myModal').modal();
+
+    }
+
+    insertTime(){
+        if(this.timeForm.date =='' || this.timeForm.time==''){
+            $.alert({
+                title: 'Alert!',
+                content: 'Please Insert All Field',
+            });
+            return false;
+        }
+
+        this.timeForm.date=new Date(this.timeForm.date).toLocaleDateString();
+
+        const token=this.token.get();
+        let id=this.empid;
+
+        this.http.post(Constants.API_URL+'report/time/add'+'?token='+token,{id:id,time:this.timeForm.time,date:this.timeForm.date}).subscribe(data => {
+
+                $.alert({
+                    title: 'Success!',
+                    content: 'Time Added',
+                });
+            this.timeForm={
+                date:'',
+                time:'',
+
+            };
+            $('#myModal').modal('hide');
+            this.rerender();
+
+            },
+            error => {
+                console.log(error);
+            }
+        );
 
 
 

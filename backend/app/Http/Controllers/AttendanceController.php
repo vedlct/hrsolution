@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\AttEmployeeMap;
+use App\AttendanceData;
 use App\EmployeeInfo;
 use App\Leave;
 use Carbon\Carbon;
@@ -540,4 +541,24 @@ class AttendanceController extends Controller
 
 
     }
+
+    public function insertTime(Request $r){
+//        $employee=EmployeeInfo::findOrFail($r->id);
+        $employee=DB::table('attemployeemap')
+            ->where('employeeId',$r->id)
+            ->get();
+//        return $employee;
+        $datetime=Carbon::parse($r->date.' '.$r->time)->format('Y-m-d h:i:s');
+//        return $datetime;
+        $aData=new AttendanceData();
+        $aData->attDeviceUserId=$employee[0]->attDeviceUserId;
+        $aData->accessTime=$datetime;
+        $aData->fkAttDevice=1;
+        $aData->details=$datetime;
+        $aData->save();
+
+    }
 }
+
+
+
