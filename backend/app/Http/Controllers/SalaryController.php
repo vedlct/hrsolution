@@ -10,7 +10,9 @@ use Illuminate\Support\Facades\DB;
 class SalaryController extends Controller
 {
     public function generateSalary(Request $r){
+
         $date=Carbon::parse($r->date);
+
         DB::select('call SP_SALARY_SHEET_GENERATOR_CALL('.$date->format("m").','.$date->format("Y").',1)');
 //        return $date->format('Y');
         return response()->json("Success",200);

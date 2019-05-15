@@ -25,6 +25,44 @@
 </ng-template>
 
 
+<!-- The Modal -->
+<div class="modal" id="myModal">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+
+      <!-- Modal Header -->
+      <div class="modal-header">
+        <h4 class="modal-title">Add Time</h4>
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+      </div>
+
+      <!-- Modal body -->
+      <div class="modal-body">
+        <div class="row">
+          <div class="form-group col-md-4">
+            <label>Select Date</label>
+            <input bsDatepicker
+                   [bsConfig]="{ dateInputFormat: 'YYYY-MM-DD' }"  name="resignDate" [(ngModel)]="timeForm.date"  class="form-control" autocomplete="off">
+          </div>
+
+          <div class="form-group col-md-4">
+            <label>Select time</label>
+            <input type="time" class="form-control" [(ngModel)]="timeForm.time">
+          </div>
+          <div class="form-group col-md-12">
+            <button class="btn btn-success" (click)="insertTime()">Insert</button>
+          </div>
+
+        </div>
+
+      </div>
+
+
+    </div>
+  </div>
+</div>
+
+
 
 
 
@@ -57,6 +95,9 @@
           <br>
 
           <button class="btn btn-info pull-right" (click)="commentModal(content)" *ngxPermissionsOnly="['admin']">Add Comment</button>
+          &nbsp;
+          &nbsp;
+          <button class="btn btn-secondary " (click)="openTimeModal()" *ngxPermissionsOnly="['admin']">Insert Time</button>
         </div>
 
       </div>
