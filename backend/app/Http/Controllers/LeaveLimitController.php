@@ -30,6 +30,7 @@ class LeaveLimitController extends Controller
         $leaveTaken=Leave::where('fkemployeeId',$r->id)
             ->where(DB::raw('YEAR(applicationDate)'),date('Y'))
             ->where('applicationStatus','Approved')
+            ->whereIn('fkLeaveCategory',[1,2,5])
             ->sum('noOfDays');
 //
 //        return $leaveTaken;
