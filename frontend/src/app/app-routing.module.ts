@@ -33,6 +33,8 @@ import {LeaveTeamComponent} from "./components/team/leave-team/leave-team.compon
 import {PastEmployeeComponent} from "./components/user/past-employee/past-employee.component";
 import {CreateLeaveTeamComponent} from "./components/team/create-leave-team/create-leave-team.component";
 import {GenerateSalaryComponent} from "./components/payroll/generate-salary/generate-salary.component";
+import {LeaveSummeryComponent} from "./components/leave/leave-summery/leave-summery.component";
+import {LeaveSummeryShowComponent} from "./components/leave/leave-summery-show/leave-summery-show.component";
 
 
 
@@ -83,6 +85,18 @@ const routes: Routes = [
             }
         }
     },
+    // { path: 'leave/summery',
+    //     component: LeaveSummeryComponent,
+    //     canActivate: [NgxPermissionsGuard],
+    //     data: {
+    //         permissions: {
+    //             only: ['admin'],
+    //             redirectTo: '/home'
+    //         }
+    //     }
+    // },
+    { path: 'leave/summery', component: LeaveSummeryComponent,canActivate: [AuthService]  },
+    { path: 'leave/summery/:id', component: LeaveSummeryShowComponent,canActivate: [AuthService] },
     { path: 'report/attendance', component: AttendanceComponent,canActivate: [AuthService]  },
     // { path: 'report/attendance/:id', component: ShowAttendanceComponent },
     { path: 'report/attendance/:id/:fromdate/:todate', component: ShowAttendanceComponent },
