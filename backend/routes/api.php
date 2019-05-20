@@ -139,10 +139,12 @@ Route::group([
 
     //Show Leave Requests
     Route::post('leave/getLeaveRequests','LeaveController@getLeaveRequests');
+    Route::post('leave/summery','LeaveController@getLeaveSummery');
     Route::post('leave/getLeaveRequests/{id}','LeaveController@getLeaveRequestsIndividual');
 
     Route::post('leave/get/individual','LeaveController@getIndividual');
     Route::post('leave/get/myleave','LeaveController@getMyLeave');
+    Route::post('leave/summery/details','LeaveController@getLeaveSummeryDetails');
     Route::post('leave/change/status','LeaveController@changeStatus');
 
 

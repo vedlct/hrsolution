@@ -9,6 +9,7 @@ use Carbon\Carbon;
 use http\Client\Curl\User;
 use Illuminate\Http\Request;
 use Yajra\DataTables\DataTables;
+use DB;
 class LeaveController extends Controller
 {
    public function getLeaveCategory(){
@@ -60,15 +61,32 @@ class LeaveController extends Controller
 
 
    public function getLeaveRequests(){
-       $leaves=Leave::select('hrmleaves.*','employeeinfo.firstName','employeeinfo.middleName','employeeinfo.lastName')
-           ->leftJoin('employeeinfo','employeeinfo.id','hrmleaves.fkEmployeeId');
+       $leaves=Leave::select('hrmleaves.*','employeeinfo.firstName','employeeinfo.middleName','employeeinfo.lastName','hrmleavecategories.categoryName')
+           ->leftJoin('employeeinfo','employeeinfo.id','hrmleaves.fkEmployeeId')
+           ->leftJoin('hrmleavecategories','hrmleavecategories.id','hrmleaves.fkLeaveCategory');
 
        $datatables = Datatables::of($leaves);
        return $datatables->make(true);
 
    }
 
-   public function getLeaveRequestsIndividual($id,Request $r){
+    public function getLeaveSummery(){
+        $leaves=Leave::select('employeeinfo.id','employeeinfo.firstName','employeeinfo.middleName',
+            'employeeinfo.lastName',DB::raw('sum(noOfDays) as noOfDays'))
+            ->leftJoin('employeeinfo','employeeinfo.id','hrmleaves.fkEmployeeId')
+            ->where('hrmleaves.applicationStatus','Approved')
+            ->whereIn('hrmleaves.fkLeaveCategory',[1,2,5,4])
+            ->groupBy('hrmleaves.fkEmployeeId')
+        ;
+
+
+        $datatables = Datatables::of($leaves);
+        return $datatables->make(true);
+
+    }
+
+
+    public function getLeaveRequestsIndividual($id,Request $r){
 //       return $r;
        $leaves=Leave::select('hrmleaves.*','hrmleavecategories.categoryName')
            ->where('fkEmployeeId',$id)
@@ -83,12 +101,7 @@ class LeaveController extends Controller
 
    public function getMyLeave(Request $r){
 
-//       return $r;
-
        $emp=EmployeeInfo::where('fkUserId',auth()->user()->id)->first();
-
-//       return $emp;
-
        $leaves=Leave::select('hrmleaves.*','hrmleavecategories.categoryName')
            ->where('fkEmployeeId',$emp->id)
 
@@ -98,6 +111,20 @@ class LeaveController extends Controller
 
        return $leaves;
    }
+
+    public function getLeaveSummeryDetails(Request $r){
+
+
+//        $emp=EmployeeInfo::where('fkUserId',auth()->user()->id)->first();
+        $leaves=Leave::select('hrmleaves.*','hrmleavecategories.categoryName')
+            ->where('fkEmployeeId',$r->id)
+            ->leftJoin('hrmleavecategories','hrmleavecategories.id','hrmleaves.fkLeaveCategory')
+            ->orderBy('hrmleaves.id','desc')
+            ->get();
+
+        return $leaves;
+    }
+
 
    public function changeStatus(Request $r){
        Leave::where('id',$r->id)->update(['applicationStatus'=>$r->applicationStatus]);

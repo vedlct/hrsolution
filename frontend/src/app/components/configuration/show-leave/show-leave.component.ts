@@ -45,7 +45,11 @@ export class ShowLeaveComponent implements AfterViewInit,OnDestroy,OnInit {
   ngOnInit() {
       this.getData();
       this.getCategory();
+
+
   }
+
+
 
 
     getCategory(){
@@ -75,6 +79,22 @@ export class ShowLeaveComponent implements AfterViewInit,OnDestroy,OnInit {
                     $('td', row).css('color', 'red');
                 }
             },
+            "drawCallback": function () {
+                let api = this.api();
+
+                // $( api.table().footer() ).html(
+                //
+                //     // $('#footTotal').html(api.column( 4, {page:'current'} ).data().sum())
+                //     console.log(api.column( 4, {page:'current'} ).data().sum())
+                // );
+                // console.log(api.column( 4, {page:'current'} ).data().sum());
+
+                // $( api.table().footer() ).html(
+                //
+                //     $('#footTotal').html(api.column( 4, {page:'current'} ).data().sum())
+                // );
+
+            },
             ajax: {
                 url: Constants.API_URL+'leave/getLeaveRequests'+'?token='+token,
                 type: 'POST',
@@ -89,6 +109,8 @@ export class ShowLeaveComponent implements AfterViewInit,OnDestroy,OnInit {
                 { data: 'startDate' ,name:'hrmleaves.startDate'},
                 { data: 'endDate' ,name:'hrmleaves.endDate'},
                 { data: 'noOfDays' ,name:'hrmleaves.noOfDays'},
+                { data: 'categoryName' ,name:'hrmleavecategories.categoryName'},
+                { data: 'remarks' ,name:'hrmleaves.remarks'},
                 { data: 'rejectCause' ,name:'hrmleaves.rejectCause'},
                 { data: 'applicationStatus' ,name:'hrmleaves.applicationStatus'},
                 {

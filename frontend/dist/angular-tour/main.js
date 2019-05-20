@@ -67,6 +67,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _components_user_past_employee_past_employee_component__WEBPACK_IMPORTED_MODULE_29__ = __webpack_require__(/*! ./components/user/past-employee/past-employee.component */ "./src/app/components/user/past-employee/past-employee.component.ts");
 /* harmony import */ var _components_team_create_leave_team_create_leave_team_component__WEBPACK_IMPORTED_MODULE_30__ = __webpack_require__(/*! ./components/team/create-leave-team/create-leave-team.component */ "./src/app/components/team/create-leave-team/create-leave-team.component.ts");
 /* harmony import */ var _components_payroll_generate_salary_generate_salary_component__WEBPACK_IMPORTED_MODULE_31__ = __webpack_require__(/*! ./components/payroll/generate-salary/generate-salary.component */ "./src/app/components/payroll/generate-salary/generate-salary.component.ts");
+/* harmony import */ var _components_leave_leave_summery_leave_summery_component__WEBPACK_IMPORTED_MODULE_32__ = __webpack_require__(/*! ./components/leave/leave-summery/leave-summery.component */ "./src/app/components/leave/leave-summery/leave-summery.component.ts");
+/* harmony import */ var _components_leave_leave_summery_show_leave_summery_show_component__WEBPACK_IMPORTED_MODULE_33__ = __webpack_require__(/*! ./components/leave/leave-summery-show/leave-summery-show.component */ "./src/app/components/leave/leave-summery-show/leave-summery-show.component.ts");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -75,6 +77,8 @@ var __decorate = (undefined && undefined.__decorate) || function (decorators, ta
 };
 
 // import { RouterModule, Routes } from '@angular/router';
+
+
 
 
 
@@ -154,6 +158,18 @@ var routes = [
             }
         }
     },
+    // { path: 'leave/summery',
+    //     component: LeaveSummeryComponent,
+    //     canActivate: [NgxPermissionsGuard],
+    //     data: {
+    //         permissions: {
+    //             only: ['admin'],
+    //             redirectTo: '/home'
+    //         }
+    //     }
+    // },
+    { path: 'leave/summery', component: _components_leave_leave_summery_leave_summery_component__WEBPACK_IMPORTED_MODULE_32__["LeaveSummeryComponent"], canActivate: [_services_auth_service__WEBPACK_IMPORTED_MODULE_9__["AuthService"]] },
+    { path: 'leave/summery/:id', component: _components_leave_leave_summery_show_leave_summery_show_component__WEBPACK_IMPORTED_MODULE_33__["LeaveSummeryShowComponent"], canActivate: [_services_auth_service__WEBPACK_IMPORTED_MODULE_9__["AuthService"]] },
     { path: 'report/attendance', component: _components_report_attendance_attendance_component__WEBPACK_IMPORTED_MODULE_16__["AttendanceComponent"], canActivate: [_services_auth_service__WEBPACK_IMPORTED_MODULE_9__["AuthService"]] },
     // { path: 'report/attendance/:id', component: ShowAttendanceComponent },
     { path: 'report/attendance/:id/:fromdate/:todate', component: _components_report_show_attendance_show_attendance_component__WEBPACK_IMPORTED_MODULE_17__["ShowAttendanceComponent"] },
@@ -411,12 +427,16 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _components_user_past_employee_past_employee_component__WEBPACK_IMPORTED_MODULE_48__ = __webpack_require__(/*! ./components/user/past-employee/past-employee.component */ "./src/app/components/user/past-employee/past-employee.component.ts");
 /* harmony import */ var _components_team_create_leave_team_create_leave_team_component__WEBPACK_IMPORTED_MODULE_49__ = __webpack_require__(/*! ./components/team/create-leave-team/create-leave-team.component */ "./src/app/components/team/create-leave-team/create-leave-team.component.ts");
 /* harmony import */ var _components_payroll_generate_salary_generate_salary_component__WEBPACK_IMPORTED_MODULE_50__ = __webpack_require__(/*! ./components/payroll/generate-salary/generate-salary.component */ "./src/app/components/payroll/generate-salary/generate-salary.component.ts");
+/* harmony import */ var _components_leave_leave_summery_leave_summery_component__WEBPACK_IMPORTED_MODULE_51__ = __webpack_require__(/*! ./components/leave/leave-summery/leave-summery.component */ "./src/app/components/leave/leave-summery/leave-summery.component.ts");
+/* harmony import */ var _components_leave_leave_summery_show_leave_summery_show_component__WEBPACK_IMPORTED_MODULE_52__ = __webpack_require__(/*! ./components/leave/leave-summery-show/leave-summery-show.component */ "./src/app/components/leave/leave-summery-show/leave-summery-show.component.ts");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
     else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
+
+
 
 
 
@@ -513,7 +533,9 @@ var AppModule = /** @class */ (function () {
                 _components_team_leave_team_leave_team_component__WEBPACK_IMPORTED_MODULE_47__["LeaveTeamComponent"],
                 _components_user_past_employee_past_employee_component__WEBPACK_IMPORTED_MODULE_48__["PastEmployeeComponent"],
                 _components_team_create_leave_team_create_leave_team_component__WEBPACK_IMPORTED_MODULE_49__["CreateLeaveTeamComponent"],
-                _components_payroll_generate_salary_generate_salary_component__WEBPACK_IMPORTED_MODULE_50__["GenerateSalaryComponent"]
+                _components_payroll_generate_salary_generate_salary_component__WEBPACK_IMPORTED_MODULE_50__["GenerateSalaryComponent"],
+                _components_leave_leave_summery_leave_summery_component__WEBPACK_IMPORTED_MODULE_51__["LeaveSummeryComponent"],
+                _components_leave_leave_summery_show_leave_summery_show_component__WEBPACK_IMPORTED_MODULE_52__["LeaveSummeryShowComponent"]
             ],
             imports: [
                 _angular_platform_browser__WEBPACK_IMPORTED_MODULE_0__["BrowserModule"],
@@ -1686,7 +1708,7 @@ module.exports = ".redcolumn{\r\n    background: #FC7153 !important;\r\n    colo
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<!--modal-->\r\n<!-- The Modal -->\r\n<div class=\"modal\" id=\"myModal\">\r\n  <div class=\"modal-dialog modal-lg\">\r\n    <div class=\"modal-content \">\r\n\r\n      <!-- Modal Header -->\r\n      <div class=\"modal-header\">\r\n        <h4 class=\"modal-title\">Edit</h4>\r\n        <button type=\"button\" class=\"close\" data-dismiss=\"modal\">&times;</button>\r\n      </div>\r\n\r\n      <!-- Modal body -->\r\n      <div class=\"modal-body\">\r\n        <div class=\"row\">\r\n          <div class=\"form-group col-md-6\">\r\n            <label>Name</label>\r\n            <input class=\"form-control\" readonly value=\"{{employee.firstName+' '+employee.lastName}}\">\r\n          </div>\r\n          <div class=\"form-group col-md-6\">\r\n            <label>Start Date</label>\r\n            <input bsDatepicker\r\n                   [bsConfig]=\"{ dateInputFormat: 'YYYY-MM-DD' }\"  name=\"resignDate\" [(ngModel)]=\"employee.startDate\" class=\"form-control input\" placeholder=\"start\">\r\n          </div>\r\n\r\n          <div class=\"form-group col-md-6\">\r\n            <label>End Date</label>\r\n            <input bsDatepicker\r\n                   [bsConfig]=\"{ dateInputFormat: 'YYYY-MM-DD' }\"  name=\"resignDate\" [(ngModel)]=\"employee.endDate\" class=\"form-control input\" placeholder=\"end\">\r\n          </div>\r\n\r\n\r\n          <div class=\"form-group col-md-6\">\r\n            <label>No Of Days</label>\r\n            <input type=\"number\" class=\"form-control input\" [(ngModel)]=\"employee.noOfDays\" placeholder=\"number of days\">\r\n          </div>\r\n\r\n          <div class=\"form-group col-md-6\">\r\n            <label>Leave Category</label>\r\n            <select class=\"form-control input\" name=\"fkLeaveCategory\" [(ngModel)]=\"employee.fkLeaveCategory\">\r\n              <option value=\"\" selected>Select Category</option>\r\n              <option *ngFor=\"let lc of leaveCategories\" [value]=\"lc.id\">\r\n                {{lc.categoryName}}\r\n              </option>\r\n            </select>\r\n          </div>\r\n\r\n          <div class=\"form-group col-md-6\">\r\n            <label>Remark</label>\r\n            <textarea class=\"form-control input\" [(ngModel)]=\"employee.remarks\" placeholder=\"cause\"></textarea>\r\n          </div>\r\n          <div class=\"form-group col-md-12\">\r\n            <button class=\"btn btn-success btn-sm\" (click)=\"updateLeave()\">Update</button>\r\n          </div>\r\n\r\n\r\n\r\n\r\n\r\n        </div>\r\n      </div>\r\n\r\n      <!-- Modal footer -->\r\n      <div class=\"modal-footer\">\r\n        <button type=\"button\" class=\"btn btn-danger\" data-dismiss=\"modal\">Close</button>\r\n      </div>\r\n\r\n    </div>\r\n  </div>\r\n</div>\r\n\r\n<!-- The Reject Modal -->\r\n<div class=\"modal\" id=\"rejectModal\">\r\n  <div class=\"modal-dialog modal-lg\">\r\n    <div class=\"modal-content \">\r\n\r\n      <!-- Modal Header -->\r\n      <div class=\"modal-header\">\r\n        <h4 class=\"modal-title\">Reject Comment</h4>\r\n        <button type=\"button\" class=\"close\" data-dismiss=\"modal\">&times;</button>\r\n      </div>\r\n\r\n      <!-- Modal body -->\r\n      <div class=\"modal-body\">\r\n        <div class=\"row\">\r\n          <div class=\"form-group col-md-6\">\r\n            <label>Name</label>\r\n            <input class=\"form-control\" readonly value=\"{{rejectModel.firstName+' '+rejectModel.lastName}}\">\r\n          </div>\r\n          <div class=\"form-group col-md-6\">\r\n            <label>Start Date</label>\r\n            <input bsDatepicker\r\n                   [bsConfig]=\"{ dateInputFormat: 'YYYY-MM-DD' }\"  name=\"resignDate\" [(ngModel)]=\"rejectModel.startDate\" class=\"form-control input\" placeholder=\"start\" readonly>\r\n          </div>\r\n\r\n          <div class=\"form-group col-md-6\">\r\n            <label>End Date</label>\r\n            <input bsDatepicker\r\n                   [bsConfig]=\"{ dateInputFormat: 'YYYY-MM-DD' }\"  name=\"resignDate\" [(ngModel)]=\"rejectModel.endDate\" class=\"form-control input\" placeholder=\"end\" readonly>\r\n          </div>\r\n\r\n\r\n          <div class=\"form-group col-md-6\">\r\n            <label>No Of Days</label>\r\n            <input type=\"number\" class=\"form-control input\" [(ngModel)]=\"rejectModel.noOfDays\" placeholder=\"number of days\" readonly>\r\n          </div>\r\n\r\n          <div class=\"form-group col-md-6\">\r\n            <label>Leave Category</label>\r\n            <select class=\"form-control input\" name=\"fkLeaveCategory\" [(ngModel)]=\"rejectModel.fkLeaveCategory\" disabled>\r\n              <option value=\"\" selected>Select Category</option>\r\n              <option *ngFor=\"let lc of leaveCategories\" [value]=\"lc.id\">\r\n                {{lc.categoryName}}\r\n              </option>\r\n            </select>\r\n          </div>\r\n\r\n          <div class=\"form-group col-md-6\">\r\n            <label>Remark</label>\r\n            <textarea class=\"form-control input\" [(ngModel)]=\"rejectModel.remarks\" placeholder=\"cause\" readonly></textarea>\r\n          </div>\r\n\r\n          <div class=\"form-group col-md-12\">\r\n            <label>Reason Of Rejection</label>\r\n            <textarea class=\"form-control input\" [(ngModel)]=\"rejectModel.rejectCause\" placeholder=\"cause\"></textarea>\r\n          </div>\r\n\r\n          <div class=\"form-group col-md-12\">\r\n            <button class=\"btn btn-success btn-sm\" (click)=\"updateReject()\">Reject</button>\r\n          </div>\r\n\r\n\r\n\r\n\r\n\r\n        </div>\r\n      </div>\r\n\r\n      <!-- Modal footer -->\r\n      <div class=\"modal-footer\">\r\n        <button type=\"button\" class=\"btn btn-danger\" data-dismiss=\"modal\">Close</button>\r\n      </div>\r\n\r\n    </div>\r\n  </div>\r\n</div>\r\n\r\n\r\n\r\n\r\n<div class=\"card\">\r\n  <div class=\"card-header\">\r\n    Showing Leave Requests\r\n  </div>\r\n\r\n  <div class=\"card-body\">\r\n\r\n    <table datatable class=\"table table-striped table-bordered\" [dtOptions]=\"dtOptions\" [dtTrigger]=\"dtTrigger\">\r\n      <thead>\r\n      <tr>\r\n        <th>First Name</th>\r\n        <th>Last Name</th>\r\n        <th>Start</th>\r\n        <th>End</th>\r\n        <th>Days</th>\r\n        <th>Reject Cause</th>\r\n        <th>Status</th>\r\n        <th>Action</th>\r\n\r\n      </tr>\r\n      </thead>\r\n\r\n      <tbody>\r\n\r\n      </tbody>\r\n\r\n    </table>\r\n\r\n\r\n\r\n  </div>\r\n</div>"
+module.exports = "<!--modal-->\r\n<!-- The Modal -->\r\n<div class=\"modal\" id=\"myModal\">\r\n  <div class=\"modal-dialog modal-lg\">\r\n    <div class=\"modal-content \">\r\n\r\n      <!-- Modal Header -->\r\n      <div class=\"modal-header\">\r\n        <h4 class=\"modal-title\">Edit</h4>\r\n        <button type=\"button\" class=\"close\" data-dismiss=\"modal\">&times;</button>\r\n      </div>\r\n\r\n      <!-- Modal body -->\r\n      <div class=\"modal-body\">\r\n        <div class=\"row\">\r\n          <div class=\"form-group col-md-6\">\r\n            <label>Name</label>\r\n            <input class=\"form-control\" readonly value=\"{{employee.firstName+' '+employee.lastName}}\">\r\n          </div>\r\n          <div class=\"form-group col-md-6\">\r\n            <label>Start Date</label>\r\n            <input bsDatepicker\r\n                   [bsConfig]=\"{ dateInputFormat: 'YYYY-MM-DD' }\"  name=\"resignDate\" [(ngModel)]=\"employee.startDate\" class=\"form-control input\" placeholder=\"start\">\r\n          </div>\r\n\r\n          <div class=\"form-group col-md-6\">\r\n            <label>End Date</label>\r\n            <input bsDatepicker\r\n                   [bsConfig]=\"{ dateInputFormat: 'YYYY-MM-DD' }\"  name=\"resignDate\" [(ngModel)]=\"employee.endDate\" class=\"form-control input\" placeholder=\"end\">\r\n          </div>\r\n\r\n\r\n          <div class=\"form-group col-md-6\">\r\n            <label>No Of Days</label>\r\n            <input type=\"number\" class=\"form-control input\" [(ngModel)]=\"employee.noOfDays\" placeholder=\"number of days\">\r\n          </div>\r\n\r\n          <div class=\"form-group col-md-6\">\r\n            <label>Leave Category</label>\r\n            <select class=\"form-control input\" name=\"fkLeaveCategory\" [(ngModel)]=\"employee.fkLeaveCategory\">\r\n              <option value=\"\" selected>Select Category</option>\r\n              <option *ngFor=\"let lc of leaveCategories\" [value]=\"lc.id\">\r\n                {{lc.categoryName}}\r\n              </option>\r\n            </select>\r\n          </div>\r\n\r\n          <div class=\"form-group col-md-6\">\r\n            <label>Remark</label>\r\n            <textarea class=\"form-control input\" [(ngModel)]=\"employee.remarks\" placeholder=\"cause\"></textarea>\r\n          </div>\r\n          <div class=\"form-group col-md-12\">\r\n            <button class=\"btn btn-success btn-sm\" (click)=\"updateLeave()\">Update</button>\r\n          </div>\r\n\r\n\r\n\r\n\r\n\r\n        </div>\r\n      </div>\r\n\r\n      <!-- Modal footer -->\r\n      <div class=\"modal-footer\">\r\n        <button type=\"button\" class=\"btn btn-danger\" data-dismiss=\"modal\">Close</button>\r\n      </div>\r\n\r\n    </div>\r\n  </div>\r\n</div>\r\n\r\n<!-- The Reject Modal -->\r\n<div class=\"modal\" id=\"rejectModal\">\r\n  <div class=\"modal-dialog modal-lg\">\r\n    <div class=\"modal-content \">\r\n\r\n      <!-- Modal Header -->\r\n      <div class=\"modal-header\">\r\n        <h4 class=\"modal-title\">Reject Comment</h4>\r\n        <button type=\"button\" class=\"close\" data-dismiss=\"modal\">&times;</button>\r\n      </div>\r\n\r\n      <!-- Modal body -->\r\n      <div class=\"modal-body\">\r\n        <div class=\"row\">\r\n          <div class=\"form-group col-md-6\">\r\n            <label>Name</label>\r\n            <input class=\"form-control\" readonly value=\"{{rejectModel.firstName+' '+rejectModel.lastName}}\">\r\n          </div>\r\n          <div class=\"form-group col-md-6\">\r\n            <label>Start Date</label>\r\n            <input bsDatepicker\r\n                   [bsConfig]=\"{ dateInputFormat: 'YYYY-MM-DD' }\"  name=\"resignDate\" [(ngModel)]=\"rejectModel.startDate\" class=\"form-control input\" placeholder=\"start\" readonly>\r\n          </div>\r\n\r\n          <div class=\"form-group col-md-6\">\r\n            <label>End Date</label>\r\n            <input bsDatepicker\r\n                   [bsConfig]=\"{ dateInputFormat: 'YYYY-MM-DD' }\"  name=\"resignDate\" [(ngModel)]=\"rejectModel.endDate\" class=\"form-control input\" placeholder=\"end\" readonly>\r\n          </div>\r\n\r\n\r\n          <div class=\"form-group col-md-6\">\r\n            <label>No Of Days</label>\r\n            <input type=\"number\" class=\"form-control input\" [(ngModel)]=\"rejectModel.noOfDays\" placeholder=\"number of days\" readonly>\r\n          </div>\r\n\r\n          <div class=\"form-group col-md-6\">\r\n            <label>Leave Category</label>\r\n            <select class=\"form-control input\" name=\"fkLeaveCategory\" [(ngModel)]=\"rejectModel.fkLeaveCategory\" disabled>\r\n              <option value=\"\" selected>Select Category</option>\r\n              <option *ngFor=\"let lc of leaveCategories\" [value]=\"lc.id\">\r\n                {{lc.categoryName}}\r\n              </option>\r\n            </select>\r\n          </div>\r\n\r\n          <div class=\"form-group col-md-6\">\r\n            <label>Remark</label>\r\n            <textarea class=\"form-control input\" [(ngModel)]=\"rejectModel.remarks\" placeholder=\"cause\" readonly></textarea>\r\n          </div>\r\n\r\n          <div class=\"form-group col-md-12\">\r\n            <label>Reason Of Rejection</label>\r\n            <textarea class=\"form-control input\" [(ngModel)]=\"rejectModel.rejectCause\" placeholder=\"cause\"></textarea>\r\n          </div>\r\n\r\n          <div class=\"form-group col-md-12\">\r\n            <button class=\"btn btn-success btn-sm\" (click)=\"updateReject()\">Reject</button>\r\n          </div>\r\n\r\n\r\n\r\n\r\n\r\n        </div>\r\n      </div>\r\n\r\n      <!-- Modal footer -->\r\n      <div class=\"modal-footer\">\r\n        <button type=\"button\" class=\"btn btn-danger\" data-dismiss=\"modal\">Close</button>\r\n      </div>\r\n\r\n    </div>\r\n  </div>\r\n</div>\r\n\r\n\r\n\r\n\r\n<div class=\"card\">\r\n  <div class=\"card-header\">\r\n    Showing Leave Requests\r\n  </div>\r\n\r\n  <div class=\"card-body\">\r\n\r\n    <table datatable class=\"table table-striped table-bordered\" [dtOptions]=\"dtOptions\" [dtTrigger]=\"dtTrigger\">\r\n      <thead>\r\n      <tr>\r\n        <th>First Name</th>\r\n        <th>Last Name</th>\r\n        <th>Start</th>\r\n        <th>End</th>\r\n        <th>Days</th>\r\n        <th>Category</th>\r\n        <th>Remark</th>\r\n        <th>Reject Cause</th>\r\n        <th>Status</th>\r\n        <th>Action</th>\r\n\r\n      </tr>\r\n      </thead>\r\n\r\n      <tbody>\r\n\r\n      </tbody>\r\n\r\n    </table>\r\n\r\n\r\n\r\n  </div>\r\n</div>"
 
 /***/ }),
 
@@ -1771,6 +1793,19 @@ var ShowLeaveComponent = /** @class */ (function () {
                     $('td', row).css('color', 'red');
                 }
             },
+            "drawCallback": function () {
+                var api = this.api();
+                // $( api.table().footer() ).html(
+                //
+                //     // $('#footTotal').html(api.column( 4, {page:'current'} ).data().sum())
+                //     console.log(api.column( 4, {page:'current'} ).data().sum())
+                // );
+                // console.log(api.column( 4, {page:'current'} ).data().sum());
+                // $( api.table().footer() ).html(
+                //
+                //     $('#footTotal').html(api.column( 4, {page:'current'} ).data().sum())
+                // );
+            },
             ajax: {
                 url: _constants__WEBPACK_IMPORTED_MODULE_1__["Constants"].API_URL + 'leave/getLeaveRequests' + '?token=' + token,
                 type: 'POST',
@@ -1783,6 +1818,8 @@ var ShowLeaveComponent = /** @class */ (function () {
                 { data: 'startDate', name: 'hrmleaves.startDate' },
                 { data: 'endDate', name: 'hrmleaves.endDate' },
                 { data: 'noOfDays', name: 'hrmleaves.noOfDays' },
+                { data: 'categoryName', name: 'hrmleavecategories.categoryName' },
+                { data: 'remarks', name: 'hrmleaves.remarks' },
                 { data: 'rejectCause', name: 'hrmleaves.rejectCause' },
                 { data: 'applicationStatus', name: 'hrmleaves.applicationStatus' },
                 {
@@ -2212,6 +2249,384 @@ var AddLeaveComponent = /** @class */ (function () {
 
 /***/ }),
 
+/***/ "./src/app/components/leave/leave-summery-show/leave-summery-show.component.css":
+/*!**************************************************************************************!*\
+  !*** ./src/app/components/leave/leave-summery-show/leave-summery-show.component.css ***!
+  \**************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = ""
+
+/***/ }),
+
+/***/ "./src/app/components/leave/leave-summery-show/leave-summery-show.component.html":
+/*!***************************************************************************************!*\
+  !*** ./src/app/components/leave/leave-summery-show/leave-summery-show.component.html ***!
+  \***************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "<div class=\"container\">\r\n  <div class=\"card\">\r\n    <div class=\"card-header-pills\">\r\n      <h3 class=\"col-md-12\" align=\"center\">Leave Summery Details</h3>\r\n    </div>\r\n    <div class=\"card-body\">\r\n      <div class=\"row\">\r\n\r\n\r\n\r\n        <h4 class=\"col-md-12\" align=\"center\">{{details.firstName}} {{details.lastName}}</h4>\r\n\r\n        <table class=\"table table-bordered table-striped\">\r\n          <thead>\r\n          <th style=\"text-align: center\">applicationDate</th>\r\n          <th style=\"text-align: center\">fkLeaveCategory</th>\r\n          <th style=\"text-align: center\">applicationStatus</th>\r\n          <th style=\"text-align: center\">startDate</th>\r\n          <th style=\"text-align: center\">endDate</th>\r\n          <th style=\"text-align: center\">noOfDays</th>\r\n          <th style=\"text-align: center\">remarks</th>\r\n          <th style=\"text-align: center\">Reject Cause</th>\r\n          </thead>\r\n          <tbody>\r\n          <tr *ngFor=\"let ml of myLeaves\" [ngClass]=\"(ml.applicationStatus=='Pending')?'redcolumn':''\">\r\n            <td style=\"text-align: center\">{{ml.applicationDate}}</td>\r\n            <td style=\"text-align: center\">{{ml.categoryName}}</td>\r\n            <td style=\"text-align: center\">{{ml.applicationStatus}}</td>\r\n            <td style=\"text-align: center\">{{ml.startDate}}</td>\r\n            <td style=\"text-align: center\">{{ml.endDate}}</td>\r\n            <td style=\"text-align: center\">{{ml.noOfDays}}</td>\r\n            <td style=\"text-align: center\">{{ml.remarks}}</td>\r\n            <td style=\"text-align: center\">{{ml.rejectCause}}</td>\r\n\r\n          </tr>\r\n          </tbody>\r\n        </table>\r\n\r\n\r\n\r\n      </div>\r\n    </div>\r\n\r\n  </div>\r\n\r\n</div>\r\n"
+
+/***/ }),
+
+/***/ "./src/app/components/leave/leave-summery-show/leave-summery-show.component.ts":
+/*!*************************************************************************************!*\
+  !*** ./src/app/components/leave/leave-summery-show/leave-summery-show.component.ts ***!
+  \*************************************************************************************/
+/*! exports provided: LeaveSummeryShowComponent */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "LeaveSummeryShowComponent", function() { return LeaveSummeryShowComponent; });
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var _constants__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../../constants */ "./src/app/constants.ts");
+/* harmony import */ var _angular_common_http__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/common/http */ "./node_modules/@angular/common/fesm5/http.js");
+/* harmony import */ var _services_token_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../services/token.service */ "./src/app/services/token.service.ts");
+/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm5/router.js");
+var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (undefined && undefined.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+
+
+
+var LeaveSummeryShowComponent = /** @class */ (function () {
+    function LeaveSummeryShowComponent(http, token, route, router) {
+        this.http = http;
+        this.token = token;
+        this.route = route;
+        this.router = router;
+        this.details = {};
+    }
+    LeaveSummeryShowComponent.prototype.ngOnInit = function () {
+        this.empid = this.route.snapshot.params.id;
+        this.getMyLeaves();
+    };
+    LeaveSummeryShowComponent.prototype.getMyLeaves = function () {
+        var _this = this;
+        //For name
+        var token = this.token.get();
+        this.http.post(_constants__WEBPACK_IMPORTED_MODULE_1__["Constants"].API_URL + 'employee/basicinfo' + '?token=' + token, { empid: this.empid }).subscribe(function (data) {
+            console.log(data);
+            _this.details = data;
+        }, function (error) {
+            console.log(error);
+        });
+        //For Leave List
+        this.http.post(_constants__WEBPACK_IMPORTED_MODULE_1__["Constants"].API_URL + 'leave/summery/details' + '?token=' + token, { id: this.empid }).subscribe(function (data) {
+            _this.myLeaves = data;
+        }, function (error) {
+            console.log(error);
+        });
+    };
+    LeaveSummeryShowComponent = __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
+            selector: 'app-leave-summery-show',
+            template: __webpack_require__(/*! ./leave-summery-show.component.html */ "./src/app/components/leave/leave-summery-show/leave-summery-show.component.html"),
+            styles: [__webpack_require__(/*! ./leave-summery-show.component.css */ "./src/app/components/leave/leave-summery-show/leave-summery-show.component.css")]
+        }),
+        __metadata("design:paramtypes", [_angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpClient"], _services_token_service__WEBPACK_IMPORTED_MODULE_3__["TokenService"], _angular_router__WEBPACK_IMPORTED_MODULE_4__["ActivatedRoute"], _angular_router__WEBPACK_IMPORTED_MODULE_4__["Router"]])
+    ], LeaveSummeryShowComponent);
+    return LeaveSummeryShowComponent;
+}());
+
+
+
+/***/ }),
+
+/***/ "./src/app/components/leave/leave-summery/leave-summery.component.css":
+/*!****************************************************************************!*\
+  !*** ./src/app/components/leave/leave-summery/leave-summery.component.css ***!
+  \****************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = ""
+
+/***/ }),
+
+/***/ "./src/app/components/leave/leave-summery/leave-summery.component.html":
+/*!*****************************************************************************!*\
+  !*** ./src/app/components/leave/leave-summery/leave-summery.component.html ***!
+  \*****************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "<!--modal-->\r\n<!-- The Modal -->\r\n<div class=\"modal\" id=\"myModal\">\r\n  <div class=\"modal-dialog modal-lg\">\r\n    <div class=\"modal-content \">\r\n\r\n      <!-- Modal Header -->\r\n      <div class=\"modal-header\">\r\n        <h4 class=\"modal-title\">Edit</h4>\r\n        <button type=\"button\" class=\"close\" data-dismiss=\"modal\">&times;</button>\r\n      </div>\r\n\r\n      <!-- Modal body -->\r\n      <div class=\"modal-body\">\r\n        <div class=\"row\">\r\n          <div class=\"form-group col-md-6\">\r\n            <label>Name</label>\r\n            <input class=\"form-control\" readonly value=\"{{employee.firstName+' '+employee.lastName}}\">\r\n          </div>\r\n          <div class=\"form-group col-md-6\">\r\n            <label>Start Date</label>\r\n            <input bsDatepicker\r\n                   [bsConfig]=\"{ dateInputFormat: 'YYYY-MM-DD' }\"  name=\"resignDate\" [(ngModel)]=\"employee.startDate\" class=\"form-control input\" placeholder=\"start\">\r\n          </div>\r\n\r\n          <div class=\"form-group col-md-6\">\r\n            <label>End Date</label>\r\n            <input bsDatepicker\r\n                   [bsConfig]=\"{ dateInputFormat: 'YYYY-MM-DD' }\"  name=\"resignDate\" [(ngModel)]=\"employee.endDate\" class=\"form-control input\" placeholder=\"end\">\r\n          </div>\r\n\r\n\r\n          <div class=\"form-group col-md-6\">\r\n            <label>No Of Days</label>\r\n            <input type=\"number\" class=\"form-control input\" [(ngModel)]=\"employee.noOfDays\" placeholder=\"number of days\">\r\n          </div>\r\n\r\n          <div class=\"form-group col-md-6\">\r\n            <label>Leave Category</label>\r\n            <select class=\"form-control input\" name=\"fkLeaveCategory\" [(ngModel)]=\"employee.fkLeaveCategory\">\r\n              <option value=\"\" selected>Select Category</option>\r\n              <option *ngFor=\"let lc of leaveCategories\" [value]=\"lc.id\">\r\n                {{lc.categoryName}}\r\n              </option>\r\n            </select>\r\n          </div>\r\n\r\n          <div class=\"form-group col-md-6\">\r\n            <label>Remark</label>\r\n            <textarea class=\"form-control input\" [(ngModel)]=\"employee.remarks\" placeholder=\"cause\"></textarea>\r\n          </div>\r\n          <div class=\"form-group col-md-12\">\r\n            <button class=\"btn btn-success btn-sm\" (click)=\"updateLeave()\">Update</button>\r\n          </div>\r\n\r\n\r\n\r\n\r\n\r\n        </div>\r\n      </div>\r\n\r\n      <!-- Modal footer -->\r\n      <div class=\"modal-footer\">\r\n        <button type=\"button\" class=\"btn btn-danger\" data-dismiss=\"modal\">Close</button>\r\n      </div>\r\n\r\n    </div>\r\n  </div>\r\n</div>\r\n\r\n<!-- The Reject Modal -->\r\n<div class=\"modal\" id=\"rejectModal\">\r\n  <div class=\"modal-dialog modal-lg\">\r\n    <div class=\"modal-content \">\r\n\r\n      <!-- Modal Header -->\r\n      <div class=\"modal-header\">\r\n        <h4 class=\"modal-title\">Reject Comment</h4>\r\n        <button type=\"button\" class=\"close\" data-dismiss=\"modal\">&times;</button>\r\n      </div>\r\n\r\n      <!-- Modal body -->\r\n      <div class=\"modal-body\">\r\n        <div class=\"row\">\r\n          <div class=\"form-group col-md-6\">\r\n            <label>Name</label>\r\n            <input class=\"form-control\" readonly value=\"{{rejectModel.firstName+' '+rejectModel.lastName}}\">\r\n          </div>\r\n          <div class=\"form-group col-md-6\">\r\n            <label>Start Date</label>\r\n            <input bsDatepicker\r\n                   [bsConfig]=\"{ dateInputFormat: 'YYYY-MM-DD' }\"  name=\"resignDate\" [(ngModel)]=\"rejectModel.startDate\" class=\"form-control input\" placeholder=\"start\" readonly>\r\n          </div>\r\n\r\n          <div class=\"form-group col-md-6\">\r\n            <label>End Date</label>\r\n            <input bsDatepicker\r\n                   [bsConfig]=\"{ dateInputFormat: 'YYYY-MM-DD' }\"  name=\"resignDate\" [(ngModel)]=\"rejectModel.endDate\" class=\"form-control input\" placeholder=\"end\" readonly>\r\n          </div>\r\n\r\n\r\n          <div class=\"form-group col-md-6\">\r\n            <label>No Of Days</label>\r\n            <input type=\"number\" class=\"form-control input\" [(ngModel)]=\"rejectModel.noOfDays\" placeholder=\"number of days\" readonly>\r\n          </div>\r\n\r\n          <div class=\"form-group col-md-6\">\r\n            <label>Leave Category</label>\r\n            <select class=\"form-control input\" name=\"fkLeaveCategory\" [(ngModel)]=\"rejectModel.fkLeaveCategory\" disabled>\r\n              <option value=\"\" selected>Select Category</option>\r\n              <option *ngFor=\"let lc of leaveCategories\" [value]=\"lc.id\">\r\n                {{lc.categoryName}}\r\n              </option>\r\n            </select>\r\n          </div>\r\n\r\n          <div class=\"form-group col-md-6\">\r\n            <label>Remark</label>\r\n            <textarea class=\"form-control input\" [(ngModel)]=\"rejectModel.remarks\" placeholder=\"cause\" readonly></textarea>\r\n          </div>\r\n\r\n          <div class=\"form-group col-md-12\">\r\n            <label>Reason Of Rejection</label>\r\n            <textarea class=\"form-control input\" [(ngModel)]=\"rejectModel.rejectCause\" placeholder=\"cause\"></textarea>\r\n          </div>\r\n\r\n          <div class=\"form-group col-md-12\">\r\n            <button class=\"btn btn-success btn-sm\" (click)=\"updateReject()\">Reject</button>\r\n          </div>\r\n\r\n\r\n\r\n\r\n\r\n        </div>\r\n      </div>\r\n\r\n      <!-- Modal footer -->\r\n      <div class=\"modal-footer\">\r\n        <button type=\"button\" class=\"btn btn-danger\" data-dismiss=\"modal\">Close</button>\r\n      </div>\r\n\r\n    </div>\r\n  </div>\r\n</div>\r\n\r\n\r\n\r\n\r\n<div class=\"card\">\r\n  <div class=\"card-header\">\r\n    Showing Leave Requests\r\n  </div>\r\n\r\n  <div class=\"card-body\">\r\n\r\n    <table datatable class=\"table table-striped table-bordered\" [dtOptions]=\"dtOptions\" [dtTrigger]=\"dtTrigger\">\r\n      <thead>\r\n      <tr>\r\n        <th>First Name</th>\r\n        <th>Last Name</th>\r\n        <th>Days</th>\r\n        <th>Action</th>\r\n\r\n      </tr>\r\n      </thead>\r\n\r\n      <tbody>\r\n\r\n      </tbody>\r\n\r\n    </table>\r\n\r\n\r\n\r\n  </div>\r\n</div>"
+
+/***/ }),
+
+/***/ "./src/app/components/leave/leave-summery/leave-summery.component.ts":
+/*!***************************************************************************!*\
+  !*** ./src/app/components/leave/leave-summery/leave-summery.component.ts ***!
+  \***************************************************************************/
+/*! exports provided: LeaveSummeryComponent */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "LeaveSummeryComponent", function() { return LeaveSummeryComponent; });
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var _constants__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../../constants */ "./src/app/constants.ts");
+/* harmony import */ var _angular_common_http__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/common/http */ "./node_modules/@angular/common/fesm5/http.js");
+/* harmony import */ var _services_token_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../services/token.service */ "./src/app/services/token.service.ts");
+/* harmony import */ var rxjs__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! rxjs */ "./node_modules/rxjs/_esm5/index.js");
+/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm5/router.js");
+/* harmony import */ var angular_datatables__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! angular-datatables */ "./node_modules/angular-datatables/index.js");
+/* harmony import */ var _ng_bootstrap_ng_bootstrap__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! @ng-bootstrap/ng-bootstrap */ "./node_modules/@ng-bootstrap/ng-bootstrap/index.js");
+var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (undefined && undefined.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+
+
+
+
+
+
+var LeaveSummeryComponent = /** @class */ (function () {
+    function LeaveSummeryComponent(modalService, renderer, http, token, route, router) {
+        this.modalService = modalService;
+        this.renderer = renderer;
+        this.http = http;
+        this.token = token;
+        this.route = route;
+        this.router = router;
+        this.employee = {};
+        this.dtOptions = {};
+        this.dtTrigger = new rxjs__WEBPACK_IMPORTED_MODULE_4__["Subject"]();
+        this.allEmp = [];
+        // DROPDOWN
+        this.dropdownList = [];
+        this.selectedItems = [];
+        this.dropdownSettings = {};
+        this.rejectModel = {};
+    }
+    LeaveSummeryComponent.prototype.ngOnInit = function () {
+        this.getData();
+        this.getCategory();
+    };
+    LeaveSummeryComponent.prototype.getCategory = function () {
+        var _this = this;
+        this.employee.fkLeaveCategory = "";
+        var token = this.token.get();
+        this.http.get(_constants__WEBPACK_IMPORTED_MODULE_1__["Constants"].API_URL + 'leave/getLeaveCategory' + '?token=' + token).subscribe(function (data) {
+            _this.leaveCategories = data;
+        }, function (error) {
+            console.log(error);
+        });
+    };
+    LeaveSummeryComponent.prototype.getData = function () {
+        var token = this.token.get();
+        this.dtOptions = {
+            stateSave: true,
+            "createdRow": function (row, data, dataIndex) {
+                if (data['applicationStatus'] == 'Pending') {
+                    $('td', row).css('background-color', '#FC7153');
+                    $('td', row).css('color', 'white');
+                }
+                if (data['applicationStatus'] == 'Rejected') {
+                    // $('td', row).css('background-color', '#FC7153');
+                    $('td', row).css('color', 'red');
+                }
+            },
+            "drawCallback": function () {
+                var api = this.api();
+                // $( api.table().footer() ).html(
+                //
+                //     // $('#footTotal').html(api.column( 4, {page:'current'} ).data().sum())
+                //     console.log(api.column( 4, {page:'current'} ).data().sum())
+                // );
+                // console.log(api.column( 4, {page:'current'} ).data().sum());
+                // $( api.table().footer() ).html(
+                //
+                //     $('#footTotal').html(api.column( 4, {page:'current'} ).data().sum())
+                // );
+            },
+            ajax: {
+                url: _constants__WEBPACK_IMPORTED_MODULE_1__["Constants"].API_URL + 'leave/summery' + '?token=' + token,
+                type: 'POST',
+                data: function (d) {
+                },
+            },
+            columns: [
+                { data: 'firstName', name: 'employeeinfo.firstName' },
+                { data: 'lastName', name: 'employeeinfo.lastName' },
+                { data: 'noOfDays', name: 'hrmleaves.noOfDays' },
+                {
+                    "data": function (data, type, full) {
+                        return '<div class="dropdown">\n' +
+                            '  <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">\n' +
+                            '  </button>\n' +
+                            '  <div class="dropdown-menu">\n' +
+                            '    <button class="dropdown-item" data-show-id="' + data.id + '" >Show</button>\n' +
+                            '  </div>\n' +
+                            '</div>';
+                    },
+                    "orderable": false, "searchable": false, "name": "selected_rows"
+                }
+            ],
+            processing: true,
+            serverSide: true,
+            pagingType: 'full_numbers',
+            pageLength: 10
+        };
+    };
+    LeaveSummeryComponent.prototype.show = function (id) {
+        this.router.navigate(["leave/summery/" + id]);
+        return false;
+    };
+    LeaveSummeryComponent.prototype.changeStatus = function (id, status) {
+        var _this = this;
+        var token = this.token.get();
+        this.http.post(_constants__WEBPACK_IMPORTED_MODULE_1__["Constants"].API_URL + 'leave/change/status' + '?token=' + token, { id: id, applicationStatus: status }).subscribe(function (data) {
+            _this.rerender();
+        }, function (error) {
+            console.log(error);
+        });
+    };
+    LeaveSummeryComponent.prototype.ngAfterViewInit = function () {
+        var _this = this;
+        this.dtTrigger.next();
+        this.renderer.listenGlobal('document', 'click', function (event) {
+            // this.approved();
+            if (event.target.hasAttribute("data-show-id")) {
+                var id = event.target.getAttribute("data-show-id");
+                _this.show(id);
+            }
+        });
+    };
+    LeaveSummeryComponent.prototype.reject = function (id) {
+        var _this = this;
+        // alert(id);
+        var token = this.token.get();
+        this.http.post(_constants__WEBPACK_IMPORTED_MODULE_1__["Constants"].API_URL + 'leave/get/individual' + '?token=' + token, { id: id }).subscribe(function (data) {
+            console.log(data);
+            // this.employee=data;
+            _this.rejectModel = data;
+            $('#rejectModal').modal();
+        }, function (error) {
+            console.log(error);
+        });
+    };
+    LeaveSummeryComponent.prototype.updateReject = function () {
+        var _this = this;
+        // console.log(this.rejectModel);
+        var form = {
+            id: this.rejectModel.id,
+            startDate: new Date(this.rejectModel.startDate).toLocaleDateString(),
+            endDate: new Date(this.rejectModel.endDate).toLocaleDateString(),
+            noOfDays: this.rejectModel.noOfDays,
+            remark: this.rejectModel.remark,
+            fkLeaveCategory: this.rejectModel.fkLeaveCategory,
+            status: 'Rejected',
+            rejectCause: this.rejectModel.rejectCause,
+        };
+        var token = this.token.get();
+        this.http.post(_constants__WEBPACK_IMPORTED_MODULE_1__["Constants"].API_URL + 'leave/individual/update' + '?token=' + token, form).subscribe(function (data) {
+            // console.log(data);
+            $('#rejectModal').modal('hide');
+            _this.rerender();
+            $.alert({
+                title: 'Success!',
+                type: 'Green',
+                content: 'Leave Rejected',
+                buttons: {
+                    tryAgain: {
+                        text: 'Ok',
+                        btnClass: 'btn-red',
+                        action: function () {
+                        }
+                    }
+                }
+            });
+        }, function (error) {
+            console.log(error);
+        });
+    };
+    LeaveSummeryComponent.prototype.openLg = function (content) {
+        // this.shiftObj={};
+        this.modalRef = this.modalService.open(content, { size: 'lg' });
+    };
+    LeaveSummeryComponent.prototype.ngOnDestroy = function () {
+        // Do not forget to unsubscribe the event
+        this.dtTrigger.unsubscribe();
+    };
+    LeaveSummeryComponent.prototype.updateLeave = function () {
+        var _this = this;
+        var form = {
+            id: this.employee.id,
+            startDate: new Date(this.employee.startDate).toLocaleDateString(),
+            endDate: new Date(this.employee.endDate).toLocaleDateString(),
+            noOfDays: this.employee.noOfDays,
+            remark: this.employee.remark,
+            fkLeaveCategory: this.employee.fkLeaveCategory,
+        };
+        var token = this.token.get();
+        this.http.post(_constants__WEBPACK_IMPORTED_MODULE_1__["Constants"].API_URL + 'leave/individual/update' + '?token=' + token, form).subscribe(function (data) {
+            console.log(data);
+            $('#myModal').modal('hide');
+            _this.rerender();
+            $.alert({
+                title: 'Success!',
+                type: 'Green',
+                content: 'Leave Updated',
+                buttons: {
+                    tryAgain: {
+                        text: 'Ok',
+                        btnClass: 'btn-red',
+                        action: function () {
+                        }
+                    }
+                }
+            });
+        }, function (error) {
+            console.log(error);
+        });
+    };
+    LeaveSummeryComponent.prototype.rerender = function () {
+        var _this = this;
+        this.dtElement.dtInstance.then(function (dtInstance) {
+            dtInstance.destroy();
+            _this.dtTrigger.next();
+        });
+    };
+    __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["ViewChild"])(angular_datatables__WEBPACK_IMPORTED_MODULE_6__["DataTableDirective"]),
+        __metadata("design:type", angular_datatables__WEBPACK_IMPORTED_MODULE_6__["DataTableDirective"])
+    ], LeaveSummeryComponent.prototype, "dtElement", void 0);
+    LeaveSummeryComponent = __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
+            selector: 'app-leave-summery',
+            template: __webpack_require__(/*! ./leave-summery.component.html */ "./src/app/components/leave/leave-summery/leave-summery.component.html"),
+            styles: [__webpack_require__(/*! ./leave-summery.component.css */ "./src/app/components/leave/leave-summery/leave-summery.component.css")]
+        }),
+        __metadata("design:paramtypes", [_ng_bootstrap_ng_bootstrap__WEBPACK_IMPORTED_MODULE_7__["NgbModal"], _angular_core__WEBPACK_IMPORTED_MODULE_0__["Renderer"], _angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpClient"], _services_token_service__WEBPACK_IMPORTED_MODULE_3__["TokenService"], _angular_router__WEBPACK_IMPORTED_MODULE_5__["ActivatedRoute"], _angular_router__WEBPACK_IMPORTED_MODULE_5__["Router"]])
+    ], LeaveSummeryComponent);
+    return LeaveSummeryComponent;
+}());
+
+
+
+/***/ }),
+
 /***/ "./src/app/components/login/login.component.css":
 /*!******************************************************!*\
   !*** ./src/app/components/login/login.component.css ***!
@@ -2369,7 +2784,7 @@ module.exports = ""
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<!-- Navigation Bar-->\r\n<header id=\"topnav\">\r\n  <div class=\"topbar-main\">\r\n    <div class=\"container-fluid\">\r\n\r\n      <div class=\"logo\">\r\n\r\n        <a routerLink=\"/home\" class=\"logo\">\r\n          <h3>HR</h3>\r\n        </a>\r\n\r\n      </div>\r\n\r\n      <div class=\"menu-extras topbar-custom\">\r\n\r\n\r\n        <ul class=\"list-inline float-right mb-0\">\r\n\r\n          <!-- Messages-->\r\n          <li class=\"list-inline-item dropdown notification-list\">\r\n            <a class=\"nav-link dropdown-toggle arrow-none waves-effect\" data-toggle=\"dropdown\" href=\"#\" role=\"button\"\r\n               aria-haspopup=\"false\" aria-expanded=\"false\">\r\n              <i class=\"mdi mdi-email-outline noti-icon\"></i>\r\n              <span class=\"badge badge-danger noti-icon-badge\">3</span>\r\n            </a>\r\n            <div class=\"dropdown-menu dropdown-menu-right dropdown-arrow dropdown-menu-lg\">\r\n              <!-- item-->\r\n              <div class=\"dropdown-item noti-title\">\r\n                <h5><span class=\"badge badge-danger float-right\">745</span>Messages</h5>\r\n              </div>\r\n\r\n              <!-- item-->\r\n<!--              <a href=\"javascript:void(0);\" class=\"dropdown-item notify-item\">-->\r\n<!--                <div class=\"notify-icon\"><img src=\"assets/images/users/avatar-2.jpg\" alt=\"user-img\" class=\"img-fluid rounded-circle\" /> </div>-->\r\n<!--                <p class=\"notify-details\"><b>Charles M. Jones</b><small class=\"text-muted\">Dummy text of the printing and typesetting industry.</small></p>-->\r\n<!--              </a>-->\r\n\r\n<!--              &lt;!&ndash; item&ndash;&gt;-->\r\n<!--              <a href=\"javascript:void(0);\" class=\"dropdown-item notify-item\">-->\r\n<!--                <div class=\"notify-icon\"><img src=\"assets/images/users/avatar-3.jpg\" alt=\"user-img\" class=\"img-fluid rounded-circle\" /> </div>-->\r\n<!--                <p class=\"notify-details\"><b>Thomas J. Mimms</b><small class=\"text-muted\">You have 87 unread messages</small></p>-->\r\n<!--              </a>-->\r\n\r\n<!--              &lt;!&ndash; item&ndash;&gt;-->\r\n<!--              <a href=\"javascript:void(0);\" class=\"dropdown-item notify-item\">-->\r\n<!--                <div class=\"notify-icon\"><img src=\"assets/images/users/avatar-4.jpg\" alt=\"user-img\" class=\"img-fluid rounded-circle\" /> </div>-->\r\n<!--                <p class=\"notify-details\"><b>Luis M. Konrad</b><small class=\"text-muted\">It is a long established fact that a reader will</small></p>-->\r\n<!--              </a>-->\r\n\r\n<!--              &lt;!&ndash; All&ndash;&gt;-->\r\n              <a href=\"javascript:void(0);\" class=\"dropdown-item notify-item\">\r\n                View All\r\n              </a>\r\n\r\n            </div>\r\n          </li>\r\n          <!-- notification-->\r\n          <li class=\"list-inline-item dropdown notification-list\">\r\n            <a class=\"nav-link dropdown-toggle arrow-none waves-effect\" data-toggle=\"dropdown\" href=\"#\" role=\"button\"\r\n               aria-haspopup=\"false\" aria-expanded=\"false\">\r\n              <i class=\"mdi mdi-bell-outline noti-icon\"></i>\r\n              <span class=\"badge badge-danger noti-icon-badge\">3</span>\r\n            </a>\r\n            <div class=\"dropdown-menu dropdown-menu-right dropdown-arrow dropdown-menu-lg\">\r\n              <!-- item-->\r\n              <div class=\"dropdown-item noti-title\">\r\n                <h5>Notification (3)</h5>\r\n              </div>\r\n\r\n<!--              &lt;!&ndash; item&ndash;&gt;-->\r\n<!--              <a href=\"javascript:void(0);\" class=\"dropdown-item notify-item active\">-->\r\n<!--                <div class=\"notify-icon bg-success\"><i class=\"mdi mdi-cart-outline\"></i></div>-->\r\n<!--                <p class=\"notify-details\"><b>Your order is placed</b><small class=\"text-muted\">Dummy text of the printing and typesetting industry.</small></p>-->\r\n<!--              </a>-->\r\n\r\n<!--              &lt;!&ndash; item&ndash;&gt;-->\r\n<!--              <a href=\"javascript:void(0);\" class=\"dropdown-item notify-item\">-->\r\n<!--                <div class=\"notify-icon bg-warning\"><i class=\"mdi mdi-message\"></i></div>-->\r\n<!--                <p class=\"notify-details\"><b>New Message received</b><small class=\"text-muted\">You have 87 unread messages</small></p>-->\r\n<!--              </a>-->\r\n\r\n<!--              &lt;!&ndash; item&ndash;&gt;-->\r\n<!--              <a href=\"javascript:void(0);\" class=\"dropdown-item notify-item\">-->\r\n<!--                <div class=\"notify-icon bg-info\"><i class=\"mdi mdi-martini\"></i></div>-->\r\n<!--                <p class=\"notify-details\"><b>Your item is shipped</b><small class=\"text-muted\">It is a long established fact that a reader will</small></p>-->\r\n<!--              </a>-->\r\n\r\n              <!-- All-->\r\n              <a href=\"javascript:void(0);\" class=\"dropdown-item notify-item\">\r\n                View All\r\n              </a>\r\n\r\n            </div>\r\n          </li>\r\n          <!-- User-->\r\n          <li class=\"list-inline-item dropdown notification-list\">\r\n            <a class=\"nav-link dropdown-toggle arrow-none waves-effect nav-user\" data-toggle=\"dropdown\" href=\"#\" role=\"button\"\r\n               aria-haspopup=\"false\" aria-expanded=\"false\">\r\n              <img src=\"assets/images/users/avatar-1.jpg\" alt=\"user\" class=\"rounded-circle\">\r\n            </a>\r\n            <div class=\"dropdown-menu dropdown-menu-right profile-dropdown \">\r\n              <a class=\"dropdown-item\" routerLink=\"profile\"><i class=\"dripicons-user text-muted\"></i> Profile</a>\r\n<!--              <a class=\"dropdown-item\" href=\"#\"><i class=\"dripicons-wallet text-muted\"></i> My Wallet</a>-->\r\n<!--              <a class=\"dropdown-item\" href=\"#\"><span class=\"badge badge-success pull-right m-t-5\">5</span><i class=\"dripicons-gear text-muted\"></i> Settings</a>-->\r\n<!--              <a class=\"dropdown-item\" href=\"#\" (click)=\"whoAmI($event)\"><i class=\"dripicons-lock text-muted\"></i> Who Am I</a>-->\r\n              <div class=\"dropdown-divider\"></div>\r\n              <a class=\"dropdown-item\" href=\"#\" (click)=\"logout($event)\"><i class=\"dripicons-exit text-muted\"></i> Logout</a>\r\n            </div>\r\n          </li>\r\n          <li class=\"menu-item list-inline-item\">\r\n            <!-- Mobile menu toggle-->\r\n            <a class=\"navbar-toggle nav-link\">\r\n              <div class=\"lines\">\r\n                <span></span>\r\n                <span></span>\r\n                <span></span>\r\n              </div>\r\n            </a>\r\n            <!-- End mobile menu toggle-->\r\n          </li>\r\n\r\n        </ul>\r\n      </div>\r\n      <!-- end menu-extras -->\r\n\r\n      <div class=\"clearfix\"></div>\r\n\r\n    </div> <!-- end container -->\r\n  </div>\r\n  <!-- end topbar-main -->\r\n\r\n  <!-- MENU Start -->\r\n  <div class=\"navbar-custom\">\r\n    <div class=\"container-fluid\">\r\n      <div id=\"navigation\">\r\n        <!-- Navigation Menu-->\r\n        <ul class=\"navigation-menu\">\r\n\r\n          <li class=\"has-submenu\" routerLinkActive=\"active\">\r\n            <a routerLink=\"/home\" ><i class=\"ti-home\"></i>Dashboard</a>\r\n          </li>\r\n\r\n          <li class=\"has-submenu\" routerLinkActive=\"active\">\r\n            <a href=\"#\"><i class=\"ti-bookmark-alt\"></i>Components</a>\r\n            <ul class=\"submenu\">\r\n              <li class=\"has-submenu\" *ngxPermissionsOnly=\"['admin']\">\r\n                <a href=\"#\">Shift</a>\r\n                <ul class=\"submenu\">\r\n                  <li><a routerLink=\"configuration/shift\">All Shift</a></li>\r\n                  <li><a routerLink=\"configuration/shift/assign\">Shift Assign</a></li>\r\n                </ul>\r\n              </li>\r\n\r\n              <li class=\"has-submenu\">\r\n                <a href=\"#\">Leave</a>\r\n                <ul class=\"submenu\">\r\n                  <li><a routerLink=\"leave/apply\">Apply Leave</a></li>\r\n                  <li><a routerLink=\"configuration/leave\" *ngxPermissionsOnly=\"['admin']\">Create Leave</a></li>\r\n                  <li><a routerLink=\"configuration/leave/show\" *ngxPermissionsOnly=\"['admin']\">Show Leave</a></li>\r\n                </ul>\r\n              </li>\r\n\r\n\r\n              <li class=\"has-submenu\" *ngxPermissionsOnly=\"['admin']\">\r\n                <a href=\"#\">User</a>\r\n                <ul class=\"submenu\">\r\n                  <li><a routerLink=\"user/add\">Add User</a></li>\r\n                </ul>\r\n              </li>\r\n              <li class=\"has-submenu\" *ngxPermissionsOnly=\"['admin']\">\r\n                <a href=\"#\">Employee</a>\r\n                <ul class=\"submenu\">\r\n                  <li><a routerLink=\"employee\">Employee</a></li>\r\n                  <li><a routerLink=\"employee/past\">Past Employee</a></li>\r\n                  <li><a routerLink=\"employee/add\">Add Employee</a></li>\r\n                </ul>\r\n              </li>\r\n\r\n              <li class=\"has-submenu\" *ngxPermissionsOnly=\"['admin']\">\r\n                <a href=\"#\">Company</a>\r\n                <ul class=\"submenu\">\r\n                  <li><a routerLink=\"company/add\">Company Info</a></li>\r\n                </ul>\r\n              </li>\r\n\r\n            </ul>\r\n          </li>\r\n\r\n\r\n          <li class=\"has-submenu\" routerLinkActive=\"active\">\r\n            <a routerLink=\"#\" ><i class=\"fa fa-chart\"></i>Report</a>\r\n            <ul class=\"submenu\">\r\n              <li class=\"\">\r\n                <a routerLink=\"report/attendance\">Attendance</a>\r\n\r\n              </li>\r\n            </ul>\r\n          </li>\r\n\r\n\r\n          <li class=\"has-submenu\" routerLinkActive=\"active\" *ngxPermissionsOnly=\"['admin']\">\r\n            <a routerLink=\"#\" ><i class=\"fa fa-chart\"></i>Team</a>\r\n            <ul class=\"submenu\">\r\n              <li class=\"\">\r\n                <a routerLink=\"team/show\">Show Team</a>\r\n                <a routerLink=\"team/assign\">Assign Team</a>\r\n                <a routerLink=\"leave/team/add\">Show Leave Team</a>\r\n                <a routerLink=\"leave/team\">Leave Team</a>\r\n              </li>\r\n            </ul>\r\n          </li>\r\n\r\n\r\n          <li class=\"has-submenu\" routerLinkActive=\"active\" *ngxPermissionsOnly=\"['admin']\">\r\n            <a routerLink=\"#\" ><i class=\"fa fa-chart\"></i>Payroll</a>\r\n            <ul class=\"submenu\">\r\n              <li class=\"\">\r\n                <a routerLink=\"payroll/salary/generate\">Generate Salary</a>\r\n                <a routerLink=\"payroll/pay-grade\">Pay Grade</a>\r\n                <a routerLink=\"payroll/payhead\">Pay Head</a>\r\n                <a routerLink=\"payroll/salary-sheet\">Edit Salary Sheet</a>\r\n                <a routerLink=\"payroll/pay-advance\">Advance Payment</a>\r\n                <a routerLink=\"payroll/salary/setup\">Salary Setup</a>\r\n\r\n              </li>\r\n            </ul>\r\n          </li>\r\n\r\n          <!--<li class=\"has-submenu\">-->\r\n            <!--<a href=\"#\"><i class=\"ti-files\"></i>Pages</a>-->\r\n            <!--<ul class=\"submenu megamenu\">-->\r\n              <!--<li>-->\r\n                <!--<ul>-->\r\n                  <!--<li><a routerLink=\"/login\">Login</a></li>-->\r\n                <!--</ul>-->\r\n              <!--</li>-->\r\n            <!--</ul>-->\r\n          <!--</li>-->\r\n\r\n        </ul>\r\n        <!-- End navigation menu -->\r\n      </div> <!-- end #navigation -->\r\n    </div> <!-- end container -->\r\n  </div> <!-- end navbar-custom -->\r\n\r\n\r\n\r\n\r\n</header>\r\n<!-- End Navigation Bar-->\r\n\r\n"
+module.exports = "<!-- Navigation Bar-->\r\n<header id=\"topnav\">\r\n  <div class=\"topbar-main\">\r\n    <div class=\"container-fluid\">\r\n\r\n      <div class=\"logo\">\r\n\r\n        <a routerLink=\"/home\" class=\"logo\">\r\n          <h3>HR</h3>\r\n        </a>\r\n\r\n      </div>\r\n\r\n      <div class=\"menu-extras topbar-custom\">\r\n\r\n\r\n        <ul class=\"list-inline float-right mb-0\">\r\n\r\n          <!-- Messages-->\r\n          <li class=\"list-inline-item dropdown notification-list\">\r\n            <a class=\"nav-link dropdown-toggle arrow-none waves-effect\" data-toggle=\"dropdown\" href=\"#\" role=\"button\"\r\n               aria-haspopup=\"false\" aria-expanded=\"false\">\r\n              <i class=\"mdi mdi-email-outline noti-icon\"></i>\r\n              <span class=\"badge badge-danger noti-icon-badge\">3</span>\r\n            </a>\r\n            <div class=\"dropdown-menu dropdown-menu-right dropdown-arrow dropdown-menu-lg\">\r\n              <!-- item-->\r\n              <div class=\"dropdown-item noti-title\">\r\n                <h5><span class=\"badge badge-danger float-right\">745</span>Messages</h5>\r\n              </div>\r\n\r\n              <!-- item-->\r\n<!--              <a href=\"javascript:void(0);\" class=\"dropdown-item notify-item\">-->\r\n<!--                <div class=\"notify-icon\"><img src=\"assets/images/users/avatar-2.jpg\" alt=\"user-img\" class=\"img-fluid rounded-circle\" /> </div>-->\r\n<!--                <p class=\"notify-details\"><b>Charles M. Jones</b><small class=\"text-muted\">Dummy text of the printing and typesetting industry.</small></p>-->\r\n<!--              </a>-->\r\n\r\n<!--              &lt;!&ndash; item&ndash;&gt;-->\r\n<!--              <a href=\"javascript:void(0);\" class=\"dropdown-item notify-item\">-->\r\n<!--                <div class=\"notify-icon\"><img src=\"assets/images/users/avatar-3.jpg\" alt=\"user-img\" class=\"img-fluid rounded-circle\" /> </div>-->\r\n<!--                <p class=\"notify-details\"><b>Thomas J. Mimms</b><small class=\"text-muted\">You have 87 unread messages</small></p>-->\r\n<!--              </a>-->\r\n\r\n<!--              &lt;!&ndash; item&ndash;&gt;-->\r\n<!--              <a href=\"javascript:void(0);\" class=\"dropdown-item notify-item\">-->\r\n<!--                <div class=\"notify-icon\"><img src=\"assets/images/users/avatar-4.jpg\" alt=\"user-img\" class=\"img-fluid rounded-circle\" /> </div>-->\r\n<!--                <p class=\"notify-details\"><b>Luis M. Konrad</b><small class=\"text-muted\">It is a long established fact that a reader will</small></p>-->\r\n<!--              </a>-->\r\n\r\n<!--              &lt;!&ndash; All&ndash;&gt;-->\r\n              <a href=\"javascript:void(0);\" class=\"dropdown-item notify-item\">\r\n                View All\r\n              </a>\r\n\r\n            </div>\r\n          </li>\r\n          <!-- notification-->\r\n          <li class=\"list-inline-item dropdown notification-list\">\r\n            <a class=\"nav-link dropdown-toggle arrow-none waves-effect\" data-toggle=\"dropdown\" href=\"#\" role=\"button\"\r\n               aria-haspopup=\"false\" aria-expanded=\"false\">\r\n              <i class=\"mdi mdi-bell-outline noti-icon\"></i>\r\n              <span class=\"badge badge-danger noti-icon-badge\">3</span>\r\n            </a>\r\n            <div class=\"dropdown-menu dropdown-menu-right dropdown-arrow dropdown-menu-lg\">\r\n              <!-- item-->\r\n              <div class=\"dropdown-item noti-title\">\r\n                <h5>Notification (3)</h5>\r\n              </div>\r\n\r\n<!--              &lt;!&ndash; item&ndash;&gt;-->\r\n<!--              <a href=\"javascript:void(0);\" class=\"dropdown-item notify-item active\">-->\r\n<!--                <div class=\"notify-icon bg-success\"><i class=\"mdi mdi-cart-outline\"></i></div>-->\r\n<!--                <p class=\"notify-details\"><b>Your order is placed</b><small class=\"text-muted\">Dummy text of the printing and typesetting industry.</small></p>-->\r\n<!--              </a>-->\r\n\r\n<!--              &lt;!&ndash; item&ndash;&gt;-->\r\n<!--              <a href=\"javascript:void(0);\" class=\"dropdown-item notify-item\">-->\r\n<!--                <div class=\"notify-icon bg-warning\"><i class=\"mdi mdi-message\"></i></div>-->\r\n<!--                <p class=\"notify-details\"><b>New Message received</b><small class=\"text-muted\">You have 87 unread messages</small></p>-->\r\n<!--              </a>-->\r\n\r\n<!--              &lt;!&ndash; item&ndash;&gt;-->\r\n<!--              <a href=\"javascript:void(0);\" class=\"dropdown-item notify-item\">-->\r\n<!--                <div class=\"notify-icon bg-info\"><i class=\"mdi mdi-martini\"></i></div>-->\r\n<!--                <p class=\"notify-details\"><b>Your item is shipped</b><small class=\"text-muted\">It is a long established fact that a reader will</small></p>-->\r\n<!--              </a>-->\r\n\r\n              <!-- All-->\r\n              <a href=\"javascript:void(0);\" class=\"dropdown-item notify-item\">\r\n                View All\r\n              </a>\r\n\r\n            </div>\r\n          </li>\r\n          <!-- User-->\r\n          <li class=\"list-inline-item dropdown notification-list\">\r\n            <a class=\"nav-link dropdown-toggle arrow-none waves-effect nav-user\" data-toggle=\"dropdown\" href=\"#\" role=\"button\"\r\n               aria-haspopup=\"false\" aria-expanded=\"false\">\r\n              <img src=\"assets/images/users/avatar-1.jpg\" alt=\"user\" class=\"rounded-circle\">\r\n            </a>\r\n            <div class=\"dropdown-menu dropdown-menu-right profile-dropdown \">\r\n              <a class=\"dropdown-item\" routerLink=\"profile\"><i class=\"dripicons-user text-muted\"></i> Profile</a>\r\n<!--              <a class=\"dropdown-item\" href=\"#\"><i class=\"dripicons-wallet text-muted\"></i> My Wallet</a>-->\r\n<!--              <a class=\"dropdown-item\" href=\"#\"><span class=\"badge badge-success pull-right m-t-5\">5</span><i class=\"dripicons-gear text-muted\"></i> Settings</a>-->\r\n<!--              <a class=\"dropdown-item\" href=\"#\" (click)=\"whoAmI($event)\"><i class=\"dripicons-lock text-muted\"></i> Who Am I</a>-->\r\n              <div class=\"dropdown-divider\"></div>\r\n              <a class=\"dropdown-item\" href=\"#\" (click)=\"logout($event)\"><i class=\"dripicons-exit text-muted\"></i> Logout</a>\r\n            </div>\r\n          </li>\r\n          <li class=\"menu-item list-inline-item\">\r\n            <!-- Mobile menu toggle-->\r\n            <a class=\"navbar-toggle nav-link\">\r\n              <div class=\"lines\">\r\n                <span></span>\r\n                <span></span>\r\n                <span></span>\r\n              </div>\r\n            </a>\r\n            <!-- End mobile menu toggle-->\r\n          </li>\r\n\r\n        </ul>\r\n      </div>\r\n      <!-- end menu-extras -->\r\n\r\n      <div class=\"clearfix\"></div>\r\n\r\n    </div> <!-- end container -->\r\n  </div>\r\n  <!-- end topbar-main -->\r\n\r\n  <!-- MENU Start -->\r\n  <div class=\"navbar-custom\">\r\n    <div class=\"container-fluid\">\r\n      <div id=\"navigation\">\r\n        <!-- Navigation Menu-->\r\n        <ul class=\"navigation-menu\">\r\n\r\n          <li class=\"has-submenu\" routerLinkActive=\"active\">\r\n            <a routerLink=\"/home\" ><i class=\"ti-home\"></i>Dashboard</a>\r\n          </li>\r\n\r\n          <li class=\"has-submenu\" routerLinkActive=\"active\">\r\n            <a href=\"#\"><i class=\"ti-bookmark-alt\"></i>Components</a>\r\n            <ul class=\"submenu\">\r\n              <li class=\"has-submenu\" *ngxPermissionsOnly=\"['admin']\">\r\n                <a href=\"#\">Shift</a>\r\n                <ul class=\"submenu\">\r\n                  <li><a routerLink=\"configuration/shift\">All Shift</a></li>\r\n                  <li><a routerLink=\"configuration/shift/assign\">Shift Assign</a></li>\r\n                </ul>\r\n              </li>\r\n\r\n              <li class=\"has-submenu\">\r\n                <a href=\"#\">Leave</a>\r\n                <ul class=\"submenu\">\r\n                  <li><a routerLink=\"leave/apply\">Apply Leave</a></li>\r\n                  <li><a routerLink=\"configuration/leave\" *ngxPermissionsOnly=\"['admin']\">Create Leave</a></li>\r\n                  <li><a routerLink=\"configuration/leave/show\" *ngxPermissionsOnly=\"['admin']\">Show Leave</a></li>\r\n                  <li><a routerLink=\"leave/summery\" *ngxPermissionsOnly=\"['admin']\">Leave Summery</a></li>\r\n                </ul>\r\n              </li>\r\n\r\n\r\n              <li class=\"has-submenu\" *ngxPermissionsOnly=\"['admin']\">\r\n                <a href=\"#\">User</a>\r\n                <ul class=\"submenu\">\r\n                  <li><a routerLink=\"user/add\">Add User</a></li>\r\n                </ul>\r\n              </li>\r\n              <li class=\"has-submenu\" *ngxPermissionsOnly=\"['admin']\">\r\n                <a href=\"#\">Employee</a>\r\n                <ul class=\"submenu\">\r\n                  <li><a routerLink=\"employee\">Employee</a></li>\r\n                  <li><a routerLink=\"employee/past\">Past Employee</a></li>\r\n                  <li><a routerLink=\"employee/add\">Add Employee</a></li>\r\n                </ul>\r\n              </li>\r\n\r\n              <li class=\"has-submenu\" *ngxPermissionsOnly=\"['admin']\">\r\n                <a href=\"#\">Company</a>\r\n                <ul class=\"submenu\">\r\n                  <li><a routerLink=\"company/add\">Company Info</a></li>\r\n                </ul>\r\n              </li>\r\n\r\n            </ul>\r\n          </li>\r\n\r\n\r\n          <li class=\"has-submenu\" routerLinkActive=\"active\">\r\n            <a routerLink=\"#\" ><i class=\"fa fa-chart\"></i>Report</a>\r\n            <ul class=\"submenu\">\r\n              <li class=\"\">\r\n                <a routerLink=\"report/attendance\">Attendance</a>\r\n\r\n              </li>\r\n            </ul>\r\n          </li>\r\n\r\n\r\n          <li class=\"has-submenu\" routerLinkActive=\"active\" *ngxPermissionsOnly=\"['admin']\">\r\n            <a routerLink=\"#\" ><i class=\"fa fa-chart\"></i>Team</a>\r\n            <ul class=\"submenu\">\r\n              <li class=\"\">\r\n                <a routerLink=\"team/show\">Show Team</a>\r\n                <a routerLink=\"team/assign\">Assign Team</a>\r\n                <a routerLink=\"leave/team/add\">Show Leave Team</a>\r\n                <a routerLink=\"leave/team\">Leave Team</a>\r\n              </li>\r\n            </ul>\r\n          </li>\r\n\r\n\r\n          <li class=\"has-submenu\" routerLinkActive=\"active\" *ngxPermissionsOnly=\"['admin']\">\r\n            <a routerLink=\"#\" ><i class=\"fa fa-chart\"></i>Payroll</a>\r\n            <ul class=\"submenu\">\r\n              <li class=\"\">\r\n                <a routerLink=\"payroll/salary/generate\">Generate Salary</a>\r\n                <a routerLink=\"payroll/pay-grade\">Pay Grade</a>\r\n                <a routerLink=\"payroll/payhead\">Pay Head</a>\r\n                <a routerLink=\"payroll/salary-sheet\">Edit Salary Sheet</a>\r\n                <a routerLink=\"payroll/pay-advance\">Advance Payment</a>\r\n                <a routerLink=\"payroll/salary/setup\">Salary Setup</a>\r\n\r\n              </li>\r\n            </ul>\r\n          </li>\r\n\r\n          <!--<li class=\"has-submenu\">-->\r\n            <!--<a href=\"#\"><i class=\"ti-files\"></i>Pages</a>-->\r\n            <!--<ul class=\"submenu megamenu\">-->\r\n              <!--<li>-->\r\n                <!--<ul>-->\r\n                  <!--<li><a routerLink=\"/login\">Login</a></li>-->\r\n                <!--</ul>-->\r\n              <!--</li>-->\r\n            <!--</ul>-->\r\n          <!--</li>-->\r\n\r\n        </ul>\r\n        <!-- End navigation menu -->\r\n      </div> <!-- end #navigation -->\r\n    </div> <!-- end container -->\r\n  </div> <!-- end navbar-custom -->\r\n\r\n\r\n\r\n\r\n</header>\r\n<!-- End Navigation Bar-->\r\n\r\n"
 
 /***/ }),
 
