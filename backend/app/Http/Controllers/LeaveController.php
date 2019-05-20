@@ -104,7 +104,7 @@ class LeaveController extends Controller
        $emp=EmployeeInfo::where('fkUserId',auth()->user()->id)->first();
        $leaves=Leave::select('hrmleaves.*','hrmleavecategories.categoryName')
            ->where('fkEmployeeId',$emp->id)
-
+           ->whereIn('hrmleavecategories',[1,2,4,5])
            ->leftJoin('hrmleavecategories','hrmleavecategories.id','hrmleaves.fkLeaveCategory')
            ->orderBy('hrmleaves.id','desc')
            ->get();
