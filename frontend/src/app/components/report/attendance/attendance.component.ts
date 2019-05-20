@@ -122,7 +122,8 @@ export class AttendanceComponent implements OnInit {
 
 
 
-                    this.router.navigate(["report/attendance/" +id+'/'+start+'/'+end]);
+                    // this.router.navigate(["report/attendance/" +id+'/'+start+'/'+end]);
+                    window.open("report/attendance/" +id+'/'+start+'/'+end, "_blank");
                     return false;
                 });
             },

@@ -548,7 +548,7 @@ class AttendanceController extends Controller
             ->where('employeeId',$r->id)
             ->get();
 //        return $employee;
-        $datetime=Carbon::parse($r->date.' '.$r->time)->format('Y-m-d h:i:s');
+        $datetime=Carbon::parse($r->date.' '.$r->time)->format('Y-m-d H:i:s');
 //        return $datetime;
         $aData=new AttendanceData();
         $aData->attDeviceUserId=$employee[0]->attDeviceUserId;
