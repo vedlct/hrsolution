@@ -185,6 +185,37 @@ export class AttendanceComponent implements OnInit {
       this.rerender();
     }
 
+
+    generateDetailsExcel(){
+        this.spinner.show();
+        const token=this.token.get();
+
+        this.http.post(Constants.API_URL+'report/attendanceTestHR'+'?token='+token,{startDate:$('#startDate').val(),endDate:$('#endDate').val()}).subscribe(data => {
+                //console.log(data);
+                // console.log(Constants.Image_URL+'exportedExcel/'+data+'.xls');
+                this.spinner.hide();
+
+
+                let fileName=Constants.Image_URL+'exportedExcel/'+data;
+
+                let link = document.createElement("a");
+                link.download = data+".xls";
+                let uri = fileName+".xls";
+                link.href = uri;
+                document.body.appendChild(link);
+                link.click();
+                document.body.removeChild(link);
+
+
+            },
+            error => {
+                console.log(error);
+                this.spinner.hide();
+            }
+        );
+
+    }
+
     generateExcel(){
 
         this.spinner.show();

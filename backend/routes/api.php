@@ -175,6 +175,7 @@ Route::group([
 
 
     Route::post('report/attendance','AttendanceController@index');
+    Route::post('report/attendanceTestHR','AttendanceController@getAttendenceDataForHR');
     Route::post('report/getEmployeeAttendance','AttendanceController@getEmployeeAttendance');
     Route::post('report/time/add','AttendanceController@insertTime');
 

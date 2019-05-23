@@ -179,6 +179,127 @@ class TestController extends Controller
 
 
     }
+    function getDatesFromRange($start, $end, $format = 'Y-m-d') {
+        $array = array();
+        $interval = new \DateInterval('P1D');
+
+        $realEnd = new DateTime($end);
+        $realEnd->add($interval);
+
+        $period = new \DatePeriod(new DateTime($start), $interval, $realEnd);
+
+        foreach($period as $date) {
+            $array[] = $date->format($format);
+        }
+
+        return $array;
+    }
+    public function testRumi(){
+//
+//        $fromDate = Carbon::now()->startOfMonth()->format('Y-m-d');
+//        $toDate = Carbon::now()->endOfMonth()->format('Y-m-d');
+        $fromDate ='2019-04-01';
+        $toDate = '2019-04-30';
+
+        ini_set('max_execution_time', 300);
+
+        $startDate=$fromDate;
+        $endDate=$toDate;
+
+       $dates = $this->getDatesFromRange($startDate, $endDate);
+
+       $allEmp=EmployeeInfo::select('id','firstName','fkDepartmentId')->whereNull('resignDate')->get();
+
+        $results = DB::select( DB::raw("select ad.id,ad.attDeviceUserId,e.fkDepartmentId, em.employeeId, CONCAT(COALESCE(e.firstName,''),' ',COALESCE(e.middleName,''),' ',COALESCE(e.lastName,'')) AS empname
+            , date_format(ad.accessTime,'%Y-%m-%d') attendanceDate
+            , date_format(min(ad.accessTime),'%H:%i:%s %p') checkIn
+            , date_format(max(ad.accessTime),'%H:%i:%s %p') checkOut
+            , date_format(s.inTime,'%H:%i:%s %p') scheduleIn, date_format(s.outTime,'%H:%i:%s %p') scheduleOut
+            , case when SUBTIME(date_format(min(ad.accessTime),'%H:%i'),s.inTime) > '00:00:01' then 'Y' else 'N' end late 
+            , SUBTIME(date_format(min(ad.accessTime),'%H:%i'),s.inTime)  as lateTime
+            ,SUBTIME(date_format(max(ad.accessTime),'%H:%i:%s'),date_format(min(ad.accessTime),'%H:%i:%s')) workingTime
+            ,min(ad.accessTime) checkInFull, max(ad.accessTime) checkoutFull,ad.fkAttDevice
+            from attendancedata ad left join attemployeemap em on ad.attDeviceUserId = em.attDeviceUserId
+            left join employeeinfo e on em.employeeId = e.id
+            left join shiftlog sl on em.employeeId = sl.fkemployeeId and date_format(ad.accessTime,'%Y-%m-%d') between date_format(sl.startDate,'%Y-%m-%d') and ifnull(date_format(sl.endDate,'%Y-%m-%d'),curdate())
+            left join shift s on sl.fkshiftId = s.shiftId
+            where date_format(ad.accessTime,'%Y-%m-%d') between '".$fromDate."' and '".$toDate."'
+            group by ad.attDeviceUserId, date_format(ad.accessTime,'%Y-%m-%d')
+            order by date_format(ad.accessTime,'%Y-%m-%d') desc"));
+
+        $results=collect($results);
+
+//        return $results;
+
+        $allDepartment=Department::select('id','departmentName')->get();
+
+
+
+
+
+//        $allLeave=Leave::leftJoin('hrmleavecategories', 'hrmleavecategories.id', '=', 'hrmleaves.fkLeaveCategory')
+//            ->whereBetween('startDate',array($fromDate, $toDate))
+//            ->get();
+
+        // return $allLeave;
+//        $allHoliday=OrganizationCalander::whereMonth('startDate', '=', date('m',strtotime($fromDate)))->orWhereMonth('endDate', '=', date('m',strtotime($toDate)))->get();
+
+//        whereBetween('startDate',array($fromDate, $toDate))->get();
+
+        // return $allHoliday;
+
+        //return $endDate->diffInDays($startDate);
+
+//        $comments=Comment::whereBetween(DB::raw('DATE(created_at)'),[$start,$end])->get();
+
+//         return $comments;
+
+
+        $excelName="test";
+        $filePath=public_path ()."/exportedExcel";
+//        $fileName="AppliedCandidateList".date("Y-m-d_H-i-s");
+        $fileName="HRTest".date("Y-m-d_H-i-s");
+
+
+        $fileInfo=array(
+            'fileName'=>$fileName,
+            'filePath'=>$fileName,
+        );
+
+
+
+
+        $check=Excel::create($fileName,function($excel)use ($results,$allDepartment,$dates,$allEmp) {
+
+
+
+            foreach ($allDepartment as $ad) {
+
+
+
+                $excel->sheet($ad->departmentName, function ($sheet) use ($results,$ad, $allDepartment,$dates,$allEmp) {
+
+
+                    $sheet->freezePane('B4');
+
+                    $sheet->setStyle(array(
+                        'font' => array(
+                            'name' => 'Calibri',
+                            'size' => 10,
+                            'bold' => false
+                        )
+                    ));
+
+                    $sheet->loadView('Excel.attendenceTestRumi', compact('results','startDate', 'endDate','dates','allEmp','ad'));
+                });
+            }
+
+
+
+        })->store('xls',$filePath);
+
+
+    }
 
 
 }

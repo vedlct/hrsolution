@@ -4,11 +4,14 @@ namespace App\Http\Controllers;
 
 use App\AttEmployeeMap;
 use App\AttendanceData;
+use App\Department;
 use App\EmployeeInfo;
 use App\Leave;
 use Carbon\Carbon;
+use DateTime;
 use Illuminate\Http\Request;
 use DB;
+use Excel;
 use Yajra\DataTables\DataTables;
 
 class AttendanceController extends Controller
@@ -115,6 +118,111 @@ class AttendanceController extends Controller
         })->make(true);
 
 //        return $datatables->make(true);
+    }
+    function getDatesFromRange($start, $end, $format = 'Y-m-d') {
+        $array = array();
+        $interval = new \DateInterval('P1D');
+
+        $realEnd = new DateTime($end);
+        $realEnd->add($interval);
+
+        $period = new \DatePeriod(new DateTime($start), $interval, $realEnd);
+
+        foreach($period as $date) {
+            $array[] = $date->format($format);
+        }
+
+        return $array;
+    }
+    public function getAttendenceDataForHR(Request $r){
+
+
+
+
+//        $start = Carbon::now()->startOfMonth()->format('Y-m-d');
+//        $end = Carbon::now()->endOfMonth()->format('Y-m-d');
+//
+//        if($r->startDate && $r->endDate){
+            $start=$r->startDate;
+            $end= $r->endDate;
+//        }
+
+
+
+        $fromDate=$start;
+        $toDate=$end;
+
+         $dates = $this->getDatesFromRange($fromDate, $toDate);
+
+        $allEmp=EmployeeInfo::select('id','firstName','fkDepartmentId')->whereNull('resignDate')->get();
+
+        $results = DB::select( DB::raw("select e.fkDepartmentId, em.employeeId, CONCAT(COALESCE(e.firstName,''),' ',COALESCE(e.middleName,''),' ',COALESCE(e.lastName,'')) AS empname
+            , date_format(ad.accessTime,'%Y-%m-%d') attendanceDate
+            , date_format(min(ad.accessTime),'%H:%i:%s') checkIn
+            , date_format(max(ad.accessTime),'%H:%i:%s') checkOut
+            , date_format(s.inTime,'%H:%i:%s') scheduleIn, date_format(s.outTime,'%H:%i:%s') scheduleOut
+            
+            ,SUBTIME(date_format(max(ad.accessTime),'%H:%i:%s'),date_format(min(ad.accessTime),'%H:%i:%s')) workingTime
+
+            from attendancedata ad left join attemployeemap em on ad.attDeviceUserId = em.attDeviceUserId
+            left join employeeinfo e on em.employeeId = e.id
+            left join shiftlog sl on em.employeeId = sl.fkemployeeId and date_format(ad.accessTime,'%Y-%m-%d') between date_format(sl.startDate,'%Y-%m-%d') and ifnull(date_format(sl.endDate,'%Y-%m-%d'),curdate())
+            left join shift s on sl.fkshiftId = s.shiftId
+            where date_format(ad.accessTime,'%Y-%m-%d') between '".$fromDate."' and '".$toDate."'
+            group by ad.attDeviceUserId, date_format(ad.accessTime,'%Y-%m-%d')
+            order by date_format(ad.accessTime,'%Y-%m-%d') desc"));
+
+        $results=collect($results);
+
+//        return $results;
+
+        $allDepartment=Department::select('id','departmentName')->get();
+
+
+
+
+        $excelName="test";
+        $filePath=public_path ()."/exportedExcel";
+//        $fileName="AppliedCandidateList".date("Y-m-d_H-i-s");
+        $fileName="HRTest".date("Y-m-d_H-i-s");
+
+
+        $fileInfo=array(
+            'fileName'=>$fileName,
+            'filePath'=>$filePath,
+        );
+
+
+        Excel::create($fileName,function($excel)use ($results,$allDepartment,$dates,$allEmp) {
+
+
+
+            foreach ($allDepartment as $ad) {
+
+                $excel->sheet($ad->departmentName, function ($sheet) use ($results,$ad, $allDepartment,$dates,$allEmp) {
+
+
+                    $sheet->freezePane('B4');
+
+                    $sheet->setStyle(array(
+                        'font' => array(
+                            'name' => 'Calibri',
+                            'size' => 10,
+                            'bold' => false
+                        )
+                    ));
+
+                    $sheet->loadView('Excel.attendenceTestRumi', compact('results','dates','allEmp','ad'));
+                });
+            }
+
+        })->store('xls',$filePath);
+
+        return response()->json($fileName);
+
+
+
+
     }
 
     public function getEmployeeAttendance(Request $r){
