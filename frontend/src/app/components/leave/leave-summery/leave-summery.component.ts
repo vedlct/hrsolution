@@ -196,7 +196,6 @@ export class LeaveSummeryComponent implements OnInit {
 
     };
 
-
     const token=this.token.get();
 
     this.http.post(Constants.API_URL+'leave/individual/update'+'?token='+token,form).subscribe(data => {
