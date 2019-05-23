@@ -192,8 +192,12 @@ class TestController extends Controller
     }
     public function testRumi(){
 
-        $fromDate = Carbon::now()->startOfMonth()->format('Y-m-d');
-        $toDate = Carbon::now()->endOfMonth()->format('Y-m-d');
+//        $fromDate = Carbon::now()->startOfMonth()->format('Y-m-d');
+//        $toDate = Carbon::now()->endOfMonth()->format('Y-m-d');
+
+        $fromDate ='2019-04-01';
+        $toDate = '2019-04-30';
+
         $startDate=$fromDate;
         $endDate=$toDate;
 
