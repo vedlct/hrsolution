@@ -191,12 +191,14 @@ class TestController extends Controller
         return $array;
     }
     public function testRumi(){
-
+//
 //        $fromDate = Carbon::now()->startOfMonth()->format('Y-m-d');
 //        $toDate = Carbon::now()->endOfMonth()->format('Y-m-d');
-
         $fromDate ='2019-04-01';
         $toDate = '2019-04-30';
+
+        ini_set('max_execution_time', 300);
+
 
         $startDate=$fromDate;
         $endDate=$toDate;
@@ -292,6 +294,7 @@ class TestController extends Controller
 
 
         })->store('xls',$filePath);
+
 
     }
 
