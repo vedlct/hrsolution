@@ -137,7 +137,7 @@ class AttendanceController extends Controller
     public function getAttendenceDataForHR(Request $r){
 
 
-
+        ini_set('max_execution_time', 1440);
 
 //        $start = Carbon::now()->startOfMonth()->format('Y-m-d');
 //        $end = Carbon::now()->endOfMonth()->format('Y-m-d');
