@@ -52,6 +52,7 @@ import { CreateLeaveTeamComponent } from './components/team/create-leave-team/cr
 import { GenerateSalaryComponent } from './components/payroll/generate-salary/generate-salary.component';
 import { LeaveSummeryComponent } from './components/leave/leave-summery/leave-summery.component';
 import { LeaveSummeryShowComponent } from './components/leave/leave-summery-show/leave-summery-show.component';
+import { ShowovertimeComponent } from './components/overtime/showovertime/showovertime.component';
 
 @NgModule({
   declarations: [
@@ -96,7 +97,8 @@ import { LeaveSummeryShowComponent } from './components/leave/leave-summery-show
     CreateLeaveTeamComponent,
     GenerateSalaryComponent,
     LeaveSummeryComponent,
-    LeaveSummeryShowComponent
+    LeaveSummeryShowComponent,
+    ShowovertimeComponent
   ],
   imports: [
     BrowserModule,

@@ -35,6 +35,7 @@ import {CreateLeaveTeamComponent} from "./components/team/create-leave-team/crea
 import {GenerateSalaryComponent} from "./components/payroll/generate-salary/generate-salary.component";
 import {LeaveSummeryComponent} from "./components/leave/leave-summery/leave-summery.component";
 import {LeaveSummeryShowComponent} from "./components/leave/leave-summery-show/leave-summery-show.component";
+import {ShowovertimeComponent} from "./components/overtime/showovertime/showovertime.component";
 
 
 
@@ -64,6 +65,7 @@ const routes: Routes = [
     { path: 'configuration/department/add', component: AddDepartmentComponent,canActivate: [AuthService]  },
     { path: 'configuration/leave', component: LeaveComponent,canActivate: [AuthService]  },
     { path: 'configuration/leave/show', component: ShowLeaveComponent,canActivate: [AuthService]  },
+    { path: 'overtime/show', component: ShowovertimeComponent ,canActivate: [AuthService] },
     { path: 'leave/apply', component: AddLeaveComponent ,canActivate: [AuthService] },
     { path: 'leave/team',
         component: LeaveTeamComponent,
