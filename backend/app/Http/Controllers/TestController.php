@@ -197,17 +197,23 @@ class TestController extends Controller
         $fromDate ='2019-04-01';
         $toDate = '2019-04-30';
 
-        ini_set('max_execution_time', 300);
+        ini_set('max_execution_time', 1440);
 
 
         $startDate=$fromDate;
         $endDate=$toDate;
 
+         $allLeave=Leave::leftJoin('hrmleavecategories', 'hrmleavecategories.id', '=', 'hrmleaves.fkLeaveCategory')
+            ->where('applicationStatus','Approved')
+            ->whereBetween('startDate',array($fromDate, $toDate))
+            ->get();
+
+
        $dates = $this->getDatesFromRange($startDate, $endDate);
 
        $allEmp=EmployeeInfo::select('id','firstName','fkDepartmentId')->whereNull('resignDate')->get();
 
-        $results = DB::select( DB::raw("select ad.id,ad.attDeviceUserId,e.fkDepartmentId, em.employeeId, CONCAT(COALESCE(e.firstName,''),' ',COALESCE(e.middleName,''),' ',COALESCE(e.lastName,'')) AS empname
+         $results = DB::select( DB::raw("select ad.id,ad.attDeviceUserId,e.fkDepartmentId, em.employeeId, CONCAT(COALESCE(e.firstName,''),' ',COALESCE(e.middleName,''),' ',COALESCE(e.lastName,'')) AS empname
             , date_format(ad.accessTime,'%Y-%m-%d') attendanceDate
             , date_format(min(ad.accessTime),'%H:%i:%s %p') checkIn
             , date_format(max(ad.accessTime),'%H:%i:%s %p') checkOut
@@ -234,9 +240,7 @@ class TestController extends Controller
 
 
 
-//        $allLeave=Leave::leftJoin('hrmleavecategories', 'hrmleavecategories.id', '=', 'hrmleaves.fkLeaveCategory')
-//            ->whereBetween('startDate',array($fromDate, $toDate))
-//            ->get();
+
 
         // return $allLeave;
 //        $allHoliday=OrganizationCalander::whereMonth('startDate', '=', date('m',strtotime($fromDate)))->orWhereMonth('endDate', '=', date('m',strtotime($toDate)))->get();
@@ -266,7 +270,7 @@ class TestController extends Controller
 
 
 
-        $check=Excel::create($fileName,function($excel)use ($results,$allDepartment,$dates,$allEmp) {
+        $check=Excel::create($fileName,function($excel)use ($results,$allDepartment,$dates,$allEmp,$allLeave,$fromDate,$toDate) {
 
 
 
@@ -274,7 +278,7 @@ class TestController extends Controller
 
 
 
-                $excel->sheet($ad->departmentName, function ($sheet) use ($results,$ad, $allDepartment,$dates,$allEmp) {
+                $excel->sheet($ad->departmentName, function ($sheet) use ($results,$ad, $allDepartment,$dates,$allEmp,$allLeave,$fromDate,$toDate) {
 
 
                     $sheet->freezePane('B4');
@@ -287,7 +291,7 @@ class TestController extends Controller
                         )
                     ));
 
-                    $sheet->loadView('Excel.attendenceTestRumi', compact('results','startDate', 'endDate','dates','allEmp','ad'));
+                    $sheet->loadView('Excel.attendenceTestRumi', compact('results','fromDate', 'toDate','dates','allEmp','ad','allLeave'));
                 });
             }
 

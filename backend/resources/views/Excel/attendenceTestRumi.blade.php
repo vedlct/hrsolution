@@ -57,7 +57,7 @@
         <tr>
 
 
-            <td width="30">{{$aE->firstName}}</td>
+            <td width="30">{{$aE->empname}}</td>
             @foreach($dates as $date)
                 @if($results->where('employeeId',$aE->id)->where('attendanceDate',$date)->first() )
             <td width="10">{{$results->where('employeeId',$aE->id)->where('attendanceDate',$date)->first()->checkIn}}</td>
@@ -65,15 +65,22 @@
             <td width="15"></td>
             <td width="15"></td>
             <td width="15"></td>
-            <td style="border: 2px solid black" width="15"></td>
+            <td style="border: 2px solid black" width="15">Present</td>
 
                     @else
+
                     <td width="10"></td>
                     <td width="10"></td>
                     <td width="15"></td>
                     <td width="15"></td>
                     <td width="15"></td>
-                    <td style="border: 2px solid black" width="15"></td>
+
+
+                        <td style="border: 2px solid black" width="15">
+
+                        </td>
+
+
 
                 @endif
             @endforeach
