@@ -215,9 +215,10 @@ class TestController extends Controller
 
        $dates = $this->getDatesFromRange($startDate, $endDate);
 
-       $allEmp=EmployeeInfo::select('id','firstName','fkDepartmentId')->whereNull('resignDate')->get();
+         $allEmp=EmployeeInfo::select('id','fkDepartmentId',DB::raw("CONCAT(COALESCE(firstName),' ',COALESCE(middleName),' ',COALESCE(lastName)) AS empFullname"))->whereNull('resignDate')->get();
 
-         $results = DB::select( DB::raw("select ad.id,ad.attDeviceUserId,e.fkDepartmentId, em.employeeId, CONCAT(COALESCE(e.firstName,''),' ',COALESCE(e.middleName,''),' ',COALESCE(e.lastName,'')) AS empname
+
+        $results = DB::select( DB::raw("select ad.id,ad.attDeviceUserId,e.fkDepartmentId, em.employeeId, CONCAT(COALESCE(e.firstName,''),' ',COALESCE(e.middleName,''),' ',COALESCE(e.lastName,'')) AS empname
             , date_format(ad.accessTime,'%Y-%m-%d') attendanceDate
             , date_format(min(ad.accessTime),'%H:%i:%s %p') checkIn
             , date_format(max(ad.accessTime),'%H:%i:%s %p') checkOut
