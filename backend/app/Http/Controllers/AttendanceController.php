@@ -154,7 +154,7 @@ class AttendanceController extends Controller
 
          $dates = $this->getDatesFromRange($fromDate, $toDate);
 
-         $allEmp=EmployeeInfo::select('id','fkDepartmentId',DB::raw("CONCAT(COALESCE(firstName),' ',COALESCE(middleName),' ',COALESCE(lastName)) AS empFullname"))->whereNull('resignDate')->get();
+        $allEmp=EmployeeInfo::select('id','fkDepartmentId',DB::raw("CONCAT(COALESCE(firstName,''),' ',COALESCE(middleName,''),' ',COALESCE(lastName,'')) AS empFullname"))->whereNull('resignDate')->get();
 
         $results = DB::select( DB::raw("select e.fkDepartmentId, em.employeeId, CONCAT(COALESCE(e.firstName,''),' ',COALESCE(e.middleName,''),' ',COALESCE(e.lastName,'')) AS empname
             , date_format(ad.accessTime,'%Y-%m-%d') attendanceDate

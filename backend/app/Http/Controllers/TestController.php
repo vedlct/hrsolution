@@ -215,7 +215,7 @@ class TestController extends Controller
 
        $dates = $this->getDatesFromRange($startDate, $endDate);
 
-         $allEmp=EmployeeInfo::select('id','fkDepartmentId',DB::raw("CONCAT(COALESCE(firstName),' ',COALESCE(middleName),' ',COALESCE(lastName)) AS empFullname"))->whereNull('resignDate')->get();
+      $allEmp=EmployeeInfo::select('id','fkDepartmentId',DB::raw("CONCAT(COALESCE(firstName,''),' ',COALESCE(middleName,''),' ',COALESCE(lastName,'')) AS empFullname"))->whereNull('resignDate')->get();
 
 
         $results = DB::select( DB::raw("select ad.id,ad.attDeviceUserId,e.fkDepartmentId, em.employeeId, CONCAT(COALESCE(e.firstName,''),' ',COALESCE(e.middleName,''),' ',COALESCE(e.lastName,'')) AS empname
