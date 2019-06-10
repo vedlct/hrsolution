@@ -108,12 +108,12 @@ class AttendanceController extends Controller
 //            order by a.employeeId
 
         $datatables = Datatables::of($results);
-                return $datatables->addColumn('weekends', function ($results) use ($fromDate,$toDate) {
+        return $datatables->addColumn('weekends', function ($results) use ($fromDate,$toDate) {
 
             $days="sunday,friday";
 
             $queries = DB::select("SELECT FUN_WEEKENDS('".$fromDate."','".$toDate."','".$results->totalWeekend."') as weekends");
-                    return $queries[0]->weekends;
+            return $queries[0]->weekends;
 
         })->make(true);
 
@@ -425,8 +425,8 @@ class AttendanceController extends Controller
         // Software
 
         $softwareTotalEmp = EmployeeInfo::where('employeeinfo.fkDepartmentId',2)
-                                        ->where('fkActivationStatus', 1)
-                                        ->count();
+            ->where('fkActivationStatus', 1)
+            ->count();
 
 
         $softwarePresent = DB::select( DB::raw("select count(DISTINCT(e.id)) as present
@@ -635,14 +635,14 @@ class AttendanceController extends Controller
 
 
 
-    return response()->json(['morningTotal'=>$morningTotal,'morningPresent'=>$morningPresent,'morningLate'=>$morningLate,
-                    'eveningTotal'=>$eveningTotal,'eveningPresent'=>$eveningPresent,'eveningLate'=>$eveningLate,
-                    'onleaveCountMorning'=>$onleaveCountMorning,'onleaveCountEvening'=>$onleaveCountEvening,
-                    'softwareTotalEmp'=>$softwareTotalEmp,'softwarePresent'=>$softwarePresent, 'softwareOnleave'=>$softwareOnleave, 'softwareLate'=>$softwareLate,
-                    'globalTotalEmp'=>$globalTotalEmp,'globalPresent'=>$globalPresent, 'globalOnleave'=>$globalOnleave, 'globalLate'=>$globalLate,
-                    'digitalTotalEmp'=>$digitalTotalEmp,'digitalPresent'=>$digitalPresent, 'digitalOnleave'=>$digitalOnleave, 'digitalLate'=>$digitalLate,
-                    'morningAbsentList_ppd'=>$morningAbsentList_ppd,'eveningAbsentList_ppd'=>$eveningAbsentList_ppd,
-                    'absentList_software'=>$absentList_software,'absentList_global'=>$absentList_global,'absentList_digital'=>$absentList_digital
+        return response()->json(['morningTotal'=>$morningTotal,'morningPresent'=>$morningPresent,'morningLate'=>$morningLate,
+            'eveningTotal'=>$eveningTotal,'eveningPresent'=>$eveningPresent,'eveningLate'=>$eveningLate,
+            'onleaveCountMorning'=>$onleaveCountMorning,'onleaveCountEvening'=>$onleaveCountEvening,
+            'softwareTotalEmp'=>$softwareTotalEmp,'softwarePresent'=>$softwarePresent, 'softwareOnleave'=>$softwareOnleave, 'softwareLate'=>$softwareLate,
+            'globalTotalEmp'=>$globalTotalEmp,'globalPresent'=>$globalPresent, 'globalOnleave'=>$globalOnleave, 'globalLate'=>$globalLate,
+            'digitalTotalEmp'=>$digitalTotalEmp,'digitalPresent'=>$digitalPresent, 'digitalOnleave'=>$digitalOnleave, 'digitalLate'=>$digitalLate,
+            'morningAbsentList_ppd'=>$morningAbsentList_ppd,'eveningAbsentList_ppd'=>$eveningAbsentList_ppd,
+            'absentList_software'=>$absentList_software,'absentList_global'=>$absentList_global,'absentList_digital'=>$absentList_digital
         ]);
 
 
