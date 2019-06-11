@@ -199,7 +199,7 @@ class TestController extends Controller
 //        $fromDate = Carbon::now()->startOfMonth()->format('Y-m-d');
 //        $toDate = Carbon::now()->endOfMonth()->format('Y-m-d');
         $fromDate ='2019-04-01';
-        $toDate = '2019-04-30';
+        $toDate = '2019-04-31';
 
         ini_set('max_execution_time', 1440);
 
@@ -207,15 +207,52 @@ class TestController extends Controller
         $startDate=$fromDate;
         $endDate=$toDate;
 
-         $allLeave=Leave::leftJoin('hrmleavecategories', 'hrmleavecategories.id', '=', 'hrmleaves.fkLeaveCategory')
-            ->where('applicationStatus','Approved')
-            ->whereBetween('startDate',array($fromDate, $toDate))
-            ->get();
+//         $allLeave=Leave::leftJoin('hrmleavecategories', 'hrmleavecategories.id', '=', 'hrmleaves.fkLeaveCategory')
+//            ->where('applicationStatus','Approved')
+//            ->whereBetween('startDate',array($fromDate, $toDate))
+//            ->get();
 
 
        $dates = $this->getDatesFromRange($startDate, $endDate);
 
-      $allEmp=EmployeeInfo::select('id','fkDepartmentId',DB::raw("CONCAT(COALESCE(firstName,''),' ',COALESCE(middleName,''),' ',COALESCE(lastName,'')) AS empFullname"))->whereNull('resignDate')->get();
+        $allEmp=EmployeeInfo::select('id','fkDepartmentId',DB::raw("CONCAT(COALESCE(firstName,''),' ',COALESCE(middleName,''),' ',COALESCE(lastName,'')) AS empFullname"))->whereNull('resignDate')->get();
+
+
+//          $results=EmployeeInfo::select('employeeinfo.id','attemployeemap.employeeId','employeeinfo.fkDepartmentId',DB::raw("CONCAT(COALESCE(employeeinfo.firstName,''),' ',COALESCE(employeeinfo.middleName,''),' ',COALESCE(employeeinfo.lastName,'')) AS empFullname"),
+//          DB::raw("date_format(min(attendancedata.accessTime),'%H:%i:%s %p') checkIn"),
+//          DB::raw("date_format(max(attendancedata.accessTime),'%H:%i:%s %p') checkOut"),
+//          DB::raw("date_format(attendancedata.accessTime,'%Y-%m-%d') attendanceDate"))->whereNull('resignDate')
+//          ->leftJoin('attemployeemap','attemployeemap.attDeviceUserId','employeeinfo.id')
+//          ->leftJoin('attendancedata','attendancedata.attDeviceUserId','attemployeemap.attDeviceUserId')
+//
+//          ->whereRaw("date_format(attendancedata.accessTime,'%Y-%m-%d') between '".$fromDate."' and '".$toDate."'")
+//          ->groupBy("attendancedata.attDeviceUserId",DB::raw("date_format(attendancedata.accessTime,'%Y-%m-%d')"))
+//          ->get();
+//
+//        $results=collect($results);
+
+//         return $allLeave=DB::Select(
+//             DB::raw("select * from
+//(select adddate('1970-01-01',t4.i*10000 + t3.i*1000 + t2.i*100 + t1.i*10 + t0.i) selected_date from
+// (select 0 i union select 1 union select 2 union select 3 union select 4 union select 5 union select 6 union select 7 union select 8 union select 9) t0,
+// (select 0 i union select 1 union select 2 union select 3 union select 4 union select 5 union select 6 union select 7 union select 8 union select 9) t1,
+// (select 0 i union select 1 union select 2 union select 3 union select 4 union select 5 union select 6 union select 7 union select 8 union select 9) t2,
+// (select 0 i union select 1 union select 2 union select 3 union select 4 union select 5 union select 6 union select 7 union select 8 union select 9) t3,
+// (select 0 i union select 1 union select 2 union select 3 union select 4 union select 5 union select 6 union select 7 union select 8 union select 9) t4) v
+//where selected_date between '2018-10-29' and '2018-11-01'"));
+//             ->leftJoin('hrmleavecategories', 'hrmleavecategories.id', '=', 'hrmleaves.id')
+//            ->where('applicationStatus',"Approved")
+//            ->whereBetween('startDate',array($fromDate, $toDate))
+//            ->get();
+
+          $allLeave=Leave::leftJoin('hrmleavecategories', 'hrmleavecategories.id', '=', 'hrmleaves.fkLeaveCategory')
+            ->where('applicationStatus',"Approved")
+//            ->where('fkEmployeeId',1)
+//             ->where('startDate','>=','2019-04-03')->where('endDate','<=','2019-04-05')
+            ->whereBetween('startDate',array($fromDate, $toDate))
+            ->get();
+
+         $allLeave=collect($allLeave);
 
 
         $results = DB::select( DB::raw("select ad.id,ad.attDeviceUserId,e.fkDepartmentId, em.employeeId, CONCAT(COALESCE(e.firstName,''),' ',COALESCE(e.middleName,''),' ',COALESCE(e.lastName,'')) AS empname
@@ -223,7 +260,7 @@ class TestController extends Controller
             , date_format(min(ad.accessTime),'%H:%i:%s %p') checkIn
             , date_format(max(ad.accessTime),'%H:%i:%s %p') checkOut
             , date_format(s.inTime,'%H:%i:%s %p') scheduleIn, date_format(s.outTime,'%H:%i:%s %p') scheduleOut
-            , case when SUBTIME(date_format(min(ad.accessTime),'%H:%i'),s.inTime) > '00:00:01' then 'Y' else 'N' end late 
+            , case when SUBTIME(date_format(min(ad.accessTime),'%H:%i'),s.inTime) > '00:00:01' then 'Y' else 'N' end late
             , SUBTIME(date_format(min(ad.accessTime),'%H:%i'),s.inTime)  as lateTime
             ,SUBTIME(date_format(max(ad.accessTime),'%H:%i:%s'),date_format(min(ad.accessTime),'%H:%i:%s')) workingTime
             ,min(ad.accessTime) checkInFull, max(ad.accessTime) checkoutFull,ad.fkAttDevice

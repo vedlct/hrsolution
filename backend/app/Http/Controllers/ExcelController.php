@@ -63,7 +63,7 @@ class ExcelController extends Controller
 
 
 
-        $allLeave=Leave::leftJoin('hrmleavecategories', 'hrmleavecategories.id', '=', 'hrmleaves.id')
+        $allLeave=Leave::leftJoin('hrmleavecategories', 'hrmleavecategories.id', '=', 'hrmleaves.fkLeaveCategory')
             ->whereBetween('startDate',array($fromDate, $toDate))
             ->get();
 
