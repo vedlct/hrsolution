@@ -75,10 +75,15 @@
                     <td width="15"></td>
                     <td width="15"></td>
 
-
+                    @if($allLeave->where('fkEmployeeId',$aE->id)->where('startDate','<=',$date)->where('endDate','>=',$date)->first())
                         <td style="border: 2px solid black" width="15">
-
+                            {{$allLeave->where('fkEmployeeId',$aE->id)->where('startDate','<=',$date)->where('endDate','>=',$date)->first()->categoryName}}
                         </td>
+                        @else
+                        <td>
+                            Absent
+                        </td>
+                    @endif
 
 
 

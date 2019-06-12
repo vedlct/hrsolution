@@ -178,6 +178,15 @@ class AttendanceController extends Controller
 
         $allDepartment=Department::select('id','departmentName')->get();
 
+        $allLeave=Leave::leftJoin('hrmleavecategories', 'hrmleavecategories.id', '=', 'hrmleaves.fkLeaveCategory')
+            ->where('applicationStatus',"Approved")
+//            ->where('fkEmployeeId',1)
+//             ->where('startDate','>=','2019-04-03')->where('endDate','<=','2019-04-05')
+            ->whereBetween('startDate',array($fromDate, $toDate))
+            ->get();
+
+        $allLeave=collect($allLeave);
+
 
 
 
@@ -193,13 +202,13 @@ class AttendanceController extends Controller
         );
 
 
-        Excel::create($fileName,function($excel)use ($results,$allDepartment,$dates,$allEmp) {
+        Excel::create($fileName,function($excel)use ($allLeave,$results,$allDepartment,$dates,$allEmp) {
 
 
 
             foreach ($allDepartment as $ad) {
 
-                $excel->sheet($ad->departmentName, function ($sheet) use ($results,$ad, $allDepartment,$dates,$allEmp) {
+                $excel->sheet($ad->departmentName, function ($sheet) use ($allLeave,$results,$ad, $allDepartment,$dates,$allEmp) {
 
 
                     $sheet->freezePane('B4');
@@ -212,7 +221,7 @@ class AttendanceController extends Controller
                         )
                     ));
 
-                    $sheet->loadView('Excel.attendenceTestRumi', compact('results','dates','allEmp','ad'));
+                    $sheet->loadView('Excel.attendenceTestRumi', compact('allLeave','results','dates','allEmp','ad'));
                 });
             }
 
