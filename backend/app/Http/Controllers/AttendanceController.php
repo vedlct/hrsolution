@@ -156,21 +156,20 @@ class AttendanceController extends Controller
 
         $allEmp=EmployeeInfo::select('id','fkDepartmentId',DB::raw("CONCAT(COALESCE(firstName,''),' ',COALESCE(middleName,''),' ',COALESCE(lastName,'')) AS empFullname"))->whereNull('resignDate')->get();
 
-        $results = DB::select( DB::raw("select e.fkDepartmentId, em.employeeId, CONCAT(COALESCE(e.firstName,''),' ',COALESCE(e.middleName,''),' ',COALESCE(e.lastName,'')) AS empname
+        $results = DB::select( DB::raw("select em.employeeId
             , date_format(ad.accessTime,'%Y-%m-%d') attendanceDate
-            , date_format(min(ad.accessTime),'%H:%i:%s') checkIn
-            , date_format(max(ad.accessTime),'%H:%i:%s') checkOut
-            , date_format(s.inTime,'%H:%i:%s') scheduleIn, date_format(s.outTime,'%H:%i:%s') scheduleOut
+            , date_format(min(ad.accessTime),'%H:%i') checkIn
+            , date_format(max(ad.accessTime),'%H:%i') checkOut
             
-            ,SUBTIME(date_format(max(ad.accessTime),'%H:%i:%s'),date_format(min(ad.accessTime),'%H:%i:%s')) workingTime
+            , case when SUBTIME(date_format(min(ad.accessTime),'%H:%i'),s.inTime) > '00:00:01' then 'Y' else 'N' end late 
+            , date_format(SUBTIME(date_format(min(ad.accessTime),'%H:%i'),s.inTime),'%H:%i')  as lateTime
 
             from attendancedata ad left join attemployeemap em on ad.attDeviceUserId = em.attDeviceUserId
-            left join employeeinfo e on em.employeeId = e.id
+            
             left join shiftlog sl on em.employeeId = sl.fkemployeeId and date_format(ad.accessTime,'%Y-%m-%d') between date_format(sl.startDate,'%Y-%m-%d') and ifnull(date_format(sl.endDate,'%Y-%m-%d'),curdate())
             left join shift s on sl.fkshiftId = s.shiftId
             where date_format(ad.accessTime,'%Y-%m-%d') between '".$fromDate."' and '".$toDate."'
-            group by ad.attDeviceUserId, date_format(ad.accessTime,'%Y-%m-%d')
-            order by date_format(ad.accessTime,'%Y-%m-%d') desc"));
+            group by ad.attDeviceUserId, date_format(ad.accessTime,'%Y-%m-%d')"));
 
         $results=collect($results);
 
