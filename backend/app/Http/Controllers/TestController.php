@@ -269,7 +269,7 @@ class TestController extends Controller
             left join shift s on sl.fkshiftId = s.shiftId
             where date_format(ad.accessTime,'%Y-%m-%d') between '".$fromDate."' and '".$toDate."'
             group by ad.attDeviceUserId, date_format(ad.accessTime,'%Y-%m-%d')"));
-        
+
 
         $results=collect($results);
 

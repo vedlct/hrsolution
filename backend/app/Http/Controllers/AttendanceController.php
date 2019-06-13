@@ -162,7 +162,7 @@ class AttendanceController extends Controller
             , date_format(max(ad.accessTime),'%H:%i') checkOut
             
             , case when SUBTIME(date_format(min(ad.accessTime),'%H:%i'),s.inTime) > '00:00:01' then 'Y' else 'N' end late 
-            , date_format(SUBTIME(date_format(min(ad.accessTime),'%H:%i'),s.inTime),'%H:%i')  as lateTime
+            , TIME_FORMAT(SUBTIME(date_format(min(ad.accessTime),'%H:%i'),s.inTime),'%H:%i')  as lateTime
 
             from attendancedata ad left join attemployeemap em on ad.attDeviceUserId = em.attDeviceUserId
             
