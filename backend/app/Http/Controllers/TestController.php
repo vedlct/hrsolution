@@ -198,8 +198,8 @@ class TestController extends Controller
 //
 //        $fromDate = Carbon::now()->startOfMonth()->format('Y-m-d');
 //        $toDate = Carbon::now()->endOfMonth()->format('Y-m-d');
-        $fromDate ='2019-04-01';
-        $toDate = '2019-04-31';
+        $fromDate ='2019-05-01';
+        $toDate = '2019-05-15';
 
         ini_set('max_execution_time', 1440);
 
@@ -255,22 +255,21 @@ class TestController extends Controller
          $allLeave=collect($allLeave);
 
 
-        $results = DB::select( DB::raw("select ad.id,ad.attDeviceUserId,e.fkDepartmentId, em.employeeId, CONCAT(COALESCE(e.firstName,''),' ',COALESCE(e.middleName,''),' ',COALESCE(e.lastName,'')) AS empname
+        $results = DB::select( DB::raw("select em.employeeId
             , date_format(ad.accessTime,'%Y-%m-%d') attendanceDate
-            , date_format(min(ad.accessTime),'%H:%i:%s %p') checkIn
-            , date_format(max(ad.accessTime),'%H:%i:%s %p') checkOut
-            , date_format(s.inTime,'%H:%i:%s %p') scheduleIn, date_format(s.outTime,'%H:%i:%s %p') scheduleOut
-            , case when SUBTIME(date_format(min(ad.accessTime),'%H:%i'),s.inTime) > '00:00:01' then 'Y' else 'N' end late
-            , SUBTIME(date_format(min(ad.accessTime),'%H:%i'),s.inTime)  as lateTime
-            ,SUBTIME(date_format(max(ad.accessTime),'%H:%i:%s'),date_format(min(ad.accessTime),'%H:%i:%s')) workingTime
-            ,min(ad.accessTime) checkInFull, max(ad.accessTime) checkoutFull,ad.fkAttDevice
+            , date_format(min(ad.accessTime),'%H:%i') checkIn
+            , date_format(max(ad.accessTime),'%H:%i') checkOut
+            
+            , case when SUBTIME(date_format(min(ad.accessTime),'%H:%i'),s.inTime) > '00:00:01' then 'Y' else 'N' end late 
+            , date_format(SUBTIME(date_format(min(ad.accessTime),'%H:%i'),s.inTime),'%H:%i')  as lateTime
+
             from attendancedata ad left join attemployeemap em on ad.attDeviceUserId = em.attDeviceUserId
-            left join employeeinfo e on em.employeeId = e.id
+            
             left join shiftlog sl on em.employeeId = sl.fkemployeeId and date_format(ad.accessTime,'%Y-%m-%d') between date_format(sl.startDate,'%Y-%m-%d') and ifnull(date_format(sl.endDate,'%Y-%m-%d'),curdate())
             left join shift s on sl.fkshiftId = s.shiftId
             where date_format(ad.accessTime,'%Y-%m-%d') between '".$fromDate."' and '".$toDate."'
-            group by ad.attDeviceUserId, date_format(ad.accessTime,'%Y-%m-%d')
-            order by date_format(ad.accessTime,'%Y-%m-%d') desc"));
+            group by ad.attDeviceUserId, date_format(ad.accessTime,'%Y-%m-%d')"));
+        
 
         $results=collect($results);
 
