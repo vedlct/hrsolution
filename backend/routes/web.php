@@ -24,3 +24,13 @@ Route::get('test','TestController@test');
 Route::get('test/rumi','TestController@testRumi');
 /* end rumi test */
 Route::get('excel/generate','ExcelController@generate');
+
+Route::get('/clear-cache', function() {
+
+    Artisan::call('cache:clear');
+    Artisan::call('config:cache');
+    Artisan::call('view:clear');
+
+   // return redirect('/');
+    return "Cache is cleared";
+});

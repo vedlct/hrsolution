@@ -108,12 +108,12 @@ class AttendanceController extends Controller
 //            order by a.employeeId
 
         $datatables = Datatables::of($results);
-                return $datatables->addColumn('weekends', function ($results) use ($fromDate,$toDate) {
+        return $datatables->addColumn('weekends', function ($results) use ($fromDate,$toDate) {
 
             $days="sunday,friday";
 
             $queries = DB::select("SELECT FUN_WEEKENDS('".$fromDate."','".$toDate."','".$results->totalWeekend."') as weekends");
-                    return $queries[0]->weekends;
+            return $queries[0]->weekends;
 
         })->make(true);
 
@@ -137,7 +137,7 @@ class AttendanceController extends Controller
     public function getAttendenceDataForHR(Request $r){
 
 
-
+        ini_set('max_execution_time', 1440);
 
 //        $start = Carbon::now()->startOfMonth()->format('Y-m-d');
 //        $end = Carbon::now()->endOfMonth()->format('Y-m-d');
@@ -154,29 +154,37 @@ class AttendanceController extends Controller
 
          $dates = $this->getDatesFromRange($fromDate, $toDate);
 
-        $allEmp=EmployeeInfo::select('id','firstName','fkDepartmentId')->whereNull('resignDate')->get();
+        $allEmp=EmployeeInfo::select('id','fkDepartmentId',DB::raw("CONCAT(COALESCE(firstName,''),' ',COALESCE(middleName,''),' ',COALESCE(lastName,'')) AS empFullname"))->whereNull('resignDate')->get();
 
-        $results = DB::select( DB::raw("select e.fkDepartmentId, em.employeeId, CONCAT(COALESCE(e.firstName,''),' ',COALESCE(e.middleName,''),' ',COALESCE(e.lastName,'')) AS empname
+        $results = DB::select( DB::raw("select em.employeeId
             , date_format(ad.accessTime,'%Y-%m-%d') attendanceDate
-            , date_format(min(ad.accessTime),'%H:%i:%s') checkIn
-            , date_format(max(ad.accessTime),'%H:%i:%s') checkOut
-            , date_format(s.inTime,'%H:%i:%s') scheduleIn, date_format(s.outTime,'%H:%i:%s') scheduleOut
+            , date_format(min(ad.accessTime),'%H:%i') checkIn
+            , date_format(max(ad.accessTime),'%H:%i') checkOut
             
-            ,SUBTIME(date_format(max(ad.accessTime),'%H:%i:%s'),date_format(min(ad.accessTime),'%H:%i:%s')) workingTime
+            , case when SUBTIME(date_format(min(ad.accessTime),'%H:%i'),s.inTime) > '00:00:01' then 'Y' else 'N' end late 
+            , TIME_FORMAT(SUBTIME(date_format(min(ad.accessTime),'%H:%i'),s.inTime),'%H:%i')  as lateTime
 
             from attendancedata ad left join attemployeemap em on ad.attDeviceUserId = em.attDeviceUserId
-            left join employeeinfo e on em.employeeId = e.id
+            
             left join shiftlog sl on em.employeeId = sl.fkemployeeId and date_format(ad.accessTime,'%Y-%m-%d') between date_format(sl.startDate,'%Y-%m-%d') and ifnull(date_format(sl.endDate,'%Y-%m-%d'),curdate())
             left join shift s on sl.fkshiftId = s.shiftId
             where date_format(ad.accessTime,'%Y-%m-%d') between '".$fromDate."' and '".$toDate."'
-            group by ad.attDeviceUserId, date_format(ad.accessTime,'%Y-%m-%d')
-            order by date_format(ad.accessTime,'%Y-%m-%d') desc"));
+            group by ad.attDeviceUserId, date_format(ad.accessTime,'%Y-%m-%d')"));
 
         $results=collect($results);
 
 //        return $results;
 
         $allDepartment=Department::select('id','departmentName')->get();
+
+        $allLeave=Leave::leftJoin('hrmleavecategories', 'hrmleavecategories.id', '=', 'hrmleaves.fkLeaveCategory')
+            ->where('applicationStatus',"Approved")
+//            ->where('fkEmployeeId',1)
+//             ->where('startDate','>=','2019-04-03')->where('endDate','<=','2019-04-05')
+            ->whereBetween('startDate',array($fromDate, $toDate))
+            ->get();
+
+        $allLeave=collect($allLeave);
 
 
 
@@ -193,13 +201,13 @@ class AttendanceController extends Controller
         );
 
 
-        Excel::create($fileName,function($excel)use ($results,$allDepartment,$dates,$allEmp) {
+        Excel::create($fileName,function($excel)use ($allLeave,$results,$allDepartment,$dates,$allEmp) {
 
 
 
             foreach ($allDepartment as $ad) {
 
-                $excel->sheet($ad->departmentName, function ($sheet) use ($results,$ad, $allDepartment,$dates,$allEmp) {
+                $excel->sheet($ad->departmentName, function ($sheet) use ($allLeave,$results,$ad, $allDepartment,$dates,$allEmp) {
 
 
                     $sheet->freezePane('B4');
@@ -212,7 +220,7 @@ class AttendanceController extends Controller
                         )
                     ));
 
-                    $sheet->loadView('Excel.attendenceTestRumi', compact('results','dates','allEmp','ad'));
+                    $sheet->loadView('Excel.attendenceTestRumi', compact('allLeave','results','dates','allEmp','ad'));
                 });
             }
 
@@ -425,8 +433,8 @@ class AttendanceController extends Controller
         // Software
 
         $softwareTotalEmp = EmployeeInfo::where('employeeinfo.fkDepartmentId',2)
-                                        ->where('fkActivationStatus', 1)
-                                        ->count();
+            ->where('fkActivationStatus', 1)
+            ->count();
 
 
         $softwarePresent = DB::select( DB::raw("select count(DISTINCT(e.id)) as present
@@ -635,14 +643,14 @@ class AttendanceController extends Controller
 
 
 
-    return response()->json(['morningTotal'=>$morningTotal,'morningPresent'=>$morningPresent,'morningLate'=>$morningLate,
-                    'eveningTotal'=>$eveningTotal,'eveningPresent'=>$eveningPresent,'eveningLate'=>$eveningLate,
-                    'onleaveCountMorning'=>$onleaveCountMorning,'onleaveCountEvening'=>$onleaveCountEvening,
-                    'softwareTotalEmp'=>$softwareTotalEmp,'softwarePresent'=>$softwarePresent, 'softwareOnleave'=>$softwareOnleave, 'softwareLate'=>$softwareLate,
-                    'globalTotalEmp'=>$globalTotalEmp,'globalPresent'=>$globalPresent, 'globalOnleave'=>$globalOnleave, 'globalLate'=>$globalLate,
-                    'digitalTotalEmp'=>$digitalTotalEmp,'digitalPresent'=>$digitalPresent, 'digitalOnleave'=>$digitalOnleave, 'digitalLate'=>$digitalLate,
-                    'morningAbsentList_ppd'=>$morningAbsentList_ppd,'eveningAbsentList_ppd'=>$eveningAbsentList_ppd,
-                    'absentList_software'=>$absentList_software,'absentList_global'=>$absentList_global,'absentList_digital'=>$absentList_digital
+        return response()->json(['morningTotal'=>$morningTotal,'morningPresent'=>$morningPresent,'morningLate'=>$morningLate,
+            'eveningTotal'=>$eveningTotal,'eveningPresent'=>$eveningPresent,'eveningLate'=>$eveningLate,
+            'onleaveCountMorning'=>$onleaveCountMorning,'onleaveCountEvening'=>$onleaveCountEvening,
+            'softwareTotalEmp'=>$softwareTotalEmp,'softwarePresent'=>$softwarePresent, 'softwareOnleave'=>$softwareOnleave, 'softwareLate'=>$softwareLate,
+            'globalTotalEmp'=>$globalTotalEmp,'globalPresent'=>$globalPresent, 'globalOnleave'=>$globalOnleave, 'globalLate'=>$globalLate,
+            'digitalTotalEmp'=>$digitalTotalEmp,'digitalPresent'=>$digitalPresent, 'digitalOnleave'=>$digitalOnleave, 'digitalLate'=>$digitalLate,
+            'morningAbsentList_ppd'=>$morningAbsentList_ppd,'eveningAbsentList_ppd'=>$eveningAbsentList_ppd,
+            'absentList_software'=>$absentList_software,'absentList_global'=>$absentList_global,'absentList_digital'=>$absentList_digital
         ]);
 
 

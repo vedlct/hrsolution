@@ -78,32 +78,21 @@
     @foreach($results->where('fkDepartmentId',$ad->id) as $res)
 
         @php
-
             $myArray = explode(',', $res->totalWeekend);
-
                  $offday=[];
                  $dateDay = $startDate;//use your date to get month and year
                     $year = $dateDay->year;
                     $month = $dateDay->month;
                     $days = $dateDay->daysInMonth;
-
-
-
                     $mondays=[];
                     foreach (range(1, $days) as $day) {
                         $date = \Carbon\Carbon::createFromDate($year, $month, $day);
                         if (in_array(strtolower($date->format('l')),$myArray)) {
                             $mondays[]=($date->day);
                         }
-
-
-
                     }
                     $offday[]=count($mondays);
-
-
             $holidayarray=[];
-
         foreach ($allHoliday as $holiday){
             if ((date("m",strtotime($holiday->startDate))==date("m",strtotime($startDate)))&& (date("m",strtotime($holiday->endDate))==date("m",strtotime($endDate)))){
                 $holidayarray[]=$holiday->noOfDays;
@@ -111,22 +100,16 @@
             {
                 $st = \Carbon\Carbon::parse($holiday->startDate);
                     $holidayarray[]=($days-$st->day);
-
             }elseif ((date("m",strtotime($holiday->startDate))!=date("m",strtotime($startDate)))&& (date("m",strtotime($holiday->endDate))==date("m",strtotime($endDate))))
             {
                 $etd = \Carbon\Carbon::parse($holiday->endDate);
                 $std = \Carbon\Carbon::parse($holiday->endDate)->startOfMonth();
                     $holidayarray[]=(($etd->diffInDays($std))+1);
-
-
             }
-
         }
-
-
-
-
         @endphp
+
+
 
     <tr>
         <td width="30">{{$res->empname}}</td>
