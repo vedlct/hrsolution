@@ -35,6 +35,12 @@ import {CreateLeaveTeamComponent} from "./components/team/create-leave-team/crea
 import {GenerateSalaryComponent} from "./components/payroll/generate-salary/generate-salary.component";
 import {LeaveSummeryComponent} from "./components/leave/leave-summery/leave-summery.component";
 import {LeaveSummeryShowComponent} from "./components/leave/leave-summery-show/leave-summery-show.component";
+import {CreateAppraisalHeadComponent} from "./components/appraisal/create-appraisal-head/create-appraisal-head.component";
+import {CreateAppraisalScaleComponent} from "./components/appraisal/create-appraisal-scale/create-appraisal-scale.component";
+import {CreateAppraisalTemplateComponent} from "./components/appraisal/create-appraisal-template/create-appraisal-template.component";
+import {CreateAppraisalConfigurationComponent} from "./components/appraisal/create-appraisal-configuration/create-appraisal-configuration.component";
+import {CreateAppraisalEmployeeComponent} from "./components/appraisal/create-appraisal-employee/create-appraisal-employee.component";
+import {AppraisalHeadComponent} from "./components/appraisal/appraisal-head/appraisal-head.component";
 
 
 
@@ -146,6 +152,11 @@ const routes: Routes = [
             }
         }
     },
+    { path: 'appraisal/head', component: AppraisalHeadComponent,canActivate: [AuthService]  },
+    { path: 'appraisal/scale', component: CreateAppraisalScaleComponent,canActivate: [AuthService]  },
+    { path: 'appraisal/template', component: CreateAppraisalTemplateComponent,canActivate: [AuthService]  },
+    { path: 'appraisal/configuration', component: CreateAppraisalConfigurationComponent,canActivate: [AuthService]  },
+    { path: 'appraisal/assign/employee', component: CreateAppraisalEmployeeComponent,canActivate: [AuthService]  },
 ];
 
 

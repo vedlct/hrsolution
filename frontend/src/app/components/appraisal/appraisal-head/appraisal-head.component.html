@@ -1,0 +1,15 @@
+<ul class="nav nav-tabs">
+  <li class="nav-item">
+    <a class="nav-link" [class.active]="infoFlag == 1" (click)="onInfoClick(1)">Existing Data</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" [class.active]="infoFlag == 2" (click)="onInfoClick(2)">Create New Head</a>
+  </li>
+</ul>
+
+<br>
+
+<div class="col-md-12">
+  <app-appraisal-existing-heads *ngIf="infoFlag ==1"></app-appraisal-existing-heads>
+  <app-create-appraisal-head *ngIf="infoFlag ==2"></app-create-appraisal-head>
+</div>
