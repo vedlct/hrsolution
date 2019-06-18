@@ -178,9 +178,16 @@
               </li>
 
               <li class="has-submenu" *ngxPermissionsOnly="['admin']">
-                <a href="#">Company</a>
+              <a href="#">Company</a>
+              <ul class="submenu">
+                <li><a routerLink="company/add">Company Info</a></li>
+              </ul>
+            </li>
+
+              <li class="has-submenu" *ngxPermissionsOnly="['admin']">
+                <a href="#">overtime</a>
                 <ul class="submenu">
-                  <li><a routerLink="company/add">Company Info</a></li>
+                  <li><a routerLink="overtime/show">Overtime</a></li>
                 </ul>
               </li>
 

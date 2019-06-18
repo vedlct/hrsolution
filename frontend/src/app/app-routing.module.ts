@@ -35,12 +35,16 @@ import {CreateLeaveTeamComponent} from "./components/team/create-leave-team/crea
 import {GenerateSalaryComponent} from "./components/payroll/generate-salary/generate-salary.component";
 import {LeaveSummeryComponent} from "./components/leave/leave-summery/leave-summery.component";
 import {LeaveSummeryShowComponent} from "./components/leave/leave-summery-show/leave-summery-show.component";
+<<<<<<< HEAD
 import {CreateAppraisalHeadComponent} from "./components/appraisal/create-appraisal-head/create-appraisal-head.component";
 import {CreateAppraisalScaleComponent} from "./components/appraisal/create-appraisal-scale/create-appraisal-scale.component";
 import {CreateAppraisalTemplateComponent} from "./components/appraisal/create-appraisal-template/create-appraisal-template.component";
 import {CreateAppraisalConfigurationComponent} from "./components/appraisal/create-appraisal-configuration/create-appraisal-configuration.component";
 import {CreateAppraisalEmployeeComponent} from "./components/appraisal/create-appraisal-employee/create-appraisal-employee.component";
 import {AppraisalHeadComponent} from "./components/appraisal/appraisal-head/appraisal-head.component";
+=======
+import {ShowovertimeComponent} from "./components/overtime/showovertime/showovertime.component";
+>>>>>>> 4a63673f1cf944da399a4881f493007b75696712
 
 
 
@@ -70,6 +74,7 @@ const routes: Routes = [
     { path: 'configuration/department/add', component: AddDepartmentComponent,canActivate: [AuthService]  },
     { path: 'configuration/leave', component: LeaveComponent,canActivate: [AuthService]  },
     { path: 'configuration/leave/show', component: ShowLeaveComponent,canActivate: [AuthService]  },
+    { path: 'overtime/show', component: ShowovertimeComponent ,canActivate: [AuthService] },
     { path: 'leave/apply', component: AddLeaveComponent ,canActivate: [AuthService] },
     { path: 'leave/team',
         component: LeaveTeamComponent,
