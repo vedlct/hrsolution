@@ -32,10 +32,10 @@ export class CreateAppraisalHeadComponent implements OnInit {
     if (!this.form.valid) {
       return;
     }
-    console.log(value);
 
-    this.http.post(Constants.API_URL+'login',value).subscribe(data => {
-
+    value['entryType']=this.rule;
+    this.http.post(Constants.API_URL+'appraisal/insert-appraisal-head',value).subscribe(data => {
+              console.log(data);
 
         },
         error => {

@@ -27,24 +27,25 @@ class AppraisalHeadController extends Controller
         return response()->json(['message' => 'Appraisal Head Deleted Successfully']);
     }
     public function storeAppraisalHead(Request $request){
+//        return $request;
 
-        if ($request->appraisal_id==null){
-            $appraisalHead= new AppraisalHead();
-        }else{
+        if ($request->appraisal_id){
             $appraisalHead= AppraisalHead::findOrFail($request->appraisal_id);
+        }else{
+            $appraisalHead= new AppraisalHead();
         }
 
-        if ($request->entryType='Group Entry'){
+        if ($request->entryType==true){
 
             $appraisalHead->headName=$request->headName;
-            $appraisalHead->headType="Group Head";
+            $appraisalHead->headType="GH";
             $appraisalHead->headDesc=$request->headDesc;
             $appraisalHead->fk_Appraisalheads=null;
             $appraisalHead->createdTime=Carbon::now()->timestamp; ;
             $appraisalHead->createdBy=null;
 
         }
-        elseif ($request->entryType='Head Entry') {
+        elseif ($request->entryType==false) {
 
             $appraisalHead->headName=$request->headName;
             $appraisalHead->headType=$request->headType;

@@ -240,7 +240,7 @@ Route::group([
 });
 
 //Appraisal
-Route::get('Appraisal/show-Appraisal-Head','Appraisal\AppraisalHeadController@showAllAppraisalHead')->name('appraisal.showAllHead');
-Route::post('Appraisal/insert-Appraisal-Head','Appraisal\AppraisalHeadController@storeAppraisalHead')->name('appraisal.insert');
-Route::post('Appraisal/update-Appraisal-Head','Appraisal\AppraisalHeadController@storeAppraisalHead')->name('appraisal.update');
-Route::get('Appraisal/delete-Appraisal-Head/{id}','Appraisal\AppraisalHeadController@deleteAppraisalHead')->name('appraisal.delete');
+Route::get('appraisal/show-appraisal-head','Appraisal\AppraisalHeadController@showAllAppraisalHead')->name('appraisal.showAllHead');
+Route::post('appraisal/insert-appraisal-head','Appraisal\AppraisalHeadController@storeAppraisalHead')->name('appraisal.insert');
+Route::post('appraisal/update-appraisal-Head','Appraisal\AppraisalHeadController@storeAppraisalHead')->name('appraisal.update');
+Route::get('appraisal/delete-appraisal-head/{id}','Appraisal\AppraisalHeadController@deleteAppraisalHead')->name('appraisal.delete');
