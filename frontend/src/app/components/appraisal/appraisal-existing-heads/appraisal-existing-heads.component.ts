@@ -13,6 +13,7 @@ export class AppraisalExistingHeadsComponent implements OnInit {
   dtOptions:DataTables.Settings={};
   dtTeigger:Subject<any>=new Subject();
   checkTable=0;
+  existingAppraisals:any;
   constructor(private http:HttpClient,private token:TokenService) { }
 
   ngOnInit() {
@@ -23,6 +24,7 @@ export class AppraisalExistingHeadsComponent implements OnInit {
     const token=this.token.get();
     this.http.get(Constants.API_URL+'appraisal/show-appraisal-head'+'?token='+token).subscribe(data => {
           console.log(data);
+          this.existingAppraisals=data;
           if(this.checkTable==0){
             this.dtTeigger.next();
             this.checkTable++;
@@ -34,6 +36,11 @@ export class AppraisalExistingHeadsComponent implements OnInit {
 
         }
     );
+  }
+
+  edit(data){
+      console.log(data);
+
   }
 
 }

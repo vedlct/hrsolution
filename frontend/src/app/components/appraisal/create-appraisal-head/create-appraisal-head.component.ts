@@ -3,7 +3,7 @@ import { FormGroup, FormControl, Validators} from '@angular/forms';
 import {Constants} from "../../../constants";
 import {HttpClient} from "@angular/common/http";
 import {TokenService} from "../../../services/token.service";
-
+declare var $:any;
 @Component({
   selector: 'app-create-appraisal-head',
   templateUrl: './create-appraisal-head.component.html',
@@ -29,6 +29,8 @@ export class CreateAppraisalHeadComponent implements OnInit {
   }
 
   onSubmit(value){
+
+
     this.submitted = true;
     if (!this.form.valid) {
       return;
@@ -37,8 +39,21 @@ export class CreateAppraisalHeadComponent implements OnInit {
     value['entryType']=this.rule;
     const token=this.token.get();
     this.http.post(Constants.API_URL+'appraisal/insert-appraisal-head'+'?token='+token,value).subscribe(data => {
-          console.log(data);
-
+          this.submitted = false;
+          this.form.reset();
+          $.alert({
+            title: 'Success!',
+            type: 'Green',
+            content: "Added Successfully",
+            buttons: {
+              tryAgain: {
+                text: 'Ok',
+                btnClass: 'btn-red',
+                action: function () {
+                }
+              }
+            }
+          });
         },
         error => {
           console.log(error.error['error']);
@@ -72,7 +87,7 @@ export class CreateAppraisalHeadComponent implements OnInit {
         headDesc:new FormControl('',[
           Validators.required
         ]),
-        group:new FormControl('',[
+        fk_Appraisalheads:new FormControl('',[
           Validators.required
         ]),
         headType:new FormControl('',[

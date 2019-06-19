@@ -29,13 +29,17 @@
       </div>
 
 
-      <div class="form-group col-md-12" *ngIf="rule ==false" >
+      <div class="form-group col-md-12" *ngIf="rule ==false">
         <label>Group</label>
-        <select class="form-control" formControlName="group" name="group">
+        <select class="form-control" formControlName="fk_Appraisalheads" name="fk_Appraisalheads">
           <option>1</option>
           <option>2</option>
           <option>3</option>
         </select>
+        <div *ngIf="submitted && f.fk_Appraisalheads.errors">
+          <div *ngIf="f.fk_Appraisalheads.errors.required" class="badge badge-danger">group required</div>
+
+        </div>
 
       </div>
 
@@ -46,6 +50,10 @@
           <option value="DS">Descriptive</option>
           <option value="TF">T/F</option>
         </select>
+        <div *ngIf="submitted && f.headType.errors">
+          <div *ngIf="f.headType.errors.required" class="badge badge-danger">head required</div>
+
+        </div>
       </div>
 
       <div class="form-group col-md-12">

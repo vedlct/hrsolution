@@ -15,13 +15,18 @@
       </tr>
       </thead>
       <tbody>
-        <tr>
-          <td>0</td>
-          <td>0</td>
-          <td>0</td>
-          <td>0</td>
-          <td>0</td>
-        </tr>
+      <tr  *ngFor="let data of existingAppraisals" >
+        <td>{{data.headName}}</td>
+        <td>{{data.headType}}</td>
+        <td>{{data.headDesc}}</td>
+        <td>{{data.groupName}}</td>
+        <td>
+          <button class="btn btn-info" (click)="edit(data)"> Edit</button>
+<!--          <button class="btn btn-info" (click)="edit(shift.teamId,content)"> Edit</button>-->
+
+        </td>
+
+      </tr>
       </tbody>
     </table>
 
