@@ -52,7 +52,7 @@ import { CreateLeaveTeamComponent } from './components/team/create-leave-team/cr
 import { GenerateSalaryComponent } from './components/payroll/generate-salary/generate-salary.component';
 import { LeaveSummeryComponent } from './components/leave/leave-summery/leave-summery.component';
 import { LeaveSummeryShowComponent } from './components/leave/leave-summery-show/leave-summery-show.component';
-<<<<<<< HEAD
+
 import { CreateAppraisalHeadComponent } from './components/appraisal/create-appraisal-head/create-appraisal-head.component';
 import { CreateAppraisalScaleComponent } from './components/appraisal/create-appraisal-scale/create-appraisal-scale.component';
 import { CreateAppraisalTemplateComponent } from './components/appraisal/create-appraisal-template/create-appraisal-template.component';
@@ -60,9 +60,8 @@ import { CreateAppraisalConfigurationComponent } from './components/appraisal/cr
 import { CreateAppraisalEmployeeComponent } from './components/appraisal/create-appraisal-employee/create-appraisal-employee.component';
 import { AppraisalHeadComponent } from './components/appraisal/appraisal-head/appraisal-head.component';
 import { AppraisalExistingHeadsComponent } from './components/appraisal/appraisal-existing-heads/appraisal-existing-heads.component';
-=======
 import { ShowovertimeComponent } from './components/overtime/showovertime/showovertime.component';
->>>>>>> 4a63673f1cf944da399a4881f493007b75696712
+
 
 @NgModule({
   declarations: [
@@ -108,17 +107,15 @@ import { ShowovertimeComponent } from './components/overtime/showovertime/showov
     GenerateSalaryComponent,
     LeaveSummeryComponent,
     LeaveSummeryShowComponent,
-<<<<<<< HEAD
     CreateAppraisalHeadComponent,
     CreateAppraisalScaleComponent,
     CreateAppraisalTemplateComponent,
     CreateAppraisalConfigurationComponent,
     CreateAppraisalEmployeeComponent,
     AppraisalHeadComponent,
-    AppraisalExistingHeadsComponent
-=======
+    AppraisalExistingHeadsComponent,
     ShowovertimeComponent
->>>>>>> 4a63673f1cf944da399a4881f493007b75696712
+
   ],
   imports: [
     BrowserModule,
