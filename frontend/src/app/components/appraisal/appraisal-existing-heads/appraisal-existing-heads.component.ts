@@ -1,4 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import {HttpClient} from "@angular/common/http";
+import {TokenService} from "../../../services/token.service";
+import {Constants} from "../../../constants";
+import {Subject} from "rxjs";
 
 @Component({
   selector: 'app-appraisal-existing-heads',
@@ -6,10 +10,30 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./appraisal-existing-heads.component.css']
 })
 export class AppraisalExistingHeadsComponent implements OnInit {
-
-  constructor() { }
+  dtOptions:DataTables.Settings={};
+  dtTeigger:Subject<any>=new Subject();
+  checkTable=0;
+  constructor(private http:HttpClient,private token:TokenService) { }
 
   ngOnInit() {
+    this.getData();
+  }
+
+  getData(){
+    const token=this.token.get();
+    this.http.get(Constants.API_URL+'appraisal/show-appraisal-head'+'?token='+token).subscribe(data => {
+          console.log(data);
+          if(this.checkTable==0){
+            this.dtTeigger.next();
+            this.checkTable++;
+          }
+
+        },
+        error => {
+          console.log(error.error['error']);
+
+        }
+    );
   }
 
 }

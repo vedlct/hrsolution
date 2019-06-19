@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators} from '@angular/forms';
 import {Constants} from "../../../constants";
 import {HttpClient} from "@angular/common/http";
+import {TokenService} from "../../../services/token.service";
 
 @Component({
   selector: 'app-create-appraisal-head',
@@ -13,7 +14,7 @@ export class CreateAppraisalHeadComponent implements OnInit {
   rule:any;
   submitted = false;
   appraisalHeadModel:any={};
-  constructor(private http:HttpClient) { }
+  constructor(private http:HttpClient,private token:TokenService) { }
 
   ngOnInit() {
     this.rule=true;
@@ -34,17 +35,15 @@ export class CreateAppraisalHeadComponent implements OnInit {
     }
 
     value['entryType']=this.rule;
-    this.http.post(Constants.API_URL+'appraisal/insert-appraisal-head',value).subscribe(data => {
-              console.log(data);
+    const token=this.token.get();
+    this.http.post(Constants.API_URL+'appraisal/insert-appraisal-head'+'?token='+token,value).subscribe(data => {
+          console.log(data);
 
         },
         error => {
-
-
           console.log(error.error['error']);
 
-
-        }
+    }
     );
   }
 
