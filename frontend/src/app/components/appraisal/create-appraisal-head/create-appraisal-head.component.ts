@@ -12,6 +12,7 @@ declare var $:any;
 export class CreateAppraisalHeadComponent implements OnInit {
   form:any;
   rule:any;
+  grouoData:any;
   submitted = false;
   appraisalHeadModel:any={};
   constructor(private http:HttpClient,private token:TokenService) { }
@@ -26,6 +27,16 @@ export class CreateAppraisalHeadComponent implements OnInit {
         Validators.required
       ])
     });
+
+    this.http.get(Constants.API_URL+'appraisal/group').subscribe(data => {
+      this.grouoData=data;
+         console.log(data);
+        },
+        error => {
+          console.log(error.error['error']);
+
+        }
+    );
   }
 
   onSubmit(value){

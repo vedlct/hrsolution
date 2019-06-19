@@ -32,13 +32,10 @@
       <div class="form-group col-md-12" *ngIf="rule ==false">
         <label>Group</label>
         <select class="form-control" formControlName="fk_Appraisalheads" name="fk_Appraisalheads">
-          <option>1</option>
-          <option>2</option>
-          <option>3</option>
+          <option *ngFor="let data of grouoData" [value]="data.id">{{data.headName}}</option>
         </select>
         <div *ngIf="submitted && f.fk_Appraisalheads.errors">
           <div *ngIf="f.fk_Appraisalheads.errors.required" class="badge badge-danger">group required</div>
-
         </div>
 
       </div>

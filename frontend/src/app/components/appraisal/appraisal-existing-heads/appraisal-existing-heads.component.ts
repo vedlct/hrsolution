@@ -23,7 +23,6 @@ export class AppraisalExistingHeadsComponent implements OnInit {
   getData(){
     const token=this.token.get();
     this.http.get(Constants.API_URL+'appraisal/show-appraisal-head'+'?token='+token).subscribe(data => {
-          console.log(data);
           this.existingAppraisals=data;
           if(this.checkTable==0){
             this.dtTeigger.next();
