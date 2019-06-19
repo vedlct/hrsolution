@@ -1,14 +1,36 @@
 <div class="card">
 
   <div class="card-body">
-    <table class="table">
+
+
+
+    <table datatable  id="example" class="table" [dtOptions]="dtOptions" [dtTrigger]="dtTeigger">
       <thead>
-      <th>Head Name</th>
-      <th>Head Type</th>
-      <th>Description</th>
-      <th>Group Name</th>
-      <th>Action</th>
+      <tr>
+        <th>Head Name</th>
+        <th>Head Type</th>
+        <th>Description</th>
+        <th>Group Name</th>
+        <th>Action</th>
+      </tr>
       </thead>
+      <tbody>
+      <tr  *ngFor="let data of existingAppraisals" >
+        <td>{{data.headName}}</td>
+        <td>{{data.headType}}</td>
+        <td>{{data.headDesc}}</td>
+        <td>{{data.groupName}}</td>
+        <td>
+          <button class="btn btn-info" (click)="edit(data)"> Edit</button>
+<!--          <button class="btn btn-info" (click)="edit(shift.teamId,content)"> Edit</button>-->
+
+        </td>
+
+      </tr>
+      </tbody>
     </table>
+
+
+
   </div>
 </div>
