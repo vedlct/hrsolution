@@ -16,7 +16,7 @@ class AppraisalHeadController extends Controller
 
 
 
-        $appraisalHead=AppraisalHead::select('appraisalheads.*','g.headName')
+        $appraisalHead=AppraisalHead::select('appraisalheads.*','g.headName as groupName')
             ->leftJoin('appraisalheads as g','g.id','appraisalheads.fk_Appraisalheads')
             ->get();
 
