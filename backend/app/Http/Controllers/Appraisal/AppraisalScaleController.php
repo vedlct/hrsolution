@@ -10,9 +10,11 @@ use Illuminate\Http\Request;
 use DB;
 use Yajra\DataTables\DataTables;
 
-class AppraisalHeadController extends Controller
+class AppraisalScaleController extends Controller
 {
-    public function showAllAppraisalHead(){
+    public function showAllAppraisalscale(){
+
+
 
         $appraisalHead=AppraisalHead::select('appraisalheads.*','g.headName as groupName')
             ->leftJoin('appraisalheads as g','g.id','appraisalheads.fk_Appraisalheads')
@@ -20,21 +22,13 @@ class AppraisalHeadController extends Controller
 
         return $appraisalHead;
     }
-    public function getAppraisalGroup(){
-
-        $appraisalGroup=AppraisalHead::select('appraisalheads.headName','appraisalheads.id')
-            ->where('appraisalheads.headType',"GH")
-            ->get();
-
-        return $appraisalGroup;
-    }
-    public function deleteAppraisalHead($id){
+    public function deleteAppraisalscale($id){
 
         AppraisalHead::destroy($id);
 
         return response()->json(['message' => 'Appraisal Head Deleted Successfully']);
     }
-    public function storeAppraisalHead(Request $request){
+    public function storeAppraisalscale(Request $request){
 //        return $request;
 
         if ($request->appraisal_id){
