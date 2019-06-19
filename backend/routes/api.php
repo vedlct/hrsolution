@@ -245,7 +245,8 @@ Route::post('appraisal/insert-appraisal-head','Appraisal\AppraisalHeadController
 Route::post('appraisal/update-appraisal-head','Appraisal\AppraisalHeadController@storeAppraisalHead')->name('appraisal.update');
 Route::get('appraisal/delete-appraisal-head/{id}','Appraisal\AppraisalHeadController@deleteAppraisalHead')->name('appraisal.delete');
 Route::get('appraisal/group','Appraisal\AppraisalHeadController@getAppraisalGroup')->name('appraisal.group');
+
 //Appraisal Scale
-Route::get('appraisal/show-appraisal-scale','Appraisal\AppraisalHeadController@showAllAppraisalscale')->name('appraisal.scale.showAllHead');
-Route::post('appraisal/store-appraisal-scale','Appraisal\AppraisalHeadController@storeAppraisalscale')->name('appraisal.scale.insert');
-Route::get('appraisal/delete-appraisal-scale/{id}','Appraisal\AppraisalHeadController@deleteAppraisalscale')->name('appraisal.scale.delete');
+Route::get('appraisal/show-appraisal-scale','Appraisal\AppraisalScaleController@showAllAppraisalScale')->name('appraisal.scale.showAll');
+Route::post('appraisal/store-appraisal-scale','Appraisal\AppraisalScaleController@storeAppraisalScale')->name('appraisal.scale.insert');
+Route::get('appraisal/delete-appraisal-scale/{id}','Appraisal\AppraisalScaleController@deleteAppraisalScale')->name('appraisal.scale.delete');

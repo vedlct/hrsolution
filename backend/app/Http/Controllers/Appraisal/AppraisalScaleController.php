@@ -2,8 +2,9 @@
 
 namespace App\Http\Controllers\Appraisal;
 
+use App\AppraisalScale;
 use App\Http\Controllers\Controller;
-use App\AppraisalHead;
+
 use Carbon\Carbon;
 
 use Illuminate\Http\Request;
@@ -12,59 +13,42 @@ use Yajra\DataTables\DataTables;
 
 class AppraisalScaleController extends Controller
 {
-    public function showAllAppraisalscale(){
+    public function showAllAppraisalScale(){
 
 
+        $appraisalScale=AppraisalScale::all();
 
-        $appraisalHead=AppraisalHead::select('appraisalheads.*','g.headName as groupName')
-            ->leftJoin('appraisalheads as g','g.id','appraisalheads.fk_Appraisalheads')
-            ->get();
-
-        return $appraisalHead;
+        return $appraisalScale;
     }
-    public function deleteAppraisalscale($id){
+    public function deleteAppraisalScale($id){
 
-        AppraisalHead::destroy($id);
+        AppraisalScale::destroy($id);
 
-        return response()->json(['message' => 'Appraisal Head Deleted Successfully']);
+        return response()->json(['message' => 'Appraisal Scale Deleted Successfully']);
     }
-    public function storeAppraisalscale(Request $request){
+
+    public function storeAppraisalScale(Request $request){
 //        return $request;
 
-        if ($request->appraisal_id){
-            $appraisalHead= AppraisalHead::findOrFail($request->appraisal_id);
+        if ($request->appraisal_Scale_id){
+            $appraisalScale= AppraisalScale::findOrFail($request->appraisal_Scale_id);
         }else{
-            $appraisalHead= new AppraisalHead();
+            $appraisalScale= new AppraisalScale();
         }
 
-        if ($request->entryType==true){
+            $appraisalScale->marks=$request->marks;
+            $appraisalScale->marksDesc=$request->marksDesc;
+            $appraisalScale->versionNo=$request->versionNo;
 
-            $appraisalHead->headName=$request->headName;
-            $appraisalHead->headType="GH";
-            $appraisalHead->headDesc=$request->headDesc;
-            $appraisalHead->fk_Appraisalheads=null;
-            $appraisalHead->createdTime=Carbon::now();
-            $appraisalHead->createdBy=null;
+            $appraisalScale->createdTime=Carbon::now();
+            $appraisalScale->createdBy=null;
 
-        }
+            $appraisalScale->save();
 
-        elseif ($request->entryType==false) {
-
-
-            $appraisalHead->headName=$request->headName;
-            $appraisalHead->headType=$request->headType;
-            $appraisalHead->headDesc=$request->headDesc;
-            $appraisalHead->fk_Appraisalheads=$request->fk_Appraisalheads;
-            $appraisalHead->createdTime=Carbon::now();
-            $appraisalHead->createdBy=null;
-
-        }
-        $appraisalHead->save();
-
-        if ($request->appraisal_id==null){
-            return response()->json(['message' => 'Appraisal Head Inserted Successfully']);
+        if ($request->appraisal_Scale_id){
+            return response()->json(['message' => 'Appraisal Scale Inserted Successfully']);
         }else{
-            return response()->json(['message' => 'Appraisal Head Updated Successfully']);
+            return response()->json(['message' => 'Appraisal Scale Updated Successfully']);
         }
     }
 
