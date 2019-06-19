@@ -67,7 +67,7 @@ class AppraisalHeadController extends Controller
         }
         $appraisalHead->save();
 
-        if ($request->appraisal_id==null){
+        if ($request->appraisal_id){
             return response()->json(['message' => 'Appraisal Head Inserted Successfully']);
         }else{
             return response()->json(['message' => 'Appraisal Head Updated Successfully']);
