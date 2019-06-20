@@ -236,5 +236,6 @@ Route::group([
     Route::post('payroll/salary-info/update','PayrollController@updateSalaryInfo');
     Route::post('payroll/salary-info/get','PayrollController@getSalaryInfo');
 
-
+    //overtime
+    Route::post('/overtime/get','OvertimeController@getovertime');
 });
