@@ -5,30 +5,51 @@
         Appraisal Scale Setup
       </div>
       <div class="card-body">
-        <div class="form-group">
-          <label>Scale Point</label>
-          <input type="text" class="form-control" placeholder="Enter Scale..">
-          <small>Only number allowed and not more then 2 digit</small>
-        </div>
+        <form  [formGroup]="form" (ngSubmit)="onSubmit(heroForm.value)" #heroForm="ngForm">
+          <div class="form-group">
+            <label>Scale Point</label>
+            <input type="number" class="form-control" placeholder="Enter Scale.." formControlName="scalePoint" name="scalePoint" required>
+            <small>Only number allowed and not more then 2 digit</small>
+            <div *ngIf="submitted && f.scalePoint.errors">
+              <div *ngIf="f.scalePoint.errors.required" class="badge badge-danger">scale point required</div>
+              <div *ngIf="f.scalePoint.errors.max" class="badge badge-danger">max 2 digit</div>
 
-        <div class="form-group">
-          <label>Scale Title</label>
-          <input type="text" class="form-control" placeholder="Enter Title..">
-        </div>
+            </div>
+          </div>
 
-        <div class="form-group">
-          <label>Description</label>
-          <input type="text" class="form-control" placeholder="Describe about scale point..">
-        </div>
+          <div class="form-group">
+            <label>Scale Title</label>
+            <input type="text" class="form-control" placeholder="Enter Title.." formControlName="scaleTitle" name="scaleTitle">
+            <div *ngIf="submitted && f.scaleTitle.errors">
+              <div *ngIf="f.scaleTitle.errors.required" class="badge badge-danger">Title required</div>
 
-        <div class="form-group">
-          <label>Version No</label>
-          <input type="text" class="form-control" placeholder="Enter Version no..">
-          <small>Only number allowed</small>
-        </div>
+            </div>
+          </div>
 
-        <button class="btn btn-secondary">Clear Data</button>
-        <button class="btn btn-success">Save</button>
+          <div class="form-group">
+            <label>Description</label>
+            <input type="text" class="form-control" placeholder="Describe about scale point.." formControlName="description" name="description">
+            <div *ngIf="submitted && f.description.errors">
+              <div *ngIf="f.description.errors.required" class="badge badge-danger">Title required</div>
+
+            </div>
+
+          </div>
+
+          <div class="form-group">
+            <label>Version No</label>
+            <input type="number" class="form-control" placeholder="Enter Version no.." formControlName="versionNo" name="versionNo">
+            <small>Only number allowed</small>
+            <div *ngIf="submitted && f.versionNo.errors">
+              <div *ngIf="f.versionNo.errors.required" class="badge badge-danger">Title required</div>
+
+            </div>
+
+          </div>
+
+          <button class="btn btn-secondary" type="button">Clear Data</button>
+          <button class="btn btn-success" type="submit">Save</button>
+        </form>
 
 
       </div>

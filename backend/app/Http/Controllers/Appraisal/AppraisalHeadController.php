@@ -37,8 +37,8 @@ class AppraisalHeadController extends Controller
     public function storeAppraisalHead(Request $request){
 //        return $request;
 
-        if ($request->appraisal_id){
-            $appraisalHead= AppraisalHead::findOrFail($request->appraisal_id);
+        if ($request->id){
+            $appraisalHead= AppraisalHead::findOrFail($request->id);
         }else{
             $appraisalHead= new AppraisalHead();
         }
