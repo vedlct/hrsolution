@@ -74,8 +74,8 @@
                 @if($results->where('employeeId',$aE->id)->where('attendanceDate',$date)->first() )
             <td class="cell" width="15">{{$results->where('employeeId',$aE->id)->where('attendanceDate',$date)->first()->checkIn}}</td>
             <td class="cell" width="15">{{$results->where('employeeId',$aE->id)->where('attendanceDate',$date)->first()->checkOut}}</td>
-            <td class="cell" width="10">{{$results->where('employeeId',$aE->id)->where('attendanceDate',$date)->first()->late}}</td>
-            <td class="cell" width="15">{{$results->where('employeeId',$aE->id)->where('attendanceDate',$date)->first()->lateTime}}</td>
+            <td class="cell<?php if($results->where('employeeId',$aE->id)->where('attendanceDate',$date)->first()->late =='Y'){?> late <?php }?>" width="10">{{$results->where('employeeId',$aE->id)->where('attendanceDate',$date)->first()->late}}</td>
+            <td class="cell<?php if($results->where('employeeId',$aE->id)->where('attendanceDate',$date)->first()->late =='Y'){?> late <?php }?>" width="15">{{$results->where('employeeId',$aE->id)->where('attendanceDate',$date)->first()->lateTime}}</td>
             <td class="cell" width="20"></td>
             <td class="cell" width="15"></td>
             <td class="cell" width="10"></td>
