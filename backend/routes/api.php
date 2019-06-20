@@ -250,3 +250,9 @@ Route::get('appraisal/group','Appraisal\AppraisalHeadController@getAppraisalGrou
 Route::get('appraisal/show-appraisal-scale','Appraisal\AppraisalScaleController@showAllAppraisalScale')->name('appraisal.scale.showAll');
 Route::post('appraisal/store-appraisal-scale','Appraisal\AppraisalScaleController@storeAppraisalScale')->name('appraisal.scale.insert');
 Route::get('appraisal/delete-appraisal-scale/{id}','Appraisal\AppraisalScaleController@deleteAppraisalScale')->name('appraisal.scale.delete');
+
+//Appraisal format- template
+Route::get('appraisal/show-appraisal-format','Appraisal\AppraisalFormatController@showAllAppraisalFormate')->name('appraisal.Format.showAll');
+Route::post('appraisal/store-appraisal-format','Appraisal\AppraisalFormatController@storeAppraisalFromate')->name('appraisal.Format.insert');
+//Route::get('appraisal/delete-appraisal-scale/{id}','Appraisal\AppraisalFormatController@deleteAppraisalScale')->name('appraisal.Format.delete');
+Route::get('appraisal/appraisal-scaleDetails-byversion/{id}','Appraisal\AppraisalFormatController@getAppraisalScaleDetails');
