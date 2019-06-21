@@ -238,4 +238,25 @@ Route::group([
 
     //overtime
     Route::post('/overtime/get','OvertimeController@getovertime');
+
+
 });
+
+
+//Appraisal
+Route::get('appraisal/show-appraisal-head','Appraisal\AppraisalHeadController@showAllAppraisalHead')->name('appraisal.showAllHead');
+Route::post('appraisal/insert-appraisal-head','Appraisal\AppraisalHeadController@storeAppraisalHead')->name('appraisal.insert');
+Route::post('appraisal/update-appraisal-head','Appraisal\AppraisalHeadController@storeAppraisalHead')->name('appraisal.update');
+Route::get('appraisal/delete-appraisal-head/{id}','Appraisal\AppraisalHeadController@deleteAppraisalHead')->name('appraisal.delete');
+Route::get('appraisal/group','Appraisal\AppraisalHeadController@getAppraisalGroup')->name('appraisal.group');
+
+//Appraisal Scale
+Route::get('appraisal/show-appraisal-scale','Appraisal\AppraisalScaleController@showAllAppraisalScale')->name('appraisal.scale.showAll');
+Route::post('appraisal/store-appraisal-scale','Appraisal\AppraisalScaleController@storeAppraisalScale')->name('appraisal.scale.insert');
+Route::get('appraisal/delete-appraisal-scale/{id}','Appraisal\AppraisalScaleController@deleteAppraisalScale')->name('appraisal.scale.delete');
+
+//Appraisal format- template
+Route::get('appraisal/show-appraisal-format','Appraisal\AppraisalFormatController@showAllAppraisalFormate')->name('appraisal.Format.showAll');
+Route::post('appraisal/store-appraisal-format','Appraisal\AppraisalFormatController@storeAppraisalFromate')->name('appraisal.Format.insert');
+//Route::get('appraisal/delete-appraisal-scale/{id}','Appraisal\AppraisalFormatController@deleteAppraisalScale')->name('appraisal.Format.delete');
+

@@ -42,6 +42,22 @@ export class ShowovertimeComponent implements OnInit {
 
     }
 
+    dateToYMD(date) {
+        let strArray=['01', '02', '03', '04', '05', '06', '07', '08', '09', '10', '11', '12'];
+        let d = date.getDate();
+        let m = strArray[date.getMonth()];
+        let y = date.getFullYear();
+        // return '' + (d <= 9 ? '0' + d : d) + '-' + m + '-' + y;
+        return '' + y + '-' + m + '-' + (d <= 9 ? '0' + d : d);
+    }
+
+    dateToYMD2(date) {
+        let strArray=['01', '02', '03', '04', '05', '06', '07', '08', '09', '10', '11', '12'];
+        let d = date.getDate();
+        let m = strArray[date.getMonth()];
+        let y = date.getFullYear();
+        return '' + (d <= 9 ? '0' + d : d) + '-' + m + '-' + y;
+    }
 
     getCategory(){
         this.employee.fkLeaveCategory="";
@@ -80,7 +96,9 @@ export class ShowovertimeComponent implements OnInit {
             ajax: {
                 url: Constants.API_URL+'overtime/get'+'?token='+token,
                 type: 'POST',
-                data:function (d){
+                data:function (d:any){
+                    d.startDate=$('#startDate').val();
+                    d.endDate=$('#endDate').val();
 
                 },
             },
@@ -261,6 +279,9 @@ export class ShowovertimeComponent implements OnInit {
             }
         );
 
+    }
+    search(){
+        this.rerender();
     }
 
     rerender(){

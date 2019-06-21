@@ -6,5 +6,4 @@ export class Constants {
     public static get Image_URL(): string { return "http://localhost/hrsolution/backend/public/"; };
 
 
-
 }
