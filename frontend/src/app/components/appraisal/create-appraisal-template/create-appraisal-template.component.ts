@@ -3,7 +3,7 @@ import {HttpClient} from "@angular/common/http";
 import {TokenService} from "../../../services/token.service";
 import {NgbModal} from "@ng-bootstrap/ng-bootstrap";
 import {Constants} from "../../../constants";
-
+declare var $;
 @Component({
   selector: 'app-create-appraisal-template',
   templateUrl: './create-appraisal-template.component.html',
@@ -11,6 +11,9 @@ import {Constants} from "../../../constants";
 })
 export class CreateAppraisalTemplateComponent implements OnInit {
   headData:any;
+  existingTemplate:any;
+    appraisalScalDetails:any;
+    appraisalScal:any;
   formateModel:any={};
 
   constructor(private http:HttpClient,private token:TokenService,private modalService: NgbModal) { }
@@ -39,6 +42,10 @@ export class CreateAppraisalTemplateComponent implements OnInit {
 
         }
     );
+      this.existingTemplates();
+      this.allScalVersion();
+
+
   }
 
     checkData(data,index,event){
@@ -88,17 +95,86 @@ export class CreateAppraisalTemplateComponent implements OnInit {
         console.log(this.formateModel);
 
 
-        // const token=this.token.get();
-        // this.http.post(Constants.API_URL+'appraisal/store-appraisal-format'+'?token='+token,this.formateModel).subscribe(data => {
-        //         console.log(data);
-        //
-        //
-        //     },
-        //     error => {
-        //         console.log(error.error['error']);
-        //
-        //     }
-        // );
+        const token=this.token.get();
+        this.http.post(Constants.API_URL+'appraisal/store-appraisal-format'+'?token='+token,this.formateModel).subscribe(data => {
+                console.log(data);
+                this.existingTemplates();
+
+
+            },
+            error => {
+                console.log(error.error['error']);
+
+            }
+        );
+
+    }
+    existingTemplates(){
+        const token=this.token.get();
+        this.http.get(Constants.API_URL+'appraisal/show-appraisal-format'+'?token='+token).subscribe(data => {
+                console.log(data);
+                this.existingTemplate=data;
+                // this.existingScales=data;
+                // if(this.checkTable==0){
+                //   this.dtTeigger.next();
+                //   this.checkTable++;
+                // }
+
+            },
+            error => {
+                console.log(error.error['error']);
+
+            }
+        );
+    }
+    scalVersionDetails(id){
+
+        // var id=this.formateModel.markVersionNo;
+       // console.log(id);
+
+
+        const token=this.token.get();
+        this.http.get(Constants.API_URL+'appraisal/show-appraisal-scale-details-byVersion/'+id+'?token='+token).subscribe(data => {
+
+                this.appraisalScalDetails=data;
+               // console.log(this.appraisalScalDetails);
+
+
+                // this.existingScales=data;
+                // if(this.checkTable==0){
+                //   this.dtTeigger.next();
+                //   this.checkTable++;
+                // }
+
+            },
+            error => {
+                console.log(error.error['error']);
+
+            }
+        );
+
+    }
+    allScalVersion(){
+
+        const token=this.token.get();
+        this.http.get(Constants.API_URL+'appraisal/show-appraisal-scale-ByVersionNo'+'?token='+token).subscribe(data => {
+
+                this.appraisalScal=data;
+                this.scalVersionDetails(data[0].versionNo);
+                // this.existingScales=data;
+                // if(this.checkTable==0){
+                //   this.dtTeigger.next();
+                //   this.checkTable++;
+                // }
+
+            },
+            error => {
+                console.log(error.error['error']);
+
+            }
+        );
+
+
 
     }
 }

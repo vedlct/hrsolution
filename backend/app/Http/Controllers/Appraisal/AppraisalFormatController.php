@@ -24,14 +24,7 @@ class AppraisalFormatController extends Controller
 
         return $appraisalTemplate;
     }
-    public function getAppraisalScaleDetails($id){
 
-
-        $appraisalScaleDetails=AppraisalScale::findOrFail($id);
-
-        return $appraisalScaleDetails;
-
-    }
 //    public function deleteAppraisalScale($id){
 //
 //        AppraisalScale::destroy($id);
@@ -63,24 +56,22 @@ class AppraisalFormatController extends Controller
 
             if ($request->appraisal_Format_id){
 
+                $appraisalFormatDetail= AppraisalFormatDetail::findOrFail($request->appraisal_Format_details_id);
+
             }else{
                 $appraisalFormatDetail=new AppraisalFormatDetail();
 
             }
 
             $appraisalFormatDetail->fk_Appraisalformatmaster=$appraisalFormat->id;
-            $appraisalFormatDetail->fk_Appraisalheads=$request->fk_Appraisalheads;
+            $appraisalFormatDetail->fk_Appraisalheads=$formatD['fk_Appraisalheads'];
 
 
-            $appraisalFormatDetail->appraisor=implode(",",);
+            $appraisalFormatDetail->appraisor=implode(",",$formatD['appraisors']);
 
             $appraisalFormatDetail->save();
 
         }
-
-
-
-
 
         if ($request->appraisal_Format_id){
 
@@ -94,7 +85,7 @@ class AppraisalFormatController extends Controller
 
     public function showAllHeadsAppraisalFormate(){
 
-        $appraisalGroups=AppraisalHead::select('appraisalheads.headName','appraisalheads.id','headType')
+        $appraisalGroups=AppraisalHead::select('appraisalheads.headName','appraisalheads.id as fk_Appraisalheads','headType')
             ->where('appraisalheads.fk_Appraisalheads','!=',null)
 
             ->get();

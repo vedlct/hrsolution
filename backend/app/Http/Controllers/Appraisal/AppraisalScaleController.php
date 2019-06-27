@@ -20,6 +20,29 @@ class AppraisalScaleController extends Controller
 
         return $appraisalScale;
     }
+    public function showAllAppraisalScaleByVersionNo(){
+
+
+        $appraisalScale=AppraisalScale::groupBy('versionNo')->get();
+
+        return $appraisalScale;
+    }
+    public function getAppraisalScaleDetails($id){
+
+
+        $appraisalScaleDetails=AppraisalScale::findOrFail($id);
+
+        return $appraisalScaleDetails;
+
+    }
+    public function getAppraisalScaleDetailsbyVersion($id){
+
+
+        $appraisalScaleDetails=AppraisalScale::where('versionNo',$id)->get();
+
+        return $appraisalScaleDetails;
+
+    }
     public function deleteAppraisalScale($id){
 
         AppraisalScale::destroy($id);

@@ -14,10 +14,9 @@
           </div>
           <div class="form-group col-md-6">
             <label>Scale Version No</label>
-            <select class="form-control" name="markVersionNo" [(ngModel)]="formateModel.markVersionNo">
-              <option>1</option>
-              <option>2</option>
-              <option>3</option>
+            <select class="form-control" (change)="scalVersionDetails(this.selectedIndex)" id="markVersionNo" name="markVersionNo" [(ngModel)]="formateModel.markVersionNo">
+              <option *ngFor="let scal of appraisalScal;let i = index" >{{scal.versionNo}}</option>
+
             </select>
           </div>
 
@@ -94,27 +93,19 @@
     <div class="card">
       <div class="card-body">
         <h4 class="alert alert-info">Scale Points Details by version</h4>
+        Version No :{{formateModel.markVersionNo}}
         <table class="table table-bordered">
-          <tr>
-            <td>1</td>
-            <td>Strongly Disagree</td>
+          <thead>
+          <th>Marks</th>
+          <th>Title</th>
+          </thead>
+          <tbody>
+          <tr *ngFor="let newdata of appraisalScalDetails;let i = index" >
+            <td>{{newdata.marks}}</td>
+            <td>{{newdata.title}}</td>
           </tr>
-          <tr>
-            <td>2</td>
-            <td>Disagree</td>
-          </tr>
-          <tr>
-            <td>3</td>
-            <td>Natural</td>
-          </tr>
-          <tr>
-            <td>4</td>
-            <td>Agree</td>
-          </tr>
-          <tr>
-            <td>5</td>
-            <td>Strongly Agree</td>
-          </tr>
+          </tbody>
+
 
         </table>
 
@@ -125,6 +116,13 @@
           <th>Version No</th>
           <th>Scale Version</th>
           </thead>
+          <tbody>
+          <tr *ngFor="let datas of existingTemplate;let i = index">
+            <td>{{datas.formatName}}</td>
+            <td>{{datas.formVersionNo}}</td>
+            <td>{{datas.markVersionNo}}</td>
+          </tr>
+          </tbody>
         </table>
 
 
