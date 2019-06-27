@@ -87,6 +87,7 @@ class AppraisalFormatController extends Controller
             $post['userSelf'] = false;
             $post['reportingBoss'] = false;
             $post['subOrdinates'] = false;
+            $post['coWorker'] = false;
             return $post;
         });
 
