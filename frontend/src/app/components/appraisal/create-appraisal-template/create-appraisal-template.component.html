@@ -6,15 +6,15 @@
         <div class="row">
           <div class="form-group col-md-12">
             <label>Template Name</label>
-            <input class="form-control" placeholder="enter template name">
+            <input class="form-control" placeholder="enter template name" name="formatName" [(ngModel)]="formateModel.formatName">
           </div>
           <div class="form-group col-md-6">
             <label>Template Version No</label>
-            <input class="form-control" placeholder="enter appraisal head">
+            <input class="form-control" placeholder="enter appraisal head" name="formVersionNo" [(ngModel)]="formateModel.formVersionNo">
           </div>
           <div class="form-group col-md-6">
             <label>Scale Version No</label>
-            <select class="form-control">
+            <select class="form-control" name="markVersionNo" [(ngModel)]="formateModel.markVersionNo">
               <option>1</option>
               <option>2</option>
               <option>3</option>
@@ -63,14 +63,22 @@
               </td>
 
               <td>
-                <select class="form-control" [(ngModel)]="headData[i].action">
+                <select class="form-control" [(ngModel)]="headData[i].action" *ngIf="data.headType == 'NM'">
                   <option value="5">Excellent</option>
                   <option value="4">Good</option>
                   <option value="3">Average</option>
                   <option value="2">Below Average</option>
                   <option value="1">Poor</option>
                 </select>
+                <input type="text" placeholder="write something" class="form-control" [(ngModel)]="headData[i].action" *ngIf="data.headType == 'DS'">
+
+                <select class="form-control" [(ngModel)]="headData[i].action" *ngIf="data.headType == 'TF'">
+
+                  <option value="1">True</option>
+                  <option value="0">False</option>
+                </select>
               </td>
+
 
             </tr>
           </tbody>

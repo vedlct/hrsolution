@@ -11,6 +11,7 @@ import {Constants} from "../../../constants";
 })
 export class CreateAppraisalTemplateComponent implements OnInit {
   headData:any;
+  formateModel:any={};
 
   constructor(private http:HttpClient,private token:TokenService,private modalService: NgbModal) { }
 
@@ -24,7 +25,7 @@ export class CreateAppraisalTemplateComponent implements OnInit {
     //
     const token=this.token.get();
     this.http.get(Constants.API_URL+'appraisal/show-appraisal-heads-appraiser'+'?token='+token).subscribe(data => {
-          // console.log(data);
+          console.log(data);
           this.headData=data;
           // this.existingScales=data;
           // if(this.checkTable==0){
@@ -66,6 +67,8 @@ export class CreateAppraisalTemplateComponent implements OnInit {
             }
         }
 
+        console.log(this.formateModel);
         console.log(tempArray);
+
     }
 }
