@@ -58,13 +58,35 @@ class AppraisalFormatController extends Controller
         $appraisalFormat->save();
 
 
-        $appraisalFormatDetail=new AppraisalFormatDetail();
 
-        $appraisalFormatDetail->fk_Appraisalformatmaster=$appraisalFormat->id;
-        $appraisalFormatDetail->fk_Appraisalheads=$request->fk_Appraisalheads;
-        $appraisalFormatDetail->appraisor=Carbon::now();
+        foreach ($request->formateDetails as $formatD){
 
-        $appraisalFormatDetail->save();
+            if ($request->appraisal_Format_id){
+
+            }else{
+                $appraisalFormatDetail=new AppraisalFormatDetail();
+
+            }
+
+            $appraisalFormatDetail->fk_Appraisalformatmaster=$appraisalFormat->id;
+            $appraisalFormatDetail->fk_Appraisalheads=$request->fk_Appraisalheads;
+
+
+            if ($formatD['userSelf']==true){
+                $appraisalArray= explode(',',1);
+            }
+            if ($formatD['subOrdinates']==true){
+                $appraisalArray= explode(',',3);
+            }
+            return 
+            $appraisalFormatDetail->appraisor=Carbon::now();
+
+            $appraisalFormatDetail->save();
+
+        }
+
+
+
 
 
         if ($request->appraisal_Format_id){
