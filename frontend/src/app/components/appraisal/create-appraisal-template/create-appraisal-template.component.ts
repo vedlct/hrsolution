@@ -70,7 +70,18 @@ export class CreateAppraisalTemplateComponent implements OnInit {
 
         console.log(this.formateModel);
 
-        // console.log(tempArray);
+
+        const token=this.token.get();
+        this.http.post(Constants.API_URL+'appraisal/store-appraisal-format'+'?token='+token,this.formateModel).subscribe(data => {
+                console.log(data);
+
+
+            },
+            error => {
+                console.log(error.error['error']);
+
+            }
+        );
 
     }
 }
