@@ -78,8 +78,8 @@ class AppraisalFormatController extends Controller
     }
 
     public function showAllHeadsAppraisalFormate(){
-        $appraisalGroups=AppraisalHead::select('appraisalheads.headName','appraisalheads.id')
-            ->where('appraisalheads.fk_Appraisalheads',null)
+        $appraisalGroups=AppraisalHead::select('appraisalheads.headName','appraisalheads.id','headType')
+            ->where('appraisalheads.fk_Appraisalheads','!=',null)
             ->get();
 
         $appraisalGroups->map(function ($post) {
