@@ -236,8 +236,12 @@ Route::group([
     Route::post('payroll/salary-info/update','PayrollController@updateSalaryInfo');
     Route::post('payroll/salary-info/get','PayrollController@getSalaryInfo');
 
+    //overtime
+    Route::post('/overtime/get','OvertimeController@getovertime');
+
 
 });
+
 
 //Appraisal
 Route::get('appraisal/show-appraisal-head','Appraisal\AppraisalHeadController@showAllAppraisalHead')->name('appraisal.showAllHead');
@@ -258,4 +262,4 @@ Route::get('appraisal/show-appraisal-heads-appraiser','Appraisal\AppraisalFormat
 
 Route::post('appraisal/store-appraisal-format','Appraisal\AppraisalFormatController@storeAppraisalFromate')->name('appraisal.Format.insert');
 //Route::get('appraisal/delete-appraisal-scale/{id}','Appraisal\AppraisalFormatController@deleteAppraisalScale')->name('appraisal.Format.delete');
-Route::get('appraisal/appraisal-scaleDetails-byversion/{id}','Appraisal\AppraisalFormatController@getAppraisalScaleDetails');
+
