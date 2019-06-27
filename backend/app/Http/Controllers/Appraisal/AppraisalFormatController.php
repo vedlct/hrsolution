@@ -72,14 +72,7 @@ class AppraisalFormatController extends Controller
             $appraisalFormatDetail->fk_Appraisalheads=$request->fk_Appraisalheads;
 
 
-            if ($formatD['userSelf']==true){
-                $appraisalArray= explode(',',1);
-            }
-            if ($formatD['subOrdinates']==true){
-                $appraisalArray= explode(',',3);
-            }
-            return 
-            $appraisalFormatDetail->appraisor=Carbon::now();
+            $appraisalFormatDetail->appraisor=implode(",",);
 
             $appraisalFormatDetail->save();
 
