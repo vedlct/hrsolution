@@ -66,9 +66,11 @@ export class CreateAppraisalTemplateComponent implements OnInit {
                 tempArray.push(this.headData[index])
             }
         }
+        this.formateModel['formateDetails']=tempArray;
 
         console.log(this.formateModel);
-        console.log(tempArray);
+
+        // console.log(tempArray);
 
     }
 }
