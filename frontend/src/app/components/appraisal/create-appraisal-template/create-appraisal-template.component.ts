@@ -10,11 +10,13 @@ import {Constants} from "../../../constants";
   styleUrls: ['./create-appraisal-template.component.css']
 })
 export class CreateAppraisalTemplateComponent implements OnInit {
-  headData:any=[];
+  headData:any;
 
   constructor(private http:HttpClient,private token:TokenService,private modalService: NgbModal) { }
 
   ngOnInit() {
+      let temp=[{id:"",headName:"",reportingBoss:"",userSelf:"",s:""}];
+      this.headData=temp;
     this.getData();
   }
 
@@ -22,7 +24,7 @@ export class CreateAppraisalTemplateComponent implements OnInit {
     //
     const token=this.token.get();
     this.http.get(Constants.API_URL+'appraisal/show-appraisal-heads-appraiser'+'?token='+token).subscribe(data => {
-          console.log(data);
+          // console.log(data);
           this.headData=data;
           // this.existingScales=data;
           // if(this.checkTable==0){
@@ -56,4 +58,14 @@ export class CreateAppraisalTemplateComponent implements OnInit {
       console.log(this.headData);
     }
 
+    saveData(){
+      let tempArray=[];
+        for (let index = 0; index < this.headData.length; ++index) {
+            if(this.headData[index].s ==true){
+                tempArray.push(this.headData[index])
+            }
+        }
+
+        console.log(tempArray);
+    }
 }
