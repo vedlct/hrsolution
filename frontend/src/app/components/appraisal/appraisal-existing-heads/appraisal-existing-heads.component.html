@@ -1,3 +1,56 @@
+<!--edit modal-->
+<ng-template #content let-c="close" let-d="dismiss" >
+  <div class="modal-header">
+    <h4 class="modal-title">Edit Head</h4>
+    <button type="button" class="close" aria-label="Close" (click)="d('Cross click')">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+
+    <div class="form-group col-md-12">
+      <label>Title</label>
+      <input type="text" class="form-control" [(ngModel)]="editModel.headName"  name="headName" placeholder="enter group/head" required>
+
+    </div>
+
+
+    <div class="form-group col-md-12" *ngIf="rule ==true">
+      <label>Group</label>
+      <select class="form-control" name="fk_Appraisalheads" [(ngModel)]="editModel.fk_Appraisalheads" >
+        <option *ngFor="let data of grouoData" [value]="data.id"  >{{data.headName}}</option>
+      </select>
+
+
+    </div>
+
+    <div class="form-group col-md-12" *ngIf="rule ==true"  >
+      <label>Head Type</label>
+      <select class="form-control" name="headType" [(ngModel)]="editModel.headType">
+        <option value="NM">Numbering</option>
+        <option value="DS">Descriptive</option>
+        <option value="TF">T/F</option>
+      </select>
+
+    </div>
+
+    <div class="form-group col-md-12">
+      <label>Description</label>
+      <textarea class="form-control"  name="headDesc" [(ngModel)]="editModel.headDesc"></textarea>
+    </div>
+
+    <button class="btn btn-success" (click)="update()">Update</button>
+
+
+
+
+  </div>
+</ng-template>
+
+
+
+
+
 <div class="card">
 
   <div class="card-body">
@@ -21,7 +74,7 @@
         <td>{{data.headDesc}}</td>
         <td>{{data.groupName}}</td>
         <td>
-          <button class="btn btn-info" (click)="edit(data)"> Edit</button>
+          <button class="btn btn-info" (click)="edit(data,content)"> Edit</button>
 <!--          <button class="btn btn-info" (click)="edit(shift.teamId,content)"> Edit</button>-->
 
         </td>

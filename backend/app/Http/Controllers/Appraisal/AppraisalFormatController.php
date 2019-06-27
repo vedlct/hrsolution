@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Appraisal;
 use App\AppraisalFormatDetail;
 use App\AppraisalFormatMaster;
 
+use App\AppraisalHead;
 use App\AppraisalScale;
 use App\Http\Controllers\Controller;
 
@@ -74,6 +75,22 @@ class AppraisalFormatController extends Controller
 
             return response()->json(['message' => 'Appraisal Format Updated Successfully']);
         }
+    }
+
+    public function showAllHeadsAppraisalFormate(){
+        $appraisalGroups=AppraisalHead::select('appraisalheads.headName','appraisalheads.id')
+            ->where('appraisalheads.fk_Appraisalheads',null)
+            ->get();
+
+        $appraisalGroups->map(function ($post) {
+            $post['s'] = false;
+            $post['userSelf'] = false;
+            $post['reportingBoss'] = false;
+            $post['subOrdinates'] = false;
+            return $post;
+        });
+
+        return $appraisalGroups;
     }
 
 }

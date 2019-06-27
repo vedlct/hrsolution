@@ -24,6 +24,57 @@
         </div>
 
         <h3>Select Appraisal Heads with Appraiser</h3>
+        <table class="table">
+          <thead>
+            <tr>
+              <th width="70%">Appraisal Head</th>
+              <th width="30%">Action</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let data of headData;let i = index">
+              <td>
+                <input type="checkbox" (click)="checkData(data,i,$event)">
+                {{data.headName}}
+                <br *ngIf="data.s == true">
+
+                <label class="checkbox-inline" *ngIf="data.s == true">
+                  <input type="checkbox"  [(ngModel)]="headData[i].userSelf" (click)="innerCheck()"> UserSelf
+                </label>
+                &nbsp;
+                &nbsp;
+                <label class="checkbox-inline" *ngIf="data.s == true" [(ngModel)]="headData[i].userSelf">
+                  <input type="checkbox"> Reporting Boss
+                </label>
+                &nbsp;
+                &nbsp;
+                <label class="checkbox-inline" *ngIf="data.s == true" [(ngModel)]="headData[i].reportingBoss">
+                  <input type="checkbox">Sub-Ordinates
+                </label>
+                &nbsp;
+                &nbsp;
+                <label class="checkbox-inline" *ngIf="data.s == true" [(ngModel)]="headData[i].subOrdinates">
+                  <input type="checkbox">Co-Worker
+                </label>
+
+
+
+
+              </td>
+
+              <td>
+                <select class="form-control" [(ngModel)]="headData[i].action">
+                  <option value="5">Excellent</option>
+                  <option value="4">Good</option>
+                  <option value="3">Average</option>
+                  <option value="2">Below Average</option>
+                  <option value="1">Poor</option>
+                </select>
+              </td>
+
+            </tr>
+          </tbody>
+        </table>
 
 
       </div>
