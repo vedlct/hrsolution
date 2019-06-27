@@ -48,6 +48,27 @@ export class AddLeaveComponent implements OnInit {
   }
 
   assignLeave(){
+
+      let sD=new Date(this.employee.startDate).toLocaleDateString();
+      let eD=new Date(this.employee.endDate).toLocaleDateString();
+
+      if(sD>eD){
+          $.alert({
+              title: 'Alert!',
+              type: 'Red',
+              content: 'End Date can not less than Start Date',
+              buttons: {
+                  tryAgain: {
+                      text: 'Ok',
+                      btnClass: 'btn-red',
+                      action: function () {
+                      }
+                  }
+              }
+          });
+          return false;
+      }
+
       let form={
           // allEmp:this.allEmp,
           startDate:new Date(this.employee.startDate).toLocaleDateString(),
@@ -82,6 +103,19 @@ export class AddLeaveComponent implements OnInit {
           },
           error => {
               console.log(error);
+              $.alert({
+                  title: 'Alert!',
+                  type: 'Red',
+                  content: 'Please Fill-up all the field',
+                  buttons: {
+                      tryAgain: {
+                          text: 'Ok',
+                          btnClass: 'btn-red',
+                          action: function () {
+                          }
+                      }
+                  }
+              });
           }
       );
 

@@ -236,8 +236,12 @@ Route::group([
     Route::post('payroll/salary-info/update','PayrollController@updateSalaryInfo');
     Route::post('payroll/salary-info/get','PayrollController@getSalaryInfo');
 
+    //overtime
+    Route::post('/overtime/get','OvertimeController@getovertime');
+
 
 });
+
 
 //Appraisal
 Route::get('appraisal/show-appraisal-head','Appraisal\AppraisalHeadController@showAllAppraisalHead')->name('appraisal.showAllHead');
@@ -248,11 +252,24 @@ Route::get('appraisal/group','Appraisal\AppraisalHeadController@getAppraisalGrou
 
 //Appraisal Scale
 Route::get('appraisal/show-appraisal-scale','Appraisal\AppraisalScaleController@showAllAppraisalScale')->name('appraisal.scale.showAll');
+Route::get('appraisal/show-appraisal-scale-ByVersionNo','Appraisal\AppraisalScaleController@showAllAppraisalScaleByVersionNo')->name('appraisal.scale.showAllScaleByVersionNo');
 Route::post('appraisal/store-appraisal-scale','Appraisal\AppraisalScaleController@storeAppraisalScale')->name('appraisal.scale.insert');
+Route::post('appraisal/update-appraisal-scale','Appraisal\AppraisalScaleController@updateAppraisalScale')->name('appraisal.scale.update');
 Route::get('appraisal/delete-appraisal-scale/{id}','Appraisal\AppraisalScaleController@deleteAppraisalScale')->name('appraisal.scale.delete');
+Route::get('appraisal/show-appraisal-scale-details-byVersion/{id}','Appraisal\AppraisalScaleController@getAppraisalScaleDetailsbyVersion')->name('appraisal.scale.details');
 
 //Appraisal format- template
 Route::get('appraisal/show-appraisal-format','Appraisal\AppraisalFormatController@showAllAppraisalFormate')->name('appraisal.Format.showAll');
+Route::get('appraisal/show-appraisal-heads-appraiser','Appraisal\AppraisalFormatController@showAllHeadsAppraisalFormate')->name('appraisal.Format.showAll');
+
 Route::post('appraisal/store-appraisal-format','Appraisal\AppraisalFormatController@storeAppraisalFromate')->name('appraisal.Format.insert');
 //Route::get('appraisal/delete-appraisal-scale/{id}','Appraisal\AppraisalFormatController@deleteAppraisalScale')->name('appraisal.Format.delete');
-Route::get('appraisal/appraisal-scaleDetails-byversion/{id}','Appraisal\AppraisalFormatController@getAppraisalScaleDetails');
+
+//Emp Appraisal Setup
+
+//Route::get('appraisal/assign-template-emp','Appraisal\AppraisalFormatController@showAllAppraisalFormate')->name('appraisal.Format.showAll');
+//Route::get('appraisal/show-appraisal-heads-appraiser','Appraisal\AppraisalFormatController@showAllHeadsAppraisalFormate')->name('appraisal.Format.showAll');
+
+Route::post('appraisal/assign-template-emp','Appraisal\EmpAppraisalSetupController@storeEmpAppraisalSetup')->name('appraisal.EmpSetup.insert');
+//Route::get('appraisal/delete-appraisal-scale/{id}','Appraisal\AppraisalFormatController@deleteAppraisalScale')->name('appraisal.Format.delete');
+

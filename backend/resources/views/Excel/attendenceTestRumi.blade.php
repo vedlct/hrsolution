@@ -97,6 +97,7 @@
                             {{$allLeave->where('fkEmployeeId',$aE->id)->where('startDate','<=',$date)->where('endDate','>=',$date)->first()->categoryName}}
                         </td>
                         @else
+
                         <td class="cell" style="color: #ffffff;background-color: red" width="15">
                             Absent
                         </td>

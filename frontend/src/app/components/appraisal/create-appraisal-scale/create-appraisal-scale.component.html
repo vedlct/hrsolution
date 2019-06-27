@@ -1,3 +1,52 @@
+<!--edit modal-->
+<ng-template #content let-c="close" let-d="dismiss" >
+  <div class="modal-header">
+    <h4 class="modal-title">Edit Scale</h4>
+    <button type="button" class="close" aria-label="Close" (click)="d('Cross click')">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+
+    <div class="form-group col-md-12">
+      <label>Scale Point</label>
+      <input type="number" class="form-control" [(ngModel)]="editModel.marks"  name="point" placeholder="enter point" oninput="if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"
+             maxlength = "2" name="scalePoint" required>
+
+    </div>
+
+
+    <div class="form-group col-md-12" >
+      <label>Scale Title</label>
+      <input type="text" class="form-control" [(ngModel)]="editModel.title"  name="title" placeholder="enter title" required>
+
+
+    </div>
+
+    <div class="form-group col-md-12"  >
+      <label>Description</label>
+      <textarea class="form-control"  name="headDesc" [(ngModel)]="editModel.marksDesc"></textarea>
+    </div>
+
+    <div class="form-group col-md-12">
+      <label>Version No</label>
+      <input class="form-control" type="number"  name="version no" [(ngModel)]="editModel.versionNo">
+    </div>
+
+    <button class="btn btn-success" (click)="update()">Update</button>
+
+
+
+
+  </div>
+</ng-template>
+
+
+
+
+
+
+
 <div class="row m-2">
   <div class="col-md-5">
     <div class="card">
@@ -8,7 +57,8 @@
         <form  [formGroup]="form" (ngSubmit)="onSubmit(heroForm.value)" #heroForm="ngForm">
           <div class="form-group">
             <label>Scale Point</label>
-            <input type="number" class="form-control" placeholder="Enter Scale.." formControlName="scalePoint" name="scalePoint" required>
+            <input type="number" class="form-control" placeholder="Enter Scale.." formControlName="scalePoint" oninput="if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"
+                   maxlength = "2" name="scalePoint" required>
             <small>Only number allowed and not more then 2 digit</small>
             <div *ngIf="submitted && f.scalePoint.errors">
               <div *ngIf="f.scalePoint.errors.required" class="badge badge-danger">scale point required</div>
@@ -47,7 +97,7 @@
 
           </div>
 
-          <button class="btn btn-secondary" type="button">Clear Data</button>
+          <button class="btn btn-secondary" type="button" (click)="clearForm()">Clear Data</button>
           <button class="btn btn-success" type="submit">Save</button>
         </form>
 
@@ -62,14 +112,26 @@
         Existing Data
       </div>
       <div class="card-body">
-        <table class="table table-bordered table-striped">
+        <table class="table table-bordered table-striped" datatable  id="example" [dtOptions]="dtOptions" [dtTrigger]="dtTeigger">
           <thead>
+          <tr>
             <th>Scale</th>
             <th>Title</th>
             <th>Version</th>
             <th>Description</th>
             <th>Action</th>
+          </tr>
           </thead>
+          <tbody>
+          <tr  *ngFor="let data of existingScales">
+            <td>{{data.marks}}</td>
+            <td>{{data.title}}</td>
+            <td>{{data.versionNo}}</td>
+            <td>{{data.marksDesc}}</td>
+            <td><button class="btn btn-info" (click)="edit(data,content)">Edit</button></td>
+          </tr>
+
+          </tbody>
 
         </table>
       </div>

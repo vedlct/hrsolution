@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Appraisal;
 use App\AppraisalFormatDetail;
 use App\AppraisalFormatMaster;
 
+use App\AppraisalHead;
 use App\AppraisalScale;
 use App\Http\Controllers\Controller;
 
@@ -23,14 +24,7 @@ class AppraisalFormatController extends Controller
 
         return $appraisalTemplate;
     }
-    public function getAppraisalScaleDetails($id){
 
-
-        $appraisalScaleDetails=AppraisalScale::findOrFail($id);
-
-        return $appraisalScaleDetails;
-        
-    }
 //    public function deleteAppraisalScale($id){
 //
 //        AppraisalScale::destroy($id);
@@ -52,19 +46,32 @@ class AppraisalFormatController extends Controller
         $appraisalFormat->markVersionNo=$request->markVersionNo;
 
         $appraisalFormat->createdTime=Carbon::now();
-        $appraisalFormat->createdBy=null;
+        $appraisalFormat->createdBy=auth()->user()->id;
 
         $appraisalFormat->save();
 
 
-        $appraisalFormatDetail=new AppraisalFormatDetail();
 
-        $appraisalFormatDetail->fk_Appraisalformatmaster=$appraisalFormat->id;
-        $appraisalFormatDetail->fk_Appraisalheads=$request->fk_Appraisalheads;
-        $appraisalFormatDetail->appraisor=$request->appraisor;
+        foreach ($request->formateDetails as $formatD){
 
-        $appraisalFormatDetail->save();
+            if ($request->appraisal_Format_id){
 
+                $appraisalFormatDetail= AppraisalFormatDetail::findOrFail($request->appraisal_Format_details_id);
+
+            }else{
+                $appraisalFormatDetail=new AppraisalFormatDetail();
+
+            }
+
+            $appraisalFormatDetail->fk_Appraisalformatmaster=$appraisalFormat->id;
+            $appraisalFormatDetail->fk_Appraisalheads=$formatD['fk_Appraisalheads'];
+
+
+            $appraisalFormatDetail->appraisor=implode(",",$formatD['appraisors']);
+
+            $appraisalFormatDetail->save();
+
+        }
 
         if ($request->appraisal_Format_id){
 
@@ -74,6 +81,26 @@ class AppraisalFormatController extends Controller
 
             return response()->json(['message' => 'Appraisal Format Updated Successfully']);
         }
+    }
+
+    public function showAllHeadsAppraisalFormate(){
+
+        $appraisalGroups=AppraisalHead::select('appraisalheads.headName','appraisalheads.id as fk_Appraisalheads','headType')
+            ->where('appraisalheads.fk_Appraisalheads','!=',null)
+
+            ->get();
+
+        $appraisalGroups->map(function ($post) {
+            $post['s'] = false;
+            $post['userSelf'] = false;
+            $post['reportingBoss'] = false;
+            $post['subOrdinates'] = false;
+            $post['coWorker'] = false;
+            return $post;
+        });
+
+        return $appraisalGroups;
+
     }
 
 }
