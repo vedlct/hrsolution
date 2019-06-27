@@ -25,7 +25,7 @@
         <th style="text-align: center;vertical-align: middle;" width="30" >Date</th>
 
         @foreach($dates as $date)
-        <th class="Border" colspan="8" style="text-align: center;vertical-align: middle;">{{$date}}</th>
+        <th class="Border" colspan="8" style="text-align: center;vertical-align: middle;">{{$date['date']}}({{$date['day']}})</th>
         @endforeach
 
     </tr>
@@ -71,11 +71,11 @@
 
             <td class="cell" width="30">{{$aE->empFullname}}</td>
             @foreach($dates as $date)
-                @if($results->where('employeeId',$aE->id)->where('attendanceDate',$date)->first() )
-            <td class="cell" width="15">{{$results->where('employeeId',$aE->id)->where('attendanceDate',$date)->first()->checkIn}}</td>
-            <td class="cell" width="15">{{$results->where('employeeId',$aE->id)->where('attendanceDate',$date)->first()->checkOut}}</td>
-            <td class="cell<?php if($results->where('employeeId',$aE->id)->where('attendanceDate',$date)->first()->late =='Y'){?> late <?php }?>" width="10">{{$results->where('employeeId',$aE->id)->where('attendanceDate',$date)->first()->late}}</td>
-            <td class="cell<?php if($results->where('employeeId',$aE->id)->where('attendanceDate',$date)->first()->late =='Y'){?> late <?php }?>" width="15">{{$results->where('employeeId',$aE->id)->where('attendanceDate',$date)->first()->lateTime}}</td>
+                @if($results->where('employeeId',$aE->id)->where('attendanceDate',$date['date'])->first() )
+            <td class="cell" width="15">{{$results->where('employeeId',$aE->id)->where('attendanceDate',$date['date'])->first()->checkIn}}</td>
+            <td class="cell" width="15">{{$results->where('employeeId',$aE->id)->where('attendanceDate',$date['date'])->first()->checkOut}}</td>
+            <td class="cell<?php if($results->where('employeeId',$aE->id)->where('attendanceDate',$date['date'])->first()->late =='Y'){?> late <?php }?>" width="10">{{$results->where('employeeId',$aE->id)->where('attendanceDate',$date['date'])->first()->late}}</td>
+            <td class="cell<?php if($results->where('employeeId',$aE->id)->where('attendanceDate',$date['date'])->first()->late =='Y'){?> late <?php }?>" width="15">{{$results->where('employeeId',$aE->id)->where('attendanceDate',$date['date'])->first()->lateTime}}</td>
             <td class="cell" width="20"></td>
             <td class="cell" width="15"></td>
             <td class="cell" width="10"></td>
@@ -92,15 +92,29 @@
                     <td class="cell" width="10"></td>
 
 
-                    @if($allLeave->where('fkEmployeeId',$aE->id)->where('startDate','<=',$date)->where('endDate','>=',$date)->first())
-                        <td class="cell"style="background-color: #0070C0" width="15">
-                            {{$allLeave->where('fkEmployeeId',$aE->id)->where('startDate','<=',$date)->where('endDate','>=',$date)->first()->categoryName}}
+                    @if($allLeave->where('fkEmployeeId',$aE->id)->where('startDate','<=',$date['date'])->where('endDate','>=',$date['date'])->first())
+                        <td class="cell"style="color: #ffffff;background-color: #0070C0" width="15">
+                            {{$allLeave->where('fkEmployeeId',$aE->id)->where('startDate','<=',$date['date'])->where('endDate','>=',$date['date'])->first()->categoryName}}
+                        </td>
+                    @elseif($allHoliday->where('startDate','<=',$date['date'])->where('endDate','>=',$date['date'])->first())
+
+                        <td class="cell"style="color: #ffffff;background-color: #00ff00" width="15">
+                            Holiday:{{$allHoliday->where('startDate','<=',$date['date'])->where('endDate','>=',$date['date'])->first()->purpose}}
+                        </td>
+
+                    @else
+                        @php
+                        $allWeekend=explode(',',strtolower($aE->weekend));
+                        @endphp
+                        @if(in_array(strtolower($date['day']), $allWeekend))
+                        <td class="cell" style="color: #ffffff;background-color: #f7aec2" width="15">
+                            WeekEnd
                         </td>
                         @else
-
-                        <td class="cell" style="color: #ffffff;background-color: red" width="15">
-                            Absent
-                        </td>
+                            <td class="cell" style="color: #ffffff;background-color: red" width="15">
+                                Absent
+                            </td>
+                        @endif
                     @endif
 
 
