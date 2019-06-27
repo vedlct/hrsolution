@@ -29,7 +29,7 @@ class AppraisalFormatController extends Controller
         $appraisalScaleDetails=AppraisalScale::findOrFail($id);
 
         return $appraisalScaleDetails;
-        
+
     }
 //    public function deleteAppraisalScale($id){
 //
