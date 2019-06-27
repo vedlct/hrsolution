@@ -53,7 +53,7 @@ class AppraisalFormatController extends Controller
         $appraisalFormat->markVersionNo=$request->markVersionNo;
 
         $appraisalFormat->createdTime=Carbon::now();
-        $appraisalFormat->createdBy=null;
+        $appraisalFormat->createdBy=auth()->user()->id;
 
         $appraisalFormat->save();
 
@@ -62,7 +62,7 @@ class AppraisalFormatController extends Controller
 
         $appraisalFormatDetail->fk_Appraisalformatmaster=$appraisalFormat->id;
         $appraisalFormatDetail->fk_Appraisalheads=$request->fk_Appraisalheads;
-        $appraisalFormatDetail->appraisor=$request->appraisor;
+        $appraisalFormatDetail->appraisor=Carbon::now();
 
         $appraisalFormatDetail->save();
 
@@ -78,6 +78,7 @@ class AppraisalFormatController extends Controller
     }
 
     public function showAllHeadsAppraisalFormate(){
+
         $appraisalGroups=AppraisalHead::select('appraisalheads.headName','appraisalheads.id')
             ->where('appraisalheads.fk_Appraisalheads',null)
             ->get();
@@ -91,6 +92,7 @@ class AppraisalFormatController extends Controller
         });
 
         return $appraisalGroups;
+
     }
 
 }
