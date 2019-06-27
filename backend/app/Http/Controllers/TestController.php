@@ -185,11 +185,13 @@ class TestController extends Controller
 
         $realEnd = new DateTime($end);
         $realEnd->add($interval);
+//        $anotherFormat=
 
         $period = new \DatePeriod(new DateTime($start), $interval, $realEnd);
 
         foreach($period as $date) {
-            $array[] = $date->format($format);
+            $array['date'] = $date->format($format);
+//            $array['date'] = $date->format($format);
         }
 
         return $array;
@@ -213,7 +215,7 @@ class TestController extends Controller
 //            ->get();
 
 
-       $dates = $this->getDatesFromRange($startDate, $endDate);
+       return $dates = $this->getDatesFromRange($startDate, $endDate);
 
         $allEmp=EmployeeInfo::select('id','fkDepartmentId',DB::raw("CONCAT(COALESCE(firstName,''),' ',COALESCE(middleName,''),' ',COALESCE(lastName,'')) AS empFullname"))->whereNull('resignDate')->get();
 
