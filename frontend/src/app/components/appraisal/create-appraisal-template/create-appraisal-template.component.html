@@ -39,22 +39,22 @@
                 <br *ngIf="data.s == true">
 
                 <label class="checkbox-inline" *ngIf="data.s == true">
-                  <input type="checkbox"  [(ngModel)]="headData[i].userSelf" (click)="innerCheck()"> UserSelf
+                  <input type="checkbox"  [(ngModel)]="headData[i].userSelf" ngDefaultControl> UserSelf
                 </label>
                 &nbsp;
                 &nbsp;
-                <label class="checkbox-inline" *ngIf="data.s == true" [(ngModel)]="headData[i].userSelf">
-                  <input type="checkbox"> Reporting Boss
+                <label class="checkbox-inline" *ngIf="data.s == true" >
+                  <input type="checkbox" [(ngModel)]="headData[i].reportingBoss" ngDefaultControl> Reporting Boss
                 </label>
                 &nbsp;
                 &nbsp;
-                <label class="checkbox-inline" *ngIf="data.s == true" [(ngModel)]="headData[i].reportingBoss">
-                  <input type="checkbox">Sub-Ordinates
+                <label class="checkbox-inline" *ngIf="data.s == true">
+                  <input type="checkbox"  [(ngModel)]="headData[i].subOrdinates" ngDefaultControl>Sub-Ordinates
                 </label>
                 &nbsp;
                 &nbsp;
-                <label class="checkbox-inline" *ngIf="data.s == true" [(ngModel)]="headData[i].subOrdinates">
-                  <input type="checkbox">Co-Worker
+                <label class="checkbox-inline" *ngIf="data.s == true" >
+                  <input type="checkbox" [(ngModel)]="headData[i].coWorker" ngDefaultControl>Co-Worker
                 </label>
 
 
@@ -76,6 +76,7 @@
           </tbody>
         </table>
 
+        <button class="btn btn-sm btn-success" (click)="saveData()">Save Data</button>
 
       </div>
     </div>
@@ -87,9 +88,26 @@
         <h4 class="alert alert-info">Scale Points Details by version</h4>
         <table class="table table-bordered">
           <tr>
-            <td>4</td>
-            <td>Strong</td>
+            <td>1</td>
+            <td>Strongly Disagree</td>
           </tr>
+          <tr>
+            <td>2</td>
+            <td>Disagree</td>
+          </tr>
+          <tr>
+            <td>3</td>
+            <td>Natural</td>
+          </tr>
+          <tr>
+            <td>4</td>
+            <td>Agree</td>
+          </tr>
+          <tr>
+            <td>5</td>
+            <td>Strongly Agree</td>
+          </tr>
+
         </table>
 
         <h4 class="alert alert-info">Existing Templates</h4>
