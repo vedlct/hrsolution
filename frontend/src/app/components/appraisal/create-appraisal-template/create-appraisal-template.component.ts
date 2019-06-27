@@ -63,25 +63,42 @@ export class CreateAppraisalTemplateComponent implements OnInit {
       let tempArray=[];
         for (let index = 0; index < this.headData.length; ++index) {
             if(this.headData[index].s ==true){
-                tempArray.push(this.headData[index])
+                let appraisorArray=[];
+                // tempArray.push(this.headData[index])
+                if(this.headData[index].userSelf){
+                    appraisorArray.push(1);
+                }
+                if(this.headData[index].reportingBoss){
+                    appraisorArray.push(2);
+                }
+                if(this.headData[index].subOrdinates){
+                    appraisorArray.push(3);
+                }
+                if(this.headData[index].coWorker){
+                    appraisorArray.push(4);
+                }
+                let tempObj=this.headData[index];
+                tempObj['appraisors']=appraisorArray;
+                tempArray.push(tempObj)
             }
+
         }
         this.formateModel['formateDetails']=tempArray;
 
         console.log(this.formateModel);
 
 
-        const token=this.token.get();
-        this.http.post(Constants.API_URL+'appraisal/store-appraisal-format'+'?token='+token,this.formateModel).subscribe(data => {
-                console.log(data);
-
-
-            },
-            error => {
-                console.log(error.error['error']);
-
-            }
-        );
+        // const token=this.token.get();
+        // this.http.post(Constants.API_URL+'appraisal/store-appraisal-format'+'?token='+token,this.formateModel).subscribe(data => {
+        //         console.log(data);
+        //
+        //
+        //     },
+        //     error => {
+        //         console.log(error.error['error']);
+        //
+        //     }
+        // );
 
     }
 }
