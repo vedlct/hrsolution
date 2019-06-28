@@ -52,7 +52,8 @@ export class AddLeaveComponent implements OnInit {
       let sD=new Date(this.employee.startDate).toLocaleDateString();
       let eD=new Date(this.employee.endDate).toLocaleDateString();
 
-      if(sD>eD){
+
+      if(Date.parse(eD)<Date.parse(sD)){
           $.alert({
               title: 'Alert!',
               type: 'Red',

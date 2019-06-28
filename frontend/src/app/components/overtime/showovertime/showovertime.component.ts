@@ -104,8 +104,8 @@ export class ShowovertimeComponent implements OnInit {
             },
             columns: [
 
-                { data: 'firstName' ,name:'firstName'},
-                { data: 'lastName' ,name:'lastName'},
+                { data: 'firstName' ,name:'employeeinfo.firstName'},
+                { data: 'lastName' ,name:'employeeinfo.lastName'},
                 { data: 'overtime' ,name:'overtime'},
                 { data: 'totalhour' ,name:'totalhour'},
 
@@ -126,7 +126,7 @@ export class ShowovertimeComponent implements OnInit {
 
             ],
             processing: true,
-            serverSide: true,
+            serverSide: false,
             pagingType: 'full_numbers',
             pageLength: 10
         };
