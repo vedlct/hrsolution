@@ -34,7 +34,7 @@ class OvertimeController extends Controller
           ->leftJoin('employeeinfo','employeeinfo.id','attemployeemap.employeeId')
           ->leftJoin('shiftlog','shiftlog.fkemployeeId','employeeinfo.id')
           ->leftJoin('shift','shift.shiftId','shiftlog.fkshiftId')
-          ->whereRaw("date_format(attendancedata.accessTime,'%Y-%m-%d') between '".$start."' and '".$start."'")
+          ->whereRaw("shiftlog.endDate is null AND date_format(attendancedata.accessTime,'%Y-%m-%d') between '".$start."' and '".$start."'")
           ->groupBy("attendancedata.attDeviceUserId",DB::raw("date_format(attendancedata.accessTime,'%Y-%m-%d')"))
           ;
 

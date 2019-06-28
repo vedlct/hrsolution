@@ -126,7 +126,7 @@ export class ShowovertimeComponent implements OnInit {
 
             ],
             processing: true,
-            serverSide: true,
+            serverSide: false,
             pagingType: 'full_numbers',
             pageLength: 10
         };
