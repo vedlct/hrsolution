@@ -7,6 +7,7 @@ import {ActivatedRoute, Router} from "@angular/router";
 import {DataTableDirective} from "angular-datatables";
 import {NgxSpinnerService} from "ngx-spinner";
 import {st} from "@angular/core/src/render3";
+import {totalmem} from "os";
 declare var $ :any;
 
 @Component({
@@ -102,8 +103,10 @@ export class AttendanceComponent implements OnInit {
                 //     },
                 //     "orderable": false, "searchable":false, "name":"selected_rows"
                 // },
+
                 { data: 'weekends', name: 'weekends'},
                 { data: 'totalWeekend', name: 'totalWeekend'},
+
                 {
 
                     "data": function (data: any, type: any, full: any) {
@@ -126,6 +129,8 @@ export class AttendanceComponent implements OnInit {
                     window.open("report/attendance/" +id+'/'+start+'/'+end, "_blank");
                     return false;
                 });
+
+
             },
 
             processing: true,
@@ -215,6 +220,9 @@ export class AttendanceComponent implements OnInit {
         );
 
     }
+    total(){
+
+    }
 
     generateExcel(){
 
@@ -256,4 +264,6 @@ export class AttendanceComponent implements OnInit {
             this.dtTrigger.next();
         });
     }
+
+
 }
