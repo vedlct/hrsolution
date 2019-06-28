@@ -163,10 +163,20 @@ class AttendanceController extends Controller
 
         $allEmp=EmployeeInfo::select('id','fkDepartmentId',
             DB::raw("CONCAT(COALESCE(firstName,''),' ',COALESCE(middleName,''),' ',COALESCE(lastName,'')) AS empFullname"),
-            'weekend')
-            ->whereNull('resignDate')->get();
+            'weekend');
+            if(auth()->user()->fkUserType =='admin') {
 
-        $results = DB::select( DB::raw("select em.employeeId
+                $allEmp=$allEmp->where('id','!=',null);
+
+            }else{
+                $empId=EmployeeInfo::where('fkUserId',auth()->user()->id)->first();
+                $allEmp=$allEmp->where('id',$empId->id);
+            }
+        $allEmp=$allEmp->whereNull('resignDate')->get();
+
+        if(auth()->user()->fkUserType =='admin') {
+
+            $results = DB::select(DB::raw("select em.employeeId
             , date_format(ad.accessTime,'%Y-%m-%d') attendanceDate
             , date_format(min(ad.accessTime),'%H:%i') checkIn
             , date_format(max(ad.accessTime),'%H:%i') checkOut
@@ -178,8 +188,29 @@ class AttendanceController extends Controller
             
             left join shiftlog sl on em.employeeId = sl.fkemployeeId and date_format(ad.accessTime,'%Y-%m-%d') between date_format(sl.startDate,'%Y-%m-%d') and ifnull(date_format(sl.endDate,'%Y-%m-%d'),curdate())
             left join shift s on sl.fkshiftId = s.shiftId
-            where date_format(ad.accessTime,'%Y-%m-%d') between '".$fromDate."' and '".$toDate."'
+            where date_format(ad.accessTime,'%Y-%m-%d') between '" . $fromDate . "' and '" . $toDate . "'
             group by ad.attDeviceUserId, date_format(ad.accessTime,'%Y-%m-%d')"));
+        }else{
+
+            $empId=EmployeeInfo::where('fkUserId',auth()->user()->id)->first();
+
+            $results = DB::select(DB::raw("select em.employeeId
+            , date_format(ad.accessTime,'%Y-%m-%d') attendanceDate
+            , date_format(min(ad.accessTime),'%H:%i') checkIn
+            , date_format(max(ad.accessTime),'%H:%i') checkOut
+            
+            , case when SUBTIME(date_format(min(ad.accessTime),'%H:%i'),s.inTime) > '00:00:01' then 'Y' else 'N' end late 
+            , TIME_FORMAT(SUBTIME(date_format(min(ad.accessTime),'%H:%i'),s.inTime),'%H:%i')  as lateTime
+
+            from attendancedata ad left join attemployeemap em on ad.attDeviceUserId = em.attDeviceUserId and date_format(ad.accessTime,'%Y-%m-%d') between '" . $fromDate . "' and '" . $toDate . "'
+            
+            left join shiftlog sl on em.employeeId = sl.fkemployeeId and date_format(ad.accessTime,'%Y-%m-%d') between date_format(sl.startDate,'%Y-%m-%d') and ifnull(date_format(sl.endDate,'%Y-%m-%d'),curdate())
+            left join shift s on sl.fkshiftId = s.shiftId
+            where em.employeeId ='".$empId->id."' 
+            where date_format(ad.accessTime,'%Y-%m-%d') between '" . $fromDate . "' and '" . $toDate . "'
+            group by ad.attDeviceUserId, date_format(ad.accessTime,'%Y-%m-%d')"));
+
+        }
 
         $results=collect($results);
 
