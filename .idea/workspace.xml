@@ -1,44 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="f68e167a-90ee-4c65-9adb-0a9c68de77b2" name="Default" comment="">
-<<<<<<< HEAD
+    <list default="true" id="57b232db-10b9-4489-a96b-8ca7facb58c3" name="Default" comment="">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/hrsolution.iml" afterPath="$PROJECT_DIR$/.idea/hrsolution.iml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/frontend/package-lock.json" afterPath="$PROJECT_DIR$/frontend/package-lock.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/frontend/package.json" afterPath="$PROJECT_DIR$/frontend/package.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/frontend/src/app/app-routing.module.ts" afterPath="$PROJECT_DIR$/frontend/src/app/app-routing.module.ts" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/frontend/src/app/components/configuration/designation/add-designaton/add-designaton.component.ts" afterPath="$PROJECT_DIR$/frontend/src/app/components/configuration/designation/add-designaton/add-designaton.component.ts" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/frontend/src/app/components/user/add-user/add-user.component.html" afterPath="$PROJECT_DIR$/frontend/src/app/components/user/add-user/add-user.component.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/frontend/src/app/components/user/add-user/add-user.component.ts" afterPath="$PROJECT_DIR$/frontend/src/app/components/user/add-user/add-user.component.ts" />
-=======
-<<<<<<< HEAD
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frontend/src/assets/images/bg-123.jpg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/hrsolution.iml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/backend/app/Designation.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/backend/app/EmployeeType.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/backend/app/Http/Controllers/DepartmentController.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/backend/app/Http/Controllers/DesignationController.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/backend/app/Http/Controllers/EmployeeController.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/backend/app/Http/Controllers/EmployeeTypeController.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frontend/src/app/model/designation.model.ts" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/modules.xml" afterPath="$PROJECT_DIR$/.idea/modules.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/backend/app/Http/Controllers/CompanyController.php" afterPath="$PROJECT_DIR$/backend/app/Http/Controllers/CompanyController.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/backend/routes/api.php" afterPath="$PROJECT_DIR$/backend/routes/api.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/frontend/src/app/components/company/add-company/add-company.component.ts" afterPath="$PROJECT_DIR$/frontend/src/app/components/company/add-company/add-company.component.ts" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/frontend/src/app/components/configuration/department/add-department/add-department.component.html" afterPath="$PROJECT_DIR$/frontend/src/app/components/configuration/department/add-department/add-department.component.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/frontend/src/app/components/configuration/department/add-department/add-department.component.ts" afterPath="$PROJECT_DIR$/frontend/src/app/components/configuration/department/add-department/add-department.component.ts" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/frontend/src/app/components/configuration/designation/add-designaton/add-designaton.component.html" afterPath="$PROJECT_DIR$/frontend/src/app/components/configuration/designation/add-designaton/add-designaton.component.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/frontend/src/app/components/configuration/designation/add-designaton/add-designaton.component.ts" afterPath="$PROJECT_DIR$/frontend/src/app/components/configuration/designation/add-designaton/add-designaton.component.ts" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/frontend/src/app/components/login/login.component.ts" afterPath="$PROJECT_DIR$/frontend/src/app/components/login/login.component.ts" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/frontend/src/app/components/user/add-employee/add-employee.component.ts" afterPath="$PROJECT_DIR$/frontend/src/app/components/user/add-employee/add-employee.component.ts" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/frontend/src/app/components/user/basic-info/basic-info.component.html" afterPath="$PROJECT_DIR$/frontend/src/app/components/user/basic-info/basic-info.component.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/frontend/src/app/components/user/basic-info/basic-info.component.ts" afterPath="$PROJECT_DIR$/frontend/src/app/components/user/basic-info/basic-info.component.ts" />
-=======
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/frontend/src/app/components/user/add-employee/add-employee.component.html" afterPath="$PROJECT_DIR$/frontend/src/app/components/user/add-employee/add-employee.component.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/frontend/src/assets/css/style.css" afterPath="$PROJECT_DIR$/frontend/src/assets/css/style.css" />
->>>>>>> 81092e282efc879db206c6d4b5ebd44ae93ed02f
->>>>>>> 12a4db3d774fa9656109c08fc966e938109e06cf
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/backend/app/Http/Controllers/AttendanceController.php" afterPath="$PROJECT_DIR$/backend/app/Http/Controllers/AttendanceController.php" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -47,7 +13,7 @@
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="ComposerSettings">
+  <component name="ComposerSettings" doNotAsk="true">
     <pharConfigPath>$PROJECT_DIR$/backend/composer.json</pharConfigPath>
   </component>
   <component name="CreatePatchCommitExecutor">
@@ -56,124 +22,105 @@
   <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-<<<<<<< HEAD
-      <file leaf-file-name="add-user.component.ts" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/frontend/src/app/components/user/add-user/add-user.component.ts">
+      <file leaf-file-name="AttendanceController.php" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/backend/app/Http/Controllers/AttendanceController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="81">
-              <caret line="3" column="0" lean-forward="false" selection-start-line="3" selection-start-column="0" selection-end-line="3" selection-end-column="0" />
-=======
-      <file leaf-file-name="add-designaton.component.ts" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/frontend/src/app/components/configuration/designation/add-designaton/add-designaton.component.ts">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="432">
-              <caret line="40" column="13" lean-forward="false" selection-start-line="40" selection-start-column="13" selection-end-line="40" selection-end-column="13" />
->>>>>>> 12a4db3d774fa9656109c08fc966e938109e06cf
+            <state relative-caret-position="-6836">
+              <caret line="110" column="47" lean-forward="false" selection-start-line="110" selection-start-column="39" selection-end-line="110" selection-end-column="47" />
               <folding>
-                <element signature="e#0#50#0" expanded="true" />
+                <marker date="1561700525253" expanded="true" signature="738:2897" ph="select a.emp... id" />
+                <marker date="1561700525253" expanded="true" signature="1087:2814" ph="select ad.id... attendancedata" />
+                <marker date="1561700525253" expanded="true" signature="3050:5215" ph="select a.emp... id" />
+                <marker date="1561700525253" expanded="true" signature="3399:5132" ph="select ad.id... attendancedata" />
+                <marker date="1561700525253" expanded="true" signature="9623:10745" ph="select em.em... attendancedata" />
+                <marker date="1561700525253" expanded="true" signature="10890:12063" ph="select em.em... attendancedata" />
+                <marker date="1561700525253" expanded="true" signature="14597:16097" ph="select ad.id... attendancedata" />
+                <marker date="1561700525253" expanded="true" signature="17515:18058" ph="select count... attendancedata" />
+                <marker date="1561700525253" expanded="true" signature="18113:18636" ph="select count... attendancedata" />
+                <marker date="1561700525253" expanded="true" signature="18687:19835" ph="select count... id" />
+                <marker date="1561700525253" expanded="true" signature="18734:19801" ph="select ad.id... attendancedata" />
+                <marker date="1561700525253" expanded="true" signature="19887:21035" ph="select count... id" />
+                <marker date="1561700525253" expanded="true" signature="19934:21001" ph="select ad.id... attendancedata" />
+                <marker date="1561700525253" expanded="true" signature="22345:23030" ph="SELECT * FRO... attemployeemap" />
+                <marker date="1561700525253" expanded="true" signature="22674:22855" ph="SELECT * FRO... attendancedata" />
+                <marker date="1561700525253" expanded="true" signature="22889:23028" ph="SELECT * FRO... hrmleaves" />
+                <marker date="1561700525253" expanded="true" signature="23116:23692" ph="SELECT * FRO... attemployeemap" />
+                <marker date="1561700525253" expanded="true" signature="23443:23524" ph="SELECT * FRO... attendancedata" />
+                <marker date="1561700525253" expanded="true" signature="23588:23690" ph="SELECT * FRO... hrmleaves" />
+                <marker date="1561700525253" expanded="true" signature="24541:25022" ph="select count... attendancedata" />
+                <marker date="1561700525253" expanded="true" signature="25484:26632" ph="select count... id" />
+                <marker date="1561700525253" expanded="true" signature="25531:26598" ph="select ad.id... attendancedata" />
+                <marker date="1561700525253" expanded="true" signature="26703:27235" ph="SELECT first... attemployeemap" />
+                <marker date="1561700525253" expanded="true" signature="26953:27034" ph="SELECT * FRO... attendancedata" />
+                <marker date="1561700525253" expanded="true" signature="27097:27234" ph="SELECT * FRO... hrmleaves" />
+                <marker date="1561700525253" expanded="true" signature="28901:29382" ph="select count... attendancedata" />
+                <marker date="1561700525253" expanded="true" signature="29805:30953" ph="select count... id" />
+                <marker date="1561700525253" expanded="true" signature="29852:30919" ph="select ad.id... attendancedata" />
+                <marker date="1561700525253" expanded="true" signature="31022:31530" ph="SELECT * FRO... attemployeemap" />
+                <marker date="1561700525253" expanded="true" signature="31244:31325" ph="SELECT * FRO... attendancedata" />
+                <marker date="1561700525253" expanded="true" signature="31389:31528" ph="SELECT * FRO... hrmleaves" />
+                <marker date="1561700525253" expanded="true" signature="32065:32545" ph="select count... attendancedata" />
+                <marker date="1561700525253" expanded="true" signature="32969:34116" ph="select count... id" />
+                <marker date="1561700525253" expanded="true" signature="33016:34082" ph="select ad.id... attendancedata" />
+                <marker date="1561700525253" expanded="true" signature="34186:34694" ph="SELECT * FRO... attemployeemap" />
+                <marker date="1561700525253" expanded="true" signature="34408:34489" ph="SELECT * FRO... attendancedata" />
+                <marker date="1561700525253" expanded="true" signature="34553:34692" ph="SELECT * FRO... hrmleaves" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="add-user.component.html" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/frontend/src/app/components/user/add-user/add-user.component.html">
+      <file leaf-file-name="attendence.blade.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/backend/resources/views/Excel/attendence.blade.php">
           <provider selected="true" editor-type-id="text-editor">
-<<<<<<< HEAD
-            <state relative-caret-position="0">
-              <caret line="0" column="0" lean-forward="true" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-=======
-<<<<<<< HEAD
-            <state relative-caret-position="234">
-              <caret line="13" column="10" lean-forward="false" selection-start-line="13" selection-start-column="10" selection-end-line="13" selection-end-column="10" />
-=======
-            <state relative-caret-position="648">
-              <caret line="24" column="8" lean-forward="true" selection-start-line="24" selection-start-column="8" selection-end-line="24" selection-end-column="8" />
-              <folding>
-                <element signature="n#style#0;n#button#0;n#li#0;n#ul#0;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#button#0;n#li#1;n#ul#0;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#button#0;n#li#2;n#ul#0;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#button#0;n#li#3;n#ul#0;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#button#0;n#li#4;n#ul#0;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="navbar.component.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/frontend/src/app/components/navbar/navbar.component.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="351">
-              <caret line="157" column="10" lean-forward="false" selection-start-line="157" selection-start-column="10" selection-end-line="157" selection-end-column="10" />
->>>>>>> 81092e282efc879db206c6d4b5ebd44ae93ed02f
->>>>>>> 12a4db3d774fa9656109c08fc966e938109e06cf
+            <state relative-caret-position="2090">
+              <caret line="95" column="22" lean-forward="false" selection-start-line="95" selection-start-column="18" selection-end-line="95" selection-end-column="22" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-<<<<<<< HEAD
-=======
-      <file leaf-file-name="add-designaton.component.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/frontend/src/app/components/configuration/designation/add-designaton/add-designaton.component.html">
+      <file leaf-file-name="attendenceTestRumi.blade.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/backend/resources/views/Excel/attendenceTestRumi.blade.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="522">
-              <caret line="29" column="53" lean-forward="false" selection-start-line="29" selection-start-column="46" selection-end-line="29" selection-end-column="53" />
+            <state relative-caret-position="1730">
+              <caret line="100" column="63" lean-forward="false" selection-start-line="100" selection-start-column="63" selection-end-line="100" selection-end-column="63" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="basic-info.component.ts" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/frontend/src/app/components/user/basic-info/basic-info.component.ts">
+      <file leaf-file-name="TestController.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/backend/app/Http/Controllers/TestController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1350">
-              <caret line="77" column="42" lean-forward="false" selection-start-line="77" selection-start-column="42" selection-end-line="77" selection-end-column="42" />
+            <state relative-caret-position="6490">
+              <caret line="310" column="0" lean-forward="false" selection-start-line="310" selection-start-column="0" selection-end-line="310" selection-end-column="0" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="basic-info.component.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/frontend/src/app/components/user/basic-info/basic-info.component.html">
+      <file leaf-file-name="web.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/backend/routes/web.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1098">
-              <caret line="61" column="22" lean-forward="false" selection-start-line="61" selection-start-column="22" selection-end-line="61" selection-end-column="22" />
+            <state relative-caret-position="308">
+              <caret line="23" column="21" lean-forward="false" selection-start-line="23" selection-start-column="12" selection-end-line="23" selection-end-column="21" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="basic-info.component.spec.ts" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/frontend/src/app/components/user/basic-info/basic-info.component.spec.ts">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-              <folding>
-                <element signature="e#0#73#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
->>>>>>> 12a4db3d774fa9656109c08fc966e938109e06cf
     </leaf>
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>datata</find>
-      <find>data</find>
-      <find>Das</find>
-      <find>navbar-toggle nav-link</find>
-      <find>Consolidated Salary</find>
-      <find>router</find>
-      <find>Log</find>
-      <find>Lock</find>
-      <find>console</find>
-      <find>Constants</find>
-      <find>FormsModule</find>
-      <find>De</find>
+      <find>$date-&gt;date</find>
+      <find>allH</find>
+      <find>late</find>
     </findStrings>
+    <replaceStrings>
+      <replace>$date['date']</replace>
+    </replaceStrings>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -181,64 +128,9 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/frontend/src/app/services/auth.service.ts" />
-        <option value="$PROJECT_DIR$/frontend/src/app/app.component.ts" />
-        <option value="$PROJECT_DIR$/frontend/src/app/components/leave/add-leave/add-leave.component.html" />
-        <option value="$PROJECT_DIR$/frontend/src/app/components/user/personal-info/personal-info.component.html" />
-        <option value="$PROJECT_DIR$/frontend/src/app/components/user/bank-info/bank-info.component.html" />
-        <option value="$PROJECT_DIR$/frontend/src/app/components/user/salary-info/salary-info.component.html" />
-        <option value="$PROJECT_DIR$/frontend/src/app/components/user/joining-info/joining-info.component.html" />
-        <option value="$PROJECT_DIR$/frontend/src/index.html" />
-        <option value="$PROJECT_DIR$/frontend/src/app/app.component.css" />
-        <option value="$PROJECT_DIR$/frontend/src/app/components/company/company-info/company-info.component.css" />
-        <option value="$PROJECT_DIR$/frontend/src/app/components/company/other/other.component.ts" />
-        <option value="$PROJECT_DIR$/frontend/src/app/components/company/other/other.component.html" />
-        <option value="$PROJECT_DIR$/frontend/src/app/components/navbar/navbar.component.html" />
-        <option value="$PROJECT_DIR$/backend/app/Company.php" />
-        <option value="$PROJECT_DIR$/backend/app/Http/Controllers/AuthController.php" />
-        <option value="$PROJECT_DIR$/backend/app/EmployeeInfo.php" />
-        <option value="$PROJECT_DIR$/frontend/src/app/components/company/company-info/company-info.component.ts" />
-        <option value="$PROJECT_DIR$/frontend/src/app/components/company/company-info/company-info.component.html" />
-        <option value="$PROJECT_DIR$/frontend/src/app/app.component.html" />
-        <option value="$PROJECT_DIR$/backend/app/Department.php" />
-        <option value="$PROJECT_DIR$/frontend/src/app/model/company.model.ts" />
-        <option value="$PROJECT_DIR$/frontend/src/app/components/company/add-company/add-company.component.html" />
-        <option value="$PROJECT_DIR$/frontend/src/app/app.module.ts" />
-        <option value="$PROJECT_DIR$/frontend/src/app/components/login/login.component.html" />
-        <option value="$PROJECT_DIR$/frontend/src/app/services/token.service.ts" />
-        <option value="$PROJECT_DIR$/frontend/src/app/components/navbar/navbar.component.ts" />
-        <option value="$PROJECT_DIR$/frontend/src/app/services/guest.service.ts" />
-        <option value="$PROJECT_DIR$/backend/app/Http/Controllers/DepartmentController.php" />
-        <option value="$PROJECT_DIR$/frontend/src/app/components/user/add-employee/add-employee.component.ts" />
-        <option value="$PROJECT_DIR$/backend/app/Designation.php" />
-        <option value="$PROJECT_DIR$/backend/app/Http/Controllers/DesignationController.php" />
-        <option value="$PROJECT_DIR$/backend/app/EmployeeType.php" />
-        <option value="$PROJECT_DIR$/backend/app/Http/Controllers/EmployeeTypeController.php" />
-        <option value="$PROJECT_DIR$/frontend/src/app/components/login/login.component.ts" />
-        <option value="$PROJECT_DIR$/backend/app/Http/Controllers/EmployeeController.php" />
-        <option value="$PROJECT_DIR$/backend/routes/api.php" />
-        <option value="$PROJECT_DIR$/backend/app/Http/Controllers/CompanyController.php" />
-        <option value="$PROJECT_DIR$/frontend/src/app/components/company/add-company/add-company.component.ts" />
-        <option value="$PROJECT_DIR$/frontend/src/app/components/configuration/department/add-department/add-department.component.ts" />
-        <option value="$PROJECT_DIR$/frontend/src/app/model/designation.blade.php" />
-        <option value="$PROJECT_DIR$/frontend/src/app/model/designation.model.ts" />
-        <option value="$PROJECT_DIR$/frontend/src/app/components/configuration/department/add-department/add-department.component.html" />
-        <option value="$PROJECT_DIR$/frontend/src/app/components/configuration/designation/add-designaton/add-designaton.component.html" />
-        <option value="$PROJECT_DIR$/frontend/src/app/components/user/basic-info/basic-info.component.ts" />
-        <option value="$PROJECT_DIR$/frontend/src/app/components/user/basic-info/basic-info.component.html" />
-<<<<<<< HEAD
-        <option value="$PROJECT_DIR$/frontend/src/app/components/configuration/designation/add-designaton/add-designaton.component.ts" />
-=======
-        <option value="$PROJECT_DIR$/frontend/src/assets/css/style.css" />
-        <option value="$PROJECT_DIR$/frontend/src/app/components/user/add-employee/add-employee.component.html" />
-<<<<<<< HEAD
-        <option value="$PROJECT_DIR$/frontend/src/app/components/configuration/designation/add-designaton/add-designaton.component.ts" />
-        <option value="$PROJECT_DIR$/frontend/src/app/app-routing.module.ts" />
-        <option value="$PROJECT_DIR$/frontend/src/app/components/user/add-user/add-user.component.ts" />
-        <option value="$PROJECT_DIR$/frontend/src/app/components/user/add-user/add-user.component.html" />
-=======
->>>>>>> 81092e282efc879db206c6d4b5ebd44ae93ed02f
->>>>>>> 12a4db3d774fa9656109c08fc966e938109e06cf
+        <option value="$PROJECT_DIR$/backend/app/Http/Controllers/TestController.php" />
+        <option value="$PROJECT_DIR$/backend/resources/views/Excel/attendenceTestRumi.blade.php" />
+        <option value="$PROJECT_DIR$/backend/app/Http/Controllers/AttendanceController.php" />
       </list>
     </option>
   </component>
@@ -259,93 +151,98 @@
   </component>
   <component name="PhpWorkspaceProjectConfiguration" backward_compatibility_performed="true">
     <include_path>
-      <path value="$PROJECT_DIR$/backend/vendor/league/flysystem" />
-      <path value="$PROJECT_DIR$/backend/vendor/erusev/parsedown" />
-      <path value="$PROJECT_DIR$/backend/vendor/laravel/tinker" />
-      <path value="$PROJECT_DIR$/backend/vendor/laravel/framework" />
-      <path value="$PROJECT_DIR$/backend/vendor/nikic/php-parser" />
-      <path value="$PROJECT_DIR$/backend/vendor/doctrine/instantiator" />
-      <path value="$PROJECT_DIR$/backend/vendor/doctrine/inflector" />
-      <path value="$PROJECT_DIR$/backend/vendor/myclabs/deep-copy" />
-      <path value="$PROJECT_DIR$/backend/vendor/doctrine/lexer" />
-      <path value="$PROJECT_DIR$/backend/vendor/nesbot/carbon" />
-      <path value="$PROJECT_DIR$/backend/vendor/psr/simple-cache" />
-      <path value="$PROJECT_DIR$/backend/vendor/nunomaduro/collision" />
-      <path value="$PROJECT_DIR$/backend/vendor/phpdocumentor/reflection-docblock" />
-      <path value="$PROJECT_DIR$/backend/vendor/phpdocumentor/type-resolver" />
-      <path value="$PROJECT_DIR$/backend/vendor/psr/container" />
-      <path value="$PROJECT_DIR$/backend/vendor/phpdocumentor/reflection-common" />
-      <path value="$PROJECT_DIR$/backend/vendor/psr/log" />
-      <path value="$PROJECT_DIR$/backend/vendor/tymon/jwt-auth" />
-      <path value="$PROJECT_DIR$/backend/vendor/vlucas/phpdotenv" />
-      <path value="$PROJECT_DIR$/backend/vendor/dnoegel/php-xdg-base-dir" />
-      <path value="$PROJECT_DIR$/backend/vendor/swiftmailer/swiftmailer" />
-      <path value="$PROJECT_DIR$/backend/vendor/hamcrest/hamcrest-php" />
-      <path value="$PROJECT_DIR$/backend/vendor/psy/psysh" />
-      <path value="$PROJECT_DIR$/backend/vendor/egulias/email-validator" />
-      <path value="$PROJECT_DIR$/backend/vendor/namshi/jose" />
-      <path value="$PROJECT_DIR$/backend/vendor/fideloper/proxy" />
-      <path value="$PROJECT_DIR$/backend/vendor/monolog/monolog" />
-      <path value="$PROJECT_DIR$/backend/vendor/tijsverkoyen/css-to-inline-styles" />
-      <path value="$PROJECT_DIR$/backend/vendor/paragonie/random_compat" />
-      <path value="$PROJECT_DIR$/backend/vendor/dragonmantank/cron-expression" />
-      <path value="$PROJECT_DIR$/backend/vendor/lcobucci/jwt" />
-      <path value="$PROJECT_DIR$/backend/vendor/phar-io/manifest" />
-      <path value="$PROJECT_DIR$/backend/vendor/phar-io/version" />
-      <path value="$PROJECT_DIR$/backend/vendor/filp/whoops" />
-      <path value="$PROJECT_DIR$/backend/vendor/phpunit/php-timer" />
-      <path value="$PROJECT_DIR$/backend/vendor/sebastian/recursion-context" />
-      <path value="$PROJECT_DIR$/backend/vendor/phpunit/php-text-template" />
-      <path value="$PROJECT_DIR$/backend/vendor/sebastian/object-enumerator" />
-      <path value="$PROJECT_DIR$/backend/vendor/phpunit/php-token-stream" />
-      <path value="$PROJECT_DIR$/backend/vendor/sebastian/object-reflector" />
-      <path value="$PROJECT_DIR$/backend/vendor/phpunit/php-code-coverage" />
-      <path value="$PROJECT_DIR$/backend/vendor/sebastian/resource-operations" />
-      <path value="$PROJECT_DIR$/backend/vendor/sebastian/global-state" />
-      <path value="$PROJECT_DIR$/backend/vendor/ramsey/uuid" />
-      <path value="$PROJECT_DIR$/backend/vendor/sebastian/comparator" />
-      <path value="$PROJECT_DIR$/backend/vendor/sebastian/environment" />
-      <path value="$PROJECT_DIR$/backend/vendor/phpunit/php-file-iterator" />
-      <path value="$PROJECT_DIR$/backend/vendor/sebastian/exporter" />
-      <path value="$PROJECT_DIR$/backend/vendor/symfony/polyfill-php56" />
-      <path value="$PROJECT_DIR$/backend/vendor/symfony/polyfill-util" />
-      <path value="$PROJECT_DIR$/backend/vendor/webmozart/assert" />
-      <path value="$PROJECT_DIR$/backend/vendor/symfony/var-dumper" />
-      <path value="$PROJECT_DIR$/backend/vendor/symfony/polyfill-php72" />
-      <path value="$PROJECT_DIR$/backend/vendor/phpunit/phpunit" />
-      <path value="$PROJECT_DIR$/backend/vendor/sebastian/code-unit-reverse-lookup" />
-      <path value="$PROJECT_DIR$/backend/vendor/symfony/console" />
-      <path value="$PROJECT_DIR$/backend/vendor/theseer/tokenizer" />
-      <path value="$PROJECT_DIR$/backend/vendor/sebastian/diff" />
-      <path value="$PROJECT_DIR$/backend/vendor/symfony/process" />
-      <path value="$PROJECT_DIR$/backend/vendor/sebastian/version" />
-      <path value="$PROJECT_DIR$/backend/vendor/mockery/mockery" />
-      <path value="$PROJECT_DIR$/backend/vendor/symfony/debug" />
-      <path value="$PROJECT_DIR$/backend/vendor/symfony/event-dispatcher" />
-      <path value="$PROJECT_DIR$/backend/vendor/symfony/polyfill-ctype" />
-      <path value="$PROJECT_DIR$/backend/vendor/symfony/translation" />
-      <path value="$PROJECT_DIR$/backend/vendor/fzaninotto/faker" />
-      <path value="$PROJECT_DIR$/backend/vendor/symfony/polyfill-mbstring" />
-      <path value="$PROJECT_DIR$/backend/vendor/symfony/http-kernel" />
-      <path value="$PROJECT_DIR$/backend/vendor/symfony/finder" />
-      <path value="$PROJECT_DIR$/backend/vendor/phpspec/prophecy" />
       <path value="$PROJECT_DIR$/backend/vendor/symfony/routing" />
-      <path value="$PROJECT_DIR$/backend/vendor/jakub-onderka/php-console-highlighter" />
-      <path value="$PROJECT_DIR$/backend/vendor/symfony/css-selector" />
-      <path value="$PROJECT_DIR$/backend/vendor/jakub-onderka/php-console-color" />
-      <path value="$PROJECT_DIR$/backend/vendor/composer" />
+      <path value="$PROJECT_DIR$/backend/vendor/symfony/translation" />
+      <path value="$PROJECT_DIR$/backend/vendor/asm89/stack-cors" />
+      <path value="$PROJECT_DIR$/backend/vendor/symfony/polyfill-util" />
+      <path value="$PROJECT_DIR$/backend/vendor/symfony/process" />
+      <path value="$PROJECT_DIR$/backend/vendor/symfony/polyfill-php56" />
+      <path value="$PROJECT_DIR$/backend/vendor/symfony/polyfill-php72" />
+      <path value="$PROJECT_DIR$/backend/vendor/symfony/polyfill-ctype" />
+      <path value="$PROJECT_DIR$/backend/vendor/symfony/polyfill-mbstring" />
       <path value="$PROJECT_DIR$/backend/vendor/symfony/http-foundation" />
+      <path value="$PROJECT_DIR$/backend/vendor/symfony/http-kernel" />
+      <path value="$PROJECT_DIR$/backend/vendor/symfony/event-dispatcher" />
+      <path value="$PROJECT_DIR$/backend/vendor/symfony/finder" />
+      <path value="$PROJECT_DIR$/backend/vendor/symfony/css-selector" />
+      <path value="$PROJECT_DIR$/backend/vendor/symfony/debug" />
+      <path value="$PROJECT_DIR$/backend/vendor/symfony/console" />
+      <path value="$PROJECT_DIR$/backend/vendor/swiftmailer/swiftmailer" />
+      <path value="$PROJECT_DIR$/backend/vendor/sebastian/resource-operations" />
+      <path value="$PROJECT_DIR$/backend/vendor/sebastian/version" />
+      <path value="$PROJECT_DIR$/backend/vendor/sebastian/object-reflector" />
+      <path value="$PROJECT_DIR$/backend/vendor/sebastian/recursion-context" />
+      <path value="$PROJECT_DIR$/backend/vendor/sebastian/global-state" />
+      <path value="$PROJECT_DIR$/backend/vendor/sebastian/object-enumerator" />
+      <path value="$PROJECT_DIR$/backend/vendor/sebastian/environment" />
+      <path value="$PROJECT_DIR$/backend/vendor/sebastian/exporter" />
+      <path value="$PROJECT_DIR$/backend/vendor/sebastian/comparator" />
+      <path value="$PROJECT_DIR$/backend/vendor/sebastian/diff" />
+      <path value="$PROJECT_DIR$/backend/vendor/sebastian/code-unit-reverse-lookup" />
+      <path value="$PROJECT_DIR$/backend/vendor/ramsey/uuid" />
+      <path value="$PROJECT_DIR$/backend/vendor/composer" />
+      <path value="$PROJECT_DIR$/backend/vendor/psy/psysh" />
+      <path value="$PROJECT_DIR$/backend/vendor/psr/log" />
+      <path value="$PROJECT_DIR$/backend/vendor/psr/simple-cache" />
+      <path value="$PROJECT_DIR$/backend/vendor/psr/container" />
+      <path value="$PROJECT_DIR$/backend/vendor/phpunit/php-token-stream" />
+      <path value="$PROJECT_DIR$/backend/vendor/phpunit/phpunit" />
+      <path value="$PROJECT_DIR$/backend/vendor/phpunit/php-text-template" />
+      <path value="$PROJECT_DIR$/backend/vendor/phpunit/php-timer" />
+      <path value="$PROJECT_DIR$/backend/vendor/phpunit/php-code-coverage" />
+      <path value="$PROJECT_DIR$/backend/vendor/phpunit/php-file-iterator" />
+      <path value="$PROJECT_DIR$/backend/vendor/phpspec/prophecy" />
+      <path value="$PROJECT_DIR$/backend/vendor/phpdocumentor/type-resolver" />
+      <path value="$PROJECT_DIR$/backend/vendor/phpdocumentor/reflection-common" />
+      <path value="$PROJECT_DIR$/backend/vendor/phpdocumentor/reflection-docblock" />
+      <path value="$PROJECT_DIR$/backend/vendor/phar-io/version" />
+      <path value="$PROJECT_DIR$/backend/vendor/phar-io/manifest" />
+      <path value="$PROJECT_DIR$/backend/vendor/paragonie/random_compat" />
+      <path value="$PROJECT_DIR$/backend/vendor/nunomaduro/collision" />
+      <path value="$PROJECT_DIR$/backend/vendor/nikic/php-parser" />
+      <path value="$PROJECT_DIR$/backend/vendor/nesbot/carbon" />
+      <path value="$PROJECT_DIR$/backend/vendor/namshi/jose" />
+      <path value="$PROJECT_DIR$/backend/vendor/myclabs/deep-copy" />
+      <path value="$PROJECT_DIR$/backend/vendor/monolog/monolog" />
+      <path value="$PROJECT_DIR$/backend/vendor/mockery/mockery" />
+      <path value="$PROJECT_DIR$/backend/vendor/league/flysystem" />
+      <path value="$PROJECT_DIR$/backend/vendor/lcobucci/jwt" />
+      <path value="$PROJECT_DIR$/backend/vendor/laravel/framework" />
+      <path value="$PROJECT_DIR$/backend/vendor/laravel/tinker" />
+      <path value="$PROJECT_DIR$/backend/vendor/jakub-onderka/php-console-highlighter" />
+      <path value="$PROJECT_DIR$/backend/vendor/jakub-onderka/php-console-color" />
+      <path value="$PROJECT_DIR$/backend/vendor/hamcrest/hamcrest-php" />
+      <path value="$PROJECT_DIR$/backend/vendor/fzaninotto/faker" />
+      <path value="$PROJECT_DIR$/backend/vendor/filp/whoops" />
+      <path value="$PROJECT_DIR$/backend/vendor/fideloper/proxy" />
+      <path value="$PROJECT_DIR$/backend/vendor/symfony/contracts" />
+      <path value="$PROJECT_DIR$/backend/vendor/erusev/parsedown" />
+      <path value="$PROJECT_DIR$/backend/vendor/egulias/email-validator" />
+      <path value="$PROJECT_DIR$/backend/vendor/phpoffice/phpexcel" />
+      <path value="$PROJECT_DIR$/backend/vendor/dragonmantank/cron-expression" />
+      <path value="$PROJECT_DIR$/backend/vendor/doctrine/instantiator" />
+      <path value="$PROJECT_DIR$/backend/vendor/doctrine/lexer" />
+      <path value="$PROJECT_DIR$/backend/vendor/doctrine/inflector" />
+      <path value="$PROJECT_DIR$/backend/vendor/jeremeamia/SuperClosure" />
+      <path value="$PROJECT_DIR$/backend/vendor/dnoegel/php-xdg-base-dir" />
+      <path value="$PROJECT_DIR$/backend/vendor/webmozart/assert" />
+      <path value="$PROJECT_DIR$/backend/vendor/vlucas/phpdotenv" />
+      <path value="$PROJECT_DIR$/backend/vendor/tymon/jwt-auth" />
+      <path value="$PROJECT_DIR$/backend/vendor/tijsverkoyen/css-to-inline-styles" />
+      <path value="$PROJECT_DIR$/backend/vendor/yajra/laravel-datatables-oracle" />
+      <path value="$PROJECT_DIR$/backend/vendor/barryvdh/laravel-cors" />
+      <path value="$PROJECT_DIR$/backend/vendor/theseer/tokenizer" />
+      <path value="$PROJECT_DIR$/backend/vendor/maatwebsite/excel" />
+      <path value="$PROJECT_DIR$/backend/vendor/symfony/var-dumper" />
     </include_path>
   </component>
   <component name="ProjectFrameBounds">
     <option name="x" value="-8" />
-<<<<<<< HEAD
-=======
     <option name="y" value="-8" />
->>>>>>> 12a4db3d774fa9656109c08fc966e938109e06cf
-    <option name="width" value="1932" />
-    <option name="height" value="1092" />
+    <option name="width" value="1936" />
+    <option name="height" value="1056" />
   </component>
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
     <navigator currentView="ProjectPane" proportions="" version="1">
       <flattenPackages />
@@ -361,13 +258,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-<<<<<<< HEAD
-      <pane id="Scope" />
-      <pane id="Scratches" />
-=======
-      <pane id="Scratches" />
-      <pane id="Scope" />
->>>>>>> 12a4db3d774fa9656109c08fc966e938109e06cf
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -390,7 +280,7 @@
               <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="frontend" />
+              <option name="myItemId" value="backend" />
               <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
           </PATH>
@@ -404,29 +294,7 @@
               <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="frontend" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="hrsolution" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="hrsolution" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="frontend" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
+              <option name="myItemId" value="backend" />
               <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
@@ -444,11 +312,7 @@
               <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="frontend" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
+              <option name="myItemId" value="backend" />
               <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
@@ -456,11 +320,7 @@
               <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="components" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="user" />
+              <option name="myItemId" value="Http" />
               <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
           </PATH>
@@ -474,11 +334,7 @@
               <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="frontend" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
+              <option name="myItemId" value="backend" />
               <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
@@ -486,108 +342,24 @@
               <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="components" />
+              <option name="myItemId" value="Http" />
               <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="user" />
+              <option name="myItemId" value="Controllers" />
               <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="add-user" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="hrsolution" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="hrsolution" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="frontend" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="app" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="components" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-<<<<<<< HEAD
-=======
-            <PATH_ELEMENT>
-<<<<<<< HEAD
-              <option name="myItemId" value="configuration" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="designation" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="add-designaton" />
-=======
-              <option name="myItemId" value="navbar" />
->>>>>>> 81092e282efc879db206c6d4b5ebd44ae93ed02f
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
->>>>>>> 12a4db3d774fa9656109c08fc966e938109e06cf
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="hrsolution" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="hrsolution" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-<<<<<<< HEAD
-            <PATH_ELEMENT>
-              <option name="myItemId" value="frontend" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="app" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="components" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="configuration" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-=======
->>>>>>> 81092e282efc879db206c6d4b5ebd44ae93ed02f
           </PATH>
         </subPane>
       </pane>
+      <pane id="Scratches" />
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="js-jscs-nodeInterpreter" value="C:\Program Files\nodejs\node.exe" />
-    <property name="js.eslint.eslintPackage" value="" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
-    <property name="nodejs_interpreter_path" value="C:/Program Files/nodejs/node" />
-    <property name="settings.editor.selected.configurable" value="reference.settingsdialog.IDE.editor.colors.Font" />
-    <property name="ts.external.directory.path" value="D:\xampp\htdocs\hrsolution\frontend\node_modules\typescript\lib" />
+    <property name="ts.external.directory.path" value="C:\xampp\htdocs\hrsolution\frontend\node_modules\typescript\lib" />
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -601,64 +373,6 @@
       </list>
     </option>
   </component>
-  <component name="RunManager">
-    <configuration default="true" type="JavaScriptTestRunnerProtractor" factoryName="Protractor">
-      <config-file value="" />
-      <node-interpreter value="project" />
-      <envs />
-      <method />
-    </configuration>
-    <configuration default="true" type="JavascriptDebugType" factoryName="JavaScript Debug">
-      <method />
-    </configuration>
-    <configuration default="true" type="NodeJSConfigurationType" factoryName="Node.js" path-to-node="project" working-dir="">
-      <method />
-    </configuration>
-    <configuration default="true" type="PHPUnitRunConfigurationType" factoryName="PHPUnit">
-      <TestRunner />
-      <method />
-    </configuration>
-    <configuration default="true" type="PhpBehatConfigurationType" factoryName="Behat">
-      <BehatRunner />
-      <method />
-    </configuration>
-    <configuration default="true" type="PhpLocalRunConfigurationType" factoryName="PHP Console">
-      <method />
-    </configuration>
-    <configuration default="true" type="PhpSpecConfigurationType" factoryName="PHPSpec">
-      <PhpTestRunnerSettings />
-      <method />
-    </configuration>
-    <configuration default="true" type="js.build_tools.gulp" factoryName="Gulp.js">
-      <node-interpreter>project</node-interpreter>
-      <node-options />
-      <gulpfile />
-      <tasks />
-      <arguments />
-      <envs />
-      <method />
-    </configuration>
-    <configuration default="true" type="js.build_tools.npm" factoryName="npm">
-      <command value="run" />
-      <scripts />
-      <node-interpreter value="project" />
-      <envs />
-      <method />
-    </configuration>
-    <configuration default="true" type="mocha-javascript-test-runner" factoryName="Mocha">
-      <node-interpreter>project</node-interpreter>
-      <node-options />
-      <working-directory />
-      <pass-parent-env>true</pass-parent-env>
-      <envs />
-      <ui />
-      <extra-mocha-options />
-      <test-kind>DIRECTORY</test-kind>
-      <test-directory />
-      <recursive>false</recursive>
-      <method />
-    </configuration>
-  </component>
   <component name="ShelveChangesManager" show_recycled="false">
     <option name="remove_strategy" value="false" />
   </component>
@@ -667,82 +381,43 @@
   </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="f68e167a-90ee-4c65-9adb-0a9c68de77b2" name="Default" comment="" />
-      <created>1530333545239</created>
+      <changelist id="57b232db-10b9-4489-a96b-8ca7facb58c3" name="Default" comment="" />
+      <created>1561302983711</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1530333545239</updated>
-      <workItem from="1530333546653" duration="1534000" />
-      <workItem from="1530336110234" duration="9274000" />
-      <workItem from="1530526183744" duration="2661000" />
-      <workItem from="1530592307639" duration="19294000" />
-      <workItem from="1530676451079" duration="21000" />
-      <workItem from="1530682764439" duration="17271000" />
-      <workItem from="1530773994382" duration="11759000" />
-      <workItem from="1530853185637" duration="1520000" />
-      <workItem from="1530864125907" duration="12000" />
-      <workItem from="1530937169225" duration="16725000" />
-      <workItem from="1531021367098" duration="3789000" />
-<<<<<<< HEAD
-      <workItem from="1531110207505" duration="22345000" />
-      <workItem from="1531221643263" duration="669000" />
-      <workItem from="1531287499941" duration="43000" />
-      <workItem from="1531298461909" duration="1619000" />
-      <workItem from="1531391931476" duration="1547000" />
-=======
-<<<<<<< HEAD
-      <workItem from="1531110207505" duration="19861000" />
-      <workItem from="1531137300650" duration="265000" />
-=======
-      <workItem from="1531110207505" duration="21750000" />
->>>>>>> 81092e282efc879db206c6d4b5ebd44ae93ed02f
->>>>>>> 12a4db3d774fa9656109c08fc966e938109e06cf
+      <updated>1561302983711</updated>
+      <workItem from="1561302990857" duration="821000" />
+      <workItem from="1561558570537" duration="63000" />
+      <workItem from="1561566506576" duration="17000" />
+      <workItem from="1561663216031" duration="4959000" />
+      <workItem from="1561699729241" duration="791000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-<<<<<<< HEAD
-    <option name="totallyTimeSpent" value="110083000" />
+    <option name="totallyTimeSpent" value="6651000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="0" width="1932" height="1092" extended-state="0" />
+    <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info id="TypeScript" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3294979" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
-=======
-<<<<<<< HEAD
-    <option name="totallyTimeSpent" value="103986000" />
-  </component>
-  <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1932" height="1092" extended-state="0" />
-=======
-    <option name="totallyTimeSpent" value="105610000" />
-  </component>
-  <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1936" height="1096" extended-state="6" />
->>>>>>> 81092e282efc879db206c6d4b5ebd44ae93ed02f
-    <editor active="true" />
-    <layout>
-      <window_info id="TypeScript" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32892057" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
->>>>>>> 12a4db3d774fa9656109c08fc966e938109e06cf
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.24947807" sideWeight="0.5" order="1" side_tool="false" content_ui="combo" />
-      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="true" content_ui="tabs" />
-      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="true" content_ui="tabs" />
-      <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
-      <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
-      <window_info id="NativeScript" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="3" side_tool="false" content_ui="combo" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="true" content_ui="tabs" />
+      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="true" content_ui="tabs" />
+      <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -752,483 +427,170 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="javascript">
-          <url>file://$PROJECT_DIR$/frontend/src/app/app.component.ts</url>
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="javascript">
-          <url>file://$PROJECT_DIR$/frontend/src/app/components/company/company-info/company-info.component.ts</url>
-          <option name="timeStamp" value="1" />
-        </line-breakpoint>
-      </breakpoints>
-      <option name="time" value="2" />
-    </breakpoint-manager>
+    <breakpoint-manager />
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/frontend/src/app/components/user/salary-info/salary-info.component.html">
+    <entry file="file://$PROJECT_DIR$/backend/app/Http/Controllers/TestController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="88">
-          <caret line="4" column="0" lean-forward="true" selection-start-line="4" selection-start-column="0" selection-end-line="4" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/frontend/src/app/components/user/joining-info/joining-info.component.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="632">
-          <caret line="47" column="12" lean-forward="true" selection-start-line="47" selection-start-column="12" selection-end-line="47" selection-end-column="12" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/frontend/src/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="364">
-          <caret line="40" column="0" lean-forward="false" selection-start-line="40" selection-start-column="0" selection-end-line="40" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/frontend/src/app/app.component.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="220">
-          <caret line="11" column="20" lean-forward="false" selection-start-line="11" selection-start-column="20" selection-end-line="11" selection-end-column="20" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/frontend/src/app/components/company/other/other.component.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="66">
-          <caret line="3" column="24" lean-forward="false" selection-start-line="3" selection-start-column="17" selection-end-line="3" selection-end-column="24" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/backend/app/Company.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="216">
-          <caret line="8" column="3" lean-forward="true" selection-start-line="8" selection-start-column="3" selection-end-line="10" selection-end-column="44" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/frontend/src/app/components/company/company-info/company-info.component.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="324">
-          <caret line="12" column="10" lean-forward="true" selection-start-line="12" selection-start-column="10" selection-end-line="12" selection-end-column="10" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/frontend/src/app/components/company/add-company/add-company.component.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="378">
-          <caret line="32" column="14" lean-forward="true" selection-start-line="32" selection-start-column="14" selection-end-line="32" selection-end-column="14" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/frontend/src/app/app.module.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="646">
-          <caret line="56" column="4" lean-forward="false" selection-start-line="56" selection-start-column="4" selection-end-line="56" selection-end-column="4" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/frontend/src/app/services/token.service.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="400">
-          <caret line="18" column="21" lean-forward="false" selection-start-line="18" selection-start-column="21" selection-end-line="18" selection-end-column="21" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/backend/app/Http/Controllers/AuthController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="350">
-          <caret line="16" column="4" lean-forward="false" selection-start-line="16" selection-start-column="4" selection-end-line="19" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/frontend/src/app/services/auth.service.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="513">
-          <caret line="22" column="5" lean-forward="false" selection-start-line="13" selection-start-column="3" selection-end-line="22" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/frontend/src/app/services/guest.service.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="378">
-          <caret line="28" column="0" lean-forward="false" selection-start-line="28" selection-start-column="0" selection-end-line="28" selection-end-column="0" />
-<<<<<<< HEAD
-=======
-          <folding>
-            <element signature="e#0#43#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/frontend/src/app/app-routing.module.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="351">
-          <caret line="24" column="2" lean-forward="false" selection-start-line="24" selection-start-column="2" selection-end-line="24" selection-end-column="2" />
-          <folding />
->>>>>>> 12a4db3d774fa9656109c08fc966e938109e06cf
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/backend/app/Http/Controllers/DepartmentController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="297">
-          <caret line="11" column="28" lean-forward="false" selection-start-line="11" selection-start-column="28" selection-end-line="11" selection-end-column="28" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/backend/app/Designation.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="270">
-          <caret line="10" column="39" lean-forward="false" selection-start-line="10" selection-start-column="39" selection-end-line="10" selection-end-column="39" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/backend/app/Department.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="189">
-          <caret line="7" column="1" lean-forward="true" selection-start-line="7" selection-start-column="1" selection-end-line="7" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/backend/app/Http/Controllers/DesignationController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="243">
-          <caret line="9" column="26" lean-forward="true" selection-start-line="9" selection-start-column="26" selection-end-line="9" selection-end-column="26" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/backend/app/EmployeeInfo.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="216">
-          <caret line="8" column="1" lean-forward="false" selection-start-line="8" selection-start-column="1" selection-end-line="10" selection-end-column="38" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/backend/app/EmployeeType.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="243">
-          <caret line="9" column="33" lean-forward="true" selection-start-line="9" selection-start-column="33" selection-end-line="9" selection-end-column="33" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/backend/app/Http/Controllers/EmployeeTypeController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="324">
-          <caret line="12" column="8" lean-forward="false" selection-start-line="12" selection-start-column="8" selection-end-line="12" selection-end-column="8" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/frontend/src/app/components/login/login.component.spec.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/frontend/src/app/components/login/login.component.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="297">
-          <caret line="26" column="116" lean-forward="true" selection-start-line="26" selection-start-column="116" selection-end-line="26" selection-end-column="116" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/frontend/src/app/components/login/login.component.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="604">
-          <caret line="37" column="12" lean-forward="false" selection-start-line="37" selection-start-column="12" selection-end-line="37" selection-end-column="12" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/frontend/src/app/components/company/company-info/company-info.component.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="270">
-          <caret line="11" column="20" lean-forward="false" selection-start-line="11" selection-start-column="20" selection-end-line="11" selection-end-column="20" />
+        <state relative-caret-position="6248">
+          <caret line="299" column="0" lean-forward="true" selection-start-line="298" selection-start-column="0" selection-end-line="299" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/frontend/src/app/components/home/home.component.html">
+    <entry file="file://$PROJECT_DIR$/backend/resources/views/Excel/attendence.blade.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/frontend/src/app/components/home/home.component.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/frontend/src/app/components/company/other/other.component.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="486">
-          <caret line="18" column="0" lean-forward="true" selection-start-line="18" selection-start-column="0" selection-end-line="18" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/frontend/src/app/app.component.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="162">
-          <caret line="6" column="24" lean-forward="true" selection-start-line="6" selection-start-column="24" selection-end-line="6" selection-end-column="24" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/frontend/src/app/components/user/personal-info/personal-info.component.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1862">
-          <caret line="4" column="0" lean-forward="true" selection-start-line="4" selection-start-column="0" selection-end-line="4" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/backend/app/Http/Controllers/EmployeeController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="216">
-          <caret line="8" column="34" lean-forward="false" selection-start-line="8" selection-start-column="20" selection-end-line="8" selection-end-column="34" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/backend/routes/api.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="676">
-          <caret line="54" column="17" lean-forward="false" selection-start-line="54" selection-start-column="17" selection-end-line="54" selection-end-column="31" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/backend/app/Http/Controllers/CompanyController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="297">
-          <caret line="13" column="5" lean-forward="true" selection-start-line="13" selection-start-column="5" selection-end-line="13" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/frontend/src/app/components/navbar/navbar.component.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="204">
-          <caret line="50" column="4" lean-forward="false" selection-start-line="50" selection-start-column="4" selection-end-line="50" selection-end-column="33" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/frontend/src/app/components/user/bank-info/bank-info.component.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="27">
-          <caret line="1" column="29" lean-forward="true" selection-start-line="1" selection-start-column="29" selection-end-line="1" selection-end-column="29" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/frontend/src/app/components/user/add-employee/add-employee.component.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="270">
-          <caret line="10" column="0" lean-forward="false" selection-start-line="10" selection-start-column="0" selection-end-line="10" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/frontend/src/app/components/user/bank-info/bank-info.component.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="81">
-          <caret line="3" column="26" lean-forward="false" selection-start-line="3" selection-start-column="13" selection-end-line="3" selection-end-column="26" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/frontend/src/app/model/company.model.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="351">
-          <caret line="13" column="1" lean-forward="true" selection-start-line="13" selection-start-column="1" selection-end-line="13" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/frontend/src/app/components/configuration/department/add-department/add-department.component.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="918">
-          <caret line="34" column="17" lean-forward="true" selection-start-line="34" selection-start-column="17" selection-end-line="34" selection-end-column="17" />
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/frontend/src/app/components/user/add-employee/add-employee.component.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="234">
-          <caret line="13" column="10" lean-forward="false" selection-start-line="13" selection-start-column="10" selection-end-line="13" selection-end-column="10" />
+        <state relative-caret-position="2090">
+          <caret line="95" column="22" lean-forward="false" selection-start-line="95" selection-start-column="18" selection-end-line="95" selection-end-column="22" />
           <folding />
         </state>
       </provider>
     </entry>
-=======
+    <entry file="file://$PROJECT_DIR$/backend/resources/views/Excel/attendenceTestRumi.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/backend/app/Http/Controllers/AttendanceController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="5192">
+          <caret line="236" column="22" lean-forward="true" selection-start-line="236" selection-start-column="22" selection-end-line="236" selection-end-column="22" />
           <folding>
-            <element signature="e#0#55#0" expanded="false" />
+            <marker date="1561700525253" expanded="true" signature="738:2897" ph="select a.emp... id" />
+            <marker date="1561700525253" expanded="true" signature="1087:2814" ph="select ad.id... attendancedata" />
+            <marker date="1561700525253" expanded="true" signature="3050:5215" ph="select a.emp... id" />
+            <marker date="1561700525253" expanded="true" signature="3399:5132" ph="select ad.id... attendancedata" />
+            <marker date="1561700525253" expanded="true" signature="9623:10745" ph="select em.em... attendancedata" />
+            <marker date="1561700525253" expanded="true" signature="10890:12063" ph="select em.em... attendancedata" />
+            <marker date="1561700525253" expanded="true" signature="14597:16097" ph="select ad.id... attendancedata" />
+            <marker date="1561700525253" expanded="true" signature="17515:18058" ph="select count... attendancedata" />
+            <marker date="1561700525253" expanded="true" signature="18113:18636" ph="select count... attendancedata" />
+            <marker date="1561700525253" expanded="true" signature="18687:19835" ph="select count... id" />
+            <marker date="1561700525253" expanded="true" signature="18734:19801" ph="select ad.id... attendancedata" />
+            <marker date="1561700525253" expanded="true" signature="19887:21035" ph="select count... id" />
+            <marker date="1561700525253" expanded="true" signature="19934:21001" ph="select ad.id... attendancedata" />
+            <marker date="1561700525253" expanded="true" signature="22345:23030" ph="SELECT * FRO... attemployeemap" />
+            <marker date="1561700525253" expanded="true" signature="22674:22855" ph="SELECT * FRO... attendancedata" />
+            <marker date="1561700525253" expanded="true" signature="22889:23028" ph="SELECT * FRO... hrmleaves" />
+            <marker date="1561700525253" expanded="true" signature="23116:23692" ph="SELECT * FRO... attemployeemap" />
+            <marker date="1561700525253" expanded="true" signature="23443:23524" ph="SELECT * FRO... attendancedata" />
+            <marker date="1561700525253" expanded="true" signature="23588:23690" ph="SELECT * FRO... hrmleaves" />
+            <marker date="1561700525253" expanded="true" signature="24541:25022" ph="select count... attendancedata" />
+            <marker date="1561700525253" expanded="true" signature="25484:26632" ph="select count... id" />
+            <marker date="1561700525253" expanded="true" signature="25531:26598" ph="select ad.id... attendancedata" />
+            <marker date="1561700525253" expanded="true" signature="26703:27235" ph="SELECT first... attemployeemap" />
+            <marker date="1561700525253" expanded="true" signature="26953:27034" ph="SELECT * FRO... attendancedata" />
+            <marker date="1561700525253" expanded="true" signature="27097:27234" ph="SELECT * FRO... hrmleaves" />
+            <marker date="1561700525253" expanded="true" signature="28901:29382" ph="select count... attendancedata" />
+            <marker date="1561700525253" expanded="true" signature="29805:30953" ph="select count... id" />
+            <marker date="1561700525253" expanded="true" signature="29852:30919" ph="select ad.id... attendancedata" />
+            <marker date="1561700525253" expanded="true" signature="31022:31530" ph="SELECT * FRO... attemployeemap" />
+            <marker date="1561700525253" expanded="true" signature="31244:31325" ph="SELECT * FRO... attendancedata" />
+            <marker date="1561700525253" expanded="true" signature="31389:31528" ph="SELECT * FRO... hrmleaves" />
+            <marker date="1561700525253" expanded="true" signature="32065:32545" ph="select count... attendancedata" />
+            <marker date="1561700525253" expanded="true" signature="32969:34116" ph="select count... id" />
+            <marker date="1561700525253" expanded="true" signature="33016:34082" ph="select ad.id... attendancedata" />
+            <marker date="1561700525253" expanded="true" signature="34186:34694" ph="SELECT * FRO... attemployeemap" />
+            <marker date="1561700525253" expanded="true" signature="34408:34489" ph="SELECT * FRO... attendancedata" />
+            <marker date="1561700525253" expanded="true" signature="34553:34692" ph="SELECT * FRO... hrmleaves" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/frontend/src/app/components/configuration/designation/add-designaton/add-designaton.component.ts">
+    <entry file="file://$PROJECT_DIR$/backend/routes/web.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="167">
-          <caret line="17" column="0" lean-forward="true" selection-start-line="17" selection-start-column="0" selection-end-line="17" selection-end-column="0" />
-          <folding>
-            <element signature="e#0#50#0" expanded="true" />
-          </folding>
->>>>>>> 12a4db3d774fa9656109c08fc966e938109e06cf
-        </state>
-      </provider>
-    </entry>
->>>>>>> 81092e282efc879db206c6d4b5ebd44ae93ed02f
-    <entry file="file://$PROJECT_DIR$/frontend/src/app/model/designation.model.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="135">
-          <caret line="5" column="19" lean-forward="true" selection-start-line="5" selection-start-column="19" selection-end-line="5" selection-end-column="19" />
+        <state relative-caret-position="308">
+          <caret line="23" column="21" lean-forward="false" selection-start-line="23" selection-start-column="12" selection-end-line="23" selection-end-column="21" />
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/frontend/src/app/components/company/add-company/add-company.component.ts">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="459">
-          <caret line="29" column="22" lean-forward="false" selection-start-line="29" selection-start-column="17" selection-end-line="29" selection-end-column="22" />
+        <state relative-caret-position="1445">
+          <caret line="85" column="40" lean-forward="false" selection-start-line="85" selection-start-column="28" selection-end-line="85" selection-end-column="40" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/frontend/src/app/components/configuration/department/add-department/add-department.component.html">
+    <entry file="file://$PROJECT_DIR$/backend/routes/web.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="243">
-          <caret line="9" column="136" lean-forward="true" selection-start-line="9" selection-start-column="136" selection-end-line="9" selection-end-column="138" />
-        </state>
-      </provider>
-    </entry>
-<<<<<<< HEAD
-    <entry file="file://$PROJECT_DIR$/frontend/src/app/components/configuration/designation/add-designaton/add-designaton.component.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="522">
-          <caret line="29" column="53" lean-forward="false" selection-start-line="29" selection-start-column="46" selection-end-line="29" selection-end-column="53" />
+        <state relative-caret-position="308">
+          <caret line="23" column="21" lean-forward="false" selection-start-line="23" selection-start-column="12" selection-end-line="23" selection-end-column="21" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/frontend/src/app/components/user/basic-info/basic-info.component.spec.ts">
+    <entry file="file://$PROJECT_DIR$/backend/resources/views/Excel/attendence.blade.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <element signature="e#0#73#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/frontend/src/app/components/user/basic-info/basic-info.component.ts">
-      <provider selected="true" editor-type-id="text-editor">
-<<<<<<< HEAD
-        <state relative-caret-position="2025">
-=======
-        <state relative-caret-position="1350">
->>>>>>> 12a4db3d774fa9656109c08fc966e938109e06cf
-          <caret line="77" column="42" lean-forward="false" selection-start-line="77" selection-start-column="42" selection-end-line="77" selection-end-column="42" />
+        <state relative-caret-position="2090">
+          <caret line="95" column="22" lean-forward="false" selection-start-line="95" selection-start-column="18" selection-end-line="95" selection-end-column="22" />
           <folding />
         </state>
       </provider>
     </entry>
-=======
->>>>>>> 81092e282efc879db206c6d4b5ebd44ae93ed02f
-    <entry file="file://$PROJECT_DIR$/frontend/src/app/components/user/basic-info/basic-info.component.html">
+    <entry file="file://$PROJECT_DIR$/backend/app/Http/Controllers/TestController.php">
       <provider selected="true" editor-type-id="text-editor">
-<<<<<<< HEAD
-        <state relative-caret-position="243">
-          <caret line="9" column="136" lean-forward="true" selection-start-line="9" selection-start-column="136" selection-end-line="9" selection-end-column="138" />
-=======
-        <state relative-caret-position="1098">
-          <caret line="61" column="22" lean-forward="false" selection-start-line="61" selection-start-column="22" selection-end-line="61" selection-end-column="22" />
-          <folding />
->>>>>>> 12a4db3d774fa9656109c08fc966e938109e06cf
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/frontend/src/app/components/configuration/designation/add-designaton/add-designaton.component.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="432">
-          <caret line="40" column="13" lean-forward="false" selection-start-line="40" selection-start-column="13" selection-end-line="40" selection-end-column="13" />
-          <folding>
-            <element signature="e#0#50#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/frontend/src/assets/css/style.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="349">
-          <caret line="630" column="24" lean-forward="false" selection-start-line="630" selection-start-column="24" selection-end-line="630" selection-end-column="24" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/frontend/src/app/components/configuration/designation/add-designaton/add-designaton.component.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="783">
-          <caret line="29" column="53" lean-forward="false" selection-start-line="29" selection-start-column="46" selection-end-line="29" selection-end-column="53" />
-          <folding>
-            <element signature="n#style#0;n#button#0;n#td#4;n#tr#0;n#tbody#0;n#table#0;n#div#0;n#div#1;n#div#0;n#!!top" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/frontend/src/app/components/user/add-employee/add-employee.component.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="648">
-          <caret line="24" column="8" lean-forward="false" selection-start-line="24" selection-start-column="8" selection-end-line="24" selection-end-column="8" />
-          <folding>
-            <element signature="n#style#0;n#button#0;n#li#0;n#ul#0;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#button#0;n#li#1;n#ul#0;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#button#0;n#li#2;n#ul#0;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#button#0;n#li#3;n#ul#0;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#button#0;n#li#4;n#ul#0;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/frontend/src/app/app-routing.module.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="405">
-          <caret line="27" column="59" lean-forward="false" selection-start-line="27" selection-start-column="52" selection-end-line="27" selection-end-column="59" />
-          <folding>
-            <element signature="e#0#41#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/frontend/src/app/components/configuration/designation/add-designaton/add-designaton.component.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="577">
-          <caret line="40" column="18" lean-forward="false" selection-start-line="40" selection-start-column="18" selection-end-line="40" selection-end-column="18" />
-          <folding>
-            <element signature="e#0#50#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/frontend/src/app/components/navbar/navbar.component.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="838">
-          <caret line="157" column="10" lean-forward="false" selection-start-line="157" selection-start-column="10" selection-end-line="157" selection-end-column="10" />
+        <state relative-caret-position="6490">
+          <caret line="310" column="0" lean-forward="false" selection-start-line="310" selection-start-column="0" selection-end-line="310" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/frontend/src/app/components/user/add-user/add-user.component.ts">
+    <entry file="file://$PROJECT_DIR$/backend/resources/views/Excel/attendenceTestRumi.blade.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="81">
-          <caret line="3" column="0" lean-forward="false" selection-start-line="3" selection-start-column="0" selection-end-line="3" selection-end-column="0" />
-          <folding>
-            <element signature="e#0#50#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="1730">
+          <caret line="100" column="63" lean-forward="false" selection-start-line="100" selection-start-column="63" selection-end-line="100" selection-end-column="63" />
+          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/frontend/src/app/components/user/add-user/add-user.component.html">
+    <entry file="file://$PROJECT_DIR$/backend/app/Http/Controllers/AttendanceController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="true" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
+        <state relative-caret-position="-6836">
+          <caret line="110" column="47" lean-forward="false" selection-start-line="110" selection-start-column="39" selection-end-line="110" selection-end-column="47" />
+          <folding>
+            <marker date="1561700525253" expanded="true" signature="738:2897" ph="select a.emp... id" />
+            <marker date="1561700525253" expanded="true" signature="1087:2814" ph="select ad.id... attendancedata" />
+            <marker date="1561700525253" expanded="true" signature="3050:5215" ph="select a.emp... id" />
+            <marker date="1561700525253" expanded="true" signature="3399:5132" ph="select ad.id... attendancedata" />
+            <marker date="1561700525253" expanded="true" signature="9623:10745" ph="select em.em... attendancedata" />
+            <marker date="1561700525253" expanded="true" signature="10890:12063" ph="select em.em... attendancedata" />
+            <marker date="1561700525253" expanded="true" signature="14597:16097" ph="select ad.id... attendancedata" />
+            <marker date="1561700525253" expanded="true" signature="17515:18058" ph="select count... attendancedata" />
+            <marker date="1561700525253" expanded="true" signature="18113:18636" ph="select count... attendancedata" />
+            <marker date="1561700525253" expanded="true" signature="18687:19835" ph="select count... id" />
+            <marker date="1561700525253" expanded="true" signature="18734:19801" ph="select ad.id... attendancedata" />
+            <marker date="1561700525253" expanded="true" signature="19887:21035" ph="select count... id" />
+            <marker date="1561700525253" expanded="true" signature="19934:21001" ph="select ad.id... attendancedata" />
+            <marker date="1561700525253" expanded="true" signature="22345:23030" ph="SELECT * FRO... attemployeemap" />
+            <marker date="1561700525253" expanded="true" signature="22674:22855" ph="SELECT * FRO... attendancedata" />
+            <marker date="1561700525253" expanded="true" signature="22889:23028" ph="SELECT * FRO... hrmleaves" />
+            <marker date="1561700525253" expanded="true" signature="23116:23692" ph="SELECT * FRO... attemployeemap" />
+            <marker date="1561700525253" expanded="true" signature="23443:23524" ph="SELECT * FRO... attendancedata" />
+            <marker date="1561700525253" expanded="true" signature="23588:23690" ph="SELECT * FRO... hrmleaves" />
+            <marker date="1561700525253" expanded="true" signature="24541:25022" ph="select count... attendancedata" />
+            <marker date="1561700525253" expanded="true" signature="25484:26632" ph="select count... id" />
+            <marker date="1561700525253" expanded="true" signature="25531:26598" ph="select ad.id... attendancedata" />
+            <marker date="1561700525253" expanded="true" signature="26703:27235" ph="SELECT first... attemployeemap" />
+            <marker date="1561700525253" expanded="true" signature="26953:27034" ph="SELECT * FRO... attendancedata" />
+            <marker date="1561700525253" expanded="true" signature="27097:27234" ph="SELECT * FRO... hrmleaves" />
+            <marker date="1561700525253" expanded="true" signature="28901:29382" ph="select count... attendancedata" />
+            <marker date="1561700525253" expanded="true" signature="29805:30953" ph="select count... id" />
+            <marker date="1561700525253" expanded="true" signature="29852:30919" ph="select ad.id... attendancedata" />
+            <marker date="1561700525253" expanded="true" signature="31022:31530" ph="SELECT * FRO... attemployeemap" />
+            <marker date="1561700525253" expanded="true" signature="31244:31325" ph="SELECT * FRO... attendancedata" />
+            <marker date="1561700525253" expanded="true" signature="31389:31528" ph="SELECT * FRO... hrmleaves" />
+            <marker date="1561700525253" expanded="true" signature="32065:32545" ph="select count... attendancedata" />
+            <marker date="1561700525253" expanded="true" signature="32969:34116" ph="select count... id" />
+            <marker date="1561700525253" expanded="true" signature="33016:34082" ph="select ad.id... attendancedata" />
+            <marker date="1561700525253" expanded="true" signature="34186:34694" ph="SELECT * FRO... attemployeemap" />
+            <marker date="1561700525253" expanded="true" signature="34408:34489" ph="SELECT * FRO... attendancedata" />
+            <marker date="1561700525253" expanded="true" signature="34553:34692" ph="SELECT * FRO... hrmleaves" />
+          </folding>
         </state>
       </provider>
     </entry>

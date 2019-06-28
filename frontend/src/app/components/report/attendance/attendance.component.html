@@ -30,9 +30,9 @@
         <div class="form-group col-md-3">
           <br>
 
-          <button class="btn btn-info pull-right" (click)="generateDetailsExcel()">Generate Details Report</button>
+          <button class="btn btn-info pull-right" (click)="generateDetailsExcel()" *ngxPermissionsOnly="['admin']">Generate Details Report</button>
           &nbsp;
-          <button class="btn btn-secondary pull-right" (click)="generateExcel()">Generate Report</button>
+          <button class="btn btn-secondary pull-right" (click)="generateExcel()" *ngxPermissionsOnly="['admin']">Generate Report</button>
         </div>
 
       </div>

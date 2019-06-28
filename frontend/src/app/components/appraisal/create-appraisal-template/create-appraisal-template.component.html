@@ -6,18 +6,17 @@
         <div class="row">
           <div class="form-group col-md-12">
             <label>Template Name</label>
-            <input class="form-control" placeholder="enter template name">
+            <input class="form-control" placeholder="enter template name" name="formatName" [(ngModel)]="formateModel.formatName">
           </div>
           <div class="form-group col-md-6">
             <label>Template Version No</label>
-            <input class="form-control" placeholder="enter appraisal head">
+            <input class="form-control" placeholder="enter appraisal head" name="formVersionNo" [(ngModel)]="formateModel.formVersionNo">
           </div>
           <div class="form-group col-md-6">
             <label>Scale Version No</label>
-            <select class="form-control">
-              <option>1</option>
-              <option>2</option>
-              <option>3</option>
+            <select class="form-control" (change)="scalVersionDetails(this.selectedIndex)" id="markVersionNo" name="markVersionNo" [(ngModel)]="formateModel.markVersionNo">
+              <option *ngFor="let scal of appraisalScal;let i = index" >{{scal.versionNo}}</option>
+
             </select>
           </div>
 
@@ -39,22 +38,22 @@
                 <br *ngIf="data.s == true">
 
                 <label class="checkbox-inline" *ngIf="data.s == true">
-                  <input type="checkbox"  [(ngModel)]="headData[i].userSelf" (click)="innerCheck()"> UserSelf
+                  <input type="checkbox"  [(ngModel)]="headData[i].userSelf" ngDefaultControl> UserSelf
                 </label>
                 &nbsp;
                 &nbsp;
-                <label class="checkbox-inline" *ngIf="data.s == true" [(ngModel)]="headData[i].userSelf">
-                  <input type="checkbox"> Reporting Boss
+                <label class="checkbox-inline" *ngIf="data.s == true" >
+                  <input type="checkbox" [(ngModel)]="headData[i].reportingBoss" ngDefaultControl> Reporting Boss
                 </label>
                 &nbsp;
                 &nbsp;
-                <label class="checkbox-inline" *ngIf="data.s == true" [(ngModel)]="headData[i].reportingBoss">
-                  <input type="checkbox">Sub-Ordinates
+                <label class="checkbox-inline" *ngIf="data.s == true">
+                  <input type="checkbox"  [(ngModel)]="headData[i].subOrdinates" ngDefaultControl>Sub-Ordinates
                 </label>
                 &nbsp;
                 &nbsp;
-                <label class="checkbox-inline" *ngIf="data.s == true" [(ngModel)]="headData[i].subOrdinates">
-                  <input type="checkbox">Co-Worker
+                <label class="checkbox-inline" *ngIf="data.s == true" >
+                  <input type="checkbox" [(ngModel)]="headData[i].coWorker" ngDefaultControl>Co-Worker
                 </label>
 
 
@@ -63,19 +62,28 @@
               </td>
 
               <td>
-                <select class="form-control" [(ngModel)]="headData[i].action">
+                <select class="form-control" [(ngModel)]="headData[i].action" *ngIf="data.headType == 'NM'">
                   <option value="5">Excellent</option>
                   <option value="4">Good</option>
                   <option value="3">Average</option>
                   <option value="2">Below Average</option>
                   <option value="1">Poor</option>
                 </select>
+                <input type="text" placeholder="write something" class="form-control" [(ngModel)]="headData[i].action" *ngIf="data.headType == 'DS'">
+
+                <select class="form-control" [(ngModel)]="headData[i].action" *ngIf="data.headType == 'TF'">
+
+                  <option value="1">True</option>
+                  <option value="0">False</option>
+                </select>
               </td>
+
 
             </tr>
           </tbody>
         </table>
 
+        <button class="btn btn-sm btn-success" (click)="saveData()">Save Data</button>
 
       </div>
     </div>
@@ -85,11 +93,20 @@
     <div class="card">
       <div class="card-body">
         <h4 class="alert alert-info">Scale Points Details by version</h4>
+        Version No :{{formateModel.markVersionNo}}
         <table class="table table-bordered">
-          <tr>
-            <td>4</td>
-            <td>Strong</td>
+          <thead>
+          <th>Marks</th>
+          <th>Title</th>
+          </thead>
+          <tbody>
+          <tr *ngFor="let newdata of appraisalScalDetails;let i = index" >
+            <td>{{newdata.marks}}</td>
+            <td>{{newdata.title}}</td>
           </tr>
+          </tbody>
+
+
         </table>
 
         <h4 class="alert alert-info">Existing Templates</h4>
@@ -99,6 +116,13 @@
           <th>Version No</th>
           <th>Scale Version</th>
           </thead>
+          <tbody>
+          <tr *ngFor="let datas of existingTemplate;let i = index">
+            <td>{{datas.formatName}}</td>
+            <td>{{datas.formVersionNo}}</td>
+            <td>{{datas.markVersionNo}}</td>
+          </tr>
+          </tbody>
         </table>
 
 

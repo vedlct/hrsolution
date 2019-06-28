@@ -7,7 +7,11 @@
 /*! no static exports found */
 /***/ (function(module, exports) {
 
+<<<<<<< HEAD
 module.exports = "/* You can add global styles to this file, and also import other style files */\r\n\r\nlabel{\r\n    font-family: 'Arvo', serif;\r\n}\r\n"
+=======
+module.exports = "/* You can add global styles to this file, and also import other style files */\n\nlabel{\n    font-family: 'Arvo', serif;\n}\n"
+>>>>>>> 7b9afd0776836d7af25a4c8894755b43394a1818
 
 /***/ }),
 
@@ -539,7 +543,11 @@ if(false) {}
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
+<<<<<<< HEAD
 module.exports = __webpack_require__(/*! C:\xampp\htdocs\hrsolution\frontend\src\styles.css */"./src/styles.css");
+=======
+module.exports = __webpack_require__(/*! /opt/lampp/htdocs/hrsolution/frontend/src/styles.css */"./src/styles.css");
+>>>>>>> 7b9afd0776836d7af25a4c8894755b43394a1818
 
 
 /***/ })

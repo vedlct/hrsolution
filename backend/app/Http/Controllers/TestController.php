@@ -186,11 +186,18 @@ class TestController extends Controller
 
         $realEnd = new DateTime($end);
         $realEnd->add($interval);
+        $anotherFormat='l';
 
         $period = new \DatePeriod(new DateTime($start), $interval, $realEnd);
 
         foreach($period as $date) {
-            $array[] = $date->format($format);
+            $newArray=array(
+              'date'=>  $date->format($format),
+                'day'=>$date->format($anotherFormat),
+            );
+            array_push($array,$newArray);
+//            $array['date'] = $date->format($format);
+//            $array['day'] = $date->format($anotherFormat);
         }
 
         return $array;
@@ -214,18 +221,22 @@ class TestController extends Controller
 //            ->get();
 
 
-       $dates = $this->getDatesFromRange($startDate, $endDate);
+         $dates = $this->getDatesFromRange($startDate, $endDate);
 
-        $allEmp=EmployeeInfo::select('id','fkDepartmentId',DB::raw("CONCAT(COALESCE(firstName,''),' ',COALESCE(middleName,''),' ',COALESCE(lastName,'')) AS empFullname"))->whereNull('resignDate')->get();
+         $allEmp=EmployeeInfo::select('id','fkDepartmentId',
+            DB::raw("CONCAT(COALESCE(firstName,''),' ',COALESCE(middleName,''),' ',COALESCE(lastName,'')) AS empFullname"),
+            'weekend')
+            ->whereNull('resignDate')->get();
 
 
-//          $results=EmployeeInfo::select('employeeinfo.id','attemployeemap.employeeId','employeeinfo.fkDepartmentId',DB::raw("CONCAT(COALESCE(employeeinfo.firstName,''),' ',COALESCE(employeeinfo.middleName,''),' ',COALESCE(employeeinfo.lastName,'')) AS empFullname"),
+//           $results=EmployeeInfo::select('employeeinfo.id','attemployeemap.employeeId',
+//              'employeeinfo.fkDepartmentId','employeeinfo.weekend',
+//
 //          DB::raw("date_format(min(attendancedata.accessTime),'%H:%i:%s %p') checkIn"),
 //          DB::raw("date_format(max(attendancedata.accessTime),'%H:%i:%s %p') checkOut"),
 //          DB::raw("date_format(attendancedata.accessTime,'%Y-%m-%d') attendanceDate"))->whereNull('resignDate')
 //          ->leftJoin('attemployeemap','attemployeemap.attDeviceUserId','employeeinfo.id')
 //          ->leftJoin('attendancedata','attendancedata.attDeviceUserId','attemployeemap.attDeviceUserId')
-//
 //          ->whereRaw("date_format(attendancedata.accessTime,'%Y-%m-%d') between '".$fromDate."' and '".$toDate."'")
 //          ->groupBy("attendancedata.attDeviceUserId",DB::raw("date_format(attendancedata.accessTime,'%Y-%m-%d')"))
 //          ->get();
@@ -248,6 +259,8 @@ class TestController extends Controller
 
           $allLeave=Leave::leftJoin('hrmleavecategories', 'hrmleavecategories.id', '=', 'hrmleaves.fkLeaveCategory')
             ->where('applicationStatus',"Approved")
+             ->whereIn('categoryCode',[LEAVE_CATEGORY['Casual'],LEAVE_CATEGORY['Sick'],LEAVE_CATEGORY['NoShift'],
+                 LEAVE_CATEGORY['Marriage'],LEAVE_CATEGORY['Leave with out pay'],LEAVE_CATEGORY['Team Leave']])
 //            ->where('fkEmployeeId',1)
 //             ->where('startDate','>=','2019-04-03')->where('endDate','<=','2019-04-05')
             ->whereBetween('startDate',array($fromDate, $toDate))
@@ -260,19 +273,21 @@ class TestController extends Controller
             , date_format(ad.accessTime,'%Y-%m-%d') attendanceDate
             , date_format(min(ad.accessTime),'%H:%i') checkIn
             , date_format(max(ad.accessTime),'%H:%i') checkOut
-            
-            , case when SUBTIME(date_format(min(ad.accessTime),'%H:%i'),s.inTime) > '00:00:01' then 'Y' else 'N' end late 
+
+            , case when SUBTIME(date_format(min(ad.accessTime),'%H:%i'),s.inTime) > '00:00:01' then 'Y' else 'N' end late
             , date_format(SUBTIME(date_format(min(ad.accessTime),'%H:%i'),s.inTime),'%H:%i')  as lateTime
 
             from attendancedata ad left join attemployeemap em on ad.attDeviceUserId = em.attDeviceUserId
+            and date_format(ad.accessTime,'%Y-%m-%d') between '" . $fromDate . "' and '" . $toDate . "'
             
+
             left join shiftlog sl on em.employeeId = sl.fkemployeeId and date_format(ad.accessTime,'%Y-%m-%d') between date_format(sl.startDate,'%Y-%m-%d') and ifnull(date_format(sl.endDate,'%Y-%m-%d'),curdate())
             left join shift s on sl.fkshiftId = s.shiftId
             where date_format(ad.accessTime,'%Y-%m-%d') between '".$fromDate."' and '".$toDate."'
             group by ad.attDeviceUserId, date_format(ad.accessTime,'%Y-%m-%d')"));
 
 
-        $results=collect($results);
+         $results=collect($results);
 
 //        return $results;
 
@@ -280,16 +295,12 @@ class TestController extends Controller
 
 
 
-
-
-
-
         // return $allLeave;
-//        $allHoliday=OrganizationCalander::whereMonth('startDate', '=', date('m',strtotime($fromDate)))->orWhereMonth('endDate', '=', date('m',strtotime($toDate)))->get();
+        $allHoliday=OrganizationCalander::whereMonth('startDate', '=', date('m',strtotime($fromDate)))->orWhereMonth('endDate', '=', date('m',strtotime($toDate)))->get();
 
 //        whereBetween('startDate',array($fromDate, $toDate))->get();
 
-        // return $allHoliday;
+//         return $allHoliday;
 
         //return $endDate->diffInDays($startDate);
 
@@ -312,7 +323,7 @@ class TestController extends Controller
 
 
 
-        $check=Excel::create($fileName,function($excel)use ($results,$allDepartment,$dates,$allEmp,$allLeave,$fromDate,$toDate) {
+        $check=Excel::create($fileName,function($excel)use ($results,$allDepartment,$dates,$allEmp,$allLeave,$fromDate,$toDate,$allHoliday) {
 
 
 
@@ -320,7 +331,7 @@ class TestController extends Controller
 
 
 
-                $excel->sheet($ad->departmentName, function ($sheet) use ($results,$ad, $allDepartment,$dates,$allEmp,$allLeave,$fromDate,$toDate) {
+                $excel->sheet($ad->departmentName, function ($sheet) use ($results,$ad, $allDepartment,$dates,$allEmp,$allLeave,$fromDate,$toDate,$allHoliday) {
 
 
                     $sheet->freezePane('B4');
@@ -333,7 +344,7 @@ class TestController extends Controller
                         )
                     ));
 
-                    $sheet->loadView('Excel.attendenceTestRumi', compact('results','fromDate', 'toDate','dates','allEmp','ad','allLeave'));
+                    $sheet->loadView('Excel.attendenceTestRumi', compact('results','fromDate', 'toDate','dates','allEmp','ad','allLeave','allHoliday'));
                 });
             }
 

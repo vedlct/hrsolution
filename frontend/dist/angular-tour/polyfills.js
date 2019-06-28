@@ -5473,7 +5473,11 @@ __webpack_require__.r(__webpack_exports__);
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
+<<<<<<< HEAD
 module.exports = __webpack_require__(/*! C:\xampp\htdocs\hrsolution\frontend\src\polyfills.ts */"./src/polyfills.ts");
+=======
+module.exports = __webpack_require__(/*! /opt/lampp/htdocs/hrsolution/frontend/src/polyfills.ts */"./src/polyfills.ts");
+>>>>>>> 7b9afd0776836d7af25a4c8894755b43394a1818
 
 
 /***/ })
