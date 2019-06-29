@@ -2,25 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f4bd21ca-2146-411b-9f2c-2c8910cf6248" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/backend/public/exportedExcel/HRTest2019-06-28_12-32-21.xls" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/public/exportedExcel/HRTest2019-06-28_12-33-02.xls" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/hrsolution.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/hrsolution.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/app/Http/Controllers/Appraisal/EmpAppraisalSetupController.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/app/Http/Controllers/Appraisal/EmpAppraisalSetupController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/backend/app/Http/Controllers/AttendanceController.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/app/Http/Controllers/AttendanceController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/app/Http/Controllers/OvertimeController.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/app/Http/Controllers/OvertimeController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/backend/app/Http/Controllers/TestController.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/app/Http/Controllers/TestController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/dist/angular-tour/main.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/dist/angular-tour/main.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/dist/angular-tour/main.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/dist/angular-tour/main.js.map" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/dist/angular-tour/polyfills.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/dist/angular-tour/polyfills.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/dist/angular-tour/polyfills.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/dist/angular-tour/polyfills.js.map" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/dist/angular-tour/styles.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/dist/angular-tour/styles.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/dist/angular-tour/styles.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/dist/angular-tour/styles.js.map" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/dist/angular-tour/vendor.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/dist/angular-tour/vendor.js.map" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/app/components/leave/add-leave/add-leave.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/app/components/leave/add-leave/add-leave.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/app/components/overtime/showovertime/showovertime.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/app/components/overtime/showovertime/showovertime.component.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/src/app/components/report/attendance/attendance.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/app/components/report/attendance/attendance.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/app/constants.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/app/constants.ts" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -34,16 +19,32 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="AttendanceController.php" pinned="false" current-in-tab="true">
+      <file leaf-file-name="AttendanceController.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/backend/app/Http/Controllers/AttendanceController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="289">
-              <caret line="208" column="12" selection-start-line="208" selection-start-column="12" selection-end-line="215" selection-end-column="25" />
+            <state relative-caret-position="119">
+              <caret line="61" selection-start-line="61" selection-end-line="61" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="TestController.php" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/backend/app/Http/Controllers/TestController.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="221">
+              <caret line="270" column="17" selection-start-line="270" selection-start-column="17" selection-end-line="270" selection-end-column="17" />
             </state>
           </provider>
         </entry>
       </file>
     </leaf>
+  </component>
+  <component name="FindInProjectRecents">
+    <findStrings>
+      <find>os</find>
+      <find>totalWeekend</find>
+      <find>$weekend</find>
+    </findStrings>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -51,7 +52,9 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
+        <option value="$PROJECT_DIR$/frontend/src/app/components/report/attendance/attendance.component.ts" />
         <option value="$PROJECT_DIR$/backend/app/Http/Controllers/AttendanceController.php" />
+        <option value="$PROJECT_DIR$/backend/app/Http/Controllers/TestController.php" />
       </list>
     </option>
   </component>
@@ -1406,6 +1409,7 @@
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="ts.external.directory.path" value="C:\Program Files\JetBrains\PhpStorm 2018.1.6\plugins\JavaScriptLanguage\jsLanguageServicesImpl\external" />
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -1429,27 +1433,27 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1561728341505</updated>
-      <workItem from="1561728344615" duration="347000" />
+      <workItem from="1561728344615" duration="16765000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="347000" />
+    <option name="totallyTimeSpent" value="16765000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="754" extended-state="6" />
-    <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.24963397" />
       <window_info anchor="bottom" id="TODO" order="6" />
-      <window_info anchor="bottom" id="Docker" show_stripe_button="false" />
       <window_info anchor="bottom" id="Event Log" side_tool="true" />
-      <window_info anchor="right" id="Database" />
       <window_info anchor="bottom" id="Database Changes" show_stripe_button="false" />
       <window_info anchor="bottom" id="Run" order="2" />
       <window_info anchor="bottom" id="Version Control" />
-      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info anchor="bottom" id="Terminal" />
+      <window_info anchor="bottom" id="TypeScript" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.24963397" />
+      <window_info anchor="bottom" id="Docker" show_stripe_button="false" />
+      <window_info anchor="right" id="Database" />
+      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info id="Favorites" side_tool="true" />
       <window_info anchor="bottom" id="Find" order="1" />
@@ -1473,10 +1477,27 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/frontend/src/app/components/report/attendance/attendance.component.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="272">
+          <caret line="106" column="51" selection-start-line="106" selection-start-column="43" selection-end-line="106" selection-end-column="51" />
+          <folding>
+            <element signature="e#0#95#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/backend/app/Http/Controllers/AttendanceController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="289">
-          <caret line="208" column="12" selection-start-line="208" selection-start-column="12" selection-end-line="215" selection-end-column="25" />
+        <state relative-caret-position="119">
+          <caret line="61" selection-start-line="61" selection-end-line="61" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/backend/app/Http/Controllers/TestController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="221">
+          <caret line="270" column="17" selection-start-line="270" selection-start-column="17" selection-end-line="270" selection-end-column="17" />
         </state>
       </provider>
     </entry>

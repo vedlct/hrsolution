@@ -100,6 +100,7 @@ class AttendanceController extends Controller
                 ->mergeBindings($testResults->getQuery())
                 ->select(DB::raw("a.employeeId,CONCAT(COALESCE(a.firstName,''),' ',COALESCE(a.middleName,''),' ',COALESCE(a.lastName,'')) AS empname,a.departmentName,a.totalWeekend,count(a.attendanceDate) totAttendance, FORMAT(avg(a.workingTime),2) averageWorkingHour,
             sum(case late when 'Y' then 1 else 0 end) totalLate,a.totalLeave"))
+                ->addSelect(DB::raw("SELECT FUN_WEEKENDS('".$fromDate."','".$toDate."','a.totalWeekend') as weekends"))
                 ->groupBy('a.employeeId')
                 ->orderBy('a.employeeId');
 

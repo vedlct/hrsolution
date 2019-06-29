@@ -28,6 +28,12 @@ class TestController extends Controller
         $users=User::get();
         return $users;
     }
+    private function totalWeekendfound($fromDate,$toDate,$weekend){
+
+         $t=DB::select("SELECT FUN_WEEKENDS('".$fromDate."','".$toDate."','".$weekend."') as weekends");
+        return $t[0]->weekends;
+
+    }
 
     public function test(){
 
@@ -214,7 +220,8 @@ class TestController extends Controller
 
         $testResults=AttendanceData::select('attendancedata.id','attendancedata.attDeviceUserId','hrmdepartments.departmentName' ,
             'attemployeemap.employeeId',
-            'employeeinfo.firstName','employeeinfo.lastName','employeeinfo.middleName','employeeinfo.weekend as totalWeekend','attendancedata.fkAttDevice',
+            'employeeinfo.firstName','employeeinfo.lastName','employeeinfo.middleName','employeeinfo.weekend as totalWeekend',
+            'attendancedata.fkAttDevice',
 
             DB::raw("date_format(attendancedata.accessTime,'%Y-%m-%d') attendanceDate"),
             DB::raw("date_format(min(attendancedata.accessTime),'%H:%i:%s %p') checkIn"),
@@ -251,13 +258,28 @@ class TestController extends Controller
             ->whereRaw("date_format(attendancedata.accessTime,'%Y-%m-%d') between '".$fromDate."' and '".$toDate."'")
             ->groupBy("attendancedata.attDeviceUserId",DB::raw("date_format(attendancedata.accessTime,'%Y-%m-%d')"));
 
-         $results=DB::table(DB::raw("({$testResults->toSql()}) as a"))
+
+
+
+
+//        return DB::query()->fromSub(function ($query)use ($fromDate,$toDate) {
+//            $r=DB::Select(DB::raw("SELECT FUN_WEEKENDS('".$fromDate."','".$toDate."','sunday,friday') as weekends"));
+//            $query->$r[0]->weekends;
+//        })->get();
+
+
+           $results=DB::table(DB::raw("({$testResults->toSql()}) as a"))
+
 
             ->mergeBindings($testResults->getQuery())
-            ->select(DB::raw("a.employeeId,CONCAT(COALESCE(a.firstName,''),' ',COALESCE(a.middleName,''),' ',COALESCE(a.lastName,'')) AS empname,a.departmentName,a.totalWeekend,count(a.attendanceDate) totAttendance, FORMAT(avg(a.workingTime),2) averageWorkingHour,
+              ->select(DB::raw("a.employeeId,CONCAT(COALESCE(a.firstName,''),' ',COALESCE(a.middleName,''),' ',COALESCE(a.lastName,'')) AS empname,a.departmentName,a.totalWeekend,count(a.attendanceDate) totAttendance, FORMAT(avg(a.workingTime),2) averageWorkingHour,
             sum(case late when 'Y' then 1 else 0 end) totalLate,a.totalLeave"))
+              ->addSelect(DB::raw("FUN_WEEKENDS('".$fromDate."','".$toDate."',a.totalWeekend) as weekends"))
             ->groupBy('a.employeeId')
-            ->orderBy('a.employeeId')->get();
+            ->orderBy('a.employeeId')
+             ->get();
+//         return $newResult=$results
+//             ->addSelect(DB::raw("SELECT FUN_WEEKENDS('".$fromDate."','".$toDate."','sunday,friday') as weekends"))->get();
 
         return $time = microtime(true) - $start;
 
@@ -406,6 +428,7 @@ class TestController extends Controller
 
 
     }
+
 
 
 }

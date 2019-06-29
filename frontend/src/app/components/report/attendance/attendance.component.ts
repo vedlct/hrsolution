@@ -7,7 +7,7 @@ import {ActivatedRoute, Router} from "@angular/router";
 import {DataTableDirective} from "angular-datatables";
 import {NgxSpinnerService} from "ngx-spinner";
 import {st} from "@angular/core/src/render3";
-import {totalmem} from "os";
+
 declare var $ :any;
 
 @Component({
