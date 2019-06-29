@@ -1,12 +1,96 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="f4bd21ca-2146-411b-9f2c-2c8910cf6248" name="Default" comment="">
+    <list default="true" id="47adcc15-d4da-4f7e-9490-cd6610f95447" name="Default" comment="">
+      <change afterPath="$PROJECT_DIR$/backend/public/exportedExcel/Attendence_Info.xls" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/backend/app/Http/Controllers/AttendanceController.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/app/Http/Controllers/AttendanceController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/backend/app/Http/Controllers/TestController.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/app/Http/Controllers/TestController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/src/app/components/report/attendance/attendance.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/app/components/report/attendance/attendance.component.ts" afterDir="false" />
     </list>
+    <ignored path="$PROJECT_DIR$/backend/vendor/asm89/stack-cors/" />
+    <ignored path="$PROJECT_DIR$/backend/vendor/barryvdh/laravel-cors/" />
+    <ignored path="$PROJECT_DIR$/backend/vendor/composer/" />
+    <ignored path="$PROJECT_DIR$/backend/vendor/dnoegel/php-xdg-base-dir/" />
+    <ignored path="$PROJECT_DIR$/backend/vendor/doctrine/inflector/" />
+    <ignored path="$PROJECT_DIR$/backend/vendor/doctrine/instantiator/" />
+    <ignored path="$PROJECT_DIR$/backend/vendor/doctrine/lexer/" />
+    <ignored path="$PROJECT_DIR$/backend/vendor/dragonmantank/cron-expression/" />
+    <ignored path="$PROJECT_DIR$/backend/vendor/egulias/email-validator/" />
+    <ignored path="$PROJECT_DIR$/backend/vendor/erusev/parsedown/" />
+    <ignored path="$PROJECT_DIR$/backend/vendor/fideloper/proxy/" />
+    <ignored path="$PROJECT_DIR$/backend/vendor/filp/whoops/" />
+    <ignored path="$PROJECT_DIR$/backend/vendor/fzaninotto/faker/" />
+    <ignored path="$PROJECT_DIR$/backend/vendor/hamcrest/hamcrest-php/" />
+    <ignored path="$PROJECT_DIR$/backend/vendor/jakub-onderka/php-console-color/" />
+    <ignored path="$PROJECT_DIR$/backend/vendor/jakub-onderka/php-console-highlighter/" />
+    <ignored path="$PROJECT_DIR$/backend/vendor/jeremeamia/SuperClosure/" />
+    <ignored path="$PROJECT_DIR$/backend/vendor/laravel/framework/" />
+    <ignored path="$PROJECT_DIR$/backend/vendor/laravel/tinker/" />
+    <ignored path="$PROJECT_DIR$/backend/vendor/lcobucci/jwt/" />
+    <ignored path="$PROJECT_DIR$/backend/vendor/league/flysystem/" />
+    <ignored path="$PROJECT_DIR$/backend/vendor/maatwebsite/excel/" />
+    <ignored path="$PROJECT_DIR$/backend/vendor/mockery/mockery/" />
+    <ignored path="$PROJECT_DIR$/backend/vendor/monolog/monolog/" />
+    <ignored path="$PROJECT_DIR$/backend/vendor/myclabs/deep-copy/" />
+    <ignored path="$PROJECT_DIR$/backend/vendor/namshi/jose/" />
+    <ignored path="$PROJECT_DIR$/backend/vendor/nesbot/carbon/" />
+    <ignored path="$PROJECT_DIR$/backend/vendor/nikic/php-parser/" />
+    <ignored path="$PROJECT_DIR$/backend/vendor/nunomaduro/collision/" />
+    <ignored path="$PROJECT_DIR$/backend/vendor/paragonie/random_compat/" />
+    <ignored path="$PROJECT_DIR$/backend/vendor/phar-io/manifest/" />
+    <ignored path="$PROJECT_DIR$/backend/vendor/phar-io/version/" />
+    <ignored path="$PROJECT_DIR$/backend/vendor/phpdocumentor/reflection-common/" />
+    <ignored path="$PROJECT_DIR$/backend/vendor/phpdocumentor/reflection-docblock/" />
+    <ignored path="$PROJECT_DIR$/backend/vendor/phpdocumentor/type-resolver/" />
+    <ignored path="$PROJECT_DIR$/backend/vendor/phpoffice/phpexcel/" />
+    <ignored path="$PROJECT_DIR$/backend/vendor/phpspec/prophecy/" />
+    <ignored path="$PROJECT_DIR$/backend/vendor/phpunit/php-code-coverage/" />
+    <ignored path="$PROJECT_DIR$/backend/vendor/phpunit/php-file-iterator/" />
+    <ignored path="$PROJECT_DIR$/backend/vendor/phpunit/php-text-template/" />
+    <ignored path="$PROJECT_DIR$/backend/vendor/phpunit/php-timer/" />
+    <ignored path="$PROJECT_DIR$/backend/vendor/phpunit/php-token-stream/" />
+    <ignored path="$PROJECT_DIR$/backend/vendor/phpunit/phpunit/" />
+    <ignored path="$PROJECT_DIR$/backend/vendor/psr/container/" />
+    <ignored path="$PROJECT_DIR$/backend/vendor/psr/log/" />
+    <ignored path="$PROJECT_DIR$/backend/vendor/psr/simple-cache/" />
+    <ignored path="$PROJECT_DIR$/backend/vendor/psy/psysh/" />
+    <ignored path="$PROJECT_DIR$/backend/vendor/ramsey/uuid/" />
+    <ignored path="$PROJECT_DIR$/backend/vendor/sebastian/code-unit-reverse-lookup/" />
+    <ignored path="$PROJECT_DIR$/backend/vendor/sebastian/comparator/" />
+    <ignored path="$PROJECT_DIR$/backend/vendor/sebastian/diff/" />
+    <ignored path="$PROJECT_DIR$/backend/vendor/sebastian/environment/" />
+    <ignored path="$PROJECT_DIR$/backend/vendor/sebastian/exporter/" />
+    <ignored path="$PROJECT_DIR$/backend/vendor/sebastian/global-state/" />
+    <ignored path="$PROJECT_DIR$/backend/vendor/sebastian/object-enumerator/" />
+    <ignored path="$PROJECT_DIR$/backend/vendor/sebastian/object-reflector/" />
+    <ignored path="$PROJECT_DIR$/backend/vendor/sebastian/recursion-context/" />
+    <ignored path="$PROJECT_DIR$/backend/vendor/sebastian/resource-operations/" />
+    <ignored path="$PROJECT_DIR$/backend/vendor/sebastian/version/" />
+    <ignored path="$PROJECT_DIR$/backend/vendor/swiftmailer/swiftmailer/" />
+    <ignored path="$PROJECT_DIR$/backend/vendor/symfony/console/" />
+    <ignored path="$PROJECT_DIR$/backend/vendor/symfony/contracts/" />
+    <ignored path="$PROJECT_DIR$/backend/vendor/symfony/css-selector/" />
+    <ignored path="$PROJECT_DIR$/backend/vendor/symfony/debug/" />
+    <ignored path="$PROJECT_DIR$/backend/vendor/symfony/event-dispatcher/" />
+    <ignored path="$PROJECT_DIR$/backend/vendor/symfony/finder/" />
+    <ignored path="$PROJECT_DIR$/backend/vendor/symfony/http-foundation/" />
+    <ignored path="$PROJECT_DIR$/backend/vendor/symfony/http-kernel/" />
+    <ignored path="$PROJECT_DIR$/backend/vendor/symfony/polyfill-ctype/" />
+    <ignored path="$PROJECT_DIR$/backend/vendor/symfony/polyfill-mbstring/" />
+    <ignored path="$PROJECT_DIR$/backend/vendor/symfony/polyfill-php56/" />
+    <ignored path="$PROJECT_DIR$/backend/vendor/symfony/polyfill-php72/" />
+    <ignored path="$PROJECT_DIR$/backend/vendor/symfony/polyfill-util/" />
+    <ignored path="$PROJECT_DIR$/backend/vendor/symfony/process/" />
+    <ignored path="$PROJECT_DIR$/backend/vendor/symfony/routing/" />
+    <ignored path="$PROJECT_DIR$/backend/vendor/symfony/translation/" />
+    <ignored path="$PROJECT_DIR$/backend/vendor/symfony/var-dumper/" />
+    <ignored path="$PROJECT_DIR$/backend/vendor/theseer/tokenizer/" />
+    <ignored path="$PROJECT_DIR$/backend/vendor/tijsverkoyen/css-to-inline-styles/" />
+    <ignored path="$PROJECT_DIR$/backend/vendor/tymon/jwt-auth/" />
+    <ignored path="$PROJECT_DIR$/backend/vendor/vlucas/phpdotenv/" />
+    <ignored path="$PROJECT_DIR$/backend/vendor/webmozart/assert/" />
+    <ignored path="$PROJECT_DIR$/backend/vendor/yajra/laravel-datatables-oracle/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -19,11 +103,23 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
+      <file leaf-file-name="attendance.component.ts" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/frontend/src/app/components/report/attendance/attendance.component.ts">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-4367">
+              <caret line="10" lean-forward="true" selection-start-line="10" selection-end-line="10" />
+              <folding>
+                <element signature="e#0#95#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
       <file leaf-file-name="AttendanceController.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/backend/app/Http/Controllers/AttendanceController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="119">
-              <caret line="61" selection-start-line="61" selection-end-line="61" />
+            <state relative-caret-position="-11764">
+              <caret line="102" column="110" selection-start-line="102" selection-start-column="110" selection-end-line="102" selection-end-column="110" />
             </state>
           </provider>
         </entry>
@@ -31,20 +127,25 @@
       <file leaf-file-name="TestController.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/backend/app/Http/Controllers/TestController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="221">
-              <caret line="270" column="17" selection-start-line="270" selection-start-column="17" selection-end-line="270" selection-end-column="17" />
+            <state relative-caret-position="237">
+              <caret line="142" column="93" lean-forward="true" selection-start-line="142" selection-start-column="93" selection-end-line="142" selection-end-column="93" />
+              <folding>
+                <element signature="e#38#61#0#PHP" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ExcelController.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/backend/app/Http/Controllers/ExcelController.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="170">
+              <caret line="32" column="105" lean-forward="true" selection-start-line="32" selection-start-column="77" selection-end-line="32" selection-end-column="105" />
             </state>
           </provider>
         </entry>
       </file>
     </leaf>
-  </component>
-  <component name="FindInProjectRecents">
-    <findStrings>
-      <find>os</find>
-      <find>totalWeekend</find>
-      <find>$weekend</find>
-    </findStrings>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -1400,6 +1501,51 @@
               <item name="Http" type="462c0819:PsiDirectoryNode" />
               <item name="Controllers" type="462c0819:PsiDirectoryNode" />
             </path>
+            <path>
+              <item name="hrsolution" type="b2602c69:ProjectViewProjectNode" />
+              <item name="hrsolution" type="462c0819:PsiDirectoryNode" />
+              <item name="frontend" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="hrsolution" type="b2602c69:ProjectViewProjectNode" />
+              <item name="hrsolution" type="462c0819:PsiDirectoryNode" />
+              <item name="frontend" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="hrsolution" type="b2602c69:ProjectViewProjectNode" />
+              <item name="hrsolution" type="462c0819:PsiDirectoryNode" />
+              <item name="frontend" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="app" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="hrsolution" type="b2602c69:ProjectViewProjectNode" />
+              <item name="hrsolution" type="462c0819:PsiDirectoryNode" />
+              <item name="frontend" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="app" type="462c0819:PsiDirectoryNode" />
+              <item name="components" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="hrsolution" type="b2602c69:ProjectViewProjectNode" />
+              <item name="hrsolution" type="462c0819:PsiDirectoryNode" />
+              <item name="frontend" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="app" type="462c0819:PsiDirectoryNode" />
+              <item name="components" type="462c0819:PsiDirectoryNode" />
+              <item name="report" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="hrsolution" type="b2602c69:ProjectViewProjectNode" />
+              <item name="hrsolution" type="462c0819:PsiDirectoryNode" />
+              <item name="frontend" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="app" type="462c0819:PsiDirectoryNode" />
+              <item name="components" type="462c0819:PsiDirectoryNode" />
+              <item name="report" type="462c0819:PsiDirectoryNode" />
+              <item name="attendance" type="462c0819:PsiDirectoryNode" />
+            </path>
           </expand>
           <select />
         </subPane>
@@ -1408,8 +1554,7 @@
   </component>
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
-    <property name="ts.external.directory.path" value="C:\Program Files\JetBrains\PhpStorm 2018.1.6\plugins\JavaScriptLanguage\jsLanguageServicesImpl\external" />
+    <property name="ts.external.directory.path" value="C:\xampp\htdocs\hrsolution\frontend\node_modules\typescript\lib" />
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -1428,39 +1573,40 @@
   </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="f4bd21ca-2146-411b-9f2c-2c8910cf6248" name="Default" comment="" />
-      <created>1561728341505</created>
+      <changelist id="47adcc15-d4da-4f7e-9490-cd6610f95447" name="Default" comment="" />
+      <created>1561832852434</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1561728341505</updated>
-      <workItem from="1561728344615" duration="16765000" />
+      <updated>1561832852434</updated>
+      <workItem from="1561832857301" duration="496000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="16765000" />
+    <option name="totallyTimeSpent" value="496000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="754" extended-state="6" />
+    <editor active="true" />
     <layout>
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Event Log" side_tool="true" />
       <window_info anchor="bottom" id="Database Changes" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Run" order="2" />
       <window_info anchor="bottom" id="Version Control" />
+      <window_info anchor="bottom" id="Run" order="2" />
       <window_info anchor="bottom" id="Terminal" />
       <window_info anchor="bottom" id="TypeScript" />
       <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.24963397" />
       <window_info anchor="bottom" id="Docker" show_stripe_button="false" />
       <window_info anchor="right" id="Database" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
-      <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info id="Favorites" side_tool="true" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Find" order="1" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
-      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
-      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
+      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
     </layout>
@@ -1479,8 +1625,8 @@
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/frontend/src/app/components/report/attendance/attendance.component.ts">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="272">
-          <caret line="106" column="51" selection-start-line="106" selection-start-column="43" selection-end-line="106" selection-end-column="51" />
+        <state relative-caret-position="-4367">
+          <caret line="10" lean-forward="true" selection-start-line="10" selection-end-line="10" />
           <folding>
             <element signature="e#0#95#0" expanded="true" />
           </folding>
@@ -1489,15 +1635,25 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/backend/app/Http/Controllers/AttendanceController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="119">
-          <caret line="61" selection-start-line="61" selection-end-line="61" />
+        <state relative-caret-position="-11764">
+          <caret line="102" column="110" selection-start-line="102" selection-start-column="110" selection-end-line="102" selection-end-column="110" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/backend/app/Http/Controllers/ExcelController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="170">
+          <caret line="32" column="105" lean-forward="true" selection-start-line="32" selection-start-column="77" selection-end-line="32" selection-end-column="105" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/backend/app/Http/Controllers/TestController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="221">
-          <caret line="270" column="17" selection-start-line="270" selection-start-column="17" selection-end-line="270" selection-end-column="17" />
+        <state relative-caret-position="237">
+          <caret line="142" column="93" lean-forward="true" selection-start-line="142" selection-start-column="93" selection-end-line="142" selection-end-column="93" />
+          <folding>
+            <element signature="e#38#61#0#PHP" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
