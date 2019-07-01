@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Appraisal;
 
 
+use App\EmpAppraisalAppraisor;
 use App\EmpAppraisalSetup;
 use App\Http\Controllers\Controller;
 
@@ -32,24 +33,24 @@ class EmpAppraisalSetupController extends Controller
 
 
 
-//        foreach ($request->appraisorDetails as $appraisorD){
+//        foreach ($request->appraisorRoleDetails as $appraisorRD){
 //
 //            if ($request->appraisal_Format_id){
 //
-//                $appraisalFormatDetail= AppraisalFormatDetail::findOrFail($request->appraisal_Format_details_id);
+//                $appraisorRolDetail= EmpAppraisalAppraisor::findOrFail($request->emp_appraisal_appraisor_id);
 //
 //            }else{
-//                $appraisalFormatDetail=new AppraisalFormatDetail();
+//                $appraisorRolDetail=new EmpAppraisalAppraisor();
 //
 //            }
 //
-//            $appraisalFormatDetail->fk_Appraisalformatmaster=$appraisalFormat->id;
-//            $appraisalFormatDetail->fk_Appraisalheads=$formatD['fk_Appraisalheads'];
+//            $appraisorRolDetail->fk_empAppraisalSetup=$empAppraisalSetup->id;
+//            $appraisorRolDetail->appraisor=$formatD['fk_Appraisalheads'];
 //
 //
-//            $appraisalFormatDetail->appraisor=implode(",",$formatD['appraisors']);
+//            $appraisorRolDetail->appraisor=implode(",",$formatD['appraisors']);
 //
-//            $appraisalFormatDetail->save();
+//            $appraisorRolDetail->save();
 //
 //        }
 

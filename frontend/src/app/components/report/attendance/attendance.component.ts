@@ -7,6 +7,8 @@ import {ActivatedRoute, Router} from "@angular/router";
 import {DataTableDirective} from "angular-datatables";
 import {NgxSpinnerService} from "ngx-spinner";
 import {st} from "@angular/core/src/render3";
+
+
 declare var $ :any;
 
 @Component({
@@ -31,11 +33,13 @@ export class AttendanceComponent implements OnInit {
     remark:string;
     fkLeaveCategory:string;
     leaveCategories:any;
+
     constructor(private renderer: Renderer,public http: HttpClient, private token:TokenService ,
                 public route:ActivatedRoute, private router: Router,private spinner: NgxSpinnerService) { }
 
 
     ngOnInit() {
+
         this.getData();
         // console.log(new Date.today().clearTime().moveToFirstDayOfMonth());
         let nowdate = new Date();
@@ -73,6 +77,8 @@ export class AttendanceComponent implements OnInit {
     getData(){
         const token=this.token.get();
 
+
+
         this.dtOptions = {
             ajax: {
                 url: Constants.API_URL+'report/attendance'+'?token='+token,
@@ -82,7 +88,23 @@ export class AttendanceComponent implements OnInit {
                     d.endDate=$('#endDate').val();
 
                 },
+
+
             },
+
+
+
+            // ajax: (form,myfunc) => {
+            //     this.http.post(Constants.API_URL+'report/attendance'+'?token='+token,form).subscribe(resp => {
+            //          // console.log(resp);
+            //
+            //         // myfunc({
+            //         //          recordsTotal: resp.recordsTotal,
+            //         //          recordsFiltered: resp.recordsFiltered,
+            //         //          data: [],
+            //         //     });
+            //         });
+            // },
 
             columns: [
 
@@ -102,8 +124,10 @@ export class AttendanceComponent implements OnInit {
                 //     },
                 //     "orderable": false, "searchable":false, "name":"selected_rows"
                 // },
+
                 { data: 'weekends', name: 'weekends'},
                 { data: 'totalWeekend', name: 'totalWeekend'},
+
                 {
 
                     "data": function (data: any, type: any, full: any) {
@@ -114,6 +138,7 @@ export class AttendanceComponent implements OnInit {
 
             ],
             drawCallback: () => {
+
                 $('.edit-user').on('click', (event) => {
 
                     let id=event.target.getAttribute("data-emp-id");
@@ -126,13 +151,19 @@ export class AttendanceComponent implements OnInit {
                     window.open("report/attendance/" +id+'/'+start+'/'+end, "_blank");
                     return false;
                 });
+
+
+
+
             },
+
 
             processing: true,
             serverSide: false,
             pagingType: 'full_numbers',
             pageLength: 10,
             dom: 'Bfrtip',
+            paging: true,
 
 
 
@@ -215,6 +246,9 @@ export class AttendanceComponent implements OnInit {
         );
 
     }
+    total(){
+
+    }
 
     generateExcel(){
 
@@ -256,4 +290,6 @@ export class AttendanceComponent implements OnInit {
             this.dtTrigger.next();
         });
     }
+
+
 }
