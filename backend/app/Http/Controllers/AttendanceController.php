@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\AttEmployeeMap;
 use App\AttendanceData;
+use App\Comment;
 use App\Department;
 use App\EmployeeInfo;
 use App\Leave;
@@ -56,36 +57,35 @@ class AttendanceController extends Controller
 //            group by a.employeeId
 //            order by a.employeeId"));
 
-            $testResults=AttendanceData::select('attendancedata.id','attendancedata.attDeviceUserId','hrmdepartments.departmentName' ,
+            $testResults=AttendanceData::select('attendancedata.id','hrmdepartments.departmentName' ,
                 'attemployeemap.employeeId',
-                'employeeinfo.firstName','employeeinfo.lastName','employeeinfo.middleName','employeeinfo.weekend as totalWeekend','attendancedata.fkAttDevice',
+                'employeeinfo.firstName','employeeinfo.lastName','employeeinfo.middleName','employeeinfo.weekend as totalWeekend',
 
                 DB::raw("date_format(attendancedata.accessTime,'%Y-%m-%d') attendanceDate"),
-                DB::raw("date_format(min(attendancedata.accessTime),'%H:%i:%s %p') checkIn"),
-                DB::raw("date_format(max(attendancedata.accessTime),'%H:%i:%s %p') checkOut"),
-                DB::raw("date_format(shift.inTime,'%H:%i:%s %p') scheduleIn"),
-                DB::raw("date_format(shift.outTime,'%H:%i:%s %p') scheduleOut"),
+//                DB::raw("date_format(min(attendancedata.accessTime),'%H:%i:%s %p') checkIn"),
+//                DB::raw("date_format(max(attendancedata.accessTime),'%H:%i:%s %p') checkOut"),
+//                DB::raw("date_format(shift.inTime,'%H:%i:%s %p') scheduleIn"),
+//                DB::raw("date_format(shift.outTime,'%H:%i:%s %p') scheduleOut"),
                 DB::raw("case when SUBTIME(date_format(min(attendancedata.accessTime),'%H:%i'),shift.inTime) > '00:00:01' then 'Y' else 'N' end late"),
-                DB::raw("SUBTIME(date_format(max(attendancedata.accessTime),'%H:%i:%s')"),
-                DB::raw("date_format(min(attendancedata.accessTime),'%H:%i:%s')) workingTime"),
-                DB::raw("max(attendancedata.accessTime) checkoutFull"),
+                DB::raw("SUBTIME(date_format(max(attendancedata.accessTime),'%H:%i:%s'),date_format(min(attendancedata.accessTime),'%H:%i:%s')) workingTime"),
+//                DB::raw("max(attendancedata.accessTime) checkoutFull"),
                 DB::raw("SUM(distinct hrmleaves.noOfDays) as totalLeave"))
-                ->whereNull('resignDate')
-                ->join('attemployeemap',function($join) use ($fromDate,$toDate){
+
+                ->leftJoin('attemployeemap',function($join) use ($fromDate,$toDate){
                     $join->on('attendancedata.attDeviceUserId', '=', 'attemployeemap.attDeviceUserId')
 
                         ->whereRaw("date_format(attendancedata.accessTime,'%Y-%m-%d') between '" . $fromDate . "' and '" . $toDate . "'");
                 })
 //
                 ->leftJoin('employeeinfo','employeeinfo.id','attemployeemap.employeeId')
-                ->join('hrmleaves',function($join) use ($fromDate,$toDate){
+                ->leftJoin('hrmleaves',function($join) use ($fromDate,$toDate){
                     $join->on('hrmleaves.fkEmployeeId', '=', 'attemployeemap.attDeviceUserId')
                         ->where('hrmleaves.applicationStatus', '=', 'Approved')
                         ->whereRaw("hrmleaves.startDate between '" . $fromDate . "' and '" . $toDate . "'");
                 })
                 ->leftJoin('hrmdepartments','hrmdepartments.id','employeeinfo.fkDepartmentId')
 //
-                ->join('shiftlog',function($join) use ($fromDate,$toDate){
+                ->leftJoin('shiftlog',function($join) use ($fromDate,$toDate){
                     $join->on('shiftlog.fkemployeeId', '=', 'attemployeemap.employeeId')
 
                         ->whereRaw("date_format(attendancedata.accessTime,'%Y-%m-%d') between date_format(shiftlog.startDate,'%Y-%m-%d') and ifnull(date_format(shiftlog.endDate,'%Y-%m-%d'),curdate())");
@@ -100,6 +100,7 @@ class AttendanceController extends Controller
                 ->mergeBindings($testResults->getQuery())
                 ->select(DB::raw("a.employeeId,CONCAT(COALESCE(a.firstName,''),' ',COALESCE(a.middleName,''),' ',COALESCE(a.lastName,'')) AS empname,a.departmentName,a.totalWeekend,count(a.attendanceDate) totAttendance, FORMAT(avg(a.workingTime),2) averageWorkingHour,
             sum(case late when 'Y' then 1 else 0 end) totalLate,a.totalLeave"))
+                ->addSelect(DB::raw("FUN_WEEKENDS('".$fromDate."','".$toDate."',a.totalWeekend) as weekends"))
                 ->groupBy('a.employeeId')
                 ->orderBy('a.employeeId');
 
@@ -130,36 +131,35 @@ class AttendanceController extends Controller
 //            group by a.employeeId
 //            order by a.employeeId"));
 
-            $testResults=AttendanceData::select('attendancedata.id','attendancedata.attDeviceUserId','hrmdepartments.departmentName' ,
+            $testResults=AttendanceData::select('attendancedata.id','hrmdepartments.departmentName' ,
                 'attemployeemap.employeeId',
-                'employeeinfo.firstName','employeeinfo.lastName','employeeinfo.middleName','employeeinfo.weekend as totalWeekend','attendancedata.fkAttDevice',
+                'employeeinfo.firstName','employeeinfo.lastName','employeeinfo.middleName','employeeinfo.weekend as totalWeekend',
 
                 DB::raw("date_format(attendancedata.accessTime,'%Y-%m-%d') attendanceDate"),
-                DB::raw("date_format(min(attendancedata.accessTime),'%H:%i:%s %p') checkIn"),
-                DB::raw("date_format(max(attendancedata.accessTime),'%H:%i:%s %p') checkOut"),
-                DB::raw("date_format(shift.inTime,'%H:%i:%s %p') scheduleIn"),
-                DB::raw("date_format(shift.outTime,'%H:%i:%s %p') scheduleOut"),
+//                DB::raw("date_format(min(attendancedata.accessTime),'%H:%i:%s %p') checkIn"),
+//                DB::raw("date_format(max(attendancedata.accessTime),'%H:%i:%s %p') checkOut"),
+//                DB::raw("date_format(shift.inTime,'%H:%i:%s %p') scheduleIn"),
+//                DB::raw("date_format(shift.outTime,'%H:%i:%s %p') scheduleOut"),
                 DB::raw("case when SUBTIME(date_format(min(attendancedata.accessTime),'%H:%i'),shift.inTime) > '00:00:01' then 'Y' else 'N' end late"),
-                DB::raw("SUBTIME(date_format(max(attendancedata.accessTime),'%H:%i:%s')"),
-                DB::raw("date_format(min(attendancedata.accessTime),'%H:%i:%s')) workingTime"),
-                DB::raw("max(attendancedata.accessTime) checkoutFull"),
+                DB::raw("SUBTIME(date_format(max(attendancedata.accessTime),'%H:%i:%s'),date_format(min(attendancedata.accessTime),'%H:%i:%s')) workingTime"),
+//                DB::raw("max(attendancedata.accessTime) checkoutFull"),
                 DB::raw("SUM(distinct hrmleaves.noOfDays) as totalLeave"))
-                ->whereNull('resignDate')
-                ->join('attemployeemap',function($join) use ($fromDate,$toDate){
+
+                ->leftJoin('attemployeemap',function($join) use ($fromDate,$toDate){
                     $join->on('attendancedata.attDeviceUserId', '=', 'attemployeemap.attDeviceUserId')
 
                         ->whereRaw("date_format(attendancedata.accessTime,'%Y-%m-%d') between '" . $fromDate . "' and '" . $toDate . "'");
                 })
 //
                 ->leftJoin('employeeinfo','employeeinfo.id','attemployeemap.employeeId')
-                ->join('hrmleaves',function($join) use ($fromDate,$toDate){
+                ->leftJoin('hrmleaves',function($join) use ($fromDate,$toDate){
                     $join->on('hrmleaves.fkEmployeeId', '=', 'attemployeemap.attDeviceUserId')
                         ->where('hrmleaves.applicationStatus', '=', 'Approved')
                         ->whereRaw("hrmleaves.startDate between '" . $fromDate . "' and '" . $toDate . "'");
                 })
                 ->leftJoin('hrmdepartments','hrmdepartments.id','employeeinfo.fkDepartmentId')
 //
-                ->join('shiftlog',function($join) use ($fromDate,$toDate){
+                ->leftJoin('shiftlog',function($join) use ($fromDate,$toDate){
                     $join->on('shiftlog.fkemployeeId', '=', 'attemployeemap.employeeId')
 
                         ->whereRaw("date_format(attendancedata.accessTime,'%Y-%m-%d') between date_format(shiftlog.startDate,'%Y-%m-%d') and ifnull(date_format(shiftlog.endDate,'%Y-%m-%d'),curdate())");
@@ -172,9 +172,14 @@ class AttendanceController extends Controller
             $results=DB::table(DB::raw("({$testResults->toSql()}) as a"))
 
                 ->mergeBindings($testResults->getQuery())
-                ->select(DB::raw("a.employeeId,CONCAT(COALESCE(a.firstName,''),' ',COALESCE(a.middleName,''),' ',COALESCE(a.lastName,'')) AS empname,a.departmentName,a.totalWeekend,count(a.attendanceDate) totAttendance, FORMAT(avg(a.workingTime),2) averageWorkingHour,
+                ->select(DB::raw("a.employeeId,
+                CONCAT(COALESCE(a.firstName,''),' ',COALESCE(a.middleName,''),' ',COALESCE(a.lastName,'')) AS empname,
+                a.departmentName,a.totalWeekend,count(a.attendanceDate) totAttendance, 
+                FORMAT(avg(a.workingTime),2) averageWorkingHour,
             sum(case late when 'Y' then 1 else 0 end) totalLate,a.totalLeave"))
+
                 ->addSelect(DB::raw("FUN_WEEKENDS('".$fromDate."','".$toDate."',a.totalWeekend) as weekends"))
+
                 ->groupBy('a.employeeId')
                 ->orderBy('a.employeeId');
 
@@ -206,16 +211,16 @@ class AttendanceController extends Controller
 //            order by a.employeeId
 
         $datatables = Datatables::of($results);
-        return $datatables->addColumn('weekends', function ($results) use ($fromDate,$toDate) {
+//        return $datatables->addColumn('weekends', function ($results) use ($fromDate,$toDate) {
+//
+//            $days="sunday,friday";
+//
+//            $queries = DB::select("SELECT FUN_WEEKENDS('".$fromDate."','".$toDate."','".$results->totalWeekend."') as weekends");
+//            return $queries[0]->weekends;
+//
+//        })->make(true);
 
-            $days="sunday,friday";
-
-            $queries = DB::select("SELECT FUN_WEEKENDS('".$fromDate."','".$toDate."','".$results->totalWeekend."') as weekends");
-            return $queries[0]->weekends;
-
-        })->make(true);
-
-//        return $datatables->make(true);
+        return $datatables->make(true);
     }
     function getDatesFromRange($start, $end, $format = 'Y-m-d') {
         $array = array();
@@ -257,6 +262,9 @@ class AttendanceController extends Controller
         $fromDate=$start;
         $toDate=$end;
 
+        $startDate=Carbon::parse($fromDate);
+        $endDate=Carbon::parse($toDate);
+
          $dates = $this->getDatesFromRange($fromDate, $toDate);
 
         $allEmp=EmployeeInfo::select('id','fkDepartmentId',
@@ -274,39 +282,147 @@ class AttendanceController extends Controller
 
         if(auth()->user()->fkUserType =='admin') {
 
-            $results = DB::select(DB::raw("select em.employeeId
-            , date_format(ad.accessTime,'%Y-%m-%d') attendanceDate
-            , date_format(min(ad.accessTime),'%H:%i') checkIn
-            , date_format(max(ad.accessTime),'%H:%i') checkOut
-            
-            , case when SUBTIME(date_format(min(ad.accessTime),'%H:%i'),s.inTime) > '00:00:01' then 'Y' else 'N' end late 
-            , TIME_FORMAT(SUBTIME(date_format(min(ad.accessTime),'%H:%i'),s.inTime),'%H:%i')  as lateTime
+//            $results = DB::select(DB::raw("select em.employeeId
+//            , date_format(ad.accessTime,'%Y-%m-%d') attendanceDate
+//            , date_format(min(ad.accessTime),'%H:%i') checkIn
+//            , date_format(max(ad.accessTime),'%H:%i') checkOut
+//
+//            , case when SUBTIME(date_format(min(ad.accessTime),'%H:%i'),s.inTime) > '00:00:01' then 'Y' else 'N' end late
+//            , TIME_FORMAT(SUBTIME(date_format(min(ad.accessTime),'%H:%i'),s.inTime),'%H:%i')  as lateTime
+//
+//            from attendancedata ad left join attemployeemap em on ad.attDeviceUserId = em.attDeviceUserId and date_format(ad.accessTime,'%Y-%m-%d') between '" . $fromDate . "' and '" . $toDate . "'
+//
+//            left join shiftlog sl on em.employeeId = sl.fkemployeeId and date_format(ad.accessTime,'%Y-%m-%d') between date_format(sl.startDate,'%Y-%m-%d') and ifnull(date_format(sl.endDate,'%Y-%m-%d'),curdate())
+//            left join shift s on sl.fkshiftId = s.shiftId
+//            where date_format(ad.accessTime,'%Y-%m-%d') between '" . $fromDate . "' and '" . $toDate . "'
+//            group by ad.attDeviceUserId, date_format(ad.accessTime,'%Y-%m-%d')"));
 
-            from attendancedata ad left join attemployeemap em on ad.attDeviceUserId = em.attDeviceUserId and date_format(ad.accessTime,'%Y-%m-%d') between '" . $fromDate . "' and '" . $toDate . "'
-            
-            left join shiftlog sl on em.employeeId = sl.fkemployeeId and date_format(ad.accessTime,'%Y-%m-%d') between date_format(sl.startDate,'%Y-%m-%d') and ifnull(date_format(sl.endDate,'%Y-%m-%d'),curdate())
-            left join shift s on sl.fkshiftId = s.shiftId
-            where date_format(ad.accessTime,'%Y-%m-%d') between '" . $fromDate . "' and '" . $toDate . "'
-            group by ad.attDeviceUserId, date_format(ad.accessTime,'%Y-%m-%d')"));
+            $testResults=AttendanceData::select('attendancedata.id','attendancedata.attDeviceUserId','hrmdepartments.departmentName' ,
+                'attemployeemap.employeeId',
+                'employeeinfo.firstName','employeeinfo.lastName','employeeinfo.middleName','employeeinfo.weekend as totalWeekend',
+                'attendancedata.fkAttDevice','employeeinfo.actualJoinDate','employeeinfo.practice','employeeinfo.fkDepartmentId',
+
+                DB::raw("date_format(attendancedata.accessTime,'%Y-%m-%d') attendanceDate"),
+                DB::raw("date_format(min(attendancedata.accessTime),'%H:%i:%s %p') checkIn"),
+                DB::raw("date_format(max(attendancedata.accessTime),'%H:%i:%s %p') checkOut"),
+                DB::raw("date_format(shift.inTime,'%H:%i:%s %p') scheduleIn"),
+                DB::raw("date_format(shift.outTime,'%H:%i:%s %p') scheduleOut"),
+                DB::raw("case when SUBTIME(date_format(min(attendancedata.accessTime),'%H:%i'),shift.inTime) > '00:00:01' then 'Y' else 'N' end late"),
+                DB::raw("TIME_FORMAT(SUBTIME(date_format(min(attendancedata.accessTime),'%H:%i'),shift.inTime),'%H:%i')  as lateTime"),
+                DB::raw("SUBTIME(date_format(max(attendancedata.accessTime),'%H:%i:%s'),date_format(min(attendancedata.accessTime),'%H:%i:%s')) workingTime"),
+                DB::raw("max(attendancedata.accessTime) checkoutFull"),
+                DB::raw("SUM(distinct hrmleaves.noOfDays) as totalLeave"))
+
+                ->leftJoin('attemployeemap',function($join) use ($fromDate,$toDate){
+                    $join->on('attendancedata.attDeviceUserId', '=', 'attemployeemap.attDeviceUserId')
+
+                        ->whereRaw("date_format(attendancedata.accessTime,'%Y-%m-%d') between '" . $fromDate . "' and '" . $toDate . "'");
+                })
+//
+                ->leftJoin('employeeinfo','employeeinfo.id','attemployeemap.employeeId')
+                ->leftJoin('hrmleaves',function($join) use ($fromDate,$toDate){
+                    $join->on('hrmleaves.fkEmployeeId', '=', 'attemployeemap.attDeviceUserId')
+                        ->where('hrmleaves.applicationStatus', '=', 'Approved')
+                        ->whereRaw("hrmleaves.startDate between '" . $fromDate . "' and '" . $toDate . "'");
+                })
+                ->leftJoin('hrmdepartments','hrmdepartments.id','employeeinfo.fkDepartmentId')
+//
+                ->leftJoin('shiftlog',function($join) use ($fromDate,$toDate){
+                    $join->on('shiftlog.fkemployeeId', '=', 'attemployeemap.employeeId')
+
+                        ->whereRaw("date_format(attendancedata.accessTime,'%Y-%m-%d') between date_format(shiftlog.startDate,'%Y-%m-%d') and ifnull(date_format(shiftlog.endDate,'%Y-%m-%d'),curdate())");
+                })
+                ->leftJoin('shift','shift.shiftId','shiftlog.fkshiftId')
+                ->where('attemployeemap.employeeId','!=',null)
+                ->whereRaw("date_format(attendancedata.accessTime,'%Y-%m-%d') between '".$fromDate."' and '".$toDate."'")
+                ->groupBy("attendancedata.attDeviceUserId",DB::raw("date_format(attendancedata.accessTime,'%Y-%m-%d')"));
+
+            $results=DB::table(DB::raw("({$testResults->toSql()}) as a"))
+
+                ->mergeBindings($testResults->getQuery())
+                ->select(DB::raw("a.employeeId,
+            CONCAT(COALESCE(a.firstName,''),' ',COALESCE(a.middleName,''),' ',COALESCE(a.lastName,'')) AS empname,
+            a.departmentName,a.totalWeekend,count(a.attendanceDate) totAttendance, FORMAT(avg(a.workingTime),2) averageWorkingHour,
+            sum(case late when 'Y' then 1 else 0 end) totalLate,a.totalLeave,a.actualJoinDate,a.practice,
+            a.checkIn,a.checkOut,a.attendanceDate,a.late,a.lateTime,a.fkDepartmentId"))
+                ->addSelect(DB::raw("FUN_WEEKENDS('".$fromDate."','".$toDate."',a.totalWeekend) as weekends"))
+                ->groupBy('a.employeeId')
+                ->orderBy('a.employeeId')
+                ->get();
+
+
         }else{
 
             $empId=EmployeeInfo::where('fkUserId',auth()->user()->id)->first();
 
-            $results = DB::select(DB::raw("select em.employeeId
-            , date_format(ad.accessTime,'%Y-%m-%d') attendanceDate
-            , date_format(min(ad.accessTime),'%H:%i') checkIn
-            , date_format(max(ad.accessTime),'%H:%i') checkOut
-            
-            , case when SUBTIME(date_format(min(ad.accessTime),'%H:%i'),s.inTime) > '00:00:01' then 'Y' else 'N' end late 
-            , TIME_FORMAT(SUBTIME(date_format(min(ad.accessTime),'%H:%i'),s.inTime),'%H:%i')  as lateTime
+//            $results = DB::select(DB::raw("select em.employeeId
+//            , date_format(ad.accessTime,'%Y-%m-%d') attendanceDate
+//            , date_format(min(ad.accessTime),'%H:%i') checkIn
+//            , date_format(max(ad.accessTime),'%H:%i') checkOut
+//
+//            , case when SUBTIME(date_format(min(ad.accessTime),'%H:%i'),s.inTime) > '00:00:01' then 'Y' else 'N' end late
+//            , TIME_FORMAT(SUBTIME(date_format(min(ad.accessTime),'%H:%i'),s.inTime),'%H:%i')  as lateTime
+//
+//            from attendancedata ad left join attemployeemap em on ad.attDeviceUserId = em.attDeviceUserId and date_format(ad.accessTime,'%Y-%m-%d') between '" . $fromDate . "' and '" . $toDate . "'
+//
+//            left join shiftlog sl on em.employeeId = sl.fkemployeeId and date_format(ad.accessTime,'%Y-%m-%d') between date_format(sl.startDate,'%Y-%m-%d') and ifnull(date_format(sl.endDate,'%Y-%m-%d'),curdate())
+//            left join shift s on sl.fkshiftId = s.shiftId
+//            where em.employeeId ='".$empId->id."'
+//            where date_format(ad.accessTime,'%Y-%m-%d') between '" . $fromDate . "' and '" . $toDate . "'
+//            group by ad.attDeviceUserId, date_format(ad.accessTime,'%Y-%m-%d')"));
 
-            from attendancedata ad left join attemployeemap em on ad.attDeviceUserId = em.attDeviceUserId and date_format(ad.accessTime,'%Y-%m-%d') between '" . $fromDate . "' and '" . $toDate . "'
-            
-            left join shiftlog sl on em.employeeId = sl.fkemployeeId and date_format(ad.accessTime,'%Y-%m-%d') between date_format(sl.startDate,'%Y-%m-%d') and ifnull(date_format(sl.endDate,'%Y-%m-%d'),curdate())
-            left join shift s on sl.fkshiftId = s.shiftId
-            where em.employeeId ='".$empId->id."' 
-            where date_format(ad.accessTime,'%Y-%m-%d') between '" . $fromDate . "' and '" . $toDate . "'
-            group by ad.attDeviceUserId, date_format(ad.accessTime,'%Y-%m-%d')"));
+            $testResults=AttendanceData::select('attendancedata.id','attendancedata.attDeviceUserId','hrmdepartments.departmentName' ,
+                'attemployeemap.employeeId',
+                'employeeinfo.firstName','employeeinfo.lastName','employeeinfo.middleName','employeeinfo.weekend as totalWeekend',
+                'attendancedata.fkAttDevice','employeeinfo.actualJoinDate','employeeinfo.practice','employeeinfo.fkDepartmentId',
+
+                DB::raw("date_format(attendancedata.accessTime,'%Y-%m-%d') attendanceDate"),
+                DB::raw("date_format(min(attendancedata.accessTime),'%H:%i:%s %p') checkIn"),
+                DB::raw("date_format(max(attendancedata.accessTime),'%H:%i:%s %p') checkOut"),
+                DB::raw("date_format(shift.inTime,'%H:%i:%s %p') scheduleIn"),
+                DB::raw("date_format(shift.outTime,'%H:%i:%s %p') scheduleOut"),
+                DB::raw("case when SUBTIME(date_format(min(attendancedata.accessTime),'%H:%i'),shift.inTime) > '00:00:01' then 'Y' else 'N' end late"),
+                DB::raw("TIME_FORMAT(SUBTIME(date_format(min(attendancedata.accessTime),'%H:%i'),shift.inTime),'%H:%i')  as lateTime"),
+                DB::raw("SUBTIME(date_format(max(attendancedata.accessTime),'%H:%i:%s'),date_format(min(attendancedata.accessTime),'%H:%i:%s')) workingTime"),
+                DB::raw("max(attendancedata.accessTime) checkoutFull"),
+                DB::raw("SUM(distinct hrmleaves.noOfDays) as totalLeave"))
+
+                ->leftJoin('attemployeemap',function($join) use ($fromDate,$toDate){
+                    $join->on('attendancedata.attDeviceUserId', '=', 'attemployeemap.attDeviceUserId')
+
+                        ->whereRaw("date_format(attendancedata.accessTime,'%Y-%m-%d') between '" . $fromDate . "' and '" . $toDate . "'");
+                })
+//
+                ->leftJoin('employeeinfo','employeeinfo.id','attemployeemap.employeeId')
+                ->leftJoin('hrmleaves',function($join) use ($fromDate,$toDate){
+                    $join->on('hrmleaves.fkEmployeeId', '=', 'attemployeemap.attDeviceUserId')
+                        ->where('hrmleaves.applicationStatus', '=', 'Approved')
+                        ->whereRaw("hrmleaves.startDate between '" . $fromDate . "' and '" . $toDate . "'");
+                })
+                ->leftJoin('hrmdepartments','hrmdepartments.id','employeeinfo.fkDepartmentId')
+//
+                ->leftJoin('shiftlog',function($join) use ($fromDate,$toDate){
+                    $join->on('shiftlog.fkemployeeId', '=', 'attemployeemap.employeeId')
+
+                        ->whereRaw("date_format(attendancedata.accessTime,'%Y-%m-%d') between date_format(shiftlog.startDate,'%Y-%m-%d') and ifnull(date_format(shiftlog.endDate,'%Y-%m-%d'),curdate())");
+                })
+                ->leftJoin('shift','shift.shiftId','shiftlog.fkshiftId')
+                ->where('attemployeemap.employeeId','=',$empId->id)
+                ->whereRaw("date_format(attendancedata.accessTime,'%Y-%m-%d') between '".$fromDate."' and '".$toDate."'")
+                ->groupBy("attendancedata.attDeviceUserId",DB::raw("date_format(attendancedata.accessTime,'%Y-%m-%d')"));
+
+            $results=DB::table(DB::raw("({$testResults->toSql()}) as a"))
+
+                ->mergeBindings($testResults->getQuery())
+                ->select(DB::raw("a.employeeId,
+            CONCAT(COALESCE(a.firstName,''),' ',COALESCE(a.middleName,''),' ',COALESCE(a.lastName,'')) AS empname,
+            a.departmentName,a.totalWeekend,count(a.attendanceDate) totAttendance, FORMAT(avg(a.workingTime),2) averageWorkingHour,
+            sum(case late when 'Y' then 1 else 0 end) totalLate,a.totalLeave,a.actualJoinDate,a.practice,
+            a.checkIn,a.checkOut,a.attendanceDate,a.late,a.lateTime,a.fkDepartmentId"))
+                ->addSelect(DB::raw("FUN_WEEKENDS('".$fromDate."','".$toDate."',a.totalWeekend) as weekends"))
+                ->groupBy('a.employeeId')
+                ->orderBy('a.employeeId')
+                ->get();
 
         }
 
@@ -329,7 +445,7 @@ class AttendanceController extends Controller
 
         $allHoliday=OrganizationCalander::whereMonth('startDate', '=', date('m',strtotime($fromDate)))->orWhereMonth('endDate', '=', date('m',strtotime($toDate)))->get();
 
-
+        $comments=Comment::whereBetween(DB::raw('DATE(created_at)'),[$fromDate,$toDate])->get();
 
 
         $excelName="test";
@@ -346,13 +462,18 @@ class AttendanceController extends Controller
 
 
 
-        Excel::create($fileName,function($excel)use ($allLeave,$results,$allDepartment,$dates,$allEmp,$allHoliday) {
+
+
+        Excel::create($fileName,function($excel)use ($allLeave,$results,$allDepartment,$dates,$allEmp,$allHoliday,$comments,$startDate,
+$endDate,$fromDate,$toDate) {
+
 
 
 
             foreach ($allDepartment as $ad) {
 
-                $excel->sheet($ad->departmentName, function ($sheet) use ($allLeave,$results,$ad, $allDepartment,$dates,$allEmp,$allHoliday) {
+                $excel->sheet($ad->departmentName, function ($sheet) use ($allLeave,$results,$ad, $allDepartment,$dates,$allEmp,$allHoliday,$comments,$startDate,
+$endDate,$fromDate,$toDate) {
 
 
                     $sheet->freezePane('B4');
@@ -365,7 +486,7 @@ class AttendanceController extends Controller
                         )
                     ));
 
-                    $sheet->loadView('Excel.attendenceTestRumi', compact('allLeave','results','dates','allEmp','ad','allHoliday'));
+                    $sheet->loadView('Excel.attendenceTestRumi', compact('allLeave','results','dates','allEmp','ad','allHoliday','comments','startDate','endDate','fromDate','toDate'));
                 });
             }
 

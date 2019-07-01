@@ -282,9 +282,252 @@ foreach ($allHoliday as $holiday){
         </tr>
 
 
+
+
     @endforeach
 
 
+
+
+
+    </tbody>
+</table>
+
+<table class="blueTable">
+    <thead>
+    <tr>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+    </tr>
+    <tr>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+    </tr>
+    <tr >
+        <th height="30" style="text-align: center;vertical-align: middle;">Name</th>
+        <th height="30" style="text-align: center;vertical-align: middle;"></th>
+        <th height="30" style="text-align: center;vertical-align: middle;">Total Present</th>
+        <th height="30" style="text-align: center;vertical-align: middle;">Total Late</th>
+        <th height="30" style="text-align: center;vertical-align: middle;">Total Absent</th>
+        <th height="30" style="text-align: center;vertical-align: middle;">Leave</th>
+        <th height="30" style="text-align: center;vertical-align: middle;">Offday</th>
+        <th height="30" style="text-align: center;vertical-align: middle;">Holiday</th>
+        <th height="30" style="text-align: center;vertical-align: middle;">NoShift</th>
+        <th height="30" style="text-align: center;vertical-align: middle;">Marriage</th>
+        <th height="30" style="text-align: center;vertical-align: middle;">LWP</th>
+        <th height="30" style="text-align: center;vertical-align: middle;">N/A</th>
+        <th height="30" style="text-align: center;vertical-align: middle;">Practice</th>
+        <th height="30" style="text-align: center;vertical-align: middle;">Team</th>
+        <th height="30" style="text-align: center;vertical-align: middle;"></th>
+        <th height="30" style="text-align: center;vertical-align: middle;">HR COMENTS</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+        <td  ></td>
+        <td  ></td>
+        <td  ></td>
+        <td  ></td>
+        <td  ></td>
+        <td  ></td>
+        <td  ></td>
+        <td  ></td>
+        <td  ></td>
+        <td  ></td>
+        <td  ></td>
+        <td  ></td>
+        <td  ></td>
+        <td  ></td>
+        <td  ></td>
+        <td  ></td>
+    </tr>
+    @foreach($results->where('fkDepartmentId',$ad->id) as $res)
+
+        @php
+
+
+            $holidayarray=[];
+        foreach ($allHoliday as $holiday){
+            if ((date("m",strtotime($holiday->startDate))==date("m",strtotime($startDate)))&& (date("m",strtotime($holiday->endDate))==date("m",strtotime($endDate)))){
+                $holidayarray[]=$holiday->noOfDays;
+            }elseif((date("m",strtotime($holiday->startDate))==date("m",strtotime($startDate)))&& (date("m",strtotime($holiday->endDate))!=date("m",strtotime($endDate))))
+            {
+                $st = \Carbon\Carbon::parse($holiday->startDate);
+                    $holidayarray[]=($days-$st->day);
+            }elseif ((date("m",strtotime($holiday->startDate))!=date("m",strtotime($startDate)))&& (date("m",strtotime($holiday->endDate))==date("m",strtotime($endDate))))
+            {
+                $etd = \Carbon\Carbon::parse($holiday->endDate);
+                $std = \Carbon\Carbon::parse($holiday->endDate)->startOfMonth();
+                    $holidayarray[]=(($etd->diffInDays($std))+1);
+            }
+        }
+        @endphp
+
+
+
+        <tr>
+            <td >{{$res->empname}}</td>
+            <td ></td>
+            <td >{{$res->totAttendance}}</td>
+            <td >{{$res->totalLate}}</td>
+            <td >
+
+
+                @php
+
+
+                    $diff_in_days = $endDate->daysInMonth;
+
+
+           if($res->actualJoinDate !=null ){
+                   $joiningDate = \Carbon\Carbon::parse($res->actualJoinDate);
+                   if($joiningDate->year ==date('Y') && $joiningDate->month == date('m')){
+
+                   $totalLeaveOrOff=($allLeave->where('fkEmployeeId',$res->employeeId)->whereIn('categoryCode',[LEAVE_CATEGORY['Casual'],LEAVE_CATEGORY['Sick'],LEAVE_CATEGORY['NoShift'],
+                    LEAVE_CATEGORY['Marriage'],LEAVE_CATEGORY['Leave with out pay'],LEAVE_CATEGORY['Team Leave']])->where('applicationStatus','Approved')->sum('noOfDays')
+
+                       +$res->weekends+$joiningDate->day+array_sum($holidayarray));
+
+
+                       echo $absent=((($diff_in_days-$res->totAttendance)-$totalLeaveOrOff));
+
+
+
+                   }else{
+
+                   $totalLeaveOrOff=($allLeave->where('fkEmployeeId',$res->employeeId)->whereIn('categoryCode',[LEAVE_CATEGORY['Casual'],LEAVE_CATEGORY['Sick'],LEAVE_CATEGORY['NoShift'],
+                    LEAVE_CATEGORY['Marriage'],LEAVE_CATEGORY['Leave with out pay'],LEAVE_CATEGORY['Team Leave']])->where('applicationStatus','Approved')->sum('noOfDays')
+
+                       +$res->weekends+array_sum($holidayarray)
+                       );
+
+                       echo $absent=((($diff_in_days-$res->totAttendance)-$totalLeaveOrOff));
+
+                   }
+               }else{
+               $totalLeaveOrOff=($allLeave->where('fkEmployeeId',$res->employeeId)->whereIn('categoryCode',[LEAVE_CATEGORY['Casual'],LEAVE_CATEGORY['Sick'],LEAVE_CATEGORY['NoShift'],
+                    LEAVE_CATEGORY['Marriage'],LEAVE_CATEGORY['Leave with out pay'],LEAVE_CATEGORY['Team Leave']])->where('applicationStatus','Approved')->sum('noOfDays')
+
+                       +$res->weekends+array_sum($holidayarray)
+                       );
+
+                       echo $absent=((($diff_in_days-$res->totAttendance)-$totalLeaveOrOff));
+               }
+
+
+
+
+
+                @endphp
+
+
+
+
+            </td>
+            <td >{{$allLeave->where('fkEmployeeId',$res->employeeId)->whereIn('categoryCode',[LEAVE_CATEGORY['Casual'],LEAVE_CATEGORY['Sick']])->where('applicationStatus','Approved')->sum('noOfDays')}}</td>
+
+            <td>
+
+
+                {{$res->weekends}}
+
+
+
+            </td>
+            <td >
+
+                {{array_sum($holidayarray)}}
+
+            </td>
+            <td >{{$allLeave->where('fkEmployeeId',$res->employeeId)->where('categoryCode',LEAVE_CATEGORY['NoShift'])->where('applicationStatus','Approved')->sum('noOfDays')}}</td>
+            <td >{{$allLeave->where('fkEmployeeId',$res->employeeId)->where('categoryCode',LEAVE_CATEGORY['Marriage'])->where('applicationStatus','Approved')->sum('noOfDays')}}</td>
+            <td >{{$allLeave->where('fkEmployeeId',$res->employeeId)->where('categoryCode',LEAVE_CATEGORY['Leave with out pay'])->where('applicationStatus','Approved')->sum('noOfDays')}}</td>
+            <td >
+
+                <?php
+                if($res->actualJoinDate !=null){
+                    $joiningDate = \Carbon\Carbon::parse($res->actualJoinDate);
+                    if($joiningDate->year ==date('Y') && $joiningDate->month == date('m')){
+                        echo $joiningDate->day;
+                    }else{
+                        echo 0;
+                    }
+                }else{
+                    echo 0;
+                }
+
+
+
+
+                ?>
+
+            </td>
+            <td >
+
+                <?php
+                if($res->actualJoinDate !=null){
+                    $joiningDate = \Carbon\Carbon::parse($res->actualJoinDate);
+                    if($joiningDate->year ==date('Y') && $joiningDate->month == date('m')){
+                        if ($res->practice != null){
+                            echo $res->practice;
+
+                        }else{
+                            echo 0;
+                        }
+                    }else{
+                        echo 0;
+                    }
+                }else{
+                    echo 0;
+                }
+
+
+
+
+                ?>
+
+            </td>
+            <td>{{$allLeave->where('fkEmployeeId',$res->employeeId)->where('categoryCode',LEAVE_CATEGORY['Team Leave'])->where('applicationStatus','Approved')->sum('noOfDays')}}</td>
+            <td></td>
+            <td>
+
+                @foreach($comments->where('fkemployeeId',$res->employeeId) as $comment)
+                    {{$comment->comment}}
+                    <br>
+                @endforeach
+
+
+            </td>
+        </tr>
+    @endforeach
 
     </tbody>
 </table>
