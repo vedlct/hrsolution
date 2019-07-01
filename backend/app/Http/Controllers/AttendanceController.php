@@ -346,7 +346,6 @@ class AttendanceController extends Controller
 
 
 
-
         Excel::create($fileName,function($excel)use ($allLeave,$results,$allDepartment,$dates,$allEmp,$allHoliday) {
 
 

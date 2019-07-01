@@ -2,10 +2,16 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="57b232db-10b9-4489-a96b-8ca7facb58c3" name="Default" comment="">
+      <change type="DELETED" beforePath="$PROJECT_DIR$/backend/public/exportedExcel/Attendence_Info.xls" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/backend/public/exportedExcel/HRTest2019-06-28_02-38-02.xls" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/backend/public/exportedExcel/HRTest2019-06-28_02-43-54.xls" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/backend/public/exportedExcel/HRTest2019-06-28_12-32-21.xls" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/backend/public/exportedExcel/HRTest2019-06-28_12-33-02.xls" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/backend/app/Http/Controllers/AttendanceController.php" afterPath="$PROJECT_DIR$/backend/app/Http/Controllers/AttendanceController.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/backend/app/Http/Controllers/ExcelController.php" afterPath="$PROJECT_DIR$/backend/app/Http/Controllers/ExcelController.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/backend/app/Http/Controllers/TestController.php" afterPath="$PROJECT_DIR$/backend/app/Http/Controllers/TestController.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/frontend/src/app/components/report/attendance/attendance.component.ts" afterPath="$PROJECT_DIR$/frontend/src/app/components/report/attendance/attendance.component.ts" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/backend/resources/views/Excel/attendenceTestRumi.blade.php" afterPath="$PROJECT_DIR$/backend/resources/views/Excel/attendenceTestRumi.blade.php" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -23,49 +29,13 @@
   <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="AttendanceController.php" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/backend/app/Http/Controllers/AttendanceController.php">
+      <file leaf-file-name="showovertime.component.ts" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/frontend/src/app/components/overtime/showovertime/showovertime.component.ts">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-227">
-              <caret line="293" column="0" lean-forward="true" selection-start-line="293" selection-start-column="0" selection-end-line="293" selection-end-column="0" />
+            <state relative-caret-position="2706">
+              <caret line="123" column="17" lean-forward="true" selection-start-line="123" selection-start-column="17" selection-end-line="123" selection-end-column="17" />
               <folding>
-                <marker date="1561788606710" expanded="true" signature="770:2957" ph="select a.emp... id" />
-                <marker date="1561788606710" expanded="true" signature="1125:2882" ph="select ad.id... attendancedata" />
-                <marker date="1561788606710" expanded="true" signature="6672:8865" ph="select a.emp... id" />
-                <marker date="1561788606710" expanded="true" signature="7027:8790" ph="select ad.id... attendancedata" />
-                <marker date="1561788606710" expanded="true" signature="16949:18071" ph="select em.em... attendancedata" />
-                <marker date="1561788606710" expanded="true" signature="18216:19389" ph="select em.em... attendancedata" />
-                <marker date="1561788606710" expanded="true" signature="21926:23426" ph="select ad.id... attendancedata" />
-                <marker date="1561788606710" expanded="true" signature="24844:25387" ph="select count... attendancedata" />
-                <marker date="1561788606710" expanded="true" signature="25442:25965" ph="select count... attendancedata" />
-                <marker date="1561788606710" expanded="true" signature="26016:27164" ph="select count... id" />
-                <marker date="1561788606710" expanded="true" signature="26063:27130" ph="select ad.id... attendancedata" />
-                <marker date="1561788606710" expanded="true" signature="27216:28364" ph="select count... id" />
-                <marker date="1561788606710" expanded="true" signature="27263:28330" ph="select ad.id... attendancedata" />
-                <marker date="1561788606710" expanded="true" signature="29674:30359" ph="SELECT * FRO... attemployeemap" />
-                <marker date="1561788606710" expanded="true" signature="30003:30184" ph="SELECT * FRO... attendancedata" />
-                <marker date="1561788606710" expanded="true" signature="30218:30357" ph="SELECT * FRO... hrmleaves" />
-                <marker date="1561788606710" expanded="true" signature="30445:31021" ph="SELECT * FRO... attemployeemap" />
-                <marker date="1561788606710" expanded="true" signature="30772:30853" ph="SELECT * FRO... attendancedata" />
-                <marker date="1561788606710" expanded="true" signature="30917:31019" ph="SELECT * FRO... hrmleaves" />
-                <marker date="1561788606710" expanded="true" signature="31870:32351" ph="select count... attendancedata" />
-                <marker date="1561788606710" expanded="true" signature="32813:33961" ph="select count... id" />
-                <marker date="1561788606710" expanded="true" signature="32860:33927" ph="select ad.id... attendancedata" />
-                <marker date="1561788606710" expanded="true" signature="34032:34564" ph="SELECT first... attemployeemap" />
-                <marker date="1561788606710" expanded="true" signature="34282:34363" ph="SELECT * FRO... attendancedata" />
-                <marker date="1561788606710" expanded="true" signature="34426:34563" ph="SELECT * FRO... hrmleaves" />
-                <marker date="1561788606710" expanded="true" signature="36230:36711" ph="select count... attendancedata" />
-                <marker date="1561788606710" expanded="true" signature="37134:38282" ph="select count... id" />
-                <marker date="1561788606710" expanded="true" signature="37181:38248" ph="select ad.id... attendancedata" />
-                <marker date="1561788606710" expanded="true" signature="38351:38859" ph="SELECT * FRO... attemployeemap" />
-                <marker date="1561788606710" expanded="true" signature="38573:38654" ph="SELECT * FRO... attendancedata" />
-                <marker date="1561788606710" expanded="true" signature="38718:38857" ph="SELECT * FRO... hrmleaves" />
-                <marker date="1561788606710" expanded="true" signature="39394:39874" ph="select count... attendancedata" />
-                <marker date="1561788606710" expanded="true" signature="40298:41445" ph="select count... id" />
-                <marker date="1561788606710" expanded="true" signature="40345:41411" ph="select ad.id... attendancedata" />
-                <marker date="1561788606710" expanded="true" signature="41515:42023" ph="SELECT * FRO... attemployeemap" />
-                <marker date="1561788606710" expanded="true" signature="41737:41818" ph="SELECT * FRO... attendancedata" />
-                <marker date="1561788606710" expanded="true" signature="41882:42021" ph="SELECT * FRO... hrmleaves" />
+                <element signature="e#0#69#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -82,9 +52,13 @@
       <find>getDatesFromRange</find>
       <find>late</find>
       <find>$ad</find>
+      <find>$res</find>
+      <find>aEults</find>
+      <find>generate</find>
     </findStrings>
     <replaceStrings>
       <replace>$date['date']</replace>
+      <replace>$aE</replace>
     </replaceStrings>
   </component>
   <component name="Git.Settings">
@@ -93,13 +67,14 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/backend/resources/views/Excel/attendenceTestRumi.blade.php" />
         <option value="$PROJECT_DIR$/backend/app/Http/Controllers/Appraisal/EmpAppraisalSetupController.php" />
         <option value="$PROJECT_DIR$/frontend/src/app/components/overtime/showovertime/showovertime.component.ts" />
         <option value="$PROJECT_DIR$/backend/app/Http/Controllers/OvertimeController.php" />
-        <option value="$PROJECT_DIR$/backend/app/Http/Controllers/TestController.php" />
-        <option value="$PROJECT_DIR$/backend/app/Http/Controllers/AttendanceController.php" />
         <option value="$PROJECT_DIR$/frontend/src/app/components/report/attendance/attendance.component.ts" />
+        <option value="$PROJECT_DIR$/backend/app/Http/Controllers/AttendanceController.php" />
+        <option value="$PROJECT_DIR$/backend/app/Http/Controllers/ExcelController.php" />
+        <option value="$PROJECT_DIR$/backend/app/Http/Controllers/TestController.php" />
+        <option value="$PROJECT_DIR$/backend/resources/views/Excel/attendenceTestRumi.blade.php" />
       </list>
     </option>
   </component>
@@ -447,6 +422,24 @@
               <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
+              <option name="myItemId" value="routes" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="hrsolution" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="hrsolution" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="backend" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
               <option name="myItemId" value="resources" />
               <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
@@ -693,19 +686,20 @@
       <workItem from="1561566506576" duration="17000" />
       <workItem from="1561663216031" duration="4959000" />
       <workItem from="1561699729241" duration="14333000" />
-      <workItem from="1561785886514" duration="3937000" />
+      <workItem from="1561785886514" duration="11541000" />
+      <workItem from="1561965607805" duration="32000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="24130000" />
+    <option name="totallyTimeSpent" value="31766000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info id="TypeScript" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32936078" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.25266525" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="TypeScript" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32936078" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.16204691" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -755,6 +749,117 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/backend/routes/api.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="4224">
+          <caret line="192" column="58" lean-forward="false" selection-start-line="192" selection-start-column="50" selection-end-line="192" selection-end-column="58" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/backend/app/Http/Controllers/AttendanceController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="3630">
+          <caret line="176" column="110" lean-forward="true" selection-start-line="176" selection-start-column="16" selection-end-line="176" selection-end-column="110" />
+          <folding>
+            <marker date="1561792910454" expanded="true" signature="770:2957" ph="select a.emp... id" />
+            <marker date="1561792910454" expanded="true" signature="1125:2882" ph="select ad.id... attendancedata" />
+            <marker date="1561792910454" expanded="true" signature="6672:8865" ph="select a.emp... id" />
+            <marker date="1561792910454" expanded="true" signature="7027:8790" ph="select ad.id... attendancedata" />
+            <marker date="1561792910454" expanded="true" signature="16949:18071" ph="select em.em... attendancedata" />
+            <marker date="1561792910454" expanded="true" signature="18216:19389" ph="select em.em... attendancedata" />
+            <marker date="1561792910454" expanded="true" signature="21925:23425" ph="select ad.id... attendancedata" />
+            <marker date="1561792910454" expanded="true" signature="24843:25386" ph="select count... attendancedata" />
+            <marker date="1561792910454" expanded="true" signature="25441:25964" ph="select count... attendancedata" />
+            <marker date="1561792910454" expanded="true" signature="26015:27163" ph="select count... id" />
+            <marker date="1561792910454" expanded="true" signature="26062:27129" ph="select ad.id... attendancedata" />
+            <marker date="1561792910454" expanded="true" signature="27215:28363" ph="select count... id" />
+            <marker date="1561792910454" expanded="true" signature="27262:28329" ph="select ad.id... attendancedata" />
+            <marker date="1561792910454" expanded="true" signature="29673:30358" ph="SELECT * FRO... attemployeemap" />
+            <marker date="1561792910454" expanded="true" signature="30002:30183" ph="SELECT * FRO... attendancedata" />
+            <marker date="1561792910454" expanded="true" signature="30217:30356" ph="SELECT * FRO... hrmleaves" />
+            <marker date="1561792910454" expanded="true" signature="30444:31020" ph="SELECT * FRO... attemployeemap" />
+            <marker date="1561792910454" expanded="true" signature="30771:30852" ph="SELECT * FRO... attendancedata" />
+            <marker date="1561792910454" expanded="true" signature="30916:31018" ph="SELECT * FRO... hrmleaves" />
+            <marker date="1561792910454" expanded="true" signature="31869:32350" ph="select count... attendancedata" />
+            <marker date="1561792910454" expanded="true" signature="32812:33960" ph="select count... id" />
+            <marker date="1561792910454" expanded="true" signature="32859:33926" ph="select ad.id... attendancedata" />
+            <marker date="1561792910454" expanded="true" signature="34031:34563" ph="SELECT first... attemployeemap" />
+            <marker date="1561792910454" expanded="true" signature="34281:34362" ph="SELECT * FRO... attendancedata" />
+            <marker date="1561792910454" expanded="true" signature="34425:34562" ph="SELECT * FRO... hrmleaves" />
+            <marker date="1561792910454" expanded="true" signature="36229:36710" ph="select count... attendancedata" />
+            <marker date="1561792910454" expanded="true" signature="37133:38281" ph="select count... id" />
+            <marker date="1561792910454" expanded="true" signature="37180:38247" ph="select ad.id... attendancedata" />
+            <marker date="1561792910454" expanded="true" signature="38350:38858" ph="SELECT * FRO... attemployeemap" />
+            <marker date="1561792910454" expanded="true" signature="38572:38653" ph="SELECT * FRO... attendancedata" />
+            <marker date="1561792910454" expanded="true" signature="38717:38856" ph="SELECT * FRO... hrmleaves" />
+            <marker date="1561792910454" expanded="true" signature="39393:39873" ph="select count... attendancedata" />
+            <marker date="1561792910454" expanded="true" signature="40297:41444" ph="select count... id" />
+            <marker date="1561792910454" expanded="true" signature="40344:41410" ph="select ad.id... attendancedata" />
+            <marker date="1561792910454" expanded="true" signature="41514:42022" ph="SELECT * FRO... attemployeemap" />
+            <marker date="1561792910454" expanded="true" signature="41736:41817" ph="SELECT * FRO... attendancedata" />
+            <marker date="1561792910454" expanded="true" signature="41881:42020" ph="SELECT * FRO... hrmleaves" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/backend/resources/views/Excel/attendence.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="3784">
+          <caret line="172" column="207" lean-forward="false" selection-start-line="172" selection-start-column="23" selection-end-line="172" selection-end-column="207" />
+          <folding>
+            <marker date="1560924399337" expanded="true" signature="3223:3489" ph="..." />
+            <marker date="1560924399337" expanded="true" signature="3389:3467" ph="..." />
+            <marker date="1560924399337" expanded="true" signature="3610:4556" ph="..." />
+            <marker date="1560924399337" expanded="true" signature="3778:3843" ph="..." />
+            <marker date="1560924399337" expanded="true" signature="4001:4149" ph="{...}" />
+            <marker date="1560924399337" expanded="true" signature="4307:4547" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/backend/resources/views/Excel/attendenceTestRumi.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <marker date="1561812179354" expanded="true" signature="215:1057" ph="..." />
+            <marker date="1561812179354" expanded="true" signature="375:424" ph="..." />
+            <marker date="1561812179354" expanded="true" signature="582:698" ph="{...}" />
+            <marker date="1561812179354" expanded="true" signature="856:1056" ph="{...}" />
+            <marker date="1561812179354" expanded="true" signature="9237:10190" ph="..." />
+            <marker date="1561812179354" expanded="true" signature="9430:9781" ph="..." />
+            <marker date="1561812179354" expanded="true" signature="9795:10161" ph="..." />
+            <marker date="1561812179354" expanded="true" signature="10204:10560" ph="..." />
+            <marker date="1561812179354" expanded="true" signature="10545:10560" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/backend/app/Http/Controllers/ExcelController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="616">
+          <caret line="38" column="44" lean-forward="false" selection-start-line="38" selection-start-column="27" selection-end-line="38" selection-end-column="44" />
+          <caret line="38" column="81" lean-forward="false" selection-start-line="38" selection-start-column="70" selection-end-line="38" selection-end-column="81" />
+          <folding>
+            <marker date="1561809211248" expanded="true" signature="710:2914" ph="select a.emp... id" />
+            <marker date="1561809211248" expanded="true" signature="1107:2838" ph="select ad.id... attendancedata" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/backend/app/Http/Controllers/TestController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="9460">
+          <caret line="445" column="92" lean-forward="false" selection-start-line="445" selection-start-column="85" selection-end-line="445" selection-end-column="92" />
+          <folding>
+            <marker date="1561811410420" expanded="true" signature="1863:4064" ph="select a.emp... id" />
+            <marker date="1561811410420" expanded="true" signature="2257:3988" ph="select ad.id... attendancedata" />
+            <marker date="1561811410420" expanded="true" signature="14452:15584" ph="select em.em... attendancedata" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/backend/resources/views/Excel/attendence.blade.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1694">
@@ -774,7 +879,17 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="2200">
           <caret line="100" column="63" lean-forward="false" selection-start-line="100" selection-start-column="63" selection-end-line="100" selection-end-column="63" />
-          <folding />
+          <folding>
+            <marker date="1561812179354" expanded="true" signature="215:1057" ph="..." />
+            <marker date="1561812179354" expanded="true" signature="375:424" ph="..." />
+            <marker date="1561812179354" expanded="true" signature="582:698" ph="{...}" />
+            <marker date="1561812179354" expanded="true" signature="856:1056" ph="{...}" />
+            <marker date="1561812179354" expanded="true" signature="9237:10190" ph="..." />
+            <marker date="1561812179354" expanded="true" signature="9430:9781" ph="..." />
+            <marker date="1561812179354" expanded="true" signature="9795:10161" ph="..." />
+            <marker date="1561812179354" expanded="true" signature="10204:10560" ph="..." />
+            <marker date="1561812179354" expanded="true" signature="10545:10560" ph="..." />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -783,9 +898,9 @@
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <marker date="1561785957572" expanded="true" signature="1863:4064" ph="select a.emp... id" />
-            <marker date="1561785957572" expanded="true" signature="2257:3988" ph="select ad.id... attendancedata" />
-            <marker date="1561785957572" expanded="true" signature="14450:15564" ph="select em.em... attendancedata" />
+            <marker date="1561811410420" expanded="true" signature="1863:4064" ph="select a.emp... id" />
+            <marker date="1561811410420" expanded="true" signature="2257:3988" ph="select ad.id... attendancedata" />
+            <marker date="1561811410420" expanded="true" signature="14452:15584" ph="select em.em... attendancedata" />
           </folding>
         </state>
       </provider>
@@ -795,9 +910,9 @@
         <state relative-caret-position="6248">
           <caret line="299" column="0" lean-forward="true" selection-start-line="298" selection-start-column="0" selection-end-line="299" selection-end-column="0" />
           <folding>
-            <marker date="1561785957572" expanded="true" signature="1863:4064" ph="select a.emp... id" />
-            <marker date="1561785957572" expanded="true" signature="2257:3988" ph="select ad.id... attendancedata" />
-            <marker date="1561785957572" expanded="true" signature="14450:15564" ph="select em.em... attendancedata" />
+            <marker date="1561811410420" expanded="true" signature="1863:4064" ph="select a.emp... id" />
+            <marker date="1561811410420" expanded="true" signature="2257:3988" ph="select ad.id... attendancedata" />
+            <marker date="1561811410420" expanded="true" signature="14452:15584" ph="select em.em... attendancedata" />
           </folding>
         </state>
       </provider>
@@ -821,7 +936,17 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
+          <folding>
+            <marker date="1561812179354" expanded="true" signature="215:1057" ph="..." />
+            <marker date="1561812179354" expanded="true" signature="375:424" ph="..." />
+            <marker date="1561812179354" expanded="true" signature="582:698" ph="{...}" />
+            <marker date="1561812179354" expanded="true" signature="856:1056" ph="{...}" />
+            <marker date="1561812179354" expanded="true" signature="9237:10190" ph="..." />
+            <marker date="1561812179354" expanded="true" signature="9430:9781" ph="..." />
+            <marker date="1561812179354" expanded="true" signature="9795:10161" ph="..." />
+            <marker date="1561812179354" expanded="true" signature="10204:10560" ph="..." />
+            <marker date="1561812179354" expanded="true" signature="10545:10560" ph="..." />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -830,43 +955,43 @@
         <state relative-caret-position="5192">
           <caret line="236" column="22" lean-forward="true" selection-start-line="236" selection-start-column="22" selection-end-line="236" selection-end-column="22" />
           <folding>
-            <marker date="1561788606710" expanded="true" signature="770:2957" ph="select a.emp... id" />
-            <marker date="1561788606710" expanded="true" signature="1125:2882" ph="select ad.id... attendancedata" />
-            <marker date="1561788606710" expanded="true" signature="6672:8865" ph="select a.emp... id" />
-            <marker date="1561788606710" expanded="true" signature="7027:8790" ph="select ad.id... attendancedata" />
-            <marker date="1561788606710" expanded="true" signature="16949:18071" ph="select em.em... attendancedata" />
-            <marker date="1561788606710" expanded="true" signature="18216:19389" ph="select em.em... attendancedata" />
-            <marker date="1561788606710" expanded="true" signature="21926:23426" ph="select ad.id... attendancedata" />
-            <marker date="1561788606710" expanded="true" signature="24844:25387" ph="select count... attendancedata" />
-            <marker date="1561788606710" expanded="true" signature="25442:25965" ph="select count... attendancedata" />
-            <marker date="1561788606710" expanded="true" signature="26016:27164" ph="select count... id" />
-            <marker date="1561788606710" expanded="true" signature="26063:27130" ph="select ad.id... attendancedata" />
-            <marker date="1561788606710" expanded="true" signature="27216:28364" ph="select count... id" />
-            <marker date="1561788606710" expanded="true" signature="27263:28330" ph="select ad.id... attendancedata" />
-            <marker date="1561788606710" expanded="true" signature="29674:30359" ph="SELECT * FRO... attemployeemap" />
-            <marker date="1561788606710" expanded="true" signature="30003:30184" ph="SELECT * FRO... attendancedata" />
-            <marker date="1561788606710" expanded="true" signature="30218:30357" ph="SELECT * FRO... hrmleaves" />
-            <marker date="1561788606710" expanded="true" signature="30445:31021" ph="SELECT * FRO... attemployeemap" />
-            <marker date="1561788606710" expanded="true" signature="30772:30853" ph="SELECT * FRO... attendancedata" />
-            <marker date="1561788606710" expanded="true" signature="30917:31019" ph="SELECT * FRO... hrmleaves" />
-            <marker date="1561788606710" expanded="true" signature="31870:32351" ph="select count... attendancedata" />
-            <marker date="1561788606710" expanded="true" signature="32813:33961" ph="select count... id" />
-            <marker date="1561788606710" expanded="true" signature="32860:33927" ph="select ad.id... attendancedata" />
-            <marker date="1561788606710" expanded="true" signature="34032:34564" ph="SELECT first... attemployeemap" />
-            <marker date="1561788606710" expanded="true" signature="34282:34363" ph="SELECT * FRO... attendancedata" />
-            <marker date="1561788606710" expanded="true" signature="34426:34563" ph="SELECT * FRO... hrmleaves" />
-            <marker date="1561788606710" expanded="true" signature="36230:36711" ph="select count... attendancedata" />
-            <marker date="1561788606710" expanded="true" signature="37134:38282" ph="select count... id" />
-            <marker date="1561788606710" expanded="true" signature="37181:38248" ph="select ad.id... attendancedata" />
-            <marker date="1561788606710" expanded="true" signature="38351:38859" ph="SELECT * FRO... attemployeemap" />
-            <marker date="1561788606710" expanded="true" signature="38573:38654" ph="SELECT * FRO... attendancedata" />
-            <marker date="1561788606710" expanded="true" signature="38718:38857" ph="SELECT * FRO... hrmleaves" />
-            <marker date="1561788606710" expanded="true" signature="39394:39874" ph="select count... attendancedata" />
-            <marker date="1561788606710" expanded="true" signature="40298:41445" ph="select count... id" />
-            <marker date="1561788606710" expanded="true" signature="40345:41411" ph="select ad.id... attendancedata" />
-            <marker date="1561788606710" expanded="true" signature="41515:42023" ph="SELECT * FRO... attemployeemap" />
-            <marker date="1561788606710" expanded="true" signature="41737:41818" ph="SELECT * FRO... attendancedata" />
-            <marker date="1561788606710" expanded="true" signature="41882:42021" ph="SELECT * FRO... hrmleaves" />
+            <marker date="1561792910454" expanded="true" signature="770:2957" ph="select a.emp... id" />
+            <marker date="1561792910454" expanded="true" signature="1125:2882" ph="select ad.id... attendancedata" />
+            <marker date="1561792910454" expanded="true" signature="6672:8865" ph="select a.emp... id" />
+            <marker date="1561792910454" expanded="true" signature="7027:8790" ph="select ad.id... attendancedata" />
+            <marker date="1561792910454" expanded="true" signature="16949:18071" ph="select em.em... attendancedata" />
+            <marker date="1561792910454" expanded="true" signature="18216:19389" ph="select em.em... attendancedata" />
+            <marker date="1561792910454" expanded="true" signature="21925:23425" ph="select ad.id... attendancedata" />
+            <marker date="1561792910454" expanded="true" signature="24843:25386" ph="select count... attendancedata" />
+            <marker date="1561792910454" expanded="true" signature="25441:25964" ph="select count... attendancedata" />
+            <marker date="1561792910454" expanded="true" signature="26015:27163" ph="select count... id" />
+            <marker date="1561792910454" expanded="true" signature="26062:27129" ph="select ad.id... attendancedata" />
+            <marker date="1561792910454" expanded="true" signature="27215:28363" ph="select count... id" />
+            <marker date="1561792910454" expanded="true" signature="27262:28329" ph="select ad.id... attendancedata" />
+            <marker date="1561792910454" expanded="true" signature="29673:30358" ph="SELECT * FRO... attemployeemap" />
+            <marker date="1561792910454" expanded="true" signature="30002:30183" ph="SELECT * FRO... attendancedata" />
+            <marker date="1561792910454" expanded="true" signature="30217:30356" ph="SELECT * FRO... hrmleaves" />
+            <marker date="1561792910454" expanded="true" signature="30444:31020" ph="SELECT * FRO... attemployeemap" />
+            <marker date="1561792910454" expanded="true" signature="30771:30852" ph="SELECT * FRO... attendancedata" />
+            <marker date="1561792910454" expanded="true" signature="30916:31018" ph="SELECT * FRO... hrmleaves" />
+            <marker date="1561792910454" expanded="true" signature="31869:32350" ph="select count... attendancedata" />
+            <marker date="1561792910454" expanded="true" signature="32812:33960" ph="select count... id" />
+            <marker date="1561792910454" expanded="true" signature="32859:33926" ph="select ad.id... attendancedata" />
+            <marker date="1561792910454" expanded="true" signature="34031:34563" ph="SELECT first... attemployeemap" />
+            <marker date="1561792910454" expanded="true" signature="34281:34362" ph="SELECT * FRO... attendancedata" />
+            <marker date="1561792910454" expanded="true" signature="34425:34562" ph="SELECT * FRO... hrmleaves" />
+            <marker date="1561792910454" expanded="true" signature="36229:36710" ph="select count... attendancedata" />
+            <marker date="1561792910454" expanded="true" signature="37133:38281" ph="select count... id" />
+            <marker date="1561792910454" expanded="true" signature="37180:38247" ph="select ad.id... attendancedata" />
+            <marker date="1561792910454" expanded="true" signature="38350:38858" ph="SELECT * FRO... attemployeemap" />
+            <marker date="1561792910454" expanded="true" signature="38572:38653" ph="SELECT * FRO... attendancedata" />
+            <marker date="1561792910454" expanded="true" signature="38717:38856" ph="SELECT * FRO... hrmleaves" />
+            <marker date="1561792910454" expanded="true" signature="39393:39873" ph="select count... attendancedata" />
+            <marker date="1561792910454" expanded="true" signature="40297:41444" ph="select count... id" />
+            <marker date="1561792910454" expanded="true" signature="40344:41410" ph="select ad.id... attendancedata" />
+            <marker date="1561792910454" expanded="true" signature="41514:42022" ph="SELECT * FRO... attemployeemap" />
+            <marker date="1561792910454" expanded="true" signature="41736:41817" ph="SELECT * FRO... attendancedata" />
+            <marker date="1561792910454" expanded="true" signature="41881:42020" ph="SELECT * FRO... hrmleaves" />
           </folding>
         </state>
       </provider>
@@ -875,6 +1000,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="308">
           <caret line="23" column="21" lean-forward="false" selection-start-line="23" selection-start-column="12" selection-end-line="23" selection-end-column="21" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -889,6 +1015,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="308">
           <caret line="23" column="21" lean-forward="false" selection-start-line="23" selection-start-column="12" selection-end-line="23" selection-end-column="21" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -923,14 +1050,65 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/frontend/src/app/components/overtime/showovertime/showovertime.component.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/frontend/src/app/components/overtime/showovertime/showovertime.component.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/frontend/src/app/components/report/attendance/attendance.component.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="399">
+          <caret line="78" column="8" lean-forward="false" selection-start-line="78" selection-start-column="8" selection-end-line="78" selection-end-column="8" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/backend/app/Http/Controllers/TestController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1444">
-          <caret line="259" column="39" lean-forward="true" selection-start-line="259" selection-start-column="39" selection-end-line="259" selection-end-column="39" />
+        <state relative-caret-position="9460">
+          <caret line="445" column="92" lean-forward="false" selection-start-line="445" selection-start-column="85" selection-end-line="445" selection-end-column="92" />
           <folding>
-            <marker date="1561785957572" expanded="true" signature="1863:4064" ph="select a.emp... id" />
-            <marker date="1561785957572" expanded="true" signature="2257:3988" ph="select ad.id... attendancedata" />
-            <marker date="1561785957572" expanded="true" signature="14450:15564" ph="select em.em... attendancedata" />
+            <marker date="1561811410420" expanded="true" signature="1863:4064" ph="select a.emp... id" />
+            <marker date="1561811410420" expanded="true" signature="2257:3988" ph="select ad.id... attendancedata" />
+            <marker date="1561811410420" expanded="true" signature="14452:15584" ph="select em.em... attendancedata" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/backend/app/Http/Controllers/ExcelController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="616">
+          <caret line="38" column="44" lean-forward="false" selection-start-line="38" selection-start-column="27" selection-end-line="38" selection-end-column="44" />
+          <caret line="38" column="81" lean-forward="false" selection-start-line="38" selection-start-column="70" selection-end-line="38" selection-end-column="81" />
+          <folding>
+            <marker date="1561809211248" expanded="true" signature="710:2914" ph="select a.emp... id" />
+            <marker date="1561809211248" expanded="true" signature="1107:2838" ph="select ad.id... attendancedata" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/backend/resources/views/Excel/attendenceTestRumi.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-580">
+          <caret line="232" column="0" lean-forward="true" selection-start-line="232" selection-start-column="0" selection-end-line="232" selection-end-column="0" />
+          <folding>
+            <marker date="1561812179354" expanded="true" signature="215:1057" ph="..." />
+            <marker date="1561812179354" expanded="true" signature="375:424" ph="..." />
+            <marker date="1561812179354" expanded="true" signature="582:698" ph="{...}" />
+            <marker date="1561812179354" expanded="true" signature="856:1056" ph="{...}" />
+            <marker date="1561812179354" expanded="true" signature="9237:10190" ph="..." />
+            <marker date="1561812179354" expanded="true" signature="9430:9781" ph="..." />
+            <marker date="1561812179354" expanded="true" signature="9795:10161" ph="..." />
+            <marker date="1561812179354" expanded="true" signature="10204:10560" ph="..." />
+            <marker date="1561812179354" expanded="true" signature="10545:10560" ph="..." />
           </folding>
         </state>
       </provider>
@@ -938,7 +1116,7 @@
     <entry file="file://$PROJECT_DIR$/backend/resources/views/Excel/attendence.blade.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="22">
-          <caret line="77" column="49" lean-forward="false" selection-start-line="77" selection-start-column="46" selection-end-line="77" selection-end-column="49" />
+          <caret line="172" column="207" lean-forward="false" selection-start-line="172" selection-start-column="23" selection-end-line="172" selection-end-column="207" />
           <folding>
             <marker date="1560924399337" expanded="true" signature="3223:3489" ph="..." />
             <marker date="1560924399337" expanded="true" signature="3389:3467" ph="..." />
@@ -950,92 +1128,66 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/frontend/src/app/components/overtime/showovertime/showovertime.component.ts">
+    <entry file="file://$PROJECT_DIR$/backend/app/Http/Controllers/AttendanceController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1744">
+          <caret line="176" column="110" lean-forward="false" selection-start-line="176" selection-start-column="16" selection-end-line="176" selection-end-column="110" />
+          <folding>
+            <marker date="1561792910454" expanded="true" signature="770:2957" ph="select a.emp... id" />
+            <marker date="1561792910454" expanded="true" signature="1125:2882" ph="select ad.id... attendancedata" />
+            <marker date="1561792910454" expanded="true" signature="6672:8865" ph="select a.emp... id" />
+            <marker date="1561792910454" expanded="true" signature="7027:8790" ph="select ad.id... attendancedata" />
+            <marker date="1561792910454" expanded="true" signature="16949:18071" ph="select em.em... attendancedata" />
+            <marker date="1561792910454" expanded="true" signature="18216:19389" ph="select em.em... attendancedata" />
+            <marker date="1561792910454" expanded="true" signature="21925:23425" ph="select ad.id... attendancedata" />
+            <marker date="1561792910454" expanded="true" signature="24843:25386" ph="select count... attendancedata" />
+            <marker date="1561792910454" expanded="true" signature="25441:25964" ph="select count... attendancedata" />
+            <marker date="1561792910454" expanded="true" signature="26015:27163" ph="select count... id" />
+            <marker date="1561792910454" expanded="true" signature="26062:27129" ph="select ad.id... attendancedata" />
+            <marker date="1561792910454" expanded="true" signature="27215:28363" ph="select count... id" />
+            <marker date="1561792910454" expanded="true" signature="27262:28329" ph="select ad.id... attendancedata" />
+            <marker date="1561792910454" expanded="true" signature="29673:30358" ph="SELECT * FRO... attemployeemap" />
+            <marker date="1561792910454" expanded="true" signature="30002:30183" ph="SELECT * FRO... attendancedata" />
+            <marker date="1561792910454" expanded="true" signature="30217:30356" ph="SELECT * FRO... hrmleaves" />
+            <marker date="1561792910454" expanded="true" signature="30444:31020" ph="SELECT * FRO... attemployeemap" />
+            <marker date="1561792910454" expanded="true" signature="30771:30852" ph="SELECT * FRO... attendancedata" />
+            <marker date="1561792910454" expanded="true" signature="30916:31018" ph="SELECT * FRO... hrmleaves" />
+            <marker date="1561792910454" expanded="true" signature="31869:32350" ph="select count... attendancedata" />
+            <marker date="1561792910454" expanded="true" signature="32812:33960" ph="select count... id" />
+            <marker date="1561792910454" expanded="true" signature="32859:33926" ph="select ad.id... attendancedata" />
+            <marker date="1561792910454" expanded="true" signature="34031:34563" ph="SELECT first... attemployeemap" />
+            <marker date="1561792910454" expanded="true" signature="34281:34362" ph="SELECT * FRO... attendancedata" />
+            <marker date="1561792910454" expanded="true" signature="34425:34562" ph="SELECT * FRO... hrmleaves" />
+            <marker date="1561792910454" expanded="true" signature="36229:36710" ph="select count... attendancedata" />
+            <marker date="1561792910454" expanded="true" signature="37133:38281" ph="select count... id" />
+            <marker date="1561792910454" expanded="true" signature="37180:38247" ph="select ad.id... attendancedata" />
+            <marker date="1561792910454" expanded="true" signature="38350:38858" ph="SELECT * FRO... attemployeemap" />
+            <marker date="1561792910454" expanded="true" signature="38572:38653" ph="SELECT * FRO... attendancedata" />
+            <marker date="1561792910454" expanded="true" signature="38717:38856" ph="SELECT * FRO... hrmleaves" />
+            <marker date="1561792910454" expanded="true" signature="39393:39873" ph="select count... attendancedata" />
+            <marker date="1561792910454" expanded="true" signature="40297:41444" ph="select count... id" />
+            <marker date="1561792910454" expanded="true" signature="40344:41410" ph="select ad.id... attendancedata" />
+            <marker date="1561792910454" expanded="true" signature="41514:42022" ph="SELECT * FRO... attemployeemap" />
+            <marker date="1561792910454" expanded="true" signature="41736:41817" ph="SELECT * FRO... attendancedata" />
+            <marker date="1561792910454" expanded="true" signature="41881:42020" ph="SELECT * FRO... hrmleaves" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/backend/routes/api.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="528">
+          <caret line="192" column="58" lean-forward="false" selection-start-line="192" selection-start-column="50" selection-end-line="192" selection-end-column="58" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/frontend/src/app/components/overtime/showovertime/showovertime.component.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2706">
           <caret line="123" column="17" lean-forward="true" selection-start-line="123" selection-start-column="17" selection-end-line="123" selection-end-column="17" />
           <folding>
             <element signature="e#0#69#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/frontend/src/app/components/overtime/showovertime/showovertime.component.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/frontend/src/app/components/overtime/showovertime/showovertime.component.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/backend/resources/views/Excel/attendenceTestRumi.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="28">
-          <caret line="100" column="63" lean-forward="false" selection-start-line="100" selection-start-column="63" selection-end-line="100" selection-end-column="63" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/frontend/src/app/components/report/attendance/attendance.component.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="399">
-          <caret line="78" column="8" lean-forward="false" selection-start-line="78" selection-start-column="8" selection-end-line="78" selection-end-column="8" />
-          <folding>
-            <element signature="e#0#95#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/backend/app/Http/Controllers/AttendanceController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-227">
-          <caret line="293" column="0" lean-forward="true" selection-start-line="293" selection-start-column="0" selection-end-line="293" selection-end-column="0" />
-          <folding>
-            <marker date="1561788606710" expanded="true" signature="770:2957" ph="select a.emp... id" />
-            <marker date="1561788606710" expanded="true" signature="1125:2882" ph="select ad.id... attendancedata" />
-            <marker date="1561788606710" expanded="true" signature="6672:8865" ph="select a.emp... id" />
-            <marker date="1561788606710" expanded="true" signature="7027:8790" ph="select ad.id... attendancedata" />
-            <marker date="1561788606710" expanded="true" signature="16949:18071" ph="select em.em... attendancedata" />
-            <marker date="1561788606710" expanded="true" signature="18216:19389" ph="select em.em... attendancedata" />
-            <marker date="1561788606710" expanded="true" signature="21926:23426" ph="select ad.id... attendancedata" />
-            <marker date="1561788606710" expanded="true" signature="24844:25387" ph="select count... attendancedata" />
-            <marker date="1561788606710" expanded="true" signature="25442:25965" ph="select count... attendancedata" />
-            <marker date="1561788606710" expanded="true" signature="26016:27164" ph="select count... id" />
-            <marker date="1561788606710" expanded="true" signature="26063:27130" ph="select ad.id... attendancedata" />
-            <marker date="1561788606710" expanded="true" signature="27216:28364" ph="select count... id" />
-            <marker date="1561788606710" expanded="true" signature="27263:28330" ph="select ad.id... attendancedata" />
-            <marker date="1561788606710" expanded="true" signature="29674:30359" ph="SELECT * FRO... attemployeemap" />
-            <marker date="1561788606710" expanded="true" signature="30003:30184" ph="SELECT * FRO... attendancedata" />
-            <marker date="1561788606710" expanded="true" signature="30218:30357" ph="SELECT * FRO... hrmleaves" />
-            <marker date="1561788606710" expanded="true" signature="30445:31021" ph="SELECT * FRO... attemployeemap" />
-            <marker date="1561788606710" expanded="true" signature="30772:30853" ph="SELECT * FRO... attendancedata" />
-            <marker date="1561788606710" expanded="true" signature="30917:31019" ph="SELECT * FRO... hrmleaves" />
-            <marker date="1561788606710" expanded="true" signature="31870:32351" ph="select count... attendancedata" />
-            <marker date="1561788606710" expanded="true" signature="32813:33961" ph="select count... id" />
-            <marker date="1561788606710" expanded="true" signature="32860:33927" ph="select ad.id... attendancedata" />
-            <marker date="1561788606710" expanded="true" signature="34032:34564" ph="SELECT first... attemployeemap" />
-            <marker date="1561788606710" expanded="true" signature="34282:34363" ph="SELECT * FRO... attendancedata" />
-            <marker date="1561788606710" expanded="true" signature="34426:34563" ph="SELECT * FRO... hrmleaves" />
-            <marker date="1561788606710" expanded="true" signature="36230:36711" ph="select count... attendancedata" />
-            <marker date="1561788606710" expanded="true" signature="37134:38282" ph="select count... id" />
-            <marker date="1561788606710" expanded="true" signature="37181:38248" ph="select ad.id... attendancedata" />
-            <marker date="1561788606710" expanded="true" signature="38351:38859" ph="SELECT * FRO... attemployeemap" />
-            <marker date="1561788606710" expanded="true" signature="38573:38654" ph="SELECT * FRO... attendancedata" />
-            <marker date="1561788606710" expanded="true" signature="38718:38857" ph="SELECT * FRO... hrmleaves" />
-            <marker date="1561788606710" expanded="true" signature="39394:39874" ph="select count... attendancedata" />
-            <marker date="1561788606710" expanded="true" signature="40298:41445" ph="select count... id" />
-            <marker date="1561788606710" expanded="true" signature="40345:41411" ph="select ad.id... attendancedata" />
-            <marker date="1561788606710" expanded="true" signature="41515:42023" ph="SELECT * FRO... attemployeemap" />
-            <marker date="1561788606710" expanded="true" signature="41737:41818" ph="SELECT * FRO... attendancedata" />
-            <marker date="1561788606710" expanded="true" signature="41882:42021" ph="SELECT * FRO... hrmleaves" />
           </folding>
         </state>
       </provider>

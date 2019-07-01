@@ -4,6 +4,30 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <link href="{{url('public/css/exceltable.css')}}" rel="stylesheet">
 
+@php
+
+
+
+
+
+
+    $holidayarray=[];
+foreach ($allHoliday as $holiday){
+    if ((date("m",strtotime($holiday->startDate))==date("m",strtotime($startDate)))&& (date("m",strtotime($holiday->endDate))==date("m",strtotime($endDate)))){
+        $holidayarray[]=$holiday->noOfDays;
+    }elseif((date("m",strtotime($holiday->startDate))==date("m",strtotime($startDate)))&& (date("m",strtotime($holiday->endDate))!=date("m",strtotime($endDate))))
+    {
+        $st = \Carbon\Carbon::parse($holiday->startDate);
+            $holidayarray[]=($days-$st->day);
+    }elseif ((date("m",strtotime($holiday->startDate))!=date("m",strtotime($startDate)))&& (date("m",strtotime($holiday->endDate))==date("m",strtotime($endDate))))
+    {
+        $etd = \Carbon\Carbon::parse($holiday->endDate);
+        $std = \Carbon\Carbon::parse($holiday->endDate)->startOfMonth();
+            $holidayarray[]=(($etd->diffInDays($std))+1);
+    }
+}
+@endphp
+
 
 <body>
 
@@ -122,6 +146,141 @@
                 @endif
             @endforeach
         </tr>
+        <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+
+        </tr>
+        <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+
+        </tr>
+        <tr>
+            <th height="30" style="text-align: center;vertical-align: middle;"width="30">Name</th>
+            <th height="30" style="text-align: center;vertical-align: middle;"width="10"></th>
+            <th height="30" style="text-align: center;vertical-align: middle;"width="15">Total Present</th>
+            <th height="30" style="text-align: center;vertical-align: middle;"width="15">Total Late</th>
+            <th height="30" style="text-align: center;vertical-align: middle;"width="15">Total Absent</th>
+            <th height="30" style="text-align: center;vertical-align: middle;"width="10">Leave</th>
+            <th height="30" style="text-align: center;vertical-align: middle;"width="10">Offday</th>
+            <th height="30" style="text-align: center;vertical-align: middle;"width="10">Holiday</th>
+            <th height="30" style="text-align: center;vertical-align: middle;"width="10">NoShift</th>
+            <th height="30" style="text-align: center;vertical-align: middle;"width="10">Marriage</th>
+            <th height="30" style="text-align: center;vertical-align: middle;"width="10">LWP</th>
+            <th height="30" style="text-align: center;vertical-align: middle;"width="10">N/A</th>
+            <th height="30" style="text-align: center;vertical-align: middle;"width="10">Practice</th>
+            <th height="30" style="text-align: center;vertical-align: middle;"width="10">Team</th>
+            <th height="30" style="text-align: center;vertical-align: middle;"width="10"></th>
+            <th height="30" style="text-align: center;vertical-align: middle;"width="30">HR COMENTS</th>
+        </tr>
+        <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td>{{$aE->empFullname}}</td>
+            <td></td>
+            <td>
+
+                {{--{{$results->where('employeeId',$aE->id)->first()->totAttendance}}--}}
+            </td>
+            <td>
+                {{--{{$results->where('employeeId',$aE->id)->first()->totalLate}}--}}
+
+            </td>
+            <td>
+
+                {{--@php--}}
+
+                    {{--$offday[]=count($aE->weekends);--}}
+
+
+                        {{--$diff_in_days = $endDate->daysInMonth;--}}
+
+
+               {{--if($aE->actualJoinDate !=null ){--}}
+                       {{--$joiningDate = \Carbon\Carbon::parse($aE->actualJoinDate);--}}
+                       {{--if($joiningDate->year ==date('Y') && $joiningDate->month == date('m')){--}}
+
+                       {{--$totalLeaveOrOff=($allLeave->where('fkEmployeeId',$aE->employeeId)->sum('noOfDays')--}}
+
+                           {{--+array_sum($offday)+$joiningDate->day+array_sum($holidayarray));--}}
+
+
+                           {{--echo $absent=((($diff_in_days-$aE->totAttendance)-$totalLeaveOrOff));--}}
+
+
+
+                       {{--}else{--}}
+
+                       {{--$totalLeaveOrOff=($allLeave->where('fkEmployeeId',$aE->employeeId)->sum('noOfDays')--}}
+
+                           {{--+array_sum($offday)+array_sum($holidayarray)--}}
+                           {{--);--}}
+
+                           {{--echo $absent=((($diff_in_days-$aE->totAttendance)-$totalLeaveOrOff));--}}
+
+                       {{--}--}}
+                   {{--}else{--}}
+                   {{--$totalLeaveOrOff=($allLeave->where('fkEmployeeId',$aE->employeeId)->sum('noOfDays')--}}
+
+                           {{--+array_sum($offday)+array_sum($holidayarray)--}}
+                           {{--);--}}
+
+                           {{--echo $absent=((($diff_in_days-$aE->totAttendance)-$totalLeaveOrOff));--}}
+                   {{--}--}}
+
+
+
+
+
+                {{--@endphp--}}
+                
+            </td>
+            <td>
+                {{--{{$allLeave->where('fkEmployeeId',$aE->employeeId)->sum('noOfDays')}}--}}
+            </td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+
 
     @endforeach
 
