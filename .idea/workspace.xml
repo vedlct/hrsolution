@@ -1,9 +1,24 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="79863e6b-18f0-4843-8803-a73cc32ea3c6" name="Default Changelist" comment="">
+    <list default="true" id="a63eca5f-db98-471b-a576-c0a3cafda960" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/hrsolution.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/hrsolution.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/app/Http/Controllers/LeaveController.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/app/Http/Controllers/LeaveController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/public/exportedExcel/HRTest2019-06-28_02-38-02.xls" beforeDir="false" afterPath="$PROJECT_DIR$/backend/public/exportedExcel/HRTest2019-06-28_02-38-02.xls" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/public/exportedExcel/HRTest2019-06-28_02-43-54.xls" beforeDir="false" afterPath="$PROJECT_DIR$/backend/public/exportedExcel/HRTest2019-06-28_02-43-54.xls" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/public/exportedExcel/HRTest2019-06-30_03-54-21.xls" beforeDir="false" afterPath="$PROJECT_DIR$/backend/public/exportedExcel/HRTest2019-06-30_03-54-21.xls" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/public/exportedExcel/HRTest2019-06-30_11-10-17.xls" beforeDir="false" afterPath="$PROJECT_DIR$/backend/public/exportedExcel/HRTest2019-06-30_11-10-17.xls" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/dist/angular-tour/main.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/dist/angular-tour/main.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/dist/angular-tour/main.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/dist/angular-tour/main.js.map" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/dist/angular-tour/polyfills.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/dist/angular-tour/polyfills.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/dist/angular-tour/polyfills.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/dist/angular-tour/polyfills.js.map" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/dist/angular-tour/styles.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/dist/angular-tour/styles.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/dist/angular-tour/styles.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/dist/angular-tour/styles.js.map" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/dist/angular-tour/vendor.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/dist/angular-tour/vendor.js.map" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/app/components/leave/leave-summery/leave-summery.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/app/components/leave/leave-summery/leave-summery.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/app/components/leave/leave-summery/leave-summery.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/app/components/leave/leave-summery/leave-summery.component.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/src/app/constants.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/app/constants.ts" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -12,41 +27,70 @@
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="ComposerSettings" doNotAsk="true">
+  <component name="ComposerSettings" synchronizationState="SYNCHRONIZE">
     <pharConfigPath>$PROJECT_DIR$/backend/composer.json</pharConfigPath>
     <execution>
       <executable />
     </execution>
   </component>
-  <component name="CreatePatchCommitExecutor">
-    <option name="PATCH_PATH" value="" />
-  </component>
   <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+    <leaf>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/frontend/src/app/components/appraisal/create-appraisal-template/create-appraisal-template.component.html">
-          <provider selected="true" editor-type-id="text-editor" />
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/frontend/src/app/components/appraisal/create-appraisal-template/create-appraisal-template.component.ts">
+        <entry file="file://$PROJECT_DIR$/frontend/src/app/components/leave/leave-summery/leave-summery.component.ts">
           <provider selected="true" editor-type-id="text-editor">
-            <state>
+            <state relative-caret-position="396">
+              <caret line="103" column="8" selection-start-line="103" selection-start-column="8" selection-end-line="103" selection-end-column="8" />
               <folding>
-                <element signature="e#0#50#0" expanded="true" />
+                <element signature="e#0#95#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/backend/app/Http/Controllers/LeaveController.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="453">
+              <caret line="90" column="93" lean-forward="true" selection-start-line="90" selection-start-column="93" selection-end-line="90" selection-end-column="93" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/frontend/src/app/components/leave/leave-summery/leave-summery.component.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="579">
+              <caret line="171" column="58" selection-start-line="171" selection-start-column="58" selection-end-line="171" selection-end-column="58" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/frontend/src/app/components/report/attendance/attendance.component.ts">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="18">
-              <caret line="104" column="54" selection-start-line="104" selection-start-column="54" selection-end-line="104" selection-end-column="54" />
+            <state relative-caret-position="270">
+              <caret line="84" column="29" selection-start-line="84" selection-start-column="29" selection-end-line="84" selection-end-column="29" />
               <folding>
                 <element signature="e#0#95#0" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/frontend/src/app/components/report/attendance/attendance.component.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="18">
+              <caret line="1" column="20" selection-start-line="1" selection-start-column="20" selection-end-line="1" selection-end-column="20" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/backend/routes/api.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="291">
+              <caret line="141" column="64" selection-start-line="141" selection-start-column="49" selection-end-line="141" selection-end-column="64" />
             </state>
           </provider>
         </entry>
@@ -55,13 +99,9 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>$date-&gt;date</find>
-      <find>allH</find>
-      <find>late</find>
+      <find>leave/summery</find>
+      <find>getLeaveSummery</find>
     </findStrings>
-    <replaceStrings>
-      <replace>$date['date']</replace>
-    </replaceStrings>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -69,98 +109,98 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/backend/app/Http/Controllers/TestController.php" />
-        <option value="$PROJECT_DIR$/backend/resources/views/Excel/attendenceTestRumi.blade.php" />
-        <option value="$PROJECT_DIR$/backend/app/Http/Controllers/AttendanceController.php" />
         <option value="$PROJECT_DIR$/frontend/src/app/constants.ts" />
+        <option value="$PROJECT_DIR$/frontend/src/app/components/leave/leave-summery/leave-summery.component.html" />
+        <option value="$PROJECT_DIR$/frontend/src/app/components/leave/leave-summery/leave-summery.component.ts" />
+        <option value="$PROJECT_DIR$/backend/app/Http/Controllers/LeaveController.php" />
       </list>
     </option>
   </component>
   <component name="PhpWorkspaceProjectConfiguration">
     <include_path>
-      <path value="$PROJECT_DIR$/backend/vendor/monolog/monolog" />
-      <path value="$PROJECT_DIR$/backend/vendor/laravel/framework" />
-      <path value="$PROJECT_DIR$/backend/vendor/symfony/process" />
-      <path value="$PROJECT_DIR$/backend/vendor/symfony/console" />
-      <path value="$PROJECT_DIR$/backend/vendor/symfony/var-dumper" />
-      <path value="$PROJECT_DIR$/backend/vendor/symfony/debug" />
-      <path value="$PROJECT_DIR$/backend/vendor/symfony/http-kernel" />
-      <path value="$PROJECT_DIR$/backend/vendor/symfony/polyfill-php72" />
-      <path value="$PROJECT_DIR$/backend/vendor/symfony/routing" />
-      <path value="$PROJECT_DIR$/backend/vendor/symfony/finder" />
-      <path value="$PROJECT_DIR$/backend/vendor/symfony/event-dispatcher" />
-      <path value="$PROJECT_DIR$/backend/vendor/symfony/css-selector" />
-      <path value="$PROJECT_DIR$/backend/vendor/symfony/translation" />
-      <path value="$PROJECT_DIR$/backend/vendor/symfony/polyfill-ctype" />
-      <path value="$PROJECT_DIR$/backend/vendor/symfony/http-foundation" />
-      <path value="$PROJECT_DIR$/backend/vendor/symfony/polyfill-mbstring" />
-      <path value="$PROJECT_DIR$/backend/vendor/doctrine/inflector" />
-      <path value="$PROJECT_DIR$/backend/vendor/barryvdh/laravel-cors" />
-      <path value="$PROJECT_DIR$/backend/vendor/paragonie/random_compat" />
-      <path value="$PROJECT_DIR$/backend/vendor/doctrine/lexer" />
-      <path value="$PROJECT_DIR$/backend/vendor/tijsverkoyen/css-to-inline-styles" />
-      <path value="$PROJECT_DIR$/backend/vendor/swiftmailer/swiftmailer" />
-      <path value="$PROJECT_DIR$/backend/vendor/dragonmantank/cron-expression" />
-      <path value="$PROJECT_DIR$/backend/vendor/composer" />
-      <path value="$PROJECT_DIR$/backend/vendor/psr/log" />
-      <path value="$PROJECT_DIR$/backend/vendor/psr/container" />
-      <path value="$PROJECT_DIR$/backend/vendor/asm89/stack-cors" />
-      <path value="$PROJECT_DIR$/backend/vendor/psr/simple-cache" />
-      <path value="$PROJECT_DIR$/backend/vendor/league/flysystem" />
-      <path value="$PROJECT_DIR$/backend/vendor/erusev/parsedown" />
-      <path value="$PROJECT_DIR$/backend/vendor/ramsey/uuid" />
-      <path value="$PROJECT_DIR$/backend/vendor/nesbot/carbon" />
-      <path value="$PROJECT_DIR$/backend/vendor/egulias/email-validator" />
-      <path value="$PROJECT_DIR$/backend/vendor/vlucas/phpdotenv" />
-      <path value="$PROJECT_DIR$/backend/vendor/nikic/php-parser" />
-      <path value="$PROJECT_DIR$/backend/vendor/jakub-onderka/php-console-highlighter" />
-      <path value="$PROJECT_DIR$/backend/vendor/jakub-onderka/php-console-color" />
-      <path value="$PROJECT_DIR$/backend/vendor/psy/psysh" />
-      <path value="$PROJECT_DIR$/backend/vendor/laravel/tinker" />
-      <path value="$PROJECT_DIR$/backend/vendor/fideloper/proxy" />
-      <path value="$PROJECT_DIR$/backend/vendor/dnoegel/php-xdg-base-dir" />
-      <path value="$PROJECT_DIR$/backend/vendor/symfony/polyfill-util" />
-      <path value="$PROJECT_DIR$/backend/vendor/symfony/polyfill-php56" />
-      <path value="$PROJECT_DIR$/backend/vendor/namshi/jose" />
       <path value="$PROJECT_DIR$/backend/vendor/lcobucci/jwt" />
-      <path value="$PROJECT_DIR$/backend/vendor/tymon/jwt-auth" />
-      <path value="$PROJECT_DIR$/backend/vendor/yajra/laravel-datatables-oracle" />
-      <path value="$PROJECT_DIR$/backend/vendor/fzaninotto/faker" />
-      <path value="$PROJECT_DIR$/backend/vendor/hamcrest/hamcrest-php" />
+      <path value="$PROJECT_DIR$/backend/vendor/league/flysystem" />
+      <path value="$PROJECT_DIR$/backend/vendor/maatwebsite/excel" />
       <path value="$PROJECT_DIR$/backend/vendor/mockery/mockery" />
+      <path value="$PROJECT_DIR$/backend/vendor/monolog/monolog" />
+      <path value="$PROJECT_DIR$/backend/vendor/myclabs/deep-copy" />
+      <path value="$PROJECT_DIR$/backend/vendor/namshi/jose" />
+      <path value="$PROJECT_DIR$/backend/vendor/nesbot/carbon" />
+      <path value="$PROJECT_DIR$/backend/vendor/nikic/php-parser" />
+      <path value="$PROJECT_DIR$/backend/vendor/nunomaduro/collision" />
+      <path value="$PROJECT_DIR$/backend/vendor/paragonie/random_compat" />
+      <path value="$PROJECT_DIR$/backend/vendor/phar-io/manifest" />
+      <path value="$PROJECT_DIR$/backend/vendor/phar-io/version" />
+      <path value="$PROJECT_DIR$/backend/vendor/phpdocumentor/reflection-common" />
+      <path value="$PROJECT_DIR$/backend/vendor/phpdocumentor/reflection-docblock" />
+      <path value="$PROJECT_DIR$/backend/vendor/phpdocumentor/type-resolver" />
+      <path value="$PROJECT_DIR$/backend/vendor/phpoffice/phpexcel" />
+      <path value="$PROJECT_DIR$/backend/vendor/phpspec/prophecy" />
+      <path value="$PROJECT_DIR$/backend/vendor/phpunit/php-code-coverage" />
+      <path value="$PROJECT_DIR$/backend/vendor/phpunit/php-file-iterator" />
+      <path value="$PROJECT_DIR$/backend/vendor/phpunit/php-text-template" />
+      <path value="$PROJECT_DIR$/backend/vendor/phpunit/php-timer" />
+      <path value="$PROJECT_DIR$/backend/vendor/phpunit/php-token-stream" />
+      <path value="$PROJECT_DIR$/backend/vendor/phpunit/phpunit" />
+      <path value="$PROJECT_DIR$/backend/vendor/psr/container" />
+      <path value="$PROJECT_DIR$/backend/vendor/psr/log" />
+      <path value="$PROJECT_DIR$/backend/vendor/psr/simple-cache" />
+      <path value="$PROJECT_DIR$/backend/vendor/psy/psysh" />
+      <path value="$PROJECT_DIR$/backend/vendor/ramsey/uuid" />
+      <path value="$PROJECT_DIR$/backend/vendor/sebastian/code-unit-reverse-lookup" />
       <path value="$PROJECT_DIR$/backend/vendor/sebastian/comparator" />
-      <path value="$PROJECT_DIR$/backend/vendor/sebastian/global-state" />
-      <path value="$PROJECT_DIR$/backend/vendor/sebastian/exporter" />
+      <path value="$PROJECT_DIR$/backend/vendor/sebastian/diff" />
       <path value="$PROJECT_DIR$/backend/vendor/sebastian/environment" />
+      <path value="$PROJECT_DIR$/backend/vendor/sebastian/exporter" />
+      <path value="$PROJECT_DIR$/backend/vendor/sebastian/global-state" />
+      <path value="$PROJECT_DIR$/backend/vendor/sebastian/object-enumerator" />
       <path value="$PROJECT_DIR$/backend/vendor/sebastian/object-reflector" />
       <path value="$PROJECT_DIR$/backend/vendor/sebastian/recursion-context" />
       <path value="$PROJECT_DIR$/backend/vendor/sebastian/resource-operations" />
-      <path value="$PROJECT_DIR$/backend/vendor/sebastian/object-enumerator" />
-      <path value="$PROJECT_DIR$/backend/vendor/sebastian/diff" />
-      <path value="$PROJECT_DIR$/backend/vendor/sebastian/code-unit-reverse-lookup" />
       <path value="$PROJECT_DIR$/backend/vendor/sebastian/version" />
-      <path value="$PROJECT_DIR$/backend/vendor/phpunit/php-file-iterator" />
-      <path value="$PROJECT_DIR$/backend/vendor/phpunit/php-timer" />
-      <path value="$PROJECT_DIR$/backend/vendor/phpunit/php-token-stream" />
-      <path value="$PROJECT_DIR$/backend/vendor/phpunit/php-text-template" />
-      <path value="$PROJECT_DIR$/backend/vendor/phpunit/php-code-coverage" />
-      <path value="$PROJECT_DIR$/backend/vendor/nunomaduro/collision" />
-      <path value="$PROJECT_DIR$/backend/vendor/phpunit/phpunit" />
-      <path value="$PROJECT_DIR$/backend/vendor/phpspec/prophecy" />
-      <path value="$PROJECT_DIR$/backend/vendor/phar-io/version" />
-      <path value="$PROJECT_DIR$/backend/vendor/phar-io/manifest" />
-      <path value="$PROJECT_DIR$/backend/vendor/filp/whoops" />
-      <path value="$PROJECT_DIR$/backend/vendor/myclabs/deep-copy" />
-      <path value="$PROJECT_DIR$/backend/vendor/phpdocumentor/reflection-docblock" />
-      <path value="$PROJECT_DIR$/backend/vendor/phpdocumentor/reflection-common" />
-      <path value="$PROJECT_DIR$/backend/vendor/phpdocumentor/type-resolver" />
-      <path value="$PROJECT_DIR$/backend/vendor/theseer/tokenizer" />
-      <path value="$PROJECT_DIR$/backend/vendor/doctrine/instantiator" />
-      <path value="$PROJECT_DIR$/backend/vendor/webmozart/assert" />
+      <path value="$PROJECT_DIR$/backend/vendor/swiftmailer/swiftmailer" />
+      <path value="$PROJECT_DIR$/backend/vendor/symfony/console" />
       <path value="$PROJECT_DIR$/backend/vendor/symfony/contracts" />
-      <path value="$PROJECT_DIR$/backend/vendor/maatwebsite/excel" />
+      <path value="$PROJECT_DIR$/backend/vendor/symfony/css-selector" />
+      <path value="$PROJECT_DIR$/backend/vendor/symfony/debug" />
+      <path value="$PROJECT_DIR$/backend/vendor/symfony/event-dispatcher" />
+      <path value="$PROJECT_DIR$/backend/vendor/symfony/finder" />
+      <path value="$PROJECT_DIR$/backend/vendor/symfony/http-foundation" />
+      <path value="$PROJECT_DIR$/backend/vendor/symfony/http-kernel" />
+      <path value="$PROJECT_DIR$/backend/vendor/symfony/polyfill-ctype" />
+      <path value="$PROJECT_DIR$/backend/vendor/symfony/polyfill-mbstring" />
+      <path value="$PROJECT_DIR$/backend/vendor/symfony/polyfill-php56" />
+      <path value="$PROJECT_DIR$/backend/vendor/symfony/polyfill-php72" />
+      <path value="$PROJECT_DIR$/backend/vendor/symfony/polyfill-util" />
+      <path value="$PROJECT_DIR$/backend/vendor/symfony/process" />
+      <path value="$PROJECT_DIR$/backend/vendor/symfony/routing" />
+      <path value="$PROJECT_DIR$/backend/vendor/symfony/translation" />
+      <path value="$PROJECT_DIR$/backend/vendor/symfony/var-dumper" />
+      <path value="$PROJECT_DIR$/backend/vendor/theseer/tokenizer" />
+      <path value="$PROJECT_DIR$/backend/vendor/tijsverkoyen/css-to-inline-styles" />
+      <path value="$PROJECT_DIR$/backend/vendor/tymon/jwt-auth" />
+      <path value="$PROJECT_DIR$/backend/vendor/vlucas/phpdotenv" />
+      <path value="$PROJECT_DIR$/backend/vendor/webmozart/assert" />
+      <path value="$PROJECT_DIR$/backend/vendor/yajra/laravel-datatables-oracle" />
+      <path value="$PROJECT_DIR$/backend/vendor/asm89/stack-cors" />
+      <path value="$PROJECT_DIR$/backend/vendor/barryvdh/laravel-cors" />
+      <path value="$PROJECT_DIR$/backend/vendor/composer" />
+      <path value="$PROJECT_DIR$/backend/vendor/dnoegel/php-xdg-base-dir" />
+      <path value="$PROJECT_DIR$/backend/vendor/doctrine/inflector" />
+      <path value="$PROJECT_DIR$/backend/vendor/doctrine/instantiator" />
+      <path value="$PROJECT_DIR$/backend/vendor/doctrine/lexer" />
+      <path value="$PROJECT_DIR$/backend/vendor/dragonmantank/cron-expression" />
+      <path value="$PROJECT_DIR$/backend/vendor/egulias/email-validator" />
+      <path value="$PROJECT_DIR$/backend/vendor/erusev/parsedown" />
+      <path value="$PROJECT_DIR$/backend/vendor/fideloper/proxy" />
+      <path value="$PROJECT_DIR$/backend/vendor/filp/whoops" />
+      <path value="$PROJECT_DIR$/backend/vendor/fzaninotto/faker" />
+      <path value="$PROJECT_DIR$/backend/vendor/hamcrest/hamcrest-php" />
+      <path value="$PROJECT_DIR$/backend/vendor/jakub-onderka/php-console-color" />
+      <path value="$PROJECT_DIR$/backend/vendor/jakub-onderka/php-console-highlighter" />
       <path value="$PROJECT_DIR$/backend/vendor/jeremeamia/SuperClosure" />
-      <path value="$PROJECT_DIR$/backend/vendor/phpoffice/phpexcel" />
+      <path value="$PROJECT_DIR$/backend/vendor/laravel/framework" />
+      <path value="$PROJECT_DIR$/backend/vendor/laravel/tinker" />
     </include_path>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
@@ -174,7 +214,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -186,6 +225,33 @@
               <item name="hrsolution" type="b2602c69:ProjectViewProjectNode" />
               <item name="hrsolution" type="462c0819:PsiDirectoryNode" />
               <item name="backend" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="hrsolution" type="b2602c69:ProjectViewProjectNode" />
+              <item name="hrsolution" type="462c0819:PsiDirectoryNode" />
+              <item name="backend" type="462c0819:PsiDirectoryNode" />
+              <item name="app" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="hrsolution" type="b2602c69:ProjectViewProjectNode" />
+              <item name="hrsolution" type="462c0819:PsiDirectoryNode" />
+              <item name="backend" type="462c0819:PsiDirectoryNode" />
+              <item name="app" type="462c0819:PsiDirectoryNode" />
+              <item name="Http" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="hrsolution" type="b2602c69:ProjectViewProjectNode" />
+              <item name="hrsolution" type="462c0819:PsiDirectoryNode" />
+              <item name="backend" type="462c0819:PsiDirectoryNode" />
+              <item name="app" type="462c0819:PsiDirectoryNode" />
+              <item name="Http" type="462c0819:PsiDirectoryNode" />
+              <item name="Controllers" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="hrsolution" type="b2602c69:ProjectViewProjectNode" />
+              <item name="hrsolution" type="462c0819:PsiDirectoryNode" />
+              <item name="backend" type="462c0819:PsiDirectoryNode" />
+              <item name="routes" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="hrsolution" type="b2602c69:ProjectViewProjectNode" />
@@ -212,6 +278,25 @@
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="app" type="462c0819:PsiDirectoryNode" />
               <item name="components" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="hrsolution" type="b2602c69:ProjectViewProjectNode" />
+              <item name="hrsolution" type="462c0819:PsiDirectoryNode" />
+              <item name="frontend" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="app" type="462c0819:PsiDirectoryNode" />
+              <item name="components" type="462c0819:PsiDirectoryNode" />
+              <item name="leave" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="hrsolution" type="b2602c69:ProjectViewProjectNode" />
+              <item name="hrsolution" type="462c0819:PsiDirectoryNode" />
+              <item name="frontend" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="app" type="462c0819:PsiDirectoryNode" />
+              <item name="components" type="462c0819:PsiDirectoryNode" />
+              <item name="leave" type="462c0819:PsiDirectoryNode" />
+              <item name="leave-summery" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="hrsolution" type="b2602c69:ProjectViewProjectNode" />
@@ -236,11 +321,17 @@
           <select />
         </subPane>
       </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../pmsNew" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="node.js.detected.package.tslint" value="true" />
+    <property name="node.js.path.for.package.tslint" value="project" />
+    <property name="node.js.selected.package.tslint" value="(autodetect)" />
+    <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
+    <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="ts.external.directory.path" value="$PROJECT_DIR$/frontend/node_modules/typescript/lib" />
   </component>
   <component name="RunDashboard">
@@ -260,88 +351,62 @@
   </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="79863e6b-18f0-4843-8803-a73cc32ea3c6" name="Default Changelist" comment="" />
-      <created>1561302983711</created>
+      <changelist id="a63eca5f-db98-471b-a576-c0a3cafda960" name="Default Changelist" comment="" />
+      <created>1562046338596</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1561302983711</updated>
-      <workItem from="1561302990857" duration="821000" />
-      <workItem from="1561558570537" duration="63000" />
-      <workItem from="1561566506576" duration="17000" />
-      <workItem from="1561663216031" duration="4959000" />
-      <workItem from="1561699729241" duration="791000" />
-      <workItem from="1561961798009" duration="646000" />
+      <updated>1562046338596</updated>
+      <workItem from="1562046341718" duration="3848000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="8072000" />
+    <option name="totallyTimeSpent" value="3848000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="1147" y="0" width="1853" height="1080" extended-state="6" />
+    <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.25235197" />
-      <window_info id="Structure" order="1" weight="0.25" />
-      <window_info id="Favorites" order="2" side_tool="true" />
+      <window_info id="Favorites" side_tool="true" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.24958494" />
+      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info anchor="bottom" id="TypeScript" />
       <window_info anchor="bottom" id="Docker" show_stripe_button="false" />
       <window_info anchor="bottom" id="Database Changes" />
+      <window_info anchor="bottom" id="Version Control" />
+      <window_info anchor="bottom" id="Terminal" />
+      <window_info anchor="bottom" id="Event Log" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
       <window_info anchor="bottom" id="Run" order="2" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
-      <window_info anchor="bottom" id="TODO" order="6" weight="0.32984293" />
-      <window_info anchor="bottom" id="Version Control" order="7" />
-      <window_info active="true" anchor="bottom" id="Terminal" order="8" visible="true" weight="0.22303665" />
-      <window_info anchor="bottom" id="Event Log" order="9" side_tool="true" />
-      <window_info anchor="right" id="Commander" order="0" weight="0.4" />
+      <window_info anchor="bottom" id="TODO" order="6" />
+      <window_info anchor="right" id="Database" />
+      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
-      <window_info anchor="right" id="Database" order="3" />
     </layout>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/frontend/src/app/components/company/add-company/add-company.component.ts">
+    <entry file="file://$PROJECT_DIR$/backend/routes/api.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1445">
-          <caret line="85" column="40" selection-start-line="85" selection-start-column="28" selection-end-line="85" selection-end-column="40" />
+        <state relative-caret-position="291">
+          <caret line="141" column="64" selection-start-line="141" selection-start-column="49" selection-end-line="141" selection-end-column="64" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/backend/routes/web.php">
+    <entry file="file://$PROJECT_DIR$/frontend/src/app/components/leave/add-leave/add-leave.component.ts">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="308">
-          <caret line="23" column="21" selection-start-line="23" selection-start-column="12" selection-end-line="23" selection-end-column="21" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/backend/resources/views/Excel/attendence.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2090">
-          <caret line="95" column="22" selection-start-line="95" selection-start-column="18" selection-end-line="95" selection-end-column="22" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/backend/app/Http/Controllers/TestController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="6490">
-          <caret line="310" selection-start-line="310" selection-end-line="310" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/backend/resources/views/Excel/attendenceTestRumi.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1730">
-          <caret line="100" column="63" selection-start-line="100" selection-start-column="63" selection-end-line="100" selection-end-column="63" />
-          <folding />
+        <state relative-caret-position="432">
+          <caret line="24" column="37" lean-forward="true" selection-start-line="24" selection-start-column="37" selection-end-line="24" selection-end-column="37" />
+          <folding>
+            <element signature="e#0#50#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -352,39 +417,44 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/backend/app/Http/Controllers/AttendanceController.php">
+    <entry file="file://$PROJECT_DIR$/frontend/src/app/components/leave/leave-summery/leave-summery.component.ts">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="322">
-          <caret line="140" selection-start-line="140" selection-end-line="140" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/frontend/src/app/components/report/attendance/attendance.component.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="594">
-          <caret line="51" column="32" selection-start-line="51" selection-start-column="32" selection-end-line="51" selection-end-column="32" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/frontend/src/app/components/appraisal/create-appraisal-template/create-appraisal-template.component.html">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/frontend/src/app/components/appraisal/create-appraisal-template/create-appraisal-template.component.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
+        <state relative-caret-position="396">
+          <caret line="103" column="8" selection-start-line="103" selection-start-column="8" selection-end-line="103" selection-end-column="8" />
           <folding>
-            <element signature="e#0#50#0" expanded="true" />
+            <element signature="e#0#95#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/frontend/src/app/components/leave/leave-summery/leave-summery.component.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="579">
+          <caret line="171" column="58" selection-start-line="171" selection-start-column="58" selection-end-line="171" selection-end-column="58" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/frontend/src/app/components/report/attendance/attendance.component.ts">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="18">
-          <caret line="104" column="54" selection-start-line="104" selection-start-column="54" selection-end-line="104" selection-end-column="54" />
+        <state relative-caret-position="270">
+          <caret line="84" column="29" selection-start-line="84" selection-start-column="29" selection-end-line="84" selection-end-column="29" />
           <folding>
             <element signature="e#0#95#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/frontend/src/app/components/report/attendance/attendance.component.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="18">
+          <caret line="1" column="20" selection-start-line="1" selection-start-column="20" selection-end-line="1" selection-end-column="20" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/backend/app/Http/Controllers/LeaveController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="453">
+          <caret line="90" column="93" lean-forward="true" selection-start-line="90" selection-start-column="93" selection-end-line="90" selection-end-column="93" />
         </state>
       </provider>
     </entry>

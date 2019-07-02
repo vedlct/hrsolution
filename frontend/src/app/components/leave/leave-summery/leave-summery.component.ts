@@ -97,15 +97,26 @@ export class LeaveSummeryComponent implements OnInit {
       ajax: {
         url: Constants.API_URL+'leave/summery'+'?token='+token,
         type: 'POST',
-        data:function (d){
-
+        data:function (d:any){
+          d.startDate=$('#startDate').val();
+          d.endDate=$('#endDate').val();
         },
       },
       columns: [
 
-        { data: 'firstName' ,name:'employeeinfo.firstName'},
-        { data: 'lastName' ,name:'employeeinfo.lastName'},
-        { data: 'noOfDays' ,name:'hrmleaves.noOfDays'},
+        { data: 'firstName' ,name:'firstName'},
+        { data: 'lastName' ,name:'lastName'},
+        { data: 'sick' ,name:'sick'},
+        { data: 'cs' ,name:'cs'},
+        { data: 'lwp' ,name:'lwp'},
+        { data: 'marri' ,name:'marri'},
+        {
+
+          "data": function (data: any, type: any, full: any) {
+            return parseInt(data.sick)+parseInt(data.cs)+parseInt(data.marri);
+          },
+          "orderable": false, "searchable":false, "name":"selected_rows"
+        },
         {
 
           "data": function (data: any, type: any, full: any) {
@@ -164,6 +175,9 @@ export class LeaveSummeryComponent implements OnInit {
 
 
     });
+  }
+  search(){
+    this.rerender();
   }
 
   reject(id){
