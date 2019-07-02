@@ -95,11 +95,15 @@ foreach ($allHoliday as $holiday){
 
             <td class="cell" width="30">{{$aE->empFullname}}</td>
             @foreach($dates as $date)
-                @if($results->where('employeeId',$aE->id)->where('attendanceDate',$date['date'])->first() )
+                @if($results->where('employeeId',$aE->id)->where('attendanceDate',$date['date'])->first())
             <td class="cell" width="15">{{$results->where('employeeId',$aE->id)->where('attendanceDate',$date['date'])->first()->checkIn}}</td>
             <td class="cell" width="15">{{$results->where('employeeId',$aE->id)->where('attendanceDate',$date['date'])->first()->checkOut}}</td>
             <td class="cell<?php if($results->where('employeeId',$aE->id)->where('attendanceDate',$date['date'])->first()->late =='Y'){?> late <?php }?>" width="10">{{$results->where('employeeId',$aE->id)->where('attendanceDate',$date['date'])->first()->late}}</td>
-            <td class="cell<?php if($results->where('employeeId',$aE->id)->where('attendanceDate',$date['date'])->first()->late =='Y'){?> late <?php }?>" width="15">{{$results->where('employeeId',$aE->id)->where('attendanceDate',$date['date'])->first()->lateTime}}</td>
+            <td class="cell<?php if($results->where('employeeId',$aE->id)->where('attendanceDate',$date['date'])->first()->late =='Y'){?> late <?php }?>" width="15">
+                @if($results->where('employeeId',$aE->id)->where('attendanceDate',$date['date'])->first()->late =='Y')
+                    {{$results->where('employeeId',$aE->id)->where('attendanceDate',$date['date'])->first()->lateTime}}
+                @endif
+            </td>
             <td class="cell" width="20">{{$workingTime=$results->where('employeeId',$aE->id)->where('attendanceDate',$date['date'])->first()->workingTime}}</td>
             <td class="cell" width="15">8</td>
             <td class="cell" width="10">
@@ -109,7 +113,7 @@ foreach ($allHoliday as $holiday){
 
                @endphp
                 @if($Working > $rgular)
-                    {{$Working->diff($rgular)->format('H:i:s')}}
+                    {{$Working->diff($rgular)->format('%H:%i:%s')}}
                                             @else
                                                 0
                                             @endif

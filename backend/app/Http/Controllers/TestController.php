@@ -136,44 +136,44 @@ class TestController extends Controller
 //
 //        $fromDate = Carbon::now()->startOfMonth()->format('Y-m-d');
 //        $toDate = Carbon::now()->endOfMonth()->format('Y-m-d');
-        $fromDate ='2019-04-01';
-        $toDate = '2019-04-30';
+        $fromDate ='2019-06-01';
+        $toDate = '2019-06-30';
 
 
 
-         $results=AttendanceData::select(
-            'attemployeemap.employeeId',
+//         $results=AttendanceData::select(
+//            'attemployeemap.employeeId',
+//
+//           'employeeinfo.fkDepartmentId',
+//            DB::raw("date_format(attendancedata.accessTime,'%Y-%m-%d') attendanceDate"),
+//            DB::raw("date_format(min(attendancedata.accessTime),'%H:%i:%s %p') checkIn"),
+//            DB::raw("date_format(max(attendancedata.accessTime),'%H:%i:%s %p') checkOut"),
+//
+//            DB::raw("case when SUBTIME(date_format(min(attendancedata.accessTime),'%H:%i'),shift.inTime) > '00:00:01' then 'Y' else 'N' end late"),
+//            DB::raw("TIME_FORMAT(SUBTIME(date_format(min(attendancedata.accessTime),'%H:%i'),shift.inTime),'%H:%i')  as lateTime"),
+//            DB::raw("SUBTIME(date_format(max(attendancedata.accessTime),'%H:%i:%s'),date_format(min(attendancedata.accessTime),'%H:%i:%s')) workingTime")
+//
+//         )
+//            ->leftJoin('attemployeemap',function($join) use ($fromDate,$toDate){
+//                $join->on('attendancedata.attDeviceUserId', '=', 'attemployeemap.attDeviceUserId')
+//                    ->whereRaw("date_format(attendancedata.accessTime,'%Y-%m-%d') between '" . $fromDate . "' and '" . $toDate . "'");
+//            })
+//
+//            ->leftJoin('employeeinfo','employeeinfo.id','attemployeemap.employeeId')
+//
+//
+//            ->leftJoin('shiftlog',function($join) use ($fromDate,$toDate){
+//                $join->on('shiftlog.fkemployeeId', '=', 'attemployeemap.employeeId')
+//                    ->whereRaw("date_format(attendancedata.accessTime,'%Y-%m-%d') between date_format(shiftlog.startDate,'%Y-%m-%d') and ifnull(date_format(shiftlog.endDate,'%Y-%m-%d'),curdate())");
+//            })
+//            ->leftJoin('shift','shift.shiftId','shiftlog.fkshiftId')
+//            ->where('attemployeemap.employeeId','!=',null)
+//
+//            ->whereRaw("date_format(attendancedata.accessTime,'%Y-%m-%d') between '".$fromDate."' and '".$toDate."'")
+//            ->groupBy("attendancedata.attDeviceUserId",DB::raw("date_format(attendancedata.accessTime,'%Y-%m-%d')"))
+//         ->get();
 
-           'employeeinfo.fkDepartmentId',
-            DB::raw("date_format(attendancedata.accessTime,'%Y-%m-%d') attendanceDate"),
-            DB::raw("date_format(min(attendancedata.accessTime),'%H:%i:%s %p') checkIn"),
-            DB::raw("date_format(max(attendancedata.accessTime),'%H:%i:%s %p') checkOut"),
-
-            DB::raw("case when SUBTIME(date_format(min(attendancedata.accessTime),'%H:%i'),shift.inTime) > '00:00:01' then 'Y' else 'N' end late"),
-            DB::raw("TIME_FORMAT(SUBTIME(date_format(min(attendancedata.accessTime),'%H:%i'),shift.inTime),'%H:%i')  as lateTime"),
-            DB::raw("SUBTIME(date_format(max(attendancedata.accessTime),'%H:%i:%s'),date_format(min(attendancedata.accessTime),'%H:%i:%s')) workingTime")
-
-         )
-            ->leftJoin('attemployeemap',function($join) use ($fromDate,$toDate){
-                $join->on('attendancedata.attDeviceUserId', '=', 'attemployeemap.attDeviceUserId')
-                    ->whereRaw("date_format(attendancedata.accessTime,'%Y-%m-%d') between '" . $fromDate . "' and '" . $toDate . "'");
-            })
-
-            ->leftJoin('employeeinfo','employeeinfo.id','attemployeemap.employeeId')
-
-
-            ->leftJoin('shiftlog',function($join) use ($fromDate,$toDate){
-                $join->on('shiftlog.fkemployeeId', '=', 'attemployeemap.employeeId')
-                    ->whereRaw("date_format(attendancedata.accessTime,'%Y-%m-%d') between date_format(shiftlog.startDate,'%Y-%m-%d') and ifnull(date_format(shiftlog.endDate,'%Y-%m-%d'),curdate())");
-            })
-            ->leftJoin('shift','shift.shiftId','shiftlog.fkshiftId')
-            ->where('attemployeemap.employeeId','!=',null)
-
-            ->whereRaw("date_format(attendancedata.accessTime,'%Y-%m-%d') between '".$fromDate."' and '".$toDate."'")
-            ->groupBy("attendancedata.attDeviceUserId",DB::raw("date_format(attendancedata.accessTime,'%Y-%m-%d')"))
-         ->get();
-
-        $results=collect($results);
+//        $results=collect($results);
 
 //        $results=DB::table(DB::raw("({$testResults->toSql()}) as a"))
 //            ->mergeBindings($testResults->getQuery())
@@ -223,20 +223,23 @@ class TestController extends Controller
             ->get();
         $allLeave=collect($allLeave);
 
-//        $results = DB::select( DB::raw("select em.employeeId
-//            , date_format(ad.accessTime,'%Y-%m-%d') attendanceDate
-//            , date_format(min(ad.accessTime),'%H:%i') checkIn
-//            , date_format(max(ad.accessTime),'%H:%i') checkOut
-//            , case when SUBTIME(date_format(min(ad.accessTime),'%H:%i'),s.inTime) > '00:00:01' then 'Y' else 'N' end late
-//            , date_format(SUBTIME(date_format(min(ad.accessTime),'%H:%i'),s.inTime),'%H:%i')  as lateTime
-//            from attendancedata ad left join attemployeemap em on ad.attDeviceUserId = em.attDeviceUserId
-//            and date_format(ad.accessTime,'%Y-%m-%d') between '" . $fromDate . "' and '" . $toDate . "'
-//
-//            left join shiftlog sl on em.employeeId = sl.fkemployeeId and date_format(ad.accessTime,'%Y-%m-%d') between date_format(sl.startDate,'%Y-%m-%d') and ifnull(date_format(sl.endDate,'%Y-%m-%d'),curdate())
-//            left join shift s on sl.fkshiftId = s.shiftId
-//            where date_format(ad.accessTime,'%Y-%m-%d') between '".$fromDate."' and '".$toDate."'
-//            group by ad.attDeviceUserId, date_format(ad.accessTime,'%Y-%m-%d')"));
-//        $results=collect($results);
+        $results = DB::select( DB::raw("select em.employeeId
+            , date_format(ad.accessTime,'%Y-%m-%d') attendanceDate
+            , date_format(min(ad.accessTime),'%H:%i') checkIn
+            , date_format(max(ad.accessTime),'%H:%i') checkOut
+            ,SUBTIME(date_format(max(ad.accessTime),'%H:%i:%s'),date_format(min(ad.accessTime),'%H:%i:%s')) workingTime
+            , case when SUBTIME(date_format(min(ad.accessTime),'%H:%i'),s.inTime) > '00:00:01' then 'Y' else 'N' end late
+            , date_format(SUBTIME(date_format(min(ad.accessTime),'%H:%i'),s.inTime),'%H:%i')  as lateTime
+            from attendancedata ad left join attemployeemap em on ad.attDeviceUserId = em.attDeviceUserId
+            and date_format(ad.accessTime,'%Y-%m-%d') between '" . $fromDate . "' and '" . $toDate . "'
+
+            left join shiftlog sl on em.employeeId = sl.fkemployeeId and date_format(ad.accessTime,'%Y-%m-%d') between date_format(sl.startDate,'%Y-%m-%d') and ifnull(date_format(sl.endDate,'%Y-%m-%d'),curdate())
+            left join shift s on sl.fkshiftId = s.shiftId
+            where date_format(ad.accessTime,'%Y-%m-%d') between '".$fromDate."' and '".$toDate."'
+            group by ad.attDeviceUserId, date_format(ad.accessTime,'%Y-%m-%d')"));
+
+        $results=collect($results);
+
 //        return $results;
 
         $allDepartment=Department::select('id','departmentName')->get();
