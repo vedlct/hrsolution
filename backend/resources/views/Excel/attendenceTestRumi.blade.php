@@ -105,10 +105,11 @@ foreach ($allHoliday as $holiday){
             <td class="cell" width="10">
                @php
                         $rgular=\Carbon\Carbon::createFromTime(8, 0, 0);
+                        $Working=\Carbon\Carbon::createFromFormat('H:i:s',$results->where('employeeId',$aE->id)->where('attendanceDate',$date['date'])->first()->workingTime);
 
                @endphp
-                @if($results->where('employeeId',$aE->id)->where('attendanceDate',$date['date'])->first()->workingTime > $rgular)
-                    {{round(($results->where('employeeId',$aE->id)->where('attendanceDate',$date['date'])->first()->workingTime)-$rgular)}}
+                @if($Working > $rgular)
+                    {{$Working->diff($rgular)->format('H:i:s')}}
                                             @else
                                                 0
                                             @endif
@@ -137,6 +138,7 @@ foreach ($allHoliday as $holiday){
                         </td>
 
                     @else
+
                         @php
                         $allWeekend=explode(',',strtolower($aE->weekend));
                         @endphp
@@ -149,6 +151,7 @@ foreach ($allHoliday as $holiday){
                                 Absent
                             </td>
                         @endif
+
                     @endif
 
 
