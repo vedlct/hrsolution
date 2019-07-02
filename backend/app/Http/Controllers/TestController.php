@@ -131,7 +131,7 @@ class TestController extends Controller
         return $array;
     }
     public function testRumi(){
-        ini_set('max_execution_time', 1440);
+        ini_set('max_execution_time', 0);
         $start = microtime(true);
 //
 //        $fromDate = Carbon::now()->startOfMonth()->format('Y-m-d');
@@ -195,7 +195,7 @@ class TestController extends Controller
         $dates = $this->getDatesFromRange($startDate, $endDate);
         $allEmp=EmployeeInfo::select('id','fkDepartmentId',
             DB::raw("CONCAT(COALESCE(firstName,''),' ',COALESCE(middleName,''),' ',COALESCE(lastName,'')) AS empFullname"),
-            'weekend')
+            'actualJoinDate','practice','weekend')
             ->whereNull('resignDate')
             ->get();
 
@@ -223,7 +223,7 @@ class TestController extends Controller
             ->get();
         $allLeave=collect($allLeave);
 
-        $results = DB::select( DB::raw("select em.employeeId
+        $results = DB::select( DB::raw("select em.employeeId,ad.id
             , date_format(ad.accessTime,'%Y-%m-%d') attendanceDate
             , date_format(min(ad.accessTime),'%H:%i') checkIn
             , date_format(max(ad.accessTime),'%H:%i') checkOut
@@ -232,7 +232,7 @@ class TestController extends Controller
             , date_format(SUBTIME(date_format(min(ad.accessTime),'%H:%i'),s.inTime),'%H:%i')  as lateTime
             from attendancedata ad left join attemployeemap em on ad.attDeviceUserId = em.attDeviceUserId
             and date_format(ad.accessTime,'%Y-%m-%d') between '" . $fromDate . "' and '" . $toDate . "'
-
+            
             left join shiftlog sl on em.employeeId = sl.fkemployeeId and date_format(ad.accessTime,'%Y-%m-%d') between date_format(sl.startDate,'%Y-%m-%d') and ifnull(date_format(sl.endDate,'%Y-%m-%d'),curdate())
             left join shift s on sl.fkshiftId = s.shiftId
             where date_format(ad.accessTime,'%Y-%m-%d') between '".$fromDate."' and '".$toDate."'
@@ -250,7 +250,8 @@ class TestController extends Controller
         //return $endDate->diffInDays($startDate);
 //        $comments=Comment::whereBetween(DB::raw('DATE(created_at)'),[$start,$end])->get();
 //         return $comments;
-//        $comments=Comment::whereBetween(DB::raw('DATE(created_at)'),[$fromDate,$toDate])->get();
+
+         $comments=Comment::whereBetween(DB::raw('DATE(created_at)'),[$fromDate,$toDate])->get();
 
         $excelName="test";
         $filePath=public_path ()."/exportedExcel";
@@ -263,10 +264,10 @@ class TestController extends Controller
 
 
         $check=Excel::create($fileName,function($excel)use ($results,$allDepartment,$dates,$allEmp,$allLeave,$fromDate,$toDate,
-            $allHoliday,$startDate, $endDate) {
+            $allHoliday,$startDate, $endDate,$comments) {
             foreach ($allDepartment as $ad) {
-                $excel->sheet($ad->departmentName, function ($sheet) use ($results,$ad, $allDepartment,$dates,$allEmp,$allLeave,
-                    $fromDate,$toDate,$allHoliday,$startDate, $endDate) {
+                $excel->sheet($ad->departmentName, function ($sheet) use ($results,$ad,$dates,$allEmp,$allLeave,
+                    $fromDate,$toDate,$allHoliday,$startDate, $endDate,$comments) {
                     $sheet->freezePane('B4');
                     $sheet->setStyle(array(
                         'font' => array(
@@ -275,7 +276,8 @@ class TestController extends Controller
                             'bold' => false
                         )
                     ));
-                    $sheet->loadView('Excel.attendenceTestRumi', compact('results','fromDate', 'toDate','dates','allEmp','ad','allLeave','allHoliday','startDate','endDate'));
+                    $sheet->loadView('Excel.attendenceTestRumi', compact('results','fromDate', 'toDate','dates','allEmp',
+                        'ad','allLeave','allHoliday','startDate','endDate','comments'));
                 });
             }
         })->store('xls',$filePath);

@@ -239,7 +239,7 @@
 
             @foreach($comments->where('fkemployeeId',$res->employeeId) as $comment)
                 {{$comment->comment}}
-                    {{--<br>--}}
+                    <br>
             @endforeach
 
 
