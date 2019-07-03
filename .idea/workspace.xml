@@ -2,8 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="0942e5be-64e8-4e7c-8964-35b2dfcd9099" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/backend/app/Http/Controllers/TestController.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/app/Http/Controllers/TestController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/resources/views/Excel/attendenceTestRumi.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/resources/views/Excel/attendenceTestRumi.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/app/Http/Controllers/AttendanceController.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/app/Http/Controllers/AttendanceController.php" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/frontend/node_modules/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -24,8 +23,8 @@
       <file leaf-file-name="AttendanceController.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/backend/app/Http/Controllers/AttendanceController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="272">
-              <caret line="249" column="42" selection-start-line="249" selection-start-column="42" selection-end-line="249" selection-end-column="42" />
+            <state relative-caret-position="250">
+              <caret line="245" column="42" selection-start-line="245" selection-start-column="20" selection-end-line="245" selection-end-column="42" />
               <folding>
                 <element signature="e#40#63#0#PHP" expanded="true" />
               </folding>
@@ -33,11 +32,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="attendenceTestRumi.blade.php" pinned="false" current-in-tab="true">
+      <file leaf-file-name="attendenceTestRumi.blade.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/backend/resources/views/Excel/attendenceTestRumi.blade.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="261">
-              <caret line="207" column="44" selection-start-line="207" selection-start-column="36" selection-end-line="207" selection-end-column="44" />
+            <state relative-caret-position="401">
+              <caret line="218" column="36" selection-start-line="218" selection-start-column="24" selection-end-line="218" selection-end-column="36" />
               <folding>
                 <element signature="n#style#0;n#th#9;n#tr#2;n#thead#0;n#table#0;n#body#0;n#html#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#th#10;n#tr#2;n#thead#0;n#table#0;n#body#0;n#html#0;n#!!top" expanded="true" />
@@ -89,11 +88,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="attendence.blade.php" pinned="false" current-in-tab="false">
+      <file leaf-file-name="attendence.blade.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/backend/resources/views/Excel/attendence.blade.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="170">
-              <caret line="121" column="12" selection-start-line="121" selection-start-column="12" selection-end-line="166" selection-end-column="19" />
+            <state relative-caret-position="-391">
+              <caret line="127" column="40" lean-forward="true" selection-start-line="127" selection-start-column="40" selection-end-line="127" selection-end-column="40" />
             </state>
           </provider>
         </entry>
@@ -101,8 +100,17 @@
       <file leaf-file-name="TestController.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/backend/app/Http/Controllers/TestController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="454">
-              <caret line="223" selection-start-line="223" selection-end-line="223" />
+            <state relative-caret-position="258">
+              <caret line="133" selection-start-line="133" selection-end-line="285" selection-end-column="48" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="api.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/backend/routes/api.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="222">
+              <caret line="177" column="86" selection-start-line="177" selection-start-column="64" selection-end-line="177" selection-end-column="86" />
             </state>
           </provider>
         </entry>
@@ -127,9 +135,10 @@
   <component name="FindInProjectRecents">
     <findStrings>
       <find>all</find>
-      <find>practice</find>
-      <find>$allLeave</find>
       <find>$res</find>
+      <find>$allLeave</find>
+      <find>$start</find>
+      <find>practice</find>
     </findStrings>
     <replaceStrings>
       <replace>$aE</replace>
@@ -144,9 +153,9 @@
         <option value="$PROJECT_DIR$/frontend/src/app/constants.ts" />
         <option value="$PROJECT_DIR$/backend/app/Http/Controllers/ExcelController.php" />
         <option value="$PROJECT_DIR$/backend/resources/views/Excel/attendence.blade.php" />
-        <option value="$PROJECT_DIR$/backend/app/Http/Controllers/AttendanceController.php" />
         <option value="$PROJECT_DIR$/backend/app/Http/Controllers/TestController.php" />
         <option value="$PROJECT_DIR$/backend/resources/views/Excel/attendenceTestRumi.blade.php" />
+        <option value="$PROJECT_DIR$/backend/app/Http/Controllers/AttendanceController.php" />
       </list>
     </option>
   </component>
@@ -1523,6 +1532,12 @@
             <path>
               <item name="hrsolution" type="b2602c69:ProjectViewProjectNode" />
               <item name="hrsolution" type="462c0819:PsiDirectoryNode" />
+              <item name="backend" type="462c0819:PsiDirectoryNode" />
+              <item name="routes" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="hrsolution" type="b2602c69:ProjectViewProjectNode" />
+              <item name="hrsolution" type="462c0819:PsiDirectoryNode" />
               <item name="frontend" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -1602,16 +1617,15 @@
       <workItem from="1561870728624" duration="1291000" />
       <workItem from="1562092780232" duration="488000" />
       <workItem from="1562093272099" duration="142000" />
-      <workItem from="1562093417759" duration="18135000" />
+      <workItem from="1562093417759" duration="19041000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="33301000" />
+    <option name="totallyTimeSpent" value="34207000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1386" height="788" extended-state="0" />
-    <editor active="true" />
     <layout>
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Event Log" order="7" side_tool="true" />
@@ -1895,13 +1909,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/backend/routes/web.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="308">
-          <caret line="23" column="21" selection-start-line="23" selection-start-column="12" selection-end-line="23" selection-end-column="21" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/backend/app/Http/Controllers/Appraisal/EmpAppraisalSetupController.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="380">
@@ -1926,13 +1933,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="399">
           <caret line="78" column="8" selection-start-line="78" selection-start-column="8" selection-end-line="78" selection-end-column="8" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/backend/routes/api.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="528">
-          <caret line="192" column="58" selection-start-line="192" selection-start-column="50" selection-end-line="192" selection-end-column="58" />
         </state>
       </provider>
     </entry>
@@ -1961,37 +1961,44 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/backend/resources/views/Excel/attendence.blade.php">
+    <entry file="file://$PROJECT_DIR$/backend/app/Constants/constants.php">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/backend/routes/web.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="170">
-          <caret line="121" column="12" selection-start-line="121" selection-start-column="12" selection-end-line="166" selection-end-column="19" />
+        <state relative-caret-position="238">
+          <caret line="23" column="21" selection-start-line="23" selection-start-column="12" selection-end-line="23" selection-end-column="21" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/backend/routes/api.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="222">
+          <caret line="177" column="86" selection-start-line="177" selection-start-column="64" selection-end-line="177" selection-end-column="86" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/backend/app/Http/Controllers/TestController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="258">
+          <caret line="133" selection-start-line="133" selection-end-line="285" selection-end-column="48" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/backend/app/Http/Controllers/AttendanceController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="272">
-          <caret line="249" column="42" selection-start-line="249" selection-start-column="42" selection-end-line="249" selection-end-column="42" />
+        <state relative-caret-position="250">
+          <caret line="245" column="42" selection-start-line="245" selection-start-column="20" selection-end-line="245" selection-end-column="42" />
           <folding>
             <element signature="e#40#63#0#PHP" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/backend/app/Http/Controllers/TestController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="454">
-          <caret line="223" selection-start-line="223" selection-end-line="223" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/backend/app/Constants/constants.php">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
     <entry file="file://$PROJECT_DIR$/backend/resources/views/Excel/attendenceTestRumi.blade.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="261">
-          <caret line="207" column="44" selection-start-line="207" selection-start-column="36" selection-end-line="207" selection-end-column="44" />
+        <state relative-caret-position="401">
+          <caret line="218" column="36" selection-start-line="218" selection-start-column="24" selection-end-line="218" selection-end-column="36" />
           <folding>
             <element signature="n#style#0;n#th#9;n#tr#2;n#thead#0;n#table#0;n#body#0;n#html#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#th#10;n#tr#2;n#thead#0;n#table#0;n#body#0;n#html#0;n#!!top" expanded="true" />
@@ -2039,6 +2046,13 @@
             <element signature="n#style#0;n#td#32;n#tr#1;n#tbody#0;n#table#0;n#body#0;n#html#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#td#33;n#tr#1;n#tbody#0;n#table#0;n#body#0;n#html#0;n#!!top" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/backend/resources/views/Excel/attendence.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-391">
+          <caret line="127" column="40" lean-forward="true" selection-start-line="127" selection-start-column="40" selection-end-line="127" selection-end-column="40" />
         </state>
       </provider>
     </entry>
