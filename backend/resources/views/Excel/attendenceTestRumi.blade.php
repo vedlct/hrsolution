@@ -213,8 +213,7 @@
                    if($joiningDate->year ==date('Y') && $joiningDate->month == date('m')){
 
                    $totalLeaveOrOff=($allLeave->where('fkEmployeeId',$aE->employeeId)
-                   ->whereIn('categoryCode',[LEAVE_CATEGORY['Casual'],LEAVE_CATEGORY['Sick'],LEAVE_CATEGORY['NoShift'],
-                    LEAVE_CATEGORY['Marriage'],LEAVE_CATEGORY['Leave with out pay'],LEAVE_CATEGORY['Team Leave']])
+
                     ->sum('noOfDays')
 
                        +$finalOffDay+$joiningDate->day+$finalholiDay);
@@ -224,25 +223,20 @@
 
 
 
-                   }else{
+                   }
+                   else{
 
-                   $totalLeaveOrOff=($allLeave->where('fkEmployeeId',$aE->employeeId)->whereIn('categoryCode',[LEAVE_CATEGORY['Casual'],LEAVE_CATEGORY['Sick'],LEAVE_CATEGORY['NoShift'],
-                    LEAVE_CATEGORY['Marriage'],LEAVE_CATEGORY['Leave with out pay'],LEAVE_CATEGORY['Team Leave']])
+                   $totalLeaveOrOff=($allLeave->where('fkEmployeeId',$aE->employeeId)
+
                     ->sum('noOfDays')
 
-                       +$finalOffDay+$finalholiDay
-                       );
+                       +$finalOffDay+$finalholiDay);
 
                        echo $absent=((($diff_in_days-$TA)-$totalLeaveOrOff));
 
                    }
                }else{
-               $totalLeaveOrOff=($allLeave->where('fkEmployeeId',$aE->employeeId)->whereIn('categoryCode',[LEAVE_CATEGORY['Casual'],LEAVE_CATEGORY['Sick'],LEAVE_CATEGORY['NoShift'],
-                    LEAVE_CATEGORY['Marriage'],LEAVE_CATEGORY['Leave with out pay'],LEAVE_CATEGORY['Team Leave']])
-                    ->sum('noOfDays')
-
-                       +$finalOffDay+$finalholiDay
-                       );
+               $totalLeaveOrOff=($allLeave->where('fkEmployeeId',$aE->employeeId)->sum('noOfDays')+$finalOffDay+$finalholiDay);
 
                        echo $absent=((($diff_in_days-$TA)-$totalLeaveOrOff));
                }

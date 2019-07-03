@@ -221,6 +221,7 @@ class TestController extends Controller
 
             ->whereBetween('startDate',array($fromDate, $toDate))
             ->get();
+
         $allLeave=collect($allLeave);
 
         $results = DB::select( DB::raw("select em.employeeId,ad.id
