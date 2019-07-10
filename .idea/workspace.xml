@@ -1,25 +1,148 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
+<<<<<<< HEAD
     <list default="true" id="fbc2d06b-89b8-4058-bcf5-912af702142a" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/frontend/node_modules/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
+=======
+    <list default="true" id="9c112dc2-fa5d-4115-a9e6-46742a10667a" name="Default" comment="">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/backend/public/exportedExcel/HRTest2019-07-03_05-33-13.xls" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/backend/public/exportedExcel/HRTest2019-07-03_06-05-43.xls" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/backend/public/exportedExcel/HRTest2019-06-28_02-38-02.xls" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/backend/public/exportedExcel/HRTest2019-06-28_02-43-54.xls" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/backend/public/exportedExcel/HRTest2019-06-30_03-54-21.xls" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/backend/public/exportedExcel/HRTest2019-06-30_11-10-17.xls" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/backend/public/exportedExcel/HRTest2019-07-02_17-22-04.xls" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/backend/public/exportedExcel/HRTest2019-07-02_17-28-50.xls" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/backend/public/exportedExcel/HRTest2019-07-02_17-38-56.xls" afterPath="" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/backend/app/Http/Controllers/AttendanceController.php" afterPath="$PROJECT_DIR$/backend/app/Http/Controllers/AttendanceController.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/backend/app/Http/Controllers/ExcelController.php" afterPath="$PROJECT_DIR$/backend/app/Http/Controllers/ExcelController.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/backend/app/Http/Controllers/TestController.php" afterPath="$PROJECT_DIR$/backend/app/Http/Controllers/TestController.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/backend/resources/views/Excel/attendence.blade.php" afterPath="$PROJECT_DIR$/backend/resources/views/Excel/attendence.blade.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/backend/resources/views/Excel/attendenceTestRumi.blade.php" afterPath="$PROJECT_DIR$/backend/resources/views/Excel/attendenceTestRumi.blade.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/frontend/src/app/constants.ts" afterPath="$PROJECT_DIR$/frontend/src/app/constants.ts" />
+    </list>
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
+    <option name="TRACKING_ENABLED" value="true" />
+>>>>>>> 4386ca7cf61730c6a9e2d56c33d383a15f06d58c
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+<<<<<<< HEAD
   <component name="ComposerSettings" synchronizationState="SYNCHRONIZE">
     <pharConfigPath>$PROJECT_DIR$/backend/composer.json</pharConfigPath>
     <execution>
       <executable />
     </execution>
+=======
+  <component name="CreatePatchCommitExecutor">
+    <option name="PATCH_PATH" value="" />
+  </component>
+  <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
+  <component name="FileEditorManager">
+    <leaf>
+      <file leaf-file-name="AttendanceController.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/backend/app/Http/Controllers/AttendanceController.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-2046">
+              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+              <folding>
+                <marker date="1562131576355" expanded="true" signature="16970:18207" ph="select em.em... attendancedata" />
+                <marker date="1562131576355" expanded="true" signature="20277:21777" ph="select ad.id... attendancedata" />
+                <marker date="1562131576355" expanded="true" signature="23195:23738" ph="select count... attendancedata" />
+                <marker date="1562131576355" expanded="true" signature="23793:24316" ph="select count... attendancedata" />
+                <marker date="1562131576355" expanded="true" signature="24367:25515" ph="select count... id" />
+                <marker date="1562131576355" expanded="true" signature="24414:25481" ph="select ad.id... attendancedata" />
+                <marker date="1562131576355" expanded="true" signature="25567:26715" ph="select count... id" />
+                <marker date="1562131576355" expanded="true" signature="25614:26681" ph="select ad.id... attendancedata" />
+                <marker date="1562131576355" expanded="true" signature="28025:28710" ph="SELECT * FRO... attemployeemap" />
+                <marker date="1562131576355" expanded="true" signature="28354:28535" ph="SELECT * FRO... attendancedata" />
+                <marker date="1562131576355" expanded="true" signature="28569:28708" ph="SELECT * FRO... hrmleaves" />
+                <marker date="1562131576355" expanded="true" signature="28796:29372" ph="SELECT * FRO... attemployeemap" />
+                <marker date="1562131576355" expanded="true" signature="29123:29204" ph="SELECT * FRO... attendancedata" />
+                <marker date="1562131576355" expanded="true" signature="29268:29370" ph="SELECT * FRO... hrmleaves" />
+                <marker date="1562131576355" expanded="true" signature="30221:30702" ph="select count... attendancedata" />
+                <marker date="1562131576355" expanded="true" signature="31164:32312" ph="select count... id" />
+                <marker date="1562131576355" expanded="true" signature="31211:32278" ph="select ad.id... attendancedata" />
+                <marker date="1562131576355" expanded="true" signature="32383:32915" ph="SELECT first... attemployeemap" />
+                <marker date="1562131576355" expanded="true" signature="32633:32714" ph="SELECT * FRO... attendancedata" />
+                <marker date="1562131576355" expanded="true" signature="32777:32914" ph="SELECT * FRO... hrmleaves" />
+                <marker date="1562131576355" expanded="true" signature="34581:35062" ph="select count... attendancedata" />
+                <marker date="1562131576355" expanded="true" signature="35485:36633" ph="select count... id" />
+                <marker date="1562131576355" expanded="true" signature="35532:36599" ph="select ad.id... attendancedata" />
+                <marker date="1562131576355" expanded="true" signature="36702:37210" ph="SELECT * FRO... attemployeemap" />
+                <marker date="1562131576355" expanded="true" signature="36924:37005" ph="SELECT * FRO... attendancedata" />
+                <marker date="1562131576355" expanded="true" signature="37069:37208" ph="SELECT * FRO... hrmleaves" />
+                <marker date="1562131576355" expanded="true" signature="37745:38225" ph="select count... attendancedata" />
+                <marker date="1562131576355" expanded="true" signature="38649:39796" ph="select count... id" />
+                <marker date="1562131576355" expanded="true" signature="38696:39762" ph="select ad.id... attendancedata" />
+                <marker date="1562131576355" expanded="true" signature="39866:40374" ph="SELECT * FRO... attemployeemap" />
+                <marker date="1562131576355" expanded="true" signature="40088:40169" ph="SELECT * FRO... attendancedata" />
+                <marker date="1562131576355" expanded="true" signature="40233:40372" ph="SELECT * FRO... hrmleaves" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="attendenceTestRumi.blade.php" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/backend/resources/views/Excel/attendenceTestRumi.blade.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-1034">
+              <caret line="229" column="32" lean-forward="false" selection-start-line="229" selection-start-column="20" selection-end-line="229" selection-end-column="32" />
+              <folding>
+                <marker date="1562136709768" expanded="true" signature="10309:10348" ph="..." />
+                <marker date="1562136709768" expanded="true" signature="10355:10365" ph="..." />
+                <marker date="1562136709768" expanded="true" signature="10548:10585" ph="..." />
+                <marker date="1562136709768" expanded="true" signature="10592:10602" ph="..." />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="constants.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/backend/app/Constants/constants.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="0">
+              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="TestController.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/backend/app/Http/Controllers/TestController.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="440">
+              <caret line="222" column="0" lean-forward="true" selection-start-line="222" selection-start-column="0" selection-end-line="222" selection-end-column="0" />
+              <folding>
+                <marker date="1562139088790" expanded="true" signature="1828:4029" ph="select a.emp... id" />
+                <marker date="1562139088790" expanded="true" signature="2222:3953" ph="select ad.id... attendancedata" />
+                <marker date="1562139088790" expanded="true" signature="12163:13400" ph="select em.em... attendancedata" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
+  </component>
+  <component name="FindInProjectRecents">
+    <findStrings>
+      <find>$finaltAb</find>
+      <find>$offDay</find>
+      <find>$finalOffDay</find>
+    </findStrings>
+>>>>>>> 4386ca7cf61730c6a9e2d56c33d383a15f06d58c
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
+<<<<<<< HEAD
   <component name="PhpWorkspaceProjectConfiguration">
     <include_path>
       <path value="$PROJECT_DIR$/backend/vendor/lcobucci/jwt" />
@@ -156,10 +279,253 @@
       <option name="presentableId" value="Default" />
       <updated>1562052199046</updated>
       <workItem from="1562052202253" duration="646000" />
+=======
+  <component name="IdeDocumentHistory">
+    <option name="CHANGED_PATHS">
+      <list>
+        <option value="$PROJECT_DIR$/backend/resources/views/Excel/attendenceTestRumi.blade.php" />
+        <option value="$PROJECT_DIR$/backend/app/Http/Controllers/TestController.php" />
+      </list>
+    </option>
+  </component>
+  <component name="JsBuildToolGruntFileManager" detection-done="true" sorting="DEFINITION_ORDER" />
+  <component name="JsBuildToolPackageJson" detection-done="true" sorting="DEFINITION_ORDER" />
+  <component name="JsGulpfileManager">
+    <detection-done>true</detection-done>
+    <sorting>DEFINITION_ORDER</sorting>
+  </component>
+  <component name="NodeModulesDirectoryManager">
+    <handled-path value="$PROJECT_DIR$/frontend/node_modules" />
+  </component>
+  <component name="PhpWorkspaceProjectConfiguration" backward_compatibility_performed="true" />
+  <component name="ProjectFrameBounds">
+    <option name="x" value="-8" />
+    <option name="y" value="-8" />
+    <option name="width" value="1936" />
+    <option name="height" value="1056" />
+  </component>
+  <component name="ProjectView">
+    <navigator currentView="ProjectPane" proportions="" version="1">
+      <flattenPackages />
+      <showMembers />
+      <showModules />
+      <showLibraryContents />
+      <hideEmptyPackages />
+      <abbreviatePackageNames />
+      <autoscrollToSource />
+      <autoscrollFromSource />
+      <sortByType />
+      <manualOrder />
+      <foldersAlwaysOnTop value="true" />
+    </navigator>
+    <panes>
+      <pane id="Scratches" />
+      <pane id="Scope" />
+      <pane id="ProjectPane">
+        <subPane>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="hrsolution" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="hrsolution" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="hrsolution" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="hrsolution" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="backend" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="hrsolution" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="hrsolution" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="backend" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="resources" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="views" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="hrsolution" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="hrsolution" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="backend" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="resources" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="views" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Excel" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="hrsolution" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="hrsolution" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="backend" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="resources" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="hrsolution" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="hrsolution" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="backend" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="hrsolution" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="hrsolution" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="backend" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Http" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="hrsolution" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="hrsolution" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="backend" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Http" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Controllers" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="hrsolution" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="hrsolution" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="backend" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Constants" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+          </PATH>
+        </subPane>
+      </pane>
+    </panes>
+  </component>
+  <component name="PropertiesComponent">
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+  </component>
+  <component name="ShelveChangesManager" show_recycled="false">
+    <option name="remove_strategy" value="false" />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="9c112dc2-fa5d-4115-a9e6-46742a10667a" name="Default" comment="" />
+      <created>1562131628730</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1562131628730</updated>
+      <workItem from="1562131631073" duration="5712000" />
+>>>>>>> 4386ca7cf61730c6a9e2d56c33d383a15f06d58c
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
+<<<<<<< HEAD
     <option name="totallyTimeSpent" value="646000" />
   </component>
   <component name="ToolWindowManager">
@@ -188,5 +554,117 @@
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
+=======
+    <option name="totallyTimeSpent" value="5712000" />
+  </component>
+  <component name="ToolWindowManager">
+    <frame x="-8" y="-8" width="1936" height="1056" extended-state="1" />
+    <editor active="true" />
+    <layout>
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="true" content_ui="tabs" />
+      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="true" content_ui="tabs" />
+      <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+    </layout>
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="processedProjectFiles" value="true" />
+  </component>
+  <component name="VcsContentAnnotationSettings">
+    <option name="myLimit" value="2678400000" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager />
+    <watches-manager />
+  </component>
+  <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/backend/app/Constants/constants.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/backend/app/Http/Controllers/AttendanceController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-2046">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <marker date="1562131576355" expanded="true" signature="16970:18207" ph="select em.em... attendancedata" />
+            <marker date="1562131576355" expanded="true" signature="20277:21777" ph="select ad.id... attendancedata" />
+            <marker date="1562131576355" expanded="true" signature="23195:23738" ph="select count... attendancedata" />
+            <marker date="1562131576355" expanded="true" signature="23793:24316" ph="select count... attendancedata" />
+            <marker date="1562131576355" expanded="true" signature="24367:25515" ph="select count... id" />
+            <marker date="1562131576355" expanded="true" signature="24414:25481" ph="select ad.id... attendancedata" />
+            <marker date="1562131576355" expanded="true" signature="25567:26715" ph="select count... id" />
+            <marker date="1562131576355" expanded="true" signature="25614:26681" ph="select ad.id... attendancedata" />
+            <marker date="1562131576355" expanded="true" signature="28025:28710" ph="SELECT * FRO... attemployeemap" />
+            <marker date="1562131576355" expanded="true" signature="28354:28535" ph="SELECT * FRO... attendancedata" />
+            <marker date="1562131576355" expanded="true" signature="28569:28708" ph="SELECT * FRO... hrmleaves" />
+            <marker date="1562131576355" expanded="true" signature="28796:29372" ph="SELECT * FRO... attemployeemap" />
+            <marker date="1562131576355" expanded="true" signature="29123:29204" ph="SELECT * FRO... attendancedata" />
+            <marker date="1562131576355" expanded="true" signature="29268:29370" ph="SELECT * FRO... hrmleaves" />
+            <marker date="1562131576355" expanded="true" signature="30221:30702" ph="select count... attendancedata" />
+            <marker date="1562131576355" expanded="true" signature="31164:32312" ph="select count... id" />
+            <marker date="1562131576355" expanded="true" signature="31211:32278" ph="select ad.id... attendancedata" />
+            <marker date="1562131576355" expanded="true" signature="32383:32915" ph="SELECT first... attemployeemap" />
+            <marker date="1562131576355" expanded="true" signature="32633:32714" ph="SELECT * FRO... attendancedata" />
+            <marker date="1562131576355" expanded="true" signature="32777:32914" ph="SELECT * FRO... hrmleaves" />
+            <marker date="1562131576355" expanded="true" signature="34581:35062" ph="select count... attendancedata" />
+            <marker date="1562131576355" expanded="true" signature="35485:36633" ph="select count... id" />
+            <marker date="1562131576355" expanded="true" signature="35532:36599" ph="select ad.id... attendancedata" />
+            <marker date="1562131576355" expanded="true" signature="36702:37210" ph="SELECT * FRO... attemployeemap" />
+            <marker date="1562131576355" expanded="true" signature="36924:37005" ph="SELECT * FRO... attendancedata" />
+            <marker date="1562131576355" expanded="true" signature="37069:37208" ph="SELECT * FRO... hrmleaves" />
+            <marker date="1562131576355" expanded="true" signature="37745:38225" ph="select count... attendancedata" />
+            <marker date="1562131576355" expanded="true" signature="38649:39796" ph="select count... id" />
+            <marker date="1562131576355" expanded="true" signature="38696:39762" ph="select ad.id... attendancedata" />
+            <marker date="1562131576355" expanded="true" signature="39866:40374" ph="SELECT * FRO... attemployeemap" />
+            <marker date="1562131576355" expanded="true" signature="40088:40169" ph="SELECT * FRO... attendancedata" />
+            <marker date="1562131576355" expanded="true" signature="40233:40372" ph="SELECT * FRO... hrmleaves" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/backend/app/Http/Controllers/TestController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="440">
+          <caret line="222" column="0" lean-forward="true" selection-start-line="222" selection-start-column="0" selection-end-line="222" selection-end-column="0" />
+          <folding>
+            <marker date="1562139088790" expanded="true" signature="1828:4029" ph="select a.emp... id" />
+            <marker date="1562139088790" expanded="true" signature="2222:3953" ph="select ad.id... attendancedata" />
+            <marker date="1562139088790" expanded="true" signature="12163:13400" ph="select em.em... attendancedata" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/backend/resources/views/Excel/attendenceTestRumi.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1034">
+          <caret line="229" column="32" lean-forward="false" selection-start-line="229" selection-start-column="20" selection-end-line="229" selection-end-column="32" />
+          <folding>
+            <marker date="1562136709768" expanded="true" signature="10309:10348" ph="..." />
+            <marker date="1562136709768" expanded="true" signature="10355:10365" ph="..." />
+            <marker date="1562136709768" expanded="true" signature="10548:10585" ph="..." />
+            <marker date="1562136709768" expanded="true" signature="10592:10602" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+>>>>>>> 4386ca7cf61730c6a9e2d56c33d383a15f06d58c
   </component>
 </project>
