@@ -87,16 +87,16 @@ export class GenerateSalaryComponent implements OnInit {
       const token=this.token.get();
       this.http.post(Constants.API_URL+'salary/main-sheet/download'+'?token='+token,value).subscribe(data => {
               this.spinner.hide();
-              console.log(data);
-              // let fileName=Constants.Image_URL+'exportedExcel/'+data;
-              //
-              // let link = document.createElement("a");
-              // link.download = data+".xls";
-              // let uri = fileName+".xls";
-              // link.href = uri;
-              // document.body.appendChild(link);
-              // link.click();
-              // document.body.removeChild(link);
+              // console.log(data);
+              let fileName=Constants.Image_URL+'exportedExcel/'+data;
+
+              let link = document.createElement("a");
+              link.download = data+".xls";
+              let uri = fileName+".xls";
+              link.href = uri;
+              document.body.appendChild(link);
+              link.click();
+              document.body.removeChild(link);
 
 
           },
