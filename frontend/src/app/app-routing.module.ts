@@ -42,6 +42,7 @@ import {CreateAppraisalConfigurationComponent} from "./components/appraisal/crea
 import {CreateAppraisalEmployeeComponent} from "./components/appraisal/create-appraisal-employee/create-appraisal-employee.component";
 import {AppraisalHeadComponent} from "./components/appraisal/appraisal-head/appraisal-head.component";
 import {ShowovertimeComponent} from "./components/overtime/showovertime/showovertime.component";
+import {UserCvViewComponent} from "./components/user/user-cv-view/user-cv-view.component";
 
 
 
@@ -74,6 +75,7 @@ const routes: Routes = [
     { path: 'configuration/leave/show', component: ShowLeaveComponent,canActivate: [AuthService]  },
     { path: 'overtime/show', component: ShowovertimeComponent ,canActivate: [AuthService] },
     { path: 'leave/apply', component: AddLeaveComponent ,canActivate: [AuthService] },
+    { path: 'user/user-cv-view/:id', component: UserCvViewComponent ,canActivate: [AuthService] },
     { path: 'leave/team',
         component: LeaveTeamComponent,
         canActivate: [NgxPermissionsGuard],
