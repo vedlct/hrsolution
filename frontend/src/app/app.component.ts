@@ -17,11 +17,14 @@ export class AppComponent {
   userModel={} as User;
   permission: string[] = ['guest'];
   loadPage=false;
+  navBarFalse: boolean;
 
 
   constructor(private permissionsService: NgxPermissionsService,
     private ngxPermissionsConfigurationService: NgxPermissionsConfigurationService,
     private token:TokenService, public http: HttpClient,private renderer2: Renderer2,) {
+
+
 
       this.token.isValid();
       setTimeout(() => {
@@ -51,6 +54,8 @@ export class AppComponent {
   }
 
   ngOnInit(): void {
+
+      this.navBarFalse=true;
 
 
 

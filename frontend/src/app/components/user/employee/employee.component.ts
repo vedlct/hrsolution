@@ -35,7 +35,8 @@ export class EmployeeComponent implements AfterViewInit,OnInit {
                 {
 
                     "data": function (data: any, type: any, full: any) {
-                        return ' <button class="btn btn-info" data-emp-id="'+data.empid+'"> Edit</button>';
+                        return ' <button class="btn btn-info" data-emp-id="'+data.empid+'"> Edit</button>'
+                        + ' <button class="btn btn-info" data-emp-id2="'+data.empid+'"> View</button>' ;
                     },
                     "orderable": false, "searchable":false, "name":"selected_rows"
                 }
@@ -53,6 +54,9 @@ export class EmployeeComponent implements AfterViewInit,OnInit {
 
             if (event.target.hasAttribute("data-emp-id")) {
                 this.router.navigate(["employee/edit/" + event.target.getAttribute("data-emp-id")]);
+            }else if (event.target.hasAttribute("data-emp-id2")) {
+
+                this.router.navigate(["user/user-cv-view/" + event.target.getAttribute("data-emp-id2")]);
             }
 
 
