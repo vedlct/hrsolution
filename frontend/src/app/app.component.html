@@ -1,10 +1,14 @@
+
+<app-user-cv-view *ngIf="!nav.visible"></app-user-cv-view>
 <!--The content below is only a placeholder and can be replaced.-->
-<ng-template [ngIf]="loadPage">
+<ng-template [ngIf]="loadPage" *ngIf="nav.visible">
+
+
 
 <app-navbar *ngIf="isLogIn()"></app-navbar>
 
-<ngx-spinner></ngx-spinner>
-<div class="wrapper">
+<ngx-spinner ></ngx-spinner>
+<div  class="wrapper">
   <div class="col-md-4">
     <!-- <app-add-department [master]="master"></app-add-department> -->
     <!-- <app-add-designaton></app-add-designaton> -->
@@ -12,7 +16,7 @@
     <!--<app-add-leave></app-add-leave>-->
   </div>
 
-  <router-outlet></router-outlet>
+  <router-outlet ></router-outlet>
 </div>
  
 </ng-template>

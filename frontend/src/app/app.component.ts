@@ -25,6 +25,7 @@ export class AppComponent {
     private ngxPermissionsConfigurationService: NgxPermissionsConfigurationService,
     private token:TokenService, public http: HttpClient,private renderer2: Renderer2,
               public nav: NavbarService) {
+      this.nav.show();
 
 
 
@@ -57,7 +58,7 @@ export class AppComponent {
 
   ngOnInit(): void {
 
-      this.nav.show();
+
 
 
 
