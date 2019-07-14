@@ -5,6 +5,7 @@ import {HttpClient} from "@angular/common/http";
 import { NgxPermissionsService, NgxPermissionsConfigurationService } from 'ngx-permissions';
 import {User} from "./model/user.model";
 import {HashLocationStrategy, Location, LocationStrategy} from '@angular/common';
+import { NavbarService } from '../app/services/navbar.service';
 
 @Component({
   selector: 'app-root',
@@ -17,12 +18,13 @@ export class AppComponent {
   userModel={} as User;
   permission: string[] = ['guest'];
   loadPage=false;
-  navBarFalse: boolean;
+
 
 
   constructor(private permissionsService: NgxPermissionsService,
     private ngxPermissionsConfigurationService: NgxPermissionsConfigurationService,
-    private token:TokenService, public http: HttpClient,private renderer2: Renderer2,) {
+    private token:TokenService, public http: HttpClient,private renderer2: Renderer2,
+              public nav: NavbarService) {
 
 
 
@@ -55,7 +57,7 @@ export class AppComponent {
 
   ngOnInit(): void {
 
-      this.navBarFalse=true;
+      this.nav.show();
 
 
 
@@ -65,6 +67,7 @@ export class AppComponent {
 
     return this.token.isValid();
   }
+
 
 
     public unAuthorized() {
