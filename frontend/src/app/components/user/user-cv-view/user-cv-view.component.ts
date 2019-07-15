@@ -9,7 +9,7 @@ declare var $ :any;
   selector: 'app-user-cv-view',
   templateUrl: './user-cv-view.component.html',
   styleUrls: ['./user-cv-view.component.css'],
-
+  
 })
 export class UserCvViewComponent implements OnInit {
   navBarFalse: boolean;

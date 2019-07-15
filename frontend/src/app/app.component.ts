@@ -17,7 +17,7 @@ export class AppComponent {
   userModel={} as User;
   permission: string[] = ['guest'];
   loadPage=false;
-  navBarFalse: boolean;
+
 
 
   constructor(private permissionsService: NgxPermissionsService,
@@ -54,10 +54,6 @@ export class AppComponent {
   }
 
   ngOnInit(): void {
-
-      this.navBarFalse=true;
-
-
 
     }
 
