@@ -4,6 +4,7 @@ import {HttpClient} from '@angular/common/http';
 import {TokenService} from "../../services/token.service";
 import {User} from "../../model/user.model";
 import {NgxPermissionsService} from "ngx-permissions";
+import { NavbarService } from '../../services/navbar.service';
 
 @Component({
   selector: 'app-navbar',
@@ -29,7 +30,9 @@ export class NavbarComponent implements OnInit {
     };
     tokenUser:any={};
 
-  constructor(private permissionsService: NgxPermissionsService,public http: HttpClient,private token:TokenService) {
+  constructor(private permissionsService: NgxPermissionsService,public http: HttpClient,private token:TokenService,
+              public nav: NavbarService)
+  {
 
   }
 
@@ -49,6 +52,7 @@ export class NavbarComponent implements OnInit {
       //
       //
       //     });
+
 
 
 

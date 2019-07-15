@@ -3,6 +3,7 @@ import {HttpClient} from "@angular/common/http";
 import {Constants} from "../../../constants";
 import {TokenService} from "../../../services/token.service";
 import {Router, ActivatedRoute} from '@angular/router';
+import { NavbarService } from '../../../services/navbar.service';
 declare var $ :any;
 
 @Component({
@@ -12,7 +13,7 @@ declare var $ :any;
   
 })
 export class UserCvViewComponent implements OnInit {
-  navBarFalse: boolean;
+
   id:any;
   empid:any;
   basicinfo: any;
@@ -36,12 +37,15 @@ export class UserCvViewComponent implements OnInit {
 
   };
 
-  constructor(public http: HttpClient, private token:TokenService,public route:ActivatedRoute) {
+  constructor(public http: HttpClient, private token:TokenService,public route:ActivatedRoute,
+              public nav: NavbarService ) {
+
+   this.nav.hide();
 
   }
 
   ngOnInit() {
-    this.navBarFalse=false;
+
 
     this.empid =this.route.snapshot.params.id;
     const token=this.token.get();

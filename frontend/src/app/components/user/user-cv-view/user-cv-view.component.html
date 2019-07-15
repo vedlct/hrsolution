@@ -1,8 +1,8 @@
 
 <!DOCTYPE html>
-<html>
+<html style="margin-top: -150px">
 <head>
-  <title>Joe Bloggs - Curriculum Vitae</title>
+  <title>{{employeeBasicForm.firstName}} - Curriculum Vitae</title>
 
   <meta name="viewport" content="width=device-width"/>
   <meta name="description" content="The Curriculum Vitae of Joe Bloggs."/>
@@ -23,7 +23,7 @@
     </div>
 
     <div id="name">
-      <h1 class="quickFade delayTwo">Joe Bloggs</h1>
+      <h3 class="quickFade ">{{employeeBasicForm.firstName+" "+employeeBasicForm.middleName+" "+employeeBasicForm.lastName}}</h3>
       <h2 class="quickFade delayThree">Job Title</h2>
     </div>
 
@@ -124,14 +124,14 @@
 
   </div>
 </div>
-<script type="text/javascript">
-    var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
-    document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
-</script>
-<script type="text/javascript">
-    var pageTracker = _gat._getTracker("UA-3753241-1");
-    pageTracker._initData();
-    pageTracker._trackPageview();
-</script>
+<!--<script type="text/javascript">-->
+    <!--var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");-->
+    <!--document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));-->
+<!--</script>-->
+<!--<script type="text/javascript">-->
+    <!--var pageTracker = _gat._getTracker("UA-3753241-1");-->
+    <!--pageTracker._initData();-->
+    <!--pageTracker._trackPageview();-->
+<!--</script>-->
 </body>
 </html>
