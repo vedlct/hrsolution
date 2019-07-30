@@ -64,7 +64,7 @@ export class UserCvViewComponent implements OnInit {
             this.employeeBasicForm.birthdate = this.basicinfo.birthdate;
             this.employeeBasicForm.department = this.basicinfo.fkDepartmentId;
             this.employeeBasicForm.empType = this.basicinfo.fkEmployeeType;
-            this.employeeBasicForm.designation = this.basicinfo.fkDesignation;
+            this.employeeBasicForm.designation = this.basicinfo.dtitle;
             this.employeeBasicForm.contactNo = this.basicinfo.contactNo;
             this.employeeBasicForm.alterContactNo = this.basicinfo.alterContactNo;
             this.employeeBasicForm.photo = Constants.Image_URL+'images/'+this.basicinfo.photo;

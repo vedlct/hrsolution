@@ -19,19 +19,20 @@
 <div id="cv" class="instaFade">
   <div class="mainDetails">
     <div id="headshot" class="quickFade">
-      <img src="headshot.jpg" alt="Alan Smith" />
+
+      <img src="{{employeeBasicForm.photo}}" alt="Alan Smith" />
     </div>
 
     <div id="name">
       <h3 class="quickFade ">{{employeeBasicForm.firstName+" "+employeeBasicForm.middleName+" "+employeeBasicForm.lastName}}</h3>
-      <h2 class="quickFade delayThree">Job Title</h2>
+      <h5 class="quickFade delayThree">{{employeeBasicForm.designation}}</h5>
     </div>
 
     <div id="contactDetails" class="quickFade delayFour">
       <ul>
-        <li>e: <a href="mailto:joe@bloggs.com" target="_blank">joe@bloggs.com</a></li>
-        <li>w: <a href="http://www.bloggs.com">www.bloggs.com</a></li>
-        <li>m: 01234567890</li>
+        <li>e: <a href="mailto:joe@bloggs.com" target="_blank">{{employeeBasicForm.email}}</a></li>
+        <!--<li>w: <a href="http://www.bloggs.com">www.bloggs.com</a></li>-->
+        <li>m: {{employeeBasicForm.contactNo}}</li>
       </ul>
     </div>
     <div class="clear"></div>
