@@ -105,6 +105,7 @@ export class ShowLeaveComponent implements AfterViewInit,OnDestroy,OnInit {
             columns: [
 
                 { data: 'firstName' ,name:'employeeinfo.firstName'},
+                { data: 'middleName' ,name:'employeeinfo.middleName'},
                 { data: 'lastName' ,name:'employeeinfo.lastName'},
                 { data: 'startDate' ,name:'hrmleaves.startDate'},
                 { data: 'endDate' ,name:'hrmleaves.endDate'},

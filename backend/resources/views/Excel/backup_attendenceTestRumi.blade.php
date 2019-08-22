@@ -25,7 +25,7 @@
         <th style="text-align: center;vertical-align: middle;" width="25" >Date</th>
 
         @foreach($dates as $date)
-            <th class="Border" colspan="6" style="text-align: center;vertical-align: middle;">{{$date['date']}}({{$date['day']}})</th>
+            <th class="Border" colspan="8" style="text-align: center;vertical-align: middle;">{{$date['date']}}({{$date['day']}})</th>
         @endforeach
 
     </tr>
@@ -37,9 +37,9 @@
             <th style="text-align: center;vertical-align: middle;background-color: #92D050"width="10">In Time</th>
             <th style="text-align: center;vertical-align: middle;background-color: #00B050"width="10">Out Time</th>
             <th style="text-align: center;vertical-align: middle;"width="5">Late</th>
-
+            <th style="text-align: center;vertical-align: middle;"width="15">Late Time</th>
             <th style="text-align: center;vertical-align: middle;"width="20">Total Hours Worked</th>
-
+            <th style="text-align: center;vertical-align: middle;"width="15">Regular Hours</th>
             <th style="text-align: center;vertical-align: middle;"width="10">Overtime</th>
             <th style="text-align: center;vertical-align: middle;background-color:#757171"width="15">Attendence</th>
         @endforeach
@@ -68,9 +68,9 @@
         <td width="10" ></td>
         <td width="10" ></td>
         <td width="5" ></td>
-
+        <td width="15" ></td>
         <td width="20" ></td>
-
+        <td width="15" ></td>
         <td width="10" ></td>
         <td width="15" ></td>
 
@@ -108,20 +108,17 @@
                 @if($results->where('employeeId',$aE->id)->where('attendanceDate',$date['date'])->first())
                     <td class="cell" width="10">{{$results->where('employeeId',$aE->id)->where('attendanceDate',$date['date'])->first()->checkIn}}</td>
                     <td class="cell" width="10">{{$results->where('employeeId',$aE->id)->where('attendanceDate',$date['date'])->first()->checkOut}}</td>
-                    <td class="cell<?php if($results->where('employeeId',$aE->id)->where('attendanceDate',$date['date'])->first()->late =='Y'){?> late <?php }?>" width="5">
-
-
+                    <td class="cell<?php if($results->where('employeeId',$aE->id)->where('attendanceDate',$date['date'])->first()->late =='Y'){?> late <?php }?>" width="5">{{$results->where('employeeId',$aE->id)->where('attendanceDate',$date['date'])->first()->late}}</td>
+                    <td class="cell<?php if($results->where('employeeId',$aE->id)->where('attendanceDate',$date['date'])->first()->late =='Y'){?> late <?php }?>" width="15">
                         @if($results->where('employeeId',$aE->id)->where('attendanceDate',$date['date'])->first()->late =='Y')
                             @php
                                 $late++;$finalLate=($finalLate+$late);
                             @endphp
-                            {{$results->where('employeeId',$aE->id)->where('attendanceDate',$date['date'])->first()->late}}
+                            {{$results->where('employeeId',$aE->id)->where('attendanceDate',$date['date'])->first()->lateTime}}
                         @endif
-
                     </td>
-
                     <td class="cell" width="20">{{$workingTime=$results->where('employeeId',$aE->id)->where('attendanceDate',$date['date'])->first()->workingTime}}</td>
-
+                    <td class="cell" width="15">8</td>
                     <td class="cell" width="10">
                         @php
                             $rgular=\Carbon\Carbon::createFromTime(8, 0, 0);
@@ -139,9 +136,9 @@
                     <td class="cell" width="10"></td>
                     <td class="cell" width="10"></td>
                     <td class="cell" width="5"></td>
-
+                    <td class="cell" width="15"></td>
                     <td class="cell" width="20"></td>
-
+                    <td class="cell" width="15"></td>
                     <td class="cell" width="10"></td>
 
 
