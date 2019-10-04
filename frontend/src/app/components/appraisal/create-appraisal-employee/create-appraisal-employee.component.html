@@ -24,9 +24,35 @@
 
          <h4>Appraisers With Role</h4>
          <hr>
+         <table class="table">
+           <tr *ngFor="let dept of appraisers;let i = index" >
+             <td style="width: 70%">
 
-         <button class="btn btn-info">+</button> &nbsp;
-         <button class="btn btn-secondary">-</button>
+               <select class="form-control">
+                 <option value="" selected disabled>Select Emp</option>
+                 <option *ngFor="let emp of allEmployees;let i = index" id="{{emp.empid}}">
+                    {{emp.ConcatenatedString}}
+                 </option>
+
+               </select>
+
+             </td>
+             <td>
+
+               <select class="form-control" id="role[{{i}}]">
+                 <option value="" selected disabled>Select Role</option>
+                 <option value="SUP">Supervisor </option>
+                 <option value="SUB ">Sub-ordinates </option>
+                 <option value="RCM ">Recommender </option>
+
+               </select>
+
+             </td>
+           </tr>
+         </table>
+
+         <button class="btn btn-info" (click)="addRole()">+</button> &nbsp;
+         <button class="btn btn-secondary" (click)="subRole()">-</button>
 
        </div>
      </div>
@@ -38,7 +64,12 @@
       <div class="card-body">
         <div class="form-group">
           <label>Department</label>
-          <input class="form-control" placeholder="select department">
+          <!--<input class="form-control" placeholder="select department">-->
+          <select class="form-control" (change)="onDeptChange($event.target.value)" id="markVersionNo" name="markVersionNo" >
+            <option value="" selected disabled>Select Department</option>
+            <option *ngFor="let dept of allDept;let i = index" value="{{dept.id}}" >{{dept.departmentName}}</option>
+
+          </select>
         </div>
 
       </div>
