@@ -22,13 +22,14 @@ export class CreateAppraisalTemplateComponent implements OnInit {
       let temp=[{id:"",headName:"",reportingBoss:"",userSelf:"",s:""}];
       this.headData=temp;
     this.getData();
+
   }
 
   getData(){
     //
     const token=this.token.get();
     this.http.get(Constants.API_URL+'appraisal/show-appraisal-heads-appraiser'+'?token='+token).subscribe(data => {
-          console.log(data);
+          // console.log(data);
           this.headData=data;
           // this.existingScales=data;
           // if(this.checkTable==0){
@@ -97,7 +98,20 @@ export class CreateAppraisalTemplateComponent implements OnInit {
 
         const token=this.token.get();
         this.http.post(Constants.API_URL+'appraisal/store-appraisal-format'+'?token='+token,this.formateModel).subscribe(data => {
-                console.log(data);
+
+                $.alert({
+                    title: 'Success!',
+                    type: 'Green',
+                    content: data['message'],
+                    buttons: {
+                        tryAgain: {
+                            text: 'Ok',
+                            btnClass: 'btn-red',
+                            action: function () {
+                            }
+                        }
+                    }
+                });
                 this.existingTemplates();
 
 
@@ -114,11 +128,6 @@ export class CreateAppraisalTemplateComponent implements OnInit {
         this.http.get(Constants.API_URL+'appraisal/show-appraisal-format'+'?token='+token).subscribe(data => {
                 console.log(data);
                 this.existingTemplate=data;
-                // this.existingScales=data;
-                // if(this.checkTable==0){
-                //   this.dtTeigger.next();
-                //   this.checkTable++;
-                // }
 
             },
             error => {
@@ -140,6 +149,7 @@ export class CreateAppraisalTemplateComponent implements OnInit {
                // console.log(this.appraisalScalDetails);
 
 
+
                 // this.existingScales=data;
                 // if(this.checkTable==0){
                 //   this.dtTeigger.next();
@@ -158,14 +168,9 @@ export class CreateAppraisalTemplateComponent implements OnInit {
 
         const token=this.token.get();
         this.http.get(Constants.API_URL+'appraisal/show-appraisal-scale-ByVersionNo'+'?token='+token).subscribe(data => {
-
                 this.appraisalScal=data;
                 this.scalVersionDetails(data[0].versionNo);
-                // this.existingScales=data;
-                // if(this.checkTable==0){
-                //   this.dtTeigger.next();
-                //   this.checkTable++;
-                // }
+                this.formateModel['markVersionNo']=data[0].versionNo;
 
             },
             error => {

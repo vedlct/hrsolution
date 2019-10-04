@@ -33,6 +33,7 @@ class AppraisalFormatController extends Controller
 //    }
 
     public function storeAppraisalFromate(Request $request){
+//        return $request;
 
 
         if ($request->appraisal_Format_id){
