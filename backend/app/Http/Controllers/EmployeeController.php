@@ -24,6 +24,20 @@ class EmployeeController extends Controller
 //        $this->middleware('auth:api');
     }
 
+    public function getAllEmpBasicInfo(){
+//        return response()->json('test');
+        $employee = EmployeeInfo::select('employeeinfo.firstName','employeeinfo.lastName','employeeinfo.middleName',
+            'employeeinfo.EmployeeId','hrmdesignations.title','hrmdepartments.departmentName','employeeinfo.id as empid',
+            DB::raw('CONCAT(employeeinfo.firstName," ",employeeinfo.lastName, " (",hrmdepartments.departmentName,")") AS ConcatenatedString'))
+            ->leftjoin('hrmdesignations','hrmdesignations.id','=','employeeinfo.fkDesignation')
+            ->leftjoin('hrmdepartments','hrmdepartments.id','=','employeeinfo.fkDepartmentId')
+            ->where('resignDate', null)
+            ->where('employeeinfo.fkCompany' , auth()->user()->fkCompany)->get();
+
+
+        return $employee;
+    }
+
     public function getAllEmployee(Request $r){
         $employee = EmployeeInfo::select('employeeinfo.firstName','employeeinfo.lastName','employeeinfo.middleName','employeeinfo.EmployeeId','hrmdesignations.title','hrmdepartments.departmentName','employeeinfo.id as empid')
             ->leftjoin('hrmdesignations','hrmdesignations.id','=','employeeinfo.fkDesignation')

@@ -61,6 +61,7 @@ Route::group([
 
     //Employee basicinfo
     Route::post('employee/basicinfo','EmployeeController@getBasicinfo');
+    Route::get('employee/basicinfo/all','EmployeeController@getAllEmpBasicInfo');
 //    Route::post('employee/storeBasicInfo','EmployeeController@storeBasicInfo');
 
 
