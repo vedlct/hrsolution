@@ -274,3 +274,8 @@ Route::post('appraisal/store-appraisal-format','Appraisal\AppraisalFormatControl
 Route::post('appraisal/assign-template-emp','Appraisal\EmpAppraisalSetupController@storeEmpAppraisalSetup')->name('appraisal.EmpSetup.insert');
 //Route::get('appraisal/delete-appraisal-scale/{id}','Appraisal\AppraisalFormatController@deleteAppraisalScale')->name('appraisal.Format.delete');
 
+
+/* assign Template */
+
+Route::post('appraisal/setEmployeeTemplate','Appraisal\EmpAppraisalSetupController@assignTemplateToEmp')->name('appraisal.EmpSetup.insert');
+
