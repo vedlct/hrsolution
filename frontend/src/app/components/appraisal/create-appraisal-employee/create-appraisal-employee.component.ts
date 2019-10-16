@@ -157,7 +157,8 @@ export class CreateAppraisalEmployeeComponent implements OnInit {
     if(newV !== -1)
     {
       alert("Value exists!");
-      $("#selectEmp"+ index)[0].selectedIndex = 0;
+      // $("#selectEmp"+ index)[0].selectedIndex = 0;
+      $('#selectEmp' + index).prop("selectedIndex", 0);
 
     }else
     {
@@ -237,11 +238,6 @@ export class CreateAppraisalEmployeeComponent implements OnInit {
     this.http.post(Constants.API_URL + 'appraisal/setEmployeeTemplate' + '?token=' + token , form).subscribe(data => {
 
       console.log(data);
-
-
-
-
-
 
       },
       error => {
