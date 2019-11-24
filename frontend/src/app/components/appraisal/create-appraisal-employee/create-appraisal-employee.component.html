@@ -19,7 +19,15 @@
 
          <div class="form-group">
            <label>Template</label>
-           <input class="form-control" placeholder="enter template name">
+           <ng-multiselect-dropdown
+             [placeholder]="'Select Template'"
+             [data]="allTemplate"
+             [(ngModel)]="selectedTemplate"
+             [settings]="dropdownTemplateSettings"
+
+           >
+           </ng-multiselect-dropdown>
+<!--           <input class="form-control" placeholder="enter template name">-->
          </div>
 
          <h4>Appraisers With Role</h4>
@@ -28,9 +36,9 @@
            <tr *ngFor="let dept of appraisers;let i = index" >
              <td style="width: 70%">
 
-               <select class="form-control">
-                 <option value="" selected disabled>Select Emp</option>
-                 <option *ngFor="let emp of allEmployees;let i = index" id="{{emp.empid}}">
+               <select  (change)="appraiserEmp(i)" id="selectEmp{{i}}" class="form-control">
+                 <option value="" selected >Select Emp</option>
+                 <option *ngFor="let emp of allEmployees;let i = index" value="{{emp.empid}}" id="{{emp.empid}}">
                     {{emp.ConcatenatedString}}
                  </option>
 
@@ -39,8 +47,8 @@
              </td>
              <td>
 
-               <select class="form-control" id="role[{{i}}]">
-                 <option value="" selected disabled>Select Role</option>
+               <select name="appraiserRole" (change)="appraiserEmpRole(i)" class="form-control" id="role{{i}}">
+                 <option value="" selected >Select Role</option>
                  <option value="SUP">Supervisor </option>
                  <option value="SUB ">Sub-ordinates </option>
                  <option value="RCM ">Recommender </option>
@@ -51,8 +59,16 @@
            </tr>
          </table>
 
-         <button class="btn btn-info" (click)="addRole()">+</button> &nbsp;
-         <button class="btn btn-secondary" (click)="subRole()">-</button>
+         <div class="row">
+
+           <button class="btn btn-info" (click)="addRole()">+</button> &nbsp;
+           <button class="btn btn-secondary" (click)="subRole()">-</button>
+         </div>
+         <br>
+
+         <div class="row">
+           <button class="btn btn-success pull-right" (click)="assignTemplateToEmp()" type="submit">Save</button>
+         </div>
 
        </div>
      </div>

@@ -64,6 +64,54 @@ class EmpAppraisalSetupController extends Controller
             return response()->json(['message' => 'Appraisal Format Updated Successfully']);
         }
     }
+    public function assignTemplateToEmp(Request $r){
+
+        return $r;
+
+//        if ($request->emp_appraisal_setup_id){
+//            $empAppraisalSetup= EmpAppraisalSetup::findOrFail($request->emp_appraisal_setup_id);
+//        }else{
+//            $empAppraisalSetup= new EmpAppraisalSetup();
+//        }
+
+        $empAppraisalSetup= new EmpAppraisalSetup();
+
+        $empAppraisalSetup->fk_AppraisalFormatMaster=$request->template[0]['id'];
+        $empAppraisalSetup->appraisalfor=$request->empList[0]['empid'];
+
+        $empAppraisalSetup->createdTime=Carbon::now();
+        $empAppraisalSetup->createdBy=auth()->user()->id;
+
+        $empAppraisalSetup->save();
+
+        for ($i=0;$i<count($r->appraisorEmp);$i++) {
+
+
+//            if ($request->appraisal_Format_id){
+//
+//                $appraisorRolDetail= EmpAppraisalAppraisor::findOrFail($request->emp_appraisal_appraisor_id);
+//
+//            }else{
+//                $appraisorRolDetail=new EmpAppraisalAppraisor();
+//
+//            }
+
+            $appraisorRolDetail = new EmpAppraisalAppraisor();
+
+            $appraisorRolDetail->fk_empAppraisalSetup = $empAppraisalSetup->id;
+
+            $appraisorRolDetail->appraisor = $r->appraisorEmp[$i];
+            $appraisorRolDetail->fk_appraisalRole = $r->appraisorEmp[$i];
+
+
+
+            $appraisorRolDetail->save();
+
+        }
+
+
+
+    }
 
     public function insertYearConfiguration(Request $r){
         foreach ($r->allEmp as $emp){
