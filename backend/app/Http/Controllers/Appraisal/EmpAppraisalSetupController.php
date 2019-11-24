@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Appraisal;
 
 
+use App\AppraisalYear;
 use App\EmpAppraisalAppraisor;
 use App\EmpAppraisalSetup;
 use App\Http\Controllers\Controller;
@@ -63,6 +64,24 @@ class EmpAppraisalSetupController extends Controller
             return response()->json(['message' => 'Appraisal Format Updated Successfully']);
         }
     }
+
+    public function insertYearConfiguration(Request $r){
+        foreach ($r->allEmp as $emp){
+            $config=new AppraisalYear();
+            $config->appraisalYear=$r->appraisalYear;
+            $config->appraisalStart=$r->appraisalStart;
+            $config->appraisalEnd=$r->appraisalEnd;
+            $config->appraisalStatus=$r->appraisalStatus;
+            $config->remarks=$r->remarks;
+            $config->appraise=$emp;
+            $config->save();
+
+        }
+
+        return response()->json('Year Assigned Successfully');
+
+    }
+
 
 
 }

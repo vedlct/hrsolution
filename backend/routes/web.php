@@ -22,6 +22,7 @@ Route::get('/', function () {
 Route::get('test','TestController@test');
 /*rumi test */
 Route::get('test/rumi','TestController@testRumi');
+Route::get('test/{date}','TestController@insertAttData');
 /* end rumi test */
 Route::get('excel/generate','ExcelController@generate');
 

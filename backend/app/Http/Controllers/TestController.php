@@ -9,13 +9,55 @@ use App\Leave;
 use App\OrganizationCalander;
 use App\User;
 use Carbon\Carbon;
+use Carbon\Carbon\CarbonPeriod;
+use DateInterval;
 use Illuminate\Http\Request;
 use DB;
 use Yajra\DataTables\DataTables;
 use Excel;
 use DateTime;
+
+
 class TestController extends Controller
 {
+    public function insertAttData($date){
+            for($i=1;$i<=31;$i++){
+                $date='2019-08-'.$i;
+                $results = DB::select(DB::raw("insert into test_attendance
+
+select a.employeeId,CONCAT(COALESCE(a.firstName,''),' ',COALESCE(a.middleName,''),' ',COALESCE(a.lastName,'')) AS empname, FORMAT(avg(a.workingTime),2) averageWorkingHour,
+            sum(case late when 'Y' then 1 else 0 end) totalLate,a.totalLeave,'".$date."' attDate
+            from
+            (select ad.id,ad.attDeviceUserId,hdm.departmentName, em.employeeId, e.firstName,e.lastName,
+              e.middleName,e.weekend as totalWeekend
+            , date_format(ad.accessTime,'%Y-%m-%d') attendanceDate
+            , date_format(min(ad.accessTime),'%H:%i:%s %p') checkIn
+            , date_format(max(ad.accessTime),'%H:%i:%s %p') checkOut
+            , date_format(s.inTime,'%H:%i:%s %p') scheduleIn, date_format(s.outTime,'%H:%i:%s %p') scheduleOut
+            , case when SUBTIME(date_format(min(ad.accessTime),'%H:%i'),s.inTime) > '00:00:01' then 'Y' else 'N' end late
+            , SUBTIME(date_format(max(ad.accessTime),'%H:%i:%s'),date_format(min(ad.accessTime),'%H:%i:%s')) workingTime
+            ,min(ad.accessTime) checkInFull, max(ad.accessTime) checkoutFull,ad.fkAttDevice,SUM(distinct hlv.noOfDays) as totalLeave
+            from attendancedata ad left join attemployeemap em on ad.attDeviceUserId = em.attDeviceUserId and date_format(ad.accessTime,'%Y-%m-%d') between '".$date."' and '".$date."'
+            left join employeeinfo e on em.employeeId = e.id
+            left join hrmleaves hlv on e.id=hlv.fkEmployeeId and hlv.applicationStatus = 'Approved' and hlv.startDate between '".$date."' and '".$date."'
+            left join hrmdepartments hdm on e.fkDepartmentId = hdm.id
+            left join shiftlog sl on em.employeeId = sl.fkemployeeId and date_format(ad.accessTime,'%Y-%m-%d') between date_format(sl.startDate,'%Y-%m-%d') and ifnull(date_format(sl.endDate,'%Y-%m-%d'),curdate())
+            left join shift s on sl.fkshiftId = s.shiftId
+            where em.employeeId is not null
+            group by ad.attDeviceUserId, date_format(ad.accessTime,'%Y-%m-%d')) a
+            group by a.employeeId  
+ORDER BY `a`.`totalLeave`  DESC"));
+            }
+
+
+
+
+        return "done";
+
+
+
+
+    }
     public function index(){
         $users=User::get();
         return $users;

@@ -28,7 +28,7 @@ import { EducationComponent } from './components/user/education/education.compon
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import { EmployeeComponent } from './components/user/employee/employee.component';
 
-import { BsDatepickerModule } from 'ngx-bootstrap/datepicker';
+import {BsDatepickerModule, DatepickerModule} from 'ngx-bootstrap/datepicker';
 import { ShiftComponent } from './components/configuration/shift/shift.component';
 import { ShiftAssignComponent } from './components/configuration/shift-assign/shift-assign.component';
 import { NgMultiSelectDropDownModule } from 'ng-multiselect-dropdown';
@@ -130,7 +130,8 @@ import { UserCvViewComponent } from './components/user/user-cv-view/user-cv-view
     BsDatepickerModule.forRoot(),
     NgbModule.forRoot(),
     NgMultiSelectDropDownModule.forRoot(),
-    NgxPermissionsModule.forRoot()
+    NgxPermissionsModule.forRoot(),
+    DatepickerModule
   ],
   providers: [],
   bootstrap: [AppComponent]
