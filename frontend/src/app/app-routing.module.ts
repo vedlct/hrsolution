@@ -1,7 +1,7 @@
-import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import {NgModule} from '@angular/core';
+import {CommonModule} from '@angular/common';
 // import { RouterModule, Routes } from '@angular/router';
-import { ActivatedRouteSnapshot, RouterModule, RouterStateSnapshot, Routes } from '@angular/router';
+import {ActivatedRouteSnapshot, RouterModule, RouterStateSnapshot, Routes} from '@angular/router';
 
 import {HomeComponent} from "./components/home/home.component";
 import {TablesComponent} from "./components/tables/tables.component";
@@ -26,7 +26,7 @@ import {PayHeadComponent} from "./components/payroll/pay-head/pay-head.component
 import {PaySalarySheetComponent} from "./components/payroll/pay-salary-sheet/pay-salary-sheet.component";
 import {PayAdvanceComponent} from "./components/payroll/pay-advance/pay-advance.component";
 import {AddLeaveComponent} from "./components/leave/add-leave/add-leave.component";
-import { NgxPermissionsGuard } from 'ngx-permissions';
+import {NgxPermissionsGuard} from 'ngx-permissions';
 import {PayGradeComponent} from "./components/payroll/pay-grade/pay-grade.component";
 import {ProfileComponent} from "./components/user/profile/profile.component";
 import {LeaveTeamComponent} from "./components/team/leave-team/leave-team.component";
@@ -43,144 +43,205 @@ import {CreateAppraisalEmployeeComponent} from "./components/appraisal/create-ap
 import {AppraisalHeadComponent} from "./components/appraisal/appraisal-head/appraisal-head.component";
 import {ShowovertimeComponent} from "./components/overtime/showovertime/showovertime.component";
 import {UserCvViewComponent} from "./components/user/user-cv-view/user-cv-view.component";
+
 import { RequestedAppraisalListComponent } from './components/appraisal/requested-appraisal-list/requested-appraisal-list.component';
 import { RequestedAppraisalFormComponent } from './components/appraisal/requested-appraisal-form/requested-appraisal-form.component';
-
-
+import {EditAppraisalEmployeeComponent} from "./components/appraisal/edit-appraisal-employee/edit-appraisal-employee.component";
 
 
 
 export function testPermissions(route: ActivatedRouteSnapshot, state: RouterStateSnapshot) {
-    console.log(route.params);
-    if (route.params['id'] === 42) {
-        return ['MANAGER', "UTILS"]
-    } else {
-        return 'ADMIN'
-    }
+  console.log(route.params);
+  if (route.params['id'] === 42) {
+    return ['MANAGER', "UTILS"]
+  } else {
+    return 'ADMIN'
+  }
 }
-const routes: Routes = [
-    {path: '', component: LoginComponent, canActivate: [GuestService] },
-    { path: 'login', component: LoginComponent, canActivate: [GuestService] },
-    { path: 'home', component: HomeComponent,canActivate: [AuthService] },
-    { path: 'profile', component: ProfileComponent,canActivate: [AuthService] },
-    { path: 'datatable', component: TablesComponent },
-    { path: 'user/add',component: AddUserComponent,canActivate: [AuthService] },
-    { path: 'user/add/:id',component: AddUserComponent,canActivate: [AuthService] },
-    { path: 'employee/add', component: AddEmployeeComponent,canActivate: [AuthService] },
-    { path: 'employee/edit/:id', component: AddEmployeeComponent,canActivate: [AuthService] },
-    { path: 'employee', component: EmployeeComponent,canActivate: [AuthService] },
-    { path: 'employee/past', component: PastEmployeeComponent,canActivate: [AuthService] },
-    { path: 'company/add', component: CompanyInfoComponent,canActivate: [AuthService] },
-    { path: 'configuration/shift', component: ShiftComponent,canActivate: [AuthService] },
-    { path: 'configuration/shift/assign', component: ShiftAssignComponent,canActivate: [AuthService] },
-    { path: 'configuration/department/add', component: AddDepartmentComponent,canActivate: [AuthService]  },
-    { path: 'configuration/leave', component: LeaveComponent,canActivate: [AuthService]  },
-    { path: 'configuration/leave/show', component: ShowLeaveComponent,canActivate: [AuthService]  },
-    { path: 'overtime/show', component: ShowovertimeComponent ,canActivate: [AuthService] },
-    { path: 'leave/apply', component: AddLeaveComponent ,canActivate: [AuthService] },
-    { path: 'user/user-cv-view/:id', component: UserCvViewComponent ,canActivate: [AuthService] },
-    { path: 'leave/team',
-        component: LeaveTeamComponent,
-        canActivate: [NgxPermissionsGuard],
-        data: {
-            permissions: {
-                only: ['admin'],
-                redirectTo: '/home'
-            }
-        }
-    },
-    { path: 'leave/team/add',
-        component: CreateLeaveTeamComponent,
-        canActivate: [NgxPermissionsGuard],
-        data: {
-            permissions: {
-                only: ['admin'],
-                redirectTo: '/home'
-            }
-        }
-    },
-    // { path: 'leave/summery',
-    //     component: LeaveSummeryComponent,
-    //     canActivate: [NgxPermissionsGuard],
-    //     data: {
-    //         permissions: {
-    //             only: ['admin'],
-    //             redirectTo: '/home'
-    //         }
-    //     }
-    // },
-    { path: 'leave/summery', component: LeaveSummeryComponent,canActivate: [AuthService]  },
-    { path: 'leave/summery/:id', component: LeaveSummeryShowComponent,canActivate: [AuthService] },
-    { path: 'report/attendance', component: AttendanceComponent,canActivate: [AuthService]  },
-    // { path: 'report/attendance/:id', component: ShowAttendanceComponent },
-    { path: 'report/attendance/:id/:fromdate/:todate', component: ShowAttendanceComponent },
-    { path: 'team/show', component: CreateTeamComponent },
-    { path: 'team/assign', component: AssignTeamComponent },
-    { path: 'payroll/setup', component: PayEmployeeSalarySetupComponent },
-    { path: 'payroll/payhead', component: PayHeadComponent },
-    { path: 'payroll/salary-sheet', component: PaySalarySheetComponent },
-    { path: 'payroll/pay-advance',
-        component: PayAdvanceComponent,
-        canActivate: [NgxPermissionsGuard],
-        data: {
-            permissions: {
-                only: ['admin'],
-                redirectTo: '/home'
-            }
-        }
-    },
-    { path: 'payroll/pay-grade',
-        component: PayGradeComponent,
-        canActivate: [NgxPermissionsGuard],
-        data: {
-            permissions: {
-                only: ['admin'],
-                redirectTo: '/home'
-            }
-        }
-    },
 
-    { path: 'payroll/salary/setup',
-        component: PayEmployeeSalarySetupComponent,
-        canActivate: [NgxPermissionsGuard],
-        data: {
-            permissions: {
-                only: ['admin'],
-                redirectTo: '/home'
-            }
-        }
-    },
-    { path: 'payroll/salary/generate',
-        component: GenerateSalaryComponent,
-        canActivate: [NgxPermissionsGuard],
-        data: {
-            permissions: {
-                only: ['admin'],
-                redirectTo: '/home'
-            }
-        }
-    },
-    { path: 'appraisal/head', component: AppraisalHeadComponent,canActivate: [AuthService]  },
-    { path: 'appraisal/scale', component: CreateAppraisalScaleComponent,canActivate: [AuthService]  },
-    { path: 'appraisal/template', component: CreateAppraisalTemplateComponent,canActivate: [AuthService]  },
-    { path: 'appraisal/configuration', component: CreateAppraisalConfigurationComponent,canActivate: [AuthService]  },
-    { path: 'appraisal/assign/employee', component: CreateAppraisalEmployeeComponent,canActivate: [AuthService]  },
+const routes: Routes = [
+  {path: '', component: LoginComponent, canActivate: [GuestService]},
+  {path: 'login', component: LoginComponent, canActivate: [GuestService]},
+  {path: 'home', component: HomeComponent, canActivate: [AuthService]},
+  {path: 'profile', component: ProfileComponent, canActivate: [AuthService]},
+  {path: 'datatable', component: TablesComponent},
+  {path: 'user/add', component: AddUserComponent, canActivate: [AuthService]},
+  {path: 'user/add/:id', component: AddUserComponent, canActivate: [AuthService]},
+  {path: 'employee/add', component: AddEmployeeComponent, canActivate: [AuthService]},
+  {path: 'employee/edit/:id', component: AddEmployeeComponent, canActivate: [AuthService]},
+  {path: 'employee', component: EmployeeComponent, canActivate: [AuthService]},
+  {path: 'employee/past', component: PastEmployeeComponent, canActivate: [AuthService]},
+  {path: 'company/add', component: CompanyInfoComponent, canActivate: [AuthService]},
+  {path: 'configuration/shift', component: ShiftComponent, canActivate: [AuthService]},
+  {path: 'configuration/shift/assign', component: ShiftAssignComponent, canActivate: [AuthService]},
+  {path: 'configuration/department/add', component: AddDepartmentComponent, canActivate: [AuthService]},
+  {path: 'configuration/leave', component: LeaveComponent, canActivate: [AuthService]},
+  {path: 'configuration/leave/show', component: ShowLeaveComponent, canActivate: [AuthService]},
+  {path: 'overtime/show', component: ShowovertimeComponent, canActivate: [AuthService]},
+  {path: 'leave/apply', component: AddLeaveComponent, canActivate: [AuthService]},
+  {path: 'user/user-cv-view/:id', component: UserCvViewComponent, canActivate: [AuthService]},
+  {
+    path: 'leave/team',
+    component: LeaveTeamComponent,
+    canActivate: [NgxPermissionsGuard],
+    data: {
+      permissions: {
+        only: ['admin'],
+        redirectTo: '/home'
+      }
+    }
+  },
+  {
+    path: 'leave/team/add',
+    component: CreateLeaveTeamComponent,
+    canActivate: [NgxPermissionsGuard],
+    data: {
+      permissions: {
+        only: ['admin'],
+        redirectTo: '/home'
+      }
+    }
+  },
+  // { path: 'leave/summery',
+  //     component: LeaveSummeryComponent,
+  //     canActivate: [NgxPermissionsGuard],
+  //     data: {
+  //         permissions: {
+  //             only: ['admin'],
+  //             redirectTo: '/home'
+  //         }
+  //     }
+  // },
+  {path: 'leave/summery', component: LeaveSummeryComponent, canActivate: [AuthService]},
+  {path: 'leave/summery/:id', component: LeaveSummeryShowComponent, canActivate: [AuthService]},
+  {path: 'report/attendance', component: AttendanceComponent, canActivate: [AuthService]},
+  // { path: 'report/attendance/:id', component: ShowAttendanceComponent },
+  {path: 'report/attendance/:id/:fromdate/:todate', component: ShowAttendanceComponent},
+  {path: 'team/show', component: CreateTeamComponent},
+  {path: 'team/assign', component: AssignTeamComponent},
+  {path: 'payroll/setup', component: PayEmployeeSalarySetupComponent},
+  {path: 'payroll/payhead', component: PayHeadComponent},
+  {path: 'payroll/salary-sheet', component: PaySalarySheetComponent},
+  {
+    path: 'payroll/pay-advance',
+    component: PayAdvanceComponent,
+    canActivate: [NgxPermissionsGuard],
+    data: {
+      permissions: {
+        only: ['admin'],
+        redirectTo: '/home'
+      }
+    }
+  },
+  {
+    path: 'payroll/pay-grade',
+    component: PayGradeComponent,
+    canActivate: [NgxPermissionsGuard],
+    data: {
+      permissions: {
+        only: ['admin'],
+        redirectTo: '/home'
+      }
+    }
+  },
+
     { path: 'appraisal/appraisalList/requested', component: RequestedAppraisalListComponent,canActivate: [AuthService]  },
     { path: 'appraisal/requested-appraisal-form/:id', component: RequestedAppraisalFormComponent,canActivate: [AuthService] },
+
+  {
+    path: 'payroll/salary/setup',
+    component: PayEmployeeSalarySetupComponent,
+    canActivate: [NgxPermissionsGuard],
+    data: {
+      permissions: {
+        only: ['admin'],
+        redirectTo: '/home'
+      }
+    }
+  },
+  {
+    path: 'payroll/salary/generate',
+    component: GenerateSalaryComponent,
+    canActivate: [NgxPermissionsGuard],
+    data: {
+      permissions: {
+        only: ['admin'],
+        redirectTo: '/home'
+      }
+    }
+  },
+  {
+    path: 'appraisal/head', component: AppraisalHeadComponent, canActivate: [NgxPermissionsGuard],
+    data: {
+      permissions: {
+        only: ['admin'],
+        redirectTo: '/home'
+      }
+    }
+  },
+  {
+    path: 'appraisal/scale', component: CreateAppraisalScaleComponent, canActivate: [NgxPermissionsGuard],
+    data: {
+      permissions: {
+        only: ['admin'],
+        redirectTo: '/home'
+      }
+    }
+  },
+  {
+    path: 'appraisal/template', component: CreateAppraisalTemplateComponent, canActivate: [NgxPermissionsGuard],
+    data: {
+      permissions: {
+        only: ['admin'],
+        redirectTo: '/home'
+      }
+    }
+  },
+  {
+    path: 'appraisal/configuration',
+    component: CreateAppraisalConfigurationComponent,
+    canActivate: [NgxPermissionsGuard],
+    data: {
+      permissions: {
+        only: ['admin'],
+        redirectTo: '/home'
+      }
+    }
+  },
+  {
+    path: 'appraisal/assign/employee', component: CreateAppraisalEmployeeComponent, canActivate: [NgxPermissionsGuard],
+    data: {
+      permissions: {
+        only: ['admin'],
+        redirectTo: '/home'
+      }
+    }
+  },
+  {
+    path: 'appraisal/assign/employee/edit/:id',
+    component: EditAppraisalEmployeeComponent,
+    canActivate: [NgxPermissionsGuard],
+    data: {
+      permissions: {
+        only: ['admin'],
+        redirectTo: '/home'
+      }
+    }
+  },
+
 ];
 
 
-
 @NgModule({
-    imports: [
-        RouterModule.forRoot(routes)
-    ],
-    exports: [
-        RouterModule
-    ],
-    providers: [
-        // CanDeactivateGuard
-    ]
+  imports: [
+    RouterModule.forRoot(routes)
+  ],
+  exports: [
+    RouterModule
+  ],
+  providers: [
+    // CanDeactivateGuard
+  ]
 })
 
 

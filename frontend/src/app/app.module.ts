@@ -28,7 +28,7 @@ import { EducationComponent } from './components/user/education/education.compon
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import { EmployeeComponent } from './components/user/employee/employee.component';
 
-import { BsDatepickerModule } from 'ngx-bootstrap/datepicker';
+import {BsDatepickerModule, DatepickerModule} from 'ngx-bootstrap/datepicker';
 import { ShiftComponent } from './components/configuration/shift/shift.component';
 import { ShiftAssignComponent } from './components/configuration/shift-assign/shift-assign.component';
 import { NgMultiSelectDropDownModule } from 'ng-multiselect-dropdown';
@@ -62,8 +62,12 @@ import { AppraisalHeadComponent } from './components/appraisal/appraisal-head/ap
 import { AppraisalExistingHeadsComponent } from './components/appraisal/appraisal-existing-heads/appraisal-existing-heads.component';
 import { ShowovertimeComponent } from './components/overtime/showovertime/showovertime.component';
 import { UserCvViewComponent } from './components/user/user-cv-view/user-cv-view.component';
+
 import { RequestedAppraisalListComponent } from './components/appraisal/requested-appraisal-list/requested-appraisal-list.component';
 import { RequestedAppraisalFormComponent } from './components/appraisal/requested-appraisal-form/requested-appraisal-form.component';
+
+import { EditAppraisalEmployeeComponent } from './components/appraisal/edit-appraisal-employee/edit-appraisal-employee.component';
+
 
 
 @NgModule({
@@ -120,7 +124,9 @@ import { RequestedAppraisalFormComponent } from './components/appraisal/requeste
     ShowovertimeComponent,
     UserCvViewComponent,
     RequestedAppraisalListComponent,
-    RequestedAppraisalFormComponent
+    RequestedAppraisalFormComponent,
+    EditAppraisalEmployeeComponent
+
 
   ],
   imports: [
@@ -134,7 +140,8 @@ import { RequestedAppraisalFormComponent } from './components/appraisal/requeste
     BsDatepickerModule.forRoot(),
     NgbModule.forRoot(),
     NgMultiSelectDropDownModule.forRoot(),
-    NgxPermissionsModule.forRoot()
+    NgxPermissionsModule.forRoot(),
+    DatepickerModule
   ],
   providers: [],
   bootstrap: [AppComponent]

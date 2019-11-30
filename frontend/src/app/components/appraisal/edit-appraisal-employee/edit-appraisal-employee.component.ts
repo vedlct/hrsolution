@@ -6,15 +6,19 @@ import {IDropdownSettings} from 'ng-multiselect-dropdown/multiselect.model';
 import {Subject} from "rxjs";
 import {DataTableDirective} from "angular-datatables";
 import {Router} from "@angular/router";
-declare var $: any;
+
+import {ActivatedRoute} from "@angular/router";
+declare var $ :any;
+
 @Component({
-  selector: 'app-create-appraisal-employee',
-  templateUrl: './create-appraisal-employee.component.html',
-  styleUrls: ['./create-appraisal-employee.component.css']
+  selector: 'app-edit-appraisal-employee',
+  templateUrl: './edit-appraisal-employee.component.html',
+  styleUrls: ['./edit-appraisal-employee.component.css']
 })
-export class CreateAppraisalEmployeeComponent implements  AfterViewInit, OnDestroy, OnInit {
-  @ViewChild(DataTableDirective)
-  dtElement: DataTableDirective;
+export class EditAppraisalEmployeeComponent implements OnInit {
+  id: any;
+  setup: any;
+  appraisors: any;
   allEmployees: any;
   allTemplate: any;
   allDept: any;
@@ -26,73 +30,72 @@ export class CreateAppraisalEmployeeComponent implements  AfterViewInit, OnDestr
   appraisers: any = [];
   appEmp: any = [];
   appEmpRole: any = [];
-  dtOptions: DataTables.Settings = {};
-  dtTrigger: Subject<any> = new Subject();
-  configurationModel: any = {};
 
-  constructor(private renderer: Renderer, private http: HttpClient, private token: TokenService, private router: Router) {
+  constructor(public route: ActivatedRoute, private renderer: Renderer, private http: HttpClient, private token: TokenService, private router: Router) {
   }
 
+
   ngOnInit() {
+    // console.log(this.route.snapshot.params.id);
+    this.id = this.route.snapshot.params.id;
+
     this.getAllEmp();
     this.getAllDept();
     this.getAllAppraisalTemplate();
 
 
-    const token = this.token.get();
-    this.dtOptions = {
-      ajax: {
-        url: Constants.API_URL + 'appraisal/EmployeeTemplate/get' + '?token=' + token,
-        type: 'POST'
-      },
-      columns: [
-        {data: 'firstName', name: 'employeeinfo.firstName'},
-        {data: 'middleName', name: 'employeeinfo.middleName'},
-        {data: 'lastName', name: 'employeeinfo.lastName'},
-        {data: 'EmployeeId', name: 'employeeinfo.EmployeeId'},
-        {data: 'formatName', name: 'appraisalformatmaster.formatName'},
-        {data: 'departmentName', name: 'hrmdepartments.departmentName'},
-        {
-          "data": function (data: any, type: any, full: any) {
-            return '<button class="btn btn-info btn-sm" name="crteate-app-emp-btn"  data-appemp-id="' + data.id + '">Edit</button>';
-          },
-          "orderable": false, "searchable": false, "name": "selected_rows"
-        }
-      ],
-      processing: true,
-      serverSide: true,
-      pagingType: 'full_numbers',
-      pageLength: 10
-    };
-
-
   }
 
-  ngAfterViewInit(): void {
-    this.dtTrigger.next();
-    this.renderer.listenGlobal('document', 'click', (event) => {
+  getAppraisalSetup() {
+    const token = this.token.get();
+    this.http.get(Constants.API_URL + 'appraisal/EmployeeTemplate/edit/' + this.id + '?token=' + token).subscribe(data => {
+        this.setup = data['setup'];
+        this.appraisors = data['appraisors'];
+        // console.log(this.setup);
+        console.log(this.appraisors);
 
-      if (event.target.hasAttribute("data-appemp-id")) {
-        this.router.navigate(["appraisal/assign/employee/edit/" + event.target.getAttribute("data-appemp-id")]);
+        for (let i = 0; i < this.appraisors.length; i++){
+          this.addRole();
+          console.log(i);
+          $('#selectEmp'+i).val(5).change();
+        }
+
+
+        for (let item of this.allEmployees) {
+          if (item.empid == this.setup.appraisalfor) {
+            this.selectedItems = [{empid: item.empid, ConcatenatedString: item.ConcatenatedString}];
+            break;
+          }
+        }
+
+        for (let item of this.allTemplate) {
+
+          if (item.id == this.setup.fk_AppraisalFormatMaster) {
+            this.selectedTemplate = [{id: item.id, formatName: item.formatName}];
+            // console.log(this.selectedTemplate );
+            break;
+          }
+        }
+
+
+      },
+      error => {
+        console.log(error.error['error']);
+
       }
-      // else if (event.target.hasAttribute("data-emp-id2")) {
-      //
-      //   this.router.navigate([])
-      //     .then(result => {
-      //       window.open("user/user-cv-view/" + event.target.getAttribute("data-emp-id2", '_blank'))
-      //     });
-      // }
+    );
 
-    });
   }
 
 
   getAllEmp() {
     const token = this.token.get();
     this.http.get(Constants.API_URL + 'employee/basicinfo/all' + '?token=' + token).subscribe(data => {
-        console.log(data);
+        // console.log(data);
+        this.getAppraisalSetup();
         this.allEmployees = data;
         this.dropdownList = data;
+
 
         this.dropdownSettings = {
           singleSelection: false,
@@ -116,7 +119,7 @@ export class CreateAppraisalEmployeeComponent implements  AfterViewInit, OnDestr
     // department/get
     const token = this.token.get();
     this.http.get(Constants.API_URL + 'department/get' + '?token=' + token).subscribe(data => {
-        console.log(data);
+        // console.log(data);
         this.allDept = data;
 
 
@@ -267,69 +270,31 @@ export class CreateAppraisalEmployeeComponent implements  AfterViewInit, OnDestr
       alert('please select appraisor with role');
     }
 
-
-
-
-    if (this.configurationModel['appraisalYear'] &&
-      this.configurationModel['appraisalStart'] &&
-      this.configurationModel['appraisalEnd'] &&
-      this.configurationModel['appraisalStatus']) {
-      let form = {
-        'empList': this.selectedItems,
-        'template': this.selectedTemplate,
-        'appraisorEmp': this.appEmp,
-        'appraisorRole': this.appEmpRole,
-        'configurationModel': this.configurationModel,
-      }
-
-
-
-      const token = this.token.get();
-
-      this.http.post(Constants.API_URL + 'appraisal/setEmployeeTemplate' + '?token=' + token, form).subscribe(data => {
-
-          console.log(data);
-
-        },
-        error => {
-          console.log(error);
-
-        }
-      );
-
-    } else {
-      $.alert({
-        title: 'Alert!',
-        type: 'Red',
-        content: "Please Insert All The Field",
-        buttons: {
-          tryAgain: {
-            text: 'Ok',
-            btnClass: 'btn-red',
-            action: function () {
-            }
-          }
-        }
-      });
-      return false;
+    let form = {
+      'empList': this.selectedItems,
+      'template': this.selectedTemplate,
+      'appraisorEmp': this.appEmp,
+      'appraisorRole': this.appEmpRole,
     }
 
+    console.log(form);
+    return false;
+
+    const token = this.token.get();
+
+    this.http.post(Constants.API_URL + 'appraisal/setEmployeeTemplate' + '?token=' + token, form).subscribe(data => {
+
+        // console.log(data);
+
+      },
+      error => {
+        console.log(error);
+
+      }
+    );
+
 
   }
 
-
-  ngOnDestroy(): void {
-    // Do not forget to unsubscribe the event
-    this.dtTrigger.unsubscribe();
-  }
-
-  rerender() {
-    this.dtElement.dtInstance.then((dtInstance: DataTables.Api) => {
-
-      dtInstance.destroy();
-
-      this.dtTrigger.next();
-    });
-  }
 
 }

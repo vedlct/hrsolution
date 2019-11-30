@@ -1,0 +1,100 @@
+<div class="row m-2">
+  <div class="col-md-6">
+    <div class="card">
+      <div class="card-header">Edit Template for Employee</div>
+      <div class="card-body">
+        <div class="form-group">
+          <label>Employee</label>
+          <!--<input class="form-control" placeholder="select employee">-->
+          <ng-multiselect-dropdown
+            [placeholder]="'Select Employee'"
+            [data]="dropdownList"
+            [(ngModel)]="selectedItems"
+            [settings]="dropdownSettings"
+            (onSelect)="onItemSelect($event)"
+            (onSelectAll)="onSelectAll($event)"
+          >
+          </ng-multiselect-dropdown>
+        </div>
+
+        <div class="form-group">
+          <label>Template</label>
+          <ng-multiselect-dropdown
+            [placeholder]="'Select Template'"
+            [data]="allTemplate"
+            [(ngModel)]="selectedTemplate"
+            [settings]="dropdownTemplateSettings"
+
+          >
+          </ng-multiselect-dropdown>
+          <!--           <input class="form-control" placeholder="enter template name">-->
+        </div>
+
+        <h4>Appraisers With Role</h4>
+        <hr>
+        <table class="table">
+          <tr *ngFor="let dept of appraisers;let i = index" >
+            <td style="width: 70%">
+
+              <select  (change)="appraiserEmp(i)" id="selectEmp{{i}}" class="form-control">
+
+                <option *ngFor="let emp of allEmployees;let i = index" value="{{emp.empid}}" id="{{emp.empid}}">
+                  {{emp.ConcatenatedString}}
+                </option>
+
+              </select>
+
+            </td>
+            <td>
+
+              <select name="appraiserRole" (change)="appraiserEmpRole(i)" class="form-control" id="role{{i}}">
+                <option value="" selected >Select Role</option>
+                <option value="1">Self </option>
+                <option value="2">Supervisor </option>
+                <option value="3">Sub-ordinates </option>
+                <option value="4">co-worker </option>
+                <option value="5">Recommender </option>
+
+              </select>
+
+            </td>
+          </tr>
+        </table>
+
+        <div class="row">
+
+          <button class="btn btn-info" (click)="addRole()">+</button> &nbsp;
+          <button class="btn btn-secondary" (click)="subRole()">-</button>
+        </div>
+        <br>
+
+        <div class="row">
+          <button class="btn btn-success pull-right" (click)="assignTemplateToEmp()" type="submit">Save</button>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <div class="col-md-6">
+    <div class="card">
+      <div class="card-header">View Employee by Department</div>
+      <div class="card-body">
+        <div class="form-group">
+          <label>Department</label>
+          <!--<input class="form-control" placeholder="select department">-->
+          <select class="form-control" (change)="onDeptChange($event.target.value)" id="markVersionNo" name="markVersionNo" >
+            <option value="" selected disabled>Select Department</option>
+            <option *ngFor="let dept of allDept;let i = index" value="{{dept.id}}" >{{dept.departmentName}}</option>
+
+          </select>
+        </div>
+
+
+
+      </div>
+    </div>
+  </div>
+
+
+</div>
