@@ -62,6 +62,7 @@ import { AppraisalHeadComponent } from './components/appraisal/appraisal-head/ap
 import { AppraisalExistingHeadsComponent } from './components/appraisal/appraisal-existing-heads/appraisal-existing-heads.component';
 import { ShowovertimeComponent } from './components/overtime/showovertime/showovertime.component';
 import { UserCvViewComponent } from './components/user/user-cv-view/user-cv-view.component';
+import { EditAppraisalEmployeeComponent } from './components/appraisal/edit-appraisal-employee/edit-appraisal-employee.component';
 
 
 @NgModule({
@@ -116,7 +117,8 @@ import { UserCvViewComponent } from './components/user/user-cv-view/user-cv-view
     AppraisalHeadComponent,
     AppraisalExistingHeadsComponent,
     ShowovertimeComponent,
-    UserCvViewComponent
+    UserCvViewComponent,
+    EditAppraisalEmployeeComponent
 
   ],
   imports: [

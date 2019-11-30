@@ -282,5 +282,7 @@ Route::post('appraisal/assign-year-emp','Appraisal\EmpAppraisalSetupController@i
 /* assign Template */
 
 Route::post('appraisal/setEmployeeTemplate','Appraisal\EmpAppraisalSetupController@assignTemplateToEmp')->name('appraisal.EmpSetup.insert');
+Route::post('appraisal/EmployeeTemplate/get','Appraisal\EmpAppraisalSetupController@getEmpAppraisalSetup');
+Route::get('appraisal/EmployeeTemplate/edit/{id}','Appraisal\EmpAppraisalSetupController@editAppraisalSetup');
 
 

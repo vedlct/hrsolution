@@ -13,7 +13,7 @@ declare var $: any;
   templateUrl: './create-appraisal-configuration.component.html',
   styleUrls: ['./create-appraisal-configuration.component.css']
 })
-export class CreateAppraisalConfigurationComponent implements  AfterViewInit,OnDestroy,OnInit {
+export class CreateAppraisalConfigurationComponent implements AfterViewInit, OnDestroy, OnInit {
 
   @ViewChild(DataTableDirective)
   dtElement: DataTableDirective;
@@ -38,7 +38,7 @@ export class CreateAppraisalConfigurationComponent implements  AfterViewInit,OnD
       columns: [
         {
           "data": function (data: any, type: any, full: any) {
-              return '<input type="checkbox" class="chk form-control" name="selected_rows[]" value="' + data.empid + '" data-panel-id="' + data.empid + '">';
+            return '<input type="checkbox" class="chk form-control" name="selected_rows[]" value="' + data.empid + '" data-panel-id="' + data.empid + '">';
           },
           "orderable": false, "searchable": false, "name": "selected_rows"
         },
@@ -160,8 +160,7 @@ export class CreateAppraisalConfigurationComponent implements  AfterViewInit,OnD
         }
       );
 
-    }
-    else {
+    } else {
       $.alert({
         title: 'Alert!',
         type: 'Red',
@@ -184,7 +183,7 @@ export class CreateAppraisalConfigurationComponent implements  AfterViewInit,OnD
     this.dtTrigger.unsubscribe();
   }
 
-  rerender(){
+  rerender() {
     this.dtElement.dtInstance.then((dtInstance: DataTables.Api) => {
 
       dtInstance.destroy();
