@@ -10,6 +10,16 @@ define('LEAVE_CATEGORY',array(
     "Team Leave"=>'TL',
 
 ));
+define('Role_Access',array(
+    "Admin"=>'admin',
+    "Employee"=>'emp',
+//    "Offday"=>'off',
+    "NoShift"=>'noShi',
+    "Marriage"=>'marri',
+    "Leave with out pay"=>'LWP',
+    "Team Leave"=>'TL',
+
+));
 
 
 

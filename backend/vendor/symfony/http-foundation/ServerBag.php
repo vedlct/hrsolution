@@ -27,14 +27,11 @@ class ServerBag extends ParameterBag
      */
     public function getHeaders()
     {
-        $headers = array();
-        $contentHeaders = array('CONTENT_LENGTH' => true, 'CONTENT_MD5' => true, 'CONTENT_TYPE' => true);
+        $headers = [];
         foreach ($this->parameters as $key => $value) {
             if (0 === strpos($key, 'HTTP_')) {
                 $headers[substr($key, 5)] = $value;
-            }
-            // CONTENT_* are not prefixed with HTTP_
-            elseif (isset($contentHeaders[$key])) {
+            } elseif (\in_array($key, ['CONTENT_TYPE', 'CONTENT_LENGTH', 'CONTENT_MD5'], true)) {
                 $headers[$key] = $value;
             }
         }
@@ -79,7 +76,7 @@ class ServerBag extends ParameterBag
                     /*
                      * XXX: Since there is no PHP_AUTH_BEARER in PHP predefined variables,
                      *      I'll just set $headers['AUTHORIZATION'] here.
-                     *      http://php.net/manual/en/reserved.variables.server.php
+                     *      https://php.net/reserved.variables.server
                      */
                     $headers['AUTHORIZATION'] = $authorizationHeader;
                 }

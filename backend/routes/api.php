@@ -279,3 +279,7 @@ Route::post('appraisal/assign-template-emp','Appraisal\EmpAppraisalSetupControll
 
 Route::post('appraisal/setEmployeeTemplate','Appraisal\EmpAppraisalSetupController@assignTemplateToEmp')->name('appraisal.EmpSetup.insert');
 
+/* requested appraisal list */
+
+
+Route::post('appraisal/getRequestedAppraisalList','Appraisal\RequestedAppraisalList@requestedAppraisalList');

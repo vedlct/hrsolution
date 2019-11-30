@@ -43,6 +43,9 @@ import {CreateAppraisalEmployeeComponent} from "./components/appraisal/create-ap
 import {AppraisalHeadComponent} from "./components/appraisal/appraisal-head/appraisal-head.component";
 import {ShowovertimeComponent} from "./components/overtime/showovertime/showovertime.component";
 import {UserCvViewComponent} from "./components/user/user-cv-view/user-cv-view.component";
+import { RequestedAppraisalListComponent } from './components/appraisal/requested-appraisal-list/requested-appraisal-list.component';
+import { RequestedAppraisalFormComponent } from './components/appraisal/requested-appraisal-form/requested-appraisal-form.component';
+
 
 
 
@@ -162,6 +165,8 @@ const routes: Routes = [
     { path: 'appraisal/template', component: CreateAppraisalTemplateComponent,canActivate: [AuthService]  },
     { path: 'appraisal/configuration', component: CreateAppraisalConfigurationComponent,canActivate: [AuthService]  },
     { path: 'appraisal/assign/employee', component: CreateAppraisalEmployeeComponent,canActivate: [AuthService]  },
+    { path: 'appraisal/appraisalList/requested', component: RequestedAppraisalListComponent,canActivate: [AuthService]  },
+    { path: 'appraisal/requested-appraisal-form/:id', component: RequestedAppraisalFormComponent,canActivate: [AuthService] },
 ];
 
 
