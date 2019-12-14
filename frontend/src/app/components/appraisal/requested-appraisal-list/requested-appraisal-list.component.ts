@@ -40,6 +40,7 @@ export class RequestedAppraisalListComponent implements AfterViewInit,OnInit {
         { data: 'firstName' ,name:'employeeinfo.firstName'},
         { data: 'middleName' ,name:'employeeinfo.middleName'},
         { data: 'lastName' ,name:'employeeinfo.lastName'},
+        { data: 'appraisalRoleName' ,name:'appraisalrole.appraisalRoleName'},
 
         {
 

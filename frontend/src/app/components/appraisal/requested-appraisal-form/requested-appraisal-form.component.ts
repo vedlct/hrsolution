@@ -13,6 +13,8 @@ import {ActivatedRoute, Router} from "@angular/router";
 export class RequestedAppraisalFormComponent implements OnInit {
   headData:any;
   setupId:any;
+  formInfo:any;
+  groupQues:any;
   displayForm:any = {
     formateNumber:'',
     formateName:'',
@@ -29,19 +31,22 @@ export class RequestedAppraisalFormComponent implements OnInit {
     this.getAppraisorForm();
     let temp=[{id:"",question:"",ans:""}];
     this.headData=temp;
+    this.groupQues=temp;
 
   }
   getAppraisorForm() {
 
     const token=this.token.get();
     this.http.get(Constants.API_URL+'appraisal/getRequestedAppraisalform/'+this.setupId+'?token='+token).subscribe(data => {
-        this.questions=data;
-        this.headData=data;
+        this.questions=data['ques'];
+        this.headData=data['ques'];
+        this.formInfo=data['formInfo'];
+        this.groupQues=data['groupQues'];
 
         console.log(data);
       },
       error => {
-        console.log(error.error['error']);
+        console.log(error);
 
       }
     );
@@ -51,9 +56,10 @@ export class RequestedAppraisalFormComponent implements OnInit {
   }
   onSubmit(){
     console.log(this.headData);
-    console.log('Submit Clicked');
+    console.log(this.groupQues);
+    // console.log('Submit Clicked');
     // $event.preventDefault();
-    console.log('formdata');
+    // console.log('formdata');
     // console.log(this.userImage);
   }
 

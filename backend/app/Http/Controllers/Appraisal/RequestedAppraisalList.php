@@ -16,8 +16,9 @@ class RequestedAppraisalList extends Controller
 
        if (auth()->user()->fkUserType== Role_Access['Admin']) {
 
-           $list=EmpAppraisalAppraisor::select('employeeinfo.id as empid','empappraisalsetup.id as empAppSetupId','employeeinfo.firstName','employeeinfo.middleName','employeeinfo.lastName')
-
+           $list=EmpAppraisalAppraisor::select('employeeinfo.id as empid','empappraisalsetup.id as empAppSetupId','employeeinfo.firstName',
+               'employeeinfo.middleName','employeeinfo.lastName','appraisalrole.appraisalRoleName')
+               ->leftJoin('appraisalrole','appraisalrole.id','empappraisalappraisor.fk_appraisalRole')
                ->leftJoin('empappraisalsetup','empappraisalsetup.id','empappraisalappraisor.fk_empAppraisalSetup')
                ->leftJoin('employeeinfo','employeeinfo.id','empappraisalsetup.appraisalfor')
                ->join('appraisalyear',function($join) {
@@ -39,8 +40,10 @@ class RequestedAppraisalList extends Controller
                ->where('employeeinfo.fkUserId' , auth()->user()->id)
                ->first();
 
-           $list=EmpAppraisalAppraisor::select('employeeinfo.id as empid','empappraisalsetup.id as empAppSetupId','employeeinfo.firstName','employeeinfo.middleName','employeeinfo.lastName')
+           $list=EmpAppraisalAppraisor::select('employeeinfo.id as empid','empappraisalsetup.id as empAppSetupId','employeeinfo.firstName',
+               'employeeinfo.middleName','employeeinfo.lastName','appraisalrole.appraisalRoleName')
 
+               ->leftJoin('appraisalrole','appraisalrole.id','empappraisalappraisor.fk_appraisalRole')
                ->leftJoin('empappraisalsetup','empappraisalsetup.id','empappraisalappraisor.fk_empAppraisalSetup')
                ->leftJoin('employeeinfo','employeeinfo.id','empappraisalsetup.appraisalfor')
                ->join('appraisalyear',function($join) {
