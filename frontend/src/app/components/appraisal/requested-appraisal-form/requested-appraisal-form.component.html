@@ -1,3 +1,99 @@
-<p>
-  requested-appraisal-form works!
-</p>
+<div class="container-fluid">
+  <div class="card">
+    <div class="card-header">Details</div>
+    <div class="card-body">
+
+
+        <div class="row">
+<!--          <div *ngFor="let qu of questions ;let index = index " class="form-group col-md-12">-->
+<!--            <label>{{qu['headName']}}</label><br>-->
+<!--            <ng-template [ngIf]="qu['headType']=='DS'">-->
+<!--              <textarea class="form-control" name="ans[{{index}}]">-->
+
+<!--              </textarea>-->
+<!--            </ng-template>-->
+<!--            <ng-template [ngIf]="qu['headType']=='NM'">-->
+<!--              <div class="form-check-inline">-->
+
+<!--                <label *ngFor='let in of counter(10) ;let i = index' class="customradio"><span class="radiotextsty">{{(i+1)}}</span>-->
+<!--                  <input type="radio"  name="ans[{{index}}]">-->
+<!--                  <span class="checkmark"></span>-->
+<!--                </label>        -->
+
+<!--              </div>-->
+
+<!--            </ng-template>-->
+<!--            <ng-template [ngIf]="qu['headType']=='TF'">-->
+<!--              <div class="form-check-inline">-->
+
+<!--                <label class="customradio"><span class="radiotextsty">True</span>-->
+<!--                  <input type="radio"  name="ans[{{index}}]">-->
+<!--                  <span class="checkmark"></span>-->
+<!--                </label>-->
+<!--                <label class="customradio"><span class="radiotextsty">Falsr</span>-->
+<!--                  <input type="radio"  name="ans[{{index}}]">-->
+<!--                  <span class="checkmark"></span>-->
+<!--                </label>        -->
+
+<!--              </div>-->
+
+<!--            </ng-template>-->
+
+<!--          </div>-->
+
+          <table class="table">
+            <thead>
+            <tr>
+              <th width="70%">Question</th>
+              <th width="30%">Answer</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let data of questions;let i = index">
+              <td>
+
+                <input type="hidden"  class="form-control" [(ngModel)]="headData[i].id" >
+                <input type="text" disabled  class="form-control" [(ngModel)]="headData[i].headName">
+
+
+<!--                {{data['headName']}}-->
+
+              </td>
+
+              <td>
+                <select class="form-control" *ngIf="data['headType'] == 'NM'" [(ngModel)]="headData[i].ans">
+                  <option value="5">Excellent</option>
+                  <option value="4">Good</option>
+                  <option value="3">Average</option>
+                  <option value="2">Below Average</option>
+                  <option value="1">Poor</option>
+                </select>
+                <input type="text" placeholder="write something" class="form-control" [(ngModel)]="headData[i].ans"  *ngIf="data['headType'] == 'DS'">
+
+                <select class="form-control" *ngIf="data['headType'] == 'TF'" [(ngModel)]="headData[i].ans">
+
+                  <option value="1">True</option>
+                  <option value="0">False</option>
+                </select>
+              </td>
+
+
+            </tr>
+            </tbody>
+          </table>
+
+          <div class="form-group col-md-12">
+            <button type="submit" class="btn btn-success " (click)="onSubmit()">submit</button>
+<!--            <button type="button" class="btn btn-success " (click)="getAppraisorForm()">get info</button>-->
+          </div>
+
+
+
+        </div>
+
+
+    </div>
+  </div>
+
+
+</div>

@@ -20,7 +20,7 @@ export class RequestedAppraisalListComponent implements AfterViewInit,OnInit {
   constructor(private renderer: Renderer,public http: HttpClient, private token:TokenService , public route:ActivatedRoute, private router: Router) { }
 
   ngOnInit() {
-    console.log(JSON.parse(localStorage.getItem('user')).id);
+    //console.log(JSON.parse(localStorage.getItem('user')).id);
 
     this.getAppraisalList();
   }

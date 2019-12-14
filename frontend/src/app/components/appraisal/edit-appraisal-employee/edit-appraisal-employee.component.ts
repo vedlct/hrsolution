@@ -8,6 +8,7 @@ import {DataTableDirective} from "angular-datatables";
 import {Router} from "@angular/router";
 
 import {ActivatedRoute} from "@angular/router";
+import { FormGroup, FormBuilder } from '@angular/forms';
 declare var $ :any;
 
 @Component({
@@ -17,6 +18,7 @@ declare var $ :any;
 })
 export class EditAppraisalEmployeeComponent implements OnInit {
   id: any;
+  headData:any;
   setup: any;
   appraisors: any;
   allEmployees: any;
@@ -30,8 +32,9 @@ export class EditAppraisalEmployeeComponent implements OnInit {
   appraisers: any = [];
   appEmp: any = [];
   appEmpRole: any = [];
+  userForm: FormGroup;
 
-  constructor(public route: ActivatedRoute, private renderer: Renderer, private http: HttpClient, private token: TokenService, private router: Router) {
+  constructor(private fb: FormBuilder,public route: ActivatedRoute, private renderer: Renderer, private http: HttpClient, private token: TokenService, private router: Router) {
   }
 
 
@@ -42,6 +45,10 @@ export class EditAppraisalEmployeeComponent implements OnInit {
     this.getAllEmp();
     this.getAllDept();
     this.getAllAppraisalTemplate();
+    let temp=[{appraisor:"",fk_appraisalRole:"",fk_empAppraisalSetup:"",id:""}];
+    this.headData=temp;
+
+
 
 
   }
@@ -49,16 +56,11 @@ export class EditAppraisalEmployeeComponent implements OnInit {
   getAppraisalSetup() {
     const token = this.token.get();
     this.http.get(Constants.API_URL + 'appraisal/EmployeeTemplate/edit/' + this.id + '?token=' + token).subscribe(data => {
+
         this.setup = data['setup'];
         this.appraisors = data['appraisors'];
-        // console.log(this.setup);
-        console.log(this.appraisors);
-
-        for (let i = 0; i < this.appraisors.length; i++){
-          this.addRole();
-          console.log(i);
-          $('#selectEmp'+i).val(5).change();
-        }
+        this.headData = data['appraisors'];
+        console.log(this.headData );
 
 
         for (let item of this.allEmployees) {
@@ -84,6 +86,14 @@ export class EditAppraisalEmployeeComponent implements OnInit {
 
       }
     );
+
+  }
+  setData(appraisers,index) {
+
+    this.userForm = this.fb.group({
+      technologies: [appraisers[index]['appraisor']]
+    });
+
 
   }
 
@@ -144,32 +154,20 @@ export class EditAppraisalEmployeeComponent implements OnInit {
   }
 
   addRole() {
-    if (this.appraisers.length > 0) {
 
-      if ($('#selectEmp' + (this.appraisers.length - 1)).val() == '' || $('#role' + (this.appraisers.length - 1)).val() == '') {
-        alert('Please Select Previous Fields First');
-      } else {
-        this.appraisers.push(this.appraisers.length);
-        // console.log($('#selectEmp' + (this.appraisers.length-1)).val());
-        // console.log(this.appraisers.length);
-      }
-
-    } else {
-
-      this.appraisers.push(this.appraisers.length);
-      //console.log(this.appraisers.length);
-
-    }
+      // this.appraisers.push(1); fk_empAppraisalSetup
+    this.headData.push({appraisor:"",fk_appraisalRole:"",fk_empAppraisalSetup:this.headData[0].fk_empAppraisalSetup,id:""});
 
 
   }
 
   subRole() {
 
+    this.headData.pop();
 
-    this.appraisers.pop();
-    this.appEmp.pop();
-    this.appEmpRole.pop();
+    // this.appraisers.pop();
+    // this.appEmp.pop();
+    // this.appEmpRole.pop();
 
   }
 
@@ -253,45 +251,35 @@ export class EditAppraisalEmployeeComponent implements OnInit {
 
   assignTemplateToEmp() {
 
+
     if (this.selectedTemplate.length == 0) {
       alert('please select a Template');
     }
     if (this.selectedItems.length == 0) {
       alert('please select Employee');
     }
-    if (this.appraisers.length == 0) {
-      alert('please select appraisor with role');
-    }
-    if (this.appraisers.length > 0 && this.appEmp.length ==
-      0) {
-      alert('please select appraisor with role');
-    }
-    if (this.appraisers.length > 0 && this.appEmpRole.length == 0) {
-      alert('please select appraisor with role');
-    }
+
 
     let form = {
       'empList': this.selectedItems,
       'template': this.selectedTemplate,
-      'appraisorEmp': this.appEmp,
-      'appraisorRole': this.appEmpRole,
+      'appraisorEmp': this.headData,
     }
-
     console.log(form);
-    return false;
-
-    const token = this.token.get();
-
-    this.http.post(Constants.API_URL + 'appraisal/setEmployeeTemplate' + '?token=' + token, form).subscribe(data => {
-
-        // console.log(data);
-
-      },
-      error => {
-        console.log(error);
-
-      }
-    );
+    // return false;
+    //
+    // const token = this.token.get();
+    //
+    // this.http.post(Constants.API_URL + 'appraisal/setEmployeeTemplate' + '?token=' + token, form).subscribe(data => {
+    //
+    //     // console.log(data);
+    //
+    //   },
+    //   error => {
+    //     console.log(error);
+    //
+    //   }
+    // );
 
 
   }

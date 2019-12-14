@@ -83,6 +83,11 @@ class EmpAppraisalSetupController extends Controller
 
     public function assignTemplateToEmp(Request $r){
 
+//        return $r;
+//        return false;
+
+
+
 //        return  Carbon::parse($r->configurationModel['appraisalStart'])->format('Y-m-d');
 //        return $r->configurationModel['appraisalYear'];
 
@@ -108,7 +113,12 @@ class EmpAppraisalSetupController extends Controller
                 $config->appraisalStart= Carbon::parse($r->configurationModel['appraisalStart'])->format('Y-m-d');
                 $config->appraisalEnd= Carbon::parse($r->configurationModel['appraisalEnd'])->format('Y-m-d');
                 $config->appraisalStatus= $r->configurationModel['appraisalStatus'];
-                $config->remarks=$r->configurationModel['remarks'];
+
+                if (array_key_exists('remarks', $r->configurationModel)) {
+                    // Should evaluate to FALSE
+                    $config->remarks=$r->configurationModel['remarks'];
+                };
+
                 $config->appraise=$emp['empid'];
                 $config->save();
 

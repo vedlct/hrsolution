@@ -33,22 +33,25 @@
         <h4>Appraisers With Role</h4>
         <hr>
         <table class="table">
-          <tr *ngFor="let dept of appraisers;let i = index" >
+          <tr *ngFor="let data of headData;let i = index" >
             <td style="width: 70%">
 
-              <select  (change)="appraiserEmp(i)" id="selectEmp{{i}}" class="form-control">
+                <select  class="form-control" [(ngModel)]="headData[i].appraisor" ngDefaultControl>
 
-                <option *ngFor="let emp of allEmployees;let i = index" value="{{emp.empid}}" id="{{emp.empid}}">
-                  {{emp.ConcatenatedString}}
-                </option>
+                  <option *ngFor="let emp of allEmployees;let ii = index" value="{{emp.empid}}" id="{{emp.empid}}">
+                    {{emp.ConcatenatedString}}
+                  </option>
 
-              </select>
+                </select>
+
+
+
 
             </td>
             <td>
 
-              <select name="appraiserRole" (change)="appraiserEmpRole(i)" class="form-control" id="role{{i}}">
-                <option value="" selected >Select Role</option>
+              <select name="appraiserRole" [(ngModel)]="headData[i].fk_appraisalRole" class="form-control">
+
                 <option value="1">Self </option>
                 <option value="2">Supervisor </option>
                 <option value="3">Sub-ordinates </option>

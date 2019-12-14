@@ -290,3 +290,4 @@ Route::get('appraisal/EmployeeTemplate/edit/{id}','Appraisal\EmpAppraisalSetupCo
 
 
 Route::post('appraisal/getRequestedAppraisalList','Appraisal\RequestedAppraisalList@requestedAppraisalList');
+Route::get('appraisal/getRequestedAppraisalform/{setupId}','Appraisal\RequestedAppraisalForm@requestedAppraisalform');

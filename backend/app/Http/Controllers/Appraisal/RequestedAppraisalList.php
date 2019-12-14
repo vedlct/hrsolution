@@ -16,6 +16,21 @@ class RequestedAppraisalList extends Controller
 
        if (auth()->user()->fkUserType== Role_Access['Admin']) {
 
+           $list=EmpAppraisalAppraisor::select('employeeinfo.id as empid','empappraisalsetup.id as empAppSetupId','employeeinfo.firstName','employeeinfo.middleName','employeeinfo.lastName')
+
+               ->leftJoin('empappraisalsetup','empappraisalsetup.id','empappraisalappraisor.fk_empAppraisalSetup')
+               ->leftJoin('employeeinfo','employeeinfo.id','empappraisalsetup.appraisalfor')
+               ->join('appraisalyear',function($join) {
+                   $join->on('appraisalyear.appraise','empappraisalsetup.appraisalfor');
+                   $join->where('appraisalyear.appraisalYear',Carbon::now()->format('Y'));
+                   $join->whereNotIn('appraisalYear.appraisalStatus',[1,2]);
+                   $join->where(function ($query) {
+                       $query->where('appraisalyear.appraisalStart', '<=',Carbon::now()->format('Y-m-d'))
+                           ->where('appraisalyear.appraisalEnd', '>=',Carbon::now()->format('Y-m-d'));
+                   });
+               })
+               ->where('empappraisalsetup.active',1);
+
 
        } else {
 
@@ -31,7 +46,7 @@ class RequestedAppraisalList extends Controller
                ->join('appraisalyear',function($join) {
                    $join->on('appraisalyear.appraise','empappraisalsetup.appraisalfor');
                    $join->where('appraisalyear.appraisalYear',Carbon::now()->format('Y'));
-                   $join->whereNotIn('appraisalStatus',[1,2]);
+                   $join->whereNotIn('appraisalYear.appraisalStatus',[1,2]);
                    $join->where(function ($query) {
                        $query->where('appraisalyear.appraisalStart', '<=',Carbon::now()->format('Y-m-d'))
                              ->where('appraisalyear.appraisalEnd', '>=',Carbon::now()->format('Y-m-d'));
@@ -39,13 +54,10 @@ class RequestedAppraisalList extends Controller
                })
                ->where('empappraisalappraisor.appraisor',$emp['empid'])
                ->where('empappraisalsetup.active',1);
-
-           $datatables = Datatables::of($list);
-           return $datatables->make(true);
-
-
-
        }
+
+       $datatables = Datatables::of($list);
+       return $datatables->make(true);
 
    }
 }

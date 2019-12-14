@@ -249,6 +249,8 @@ export class CreateAppraisalEmployeeComponent implements  AfterViewInit, OnDestr
   }
 
   assignTemplateToEmp() {
+    // this.rerender();
+    // return false;
 
     if (this.selectedTemplate.length == 0) {
       alert('please select a Template');
@@ -289,6 +291,8 @@ export class CreateAppraisalEmployeeComponent implements  AfterViewInit, OnDestr
       this.http.post(Constants.API_URL + 'appraisal/setEmployeeTemplate' + '?token=' + token, form).subscribe(data => {
 
           console.log(data);
+          console.log('success');
+          this.rerender();
 
         },
         error => {
