@@ -55,38 +55,49 @@ export class RequestedAppraisalFormComponent implements OnInit {
   }
   onSubmit(){
 
+    if (this.groupQues.length >0){
 
-    for (let i=0;i<this.groupQues[0]['child'].length;i++){
+      for (let i=0;i<this.groupQues[0]['child'].length;i++){
 
-      if (this.groupQues[0]['child'][i]['ans']=== undefined){
+        if (this.groupQues[0]['child'][i]['ans']=== undefined){
 
-        $.alert({
-          title: 'Alert!',
-          type: 'Red',
-          content: "Please Answer Question"+(i+1),
-          buttons: {
-            tryAgain: {
-              text: 'Ok',
-              btnClass: 'btn-red',
-              action: function () {
+          $.alert({
+            title: 'Alert!',
+            type: 'Red',
+            content: "Please Answer Question"+(i+1),
+            buttons: {
+              tryAgain: {
+                text: 'Ok',
+                btnClass: 'btn-red',
+                action: function () {
 
+                }
               }
             }
-          }
-        });
-        return false;
+          });
+          return false;
+
+        }
 
       }
 
     }
+
+
     let form={
       'data': this.groupQues,
-      'setupId' :this.setupId
+      'setupId' :this.setupId,
+      'headData' :this.headData,
     };
+
+    console.log(form);
+    // return false;
 
     const token=this.token.get();
 
     this.http.post(Constants.API_URL+'appraisal/insertAppraisalResult'+'?token='+token,form).subscribe(data => {
+
+    //  console.log(data);
 
       let that =this;
         $.alert({

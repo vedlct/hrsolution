@@ -68,23 +68,49 @@ class RequestedAppraisalForm extends Controller
     }
     public function insrtAppraisalResult(Request $r) {
 
-        $appraisalId = Appraisal::leftJoin('appraisalyear','appraisalyear.id','appraisal.fk_appraisalYear')
+        $appraisalId = Appraisal::select('appraisal.*')->leftJoin('appraisalyear','appraisalyear.id','appraisal.fk_appraisalYear')
             ->where('fk_empAppraisalSetup',$r->setupId)
             ->where('appraisalyear.appraisalYear',Carbon::now()->format('Y'))
             ->first();
 
         $empInfo = EmployeeInfo::where('fkUserId',auth()->id())->first();
 
-        foreach ($r->data[0]['child'] as $answer) {
 
-            $insert = new AppraisalDetails();
-            $insert->fk_Appraisal = $appraisalId['id'];
-            $insert->fk_Appraisalheads = $answer['id'];
-            $insert->appraisor = $empInfo['id'];
-            $insert->result = $answer['ans'];
-            $insert->entryItime = Carbon::now();
-            $insert->save();
+
+        if (count($r->data) > 0 ) {
+            for ($ii=0;$ii<count($r->data);$ii++) {
+                foreach ($r->data[$ii]['child'] as $answer) {
+
+                    $insert = new AppraisalDetails();
+                    $insert->fk_Appraisal = $appraisalId['id'];
+                    $insert->fk_Appraisalheads = $answer['id'];
+                    $insert->appraisor = $empInfo['id'];
+                    $insert->result = $answer['ans'];
+                    $insert->isGroup  = $r->data[$ii]['head']['id'];
+                    $insert->entryItime = Carbon::now();
+                    $insert->save();
+                }
+
+            }
+
+
         }
+        if (count($r->headData) > 0) {
+
+            foreach ($r->headData as $answerData) {
+
+                $insert = new AppraisalDetails();
+                $insert->fk_Appraisal = $appraisalId['id'];
+                $insert->fk_Appraisalheads = $answerData['id'];
+                $insert->appraisor = $empInfo['id'];
+                $insert->result = $answerData['ans'];
+                $insert->entryItime = Carbon::now();
+                $insert->save();
+            }
+
+        }
+
+
 
         $empAppraisor = EmpAppraisalAppraisor::where('fk_empAppraisalSetup',$r->setupId)
             ->where('appraisor',$empInfo['id'])->where('status',1)->first();
