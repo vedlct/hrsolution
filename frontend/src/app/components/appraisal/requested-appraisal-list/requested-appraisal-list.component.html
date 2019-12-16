@@ -3,6 +3,7 @@
     <div class="card-header">Requested Appraisal List</div>
 
     <div class="card-body">
+      <button (click)="getAppraisalResult()">get data</button>
 
       <table datatable class="table" [dtOptions]="dtOptions" [dtTrigger]="dtTrigger">
         <thead>
@@ -24,6 +25,36 @@
 
     </div>
   </div>
+<br>
+  <div class="card">
+    <div class="card-header">Results</div>
+    <div class="card-body">
+      <!--    appraisalDate-->
+      <!--    ​​appraisalforName-->
+      <!--    appraisorName-->
+      <!--    ​​fk_appraisalYear-->
+      <table class="table table-bordered">
+        <thead>
+
+        <th>appraisalforName</th>
+        <th>appraisorName</th>
+        <th>appraisalDate</th>
+        <th>action</th>
+
+        </thead>
+        <tbody>
+        <tr *ngFor="let item of result; index as i;">
+          <td>{{item['appraisalforName']}}</td>
+          <td>{{item['appraisorName']}}</td>
+          <td>{{item['appraisalDate']}}</td>
+          <td><button class="btn btn-sm btn-sm" (click)="showResultPage(item['id'])">show</button></td>
+        </tr>
 
 
+        </tbody>
+      </table>
+    </div>
+  </div>
 </div>
+
+

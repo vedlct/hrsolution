@@ -2,12 +2,13 @@
 
 namespace App\Http\Controllers\Appraisal;
 
+use App\Appraisal;
 use App\EmpAppraisalAppraisor;
 use App\EmployeeInfo;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use Illuminate\Support\Facades\DB;
+use DB;
 use Yajra\DataTables\DataTables;
 
 class RequestedAppraisalList extends Controller
@@ -62,6 +63,23 @@ class RequestedAppraisalList extends Controller
 
        $datatables = Datatables::of($list);
        return $datatables->make(true);
+
+   }
+
+   public function requestedAppraisalResult(){
+       $resultList=Appraisal::select('appraisal.*','empappraisalsetup.appraisalfor','empappraisalappraisor.appraisor',
+           'empappraisalappraisor.status',
+           DB::raw('CONCAT(b.firstName," ",b.lastName) AS appraisorName'),
+           DB::raw('CONCAT(a.firstName," ",a.lastName) AS appraisalforName')
+       )
+           ->leftJoin('empappraisalsetup','empappraisalsetup.id','appraisal.fk_empAppraisalSetup')
+           ->leftJoin('empappraisalappraisor','empappraisalappraisor.fk_empAppraisalSetup','empappraisalsetup.id')
+           ->leftJoin('employeeinfo as a','a.id','empappraisalsetup.appraisalfor')
+           ->leftJoin('employeeinfo as b','b.id','empappraisalappraisor.appraisor')
+           ->where('empappraisalappraisor.status',2)
+           ->get();
+
+       return $resultList;
 
    }
 }

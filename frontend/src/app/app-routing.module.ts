@@ -47,6 +47,7 @@ import {UserCvViewComponent} from "./components/user/user-cv-view/user-cv-view.c
 import { RequestedAppraisalListComponent } from './components/appraisal/requested-appraisal-list/requested-appraisal-list.component';
 import { RequestedAppraisalFormComponent } from './components/appraisal/requested-appraisal-form/requested-appraisal-form.component';
 import {EditAppraisalEmployeeComponent} from "./components/appraisal/edit-appraisal-employee/edit-appraisal-employee.component";
+import {ShowAppraisalResultComponent} from "./components/appraisal/show-appraisal-result/show-appraisal-result.component";
 
 
 
@@ -147,6 +148,7 @@ const routes: Routes = [
 
     { path: 'appraisal/appraisalList/requested', component: RequestedAppraisalListComponent,canActivate: [AuthService]  },
     { path: 'appraisal/requested-appraisal-form/:id', component: RequestedAppraisalFormComponent,canActivate: [AuthService] },
+    { path: 'appraisal/appraisal-result/:id', component: ShowAppraisalResultComponent,canActivate: [AuthService] },
 
   {
     path: 'payroll/salary/setup',

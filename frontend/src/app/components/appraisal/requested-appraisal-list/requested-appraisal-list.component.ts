@@ -15,6 +15,7 @@ export class RequestedAppraisalListComponent implements AfterViewInit,OnInit {
 
   dtOptions:DataTables.Settings={};
   dtTrigger:Subject<any>=new Subject();
+  result:any;
 
 
   constructor(private renderer: Renderer,public http: HttpClient, private token:TokenService , public route:ActivatedRoute, private router: Router) { }
@@ -22,6 +23,30 @@ export class RequestedAppraisalListComponent implements AfterViewInit,OnInit {
   ngOnInit() {
 
     this.getAppraisalList();
+    this.getAppraisalResult();
+  }
+
+  getAppraisalResult(){
+    // appraisal/getRequestedAppraisalResult
+    const token=this.token.get();
+    this.http.get(Constants.API_URL+'appraisal/getRequestedAppraisalResult'+'?token='+token).subscribe(data => {
+          this.result=data;
+         console.log(data);
+      },
+      error => {
+        console.log(error);
+
+      }
+    );
+
+  }
+
+  showResultPage(id){
+    // appraisal/appraisal-result/:id
+    const url = "appraisal/appraisal-result/" + id;
+
+    this.router.navigate([url]);
+
   }
   getAppraisalList() {
 

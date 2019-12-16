@@ -290,5 +290,7 @@ Route::get('appraisal/EmployeeTemplate/edit/{id}','Appraisal\EmpAppraisalSetupCo
 
 
 Route::post('appraisal/getRequestedAppraisalList','Appraisal\RequestedAppraisalList@requestedAppraisalList');
+Route::get('appraisal/getRequestedAppraisalResult','Appraisal\RequestedAppraisalList@requestedAppraisalResult');
 Route::get('appraisal/getRequestedAppraisalform/{setupId}','Appraisal\RequestedAppraisalForm@requestedAppraisalform');
 Route::post('appraisal/insertAppraisalResult','Appraisal\RequestedAppraisalForm@insrtAppraisalResult');
+Route::get('appraisal/result/get/{id}','Appraisal\AppraisalResultController@getResult');

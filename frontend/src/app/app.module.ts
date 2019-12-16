@@ -67,6 +67,7 @@ import { RequestedAppraisalListComponent } from './components/appraisal/requeste
 import { RequestedAppraisalFormComponent } from './components/appraisal/requested-appraisal-form/requested-appraisal-form.component';
 
 import { EditAppraisalEmployeeComponent } from './components/appraisal/edit-appraisal-employee/edit-appraisal-employee.component';
+import { ShowAppraisalResultComponent } from './components/appraisal/show-appraisal-result/show-appraisal-result.component';
 
 
 
@@ -125,7 +126,8 @@ import { EditAppraisalEmployeeComponent } from './components/appraisal/edit-appr
     UserCvViewComponent,
     RequestedAppraisalListComponent,
     RequestedAppraisalFormComponent,
-    EditAppraisalEmployeeComponent
+    EditAppraisalEmployeeComponent,
+    ShowAppraisalResultComponent
 
 
   ],
