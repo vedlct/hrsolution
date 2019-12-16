@@ -4,6 +4,7 @@ import {HttpClient} from "@angular/common/http";
 import {TokenService} from "../../../services/token.service";
 import {Subject} from "rxjs";
 import {ActivatedRoute, Router} from "@angular/router";
+declare var $: any;
 
 @Component({
   selector: 'app-requested-appraisal-form',
@@ -27,7 +28,6 @@ export class RequestedAppraisalFormComponent implements OnInit {
 
   ngOnInit() {
     this.setupId = this.route.snapshot.paramMap.get("id");
-    // this.getAppraisorForInfo();
     this.getAppraisorForm();
     let temp=[{id:"",question:"",ans:""}];
     this.headData=temp;
@@ -43,7 +43,6 @@ export class RequestedAppraisalFormComponent implements OnInit {
         this.formInfo=data['formInfo'];
         this.groupQues=data['groupQues'];
 
-        console.log(data);
       },
       error => {
         console.log(error);
@@ -55,12 +54,63 @@ export class RequestedAppraisalFormComponent implements OnInit {
     return new Array(i);
   }
   onSubmit(){
-    console.log(this.headData);
-    console.log(this.groupQues);
-    // console.log('Submit Clicked');
-    // $event.preventDefault();
-    // console.log('formdata');
-    // console.log(this.userImage);
+
+
+    for (let i=0;i<this.groupQues[0]['child'].length;i++){
+
+      if (this.groupQues[0]['child'][i]['ans']=== undefined){
+
+        $.alert({
+          title: 'Alert!',
+          type: 'Red',
+          content: "Please Answer Question"+(i+1),
+          buttons: {
+            tryAgain: {
+              text: 'Ok',
+              btnClass: 'btn-red',
+              action: function () {
+
+              }
+            }
+          }
+        });
+        return false;
+
+      }
+
+    }
+    let form={
+      'data': this.groupQues,
+      'setupId' :this.setupId
+    };
+
+    const token=this.token.get();
+
+    this.http.post(Constants.API_URL+'appraisal/insertAppraisalResult'+'?token='+token,form).subscribe(data => {
+
+      let that =this;
+        $.alert({
+          title: 'Success',
+          type: 'Green',
+          content: "Successfully Appraised",
+          buttons: {
+            tryAgain: {
+              text: 'Ok',
+              btnClass: 'btn-red',
+              action: function () {
+                that.router.navigateByUrl('appraisal/appraisalList/requested');
+              }
+            }
+          }
+        });
+
+      },
+      error => {
+        console.log(error);
+
+      }
+    );
+
   }
 
 }

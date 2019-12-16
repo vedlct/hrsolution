@@ -20,7 +20,6 @@ export class RequestedAppraisalListComponent implements AfterViewInit,OnInit {
   constructor(private renderer: Renderer,public http: HttpClient, private token:TokenService , public route:ActivatedRoute, private router: Router) { }
 
   ngOnInit() {
-    //console.log(JSON.parse(localStorage.getItem('user')).id);
 
     this.getAppraisalList();
   }
@@ -64,8 +63,10 @@ export class RequestedAppraisalListComponent implements AfterViewInit,OnInit {
 
       if (event.target.hasAttribute("data-appraisal-setup-id")) {
         const url = "appraisal/requested-appraisal-form/" + event.target.getAttribute("data-appraisal-setup-id");
-        this.router.navigate([])
-          .then(result => {  window.open(url, '_blank'); });
+        // this.router.navigate([])
+        //   .then(result => {  window.open(url, '_blank'); });
+        this.router.navigate([url]);
+
       }
 
 

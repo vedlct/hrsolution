@@ -56,7 +56,8 @@ class RequestedAppraisalList extends Controller
                    });
                })
                ->where('empappraisalappraisor.appraisor',$emp['empid'])
-               ->where('empappraisalsetup.active',1);
+               ->where('empappraisalsetup.active',1)
+               ->where('empappraisalappraisor.status',1);
        }
 
        $datatables = Datatables::of($list);
