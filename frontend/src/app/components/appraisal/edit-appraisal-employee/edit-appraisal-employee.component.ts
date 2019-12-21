@@ -264,22 +264,23 @@ export class EditAppraisalEmployeeComponent implements OnInit {
       'empList': this.selectedItems,
       'template': this.selectedTemplate,
       'appraisorEmp': this.headData,
-    }
+      'edit':true,
+    };
     console.log(form);
     // return false;
     //
-    // const token = this.token.get();
-    //
-    // this.http.post(Constants.API_URL + 'appraisal/setEmployeeTemplate' + '?token=' + token, form).subscribe(data => {
-    //
-    //     // console.log(data);
-    //
-    //   },
-    //   error => {
-    //     console.log(error);
-    //
-    //   }
-    // );
+    const token = this.token.get();
+
+    this.http.post(Constants.API_URL + 'appraisal/setEmployeeTemplate' + '?token=' + token, form).subscribe(data => {
+
+        // console.log(data);
+
+      },
+      error => {
+        console.log(error);
+
+      }
+    );
 
 
   }

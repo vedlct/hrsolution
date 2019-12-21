@@ -35,3 +35,4 @@ Route::get('/clear-cache', function() {
    // return redirect('/');
     return "Cache is cleared";
 });
+

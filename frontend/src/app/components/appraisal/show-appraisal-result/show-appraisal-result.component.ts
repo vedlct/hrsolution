@@ -11,6 +11,8 @@ import {Constants} from "../../../constants";
 })
 export class ShowAppraisalResultComponent implements OnInit {
   setupId: any;
+  appraisorId: any;
+  appraislasetupId: any;
   theHtmlString: any;
 
   constructor(public http: HttpClient, private token: TokenService, public route: ActivatedRoute, private router: Router) {
@@ -18,6 +20,8 @@ export class ShowAppraisalResultComponent implements OnInit {
 
   ngOnInit() {
     this.setupId = this.route.snapshot.paramMap.get("id");
+    this.appraisorId = this.route.snapshot.paramMap.get("appraisorId");
+    this.appraislasetupId = this.route.snapshot.paramMap.get("setupId");
     // console.log(this.setupId);
     this.getResult();
   }
@@ -26,7 +30,7 @@ export class ShowAppraisalResultComponent implements OnInit {
 
     const token = this.token.get();
 
-    this.http.get(Constants.API_URL + 'appraisal/result/get/' + this.setupId + '?token=' + token).subscribe(data => {
+    this.http.get(Constants.API_URL + 'appraisal/result/get/' + this.setupId +"/"+this.appraisorId+"/"+this.appraislasetupId+ '?token=' + token).subscribe(data => {
 
       this.theHtmlString=data;
         console.log(data);

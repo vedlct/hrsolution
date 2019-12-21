@@ -67,7 +67,7 @@ class RequestedAppraisalList extends Controller
    }
 
    public function requestedAppraisalResult(){
-       $resultList=Appraisal::select('appraisal.*','empappraisalsetup.appraisalfor','empappraisalappraisor.appraisor',
+       $resultList=Appraisal::select('appraisal.*','empappraisalsetup.id as setupId','empappraisalsetup.appraisalfor','empappraisalappraisor.appraisor',
            'empappraisalappraisor.status',
            DB::raw('CONCAT(b.firstName," ",b.lastName) AS appraisorName'),
            DB::raw('CONCAT(a.firstName," ",a.lastName) AS appraisalforName')

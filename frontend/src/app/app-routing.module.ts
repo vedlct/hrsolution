@@ -148,7 +148,7 @@ const routes: Routes = [
 
     { path: 'appraisal/appraisalList/requested', component: RequestedAppraisalListComponent,canActivate: [AuthService]  },
     { path: 'appraisal/requested-appraisal-form/:id', component: RequestedAppraisalFormComponent,canActivate: [AuthService] },
-    { path: 'appraisal/appraisal-result/:id', component: ShowAppraisalResultComponent,canActivate: [AuthService] },
+    { path: 'appraisal/appraisal-result/:id/:appraisorId/:appraislasetupId', component: ShowAppraisalResultComponent,canActivate: [AuthService] },
 
   {
     path: 'payroll/salary/setup',

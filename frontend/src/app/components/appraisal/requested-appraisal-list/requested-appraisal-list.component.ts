@@ -41,9 +41,9 @@ export class RequestedAppraisalListComponent implements AfterViewInit,OnInit {
 
   }
 
-  showResultPage(id){
+  showResultPage(id,appraisorId,setupId){
     // appraisal/appraisal-result/:id
-    const url = "appraisal/appraisal-result/" + id;
+    const url = "appraisal/appraisal-result/" + id+"/"+appraisorId+"/"+setupId;
 
     this.router.navigate([url]);
 
