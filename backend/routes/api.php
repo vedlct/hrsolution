@@ -293,4 +293,5 @@ Route::post('appraisal/getRequestedAppraisalList','Appraisal\RequestedAppraisalL
 Route::get('appraisal/getRequestedAppraisalResult','Appraisal\RequestedAppraisalList@requestedAppraisalResult');
 Route::get('appraisal/getRequestedAppraisalform/{setupId}','Appraisal\RequestedAppraisalForm@requestedAppraisalform');
 Route::post('appraisal/insertAppraisalResult','Appraisal\RequestedAppraisalForm@insrtAppraisalResult');
-Route::get('appraisal/result/get/{id}/{appraisorId}/{appraislasetupId}','Appraisal\AppraisalResultController@getResult');
+//Route::get('appraisal/result/get/{id}/{appraisorId}/{appraislasetupId}/{keyStrength}/{developmentArea}','Appraisal\AppraisalResultController@getResult');
+Route::post('appraisal/result/get','Appraisal\AppraisalResultController@getResult');

@@ -10,7 +10,14 @@ use Illuminate\Support\Facades\DB;
 
 class AppraisalResultController extends Controller
 {
-    public function getResult($id,$appraisorId,$setupId){
+    public function getResult(Request $r){
+//    public function getResult($id,$appraisorId,$setupId,$keyStrength,$developmentArea){
+
+        $id=$r->apraisalId;
+        $appraisorId=$r->apraisorId;
+        $setupId=$r->apraisalSetupId;
+        $keyStrength=$r->keyStrength;
+        $developmentArea=$r->developmentArea;
 
         $appraisedEmpInfoInfo = Appraisal::select('appraisalyear.appraisalYear','employeeinfo.firstName',
             'employeeinfo.middleName','employeeinfo.lastName','hrmdesignations.title','hrmdepartments.departmentName',
@@ -36,16 +43,55 @@ class AppraisalResultController extends Controller
             ->leftjoin('appraisalrole','appraisalrole.id','=','empappraisalappraisor.fk_appraisalRole')
             ->where('empappraisalappraisor.status', '=', 2)
             ->where('employeeinfo.id',$appraisorId)
-
             ->get();
+
         $ques=Appraisal::leftJoin('appraisaldetail','appraisaldetail.fk_Appraisal','appraisal.id')
             ->leftJoin('appraisalheads','appraisalheads.id','appraisaldetail.fk_Appraisalheads')
             ->where('appraisal.id',$id)->get();
-       // return $ques;
+
+        $keyStrengthAreas = array();
+        $DevelopmentAreas = array();
+
+        if (!empty($ques)) {
+            foreach ($ques as $q) {
+
+                if ($q->headType == 'NM' && $q->result >=$keyStrength ) {
+                    $keyStrengthAreas =array(
+                        'headName'=>$q->headName,
+                        'result'=>$q->result,
+                        'headType'=>$q->headType,
+
+                    );
+                }
+                if ($q->headType == 'NM' && $q->result <=$developmentArea ) {
+                    $DevelopmentAreas =array(
+                        'headName'=>$q->headName,
+                        'result'=>$q->result,
+                        'headType'=>$q->headType,
+
+                    );
+                }
+            }
+        }
+
+        $result = array(
+            'appraisedEmpInfoInfo'=>$appraisedEmpInfoInfo,
+            'appraisedByEmpInfo'=>$appraisedByEmpInfo,
+            'ques'=>$ques,
+            'keyStrengthAreas'=>$keyStrengthAreas,
+            'DevelopmentAreas'=>$DevelopmentAreas,
+        );
+
+        return $result;
+
+
+
+
+     //   return $ques;
 //        return response()->json(view('appraisal.result',compact('ques','appraisedByEmpInfo',
 //        'appraisedEmpInfoInfo'))->render());
-        return view('appraisal.result',compact('ques','appraisedByEmpInfo',
-            'appraisedEmpInfoInfo'));
+//        return view('appraisal.result',compact('ques','appraisedByEmpInfo',
+//            'appraisedEmpInfoInfo'));
 //
     }
 }
