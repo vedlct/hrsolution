@@ -1,37 +1,36 @@
-
-    <table>
-        <thead>
-        <th style="text-align: center">
-
-
-                Employee info
+<table>
+    <thead>
+    <th style="text-align: center">
 
 
-        </th>
-        </thead>
-        @foreach($appraisedEmpInfoInfo as $appraised)
-            <tr>
-                <td>
-                    <b>Name:</b> {{$appraised->ConcatenatedString}}<br>
-                    <b>Year:</b> {{$appraised->appraisalYear}}<br>
-                    <b>Designation:</b> {{$appraised->title}}<br>
-                    <b>Department:</b> {{$appraised->departmentName}}
-                </td>
-            </tr>
-        @endforeach
-
-    </table>
+        Employee info
 
 
-    <table>
-        <thead>
-        <th style="text-align: center">
+    </th>
+    </thead>
+    @foreach($appraisedEmpInfoInfo as $appraised)
+        <tr>
+            <td>
+                <b>Name:</b> {{$appraised->ConcatenatedString}}<br>
+                <b>Year:</b> {{$appraised->appraisalYear}}<br>
+                <b>Designation:</b> {{$appraised->title}}<br>
+                <b>Department:</b> {{$appraised->departmentName}}
+            </td>
+        </tr>
+    @endforeach
 
-                Appraisor info
+</table>
 
-        </th>
-        </thead>
-        @foreach($appraisedByEmpInfo as $appraisedBy)
+
+<table>
+    <thead>
+    <th style="text-align: center">
+
+        Appraisor info
+
+    </th>
+    </thead>
+    @foreach($appraisedByEmpInfo as $appraisedBy)
         <tr>
             <td>
                 <b>Name:</b>{{$appraisedBy->ConcatenatedString}}<br>
@@ -40,24 +39,24 @@
                 <b>Department:</b> {{$appraisedBy->departmentName}}
             </td>
         </tr>
-            @endforeach
+    @endforeach
 
-    </table>
+</table>
 
 <br> <br>
-    <table style="border: 2px solid red">
-        <thead>
-        <tr>
-            <td>
-                Questions
-            </td>
-            <td>
-                Answer
-            </td>
-        </tr>
-        </thead>
-        <tbody style="border: 1px solid black">
-        @foreach($ques as $data)
+<table style="border: 2px solid red" class="table table-bordered">
+    <thead>
+    <tr>
+        <td>
+            Questions
+        </td>
+        <td>
+            Answer
+        </td>
+    </tr>
+    </thead>
+    <tbody style="border: 1px solid black">
+    @foreach($ques as $data)
         <tr>
             <td>
                 {{$data->headName}}
@@ -93,6 +92,6 @@
 
             </td>
         </tr>
-            @endforeach
-        </tbody>
-    </table>
+    @endforeach
+    </tbody>
+</table>
