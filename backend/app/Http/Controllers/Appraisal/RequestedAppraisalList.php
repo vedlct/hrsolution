@@ -67,6 +67,11 @@ class RequestedAppraisalList extends Controller
    }
 
    public function requestedAppraisalResult(){
+       $emp = EmployeeInfo::select('employeeinfo.id as empid')
+
+           ->where('employeeinfo.fkUserId' , auth()->user()->id)
+           ->first();
+
        $resultList=Appraisal::select('appraisal.*','empappraisalsetup.id as setupId','empappraisalsetup.appraisalfor','empappraisalappraisor.appraisor',
            'empappraisalappraisor.status',
            DB::raw('CONCAT(b.firstName," ",b.lastName) AS appraisorName'),
@@ -77,6 +82,7 @@ class RequestedAppraisalList extends Controller
            ->leftJoin('employeeinfo as a','a.id','empappraisalsetup.appraisalfor')
            ->leftJoin('employeeinfo as b','b.id','empappraisalappraisor.appraisor')
            ->where('empappraisalappraisor.status',2)
+           ->where('empappraisalappraisor.appraisor',$emp['empid'])
            ->get();
 
        return $resultList;

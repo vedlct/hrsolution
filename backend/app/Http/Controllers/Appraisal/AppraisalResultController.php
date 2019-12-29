@@ -1,6 +1,7 @@
 <?php
 namespace App\Http\Controllers\Appraisal;
 use App\Appraisal;
+use App\EmpAppraisalSetup;
 use App\EmployeeInfo;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
@@ -38,5 +39,63 @@ class AppraisalResultController extends Controller
 //        return view('appraisal.result',compact('ques','appraisedByEmpInfo',
 //            'appraisedEmpInfoInfo'));
 //
+    }
+
+
+    public function getResultSummery($appraislasetupId){
+//        GREATEST STRENGTHS
+//        $setup=EmpAppraisalSetup::select('appraisor','result','headName','appraisalheads.id')
+//            ->where('empappraisalsetup.id',$appraislasetupId)
+//            ->leftjoin('appraisal','appraisal.fk_empAppraisalSetup','empappraisalsetup.id')
+//            ->leftjoin('appraisaldetail','appraisaldetail.fk_Appraisal','appraisal.id')
+//            ->leftjoin('appraisalheads','appraisalheads.id','appraisaldetail.fk_Appraisalheads')
+//            ->where('headType','NM')
+//            ->get();
+
+
+        $setup=EmpAppraisalSetup::where('empappraisalsetup.id',$appraislasetupId)
+            ->first();
+//        return $setup;
+
+//        DEVELOPMENT OPPORTUNITIES
+
+        $othersResultAvg=EmpAppraisalSetup::select('result','headName','appraisalheads.id',DB::raw('avg(result)  as res'))
+            ->where('empappraisalsetup.id',$appraislasetupId)
+            ->leftjoin('appraisal','appraisal.fk_empAppraisalSetup','empappraisalsetup.id')
+            ->leftjoin('appraisaldetail','appraisaldetail.fk_Appraisal','appraisal.id')
+            ->leftjoin('appraisalheads','appraisalheads.id','appraisaldetail.fk_Appraisalheads')
+            ->where('headType','NM')
+            ->where('appraisaldetail.appraisor','!=',$setup->appraisalfor)
+            ->groupBy('appraisalheads.id')
+            ->get();
+
+
+
+//        BLIND SPOTS
+        $ownResult=EmpAppraisalSetup::select('appraisor','result','headName','appraisalheads.id')
+            ->where('empappraisalsetup.id',$appraislasetupId)
+            ->leftjoin('appraisal','appraisal.fk_empAppraisalSetup','empappraisalsetup.id')
+            ->leftjoin('appraisaldetail','appraisaldetail.fk_Appraisal','appraisal.id')
+            ->leftjoin('appraisalheads','appraisalheads.id','appraisaldetail.fk_Appraisalheads')
+            ->where('headType','NM')
+            ->where('appraisaldetail.appraisor',$setup->appraisalfor)
+            ->get();
+
+
+        $greatestStrength=EmpAppraisalSetup::select('headName','appraisalheads.id',DB::raw('avg(result) as res'))
+            ->where('empappraisalsetup.id',$appraislasetupId)
+            ->leftjoin('appraisal','appraisal.fk_empAppraisalSetup','empappraisalsetup.id')
+            ->leftjoin('appraisaldetail','appraisaldetail.fk_Appraisal','appraisal.id')
+            ->leftjoin('appraisalheads','appraisalheads.id','appraisaldetail.fk_Appraisalheads')
+            ->where('headType','NM')
+            ->groupBy('appraisalheads.id')
+            ->havingRaw('avg(result) > 4')
+            ->get();
+
+//        return $ownResult;
+
+        return view('appraisal.summery',compact('greatestStrength','othersResultAvg','ownResult'));
+
+
     }
 }
