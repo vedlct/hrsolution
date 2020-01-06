@@ -261,19 +261,36 @@ export class EditAppraisalEmployeeComponent implements OnInit {
 
 
     let form = {
+      'empSetupId': this.id,
       'empList': this.selectedItems,
       'template': this.selectedTemplate,
       'appraisorEmp': this.headData,
       'edit':true,
     };
     console.log(form);
-    // return false;
+     // return false;
     //
     const token = this.token.get();
 
-    this.http.post(Constants.API_URL + 'appraisal/setEmployeeTemplate' + '?token=' + token, form).subscribe(data => {
+    this.http.post(Constants.API_URL + 'appraisal/editEmployeeTemplate' + '?token=' + token, form).subscribe(data => {
+
+      let that = this;
 
         // console.log(data);
+      $.alert({
+              title: 'Success!',
+              type: 'Green',
+              content: "Update",
+              buttons: {
+                tryAgain: {
+                  text: 'Ok',
+                  btnClass: 'btn-red',
+                  action: function () {
+                    that.router.navigate(["appraisal/assign/employee"]);
+                  }
+                }
+              }
+            });
 
       },
       error => {

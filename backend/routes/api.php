@@ -265,6 +265,7 @@ Route::get('appraisal/show-appraisal-heads-appraiser','Appraisal\AppraisalFormat
 
 Route::post('appraisal/store-appraisal-format','Appraisal\AppraisalFormatController@storeAppraisalFromate')->name('appraisal.Format.insert');
 //Route::get('appraisal/delete-appraisal-scale/{id}','Appraisal\AppraisalFormatController@deleteAppraisalScale')->name('appraisal.Format.delete');
+Route::get('appraisal/get_appraisal_template_for_edit/{id}','Appraisal\AppraisalFormatController@editAppraisalFormate');
 
 //Emp Appraisal Setup
 
@@ -282,6 +283,7 @@ Route::post('appraisal/assign-year-emp','Appraisal\EmpAppraisalSetupController@i
 /* assign Template */
 
 Route::post('appraisal/setEmployeeTemplate','Appraisal\EmpAppraisalSetupController@assignTemplateToEmp')->name('appraisal.EmpSetup.insert');
+Route::post('appraisal/editEmployeeTemplate','Appraisal\EmpAppraisalSetupController@updateTemplateToEmp')->name('appraisal.EmpSetup.edit');
 Route::post('appraisal/EmployeeTemplate/get','Appraisal\EmpAppraisalSetupController@getEmpAppraisalSetup');
 Route::get('appraisal/EmployeeTemplate/edit/{id}','Appraisal\EmpAppraisalSetupController@editAppraisalSetup');
 

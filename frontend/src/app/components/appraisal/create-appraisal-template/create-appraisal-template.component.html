@@ -26,14 +26,14 @@
         <table class="table">
           <thead>
             <tr>
-              <th width="70%">Appraisal Head</th>
-              <th width="30%">Action</th>
+              <th width="100%">Appraisal Head</th>
+<!--              <th width="30%">Action</th>-->
             </tr>
           </thead>
           <tbody>
             <tr *ngFor="let data of headData;let i = index">
               <td>
-                <input type="checkbox" (click)="checkData(data,i,$event)">
+                <input type="checkbox" [(ngModel)]="data.s" (click)="checkData(data,i,$event)">
                 {{data.headName}}
                 <br *ngIf="data.s == true">
 
@@ -43,17 +43,17 @@
                 &nbsp;
                 &nbsp;
                 <label class="checkbox-inline" *ngIf="data.s == true" >
-                  <input type="checkbox" [(ngModel)]="headData[i].reportingBoss" ngDefaultControl> Reporting Boss
+                  <input type="checkbox"  [(ngModel)]="headData[i].reportingBoss" ngDefaultControl> Reporting Boss
                 </label>
                 &nbsp;
                 &nbsp;
                 <label class="checkbox-inline" *ngIf="data.s == true">
-                  <input type="checkbox"  [(ngModel)]="headData[i].subOrdinates" ngDefaultControl>Sub-Ordinates
+                  <input type="checkbox"   [(ngModel)]="headData[i].subOrdinates" ngDefaultControl>Sub-Ordinates
                 </label>
                 &nbsp;
                 &nbsp;
                 <label class="checkbox-inline" *ngIf="data.s == true" >
-                  <input type="checkbox" [(ngModel)]="headData[i].coWorker" ngDefaultControl>Co-Worker
+                  <input type="checkbox"  [(ngModel)]="headData[i].coWorker" ngDefaultControl>Co-Worker
                 </label>
 
 
@@ -61,22 +61,22 @@
 
               </td>
 
-              <td>
-                <select class="form-control" [(ngModel)]="headData[i].action" *ngIf="data.headType == 'NM'">
-                  <option value="5">Excellent</option>
-                  <option value="4">Good</option>
-                  <option value="3">Average</option>
-                  <option value="2">Below Average</option>
-                  <option value="1">Poor</option>
-                </select>
-                <input type="text" placeholder="write something" class="form-control" [(ngModel)]="headData[i].action" *ngIf="data.headType == 'DS'">
+<!--              <td>-->
+<!--                <select class="form-control" [(ngModel)]="headData[i].action" *ngIf="data.headType == 'NM'">-->
+<!--                  <option value="5">Excellent</option>-->
+<!--                  <option value="4">Good</option>-->
+<!--                  <option value="3">Average</option>-->
+<!--                  <option value="2">Below Average</option>-->
+<!--                  <option value="1">Poor</option>-->
+<!--                </select>-->
+<!--                <input type="text" placeholder="write something" class="form-control" [(ngModel)]="headData[i].action" *ngIf="data.headType == 'DS'">-->
 
-                <select class="form-control" [(ngModel)]="headData[i].action" *ngIf="data.headType == 'TF'">
+<!--                <select class="form-control" [(ngModel)]="headData[i].action" *ngIf="data.headType == 'TF'">-->
 
-                  <option value="1">True</option>
-                  <option value="0">False</option>
-                </select>
-              </td>
+<!--                  <option value="1">True</option>-->
+<!--                  <option value="0">False</option>-->
+<!--                </select>-->
+<!--              </td>-->
 
 
             </tr>
@@ -115,12 +115,16 @@
           <th>Template Name</th>
           <th>Version No</th>
           <th>Scale Version</th>
+          <th>Action</th>
           </thead>
           <tbody>
           <tr *ngFor="let datas of existingTemplate;let i = index">
             <td>{{datas.formatName}}</td>
             <td>{{datas.formVersionNo}}</td>
             <td>{{datas.markVersionNo}}</td>
+            <td>
+              <button class="btn btn-success pull-right" (click)="editTemplate(datas.id)" type="submit">Edit</button>
+            </td>
           </tr>
           </tbody>
         </table>

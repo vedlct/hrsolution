@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Appraisal;
 use App\Appraisal;
 use App\AppraisalDetails;
 use App\AppraisalHead;
+use App\AppraisalYear;
 use App\EmpAppraisalAppraisor;
 use App\EmpAppraisalSetup;
 use App\EmployeeInfo;
@@ -22,13 +23,13 @@ class RequestedAppraisalForm extends Controller
             ->leftJoin('employeeinfo','employeeinfo.id','empappraisalsetup.appraisalfor')
             ->findOrFail($setupId);
 
-        $questions=EmpAppraisalSetup::select('appraisalformatdetail.appraisor','appraisalheads.*')
+         $questions=EmpAppraisalSetup::select('appraisalformatdetail.appraisor','appraisalheads.*')
             ->leftJoin('appraisalformatmaster','appraisalformatmaster.id','empappraisalsetup.fk_AppraisalFormatMaster')
             ->leftJoin('appraisalformatdetail','appraisalformatdetail.fk_Appraisalformatmaster','appraisalformatmaster.id')
             ->leftJoin('appraisalheads','appraisalheads.id','appraisalformatdetail.fk_Appraisalheads')
             ->where('empappraisalsetup.id',$setupId)
             ->where('appraisalheads.fk_Appraisalheads','!=',null)
-            ->where('appraisalformatdetail.appraisor','like','%'.$forminfo->fk_appraisalRole.'%')
+//            ->where('appraisalformatdetail.appraisor','like','%'.$forminfo->fk_appraisalRole.'%')
             ->get();
 
         $questionGroups=EmpAppraisalSetup::select('appraisalheads.*')
@@ -68,14 +69,26 @@ class RequestedAppraisalForm extends Controller
     }
     public function insrtAppraisalResult(Request $r) {
 
-        $appraisalId = Appraisal::select('appraisal.*')->leftJoin('appraisalyear','appraisalyear.id','appraisal.fk_appraisalYear')
+        $empSetupInfo = EmpAppraisalSetup::findOrFail($r->setupId);
+
+        $appraisalId = Appraisal::select('appraisal.*')
+            ->leftJoin('appraisalyear','appraisalyear.id','appraisal.fk_appraisalYear')
             ->where('fk_empAppraisalSetup',$r->setupId)
             ->where('appraisalyear.appraisalYear',Carbon::now()->format('Y'))
             ->first();
+        $appraisalYearfinder = AppraisalYear::where('appraisalyear.appraisalYear',Carbon::now()->format('Y'))
+            ->where('appraisalyear.appraise',$empSetupInfo['appraisalfor'])
+            ->where('appraisalyear.appraisalStatus',0)->orderBy('id','DESC')->first();
+        if (!$appraisalId) {
+
+            $appraisalId = new Appraisal();
+
+            $appraisalId->fk_empAppraisalSetup=$r->setupId;
+            $appraisalId->fk_appraisalYear=$appraisalYearfinder['id'];
+            $appraisalId->save();
+        }
 
         $empInfo = EmployeeInfo::where('fkUserId',auth()->id())->first();
-
-
 
         if (count($r->data) > 0 ) {
             for ($ii=0;$ii<count($r->data);$ii++) {
