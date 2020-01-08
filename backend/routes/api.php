@@ -279,6 +279,7 @@ Route::post('appraisal/assign-template-emp','Appraisal\EmpAppraisalSetupControll
 
 //-------Appraisal Year Config-----------
 Route::post('appraisal/assign-year-emp','Appraisal\EmpAppraisalSetupController@insertYearConfiguration');
+Route::post('appraisal/update-year-emp','Appraisal\AppraisalYearController@updateYearConfiguration');
 
 /* assign Template */
 
@@ -297,4 +298,8 @@ Route::get('appraisal/getRequestedAppraisalform/{setupId}','Appraisal\RequestedA
 Route::post('appraisal/insertAppraisalResult','Appraisal\RequestedAppraisalForm@insrtAppraisalResult');
 Route::get('appraisal/result/get/{id}/{appraisorId}/{appraislasetupId}','Appraisal\AppraisalResultController@getResult');
 Route::get('appraisal/result/get/{appraislasetupId}','Appraisal\AppraisalResultController@getResultSummery');
+
+
+Route::post('appraisal/findConfiguredYear','Appraisal\AppraisalYearController@findConfiguredAppraisalYear');
+Route::get('appraisal/find-appraisal-year-emp/{id}','Appraisal\AppraisalYearController@findSelectedAppraisalYear');
 

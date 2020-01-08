@@ -1,0 +1,20 @@
+<div class="row m-2">
+  <div class="col-md-12">
+    <div class="card">
+      <ul class="nav nav-tabs">
+        <li class="nav-item">
+          <a class="nav-link" [class.active]="infoFlag == 1" (click)="onInfoClick(1)">Existing Data</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" [class.active]="infoFlag == 2" (click)="onInfoClick(2)">Create New</a>
+        </li>
+      </ul>
+      <br>
+
+      <div class="col-md-12">
+          <app-edit-appraisal-year *ngIf="infoFlag ==1"></app-edit-appraisal-year>
+          <app-create-appraisal-configuration *ngIf="infoFlag ==2"></app-create-appraisal-configuration>
+      </div>
+    </div>
+  </div>
+</div>

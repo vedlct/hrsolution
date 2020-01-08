@@ -68,6 +68,8 @@ import { RequestedAppraisalFormComponent } from './components/appraisal/requeste
 
 import { EditAppraisalEmployeeComponent } from './components/appraisal/edit-appraisal-employee/edit-appraisal-employee.component';
 import { ShowAppraisalResultComponent } from './components/appraisal/show-appraisal-result/show-appraisal-result.component';
+import { AppraisalYearComponent } from './components/appraisal/appraisal-year/appraisal-year.component';
+import { EditAppraisalYearComponent } from './components/appraisal/edit-appraisal-year/edit-appraisal-year.component';
 
 
 
@@ -127,7 +129,9 @@ import { ShowAppraisalResultComponent } from './components/appraisal/show-apprai
     RequestedAppraisalListComponent,
     RequestedAppraisalFormComponent,
     EditAppraisalEmployeeComponent,
-    ShowAppraisalResultComponent
+    ShowAppraisalResultComponent,
+    AppraisalYearComponent,
+    EditAppraisalYearComponent
 
 
   ],
