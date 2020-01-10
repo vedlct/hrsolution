@@ -48,6 +48,8 @@ import { RequestedAppraisalListComponent } from './components/appraisal/requeste
 import { RequestedAppraisalFormComponent } from './components/appraisal/requested-appraisal-form/requested-appraisal-form.component';
 import {EditAppraisalEmployeeComponent} from "./components/appraisal/edit-appraisal-employee/edit-appraisal-employee.component";
 import {ShowAppraisalResultComponent} from "./components/appraisal/show-appraisal-result/show-appraisal-result.component";
+import {AppraisalSummeryComponent} from "./components/appraisal/appraisal-summery/appraisal-summery.component";
+import {AppraisalSummeryResultComponent} from "./components/appraisal/appraisal-summery-result/appraisal-summery-result.component";
 
 
 
@@ -212,6 +214,24 @@ const routes: Routes = [
   },
   {
     path: 'appraisal/assign/employee', component: CreateAppraisalEmployeeComponent, canActivate: [NgxPermissionsGuard],
+    data: {
+      permissions: {
+        only: ['admin'],
+        redirectTo: '/home'
+      }
+    }
+  },
+  {
+    path: 'appraisal/summery', component: AppraisalSummeryComponent, canActivate: [NgxPermissionsGuard],
+    data: {
+      permissions: {
+        only: ['admin'],
+        redirectTo: '/home'
+      }
+    }
+  },
+  {
+    path: 'appraisal/summery/:id', component: AppraisalSummeryResultComponent, canActivate: [NgxPermissionsGuard],
     data: {
       permissions: {
         only: ['admin'],

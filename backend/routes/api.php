@@ -295,4 +295,5 @@ Route::get('appraisal/getRequestedAppraisalform/{setupId}','Appraisal\RequestedA
 Route::post('appraisal/insertAppraisalResult','Appraisal\RequestedAppraisalForm@insrtAppraisalResult');
 Route::get('appraisal/result/get/{id}/{appraisorId}/{appraislasetupId}','Appraisal\AppraisalResultController@getResult');
 Route::get('appraisal/result/get/{appraislasetupId}','Appraisal\AppraisalResultController@getResultSummery');
+Route::post('appraisal/summery','Appraisal\AppraisalResultController@getSummery');
 

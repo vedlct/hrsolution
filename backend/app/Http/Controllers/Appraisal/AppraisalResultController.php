@@ -6,6 +6,8 @@ use App\EmployeeInfo;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\DB;
+use Yajra\DataTables\DataTables;
+
 class AppraisalResultController extends Controller
 {
     public function getResult($id,$appraisorId,$setupId){
@@ -43,20 +45,13 @@ class AppraisalResultController extends Controller
 
 
     public function getResultSummery($appraislasetupId){
-//        GREATEST STRENGTHS
-//        $setup=EmpAppraisalSetup::select('appraisor','result','headName','appraisalheads.id')
-//            ->where('empappraisalsetup.id',$appraislasetupId)
-//            ->leftjoin('appraisal','appraisal.fk_empAppraisalSetup','empappraisalsetup.id')
-//            ->leftjoin('appraisaldetail','appraisaldetail.fk_Appraisal','appraisal.id')
-//            ->leftjoin('appraisalheads','appraisalheads.id','appraisaldetail.fk_Appraisalheads')
-//            ->where('headType','NM')
-//            ->get();
+
 
 
         $setup=EmpAppraisalSetup::where('empappraisalsetup.id',$appraislasetupId)
             ->first();
-//        return $setup;
 
+        $emp=EmployeeInfo::leftJoin('hrmdepartments','hrmdepartments.id','employeeinfo.fkDepartmentId')->findOrFail($setup->appraisalfor);
 //        DEVELOPMENT OPPORTUNITIES
 
         $othersResultAvg=EmpAppraisalSetup::select('result','headName','appraisalheads.id',DB::raw('avg(result)  as res'))
@@ -93,9 +88,24 @@ class AppraisalResultController extends Controller
             ->get();
 
 //        return $ownResult;
+        $total=EmpAppraisalSetup::select(DB::raw('distinct(appraisor)'))
+            ->where('empappraisalsetup.id',$appraislasetupId)
+            ->leftjoin('appraisal','appraisal.fk_empAppraisalSetup','empappraisalsetup.id')
+            ->leftjoin('appraisaldetail','appraisaldetail.fk_Appraisal','appraisal.id')
+            ->get();
 
-        return view('appraisal.summery',compact('greatestStrength','othersResultAvg','ownResult'));
+        return response()->json(view('appraisal.summery',compact('greatestStrength','othersResultAvg','ownResult','emp','total'))->render());
 
 
+    }
+
+
+    public function getSummery(Request $r){
+        $emp=EmpAppraisalSetup::select('employeeinfo.firstName','middleName','lastName','empappraisalsetup.*')
+            ->leftJoin('employeeinfo','employeeinfo.id','empappraisalsetup.appraisalfor')
+            ->where('active',1);
+
+        $datatables = Datatables::of($emp);
+        return $datatables->make(true);
     }
 }
