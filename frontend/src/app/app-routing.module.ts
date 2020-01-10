@@ -214,17 +214,7 @@ const routes: Routes = [
       }
     }
   },
-  {
-    path: 'appraisal/year/configuration',
-    component: AppraisalYearComponent,
-    canActivate: [NgxPermissionsGuard],
-    data: {
-      permissions: {
-        only: ['admin'],
-        redirectTo: '/home'
-      }
-    }
-  },
+
   {
     path: 'appraisal/assign/employee', component: CreateAppraisalEmployeeComponent, canActivate: [NgxPermissionsGuard],
     data: {
