@@ -50,6 +50,8 @@ import {EditAppraisalEmployeeComponent} from "./components/appraisal/edit-apprai
 import {ShowAppraisalResultComponent} from "./components/appraisal/show-appraisal-result/show-appraisal-result.component";
 import {AppraisalSummeryComponent} from "./components/appraisal/appraisal-summery/appraisal-summery.component";
 import {AppraisalSummeryResultComponent} from "./components/appraisal/appraisal-summery-result/appraisal-summery-result.component";
+import {AppraisalYearComponent} from "./components/appraisal/appraisal-year/appraisal-year.component";
+
 
 
 
@@ -204,6 +206,17 @@ const routes: Routes = [
   {
     path: 'appraisal/configuration',
     component: CreateAppraisalConfigurationComponent,
+    canActivate: [NgxPermissionsGuard],
+    data: {
+      permissions: {
+        only: ['admin'],
+        redirectTo: '/home'
+      }
+    }
+  },
+  {
+    path: 'appraisal/year/configuration',
+    component: AppraisalYearComponent,
     canActivate: [NgxPermissionsGuard],
     data: {
       permissions: {

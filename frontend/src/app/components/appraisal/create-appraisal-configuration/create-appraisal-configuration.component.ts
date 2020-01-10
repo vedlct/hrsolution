@@ -46,8 +46,8 @@ export class CreateAppraisalConfigurationComponent implements AfterViewInit, OnD
         {data: 'middleName', name: 'employeeinfo.middleName'},
         {data: 'lastName', name: 'employeeinfo.lastName'},
         {data: 'EmployeeId', name: 'employeeinfo.EmployeeId'},
-        {data: 'title', name: 'hrmdesignations.title'},
-        {data: 'departmentName', name: 'hrmdepartments.departmentName'}
+        {data: 'departmentName', name: 'hrmdesignations.departmentName'},
+
       ],
       processing: true,
       serverSide: true,
@@ -60,15 +60,15 @@ export class CreateAppraisalConfigurationComponent implements AfterViewInit, OnD
     this.dtTrigger.next();
     this.renderer.listenGlobal('document', 'click', (event) => {
 
-      if (event.target.hasAttribute("data-emp-id")) {
-        this.router.navigate(["employee/edit/" + event.target.getAttribute("data-emp-id")]);
-      } else if (event.target.hasAttribute("data-emp-id2")) {
-
-        this.router.navigate([])
-          .then(result => {
-            window.open("user/user-cv-view/" + event.target.getAttribute("data-emp-id2", '_blank'))
-          });
-      }
+      // if (event.target.hasAttribute("data-emp-id")) {
+      //   this.router.navigate(["employee/edit/" + event.target.getAttribute("data-emp-id")]);
+      // } else if (event.target.hasAttribute("data-emp-id2")) {
+      //
+      //   this.router.navigate([])
+      //     .then(result => {
+      //       window.open("user/user-cv-view/" + event.target.getAttribute("data-emp-id2", '_blank'))
+      //     });
+      // }
 
     });
   }

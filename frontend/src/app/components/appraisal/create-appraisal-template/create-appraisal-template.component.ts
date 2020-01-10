@@ -3,6 +3,7 @@ import {HttpClient} from "@angular/common/http";
 import {TokenService} from "../../../services/token.service";
 import {NgbModal} from "@ng-bootstrap/ng-bootstrap";
 import {Constants} from "../../../constants";
+import {count} from "rxjs/operators";
 declare var $;
 @Component({
   selector: 'app-create-appraisal-template',
@@ -29,13 +30,9 @@ export class CreateAppraisalTemplateComponent implements OnInit {
     //
     const token=this.token.get();
     this.http.get(Constants.API_URL+'appraisal/show-appraisal-heads-appraiser'+'?token='+token).subscribe(data => {
-          // console.log(data);
+           console.log(data);
           this.headData=data;
-          // this.existingScales=data;
-          // if(this.checkTable==0){
-          //   this.dtTeigger.next();
-          //   this.checkTable++;
-          // }
+
 
         },
         error => {
@@ -71,6 +68,7 @@ export class CreateAppraisalTemplateComponent implements OnInit {
       let tempArray=[];
         for (let index = 0; index < this.headData.length; ++index) {
             if(this.headData[index].s ==true){
+
                 let appraisorArray=[];
                 // tempArray.push(this.headData[index])
                 if(this.headData[index].userSelf){
@@ -87,11 +85,13 @@ export class CreateAppraisalTemplateComponent implements OnInit {
                 }
                 let tempObj=this.headData[index];
                 tempObj['appraisors']=appraisorArray;
+
                 tempArray.push(tempObj)
             }
 
         }
         this.formateModel['formateDetails']=tempArray;
+
 
         console.log(this.formateModel);
 
@@ -112,7 +112,8 @@ export class CreateAppraisalTemplateComponent implements OnInit {
                         }
                     }
                 });
-                this.existingTemplates();
+                this.getData();
+                this.formateModel={};
 
 
             },
@@ -182,4 +183,25 @@ export class CreateAppraisalTemplateComponent implements OnInit {
 
 
     }
+  editTemplate(id) {
+
+    const token=this.token.get();
+    this.http.get(Constants.API_URL+'appraisal/get_appraisal_template_for_edit/'+id+'?token='+token).subscribe(data => {
+        this.headData=data['headInfo'];
+        this.formateModel.appraisal_Format_id = data['formateInfo']['id'];
+        this.formateModel.formatName = data['formateInfo']['formatName'];
+        this.formateModel.formVersionNo = data['formateInfo']['formVersionNo'];
+        this.formateModel.markVersionNo = data['formateInfo']['markVersionNo'];
+
+        //console.log(data);
+        console.log(data);
+
+      },
+      error => {
+        console.log(error.error['error']);
+
+      }
+    );
+
+  }
 }

@@ -83,19 +83,6 @@ class EmpAppraisalSetupController extends Controller
 
     public function assignTemplateToEmp(Request $r){
 
-//        return $r;
-//        return false;
-
-
-
-//        return  Carbon::parse($r->configurationModel['appraisalStart'])->format('Y-m-d');
-//        return $r->configurationModel['appraisalYear'];
-
-//        if ($request->emp_appraisal_setup_id){
-//            $empAppraisalSetup= EmpAppraisalSetup::findOrFail($request->emp_appraisal_setup_id);
-//        }else{
-//            $empAppraisalSetup= new EmpAppraisalSetup();
-//        }
 
         foreach ($r->empList as $emp){
             foreach ($r->template as $template){
@@ -108,25 +95,25 @@ class EmpAppraisalSetupController extends Controller
                 $empAppraisalSetup->save();
 
 
-                $config=new AppraisalYear();
-                $config->appraisalYear=$r->configurationModel['appraisalYear'];
-                $config->appraisalStart= Carbon::parse($r->configurationModel['appraisalStart'])->format('Y-m-d');
-                $config->appraisalEnd= Carbon::parse($r->configurationModel['appraisalEnd'])->format('Y-m-d');
-                $config->appraisalStatus= $r->configurationModel['appraisalStatus'];
+//                $config=new AppraisalYear();
+//                $config->appraisalYear=$r->configurationModel['appraisalYear'];
+//                $config->appraisalStart= Carbon::parse($r->configurationModel['appraisalStart'])->format('Y-m-d');
+//                $config->appraisalEnd= Carbon::parse($r->configurationModel['appraisalEnd'])->format('Y-m-d');
+//                $config->appraisalStatus= $r->configurationModel['appraisalStatus'];
+//
+//                if (array_key_exists('remarks', $r->configurationModel)) {
+//                    // Should evaluate to FALSE
+//                    $config->remarks=$r->configurationModel['remarks'];
+//                };
+//
+//                $config->appraise=$emp['empid'];
+//                $config->save();
 
-                if (array_key_exists('remarks', $r->configurationModel)) {
-                    // Should evaluate to FALSE
-                    $config->remarks=$r->configurationModel['remarks'];
-                };
 
-                $config->appraise=$emp['empid'];
-                $config->save();
-
-
-                $appraisal=new Appraisal();
-                $appraisal->fk_empAppraisalSetup=$empAppraisalSetup->id;
-                $appraisal->fk_appraisalYear=$config->id;
-                $appraisal->save();
+//                $appraisal=new Appraisal();
+//                $appraisal->fk_empAppraisalSetup=$empAppraisalSetup->id;
+//                $appraisal->fk_appraisalYear=$config->id;
+//                $appraisal->save();
 
 
                 foreach ($r->appraisorEmp as $key => $value){
@@ -144,6 +131,43 @@ class EmpAppraisalSetupController extends Controller
 
         return $r;
 
+    }
+    public function updateTemplateToEmp(Request $r) {
+
+        foreach ($r->empList as $emp){
+            foreach ($r->template as $template){
+
+                $setup = EmpAppraisalSetup::findOrFail($r->empSetupId);
+
+                $setup->fk_AppraisalFormatMaster=$template['id'];
+                $setup->appraisalfor=$emp['empid'];
+//                $setup->createdBy=auth()->user()->id;
+//                $setup->active=1;
+                $setup->save();
+
+                foreach ($r->appraisorEmp as $appraisingEmp){
+                    if ($appraisingEmp['id']=='') {
+
+//                        return $r->appraisorRole[$key];
+                        $appraisor=new EmpAppraisalAppraisor();
+                        $appraisor->fk_empAppraisalSetup=$setup->id;
+                        $appraisor->appraisor=$appraisingEmp['appraisor'];
+                        $appraisor->fk_appraisalRole=$appraisingEmp['fk_appraisalRole'];
+                        $appraisor->save();
+
+                    } else {
+
+                        $appraisor=EmpAppraisalAppraisor::findOrFail($appraisingEmp['id']);
+                        $appraisor->fk_empAppraisalSetup=$setup->id;
+                        $appraisor->appraisor=$appraisingEmp['appraisor'];
+                        $appraisor->fk_appraisalRole=$appraisingEmp['fk_appraisalRole'];
+                        $appraisor->save();
+
+                    }
+                }
+            }
+        }
+        return $r;
     }
 
 

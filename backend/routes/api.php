@@ -265,6 +265,7 @@ Route::get('appraisal/show-appraisal-heads-appraiser','Appraisal\AppraisalFormat
 
 Route::post('appraisal/store-appraisal-format','Appraisal\AppraisalFormatController@storeAppraisalFromate')->name('appraisal.Format.insert');
 //Route::get('appraisal/delete-appraisal-scale/{id}','Appraisal\AppraisalFormatController@deleteAppraisalScale')->name('appraisal.Format.delete');
+Route::get('appraisal/get_appraisal_template_for_edit/{id}','Appraisal\AppraisalFormatController@editAppraisalFormate');
 
 //Emp Appraisal Setup
 
@@ -278,10 +279,12 @@ Route::post('appraisal/assign-template-emp','Appraisal\EmpAppraisalSetupControll
 
 //-------Appraisal Year Config-----------
 Route::post('appraisal/assign-year-emp','Appraisal\EmpAppraisalSetupController@insertYearConfiguration');
+Route::post('appraisal/update-year-emp','Appraisal\AppraisalYearController@updateYearConfiguration');
 
 /* assign Template */
 
 Route::post('appraisal/setEmployeeTemplate','Appraisal\EmpAppraisalSetupController@assignTemplateToEmp')->name('appraisal.EmpSetup.insert');
+Route::post('appraisal/editEmployeeTemplate','Appraisal\EmpAppraisalSetupController@updateTemplateToEmp')->name('appraisal.EmpSetup.edit');
 Route::post('appraisal/EmployeeTemplate/get','Appraisal\EmpAppraisalSetupController@getEmpAppraisalSetup');
 Route::get('appraisal/EmployeeTemplate/edit/{id}','Appraisal\EmpAppraisalSetupController@editAppraisalSetup');
 
@@ -296,4 +299,8 @@ Route::post('appraisal/insertAppraisalResult','Appraisal\RequestedAppraisalForm@
 Route::get('appraisal/result/get/{id}/{appraisorId}/{appraislasetupId}','Appraisal\AppraisalResultController@getResult');
 Route::get('appraisal/result/get/{appraislasetupId}','Appraisal\AppraisalResultController@getResultSummery');
 Route::post('appraisal/summery','Appraisal\AppraisalResultController@getSummery');
+
+
+Route::post('appraisal/findConfiguredYear','Appraisal\AppraisalYearController@findConfiguredAppraisalYear');
+Route::get('appraisal/find-appraisal-year-emp/{id}','Appraisal\AppraisalYearController@findSelectedAppraisalYear');
 

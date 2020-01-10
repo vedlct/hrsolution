@@ -43,6 +43,8 @@ export class RequestedAppraisalFormComponent implements OnInit {
         this.formInfo=data['formInfo'];
         this.groupQues=data['groupQues'];
 
+
+      console.log(data);
       },
       error => {
         console.log(error);

@@ -61,19 +61,22 @@
 <br>
 <div class="container-fluid">
   <div class="card">
-    <div class="card-header">Appraise Employee <span style="color: red">*</span></div>
+    <div class="card-header">Edit Appraisal Year<span style="color: red">*</span></div>
 
     <div class="card-body">
 
       <table datatable class="table" [dtOptions]="dtOptions" [dtTrigger]="dtTrigger">
         <thead>
         <tr>
-          <th style="text-align: center"><input type="checkbox" class="SelectAll" id="selectall2"  (click)="selectAll()"/></th>
+
           <th>First Name</th>
           <th>Middle Name</th>
           <th>Last Name</th>
           <th>Employee ID</th>
-          <th>Department</th>
+          <th>Year</th>
+          <th>Deadline</th>
+          <th>status</th>
+          <th>Action</th>
 
         </tr>
         </thead>

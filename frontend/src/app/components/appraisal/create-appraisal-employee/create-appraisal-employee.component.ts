@@ -272,16 +272,19 @@ export class CreateAppraisalEmployeeComponent implements  AfterViewInit, OnDestr
 
 
 
-    if (this.configurationModel['appraisalYear'] &&
-      this.configurationModel['appraisalStart'] &&
-      this.configurationModel['appraisalEnd'] &&
-      this.configurationModel['appraisalStatus']) {
+    // if (this.configurationModel['appraisalYear'] &&
+    //   this.configurationModel['appraisalStart'] &&
+    //   this.configurationModel['appraisalEnd'] &&
+    //   this.configurationModel['appraisalStatus'])
+    // {
+
+
       let form = {
         'empList': this.selectedItems,
         'template': this.selectedTemplate,
         'appraisorEmp': this.appEmp,
         'appraisorRole': this.appEmpRole,
-        'configurationModel': this.configurationModel,
+        // 'configurationModel': this.configurationModel,
       }
 
 
@@ -301,22 +304,23 @@ export class CreateAppraisalEmployeeComponent implements  AfterViewInit, OnDestr
         }
       );
 
-    } else {
-      $.alert({
-        title: 'Alert!',
-        type: 'Red',
-        content: "Please Insert All The Field",
-        buttons: {
-          tryAgain: {
-            text: 'Ok',
-            btnClass: 'btn-red',
-            action: function () {
-            }
-          }
-        }
-      });
-      return false;
-    }
+    // }
+    // else {
+    //   $.alert({
+    //     title: 'Alert!',
+    //     type: 'Red',
+    //     content: "Please Insert All The Field",
+    //     buttons: {
+    //       tryAgain: {
+    //         text: 'Ok',
+    //         btnClass: 'btn-red',
+    //         action: function () {
+    //         }
+    //       }
+    //     }
+    //   });
+    //   return false;
+    // }
 
 
   }

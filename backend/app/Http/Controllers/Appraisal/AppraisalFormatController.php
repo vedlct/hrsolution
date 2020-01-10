@@ -57,7 +57,7 @@ class AppraisalFormatController extends Controller
 
             if ($request->appraisal_Format_id){
 
-                $appraisalFormatDetail= AppraisalFormatDetail::findOrFail($request->appraisal_Format_details_id);
+                $appraisalFormatDetail= AppraisalFormatDetail::findOrFail($formatD['id']);
 
             }else{
                 $appraisalFormatDetail=new AppraisalFormatDetail();
@@ -74,7 +74,7 @@ class AppraisalFormatController extends Controller
 
         }
 
-        if ($request->appraisal_Format_id){
+        if (!$request->appraisal_Format_id){
 
             return response()->json(['message' => 'Appraisal Format Inserted Successfully']);
 
@@ -88,7 +88,6 @@ class AppraisalFormatController extends Controller
 
         $appraisalGroups=AppraisalHead::select('appraisalheads.headName','appraisalheads.id as fk_Appraisalheads','headType')
             ->where('appraisalheads.fk_Appraisalheads','!=',null)
-
             ->get();
 
         $appraisalGroups->map(function ($post) {
@@ -101,6 +100,62 @@ class AppraisalFormatController extends Controller
         });
 
         return $appraisalGroups;
+
+    }
+    public function editAppraisalFormate($formateId) {
+
+        $appraisalTemplate = AppraisalFormatMaster::findOrFail($formateId);
+
+        $appraisalFormatDetail= AppraisalFormatDetail::where('fk_Appraisalformatmaster',$formateId)->get();
+
+         $appraisalGroups=AppraisalHead::select('appraisalheads.headName','appraisalheads.id as fk_Appraisalheads','headType')
+            ->where('appraisalheads.fk_Appraisalheads','!=',null)
+            ->get();
+
+
+        $appraisalGroups->map(function ($post) {
+            $post['id'] = '';
+            $post['s'] = false;
+            $post['userSelf'] = false;
+            $post['reportingBoss'] = false;
+            $post['subOrdinates'] = false;
+            $post['coWorker'] = false;
+            return $post;
+        });
+
+        foreach ($appraisalFormatDetail as $aD) {
+            $appraisalGroups->map(function ($post) use ($aD) {
+
+                if ($aD['fk_Appraisalheads'] == $post['fk_Appraisalheads']) {
+
+                    $post['id'] = $aD['id'];
+                    $post['s'] = true;
+
+                    $aa= explode(',',$aD->appraisor);
+                    if (in_array('1',$aa)) {
+                        $post['userSelf'] = true;
+                    }if (in_array('2',$aa)) {
+                        $post['reportingBoss'] = true;
+                    }if (in_array('3',$aa)) {
+                        $post['subOrdinates'] = true;
+                    }if (in_array('4',$aa)) {
+                        $post['coWorker'] = true;
+                    }
+                    return $post;
+
+                }
+
+            });
+        }
+       $returnArray= array(
+          'formateInfo'=> $appraisalTemplate,
+          'headInfo' => $appraisalGroups
+        );
+
+        return $returnArray;
+
+
+
 
     }
 
