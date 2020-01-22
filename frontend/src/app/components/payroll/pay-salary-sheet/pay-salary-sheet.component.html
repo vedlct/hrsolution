@@ -2,7 +2,7 @@
     <div class="card">
         <div class="card-header">
             <h5 align="center"><b>Edit Employee Salary Sheet</b></h5>
-
+          <div class="table-responsive">
             <table datatable class="table" [dtOptions]="dtOptions" [dtTrigger]="dtTrigger">
                 <thead>
                 <tr>
@@ -21,6 +21,7 @@
                 </tbody>
 
             </table>
+          </div>
 
         </div>
 
@@ -50,6 +51,7 @@
             <ng-template [ngIf]="showSalary">
                 <hr>
                 <div class="row" style="padding: 20px;">
+                  <div class="table-responsive">
                     <table class="table table-bordered table-striped">
                         <thead>
                         <th style="text-align: center">Head</th>
@@ -70,6 +72,7 @@
                         </tbody>
 
                     </table>
+                  </div>
                     <div class="col-md-12">
                         <hr>
                     </div>

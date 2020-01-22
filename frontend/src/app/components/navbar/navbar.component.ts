@@ -12,7 +12,7 @@ import { NavbarService } from '../../services/navbar.service';
   styleUrls: ['./navbar.component.css']
 })
 export class NavbarComponent implements OnInit {
-
+  isShowSidebar: boolean = false;
   data:any;
   userModel={} as User;
     user:any={
@@ -35,7 +35,9 @@ export class NavbarComponent implements OnInit {
   {
 
   }
-
+  sidebarToggle(){
+    this.isShowSidebar = !this.isShowSidebar;
+  }
   ngOnInit() {
 
       // this.token.getUser().subscribe(data => {
@@ -52,8 +54,6 @@ export class NavbarComponent implements OnInit {
       //
       //
       //     });
-
-
 
 
   }

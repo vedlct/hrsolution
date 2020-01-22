@@ -6,10 +6,12 @@ $vendorDir = dirname(dirname(__FILE__));
 $baseDir = dirname($vendorDir);
 
 return array(
+    'App\\Appraisal' => $baseDir . '/app/Appraisal.php',
     'App\\AppraisalFormatDetail' => $baseDir . '/app/AppraisalFormatDetail.php',
     'App\\AppraisalFormatMaster' => $baseDir . '/app/AppraisalFormatMaster.php',
     'App\\AppraisalHead' => $baseDir . '/app/AppraisalHead.php',
     'App\\AppraisalScale' => $baseDir . '/app/AppraisalScale.php',
+    'App\\AppraisalYear' => $baseDir . '/app/AppraisalYear.php',
     'App\\AttEmployeeMap' => $baseDir . '/app/AttEmployeeMap.php',
     'App\\AttendanceData' => $baseDir . '/app/AttendanceData.php',
     'App\\Comment' => $baseDir . '/app/Comment.php',
@@ -33,6 +35,8 @@ return array(
     'App\\Http\\Controllers\\Appraisal\\AppraisalHeadController' => $baseDir . '/app/Http/Controllers/Appraisal/AppraisalHeadController.php',
     'App\\Http\\Controllers\\Appraisal\\AppraisalScaleController' => $baseDir . '/app/Http/Controllers/Appraisal/AppraisalScaleController.php',
     'App\\Http\\Controllers\\Appraisal\\EmpAppraisalSetupController' => $baseDir . '/app/Http/Controllers/Appraisal/EmpAppraisalSetupController.php',
+    'App\\Http\\Controllers\\Appraisal\\RequestedAppraisalForm' => $baseDir . '/app/Http/Controllers/Appraisal/RequestedAppraisalForm.php',
+    'App\\Http\\Controllers\\Appraisal\\RequestedAppraisalList' => $baseDir . '/app/Http/Controllers/Appraisal/RequestedAppraisalList.php',
     'App\\Http\\Controllers\\AttendanceController' => $baseDir . '/app/Http/Controllers/AttendanceController.php',
     'App\\Http\\Controllers\\AuthController' => $baseDir . '/app/Http/Controllers/AuthController.php',
     'App\\Http\\Controllers\\Auth\\ForgotPasswordController' => $baseDir . '/app/Http/Controllers/Auth/ForgotPasswordController.php',
@@ -4032,6 +4036,7 @@ return array(
     'phpDocumentor\\Reflection\\DocBlock\\Tags\\See' => $vendorDir . '/phpdocumentor/reflection-docblock/src/DocBlock/Tags/See.php',
     'phpDocumentor\\Reflection\\DocBlock\\Tags\\Since' => $vendorDir . '/phpdocumentor/reflection-docblock/src/DocBlock/Tags/Since.php',
     'phpDocumentor\\Reflection\\DocBlock\\Tags\\Source' => $vendorDir . '/phpdocumentor/reflection-docblock/src/DocBlock/Tags/Source.php',
+    'phpDocumentor\\Reflection\\DocBlock\\Tags\\TagWithType' => $vendorDir . '/phpdocumentor/reflection-docblock/src/DocBlock/Tags/TagWithType.php',
     'phpDocumentor\\Reflection\\DocBlock\\Tags\\Throws' => $vendorDir . '/phpdocumentor/reflection-docblock/src/DocBlock/Tags/Throws.php',
     'phpDocumentor\\Reflection\\DocBlock\\Tags\\Uses' => $vendorDir . '/phpdocumentor/reflection-docblock/src/DocBlock/Tags/Uses.php',
     'phpDocumentor\\Reflection\\DocBlock\\Tags\\Var_' => $vendorDir . '/phpdocumentor/reflection-docblock/src/DocBlock/Tags/Var_.php',

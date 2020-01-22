@@ -26,7 +26,7 @@
             <div class="dropdown-menu dropdown-menu-right dropdown-arrow dropdown-menu-lg">
               <!-- item-->
               <div class="dropdown-item noti-title">
-                <h5><span class="badge badge-danger float-right">745</span>Messages</h5>
+                <h5><span class="badge badge-danger float-right">700</span>Messages</h5>
               </div>
 
               <!-- item-->
@@ -109,7 +109,7 @@
           </li>
           <li class="menu-item list-inline-item">
             <!-- Mobile menu toggle-->
-            <a class="navbar-toggle nav-link">
+            <a class="navbar-toggle nav-link " [class.open]="isShowSidebar" (click)="sidebarToggle()">
               <div class="lines">
                 <span></span>
                 <span></span>
@@ -130,9 +130,9 @@
   <!-- end topbar-main -->
 
   <!-- MENU Start -->
-  <div class="navbar-custom">
+  <div class="navbar-custom ">
     <div class="container-fluid">
-      <div id="navigation">
+      <div id="navigation" [class.active]="isShowSidebar">
         <!-- Navigation Menu-->
         <ul class="navigation-menu">
 
@@ -278,4 +278,6 @@
 
 </header>
 <!-- End Navigation Bar-->
+
+
 

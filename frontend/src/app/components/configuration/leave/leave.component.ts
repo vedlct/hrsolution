@@ -141,6 +141,7 @@ export class LeaveComponent implements OnInit {
                     "orderable": false, "searchable":false, "name":"selected_rows"
                 },
                 { data: 'firstName' ,name:'employeeinfo.firstName'},
+              { data: 'lastName' ,name:'employeeinfo.lastName'},
                 { data: 'EmployeeId' , name: 'employeeinfo.EmployeeId' },
                 { data: 'shiftName', name: 'shift.shiftName'},
                 { data: 'weekend', name: 'shiftlog.weekend'},

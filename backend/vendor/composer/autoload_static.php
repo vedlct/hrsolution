@@ -16,6 +16,7 @@ class ComposerStaticInitbaac51f2c1b843061a9c36bbc4d39b45
         'def43f6c87e4f8dfd0c9e1b1bab14fe8' => __DIR__ . '/..' . '/symfony/polyfill-iconv/bootstrap.php',
         '2c102faa651ef8ea5874edb585946bce' => __DIR__ . '/..' . '/swiftmailer/swiftmailer/lib/swift_required.php',
         'bd9634f2d41831496de0d3dfe4c94881' => __DIR__ . '/..' . '/symfony/polyfill-php56/bootstrap.php',
+        'e39a8b23c42d4e1452234d762b03835a' => __DIR__ . '/..' . '/ramsey/uuid/src/functions.php',
         'f0906e6318348a765ffb6eb24e0d0938' => __DIR__ . '/..' . '/laravel/framework/src/Illuminate/Foundation/helpers.php',
         '58571171fd5812e6e447dce228f52f4d' => __DIR__ . '/..' . '/laravel/framework/src/Illuminate/Support/helpers.php',
         '6124b4c8570aa390c21fafd04a26c69f' => __DIR__ . '/..' . '/myclabs/deep-copy/src/DeepCopy/deep_copy.php',
@@ -432,10 +433,12 @@ class ComposerStaticInitbaac51f2c1b843061a9c36bbc4d39b45
     );
 
     public static $classMap = array (
+        'App\\Appraisal' => __DIR__ . '/../..' . '/app/Appraisal.php',
         'App\\AppraisalFormatDetail' => __DIR__ . '/../..' . '/app/AppraisalFormatDetail.php',
         'App\\AppraisalFormatMaster' => __DIR__ . '/../..' . '/app/AppraisalFormatMaster.php',
         'App\\AppraisalHead' => __DIR__ . '/../..' . '/app/AppraisalHead.php',
         'App\\AppraisalScale' => __DIR__ . '/../..' . '/app/AppraisalScale.php',
+        'App\\AppraisalYear' => __DIR__ . '/../..' . '/app/AppraisalYear.php',
         'App\\AttEmployeeMap' => __DIR__ . '/../..' . '/app/AttEmployeeMap.php',
         'App\\AttendanceData' => __DIR__ . '/../..' . '/app/AttendanceData.php',
         'App\\Comment' => __DIR__ . '/../..' . '/app/Comment.php',
@@ -459,6 +462,8 @@ class ComposerStaticInitbaac51f2c1b843061a9c36bbc4d39b45
         'App\\Http\\Controllers\\Appraisal\\AppraisalHeadController' => __DIR__ . '/../..' . '/app/Http/Controllers/Appraisal/AppraisalHeadController.php',
         'App\\Http\\Controllers\\Appraisal\\AppraisalScaleController' => __DIR__ . '/../..' . '/app/Http/Controllers/Appraisal/AppraisalScaleController.php',
         'App\\Http\\Controllers\\Appraisal\\EmpAppraisalSetupController' => __DIR__ . '/../..' . '/app/Http/Controllers/Appraisal/EmpAppraisalSetupController.php',
+        'App\\Http\\Controllers\\Appraisal\\RequestedAppraisalForm' => __DIR__ . '/../..' . '/app/Http/Controllers/Appraisal/RequestedAppraisalForm.php',
+        'App\\Http\\Controllers\\Appraisal\\RequestedAppraisalList' => __DIR__ . '/../..' . '/app/Http/Controllers/Appraisal/RequestedAppraisalList.php',
         'App\\Http\\Controllers\\AttendanceController' => __DIR__ . '/../..' . '/app/Http/Controllers/AttendanceController.php',
         'App\\Http\\Controllers\\AuthController' => __DIR__ . '/../..' . '/app/Http/Controllers/AuthController.php',
         'App\\Http\\Controllers\\Auth\\ForgotPasswordController' => __DIR__ . '/../..' . '/app/Http/Controllers/Auth/ForgotPasswordController.php',
@@ -4458,6 +4463,7 @@ class ComposerStaticInitbaac51f2c1b843061a9c36bbc4d39b45
         'phpDocumentor\\Reflection\\DocBlock\\Tags\\See' => __DIR__ . '/..' . '/phpdocumentor/reflection-docblock/src/DocBlock/Tags/See.php',
         'phpDocumentor\\Reflection\\DocBlock\\Tags\\Since' => __DIR__ . '/..' . '/phpdocumentor/reflection-docblock/src/DocBlock/Tags/Since.php',
         'phpDocumentor\\Reflection\\DocBlock\\Tags\\Source' => __DIR__ . '/..' . '/phpdocumentor/reflection-docblock/src/DocBlock/Tags/Source.php',
+        'phpDocumentor\\Reflection\\DocBlock\\Tags\\TagWithType' => __DIR__ . '/..' . '/phpdocumentor/reflection-docblock/src/DocBlock/Tags/TagWithType.php',
         'phpDocumentor\\Reflection\\DocBlock\\Tags\\Throws' => __DIR__ . '/..' . '/phpdocumentor/reflection-docblock/src/DocBlock/Tags/Throws.php',
         'phpDocumentor\\Reflection\\DocBlock\\Tags\\Uses' => __DIR__ . '/..' . '/phpdocumentor/reflection-docblock/src/DocBlock/Tags/Uses.php',
         'phpDocumentor\\Reflection\\DocBlock\\Tags\\Var_' => __DIR__ . '/..' . '/phpdocumentor/reflection-docblock/src/DocBlock/Tags/Var_.php',

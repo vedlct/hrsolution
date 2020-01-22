@@ -33,6 +33,7 @@
 
     <div class="card-body">
       <a style=" float: right" class="btn btn-outline-primary mb-2 mr-2" (click)="openLg(content)" >Add New</a>  <br><br>
+      <div class="table-responsive">
       <table datatable  id="example" class="table" [dtOptions]="dtOptions" [dtTrigger]="dtTeigger">
         <thead>
         <tr>
@@ -54,6 +55,7 @@
         </tbody>
 
       </table>
+      </div>
 
 
     </div>
