@@ -1,11 +1,11 @@
-import { Component ,OnInit, Renderer2 } from '@angular/core';
-import {TokenService} from "./services/token.service";
-import {Constants} from "./constants";
-import {HttpClient} from "@angular/common/http";
+import { Component , OnInit, Renderer2 } from '@angular/core';
+import {TokenService} from './services/token.service';
+import {Constants} from './constants';
+import {HttpClient} from '@angular/common/http';
 import { NgxPermissionsService, NgxPermissionsConfigurationService } from 'ngx-permissions';
-import {User} from "./model/user.model";
+import {User} from './model/user.model';
 import {HashLocationStrategy, Location, LocationStrategy} from '@angular/common';
-import {Router} from "@angular/router";
+import {Router} from '@angular/router';
 import { NavbarService } from '../app/services/navbar.service';
 
 
@@ -17,15 +17,15 @@ import { NavbarService } from '../app/services/navbar.service';
 export class AppComponent {
     title = 'app';
     master = 'Master';
-    userModel={} as User;
+    userModel = {} as User;
     permission: string[] = ['guest'];
-    loadPage=false;
+    loadPage = false;
 
 
 
     constructor(private permissionsService: NgxPermissionsService,
                 private ngxPermissionsConfigurationService: NgxPermissionsConfigurationService,
-                private token:TokenService, public http: HttpClient,private renderer2: Renderer2,
+                private token: TokenService, public http: HttpClient, private renderer2: Renderer2,
                 private router: Router,
                 public nav: NavbarService
     ) {
@@ -37,18 +37,18 @@ export class AppComponent {
 
         this.token.isValid();
         setTimeout(() => {
-            console.log("setted");
-            this.loadPage=true;
+            console.log('setted');
+            this.loadPage = true;
 
 
         }, 2000);
 
         // const token=this.token.get();
-        this.http.post(Constants.API_URL+'me?token='+token.get(),null).subscribe(data => {
+        this.http.post(Constants.API_URL + 'me?token=' + token.get(), null).subscribe(data => {
                 // console.log(data);
-                localStorage.setItem('user',JSON.stringify(data));
+                localStorage.setItem('user', JSON.stringify(data));
 
-                let perm = [];
+                const perm = [];
                 perm.push(token.getUserLocal().fkUserType);
                 permissionsService.loadPermissions(perm);
 
@@ -67,7 +67,7 @@ export class AppComponent {
 
     }
 
-    isLogIn(){
+    isLogIn() {
 
         // if(this.router.url === '/user/user-cv-view/8'){
         //    return false;
@@ -82,7 +82,7 @@ export class AppComponent {
     }
 
     public authorized() {
-        console.log('authorizes')
+        console.log('authorizes');
     }
 
     public addPermission() {

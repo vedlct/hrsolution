@@ -1,10 +1,10 @@
 import {AfterViewInit, Component, OnDestroy, OnInit, Renderer, ViewChild} from '@angular/core';
-import {HttpClient} from "@angular/common/http";
-import {TokenService} from "../../../services/token.service";
-import {ActivatedRoute, Router} from "@angular/router";
-import {Subject} from "rxjs";
-import {Constants} from "../../../constants";
-import {DataTableDirective} from "angular-datatables";
+import {HttpClient} from '@angular/common/http';
+import {TokenService} from '../../../services/token.service';
+import {ActivatedRoute, Router} from '@angular/router';
+import {Subject} from 'rxjs';
+import {Constants} from '../../../constants';
+import {DataTableDirective} from 'angular-datatables';
 declare var $: any;
 
 @Component({
@@ -43,30 +43,30 @@ export class EditAppraisalYearComponent implements AfterViewInit, OnDestroy, OnI
         {data: 'EmployeeId', name: 'employeeinfo.EmployeeId'},
         {data: 'appraisalYear', name: 'appraisalyear.appraisalYear'},
         {
-          "data": function (data: any, type: any, full: any) {
-           return data.appraisalStart+'<br>'+data.appraisalEnd;
+          'data': function (data: any, type: any, full: any) {
+           return data.appraisalStart + '<br>' + data.appraisalEnd;
           },
-          "orderable": false, "searchable": false, "name": "selected_rows"
+          'orderable': false, 'searchable': false, 'name': 'selected_rows'
         },
         {
-          "data": function (data: any, type: any, full: any) {
-           if (data.appraisalStatus==0) {
+          'data': function (data: any, type: any, full: any) {
+           if (data.appraisalStatus == 0) {
              return 'Pending';
-           }if (data.appraisalStatus==1) {
+           }if (data.appraisalStatus == 1) {
              return 'Done';
-           }if (data.appraisalStatus==2) {
+           }if (data.appraisalStatus == 2) {
              return 'Canceled';
            }
           },
-          "orderable": false, "searchable": false, "name": "selected_rows"
+          'orderable': false, 'searchable': false, 'name': 'selected_rows'
         },
 
         {
 
-          "data": function (data: any, type: any, full: any) {
-            return ' <button class="btn btn-info" data-appraisal-year-id="'+data.id+'"> Edit</button>';
+          'data': function (data: any, type: any, full: any) {
+            return ' <button class="btn btn-info" data-appraisal-year-id="' + data.id + '"> Edit</button>';
           },
-          "orderable": false, "searchable":false, "name":"selected_rows"
+          'orderable': false, 'searchable': false, 'name': 'selected_rows'
         }
 
       ],
@@ -81,8 +81,8 @@ export class EditAppraisalYearComponent implements AfterViewInit, OnDestroy, OnI
     this.dtTrigger.next();
     this.renderer.listenGlobal('document', 'click', (event) => {
 
-      if (event.target.hasAttribute("data-appraisal-year-id")) {
-       this.getselectedAppraisalYearInfo(event.target.getAttribute("data-appraisal-year-id"));
+      if (event.target.hasAttribute('data-appraisal-year-id')) {
+       this.getselectedAppraisalYearInfo(event.target.getAttribute('data-appraisal-year-id'));
       }
 
     });
@@ -103,7 +103,7 @@ export class EditAppraisalYearComponent implements AfterViewInit, OnDestroy, OnI
   getselectedAppraisalYearInfo(AppraisalYearId) {
 
     const token = this.token.get();
-    this.http.get(Constants.API_URL + 'appraisal/find-appraisal-year-emp/'+AppraisalYearId+ '?token=' + token,).subscribe(data => {
+    this.http.get(Constants.API_URL + 'appraisal/find-appraisal-year-emp/' + AppraisalYearId + '?token=' + token, ).subscribe(data => {
 
         this.configurationModel = data;
 

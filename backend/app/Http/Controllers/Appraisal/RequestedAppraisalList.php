@@ -81,9 +81,13 @@ class RequestedAppraisalList extends Controller
            ->leftJoin('empappraisalappraisor','empappraisalappraisor.fk_empAppraisalSetup','empappraisalsetup.id')
            ->leftJoin('employeeinfo as a','a.id','empappraisalsetup.appraisalfor')
            ->leftJoin('employeeinfo as b','b.id','empappraisalappraisor.appraisor')
-           ->where('empappraisalappraisor.status',2)
-           ->where('empappraisalappraisor.appraisor',$emp['empid'])
-           ->get();
+           ->where('empappraisalappraisor.status',2);
+       if (auth()->user()->fkUserType == Role_Access['Admin']) {
+
+       } else {
+           $resultList = $resultList->where('empappraisalappraisor.appraisor', $emp['empid']);
+       }
+       $resultList = $resultList->get();
 
        return $resultList;
 

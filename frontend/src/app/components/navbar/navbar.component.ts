@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import {Constants} from '../../constants';
 import {HttpClient} from '@angular/common/http';
-import {TokenService} from "../../services/token.service";
-import {User} from "../../model/user.model";
-import {NgxPermissionsService} from "ngx-permissions";
+import {TokenService} from '../../services/token.service';
+import {User} from '../../model/user.model';
+import {NgxPermissionsService} from 'ngx-permissions';
 import { NavbarService } from '../../services/navbar.service';
 
 @Component({
@@ -13,26 +13,26 @@ import { NavbarService } from '../../services/navbar.service';
 })
 export class NavbarComponent implements OnInit {
 
-  data:any;
-  userModel={} as User;
-    user:any={
-        contactNo: "",
-        email: "",
-        fkActivationStatus: "",
-        fkCompany: "",
-        fkUserType: "",
-        id:  "",
-        picture: "",
-        registrationdate:  "",
-        rememberToken:  "",
-        userName:  ""
+  data: any;
+  userModel = {} as User;
+    user: any = {
+        contactNo: '',
+        email: '',
+        fkActivationStatus: '',
+        fkCompany: '',
+        fkUserType: '',
+        id:  '',
+        picture: '',
+        registrationdate:  '',
+        rememberToken:  '',
+        userName:  ''
 
     };
-    tokenUser:any={};
+    tokenUser: any = {};
 
-  constructor(private permissionsService: NgxPermissionsService,public http: HttpClient,private token:TokenService,
-              public nav: NavbarService)
-  {
+
+  constructor(private permissionsService: NgxPermissionsService, public http: HttpClient, private token: TokenService,
+              public nav: NavbarService) {
 
   }
 
@@ -41,11 +41,7 @@ export class NavbarComponent implements OnInit {
       // this.token.getUser().subscribe(data => {
       //         this.userModel=data as User;
       //         // this.tokenUser=this.userModel;
-      //
-      //         let perm = [];
-      //         perm.push(this.userModel.fkUserType);
-      //         console.log(perm);
-      //         this.permissionsService.loadPermissions(perm);
+      //   console.log(data);
       //     },
       //     error => {
       //         console.log(error);
@@ -53,25 +49,29 @@ export class NavbarComponent implements OnInit {
       //
       //     });
 
-
-
-
   }
 
-    isAdmin(){
-      if(this.user.fkUserType=='admin'){
+    isAdmin() {
+      if (this.user.fkUserType == 'admin') {
           return true;
       }
-      //   console.log(this.user.fkUserType);
+         // console.log(this.user.fkUserType);
       return false;
     }
+    showData() {
+      if (JSON.parse(localStorage.getItem('user')).fkUserType == 'admin') {
+        return true;
+      } else {
+        return false;
+      }
+    }
 
-  whoAmI(e: MouseEvent){
+  whoAmI(e: MouseEvent) {
       e.preventDefault();
 
 
-      const token=this.token.get();
-      this.http.post(Constants.API_URL+'me?token='+token,null).subscribe(data => {
+      const token = this.token.get();
+      this.http.post(Constants.API_URL + 'me?token=' + token, null).subscribe(data => {
               console.log(data);
 
           },
@@ -85,12 +85,12 @@ export class NavbarComponent implements OnInit {
 
   logout(e: MouseEvent) {
     e.preventDefault();
-    const token=this.token.get();
+    const token = this.token.get();
     // console.log(token);
     //
-    this.http.post(Constants.API_URL+'logout?token='+token,null).subscribe(data => {
+    this.http.post(Constants.API_URL + 'logout?token=' + token, null).subscribe(data => {
           // console.log(data);
-          this.data=data;
+          this.data = data;
           if (this.data.flag === 'true') {
             this.token.remove();
           }
@@ -98,7 +98,7 @@ export class NavbarComponent implements OnInit {
         },
         error => {
 
-          if(error.status==401 && error.error.message==='Unauthenticated.'){
+          if (error.status == 401 && error.error.message === 'Unauthenticated.') {
             this.token.remove();
           }
 
@@ -108,8 +108,8 @@ export class NavbarComponent implements OnInit {
 
   }
 
-  handleError(error){
-      if(error.status==401 && error.error.message==='Unauthenticated.'){
+  handleError(error) {
+      if (error.status == 401 && error.error.message === 'Unauthenticated.') {
           this.token.remove();
       }
 

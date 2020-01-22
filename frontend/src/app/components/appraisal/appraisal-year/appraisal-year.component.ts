@@ -6,14 +6,14 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./appraisal-year.component.css']
 })
 export class AppraisalYearComponent implements OnInit {
-  infoFlag:number=1;
+  infoFlag = 1;
   constructor() { }
 
   ngOnInit() {
   }
-  onInfoClick(value){
+  onInfoClick(value) {
 
-      this.infoFlag=value;
+      this.infoFlag = value;
 
   }
 

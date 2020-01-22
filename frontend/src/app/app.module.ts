@@ -68,13 +68,13 @@ import { RequestedAppraisalFormComponent } from './components/appraisal/requeste
 
 import { EditAppraisalEmployeeComponent } from './components/appraisal/edit-appraisal-employee/edit-appraisal-employee.component';
 import { ShowAppraisalResultComponent } from './components/appraisal/show-appraisal-result/show-appraisal-result.component';
-<<<<<<< HEAD
+
 import { AppraisalSummeryComponent } from './components/appraisal/appraisal-summery/appraisal-summery.component';
 import { AppraisalSummeryResultComponent } from './components/appraisal/appraisal-summery-result/appraisal-summery-result.component';
-=======
+
 import { AppraisalYearComponent } from './components/appraisal/appraisal-year/appraisal-year.component';
 import { EditAppraisalYearComponent } from './components/appraisal/edit-appraisal-year/edit-appraisal-year.component';
->>>>>>> 4f8c383e119bd73c7d69dd9e2a1e19b28af2d14f
+
 
 
 
@@ -135,13 +135,13 @@ import { EditAppraisalYearComponent } from './components/appraisal/edit-appraisa
     RequestedAppraisalFormComponent,
     EditAppraisalEmployeeComponent,
     ShowAppraisalResultComponent,
-<<<<<<< HEAD
+
     AppraisalSummeryComponent,
-    AppraisalSummeryResultComponent
-=======
+    AppraisalSummeryResultComponent,
+
     AppraisalYearComponent,
     EditAppraisalYearComponent
->>>>>>> 4f8c383e119bd73c7d69dd9e2a1e19b28af2d14f
+
 
 
   ],

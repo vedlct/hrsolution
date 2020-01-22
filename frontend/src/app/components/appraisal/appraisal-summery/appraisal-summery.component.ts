@@ -1,9 +1,9 @@
 import {Component, OnInit, Renderer} from '@angular/core';
-import {Subject} from "rxjs";
-import {HttpClient} from "@angular/common/http";
-import {TokenService} from "../../../services/token.service";
-import {ActivatedRoute, Router} from "@angular/router";
-import {Constants} from "../../../constants";
+import {Subject} from 'rxjs';
+import {HttpClient} from '@angular/common/http';
+import {TokenService} from '../../../services/token.service';
+import {ActivatedRoute, Router} from '@angular/router';
+import {Constants} from '../../../constants';
 
 @Component({
   selector: 'app-appraisal-summery',
@@ -26,7 +26,7 @@ export class AppraisalSummeryComponent implements OnInit {
   getAppraisalList() {
 
     const token = this.token.get();
-    let form = {
+    const form = {
       'userId': JSON.parse(localStorage.getItem('user')).id,
     };
     this.dtOptions = {
@@ -43,11 +43,11 @@ export class AppraisalSummeryComponent implements OnInit {
 
         {
 
-          "data": function (data: any, type: any, full: any) {
+          'data': function (data: any, type: any, full: any) {
             return ' <button class="btn btn-info" data-appraisal-result-id="' + data.id + '">View</button>'
               ;
           },
-          "orderable": false, "searchable": false, "name": "selected_rows"
+          'orderable': false, 'searchable': false, 'name': 'selected_rows'
         }
       ],
       processing: true,
@@ -63,8 +63,8 @@ export class AppraisalSummeryComponent implements OnInit {
     this.dtTrigger.next();
     this.renderer.listenGlobal('document', 'click', (event) => {
 
-      if (event.target.hasAttribute("data-appraisal-result-id")) {
-        const url = "appraisal/summery/" + event.target.getAttribute("data-appraisal-result-id");
+      if (event.target.hasAttribute('data-appraisal-result-id')) {
+        const url = 'appraisal/summery/' + event.target.getAttribute('data-appraisal-result-id');
         // this.router.navigate([])
         //   .then(result => {  window.open(url, '_blank'); });
         this.router.navigate([url]);
